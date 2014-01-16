@@ -9,7 +9,9 @@
 [4.6 User Interface](4/4.6.md)
 
 #### 5. Architecture of Go
-[5.2 User Interface Architecture](5/5.2.md)
+[5.2.2 Database Management](5/5.2.2.md)
+
+[5.2.10 User Interface Architecture](5/5.2.10.md)
 
 [5.5 Build Infrastructure](5/5.5.md)
 
