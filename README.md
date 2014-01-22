@@ -116,23 +116,23 @@
 
 * [5.5 Build Infrastructure](5/5.5.md) ![IN PROGRESS](images/yellow.png)
 
-    * [5.5.1 Packaging](5/5.5.md#5.5.1) ![IN PROGRESS](images/yellow.png)
+    * [5.5.1 Packaging](5/5.5.md#packaging) ![IN PROGRESS](images/yellow.png)
 
-    * [5.5.2 Documentation Creation](5/5.5.md#5.5.2) ![IN PROGRESS](images/yellow.png)
+    * [5.5.2 Documentation Creation](5/5.5.md#documentation-creation) ![IN PROGRESS](images/yellow.png)
 
-    * [5.5.3 Installer Creation](5/5.5.md#5.5.3) ![IN PROGRESS](images/yellow.png)
+    * [5.5.3 Installer Creation](5/5.5.md#installer-creation) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.1 zip](5/5.5.md#5.5.3.1) ![IN PROGRESS](images/yellow.png)
+        * [5.5.3.1 Zip](5/5.5.md#zip) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.2 rpm](5/5.5.md#5.5.3.2) ![IN PROGRESS](images/yellow.png)
+        * [5.5.3.2 RPM](5/5.5.md#rpm) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.3 deb](5/5.5.md#5.5.3.3) ![IN PROGRESS](images/yellow.png)
+        * [5.5.3.3 Debian](5/5.5.md#debian) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.4 exe](5/5.5.md#5.5.3.4) ![IN PROGRESS](images/yellow.png)
+        * [5.5.3.4 Windows](5/5.5.md#windows) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.5 mac](5/5.5.md#5.5.3.5) ![IN PROGRESS](images/yellow.png)
+        * [5.5.3.5 Mac OS X](5/5.5.md#mac-osx) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.6 sol](5/5.5.md#5.5.3.6) ![IN PROGRESS](images/yellow.png)
+        * [5.5.3.6 Solaris](5/5.5.md#solaris) ![IN PROGRESS](images/yellow.png)
 
 #### 6. Features
 
