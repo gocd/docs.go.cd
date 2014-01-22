@@ -116,23 +116,23 @@
 
 * [5.5 Build Infrastructure](5/5.5.md) ![IN PROGRESS](images/yellow.png)
 
-    * [5.5.1 Packaging](5/5.5.1.md) ![NOT DONE](images/red.png)
+    * [5.5.1 Packaging](5/5.5.1.md) ![IN PROGRESS](images/yellow.png)
 
-    * [5.5.2 Documentation Creation](5/5.5.2.md) ![NOT DONE](images/red.png)
+    * [5.5.2 Documentation Creation](5/5.5.2.md) ![IN PROGRESS](images/yellow.png)
 
-    * [5.5.3 Installer Creation](5/5.5.3.md) ![NOT DONE](images/red.png)
+    * [5.5.3 Installer Creation](5/5.5.3.md) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.1 zip](5/5.5.3.1.md) ![NOT DONE](images/red.png)
+        * [5.5.3.1 zip](5/5.5.3.1.md) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.2 rpm](5/5.5.3.2.md) ![NOT DONE](images/red.png)
+        * [5.5.3.2 rpm](5/5.5.3.2.md) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.3 deb](5/5.5.3.3.md) ![NOT DONE](images/red.png)
+        * [5.5.3.3 deb](5/5.5.3.3.md) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.4 exe](5/5.5.3.4.md) ![NOT DONE](images/red.png)
+        * [5.5.3.4 exe](5/5.5.3.4.md) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.5 mac](5/5.5.3.5.md) ![NOT DONE](images/red.png)
+        * [5.5.3.5 mac](5/5.5.3.5.md) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.6 sol](5/5.5.3.6.md) ![NOT DONE](images/red.png)
+        * [5.5.3.6 sol](5/5.5.3.6.md) ![IN PROGRESS](images/yellow.png)
 
 #### 6. Features
 
