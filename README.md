@@ -6,8 +6,6 @@
 
 * [2.1 Domain](2/2.1.md) ![NOT DONE](images/red.png)
 
-* [2.1 Domain](2/2.1.md) ![NOT DONE](images/red.png)
-
     * [2.1.1 Pipeline](2/2.1.1.md) ![NOT DONE](images/red.png)
 
     * [2.1.2 Stage](2/2.1.2.md) ![NOT DONE](images/red.png)
