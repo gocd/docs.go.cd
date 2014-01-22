@@ -46,7 +46,7 @@
 
 #### 5. Architecture of Go
 
-* [5.1 Overview](5/5.1.md) ![NOT DONE](images/red.png)
+* [5.1 Overview](5/5.1.md) ![IN PROGRESS](images/yellow.png)
 
 * [5.2 Go Server](5/5.2.md) ![NOT DONE](images/red.png)
 
