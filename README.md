@@ -100,13 +100,13 @@
 
     * [5.2.11 APIs, CCTray & Feeds](5/5.2.11.md) ![NOT DONE](images/red.png)
 
-* [5.3 Go Agent](5/5.3.md) ![NOT DONE](images/red.png)
+* [5.3 Go Agent](5/5.3.md) ![NOT DONE](images/yellow.png)
 
-    * [5.3.1 Bootstrapper](5/5.3.1.md) ![NOT DONE](images/red.png)
+    * [5.3.1 Bootstrapper](5/5.3.1.md) ![NOT DONE](images/yellow.png)
 
-    * [5.3.2 Launcher](5/5.3.2.md) ![NOT DONE](images/red.png)
+    * [5.3.2 Launcher](5/5.3.2.md) ![NOT DONE](images/yellow.png)
 
-    * [5.3.3 Agent](5/5.3.3.md) ![NOT DONE](images/red.png)
+    * [5.3.3 Agent](5/5.3.3.md) ![NOT DONE](images/yellow.png)
 
 * [5.4 Common](5/5.4.md) ![NOT DONE](images/red.png)
 
