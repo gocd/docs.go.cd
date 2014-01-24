@@ -190,7 +190,7 @@
 
 * [6.10 OAuth Gadgets](6/6.10.md) ![NOT DONE](images/red.png)
 
-* [6.11 Backup](6/6.11.md) ![NOT DONE](images/red.png)
+* [6.11 Backup](6/6.11.md) ![IN PROGRESS](images/yellow.png)
 
 #### 7. CD in practice
 
