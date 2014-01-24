@@ -24,7 +24,7 @@
 
 #### 4. Technology Stack
 
-* [4.1 Plugins Architecture - OSGi](4/4.1.md) ![IN PROGRESS](images/yellow.png)
+* [4.1 Plugins Architecture - OSGi](4/4.1.md) ![NOT DONE](images/red.png)
 
 * [4.2 Object Relation Mapping (ORM) - Hibernate & IBatis](4/4.2.md) ![IN PROGRESS](images/yellow.png)
 
@@ -110,7 +110,7 @@
 
 * [5.4 Common](5/5.4.md) ![NOT DONE](images/red.png)
 
-    * [5.4.1 Plugin Architecture](5/5.4.1.md) ![NOT DONE](images/red.png)
+    * [5.4.1 Plugin Architecture](5/5.4.1.md) ![IN PROGRESS](images/yellow.png)
 
     * [5.4.2 Agent - Server Communication](5/5.4.2.md) ![NOT DONE](images/red.png)
 
