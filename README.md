@@ -168,11 +168,11 @@
 
     * [6.4.2 Corner Cases](6/6.4.2.md) ![NOT DONE](images/red.png)
 
-* [6.5 PackageRepository](6/6.5.md) ![NOT DONE](images/red.png)
+* [6.5 PackageRepository](6/6.5.md) ![IN PROGRESS](images/yellow.png)
 
-    * [6.5.1 Overview](6/6.5.1.md) ![NOT DONE](images/red.png)
+    * [6.5.1 Overview](6/6.5.1.md) ![IN PROGRESS](images/yellow.png)
 
-    * [6.5.2 Plugins](6/6.5.2.md) ![NOT DONE](images/red.png)
+    * [6.5.2 Plugins](6/6.5.2.md) ![IN PROGRESS](images/yellow.png)
 
 * [6.6 Command Repository](6/6.6.md) ![NOT DONE](images/red.png)
 
