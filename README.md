@@ -30,7 +30,7 @@
 
 * [4.3 Caching - EhCache](4/4.3.md) ![NOT DONE](images/red.png)
 
-* [4.4 Dependency Injection (DI) - Spring](4/4.4.md) ![NOT DONE](images/red.png)
+* [4.4 Dependency Injection (DI) - Spring](4/4.4.md) ![IN PROGRESS](images/yellow.png)
 
 * [4.5 Model View Controller (MVC)](4/4.5.md) ![NOT DONE](images/red.png)
 
