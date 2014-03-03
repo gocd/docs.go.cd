@@ -172,7 +172,9 @@
 
     * [6.5.1 Overview](6/6.5.md) ![IN PROGRESS](images/yellow.png)
 
-    * [6.5.2 Plugins](6/6.5.md#plugins) ![IN PROGRESS](images/yellow.png)
+    * [6.5.2 Capturing Configuration](6/6.5.md#package-configuration) ![IN PROGRESS](images/yellow.png)
+
+    * [6.5.3 Retrieving Package Revisions](6/6.5.md#package-revision) ![IN PROGRESS](images/yellow.png)
 
 * [6.6 Command Repository](6/6.6.md) ![NOT DONE](images/red.png)
 
