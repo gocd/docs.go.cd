@@ -48,7 +48,7 @@
 
 * [5.1 Overview](5/5.1.md#overview) ![IN PROGRESS](images/yellow.png)
 
-* [5.2 Go Server](5/5.1.md#go-server) ![IN PROGRESS](images/yellow.png)
+* [5.2 Go Server](5/5.2.md#go-server) ![IN PROGRESS](images/yellow.png)
 
     * [5.2.1 Configuration Management](5/5.2.1.md) ![NOT DONE](images/red.png)
 
