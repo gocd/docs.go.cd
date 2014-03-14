@@ -15,7 +15,10 @@
    id="svg3014"
    version="1.1"
    inkscape:version="0.48.2 r9819"
-   sodipodi:docname="go_overview.svg">
+   sodipodi:docname="go_overview.svg"
+   inkscape:export-filename="/Users/arvind/Projects/go/design-documentation/5/images/go_overview.png"
+   inkscape:export-xdpi="72"
+   inkscape:export-ydpi="72">
   <defs
      id="defs3016">
     <marker
@@ -48,7 +51,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.37249533"
-     inkscape:cx="341.33962"
+     inkscape:cx="200.39825"
      inkscape:cy="359.11325"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -89,12 +92,12 @@
          id="g5671">
         <text
            xml:space="preserve"
-           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#006722;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
            x="284.86298"
            y="421.01685"
            id="text3038"
            sodipodi:linespacing="125%"><tspan
-             style="fill:#008fd6;fill-opacity:1"
+             style="fill:#006722;fill-opacity:1"
              sodipodi:role="line"
              id="tspan3040"
              x="284.86298"
@@ -290,7 +293,7 @@
          id="g5604">
         <text
            xml:space="preserve"
-           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#008fd6;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#006722;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
            x="305.53168"
            y="633.14886"
            id="text4660"
@@ -402,7 +405,7 @@
        transform="translate(-5.3691981,0.78747282)">
       <text
          xml:space="preserve"
-         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#008fd6;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#006722;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
          x="149.07552"
          y="624.69098"
          id="text4950"
@@ -529,7 +532,7 @@ xVp72y8iqJRaxE9lSAAAAABJRU5ErkJggg==
          transform="translate(-5.7601165e-6,0)">
         <text
            xml:space="preserve"
-           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#008fd6;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#006722;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
            x="149.2513"
            y="965.42749"
            id="text5223"
@@ -621,7 +624,7 @@ xVp72y8iqJRaxE9lSAAAAABJRU5ErkJggg==
          id="text5767"
          y="1330.7412"
          x="149.13411"
-         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#008fd6;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#006722;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
          xml:space="preserve"><tspan
            y="1330.7412"
            x="149.13411"
