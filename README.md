@@ -22,6 +22,7 @@
 
 * [3.1 Setting up your development Environment](3/3.1.md) ![IN PROGRESS](images/yellow.png)
 * [3.2 How to add a configuration migration](3/3.2.md) ![IN PROGRESS](images/yellow.png)
+* [3.3 How to add a database migration](3/3.3.md) ![IN PROGRESS](images/yellow.png)
 
 #### 4. Technology Stack
 
