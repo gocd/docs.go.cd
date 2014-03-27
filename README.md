@@ -144,26 +144,27 @@
 
     * [6.1.2 All Active Pipelines](6/6.1.2.md) ![NOT DONE](images/red.png)
 
-* [6.2 Fan-in](6/6.2.md) ![NOT DONE](images/red.png)
+* [6.2 Fan-in](6/6.2.md) ![IN PROGRESS](images/yellow.png)
 
-    * [6.2.1 Overview](6/6.2.1.md) ![NOT DONE](images/red.png)
+    * [6.2.1 Overview](6/6.2.1.md) ![IN PROGRESS](images/yellow.png)
 
-    * [6.2.2 Pipeline Timeline](6/6.2.2.md) ![NOT DONE](images/red.png)
-    * [6.2.2 Algorithm](6/6.2.2.md) ![NOT DONE](images/red.png)
+    * [6.2.2 Pipeline Timeline](6/6.2.2.md) ![IN PROGRESS](images/yellow.png)
+
+    * [6.2.2 Algorithm](6/6.2.2.md) ![IN PROGRESS](images/yellow.png)
 
     * [6.2.3 Corner Cases](6/6.2.3.md) ![IN PROGRESS](images/yellow.png)
 
-* [6.3 Value Stream Map](6/6.3.md) ![IN PROGRESS](images/yellow.png)
+* [6.3 Value Stream Map](6/6.3.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.1 Overview](6/6.3.1.md) ![IN PROGRESS](images/yellow.png)
+    * [6.3.1 Overview](6/6.3.1.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.2 Layer Assignment](6/6.3.2.md) ![IN PROGRESS](images/yellow.png)
+    * [6.3.2 Layer Assignment](6/6.3.2.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.3 Dummy Node Creation](6/6.3.3.md) ![IN PROGRESS](images/yellow.png)
+    * [6.3.3 Dummy Node Creation](6/6.3.3.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.4 Edge Cross Minimisation](6/6.3.4.md) ![IN PROGRESS](images/yellow.png)
+    * [6.3.4 Edge Cross Minimisation](6/6.3.4.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.5 Corner Cases](6/6.3.5.md) ![IN PROGRESS](images/yellow.png)
+    * [6.3.5 Corner Cases](6/6.3.5.md) ![PENDING REVIEW](images/blue.png)
 
 * [6.4 Compare Pipeline](6/6.4.md) ![IN PROGRESS](images/yellow.png)
 
