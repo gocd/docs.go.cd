@@ -208,15 +208,15 @@
 
 * [7.1 Build Go Using Go](7/7.1.md) ![NOT DONE](images/red.png)
 
-* [7.2 Test Infrastructure](7/7.2.md) ![NOT DONE](images/red.png)
+* [7.2 Test Infrastructure](7/7.2.md) ![IN PROGRESS](images/yellow.png)
 
-    * [7.2.1 Unit & Integration Tests](7/7.2.1.md) ![NOT DONE](images/red.png)
+    * [7.2.1 Unit & Integration Tests](7/7.2.1.md) ![IN PROGRESS](images/yellow.png)
 
-    * [7.2.2 jsunit tests](7/7.2.2.md) ![NOT DONE](images/red.png)
+    * [7.2.2 jsunit tests](7/7.2.2.md) ![IN PROGRESS](images/yellow.png)
 
-    * [7.2.3 Acceptance Tests](7/7.2.3.md) ![NOT DONE](images/red.png)
+    * [7.2.3 Acceptance Tests](7/7.2.3.md) ![IN PROGRESS](images/yellow.png)
 
-    * [7.2.4 Test Parallelization](7/7.2.4.md) ![NOT DONE](images/red.png)
+    * [7.2.4 Test Parallelization](7/7.2.4.md) ![IN PROGRESS](images/yellow.png)
 
 * [7.3 Continuous Deployment](7/7.3.md) ![NOT DONE](images/red.png)
 
