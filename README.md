@@ -72,19 +72,19 @@
 
         * [5.2.2.3 Backup](5/5.2.2.3.md) ![NOT DONE](images/red.png)
 
-    * [5.2.3 Material Polling](5/5.2.3.md) ![IN PROGRESS](images/yellow.png)
+    * [5.2.3 Material Polling](5/5.2.3.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![NOT DONE](images/red.png)
+        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![NOT DONE](images/red.png)
+        * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![PENDING REVIEW](images/blue.png)
 
     * [5.2.4 Build Cause Production](5/5.2.4.md) ![NOT DONE](images/red.png)
 
-    * [5.2.5 Pipeline Scheduling](5/5.2.5.md) ![NOT DONE](images/red.png)
+    * [5.2.5 Pipeline Scheduling](5/5.2.5.md) ![IN PROGRESS](images/yellow.png)
 
-    * [5.2.6 Work Assignment](5/5.2.6.md) ![NOT DONE](images/red.png)
+    * [5.2.6 Work Assignment](5/5.2.6.md) ![IN PROGRESS](images/yellow.png)
 
-        * [5.2.6.1 Resource & Environment Mapping](5/5.2.6.1.md) ![NOT DONE](images/red.png)
+        * [5.2.6.1 Resource & Environment Mapping](5/5.2.6.1.md) ![IN PROGRESS](images/yellow.png)
 
     * [5.2.7 Artifact Management](5/5.2.7.md) ![NOT DONE](images/red.png)
 
