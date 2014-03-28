@@ -72,7 +72,7 @@
 
         * [5.2.2.3 Backup](5/5.2.2.3.md) ![NOT DONE](images/red.png)
 
-    * [5.2.3 Material Polling](5/5.2.3.md) ![NOT DONE](images/red.png)
+    * [5.2.3 Material Polling](5/5.2.3.md) ![IN PROGRESS](images/yellow.png)
 
         * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![NOT DONE](images/red.png)
 
