@@ -155,7 +155,7 @@
 
     * [6.2.2 Pipeline Timeline](6/6.2.2.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.3 Algorithm](6/6.2.2.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.3 Algorithm](6/6.2.3.md) ![PENDING REVIEW](images/blue.png)
 
     * [6.2.4 Corner Cases](6/6.2.3.md) ![PENDING REVIEW](images/blue.png)
 
