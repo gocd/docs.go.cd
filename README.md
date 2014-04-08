@@ -157,9 +157,9 @@
 
     * [6.2.3 Algorithm](6/6.2.3.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.4 Corner Cases](6/6.2.3.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.4 Corner Cases](6/6.2.4.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.5 Extensions](6/6.2.4.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.5 Extensions](6/6.2.5.md) ![PENDING REVIEW](images/blue.png)
 
 * [6.3 Value Stream Map](6/6.3.md) ![PENDING REVIEW](images/blue.png)
 
