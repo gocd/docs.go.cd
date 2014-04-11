@@ -69,11 +69,11 @@
 
     * [5.2.2 Database Management](5/5.2.2.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.2.1 Schema](5/5.2.2.md#anchor_5_2_2_1) ![PENDING REVIEW](images/blue.png)
+        * [5.2.2.1 Schema](5/5.2.2.md#5221-schema) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.2.2 Migration - DBDeploy](5/5.2.2.md#anchor_5_2_2_2) ![PENDING REVIEW](images/blue.png)
+        * [5.2.2.2 Migration - DBDeploy](5/5.2.2.md#5222-database-migrations) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.2.3 Backup](5/5.2.2.md#anchor_5_2_2_3) ![PENDING REVIEW](images/blue.png)
+        * [5.2.2.3 Backup](5/5.2.2.md#5223-backup) ![PENDING REVIEW](images/blue.png)
 
     * [5.2.3 Material Polling](5/5.2.3.md) ![PENDING REVIEW](images/blue.png)
 
