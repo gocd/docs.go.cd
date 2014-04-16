@@ -151,29 +151,29 @@
 
 * [6.2 Fan-in](6/6.2.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.1 Overview](6/6.2.1.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.1 Overview](6/6.2.md#overview) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.2 Pipeline Timeline](6/6.2.2.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.2 Pipeline Timeline](6/6.2.md#pipeline-timeline) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.3 Algorithm](6/6.2.3.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.3 Algorithm](6/6.2.md#algorithm) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.4 Corner Cases](6/6.2.4.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.4 Corner Cases](6/6.2.md#corner-cases) ![PENDING REVIEW](images/blue.png)
 
-    * [6.2.5 Extensions](6/6.2.5.md) ![PENDING REVIEW](images/blue.png)
+    * [6.2.5 Extensions](6/6.2.md#extensions) ![PENDING REVIEW](images/blue.png)
 
 * [6.3 Value Stream Map](6/6.3.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.1 Overview](6/6.3.1.md) ![PENDING REVIEW](images/blue.png)
+    * [6.3.1 Overview](6/6.3.md#overview) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.2 Layer Assignment](6/6.3.2.md) ![PENDING REVIEW](images/blue.png)
+    * [6.3.2 Layer Assignment](6/6.3.md#layer-assignment) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.3 Dummy Node Creation](6/6.3.3.md) ![PENDING REVIEW](images/blue.png)
+    * [6.3.3 Dummy Node Creation](6/6.3.md#dummy-node-creation) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.4 Edge Cross Minimisation](6/6.3.4.md) ![PENDING REVIEW](images/blue.png)
+    * [6.3.4 Edge Cross Minimisation](6/6.3.md#edge-cross-minimization) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.5 Corner Cases](6/6.3.5.md) ![PENDING REVIEW](images/blue.png)
+    * [6.3.5 Corner Cases](6/6.3.md#corner-cases) ![PENDING REVIEW](images/blue.png)
 
-    * [6.3.6 Extensions](6/6.3.6.md) ![PENDING REVIEW](images/blue.png)
+    * [6.3.6 Extensions](6/6.3.md#extensions) ![PENDING REVIEW](images/blue.png)
 
 * [6.4 Compare Pipeline](6/6.4.md) ![IN PROGRESS](images/yellow.png)
 
