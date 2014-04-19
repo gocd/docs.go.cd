@@ -125,9 +125,17 @@
 
 * [5.5 Build Infrastructure](5/5.5.md) ![IN PROGRESS](images/yellow.png)
 
-    * [5.5.1 Packaging](5/5.5.md#packaging) ![IN PROGRESS](images/yellow.png)
-
-    * [5.5.2 Documentation Creation](5/5.5.md#documentation-creation) ![IN PROGRESS](images/yellow.png)
+    * [5.5.1 Build, Test, Package](5/5.5.md#packaging) ![PENDING REVIEW](images/blue.png)
+    
+         * [5.5.1.1 Maven modules](5/5.5.md#modules) ![PENDING REVIEW](images/blue.png)
+         
+         * [5.5.1.2 Documentation Creation](5/5.5.md#documentation-creation) ![PENDING REVIEW](images/blue.png)
+         
+         * [5.5.1.3  Pom conventions](5/5.5.md#pom-conventions) ![PENDING REVIEW](images/blue.png)
+         
+         * [5.5.1.4 Jar Packaging](5/5.5.md#jar-packaging) ![PENDING REVIEW](images/blue.png)
+         
+         * [5.5.1.5 TLB integration](5/5.5.md#tlb-integration) ![PENDING REVIEW](images/blue.png)
 
     * [5.5.3 Installer Creation](5/5.5.md#installer-creation) ![IN PROGRESS](images/yellow.png)
 
