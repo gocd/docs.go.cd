@@ -203,7 +203,7 @@
 
 * [6.7 Environments](6/6.7.md) ![PENDING REVIEW](images/blue.png)
 
-* [6.8 Templates](6/6.8.md) ![NOT DONE](images/red.png)
+* 6.8 Templates ![NOT DONE](images/red.png)
 
 * 6.9 Shine ![NOT DONE](images/red.png)
 
