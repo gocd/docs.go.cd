@@ -47,7 +47,7 @@
 
     * [4.5.3 Views - Rails & Velocity](4/4.5.3.md) ![NOT DONE](images/red.png)
 
-* [4.6 User Interface (UI) - jQuery & Prototype, SCSS, HTML](4/4.6.md) ![IN PROGRESS](images/yellow.png)
+* [4.6 User Interface (UI) - jQuery & Prototype, SCSS, HTML](4/4.6.md) ![PENDING REVIEW](images/blue.png)
 
 * [4.7 Build Tool - Buildr](4/4.7.md) ![NOT DONE](images/red.png)
 
@@ -103,7 +103,7 @@
 
     * [5.2.9 Agent Management](5/5.2.9.md) ![NOT DONE](images/red.png)
 
-    * [5.2.10 UI Architecture](5/5.2.10.md) ![IN PROGRESS](images/yellow.png)
+    * [5.2.10 UI Architecture](5/5.2.10.md) ![PENDING REVIEW](images/blue.png)
 
     * [5.2.11 APIs, CCTray & Feeds](5/5.2.11.md) ![NOT DONE](images/red.png)
 
