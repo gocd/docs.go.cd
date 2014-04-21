@@ -85,11 +85,11 @@
 
     * [5.2.4 Build Cause Production](5/5.2.4.md) ![NOT DONE](images/red.png)
 
-    * [5.2.5 Pipeline Scheduling](5/5.2.5.md) ![IN PROGRESS](images/yellow.png)
+    * [5.2.5 Pipeline Scheduling](5/5.2.5.md) ![NOT DONE](images/red.png)
 
-    * [5.2.6 Work Assignment](5/5.2.6.md) ![IN PROGRESS](images/yellow.png)
+    * [5.2.6 Work Assignment](5/5.2.6.md) ![NOT DONE](images/red.png)
 
-        * [5.2.6.1 Resource & Environment Mapping](5/5.2.6.1.md) ![IN PROGRESS](images/yellow.png)
+        * [5.2.6.1 Resource & Environment Mapping](5/5.2.6.1.md) ![NOT DONE](images/red.png)
 
     * [5.2.7 Artifact Management](5/5.2.7.md) ![NOT DONE](images/red.png)
 
