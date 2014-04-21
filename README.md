@@ -6,17 +6,17 @@
 
 * [2.1 Domain](2/2.1.md) ![NOT DONE](images/red.png)
 
-    * [2.1.1 Pipeline](2/2.1.1.md) ![NOT DONE](images/red.png)
+    * 2.1.1 Pipeline ![NOT DONE](images/red.png)
 
-    * [2.1.2 Stage](2/2.1.2.md) ![NOT DONE](images/red.png)
+    * 2.1.2 Stage ![NOT DONE](images/red.png)
 
-    * [2.1.3 Job](2/2.1.3.md) ![NOT DONE](images/red.png)
+    * 2.1.3 Job ![NOT DONE](images/red.png)
 
-    * [2.1.4 Task](2/2.1.4.md) ![NOT DONE](images/red.png)
+    * 2.1.4 Task ![NOT DONE](images/red.png)
 
-    * [2.1.4 Material](2/2.1.4.md) ![NOT DONE](images/red.png)
+    * 2.1.4 Material ![NOT DONE](images/red.png)
 
-* [2.2 Implementation](2/2.2.md) ![NOT DONE](images/red.png)
+* 2.2 Implementation ![NOT DONE](images/red.png)
 
 #### 3. Getting Started
 
