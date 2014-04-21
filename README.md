@@ -83,29 +83,29 @@
 
         * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![PENDING REVIEW](images/blue.png)
 
-    * [5.2.4 Build Cause Production](5/5.2.4.md) ![NOT DONE](images/red.png)
+    * 5.2.4 Build Cause Production ![NOT DONE](images/red.png)
 
-    * [5.2.5 Pipeline Scheduling](5/5.2.5.md) ![NOT DONE](images/red.png)
+    * 5.2.5 Pipeline Scheduling ![NOT DONE](images/red.png)
 
-    * [5.2.6 Work Assignment](5/5.2.6.md) ![NOT DONE](images/red.png)
+    * 5.2.6 Work Assignment ![NOT DONE](images/red.png)
 
-        * [5.2.6.1 Resource & Environment Mapping](5/5.2.6.1.md) ![NOT DONE](images/red.png)
+        * 5.2.6.1 Resource & Environment Mapping ![NOT DONE](images/red.png)
 
-    * [5.2.7 Artifact Management](5/5.2.7.md) ![NOT DONE](images/red.png)
+    * 5.2.7 Artifact Management ![NOT DONE](images/red.png)
 
-    * [5.2.8 User Management](5/5.2.8.md) ![NOT DONE](images/red.png)
+    * 5.2.8 User Management ![NOT DONE](images/red.png)
 
-        * [5.2.8.1 Authentication Management](5/5.2.8.1.md) ![NOT DONE](images/red.png)
+        * 5.2.8.1 Authentication Management ![NOT DONE](images/red.png)
 
-        * [5.2.8.2 Enable, disable & delete users](5/5.2.8.2.md) ![NOT DONE](images/red.png)
+        * 5.2.8.2 Enable, disable & delete users ![NOT DONE](images/red.png)
 
-        * [5.2.8.3 User Role Management](5/5.2.8.3.md) ![NOT DONE](images/red.png)
+        * 5.2.8.3 User Role Management ![NOT DONE](images/red.png)
 
-    * [5.2.9 Agent Management](5/5.2.9.md) ![NOT DONE](images/red.png)
+    * 5.2.9 Agent Management ![NOT DONE](images/red.png)
 
     * [5.2.10 UI Architecture](5/5.2.10.md) ![PENDING REVIEW](images/blue.png)
 
-    * [5.2.11 APIs, CCTray & Feeds](5/5.2.11.md) ![NOT DONE](images/red.png)
+    * 5.2.11 APIs, CCTray & Feeds ![NOT DONE](images/red.png)
 
 * [5.3 Go Agent](5/5.3.md) ![PENDING REVIEW](images/blue.png)
     
