@@ -3,6 +3,7 @@
 * ![NOT DONE](images/red.png)  - Not Done
 * ![IN PROGRESS](images/yellow.png) - In Progress
 * ![PENDING REVIEW](images/blue.png) - Pending Review
+* ![DONE](images/green.png) - Done
 
 
 
@@ -246,6 +247,4 @@
     * [7.2.4 Test Parallelization](7/7.2.4.md) ![IN PROGRESS](images/yellow.png)
 
 * 7.3 Continuous Deployment ![NOT DONE](images/red.png)
-
-#### 8. Conclusion
 
