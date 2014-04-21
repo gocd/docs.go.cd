@@ -120,7 +120,7 @@
 
     * 5.2.11 APIs, CCTray & Feeds ![NOT DONE](images/red.png)
 
-* [5.3 Go Agent](5/5.3.md) ![PENDING REVIEW](images/blue.png)
+* [5.3 Go Agent](5/5.3.md) ![DONE](images/green.png)
     
     * [5.3.1 Overview](5/5.3.md#agent-overview) ![DOME](images/green.png)
 
