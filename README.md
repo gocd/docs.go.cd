@@ -122,13 +122,13 @@
 
 * [5.3 Go Agent](5/5.3.md) ![PENDING REVIEW](images/blue.png)
     
-    * [5.3.1 Overview](5/5.3.md#agent-overview) ![PENDING REVIEW](images/blue.png)
+    * [5.3.1 Overview](5/5.3.md#agent-overview) ![DOME](images/green.png)
 
-    * [5.3.2 Bootstrapper](5/5.3.md#agent-bootstrapper) ![PENDING REVIEW](images/blue.png)
+    * [5.3.2 Bootstrapper](5/5.3.md#agent-bootstrapper) ![DONE](images/green.png)
 
-    * [5.3.3 Launcher](5/5.3.md#agent-launcher) ![PENDING REVIEW](images/blue.png)
+    * [5.3.3 Launcher](5/5.3.md#agent-launcher) ![DONE](images/green.png)
 
-    * [5.3.4 Agent](5/5.3.md#agent) ![PENDING REVIEW](images/blue.png)
+    * [5.3.4 Agent](5/5.3.md#agent) ![DONE](images/green.png)
 
 * [5.4 Common](5/5.4.md) ![IN PROGRESS](images/yellow.png)
 
