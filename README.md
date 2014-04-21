@@ -191,13 +191,13 @@
 
     * [6.4.2 Corner Cases](6/6.4.2.md) ![NOT DONE](images/red.png)
 
-* [6.5 PackageRepository](6/6.5.md) ![IN PROGRESS](images/yellow.png)
+* [6.5 PackageRepository](6/6.5.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.5.1 Overview](6/6.5.md) ![IN PROGRESS](images/yellow.png)
+    * [6.5.1 Overview](6/6.5.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.5.2 Capturing Configuration](6/6.5.md#package-configuration) ![IN PROGRESS](images/yellow.png)
+    * [6.5.2 Capturing Configuration](6/6.5.md#package-configuration) ![PENDING REVIEW](images/blue.png)
 
-    * [6.5.3 Retrieving Package Revisions](6/6.5.md#package-revision) ![IN PROGRESS](images/yellow.png)
+    * [6.5.3 Retrieving Package Revisions](6/6.5.md#package-revision) ![PENDING REVIEW](images/blue.png)
 
 * [6.6 Command Repository](6/6.6.md) ![IN PROGRESS](images/yellow.png)
 
