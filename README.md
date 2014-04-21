@@ -187,11 +187,11 @@
 
 * [6.4 Compare Pipeline](6/6.4.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.4.1 Overview](6/6.4.md#641-Overview) ![PENDING REVIEW](images/blue.png)
+    * [6.4.1 Overview](6/6.4.md#641-overview) ![PENDING REVIEW](images/blue.png)
     
-    * [6.4.2 Implementation](6/6.4.md#642-Implementation) ![PENDING REVIEW](images/blue.png)
+    * [6.4.2 Implementation](6/6.4.md#642-implementation) ![PENDING REVIEW](images/blue.png)
     
-    * [6.4.3 Corner cases](6/6.4.md#643-Corner-Cases) ![PENDING REVIEW](images/blue.png)
+    * [6.4.3 Corner cases](6/6.4.md#643-corner-cases) ![PENDING REVIEW](images/blue.png)
 
 * [6.5 PackageRepository](6/6.5.md) ![PENDING REVIEW](images/blue.png)
 
