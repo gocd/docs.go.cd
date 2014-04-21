@@ -1,8 +1,8 @@
-### Glossary
+### Legend
 
-![NOT DONE](images/red.png)  - Not Done
-![IN PROGRESS](images/yellow.png) - In Progress
-![PENDING REVIEW](images/blue.png) - Pending Review
+* ![NOT DONE](images/red.png)  - Not Done
+* ![IN PROGRESS](images/yellow.png) - In Progress
+* ![PENDING REVIEW](images/blue.png) - Pending Review
 
 
 
