@@ -28,7 +28,7 @@
 
 #### 4. Technology Stack
 
-* [4.1 Plugins Architecture - OSGi] ![NOT DONE](images/red.png)
+* 4.1 Plugins Architecture - OSGi ![NOT DONE](images/red.png)
 
 * [4.2 Object Relation Mapping (ORM) - Hibernate & IBatis](4/4.2.md) ![IN PROGRESS](images/yellow.png)
     * [4.2.1 Hibernate](4/4.2.md#421-hibernate)![IN PROGRESS](images/yellow.png)
