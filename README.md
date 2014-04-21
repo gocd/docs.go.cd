@@ -201,7 +201,7 @@
 
 * [6.6 Command Repository](6/6.6.md) ![NOT DONE](images/red.png)
 
-* [6.7 Environments](6/6.7.md) ![NOT DONE](images/red.png)
+* [6.7 Environments](6/6.7.md) ![PENDING REVIEW](images/blue.png)
 
 * [6.8 Templates](6/6.8.md) ![NOT DONE](images/red.png)
 
@@ -213,9 +213,9 @@
 
     * [6.9.3 Stage Graph](6/6.9.3.md) ![NOT DONE](images/red.png)
 
-* [6.10 OAuth Gadgets](6/6.10.md) ![NOT DONE](images/red.png)
+* [6.10 OAuth Gadgets](6/6.10.md) ![PENDING REVIEW](images/blue.png)
 
-* [6.11 Backup](6/6.11.md) ![IN PROGRESS](images/yellow.png)
+* [6.11 Backup](6/6.11.md) ![PENDING REVIEW](images/blue.png)
 
 #### 7. CD in practice
 
