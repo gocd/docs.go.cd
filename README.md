@@ -205,13 +205,13 @@
 
 * [6.8 Templates](6/6.8.md) ![NOT DONE](images/red.png)
 
-* [6.9 Shine](6/6.9.md) ![NOT DONE](images/red.png)
+* 6.9 Shine ![NOT DONE](images/red.png)
 
-    * [6.9.1 Test Artifact Parser](6/6.9.1.md) ![NOT DONE](images/red.png)
+    * 6.9.1 Test Artifact Parser ![NOT DONE](images/red.png)
 
-    * [6.9.2 Reporting](6/6.9.2.md) ![NOT DONE](images/red.png)
+    * 6.9.2 Reporting ![NOT DONE](images/red.png)
 
-    * [6.9.3 Stage Graph](6/6.9.3.md) ![NOT DONE](images/red.png)
+    * 6.9.3 Stage Graph ![NOT DONE](images/red.png)
 
 * [6.10 OAuth Gadgets](6/6.10.md) ![PENDING REVIEW](images/blue.png)
 
@@ -219,7 +219,7 @@
 
 #### 7. CD in practice
 
-* [7.1 Build Go Using Go](7/7.1.md) ![NOT DONE](images/red.png)
+* 7.1 Build Go Using Go ![NOT DONE](images/red.png)
 
 * [7.2 Test Infrastructure](7/7.2.md) ![IN PROGRESS](images/yellow.png)
 
@@ -231,7 +231,7 @@
 
     * [7.2.4 Test Parallelization](7/7.2.4.md) ![IN PROGRESS](images/yellow.png)
 
-* [7.3 Continuous Deployment](7/7.3.md) ![NOT DONE](images/red.png)
+* 7.3 Continuous Deployment ![NOT DONE](images/red.png)
 
 #### 8. Conclusion
 
