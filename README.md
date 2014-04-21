@@ -117,11 +117,11 @@
 
     * [5.3.4 Agent](5/5.3.md#agent) ![PENDING REVIEW](images/blue.png)
 
-* [5.4 Common](5/5.4.md) ![NOT DONE](images/red.png)
+* [5.4 Common](5/5.4.md) ![IN PROGRESS](images/yellow.png)
 
     * [5.4.1 Plugin Architecture](5/5.4.1.md) ![IN PROGRESS](images/yellow.png)
 
-    * [5.4.2 Agent - Server Communication](5/5.4.2.md) ![NOT DONE](images/red.png)
+    * 5.4.2 Agent - Server Communication ![NOT DONE](images/red.png)
 
 * [5.5 Build Infrastructure](5/5.5.md) ![IN PROGRESS](images/yellow.png)
 
@@ -153,7 +153,7 @@
 
 #### 6. Features
 
-* [6.1 Dashboard](6/6.1.md) ![NOT DONE](images/red.png)
+* 6.1 [Dashboard](6/6.1.md) ![NOT DONE](images/red.png)
 
     * [6.1.1 Overview](6/6.1.1.md) ![NOT DONE](images/red.png)
 
