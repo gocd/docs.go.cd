@@ -199,7 +199,7 @@
 
     * [6.5.3 Retrieving Package Revisions](6/6.5.md#package-revision) ![PENDING REVIEW](images/blue.png)
 
-* [6.6 Command Repository](6/6.6.md) ![IN PROGRESS](images/yellow.png)
+* [6.6 Command Repository](6/6.6.md) ![NOT DONE](images/red.png)
 
 * [6.7 Environments](6/6.7.md) ![NOT DONE](images/red.png)
 
