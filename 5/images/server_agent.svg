@@ -94,7 +94,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.98994949"
-     inkscape:cx="292.35207"
+     inkscape:cx="113.55507"
      inkscape:cy="656.6998"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -102,7 +102,7 @@
      showguides="true"
      inkscape:guide-bbox="true"
      inkscape:window-width="1680"
-     inkscape:window-height="1002"
+     inkscape:window-height="957"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1">
@@ -122,7 +122,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -141,7 +141,7 @@
          style="fill:none;fill-opacity:1;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
     </g>
     <path
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);marker-start:url(#Arrow2Lstart)"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:none;marker-start:url(#Arrow2Lstart)"
        d="m 300,332.36218 200,100"
        id="path6675"
        inkscape:connector-curvature="0" />
@@ -149,7 +149,7 @@
        inkscape:connector-curvature="0"
        id="path6865"
        d="m 300,292.36218 200,-100"
-       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend);marker-start:url(#Arrow2Lstart)" />
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:none;marker-start:url(#Arrow2Lstart)" />
     <text
        xml:space="preserve"
        style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
@@ -211,11 +211,11 @@
          sodipodi:cy="257.36218"
          sodipodi:rx="5"
          sodipodi:ry="5"
-         d="m 620,257.36218 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z"
+         d="m 620,257.36218 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
          transform="translate(0,-244)" />
       <path
          transform="translate(1,-205.33331)"
-         d="m 620,257.36218 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z"
+         d="m 620,257.36218 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
          sodipodi:ry="5"
          sodipodi:rx="5"
          sodipodi:cy="257.36218"
@@ -231,11 +231,11 @@
          sodipodi:cy="257.36218"
          sodipodi:rx="5"
          sodipodi:ry="5"
-         d="m 620,257.36218 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z"
+         d="m 620,257.36218 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
          transform="translate(1,-166.66669)" />
       <path
          transform="translate(1,-128)"
-         d="m 620,257.36218 a 5,5 0 1 1 -10,0 5,5 0 1 1 10,0 z"
+         d="m 620,257.36218 c 0,2.76143 -2.23858,5 -5,5 -2.76142,0 -5,-2.23857 -5,-5 0,-2.76142 2.23858,-5 5,-5 2.76142,0 5,2.23858 5,5 z"
          sodipodi:ry="5"
          sodipodi:rx="5"
          sodipodi:cy="257.36218"
