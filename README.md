@@ -137,19 +137,19 @@
          
          * [5.5.1.5 TLB integration](5/5.5.md#tlb-integration) ![PENDING REVIEW](images/blue.png)
 
-    * [5.5.3 Installer Creation](5/5.5.md#installer-creation) ![IN PROGRESS](images/yellow.png)
+    * [5.5.2 Installer Creation](5/5.5.md#installer-creation) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.1 Zip](5/5.5.md#zip) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.1 Zip](5/5.5.md#zip) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.2 RPM](5/5.5.md#rpm) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.2 RPM](5/5.5.md#rpm) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.3 Debian](5/5.5.md#debian) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.3 Debian](5/5.5.md#debian) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.4 Windows](5/5.5.md#windows) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.4 Windows](5/5.5.md#windows) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.5 Mac OS X](5/5.5.md#mac-osx) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.5 Mac OS X](5/5.5.md#mac-osx) ![IN PROGRESS](images/yellow.png)
 
-        * [5.5.3.6 Solaris](5/5.5.md#solaris) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.6 Solaris](5/5.5.md#solaris) ![IN PROGRESS](images/yellow.png)
 
 #### 6. Features
 
