@@ -35,21 +35,21 @@
 
     * [4.2.2 IBatis](422-ibatis) ![IN PROGRESS](images/yellow.png)
 
-* [4.3 Caching - EhCache](4/4.3.md) ![NOT DONE](images/red.png)
+* 4.3 Caching - EhCache ![NOT DONE](images/red.png)
 
 * [4.4 Dependency Injection (DI) - Spring](4/4.4.md) ![IN PROGRESS](images/yellow.png)
 
-* [4.5 Model View Controller (MVC)](4/4.5.md) ![NOT DONE](images/red.png)
+* 4.5 Model View Controller (MVC) ![NOT DONE](images/red.png)
 
-    * [4.5.1 Models - Java](4/4.5.1.md) ![NOT DONE](images/red.png)
+    * 4.5.1 Models - Java](4/4.5.1.md ![NOT DONE](images/red.png)
 
-    * [4.5.2 Controllers - Servlets & Rails](4/4.5.2.md) ![NOT DONE](images/red.png)
+    * 4.5.2 Controllers - Servlets & Rails ![NOT DONE](images/red.png)
 
-    * [4.5.3 Views - Rails & Velocity](4/4.5.3.md) ![NOT DONE](images/red.png)
+    * 4.5.3 Views - Rails & Velocity ![NOT DONE](images/red.png)
 
 * [4.6 User Interface (UI) - jQuery & Prototype, SCSS, HTML](4/4.6.md) ![PENDING REVIEW](images/blue.png)
 
-* [4.7 Build Tool - Buildr](4/4.7.md) ![NOT DONE](images/red.png)
+* 4.7 Build Tool - Buildr ![NOT DONE](images/red.png)
 
 #### 5. Architecture of Go
 
