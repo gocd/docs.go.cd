@@ -248,3 +248,6 @@
 
 * 7.3 Continuous Deployment ![NOT DONE](images/red.png)
 
+#### 8. Miscellaneous
+
+* 8.1 [Technical Debt](8/8.1.md) ![DONE](images/green.png)
