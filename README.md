@@ -236,15 +236,19 @@
 
 * 7.1 Build Go Using Go ![NOT DONE](images/red.png)
 
-* [7.2 Test Infrastructure](7/7.2.md) ![IN PROGRESS](images/yellow.png)
+* [7.2 Test Infrastructure](7/7.2.md) ![PENDING REVIEW](images/blue.png)
 
-    * [7.2.1 Unit & Integration Tests](7/7.2.1.md) ![IN PROGRESS](images/yellow.png)
+    * [7.2.1 Rails specs using RSpec](7/7.2.md#721-rails-specs-using-rspec) ![PENDING REVIEW](images/blue.png)
 
-    * [7.2.2 jsunit tests](7/7.2.2.md) ![IN PROGRESS](images/yellow.png)
+    * [7.2.2 Java testing using JUnit](7/7.2.md#722-java-testing-using-junit) ![PENDING REVIEW](images/blue.png)
 
-    * [7.2.3 Acceptance Tests](7/7.2.3.md) ![IN PROGRESS](images/yellow.png)
+    * [7.2.3 Javascript testing using JsUnit Tests](7/7.2.md#723-javascript-testing-using-jsunit-tests) ![PENDING REVIEW](images/blue.png)
 
-    * [7.2.4 Test Parallelization](7/7.2.4.md) ![IN PROGRESS](images/yellow.png)
+    * [7.2.4 Acceptance & Regression tests using Twist](7/7.2.md#724-acceptance--regression-tests-using-twist) ![PENDING REVIEW](images/blue.png)
+    
+    * [7.2.5 Performance Tests](7/7.2.md#725-performance-tests) ![PENDING REVIEW](images/blue.png)
+    
+    * [7.2.6 Test Parallelization](7/7.2.md#726--test-parallelization) ![PENDING REVIEW](images/blue.png)
 
 * 7.3 Continuous Deployment ![NOT DONE](images/red.png)
 
