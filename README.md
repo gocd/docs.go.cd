@@ -70,17 +70,17 @@
 
 * [5.2 Go Server](5/5.2.md#go-server) ![IN PROGRESS](images/yellow.png)
 
-    * [5.2.1 Configuration Management](5/5.2.1.md) ![IN PROGRESS](images/yellow.png)
+    * [5.2.1 Configuration Management](5/5.2.1.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.1.1 XSD & XML](5/5.2.1.1.md) ![IN PROGRESS](images/yellow.png)
+        * [5.2.1.1 XSD & XML](5/5.2.1.1.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.1.2 SchemaMigration](5/5.2.1.2.md) ![IN PROGRESS](images/yellow.png)
+        * [5.2.1.2 Schema Migration](5/5.2.1.2.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.1.3 ConfigRepository](5/5.2.1.3.md) ![IN PROGRESS](images/yellow.png)
+        * [5.2.1.3 Config Repository](5/5.2.1.3.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.1.4 ConfigMerge](5/5.2.1.4.md) ![IN PROGRESS](images/yellow.png)
+        * [5.2.1.4 Config Merge](5/5.2.1.4.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.1.5 ConfigDiff](5/5.2.1.5.md) ![IN PROGRESS](images/yellow.png)
+        * [5.2.1.5 Config Diff](5/5.2.1.5.md) ![PENDING REVIEW](images/blue.png)
 
     * [5.2.2 Database Management](5/5.2.2.md) ![PENDING REVIEW](images/blue.png)
 
