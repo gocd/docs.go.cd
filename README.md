@@ -96,9 +96,9 @@
 
         * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![PENDING REVIEW](images/blue.png)
 
-    * 5.2.4 Build Cause Production ![NOT DONE](images/red.png)
+    * 5.2.4 Build Cause Production ![IN PROGRESS](images/yellow.png)
 
-    * 5.2.5 Pipeline Scheduling ![NOT DONE](images/red.png)
+    * 5.2.5 Pipeline Scheduling ![IN PROGRESS](images/yellow.png)
 
     * 5.2.6 Work Assignment ![NOT DONE](images/red.png)
 
