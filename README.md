@@ -248,7 +248,7 @@
     
     * [7.2.5 Performance Tests](7/7.2.md#725-performance-tests) ![PENDING REVIEW](images/blue.png)
     
-    * [7.2.6 Test Parallelization](7/7.2.md#726--test-parallelization) ![PENDING REVIEW](images/blue.png)
+    * [7.2.6 Test Parallelization](7/7.2.md#726-test-parallelization) ![PENDING REVIEW](images/blue.png)
 
 * 7.3 Continuous Deployment ![NOT DONE](images/red.png)
 
