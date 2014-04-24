@@ -177,7 +177,7 @@
     
     * [6.1.4 Pipeline(s) and Ordering of pipeline instances](6/6.1.md#614-pipelines-and-ordering-of-pipeline-instances) ![PENDING REVIEW](images/blue.png)
     
-    * [6.1.5 Active Pipelines](6/6.1.md#615-active-pipelines) ![IN PROGRESS](images/yellow.png)
+    * [6.1.5 Active Pipelines](6/6.1.md#615-active-pipelines) ![PENDING REVIEW](images/blue.png)
 
 * [6.2 Fan-in](6/6.2.md) ![DONE](images/green.png)
 
