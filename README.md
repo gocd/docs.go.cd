@@ -14,17 +14,7 @@
 
 #### 2. Concepts in Go
 
-* [2.1 Domain](2/2.1.md) ![NOT DONE](images/red.png)
-
-    * 2.1.1 Pipeline ![NOT DONE](images/red.png)
-
-    * 2.1.2 Stage ![NOT DONE](images/red.png)
-
-    * 2.1.3 Job ![NOT DONE](images/red.png)
-
-    * 2.1.4 Task ![NOT DONE](images/red.png)
-
-    * 2.1.4 Material ![NOT DONE](images/red.png)
+* [2.1 Domain](2/2.1.md) ![DONE](images/green.png)
 
 * 2.2 Implementation ![NOT DONE](images/red.png)
 
