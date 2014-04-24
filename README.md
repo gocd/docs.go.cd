@@ -44,14 +44,14 @@
 
 * 4.1 Plugins Architecture - OSGi ![NOT DONE](images/red.png)
 
-* [4.2 Object Relation Mapping (ORM) - Hibernate & IBatis](4/4.2.md) ![IN PROGRESS](images/yellow.png)
-    * [4.2.1 Hibernate](4/4.2.md#421-hibernate)![IN PROGRESS](images/yellow.png)
+* [4.2 Object Relation Mapping (ORM) - Hibernate & IBatis](4/4.2.md) ![DONE](images/green.png)
+    * [4.2.1 Hibernate](4/4.2.md#421-hibernate) ![DONE](images/green.png)
 
-    * [4.2.2 IBatis](422-ibatis) ![IN PROGRESS](images/yellow.png)
+    * [4.2.2 IBatis](422-ibatis) ![DONE](images/green.png)
 
 * 4.3 Caching - EhCache ![NOT DONE](images/red.png)
 
-* [4.4 Dependency Injection (DI) - Spring](4/4.4.md) ![IN PROGRESS](images/yellow.png)
+* [4.4 Dependency Injection (DI) - Spring](4/4.4.md) ![DONE](images/green.png)
 
 * 4.5 Model View Controller (MVC) ![NOT DONE](images/red.png)
 
@@ -137,33 +137,33 @@
 
     * 5.4.2 Agent - Server Communication ![NOT DONE](images/red.png)
 
-* [5.5 Build Infrastructure](5/5.5.md) ![PENDING REVIEW](images/blue.png)
+* [5.5 Build Infrastructure](5/5.5.md) ![DONE](images/green.png)
 
-    * [5.5.1 Build, Test, Package](5/5.5.md#packaging) ![PENDING REVIEW](images/blue.png)
+    * [5.5.1 Build, Test, Package](5/5.5.md#packaging) ![DONE](images/green.png)
     
-         * [5.5.1.1 Maven modules](5/5.5.md#modules) ![PENDING REVIEW](images/blue.png)
+         * [5.5.1.1 Maven modules](5/5.5.md#modules) ![DONE](images/green.png)
          
-         * [5.5.1.2 Documentation Creation](5/5.5.md#documentation-creation) ![PENDING REVIEW](images/blue.png)
+         * [5.5.1.2 Documentation Creation](5/5.5.md#documentation-creation) ![DONE](images/green.png)
          
-         * [5.5.1.3  Pom conventions](5/5.5.md#pom-conventions) ![PENDING REVIEW](images/blue.png)
+         * [5.5.1.3  Pom conventions](5/5.5.md#pom-conventions) ![DONE](images/green.png)
          
-         * [5.5.1.4 Jar Packaging](5/5.5.md#jar-packaging) ![PENDING REVIEW](images/blue.png)
+         * [5.5.1.4 Jar Packaging](5/5.5.md#jar-packaging) ![DONE](images/green.png)
          
-         * [5.5.1.5 TLB integration](5/5.5.md#tlb-integration) ![PENDING REVIEW](images/blue.png)
+         * [5.5.1.5 TLB integration](5/5.5.md#tlb-integration) ![DONE](images/green.png)
 
-    * [5.5.2 Installer Creation](5/5.5.md#installer-creation) ![PENDING REVIEW](images/blue.png)
+    * [5.5.2 Installer Creation](5/5.5.md#installer-creation) ![DONE](images/green.png)
 
-        * [5.5.2.1 Zip](5/5.5.md#zip) ![PENDING REVIEW](images/blue.png)
+        * [5.5.2.1 Zip](5/5.5.md#zip) ![DONE](images/green.png)
 
-        * [5.5.2.2 RPM](5/5.5.md#rpm) ![PENDING REVIEW](images/blue.png)
+        * [5.5.2.2 RPM](5/5.5.md#rpm) ![DONE](images/green.png)
 
-        * [5.5.2.3 Debian](5/5.5.md#debian) ![PENDING REVIEW](images/blue.png)
+        * [5.5.2.3 Debian](5/5.5.md#debian) ![DONE](images/green.png)
 
-        * [5.5.2.4 Windows](5/5.5.md#windows) ![PENDING REVIEW](images/blue.png)
+        * [5.5.2.4 Windows](5/5.5.md#windows) ![DONE](images/green.png)
 
-        * [5.5.2.5 Mac OS X](5/5.5.md#mac-osx) ![PENDING REVIEW](images/blue.png)
+        * [5.5.2.5 Mac OS X](5/5.5.md#mac-osx) ![DONE](images/green.png)
 
-        * [5.5.2.6 Solaris](5/5.5.md#solaris) ![PENDING REVIEW](images/blue.png)
+        * [5.5.2.6 Solaris](5/5.5.md#solaris) ![DONE](images/green.png)
 
 #### 6. Features
 
