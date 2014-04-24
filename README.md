@@ -93,9 +93,9 @@
 
     * [5.2.3 Material Polling](5/5.2.3.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![PENDING REVIEW](images/blue.png)
+        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![NOT DONE](images/red.png)
 
-        * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![PENDING REVIEW](images/blue.png)
+        * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![NOT DONE](images/red.png)
 
     * 5.2.4 Build Cause Production ![IN PROGRESS](images/yellow.png)
 
