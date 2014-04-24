@@ -55,7 +55,7 @@
 
 * 4.5 Model View Controller (MVC) ![NOT DONE](images/red.png)
 
-    * 4.5.1 Models - Java](4/4.5.1.md ![NOT DONE](images/red.png)
+    * 4.5.1 Models - Java ![NOT DONE](images/red.png)
 
     * 4.5.2 Controllers - Servlets & Rails ![NOT DONE](images/red.png)
 
