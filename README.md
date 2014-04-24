@@ -30,7 +30,7 @@
 
 #### 3. Getting Started
 
-* [3.1 Setting up your development Environment](3/3.1.md) ![PENDING REVIEW](images/blue.png)
+* [3.1 Setting up your development Environment](3/3.1.md) ![DONE](images/green.png)
 
 * [3.2 How to add a configuration migration](3/3.2.md) ![PENDING REVIEW](images/blue.png)
 
