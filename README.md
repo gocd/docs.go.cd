@@ -60,7 +60,7 @@
 
     * 4.5.3 Views - Rails & Velocity ![NOT DONE](images/red.png)
 
-* [4.6 User Interface (UI) - jQuery & Prototype, SCSS, HTML](4/4.6.md) ![PENDING REVIEW](images/blue.png)
+* [4.6 User Interface (UI) - jQuery & Prototype, SCSS, HTML](4/4.6.md) ![DONE](images/green.png)
 
 * 4.7 Build Tool - Buildr ![NOT DONE](images/red.png)
 
