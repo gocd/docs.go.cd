@@ -34,7 +34,7 @@
 
 * [3.2 How to add a configuration migration](3/3.2.md) ![DONE](images/green.png)
 
-* [3.3 How to add a database migration](3/3.3.md) ![PENDING REVIEW](images/blue.png)
+* [3.3 How to add a database migration](3/3.3.md) ![DONE](images/green.png)
 
 * [3.4 How to go about making changes to the codebase](3/3.4.md) ![PENDING REVIEW](images/blue.png)
 
@@ -92,9 +92,9 @@
 
     * [5.2.3 Material Polling](5/5.2.3.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![NOT DONE](images/red.png)
+        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![PENDING REVIEW](images/blue.png)
 
-        * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![NOT DONE](images/red.png)
+        * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![PENDING REVIEW](images/blue.png)
 
     * 5.2.4 Build Cause Production ![IN PROGRESS](images/yellow.png)
 
