@@ -136,7 +136,7 @@
 
     * 5.4.2 Agent - Server Communication ![NOT DONE](images/red.png)
 
-* [5.5 Build Infrastructure](5/5.5.md) ![IN PROGRESS](images/yellow.png)
+* [5.5 Build Infrastructure](5/5.5.md) ![PENDING REVIEW](images/blue.png)
 
     * [5.5.1 Build, Test, Package](5/5.5.md#packaging) ![PENDING REVIEW](images/blue.png)
     
@@ -150,19 +150,19 @@
          
          * [5.5.1.5 TLB integration](5/5.5.md#tlb-integration) ![PENDING REVIEW](images/blue.png)
 
-    * [5.5.2 Installer Creation](5/5.5.md#installer-creation) ![IN PROGRESS](images/yellow.png)
+    * [5.5.2 Installer Creation](5/5.5.md#installer-creation) ![PENDING REVIEW](images/blue.png)
 
-        * [5.5.2.1 Zip](5/5.5.md#zip) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.1 Zip](5/5.5.md#zip) ![PENDING REVIEW](images/blue.png)
 
-        * [5.5.2.2 RPM](5/5.5.md#rpm) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.2 RPM](5/5.5.md#rpm) ![PENDING REVIEW](images/blue.png)
 
-        * [5.5.2.3 Debian](5/5.5.md#debian) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.3 Debian](5/5.5.md#debian) ![PENDING REVIEW](images/blue.png)
 
-        * [5.5.2.4 Windows](5/5.5.md#windows) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.4 Windows](5/5.5.md#windows) ![PENDING REVIEW](images/blue.png)
 
-        * [5.5.2.5 Mac OS X](5/5.5.md#mac-osx) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.5 Mac OS X](5/5.5.md#mac-osx) ![PENDING REVIEW](images/blue.png)
 
-        * [5.5.2.6 Solaris](5/5.5.md#solaris) ![IN PROGRESS](images/yellow.png)
+        * [5.5.2.6 Solaris](5/5.5.md#solaris) ![PENDING REVIEW](images/blue.png)
 
 #### 6. Features
 
