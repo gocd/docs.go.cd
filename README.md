@@ -167,11 +167,17 @@
 
 #### 6. Features
 
-* 6.1 [Dashboard](6/6.1.md) ![NOT DONE](images/red.png)
+* 6.1 [Dashboard](6/6.1.md) ![PENDING REVIEW](images/blue.png)
 
-    * [6.1.1 Overview](6/6.1.1.md) ![NOT DONE](images/red.png)
+    * [6.1.1 Personalise](6/6.1.md#611-personalise) ![PENDING REVIEW](images/blue.png)
 
-    * [6.1.2 All Active Pipelines](6/6.1.2.md) ![NOT DONE](images/red.png)
+    * [6.1.2 Search](6/6.1.md#612-search) ![PENDING REVIEW](images/blue.png)
+    
+    * [6.1.3 Pipeline Group(s)](6/6.1.md#613-pipeline-groups) ![PENDING REVIEW](images/blue.png)
+    
+    * [6.1.4 Pipeline(s) and Ordering of pipeline instances](6/6.1.md#614-pipelines-and-ordering-of-pipeline-instances) ![PENDING REVIEW](images/blue.png)
+    
+    * [6.1.5 Active Pipelines](6/6.1.md#615-active-pipelines) ![IN PROGRESS](images/yellow.png)
 
 * [6.2 Fan-in](6/6.2.md) ![DONE](images/green.png)
 
