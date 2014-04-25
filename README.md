@@ -59,57 +59,63 @@
 
 * [5.1 Overview](5/5.1.md#overview) ![IN PROGRESS](images/green.png)
 
-* [5.2 Go Server](5/5.2.md#go-server) ![PENDING REVIEW](images/blue.png)
+* [5.2 Go Server](5/5.2.md#go-server) ![DONE](images/green.png)
 
-    * [5.2.1 Configuration Management](5/5.2.1.md) ![PENDING REVIEW](images/blue.png)
+    * [5.2.1 Configuration Management](5/5.2.md#521-configuration-management) ![DONE](images/green.png)
 
-        * [5.2.1.1 XSD & XML](5/5.2.1.1.md) ![PENDING REVIEW](images/blue.png)
+        * [5.2.1.1 XSD & XML](5/5.2.md#5211-xsd--xml) ![DONE](images/green.png)
 
-        * [5.2.1.2 Schema Migration](5/5.2.1.2.md) ![PENDING REVIEW](images/blue.png)
+        * [5.2.1.2 Schema Migration](5/5.2.md#5212-schema-migration) ![DONE](images/green.png)
 
-        * [5.2.1.3 Config Repository](5/5.2.1.3.md) ![PENDING REVIEW](images/blue.png)
+        * [5.2.1.3 Config Repository](5/5.2.md#5213-config-repository) ![DONE](images/green.png)
 
-        * [5.2.1.4 Config Merge](5/5.2.1.4.md) ![PENDING REVIEW](images/blue.png)
+        * [5.2.1.4 Config Merge](5/5.2.md#5214-config-merge) ![DONE](images/green.png)
 
-        * [5.2.1.5 Config Diff](5/5.2.1.5.md) ![PENDING REVIEW](images/blue.png)
+        * [5.2.1.5 Config Diff](5/5.2.md#5215-config-diff) ![DONE](images/green.png)
 
-    * [5.2.2 Database Management](5/5.2.2.md) ![PENDING REVIEW](images/blue.png)
+    * [5.2.2 Database Management](5/5.2.md#522-database-management) ![DONE](images/green.png)
 
-        * [5.2.2.1 Schema](5/5.2.2.md#5221-schema) ![PENDING REVIEW](images/blue.png)
+        * [5.2.2.1 Schema](5/5.2.md#5221-schema) ![DONE](images/green.png)
 
-        * [5.2.2.2 Migration - DBDeploy](5/5.2.2.md#5222-database-migrations) ![PENDING REVIEW](images/blue.png)
+        * [5.2.2.2 Migration - DBDeploy](5/5.2.md#5222-database-migrations) ![DONE](images/green.png)
 
-        * [5.2.2.3 Backup](5/5.2.2.md#5223-backup) ![PENDING REVIEW](images/blue.png)
+        * [5.2.2.3 Backup](5/5.2.md#5223-backup) ![DONE](images/green.png)
 
-    * [5.2.3 Material Polling](5/5.2.3.md) ![PENDING REVIEW](images/blue.png)
+    * [5.2.3 Material Update Sub System](5/5.2.md#523-material-update-sub-system-mdu) ![DONE](images/green.png)
 
-        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.3.1.md) ![NOT DONE](images/red.png)
+        * [5.2.3.1 Material Fingerprint & Flyweights](5/5.2.md#5231-material-fingerprint--flyweights) ![NOT DONE](images/red.png)
 
-        * [5.2.3.2 Supported Materials](5/5.2.3.2.md) ![NOT DONE](images/red.png)
+        * [5.2.3.2 Supported Materials](5/5.2.md#5232-supported-materials) ![NOT DONE](images/red.png)
 
-    * [5.2.4 Build Cause Production](5/5.2.4.md) ![IN PROGRESS](images/yellow.png)
+    * [5.2.4 Build Cause Production](5/5.2.md#524-build-cause-production) ![IN PROGRESS](images/yellow.png)
 
-    * [5.2.5 Pipeline Scheduling](5/5.2.5.md) ![IN PROGRESS](images/yellow.png)
+    * [5.2.5 Pipeline Scheduling](5/5.2.md#525-pipeline-scheduling) ![IN PROGRESS](images/yellow.png)
 
-    * 5.2.6 Work Assignment ![NOT DONE](images/red.png)
+    * [5.2.6 Work Assignment](5/5.2.md#526-work-assignment) ![NOT DONE](images/red.png)
 
-        * 5.2.6.1 Resource & Environment Mapping ![NOT DONE](images/red.png)
+        * [5.2.6.1 Resource & Environment Mapping](5/5.2.md#5261-resource--environment-mapping) ![NOT DONE](images/red.png)
 
-    * 5.2.7 Artifact Management ![NOT DONE](images/red.png)
+    * [5.2.7 Artifact Management](5/5.2.md#527-artifact-management) ![NOT DONE](images/red.png)
 
-    * 5.2.8 User Management ![NOT DONE](images/red.png)
+    * [5.2.8 User Management](5/5.2.md#528-user-management) ![NOT DONE](images/red.png)
 
-        * 5.2.8.1 Authentication Management ![NOT DONE](images/red.png)
+        * [5.2.8.1 Authentication Management](5/5.2.md#5281-authentication-management) ![NOT DONE](images/red.png)
 
-        * 5.2.8.2 Enable, disable & delete users ![NOT DONE](images/red.png)
+        * [5.2.8.2 Enable, disable & delete users](5/5.2.md#5282-enable-disable--delete-users) ![NOT DONE](images/red.png)
 
-        * 5.2.8.3 User Role Management ![NOT DONE](images/red.png)
+        * [5.2.8.3 User Role Management](5/5.2.md#5283-user-role-management) ![NOT DONE](images/red.png)
 
-    * 5.2.9 Agent Management ![NOT DONE](images/red.png)
+    * [5.2.9 Agent Management](5/5.2.md#529-agent-management) ![NOT DONE](images/red.png)
 
-    * [5.2.10 UI Architecture](5/5.2.10.md) ![PENDING REVIEW](images/blue.png)
+    * [5.2.10 UI Architecture](5/5.2.md#5210-user-interface-architecture) ![PENDING REVIEW](images/blue.png)
 
-    * 5.2.11 APIs, CCTray & Feeds ![NOT DONE](images/red.png)
+        * [5.2.10.1 Markup : HTML](5/5.2.md#52101-markup--html) ![PENDING REVIEW](images/blue.png)
+        
+        * [5.2.10.1 Styling: CSS, SASS](5/5.2.md#52102-styling--css-sass) ![PENDING REVIEW](images/blue.png)
+        
+        * [5.2.10.1 Scripting : JavaScript, jQuery and Prototype](5/5.2.md#52103-scripting-javascript-jquery-and-prototype) ![PENDING REVIEW](images/blue.png)
+
+    * [5.2.11 APIs, CCTray & Feeds](5/5.2.md#5211-apis-cctray--feeds) ![NOT DONE](images/red.png)
 
 * [5.3 Go Agent](5/5.3.md) ![DONE](images/green.png)
     
