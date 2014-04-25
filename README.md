@@ -111,9 +111,9 @@
 
         * [5.2.10.1 Markup : HTML](5/5.2.md#52101-markup--html) ![PENDING REVIEW](images/blue.png)
         
-        * [5.2.10.1 Styling: CSS, SASS](5/5.2.md#52102-styling--css-sass) ![PENDING REVIEW](images/blue.png)
+        * [5.2.10.2 Styling: CSS, SASS](5/5.2.md#52102-styling--css-sass) ![PENDING REVIEW](images/blue.png)
         
-        * [5.2.10.1 Scripting : JavaScript, jQuery and Prototype](5/5.2.md#52103-scripting-javascript-jquery-and-prototype) ![PENDING REVIEW](images/blue.png)
+        * [5.2.10.3 Scripting : JavaScript, jQuery and Prototype](5/5.2.md#52103-scripting-javascript-jquery-and-prototype) ![PENDING REVIEW](images/blue.png)
 
     * [5.2.11 APIs, CCTray & Feeds](5/5.2.md#5211-apis-cctray--feeds) ![NOT DONE](images/red.png)
 
