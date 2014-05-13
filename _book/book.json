@@ -6,8 +6,8 @@
     "title": "Go Developer Documentation",
     "description": "Documentation describing the development environment, technology stack and architecture of Go.",
 
-    "github": "documentation",
-    "githubHost": "https://github.com/gocd/",
+    "github": "https://github.com/gocd/documentation",
+    "githubHost": "https://github.com/gocd/documentation",
 
     "plugins": [],
 
