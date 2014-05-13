@@ -1,0 +1,29 @@
+{
+    "output": "_book",
+
+    "generator": "site",
+
+    "title": "Go Developer Documentation",
+    "description": "Documentation describing the development environment, technology stack and architecture of Go.",
+
+    "github": "documentation",
+    "githubHost": "https://github.com/gocd/",
+
+    "plugins": [],
+
+    "pluginsConfig": {},
+
+    "links": {
+        "home": "http://go.cd",
+
+        "about": "https://github.com/gocd/documentation/",
+        "issues": "https://github.com/gocd/documentation/issues",
+        "contribute": "https://github.com/gocd/documentation/",
+
+        "sharing": {
+            "google": false,
+            "facebook": false,
+            "twitter": false
+        }
+    }
+}
