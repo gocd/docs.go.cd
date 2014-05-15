@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1052.3622"
+   height="744.09448"
+   id="svg7546"
+   version="1.1"
+   inkscape:version="0.48.2 r9819"
+   sodipodi:docname="orm.svg"
+   inkscape:export-filename="/Users/arvind/Projects/go/design-documentation/4/images/orm.png"
+   inkscape:export-xdpi="72"
+   inkscape:export-ydpi="72">
+  <defs
+     id="defs7548">
+    <marker
+       inkscape:stockid="Arrow2Lend"
+       orient="auto"
+       refY="0.0"
+       refX="0.0"
+       id="Arrow2Lend"
+       style="overflow:visible;">
+      <path
+         id="path3799"
+         style="font-size:12.0;fill-rule:evenodd;stroke-width:0.62500000;stroke-linejoin:round;"
+         d="M 8.7185878,4.0337352 L -2.2072895,0.016013256 L 8.7185884,-4.0017078 C 6.9730900,-1.6296469 6.9831476,1.6157441 8.7185878,4.0337352 z "
+         transform="scale(1.1) rotate(180) translate(1,0)" />
+    </marker>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="429.97103"
+     inkscape:cy="637.60333"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="true"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0"
+     inkscape:window-width="1680"
+     inkscape:window-height="1002"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     showguides="true"
+     inkscape:guide-bbox="true">
+    <inkscape:grid
+       type="xygrid"
+       id="grid7554"
+       empspacing="5"
+       visible="true"
+       enabled="true"
+       snapvisiblegridlinesonly="true" />
+    <sodipodi:guide
+       orientation="0,1"
+       position="700,570"
+       id="guide9341" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata7551">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(0,-308.2677)">
+    <g
+       id="g9315">
+      <g
+         id="g8169">
+        <text
+           xml:space="preserve"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           x="86.511719"
+           y="491.06921"
+           id="text8165"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan8167"
+             x="86.511719"
+             y="491.06921">Services</tspan></text>
+      </g>
+      <rect
+         style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+         id="rect7655"
+         width="200"
+         height="60"
+         x="30"
+         y="452.36218" />
+    </g>
+    <g
+       id="g8243"
+       transform="translate(10,-1.9531262e-7)">
+      <rect
+         style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+         id="rect8176"
+         width="200"
+         height="60"
+         x="320"
+         y="452.36218" />
+      <text
+         xml:space="preserve"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+         x="393.92578"
+         y="490.67664"
+         id="text8178"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan8180"
+           x="393.92578"
+           y="490.67664">DAO</tspan></text>
+    </g>
+    <g
+       id="g9853">
+      <rect
+         style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+         id="rect8189"
+         width="200"
+         height="60"
+         x="180"
+         y="632.36218" />
+      <text
+         xml:space="preserve"
+         style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+         x="279.80078"
+         y="657.06921"
+         id="text8191"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           x="279.80078"
+           y="657.06921"
+           id="tspan8195">Cache</tspan></text>
+      <text
+         xml:space="preserve"
+         style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+         x="235.33203"
+         y="680.99158"
+         id="text8199"
+         sodipodi:linespacing="125%"><tspan
+           sodipodi:role="line"
+           id="tspan8201"
+           x="235.33203"
+           y="680.99158">(Ehcache)</tspan></text>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 230,482.36218 100,0"
+       id="path8261"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 130,512.36218 110,120"
+       id="path8447"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path8449"
+       d="m 430,512.36218 -110,120"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)" />
+    <g
+       id="g9790">
+      <rect
+         y="432.36218"
+         x="630"
+         height="100"
+         width="250"
+         id="rect9294"
+         style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       x="688.36719"
+       y="472.67664"
+       id="text9296"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan9298"
+         x="688.36719"
+         y="472.67664">Spring ORM</tspan></text>
+    <text
+       sodipodi:linespacing="125%"
+       id="text9302"
+       y="508.77826"
+       x="655.74219"
+       style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+       xml:space="preserve"><tspan
+         y="508.77826"
+         x="655.74219"
+         id="tspan9304"
+         sodipodi:role="line">(Hibernate, iBatis)</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       id="path9300"
+       d="m 530,482.36218 100,0"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)" />
+    <g
+       id="g9321"
+       transform="translate(970,-70)">
+      <g
+         id="g9323">
+        <text
+           sodipodi:linespacing="125%"
+           id="text9325"
+           y="491.12195"
+           x="75.824219"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           xml:space="preserve"><tspan
+             y="491.12195"
+             x="75.824219"
+             id="tspan9327"
+             sodipodi:role="line">Hibernate</tspan></text>
+      </g>
+      <rect
+         y="452.36218"
+         x="30"
+         height="60"
+         width="200"
+         id="rect9329"
+         style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+    </g>
+    <g
+       transform="translate(970,70)"
+       id="g9331">
+      <g
+         id="g9333">
+        <text
+           xml:space="preserve"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           x="99.935547"
+           y="491.08679"
+           id="text9335"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan9337"
+             x="99.935547"
+             y="491.08679">iBatis</tspan></text>
+      </g>
+      <rect
+         style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none"
+         id="rect9339"
+         width="200"
+         height="60"
+         x="30"
+         y="452.36218" />
+    </g>
+    <g
+       id="g9345"
+       transform="translate(1300,-1.9531262e-7)" />
+    <g
+       transform="translate(1290,-1.9531262e-7)"
+       id="g9355">
+      <g
+         id="g9843">
+        <text
+           sodipodi:linespacing="125%"
+           id="text9347"
+           y="491.12195"
+           x="80.699219"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           xml:space="preserve"><tspan
+             y="491.12195"
+             x="80.699219"
+             id="tspan9349"
+             sodipodi:role="line">Database</tspan></text>
+        <rect
+           y="452.36218"
+           x="30"
+           height="60"
+           width="200"
+           id="rect9351"
+           style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      </g>
+    </g>
+    <path
+       inkscape:connector-curvature="0"
+       id="path9360"
+       d="m 880,482.36218 120,-70"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 880,482.36218 120,70"
+       id="path9544"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 1200,412.17781 120,70"
+       id="path9546"
+       inkscape:connector-curvature="0" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path9548"
+       d="m 1200,552.51611 120,-70"
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)" />
+    <g
+       id="g9825">
+      <rect
+         y="172.36218"
+         x="990"
+         height="120"
+         width="220"
+         id="rect9554"
+         style="fill:none;stroke:#141414;stroke-width:2;stroke-miterlimit:0;stroke-opacity:1;stroke-dasharray:none" />
+      <g
+         transform="translate(932.77832,-261.69945)"
+         id="g9566">
+        <text
+           xml:space="preserve"
+           style="font-size:24px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           x="167.02246"
+           y="477.06921"
+           id="text9556"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             x="167.02246"
+             y="477.06921"
+             id="tspan9558">Cache</tspan></text>
+        <text
+           xml:space="preserve"
+           style="font-size:20px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:center;line-height:125%;letter-spacing:0px;word-spacing:0px;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;font-family:Georgia;-inkscape-font-specification:Georgia"
+           x="166.76758"
+           y="500.99155"
+           id="text9560"
+           sodipodi:linespacing="125%"><tspan
+             sodipodi:role="line"
+             id="tspan9562"
+             x="166.76758"
+             y="500.99155">(Ehcache - Second</tspan><tspan
+             sodipodi:role="line"
+             x="166.76758"
+             y="525.99158"
+             id="tspan9564">level cache)</tspan></text>
+      </g>
+    </g>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;marker-end:url(#Arrow2Lend)"
+       d="m 1100,382.36218 0,-90"
+       id="path9598"
+       inkscape:connector-curvature="0" />
+  </g>
+</svg>

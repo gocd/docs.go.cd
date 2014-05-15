@@ -1,0 +1,682 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>Build Infrastructure | Go Developer Documentation</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="GoCD">
+        <meta name="description" content="Documentation describing the development environment, technology stack and architecture of Go.">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        
+        <link rel="prev" href="../4/4.4.html" />
+        
+
+        <meta property="og:title" content="Build Infrastructure | Go Developer Documentation">
+        <meta property="og:site_name" content="Go Developer Documentation">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/GoCD">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+
+
+        
+    <div class="book" data-github="GoCD/documentation" data-level="4.5" data-basepath=".." data-revision="1399971823399">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="http://go.cd" target="_blank" class="btn pull-left"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+	<div class="dropdown-caret">
+  <span class="caret-outer"></span>
+  <span class="caret-inner"></span>
+</div>
+
+	<div class="btn-group btn-block">
+		<button id="reduce-font-size" class="btn btn-default">A</button>
+		<button id="enlarge-font-size" class="btn btn-default">A</button>
+	</div>
+
+	<ul class="list-group font-family-list">
+		<li class="list-group-item" data-font="0">Serif</li>
+		<li class="list-group-item" data-font="1">Sans</li>
+	</ul>
+
+	<div class="btn-group btn-group-xs btn-block color-theme-list">
+	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+	</div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/GoCD/documentation/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/GoCD/documentation/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Go Developer Documentation</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        <li>
+            <a href="https://github.com/gocd/documentation/" target="blank">About the author</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/gocd/documentation/issues" target="blank">Questions and Issues</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/gocd/documentation/" target="blank">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" >
+                
+                <span><b>1.</b> Concepts in Go</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="1/1.1.html">
+                            
+                            <a href="../1/1.1.html">
+                                <i class="fa fa-check"></i> <b>1.1.</b> Domain
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" >
+                            
+                            <span><b>1.2.</b> Implementation</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" >
+                
+                <span><b>2.</b> Getting Started</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="2/2.1.html">
+                            
+                            <a href="../2/2.1.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Setting up your development environment
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="2/2.2.html">
+                            
+                            <a href="../2/2.2.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> How to go about making changes to the codebase
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="2/2.3.html">
+                            
+                            <a href="../2/2.3.html">
+                                <i class="fa fa-check"></i> <b>2.3.</b> How to add a configuration migration
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.4" data-path="2/2.4.html">
+                            
+                            <a href="../2/2.4.html">
+                                <i class="fa fa-check"></i> <b>2.4.</b> How to add a database migration
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" >
+                
+                <span><b>3.</b> Technology Stack</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" >
+                            
+                            <span><b>3.1.</b> Plugins Architecture - OSGi</span>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="3/3.2.html">
+                            
+                            <a href="../3/3.2.html">
+                                <i class="fa fa-check"></i> <b>3.2.</b> Object Relation Mapping (ORM) - Hibernate &amp; IBatis
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" >
+                            
+                            <span><b>3.3.</b> Caching - EhCache</span>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="3/3.4.html">
+                            
+                            <a href="../3/3.4.html">
+                                <i class="fa fa-check"></i> <b>3.4.</b> Dependency Injection (DI) - Spring
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.5" >
+                            
+                            <span><b>3.5.</b> Model View Controller (MVC)</span>
+                            
+                        </li>
+                    
+                        <li  data-level="3.6" data-path="3/3.6.html">
+                            
+                            <a href="../3/3.6.html">
+                                <i class="fa fa-check"></i> <b>3.6.</b> User Interface (UI) - jQuery &amp; Prototype, SCSS, HTML
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.7" >
+                            
+                            <span><b>3.7.</b> Build Tool - Buildr</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" >
+                
+                <span><b>4.</b> Architecture of Go</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" >
+                            
+                            <span><b>4.1.</b> [Overview](4/4.1.md#overview</span>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="4/4.2.html#go-server">
+                            
+                            <a href="../4/4.2.html#go-server">
+                                <i class="fa fa-check"></i> <b>4.2.</b> Go Server
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" data-path="4/4.3.html">
+                            
+                            <a href="../4/4.3.html">
+                                <i class="fa fa-check"></i> <b>4.3.</b> Go Agent
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.4" data-path="4/4.4.html">
+                            
+                            <a href="../4/4.4.html">
+                                <i class="fa fa-check"></i> <b>4.4.</b> Common
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.5" data-path="4/4.5.html">
+                            
+                            <a href="../4/4.5.html">
+                                <i class="fa fa-check"></i> <b>4.5.</b> Build Infrastructure
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" >
+                
+                <span><b>5.</b> Features</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="5/5.1.html">
+                            
+                            <a href="../5/5.1.html">
+                                <i class="fa fa-check"></i> <b>5.1.</b> Dashboard
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" data-path="5/5.2.html">
+                            
+                            <a href="../5/5.2.html">
+                                <i class="fa fa-check"></i> <b>5.2.</b> Fan-in
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.3" data-path="5/5.3.html">
+                            
+                            <a href="../5/5.3.html">
+                                <i class="fa fa-check"></i> <b>5.3.</b> Value Stream Map
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.4" data-path="5/5.4.html">
+                            
+                            <a href="../5/5.4.html">
+                                <i class="fa fa-check"></i> <b>5.4.</b> Compare Pipeline
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.5" data-path="5/5.5.html">
+                            
+                            <a href="../5/5.5.html">
+                                <i class="fa fa-check"></i> <b>5.5.</b> PackageRepository
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.6" >
+                            
+                            <span><b>5.6.</b> Command Repository</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.7" data-path="5/5.7.html">
+                            
+                            <a href="../5/5.7.html">
+                                <i class="fa fa-check"></i> <b>5.7.</b> Environments
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.8" >
+                            
+                            <span><b>5.8.</b> Templates</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.9" >
+                            
+                            <span><b>5.9.</b> Shine</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.10" data-path="5/5.10.html">
+                            
+                            <a href="../5/5.10.html">
+                                <i class="fa fa-check"></i> <b>5.10.</b> OAuth Gadgets
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.11" data-path="5/5.11.html">
+                            
+                            <a href="../5/5.11.html">
+                                <i class="fa fa-check"></i> <b>5.11.</b> Backup
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="6" >
+                
+                <span><b>6.</b> CD in practice</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="6.1" >
+                            
+                            <span><b>6.1.</b> Build Go Using Go</span>
+                            
+                        </li>
+                    
+                        <li  data-level="6.2" data-path="6/6.2.html">
+                            
+                            <a href="../6/6.2.html">
+                                <i class="fa fa-check"></i> <b>6.2.</b> Test Infrastructure
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.3" >
+                            
+                            <span><b>6.3.</b> Continuous Deployment</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="7" >
+                
+                <span><b>7.</b> Miscellaneous</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="7.1" data-path="7/7.1.html">
+                            
+                            <a href="../7/7.1.html">
+                                <i class="fa fa-check"></i> <b>7.1.</b> Technical Debt
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 54.54545454545455%;min-width: 50%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../1/1.1.html" title="Domain" class="chapter done " data-progress="1.1" style="left: 4.545454545454546%;"></a>
+    
+        <a href="../2/2.1.html" title="Setting up your development environment" class="chapter done " data-progress="2.1" style="left: 9.090909090909092%;"></a>
+    
+        <a href="../2/2.2.html" title="How to go about making changes to the codebase" class="chapter done " data-progress="2.2" style="left: 13.636363636363637%;"></a>
+    
+        <a href="../2/2.3.html" title="How to add a configuration migration" class="chapter done " data-progress="2.3" style="left: 18.181818181818183%;"></a>
+    
+        <a href="../2/2.4.html" title="How to add a database migration" class="chapter done " data-progress="2.4" style="left: 22.727272727272727%;"></a>
+    
+        <a href="../3/3.2.html" title="Object Relation Mapping (ORM) - Hibernate &amp; IBatis" class="chapter done " data-progress="3.2" style="left: 27.272727272727273%;"></a>
+    
+        <a href="../3/3.4.html" title="Dependency Injection (DI) - Spring" class="chapter done " data-progress="3.4" style="left: 31.818181818181817%;"></a>
+    
+        <a href="../3/3.6.html" title="User Interface (UI) - jQuery &amp; Prototype, SCSS, HTML" class="chapter done " data-progress="3.6" style="left: 36.36363636363637%;"></a>
+    
+        <a href="../4/4.2.html#go-server" title="Go Server" class="chapter done " data-progress="4.2" style="left: 40.90909090909091%;"></a>
+    
+        <a href="../4/4.3.html" title="Go Agent" class="chapter done " data-progress="4.3" style="left: 45.45454545454545%;"></a>
+    
+        <a href="../4/4.4.html" title="Common" class="chapter done " data-progress="4.4" style="left: 50%;"></a>
+    
+        <a href="../4/4.5.html" title="Build Infrastructure" class="chapter done " data-progress="4.5" style="left: 54.54545454545455%;"></a>
+    
+        <a href="../5/5.1.html" title="Dashboard" class="chapter  " data-progress="5.1" style="left: 59.09090909090909%;"></a>
+    
+        <a href="../5/5.10.html" title="OAuth Gadgets" class="chapter  " data-progress="5.10" style="left: 63.63636363636363%;"></a>
+    
+        <a href="../5/5.11.html" title="Backup" class="chapter  " data-progress="5.11" style="left: 68.18181818181819%;"></a>
+    
+        <a href="../5/5.2.html" title="Fan-in" class="chapter  " data-progress="5.2" style="left: 72.72727272727273%;"></a>
+    
+        <a href="../5/5.3.html" title="Value Stream Map" class="chapter  " data-progress="5.3" style="left: 77.27272727272727%;"></a>
+    
+        <a href="../5/5.4.html" title="Compare Pipeline" class="chapter  " data-progress="5.4" style="left: 81.81818181818181%;"></a>
+    
+        <a href="../5/5.5.html" title="PackageRepository" class="chapter  " data-progress="5.5" style="left: 86.36363636363636%;"></a>
+    
+        <a href="../5/5.7.html" title="Environments" class="chapter  " data-progress="5.7" style="left: 90.9090909090909%;"></a>
+    
+        <a href="../6/6.2.html" title="Test Infrastructure" class="chapter  " data-progress="6.2" style="left: 95.45454545454545%;"></a>
+    
+        <a href="../7/7.1.html" title="Technical Debt" class="chapter  " data-progress="7.1" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_11">
+                    
+                        <h1 id="4-5-build-infrastructure">4.5 Build Infrastructure</h1>
+<p>Go uses <em><a href="http://buildr.apache.org/" target="_blank">buildr</a></em> for its build infrastructure except for mac installers which are done through <em><a href="http://ant.apache.org/" target="_blank">ant</a></em>. </p>
+<h2 id="-a-name-packaging-a-4-5-1-packaging"><a name="packaging"></a>4.5.1 Packaging</h2>
+<p>Go&#39;s dependencies are managed through maven. The build scripts are mostly written in maven pom files with some parts being written in ant, rake &amp; buildr.</p>
+<h3 id="-a-name-modules-a-4-5-1-1-modules"><a name="modules"></a>4.5.1.1 Modules</h3>
+<p>There are 2 components in Go: Server &amp; Agent.</p>
+<p>Config: </p>
+<ul>
+<li>The code related to config, that is required by both the Server &amp; the Agent (like object mapping of config etc.), is in <strong>&#39;config-api&#39;</strong> module.</li>
+<li>The code related to config, that is required by the Server alone (like config read, write etc.), is in <strong>&#39;config-server&#39;</strong> module.</li>
+</ul>
+<p>Plugin infrastructure:</p>
+<ul>
+<li><strong>&#39;go-plugin-api&#39;</strong> contains API&#39;s exposed for plugin authors and is required by plugins during compile time.</li>
+<li><strong>&#39;go-plugin-api-internal&#39;</strong></li>
+<li><strong>&#39;go-plugin-infra&#39;</strong></li>
+<li><strong>&#39;go-plugin-activator&#39;</strong></li>
+<li><strong>&#39;go-plugin-access&#39;</strong></li>
+</ul>
+<p>Agent:</p>
+<ul>
+<li><strong>&#39;agent-bootstrapper&#39;</strong> is the code that is available on fresh Agent installation. This is the only part that is not auto-upgraded. Its only responsibility is to launch the launcher.</li>
+<li><strong>&#39;agent-launcher&#39;</strong> is the code that takes care of downloading latest launcher, agent, plugins &amp; restart of agent when it dies / when upgrade is required.</li>
+<li><strong>&#39;agent&#39;</strong> - contains code to fetch jobs, run tasks &amp; communicate results back to server.</li>
+<li>The code that is common to above 3 agent modules is in <strong>&#39;agent-common&#39;</strong>.</li>
+</ul>
+<p>Server:</p>
+<ul>
+<li>The complete code related to the server is in the <strong>&#39;server&#39;</strong> module. Contains code related to database, security, view, etc. The server webapp is created using rake tasks. We generate help docs, minify css, js &amp; inline rails partials as part of this.</li>
+<li>The module <strong>&#39;server-launcher&#39;</strong> is a module definition with dependencies specified in pom file, which is used in creation of server launcher using buildr scripts.</li>
+</ul>
+<p>Others:</p>
+<ul>
+<li>The code that is common to both the &#39;server&#39; &amp; &#39;agent&#39; modules is in <strong>&#39;common&#39;</strong> module.</li>
+<li>The code that is common to all the modules is in the <strong>&#39;base&#39;</strong> module.</li>
+<li>Code related to TFS implementation is in a separate module <strong>&#39;tfs-impl&#39;</strong>. It was made into a separate module to resolve classpath issues.</li>
+<li>The <strong>&#39;test-utils&#39;</strong> module contain code that is used in unit &amp; integration tests and which should not be part of main codebase.</li>
+</ul>
+<p>Deprecated:</p>
+<ul>
+<li>The <strong>&#39;util&#39;</strong> dependency is deprecated. Please refrain from adding code into this module.</li>
+</ul>
+<h3 id="-a-name-documentation-creation-a-4-5-1-2-documentation-creation"><a name="documentation-creation"></a>4.5.1.2 Documentation Creation</h3>
+<p>Documentation is created through a <em>rake</em> task inside the helper module. The default task generates documentation based on changed files only while another task &#39;<em>site</em>&#39; generates the whole documetation as it cleans before generating the documentation.</p>
+<p>The documentation is written in xml format and all images are placed in resources. The xml files are parsed (parsing is done by ruby files present in builder module of helper) to generate corresponding html files. </p>
+<h3 id="-a-name-pom-conventions-a-4-5-1-3-pom-conventions"><a name="pom-conventions"></a>4.5.1.3 Pom conventions</h3>
+<ul>
+<li><p>Version of all Go modules is fixed to 1.0 which means the code for every module assumes that the latest code of its dependencies is available at version 1.0 in the local maven repository (~/.m2/repository).</p>
+</li>
+<li><p>The code does not follow the standard maven structure. We have code in src/, resources is in resources/, test code is in test/ &amp; test resources is in test-resources/ folder. The locations are specified in the pom file to override defaults.</p>
+</li>
+<li><p>maven-compiler-plugin is configured with source &amp; target to be 1.6.</p>
+</li>
+<li><p>All source dependencies are listed followed by test dependencies. In both source &amp; test dependencies the Go modules are listed first followed by external library dependencies. We have tried our best to not redeclare dependencies that are available as transitive dependency from other modules/libraries. We have also tried to exclude transitive dependencies that are of a older/newer version than the ones that are required by Go. We have a pipeline dedicated to watch packaged dependencies &amp; fail whenever there is a change to it. This acts as a manual gate to make sure the dependency change was intended.</p>
+</li>
+</ul>
+<h3 id="-a-name-jar-packaging-a-4-5-1-4-jar-packaging"><a name="jar-packaging"></a>4.5.1.4 Jar packaging</h3>
+<ul>
+<li>We use onejar-maven-plugin to package &#39;agent-bootstrapper&#39;, &#39;agent&#39; &amp; &#39;server-launcher&#39;</li>
+<li>&#39;agent-launcher&#39; &amp; &#39;tfs-impl&#39; is just a zip containing its own jar &amp; its dependencies</li>
+<li>&#39;server&#39; is packaged with standard &#39;maven-war-plugin&#39;</li>
+<li>The rest of the modules are packaged with standard &#39;maven-jar-plugin&#39;</li>
+</ul>
+<h3 id="-a-name-tlb-integration-a-4-5-1-5-tlb-http-test-load-balancer-github-io-integration"><a name="tlb-integration"></a>4.5.1.5 <a href="http://test-load-balancer.github.io/" target="_blank">TLB</a> integration</h3>
+<p>Modules &#39;common&#39; &amp; &#39;server&#39; have a lot of tests. We use TLB to run them in parallel in our builds.
+To achieve this we use &#39;maven-antrun-plugin&#39; to run tests through ant-junit, with which TLB integrates, to prune the list of test to run before running them.
+The classpath is provided by maven to maintain consistency with the &#39;maven-surefire-plugin&#39;. So any test would run under the same environment when run through maven or through TLB.</p>
+<h2 id="-a-name-installer-creation-a-4-5-2-installer-creation"><a name="installer-creation"></a>4.5.2 Installer Creation</h2>
+<p>All the necessary files are put in a jar through buildr &#39;package&#39;. This jar known as <em>go.jar</em> is then used by <em>buildr</em> while creating the installers. </p>
+<p>Go creates all its installers except mac through <em>buildr</em> tasks in <code>cruise-modules.rb</code>. Mac installers are generated through <em>ant</em> tasks. The module structure of installers in code is as follows:</p>
+<pre><code>  installers
+     +
+     |
+     +-----&gt;agent +-----&gt;deb
+     |            +-----&gt;osx
+     |            +-----&gt;release
+     |            +-----&gt;rpm
+     |            +-----&gt;sol
+     |            +-----&gt;win
+     |
+     +-----&gt;server +-----&gt;deb
+     |             +-----&gt;debian
+     |             +-----&gt;osx
+     |             +-----&gt;release
+     |             +-----&gt;rpm
+     |             +-----&gt;sol
+     |             +-----&gt;win
+     |
+     +-----&gt;shared
+</code></pre><p>Installer module contains the Go server/agent installer scripts. The <em>shared</em> module inside installer contains debian and rpm pre/post install scripts shared between server and agent. <em>Buildr</em> packages these scripts while generating installers.</p>
+<p>Before the installers are created, buildr packages the war file along with <em>h2</em> db, db deltas, command repository, internal plugins, agent jar, agent bootstrapper and launcer jar, along with config files and libraries like tfs-impl, go-plugin-activator, etc. The packaging is done through <em>buildr</em> <em><a href="http://buildr.apache.org/rdoc/Buildr/Package.html" target="_blank">package</a></em> and the jar created is known as <strong>go.jar</strong>. </p>
+<p>For packaging command repository, the repo is cloned from the public git repo <code>github.com/goteam/go-command-repo.git</code>. Every time an installer is created the command repository version is bumped up. This is done to make sure the users are always on the latest version of command repository. The command repository version is independent of Go Server version.</p>
+<p>The plugin jars placed inside <code>tw-go-plugins/dist/</code> are packaged in Go as <em><a href="http://www.thoughtworks.com/products/docs/go/current/help/plugin_user_guide.html" target="_blank">bundled plugin</a></em>.</p>
+<h3 id="-a-name-zip-a-4-5-2-1-zip"><a name="zip"></a>4.5.2.1 Zip</h3>
+<p>The <em>buildr</em> task <code>cruise:pkg:zip</code> calls <code>cruise:agent-bootstrapper:dist:zip</code> and <code>cruise:server:dist:zip</code> which creates the agent and server zip installers respectively.  The <em>release</em> module inside server and agent modules of installer contains the files that needs to be present in the zip installer along with the License and the <em>go.jar</em>. </p>
+<p>The <em>release</em> module provides all the scripts to start and stop server/agent. It has a CMD file which is used by the batch scripts on windows to start server/agent and has shell scripts for linux based systems to do the same. Also, scripts are provided to start/stop Go server/agent through a daemon conforming to <em>Linux Standard Base (LSB)</em> implementation to ensure it works across distros. Apart from these scripts, it also provides the installer with the default configuration to be used while starting Go server/agent. These scripts are also used by other installers!</p>
+<h3 id="-a-name-rpm-a-4-5-2-2-rpm"><a name="rpm"></a>4.5.2.2 RPM</h3>
+<p>The <em>buildr</em> task <code>cruise:pkg:redhat</code> calls <code>cruise:agent-bootstrapper:dist:rpm</code> and <code>cruise:server:dist:rpm</code> which creates the agent and server rpm installers respectively. </p>
+<p>To prepare the installer, the zip installer is taken, unzipped and the files from it are placed accordingly along with the pre/post install scripts from <em>shared</em> module of installer. The spec file necessary for rpm installers is taken from <em>rpm</em> module inside agent/server modules of installer. <em>rpmbuild</em> with <em>fakeroot</em> is then used to generate the rpm installers.</p>
+<p>The shared <em>pre install</em> script is used to create <strong>go</strong> user within a new <strong>go</strong> group if not already present while the <em>post install</em> script is used to create necessary directories and set ownership to user <strong>go</strong>. It also sets defaults path, log4j properties and java home to be used by Go. To set the java for Go, the system variable &quot;JAVA_HOME&quot; is checked if it&#39;s set. If not, the command <em>which java</em> is executed and its output is used.</p>
+<h3 id="-a-name-debian-a-4-5-2-3-debian"><a name="debian"></a>4.5.2.3 Debian</h3>
+<p>The <em>buildr</em> task <code>cruise:pkg:debian</code> calls <code>cruise:agent-bootstrapper:dist:debian</code> and <code>cruise:server:dist:debian</code> which creates the agent and server rpm installers respectively. </p>
+<p>To prepare the installer, the zip installer is taken, unzipped and the files from it are placed accordingly along with the pre/post install scripts from <em>shared</em> module and other necessary files for debian packaging that are taken from <em>deb</em> module inside agent/server modules of installer. <em>dpkg-deb</em> with <em>fakeroot</em> is then used to generate the debian installers.</p>
+<p>Besides providing with the pre and post install scripts like rpm, the <em>deb</em> module provides pre and post rm (remove) scripts used while un-installing Go. <code>prerm.go-server</code> might be used during the upgrade flow as well and checks if the Go server version is greater than the existing one. If not, it displays a message accordingly.</p>
+<h3 id="-a-name-windows-a-4-5-2-4-windows"><a name="windows"></a>4.5.2.4 Windows</h3>
+<p>The <em>buildr</em> task <code>cruise:pkg:windows</code> calls <code>cruise:agent-bootstrapper:dist:exe</code> and <code>cruise:server:dist:exe</code> which creates the agent and server windows installers respectively. </p>
+<p>To prepare the installer, the zip installer is taken, unzipped and the files from it are placed accordingly along with the necessary files for windows packaging that are taken from <em>win</em> module inside agent/server modules of installer. </p>
+<p><a href="http://nsis.sourceforge.net/Main_Page" target="_blank"><em>Nullsoft Scriptable Install System (NSIS)</em></a> is used to create windows installers. INI files, <code>JavaHome.ini</code> and <code>ServerIP.ini</code>, are used to provide dialog boxes during installation for providing users the choice to use bundled jre or user specified java for Go to use, and to provide IP of server to the agent respectively.</p>
+<p>The <code>go-server.nsi</code> and <code>go-agent.nsi</code> files present in the <em>win</em> module are the ones responsible for the installation procedure on windows. These files create the windows registry keys and install the wrapper-server.conf/wrapper-agent.conf to be used by Go server/agent for their start-up configurations respectively. These files also take care of deleting the windows registry keys (created by Go during installation) at the time of un-install. Both these files include <code>windows-installer-base.nsi</code> which is responsible to maintain the main flow of the installation process setting up the installation directory and reading/writing windows registry keys besides taking care of the upgrade flow. Silent installation of agent is also taken care of by these files. The line <code>#include config/wrapper-properties.conf\</code> in <code>wrapper-server.conf</code> and <code>wrapper-agent.conf</code> provides the ability to override default startup arguments with the values written in the user provided file - <code>wrapper-properties.conf</code>.</p>
+<h3 id="-a-name-mac-osx-a-4-5-2-5-mac-os-x"><a name="mac-osx"></a>4.5.2.5 Mac OS X</h3>
+<p>The <em>ant</em> task <code>dist.osx</code> generates the mac installers. The  <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html" target="_blank">information property list file</a>, <code>Info.plist</code> present in <em>osx</em> module of agent/server module of installer provides the necessary configuration information for the bundled Go server/agent executable. The &#39;<em>JavaApplicationStub64</em>&#39;, used by the mac system to read the applications plist and then launch the Java VM with the appropriate properties such as the classpath and main class name, is provided from osx submodule inside build.</p>
+<h3 id="-a-name-solaris-a-4-5-2-6-solaris"><a name="solaris"></a>4.5.2.6 Solaris</h3>
+<p>The <em>buildr</em> task <code>cruise:pkg:solaris</code> calls <code>cruise:agent-bootstrapper:dist:solaris</code> and <code>cruise:server:dist:solaris</code> which creates the agent and server solaris installers respectively. </p>
+<p>To generate solaris installer Go uses the unzipped zip installer like other linux installers along with the necessary files for solaris packaging that are taken from <em>sol</em> module inside agent/server modules of installer. </p>
+<p>The <em>sol</em> module provides the scripts for pre/post install and un-insatll solaris installer. <code>pkginfo</code> file contains the necessary information about the package and the <code>svc.xml</code> provides the data required by <em>svcadm</em> and register Go as a service on solaris. Prototype file entries are generated with <em>pkgproto</em> command and given as input to <em>pkgmk</em> command which produces an installable package. The installable package is then taken and translated to datastream with <em>pkgtrans</em> command followed by <em>gzip</em> to generate the installer.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../4/4.4.html" class="navigation navigation-prev navigation-unique"><i class="fa fa-angle-left"></i></a>
+        
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>

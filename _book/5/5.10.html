@@ -1,0 +1,572 @@
+<!DOCTYPE HTML>
+<html lang="en-US" manifest="../manifest.appcache">
+    <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
+        
+        <meta charset="UTF-8">
+        <title>OAuth Gadgets | Go Developer Documentation</title>
+
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="robots" content="index, follow">
+        <meta name="author" content="GoCD">
+        <meta name="description" content="Documentation describing the development environment, technology stack and architecture of Go.">
+        <meta name="keywords" content="gitbook,github" >
+        <meta name="generator" content="www.gitbook.io">
+
+        
+        <link rel="next" href="../5/5.11.html" />
+        
+        
+
+        <meta property="og:title" content="OAuth Gadgets | Go Developer Documentation">
+        <meta property="og:site_name" content="Go Developer Documentation">
+        <meta property="og:type" content="book">
+        <meta property="og:locale" content="en_US">
+
+        <meta property="book:author" content="https://github.com/GoCD">
+        <meta property="book:tag" content="GitBook">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    </head>
+    <body>
+        
+
+        <link rel="stylesheet" href="../gitbook/style.css">
+        
+
+
+        
+    <div class="book" data-github="GoCD/documentation" data-level="5.10" data-basepath=".." data-revision="1399971823399">
+    <div class="book-header">
+    <!-- Actions Left -->
+    
+    <a href="http://go.cd" target="_blank" class="btn pull-left"><i class="fa fa-bookmark-o"></i></a>
+    
+    <a href="#" class="btn pull-left toggle-summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search"><i class="fa fa-search"></i></a>
+    <span id="font-settings-wrapper">
+        <a href="#" class="btn pull-left toggle-font-settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+	<div class="dropdown-caret">
+  <span class="caret-outer"></span>
+  <span class="caret-inner"></span>
+</div>
+
+	<div class="btn-group btn-block">
+		<button id="reduce-font-size" class="btn btn-default">A</button>
+		<button id="enlarge-font-size" class="btn btn-default">A</button>
+	</div>
+
+	<ul class="list-group font-family-list">
+		<li class="list-group-item" data-font="0">Serif</li>
+		<li class="list-group-item" data-font="1">Sans</li>
+	</ul>
+
+	<div class="btn-group btn-group-xs btn-block color-theme-list">
+	  <button type="button" class="btn btn-default" id="color-theme-preview-0" data-theme="0">White</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-1" data-theme="1">Sepia</button>
+	  <button type="button" class="btn btn-default" id="color-theme-preview-2" data-theme="2">Night</button>
+	</div>
+</div>
+
+    </span>
+
+    <!-- Actions Right -->
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="google-plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right" data-sharing="twitter"><i class="fa fa-twitter"></i></a>
+    
+
+    
+    <a href="https://github.com/GoCD/documentation/stargazers" target="_blank" class="btn pull-right count-star hidden-xs"><i class="fa fa-star-o"></i> Star (<span>-</span>)</a>
+    <a href="https://github.com/GoCD/documentation/watchers" target="_blank" class="btn pull-right count-watch hidden-xs"><i class="fa fa-eye"></i> Watch (<span>-</span>)</a>
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-spinner fa-spin"></i>
+        <a href="../" >Go Developer Documentation</a>
+    </h1>
+</div>
+
+    <div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+        <li>
+            <a href="https://github.com/gocd/documentation/" target="blank">About the author</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/gocd/documentation/issues" target="blank">Questions and Issues</a>
+        </li>
+        
+
+        
+        <li>
+            <a href="https://github.com/gocd/documentation/" target="blank">Edit and Contribute</a>
+        </li>
+        
+
+        
+        <li class="divider"></li>
+        
+
+        <li data-level="0" data-path="index.html">
+            <a href="../"><i class="fa fa-check"></i> Introduction</a>
+        </li>
+        
+            <li  data-level="1" >
+                
+                <span><b>1.</b> Concepts in Go</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="1.1" data-path="1/1.1.html">
+                            
+                            <a href="../1/1.1.html">
+                                <i class="fa fa-check"></i> <b>1.1.</b> Domain
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="1.2" >
+                            
+                            <span><b>1.2.</b> Implementation</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="2" >
+                
+                <span><b>2.</b> Getting Started</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="2.1" data-path="2/2.1.html">
+                            
+                            <a href="../2/2.1.html">
+                                <i class="fa fa-check"></i> <b>2.1.</b> Setting up your development environment
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.2" data-path="2/2.2.html">
+                            
+                            <a href="../2/2.2.html">
+                                <i class="fa fa-check"></i> <b>2.2.</b> How to go about making changes to the codebase
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.3" data-path="2/2.3.html">
+                            
+                            <a href="../2/2.3.html">
+                                <i class="fa fa-check"></i> <b>2.3.</b> How to add a configuration migration
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="2.4" data-path="2/2.4.html">
+                            
+                            <a href="../2/2.4.html">
+                                <i class="fa fa-check"></i> <b>2.4.</b> How to add a database migration
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="3" >
+                
+                <span><b>3.</b> Technology Stack</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="3.1" >
+                            
+                            <span><b>3.1.</b> Plugins Architecture - OSGi</span>
+                            
+                        </li>
+                    
+                        <li  data-level="3.2" data-path="3/3.2.html">
+                            
+                            <a href="../3/3.2.html">
+                                <i class="fa fa-check"></i> <b>3.2.</b> Object Relation Mapping (ORM) - Hibernate &amp; IBatis
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.3" >
+                            
+                            <span><b>3.3.</b> Caching - EhCache</span>
+                            
+                        </li>
+                    
+                        <li  data-level="3.4" data-path="3/3.4.html">
+                            
+                            <a href="../3/3.4.html">
+                                <i class="fa fa-check"></i> <b>3.4.</b> Dependency Injection (DI) - Spring
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.5" >
+                            
+                            <span><b>3.5.</b> Model View Controller (MVC)</span>
+                            
+                        </li>
+                    
+                        <li  data-level="3.6" data-path="3/3.6.html">
+                            
+                            <a href="../3/3.6.html">
+                                <i class="fa fa-check"></i> <b>3.6.</b> User Interface (UI) - jQuery &amp; Prototype, SCSS, HTML
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="3.7" >
+                            
+                            <span><b>3.7.</b> Build Tool - Buildr</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="4" >
+                
+                <span><b>4.</b> Architecture of Go</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="4.1" >
+                            
+                            <span><b>4.1.</b> [Overview](4/4.1.md#overview</span>
+                            
+                        </li>
+                    
+                        <li  data-level="4.2" data-path="4/4.2.html#go-server">
+                            
+                            <a href="../4/4.2.html#go-server">
+                                <i class="fa fa-check"></i> <b>4.2.</b> Go Server
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.3" data-path="4/4.3.html">
+                            
+                            <a href="../4/4.3.html">
+                                <i class="fa fa-check"></i> <b>4.3.</b> Go Agent
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.4" data-path="4/4.4.html">
+                            
+                            <a href="../4/4.4.html">
+                                <i class="fa fa-check"></i> <b>4.4.</b> Common
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="4.5" data-path="4/4.5.html">
+                            
+                            <a href="../4/4.5.html">
+                                <i class="fa fa-check"></i> <b>4.5.</b> Build Infrastructure
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="5" >
+                
+                <span><b>5.</b> Features</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="5.1" data-path="5/5.1.html">
+                            
+                            <a href="../5/5.1.html">
+                                <i class="fa fa-check"></i> <b>5.1.</b> Dashboard
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.2" data-path="5/5.2.html">
+                            
+                            <a href="../5/5.2.html">
+                                <i class="fa fa-check"></i> <b>5.2.</b> Fan-in
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.3" data-path="5/5.3.html">
+                            
+                            <a href="../5/5.3.html">
+                                <i class="fa fa-check"></i> <b>5.3.</b> Value Stream Map
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.4" data-path="5/5.4.html">
+                            
+                            <a href="../5/5.4.html">
+                                <i class="fa fa-check"></i> <b>5.4.</b> Compare Pipeline
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.5" data-path="5/5.5.html">
+                            
+                            <a href="../5/5.5.html">
+                                <i class="fa fa-check"></i> <b>5.5.</b> PackageRepository
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.6" >
+                            
+                            <span><b>5.6.</b> Command Repository</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.7" data-path="5/5.7.html">
+                            
+                            <a href="../5/5.7.html">
+                                <i class="fa fa-check"></i> <b>5.7.</b> Environments
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.8" >
+                            
+                            <span><b>5.8.</b> Templates</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.9" >
+                            
+                            <span><b>5.9.</b> Shine</span>
+                            
+                        </li>
+                    
+                        <li  data-level="5.10" data-path="5/5.10.html">
+                            
+                            <a href="../5/5.10.html">
+                                <i class="fa fa-check"></i> <b>5.10.</b> OAuth Gadgets
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="5.11" data-path="5/5.11.html">
+                            
+                            <a href="../5/5.11.html">
+                                <i class="fa fa-check"></i> <b>5.11.</b> Backup
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="6" >
+                
+                <span><b>6.</b> CD in practice</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="6.1" >
+                            
+                            <span><b>6.1.</b> Build Go Using Go</span>
+                            
+                        </li>
+                    
+                        <li  data-level="6.2" data-path="6/6.2.html">
+                            
+                            <a href="../6/6.2.html">
+                                <i class="fa fa-check"></i> <b>6.2.</b> Test Infrastructure
+                            </a>
+                            
+                        </li>
+                    
+                        <li  data-level="6.3" >
+                            
+                            <span><b>6.3.</b> Continuous Deployment</span>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+            <li  data-level="7" >
+                
+                <span><b>7.</b> Miscellaneous</span>
+                
+                
+                <ul class="articles">
+                    
+                        <li  data-level="7.1" data-path="7/7.1.html">
+                            
+                            <a href="../7/7.1.html">
+                                <i class="fa fa-check"></i> <b>7.1.</b> Technical Debt
+                            </a>
+                            
+                        </li>
+                    
+                </ul>
+                
+            </li>
+        
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank">Generated using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="page-wrapper" tabindex="-1">
+                <div class="book-progress">
+    <div class="bar">
+        <div class="inner" style="width: 63.63636363636363%;min-width: 59.09090909090909%;"></div>
+    </div>
+    <div class="chapters">
+    
+        <a href="../index.html" title="Introduction" class="chapter done new-chapter" data-progress="0" style="left: 0%;"></a>
+    
+        <a href="../1/1.1.html" title="Domain" class="chapter done " data-progress="1.1" style="left: 4.545454545454546%;"></a>
+    
+        <a href="../2/2.1.html" title="Setting up your development environment" class="chapter done " data-progress="2.1" style="left: 9.090909090909092%;"></a>
+    
+        <a href="../2/2.2.html" title="How to go about making changes to the codebase" class="chapter done " data-progress="2.2" style="left: 13.636363636363637%;"></a>
+    
+        <a href="../2/2.3.html" title="How to add a configuration migration" class="chapter done " data-progress="2.3" style="left: 18.181818181818183%;"></a>
+    
+        <a href="../2/2.4.html" title="How to add a database migration" class="chapter done " data-progress="2.4" style="left: 22.727272727272727%;"></a>
+    
+        <a href="../3/3.2.html" title="Object Relation Mapping (ORM) - Hibernate &amp; IBatis" class="chapter done " data-progress="3.2" style="left: 27.272727272727273%;"></a>
+    
+        <a href="../3/3.4.html" title="Dependency Injection (DI) - Spring" class="chapter done " data-progress="3.4" style="left: 31.818181818181817%;"></a>
+    
+        <a href="../3/3.6.html" title="User Interface (UI) - jQuery &amp; Prototype, SCSS, HTML" class="chapter done " data-progress="3.6" style="left: 36.36363636363637%;"></a>
+    
+        <a href="../4/4.2.html#go-server" title="Go Server" class="chapter done " data-progress="4.2" style="left: 40.90909090909091%;"></a>
+    
+        <a href="../4/4.3.html" title="Go Agent" class="chapter done " data-progress="4.3" style="left: 45.45454545454545%;"></a>
+    
+        <a href="../4/4.4.html" title="Common" class="chapter done " data-progress="4.4" style="left: 50%;"></a>
+    
+        <a href="../4/4.5.html" title="Build Infrastructure" class="chapter done " data-progress="4.5" style="left: 54.54545454545455%;"></a>
+    
+        <a href="../5/5.1.html" title="Dashboard" class="chapter done " data-progress="5.1" style="left: 59.09090909090909%;"></a>
+    
+        <a href="../5/5.10.html" title="OAuth Gadgets" class="chapter done " data-progress="5.10" style="left: 63.63636363636363%;"></a>
+    
+        <a href="../5/5.11.html" title="Backup" class="chapter  " data-progress="5.11" style="left: 68.18181818181819%;"></a>
+    
+        <a href="../5/5.2.html" title="Fan-in" class="chapter  " data-progress="5.2" style="left: 72.72727272727273%;"></a>
+    
+        <a href="../5/5.3.html" title="Value Stream Map" class="chapter  " data-progress="5.3" style="left: 77.27272727272727%;"></a>
+    
+        <a href="../5/5.4.html" title="Compare Pipeline" class="chapter  " data-progress="5.4" style="left: 81.81818181818181%;"></a>
+    
+        <a href="../5/5.5.html" title="PackageRepository" class="chapter  " data-progress="5.5" style="left: 86.36363636363636%;"></a>
+    
+        <a href="../5/5.7.html" title="Environments" class="chapter  " data-progress="5.7" style="left: 90.9090909090909%;"></a>
+    
+        <a href="../6/6.2.html" title="Test Infrastructure" class="chapter  " data-progress="6.2" style="left: 95.45454545454545%;"></a>
+    
+        <a href="../7/7.1.html" title="Technical Debt" class="chapter  " data-progress="7.1" style="left: 100%;"></a>
+    
+    </div>
+</div>
+
+                <div class="page-inner">
+                
+                    <section class="normal" id="section-gitbook_13">
+                    
+                        <h1 id="5-11-oauth-gadgets">5.11 OAuth Gadgets</h1>
+<p>ThoughtWorks Studios products use the <a href="http://opensocial.org" target="_blank">OpenSocial</a> gadget stack to provide UI integrations. This provides a secure, standards-based platform for displaying one application&#39;s content in another application. Part of this infrastructure is that Go is itself an OpenSocial gadget rendering server. In general, a gadget is simply a piece of content from another application, such as showing a Mingle card activity table inside of Go.</p>
+<p>Most OpenSocial gadgets are publicly available content that do not require authentication and authorization. However, some gadgets, such as those published by the ThoughtWorks Studios products Go and Mingle, do require authorization. To accomplish this, Go&#39;s gadget rendering server supports OAuth 2.0 services.</p>
+<p>OAuth is an open-standard that enables a user to share private protected resources (e.g. photos or financial records) which she stores on one site (or application) with another one of her commonly used sites or applications without asking her to share any passwords between the two sites. More details about OAuth can be found <a href="http://www.thoughtworks.com/products/docs/go/current/help/what_is_oauth.html" target="_blank">here</a>. </p>
+<p>More about Mingle gadget in Go can be found <a href="6.4.html">here</a>.</p>
+
+                    
+                    </section>
+                
+                </div>
+            </div>
+        </div>
+
+        
+        
+        <a href="../5/5.11.html" class="navigation navigation-next navigation-unique"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/ace.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.1.3/mode-javascript.js"></script>
+        <script src="../gitbook/jsrepl/jsrepl.js" id="jsrepl-script"></script>
+        <script src="../gitbook/app.js"></script>
+        
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mixpanel/plugin.js"></script>
+    
+
+    
+    <script src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {};
+    gitbook.start(config);
+});
+</script>
+
+    </body>
+</html>
