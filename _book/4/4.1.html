@@ -3,7 +3,7 @@
     <head prefix="og: http://ogp.me/ns# book: http://ogp.me/ns/book#">
         
         <meta charset="UTF-8">
-        <title>Domain | Go Developer Documentation</title>
+        <title>Overview | Go Developer Documentation</title>
 
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="robots" content="index, follow">
@@ -13,9 +13,11 @@
         <meta name="generator" content="www.gitbook.io">
 
         
+        <link rel="next" href="../4/4.2.html" />
+        
         
 
-        <meta property="og:title" content="Domain | Go Developer Documentation">
+        <meta property="og:title" content="Overview | Go Developer Documentation">
         <meta property="og:site_name" content="Go Developer Documentation">
         <meta property="og:type" content="book">
         <meta property="og:locale" content="en_US">
@@ -38,7 +40,7 @@
 
 
         
-    <div class="book" data-github="GoCD/documentation" data-level="1.1" data-basepath=".." data-revision="1400133467948">
+    <div class="book" data-github="GoCD/documentation" data-level="4.1" data-basepath=".." data-revision="1400133467948">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -464,7 +466,7 @@
             <div class="page-wrapper" tabindex="-1">
                 <div class="book-progress">
     <div class="bar">
-        <div class="inner" style="width: 4.3478260869565215%;min-width: 0%;"></div>
+        <div class="inner" style="width: 39.130434782608695%;min-width: 34.78260869565217%;"></div>
     </div>
     <div class="chapters">
     
@@ -472,21 +474,21 @@
     
         <a href="../1/1.1.html" title="Domain" class="chapter done " data-progress="1.1" style="left: 4.3478260869565215%;"></a>
     
-        <a href="../2/2.1.html" title="Setting up your development environment" class="chapter  " data-progress="2.1" style="left: 8.695652173913043%;"></a>
+        <a href="../2/2.1.html" title="Setting up your development environment" class="chapter done " data-progress="2.1" style="left: 8.695652173913043%;"></a>
     
-        <a href="../2/2.2.html" title="How to go about making changes to the codebase" class="chapter  " data-progress="2.2" style="left: 13.043478260869565%;"></a>
+        <a href="../2/2.2.html" title="How to go about making changes to the codebase" class="chapter done " data-progress="2.2" style="left: 13.043478260869565%;"></a>
     
-        <a href="../2/2.3.html" title="How to add a configuration migration" class="chapter  " data-progress="2.3" style="left: 17.391304347826086%;"></a>
+        <a href="../2/2.3.html" title="How to add a configuration migration" class="chapter done " data-progress="2.3" style="left: 17.391304347826086%;"></a>
     
-        <a href="../2/2.4.html" title="How to add a database migration" class="chapter  " data-progress="2.4" style="left: 21.73913043478261%;"></a>
+        <a href="../2/2.4.html" title="How to add a database migration" class="chapter done " data-progress="2.4" style="left: 21.73913043478261%;"></a>
     
-        <a href="../3/3.2.html" title="Object Relation Mapping (ORM) - Hibernate &amp; IBatis" class="chapter  " data-progress="3.2" style="left: 26.08695652173913%;"></a>
+        <a href="../3/3.2.html" title="Object Relation Mapping (ORM) - Hibernate &amp; IBatis" class="chapter done " data-progress="3.2" style="left: 26.08695652173913%;"></a>
     
-        <a href="../3/3.4.html" title="Dependency Injection (DI) - Spring" class="chapter  " data-progress="3.4" style="left: 30.434782608695652%;"></a>
+        <a href="../3/3.4.html" title="Dependency Injection (DI) - Spring" class="chapter done " data-progress="3.4" style="left: 30.434782608695652%;"></a>
     
-        <a href="../3/3.6.html" title="User Interface (UI) - jQuery &amp; Prototype, SCSS, HTML" class="chapter  " data-progress="3.6" style="left: 34.78260869565217%;"></a>
+        <a href="../3/3.6.html" title="User Interface (UI) - jQuery &amp; Prototype, SCSS, HTML" class="chapter done " data-progress="3.6" style="left: 34.78260869565217%;"></a>
     
-        <a href="../4/4.1.html" title="Overview" class="chapter  " data-progress="4.1" style="left: 39.130434782608695%;"></a>
+        <a href="../4/4.1.html" title="Overview" class="chapter done " data-progress="4.1" style="left: 39.130434782608695%;"></a>
     
         <a href="../4/4.2.html" title="Go Server" class="chapter  " data-progress="4.2" style="left: 43.47826086956522%;"></a>
     
@@ -521,10 +523,23 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_3556">
+                    <section class="normal" id="section-gitbook_3537">
                     
-                        <h2 id="1-1-domain">1.1 Domain</h2>
-<p>Please refer to <a href="http://www.thoughtworks.com/products/docs/go/current/help/concepts_in_go.html" target="_blank">this</a> user documentation to understand domain concepts of Go</p>
+                        <h2 id="-a-name-overview-a-4-1-overview"><a name="overview"></a>4.1 Overview</h2>
+<p>At the highest level, Go consists of two main components, the Go Server (referred to as &quot;server&quot;) and the Go Agent
+(referred to as &quot;agent&quot;).</p>
+<p><img src="images/server_agent.png" alt="Go Server with multiple agents"></p>
+<p>As soon as the server comes up, it opens two ports (an SSL port and a non-SSL port). The system works on a pull model in
+the sense that the agents periodically poll the server for work, instead of the server pushing work to the agents. This
+prevents the agents from having to have listening ports open on their side. The server coordinates everything, making
+sure that all the builds that need to run get run and all the agents are assigned work when possible.</p>
+<p>Below is a high-level overview of the main flow of Go, where a commit made to a repository is seen by Go and a build is 
+triggered based on it.</p>
+<hr>
+<p><img src="images/go_overview.png" alt="Go Server and Agent overview"></p>
+<hr>
+<p>Read about the internals of the Go Server, and terms such as MDU, Scheduler, etc. <a href="5.2.html">here</a>.</p>
+<p>Read about the internals of the Go Agent <a href="5.3.html">here</a>.</p>
 
                     
                     </section>
@@ -534,6 +549,8 @@
         </div>
 
         
+        
+        <a href="../4/4.2.html" class="navigation navigation-next navigation-unique"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
