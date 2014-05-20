@@ -40,7 +40,7 @@
 
 
         
-    <div class="book" data-github="GoCD/documentation" data-level="7.1" data-basepath=".." data-revision="1400136526630">
+    <div class="book" data-github="GoCD/documentation" data-level="7.1" data-basepath=".." data-revision="1400607469073">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -545,20 +545,11 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_524">
+                    <section class="normal" id="section-gitbook_191">
                     
                         <h2 id="7-1-technical-debt">7.1 Technical Debt</h2>
 <p>Most codebases which have been worked on by many people, over a long, long time, usually have some parts which are not very nice. Here are some parts of the Go codebase (in no particular order) which could do with cleaning up -</p>
-<h3 id="7-1-1-hibernate-and-ibatis-both-used">7.1.1 Hibernate and iBatis - Both used</h3>
-<h4 id="description">Description</h4>
-<p>Some of the DAOs in the Go codebase still use iBatis. Some use Hibernate. This causes, for instance, the transaction
-management to be more complicated than it should be. It also stops Go from easily supporting multiple databases.</p>
-<h4 id="history">History</h4>
-<p>It was a planned and slow strangler move from iBatis to Hibernate, which got slower over time, rather than quicker.</p>
-<h4 id="moving-forward">Moving forward</h4>
-<p>Need to move iBatis code over to Hibernate whenever any work around an area is done. Might need to allocate some time
-specifically to move, too.</p>
-<h3 id="7-1-2-old-version-of-jruby-and-rails-in-codebase">7.1.2 Old version of JRuby and Rails in codebase</h3>
+<h3 id="7-1-1-old-version-of-jruby-and-rails-in-codebase">7.1.1 Old version of JRuby and Rails in codebase</h3>
 <h4 id="description">Description</h4>
 <p>Go uses a 2.3.x release of Rails, which recently got deprecated. Probably don&#39;t need to say much more about this. :(
 It causes Go to not be able to take advantage of new improvements in Rails. Causes people to have to use antiquated
@@ -578,9 +569,19 @@ the codebase. Need to bring in Bundler into the codebase for gem management. Big
 fail.</p>
 </li>
 </ol>
-<h3 id="7-1-3-use-of-velocity-for-views">7.1.3 Use of velocity for views</h3>
-<h3 id="7-1-4-remove-old-view-usage-in-acceptance-get-delete-those-views">7.1.4 Remove old view usage in acceptance &amp; get delete those views</h3>
-<h3 id="7-1-5-util-module-should-be-used-only-by-server-">7.1.5 ‘util’ module should be used only by ‘server’</h3>
+<h3 id="7-1-2-improve-user-documentation">7.1.2 Improve user documentation</h3>
+<p>generate images for every release (automation)</p>
+<h3 id="7-1-3-upgrade-jetty-6-1-23-9-1-3-spring-3-0-3-4-x">7.1.3 Upgrade jetty 6.1.23 -&gt; 9.1.3, spring 3.0.3 -&gt; 4.x</h3>
+<h3 id="7-1-4-use-of-velocity-for-views">7.1.4 Use of velocity for views</h3>
+<h3 id="7-1-5-hibernate-and-ibatis-both-used">7.1.5 Hibernate and iBatis - Both used</h3>
+<h4 id="description">Description</h4>
+<p>Some of the DAOs in the Go codebase still use iBatis. Some use Hibernate. This causes, for instance, the transaction
+management to be more complicated than it should be. It also stops Go from easily supporting multiple databases.</p>
+<h4 id="history">History</h4>
+<p>It was a planned and slow strangler move from iBatis to Hibernate, which got slower over time, rather than quicker.</p>
+<h4 id="moving-forward">Moving forward</h4>
+<p>Need to move iBatis code over to Hibernate whenever any work around an area is done. Might need to allocate some time
+specifically to move, too.</p>
 <h3 id="7-1-6-javascript-frameworks">7.1.6 Javascript frameworks</h3>
 <h4 id="description">Description</h4>
 <ol>
@@ -597,12 +598,8 @@ organized.</p>
 <h4 id="history">History</h4>
 <p>A consequence of a long-running project, probably. Some amount of stranglers left behind. Some cleanup should have
 been done before, but wasn&#39;t. Needs to be done now.</p>
-<h3 id="7-1-7-improve-user-documentation">7.1.7 Improve user documentation</h3>
-<p>generate images for every release (automation)</p>
-<h3 id="7-1-8-deprecate-usage-of-ant">7.1.8 Deprecate usage of ant</h3>
-<p>use maven for modules with rake for scripting &amp; buildr for installers. currently we use ant for building osx installer.</p>
-<h3 id="7-1-9-upgrade-jetty-6-1-23-9-1-3">7.1.9 Upgrade jetty 6.1.23 -&gt; 9.1.3</h3>
-<h3 id="7-1-10-make-server-agent-independent-of-jetty-so-that-we-can-support-all-servers-">7.1.10 Make server &amp; agent independent of jetty so that we can support all servers.</h3>
+<h3 id="7-1-7-make-server-agent-independent-of-jetty-so-that-we-can-support-all-servers-">7.1.7 Make server &amp; agent independent of jetty so that we can support all servers.</h3>
+<h3 id="7-1-8-util-module-should-be-used-only-by-server-">7.1.8 ‘util’ module should be used only by ‘server’</h3>
 
                     
                     </section>

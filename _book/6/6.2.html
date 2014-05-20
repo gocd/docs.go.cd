@@ -40,7 +40,7 @@
 
 
         
-    <div class="book" data-github="GoCD/documentation" data-level="6.2" data-basepath=".." data-revision="1400136526630">
+    <div class="book" data-github="GoCD/documentation" data-level="6.2" data-basepath=".." data-revision="1400607469073">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -545,7 +545,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_496">
+                    <section class="normal" id="section-gitbook_162">
                     
                         <h2 id="6-2-test-infrastructure">6.2 Test Infrastructure</h2>
 <p>Being advocates of continuous delivery and firm believers of TDD, we understand the power that automated testing brings. Automated tests are core to the development process of Go, and we strive to ensure that all production code is covered by automated tests.
@@ -605,7 +605,7 @@ Working directory: <code>$ModuleFileDir$/webapp/WEB-INF/rails</code></p>
 </ul>
 <h3 id="6-2-5-performance-tests">6.2.5 Performance Tests</h3>
 <p>We use <a href="http://www.yourkit.com/" target="_blank">Yourkit java profiler</a> to profile Go. The test involves a setup of 100 materials of each supported SCM type, with 500 pipelines and 100 agents. </p>
-<p>To simulate a very active system, continuous commits are made to each of the different materials which are configured. This would cause each of the pipelines to run utilizing all available agents. In the meanwhile, multiple <a herf="http://httpd.apache.org/docs/current/programs/ab.html">ab requests</a> are made to different pages of the application to simulate user interaction.
+<p>To simulate a very active system, continuous commits are made to each of the different materials which are configured. This would cause each of the pipelines to run utilizing all available agents. In the meanwhile, multiple <a href="http://httpd.apache.org/docs/current/programs/ab.html">ab requests</a> are made to different pages of the application to simulate user interaction.
 During this entire activity, Yourkit profiler is started to perform memory, CPU and Sql profiling. This goes on for about 30 minutes after which yourkit snapshot is saved and examined.</p>
 <h3 id="6-2-6-test-parallelization">6.2.6 Test Parallelization</h3>
 <p>By default, each job in the build pipeline would run tests from a given module. However, few modules like <em>server</em> and <em>common</em> have a lot of tests. Running them in a serial fashion would take along time.  Quick feedback through build is very important, however as the number of tests increase the longer the test execution time would be. In order to tackle this issue, we use a <a href="http://test-load-balancer.github.io/" target="_blank">Test load balancer</a> to perform test parallelization. TLB creates &#39;n&#39; number of partitions of tests. There are multiple jobs created in the build pipeline each with a allocated <em>TLB_PARTITION_NUMBER</em>. Based on the <em>TLB_PARTITION_NUMBER</em>, TLB would assign the tests in a given partition to the job.</p>

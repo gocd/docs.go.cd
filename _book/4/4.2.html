@@ -42,7 +42,7 @@
 
 
         
-    <div class="book" data-github="GoCD/documentation" data-level="4.2" data-basepath=".." data-revision="1400136526630">
+    <div class="book" data-github="GoCD/documentation" data-level="4.2" data-basepath=".." data-revision="1400607469073">
     <div class="book-header">
     <!-- Actions Left -->
     
@@ -547,7 +547,7 @@
 
                 <div class="page-inner">
                 
-                    <section class="normal" id="section-gitbook_508">
+                    <section class="normal" id="section-gitbook_174">
                     
                         <h2 id="4-2-go-server">4.2 Go Server</h2>
 <p>The Go server is made up of multiple sub-systems, communicating between themselves using ActiveMQ message queues and the
@@ -564,7 +564,7 @@ and a method is invoked on it periodically. Every time it gets called, it does t
 <li>Checks each material to see if there are any new commits.</li>
 <li>If found, it puts information about them into the database (modifications).</li>
 </ul>
-<p>You can read more about this <a href="#523-material-update-sub-system-mdu">here</a>.</p>
+<p>You can read more about this <a href="#423-material-update-sub-system">here</a>.</p>
 <h3 id="scheduling-sub-system-scheduler-">Scheduling sub-system (Scheduler)</h3>
 <p>It runs off a timer and a method is invoked on it periodically. Every time it gets called, it does this:</p>
 <ul>
@@ -572,11 +572,11 @@ and a method is invoked on it periodically. Every time it gets called, it does t
 etc), checks if any new modification is available for one of its materials.</li>
 <li>If available, it schedules a build (creates jobs to be run).</li>
 </ul>
-<p>You can read more about this <a href="#525-pipeline-scheduling">here</a>.</p>
+<p>You can read more about this <a href="#425-pipeline-scheduling">here</a>.</p>
 <h3 id="work-assignment-sub-system">Work assignment sub-system</h3>
 <p>This sub-system gets activated by the agent communicating with the server. Every time an agent communicates with the
 server, the server assigns a matching job to the agent, based on the job&#39;s resources and environment.</p>
-<p>You can read more about this <a href="#526-work-assignment">here</a>.</p>
+<p>You can read more about this <a href="#426-work-assignment">here</a>.</p>
 <h3 id="other-sub-systems">Other sub-systems</h3>
 <p>Apart from these three main sub-systems, there are some other sub-systems and modules worth mentioning:</p>
 <ul>
@@ -588,19 +588,19 @@ server, the server assigns a matching job to the agent, based on the job&#39;s r
 <p>Largely made up of the two smaller modules, config-server and config-api, in code, the configuration management module
 is responsible for all of the activities around serializing and deserializing the configuration object from and to the
 configuration XML.</p>
-<p>You can read more about this <a href="#521-configuration-management">here</a>.</p>
+<p>You can read more about this <a href="#421-configuration-management">here</a>.</p>
 <h4 id="user-interface-ui-sub-system">User interface (UI) sub-system</h4>
 <p>This subsystem is composed mainly of a Rails application running on JRuby, fronted by the Jetty web server, with
 Spring&#39;s Web MVC framework for the servlets. All HTTP and HTTPS requests get routed through Jetty and Spring, through a
 URL rewriting layer and then comes to Rails&#39; routing layer.</p>
-<p>You can read more about this <a href="4.6.html">here</a>.</p>
+<p>You can read more about this <a href="#4210-user-interface-architecture">here</a>.</p>
 <h4 id="plugin-sub-system">Plugin sub-system</h4>
 <p>This sub-system is responsible for communication with all the plugins in the system and the framework around them,
 including installation and registration, to handling missing plugins. It is used by other sub-systems, as needed. In
 code, the modules involved in this sub-system are go-plugin-api, go-plugin-activator, go-plugin-infra and
 go-plugin-internal-api.</p>
-<p>You can read more about this <a href="5.4.md#541-plugins-architecture---osgi">here</a>.</p>
-<h3 id="4-2-1-configuration-management">4.2.1 Configuration Management</h3>
+<p>You can read more about this <a href="4.4.html">here</a>.</p>
+<h3 id="-a-name-421-configuration-management-a-4-2-1-configuration-management"><a name="421-configuration-management"></a>4.2.1 Configuration Management</h3>
 <p>There are multiple ways to configure Go:</p>
 <ul>
 <li>Admin interface in UI - These let you modify only specific section of the config</li>
@@ -674,7 +674,7 @@ private void backupDb(File backupDir) throws SQLException {
         databaseStrategy.backup(backupDir);
 }
 ...
-</code></pre><h3 id="4-2-3-material-update-sub-system-mdu-">4.2.3 Material update sub-system (MDU)</h3>
+</code></pre><h3 id="-a-name-423-material-update-sub-system-a-4-2-3-material-update-sub-system-mdu-"><a name="423-material-update-sub-system"></a> 4.2.3 Material update sub-system (MDU)</h3>
 <p>This sub-system is called MDU for historical reasons (originally, &quot;Material Database Updater&quot;). As its name suggests,
 its job is to update the materials configured in the system to their latest state. For SCM materials, this means
 recording commits which have happened since the last time they were checked; for package materials, this means giving
@@ -713,9 +713,9 @@ in-progress.</p>
 <p><strong>WIP</strong></p>
 <h3 id="4-2-4-build-cause-production">4.2.4 Build Cause Production</h3>
 <p><strong>WIP</strong></p>
-<h3 id="4-2-5-pipeline-scheduling">4.2.5 Pipeline Scheduling</h3>
+<h3 id="-a-name-425-pipeline-scheduling-a-4-2-5-pipeline-scheduling"><a name="425-pipeline-scheduling"></a> 4.2.5 Pipeline Scheduling</h3>
 <p><strong>WIP</strong></p>
-<h3 id="4-2-6-work-assignment">4.2.6 Work Assignment</h3>
+<h3 id="-a-name-426-work-assignment-a-4-2-6-work-assignment"><a name="426-work-assignment"></a> 4.2.6 Work Assignment</h3>
 <p><strong>WIP</strong></p>
 <h4 id="4-2-6-1-resource-environment-mapping">4.2.6.1 Resource &amp; Environment Mapping</h4>
 <p><strong>WIP</strong></p>
@@ -731,7 +731,7 @@ in-progress.</p>
 <p><strong>WIP</strong></p>
 <h3 id="4-2-9-agent-management">4.2.9 Agent Management</h3>
 <p><strong>WIP</strong></p>
-<h3 id="4-2-10-user-interface-architecture">4.2.10 User Interface Architecture</h3>
+<h3 id="-a-name-4210-user-interface-architecture-a-4-2-10-user-interface-architecture"><a name="4210-user-interface-architecture"></a>4.2.10 User Interface Architecture</h3>
 <p>As we mentioned we are using .html.erb(Rails) and .vm(Velocity) files for writing our markup and .SCSS for styling, so it will get converted into HTML and CSS by their respective frameworks. And we are using jQuery for API calling and event binding.</p>
 <p>Most of the front-end files resides inside <code>rails/app</code> folder where we have folders called <code>views</code> and <code>vm</code>, which groups all the <code>.ERBs</code> and <code>.VMs</code> respectively.</p>
 <p>Now let&#39;s understand, how the UI is architected in the Go. And understand how HTML, CSS, and JavaScript is organized.</p>

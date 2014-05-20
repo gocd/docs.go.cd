@@ -38,8 +38,8 @@ Building and serving
 * 3.7 Build Tool - Buildr ![NOT DONE](images/red.png)
 
 #### 4. Architecture of Go
-* 4.1 [Overview](4/4.1.md#overview) ![IN PROGRESS](images/green.png)
-* 4.2 [Go Server](4/4.2.md#go-server) ![DONE](images/green.png)
+* 4.1 [Overview](4/4.1.md) ![IN PROGRESS](images/green.png)
+* 4.2 [Go Server](4/4.2.md) ![DONE](images/green.png)
 * 4.3 [Go Agent](4/4.3.md) ![DONE](images/green.png)
 * 4.4 [Common](4/4.4.md) ![IN PROGRESS](images/yellow.png)
 * 4.5 [Build Infrastructure](4/4.5.md) ![DONE](images/green.png)
