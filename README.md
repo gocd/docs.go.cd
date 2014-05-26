@@ -31,7 +31,7 @@ Building and serving
 #### 3. Technology Stack
 * 3.1 Plugins Architecture - OSGi ![NOT DONE](images/red.png)
 * 3.2 [Object Relation Mapping (ORM) - Hibernate & IBatis](3/3.2.md) ![DONE](images/green.png)
-* 3.3 Caching - EhCache ![NOT DONE](images/red.png)
+* 3.3 [Caching - EhCache](3/3.3.md) ![DONE](images/green.png)
 * 3.4 [Dependency Injection (DI) - Spring](3/3.4.md) ![DONE](images/green.png)
 * 3.5 Model View Controller (MVC) ![NOT DONE](images/red.png)
 * 3.6 [User Interface (UI) - jQuery & Prototype, SCSS, HTML](3/3.6.md) ![DONE](images/green.png)
