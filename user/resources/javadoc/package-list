@@ -1,0 +1,12 @@
+com.thoughtworks.go.plugin.api
+com.thoughtworks.go.plugin.api.annotation
+com.thoughtworks.go.plugin.api.config
+com.thoughtworks.go.plugin.api.hook.joblifecycle
+com.thoughtworks.go.plugin.api.info
+com.thoughtworks.go.plugin.api.logging
+com.thoughtworks.go.plugin.api.material.packagerepository
+com.thoughtworks.go.plugin.api.material.packagerepository.exceptions
+com.thoughtworks.go.plugin.api.response
+com.thoughtworks.go.plugin.api.response.execution
+com.thoughtworks.go.plugin.api.response.validation
+com.thoughtworks.go.plugin.api.task
