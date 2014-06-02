@@ -10,7 +10,7 @@ Building and serving
 
 ### Status Legend
 
-* Not Done ![NOT DONE](developer/images/red.png)
+* Not Done ![NOT DONE](images/red.png)
 * In Progress ![IN PROGRESS](images/yellow.png) 
 * Pending Review ![PENDING REVIEW](images/blue.png)  
 * Done ![DONE](images/green.png)  
@@ -19,7 +19,7 @@ Building and serving
 ### Index
 
 #### 1. Concepts in Go
-* 1.1 [Domain](1/1.1.md) ![DONE](developer/images/green.png)
+* 1.1 [Domain](1/1.1.md) ![DONE](images/green.png)
 * 1.2 Implementation ![NOT DONE](images/red.png)
 
 #### 2. Getting Started
