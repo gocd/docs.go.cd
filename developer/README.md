@@ -10,7 +10,7 @@ Building and serving
 
 ### Status Legend
 
-* Not Done ![NOT DONE](images/red.png)
+* Not Done ![NOT DONE](./images/red.png)
 * In Progress ![IN PROGRESS](images/yellow.png) 
 * Pending Review ![PENDING REVIEW](images/blue.png)  
 * Done ![DONE](images/green.png)  
@@ -23,7 +23,7 @@ Building and serving
 * 1.2 Implementation ![NOT DONE](images/red.png)
 
 #### 2. Getting Started
-* 2.1 [Setting up your development environment](2/2.1.md) ![DONE](images/green.png)
+* 2.1 [Setting up your development environment](./2/2.1.md) ![DONE](images/green.png)
 * 2.2 [How to go about making changes to the codebase](2/2.2.md) ![DONE](images/green.png)
 * 2.3 [How to add a configuration migration](2/2.3.md) ![DONE](images/green.png)
 * 2.4 [How to add a database migration](2/2.4.md) ![DONE](images/green.png)
