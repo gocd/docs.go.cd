@@ -1,6 +1,6 @@
 #Introduction
 
-Go is an advanced Continuous Integration and Release Management system. It takes an innovative approach to managing the build, test and release process. In order to find your way around Go, you'll need to understand how Go sees the world. This page explains some basic concepts in Go.
+Go is an advanced Continuous Integration and Release Management system from [ThoughtWorks Studios](http://www.thoughtworks.com/products). It takes an innovative approach to managing the build, test and release process. In order to find your way around Go, you'll need to understand how Go sees the world. This page explains some basic concepts in Go.
 
 If you want to know more about Continuous Integration and delivery, in general, refer to Martin Fowler's article on the subject: [Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html) and [Continuous Delivery](http://martinfowler.com/bliki/ContinuousDelivery.html).
 
