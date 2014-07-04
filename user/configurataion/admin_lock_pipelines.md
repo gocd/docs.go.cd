@@ -6,7 +6,7 @@ If a pipeline is locked then Go will not allow any other instance of that pipeli
 
 To enable locking from the Config UI, navigate to the General Options section of pipeline.
 
-![](resources/images/cruise/admin/pipeline_locking.png)
+![](../resources/images/cruise/admin/pipeline_locking.png)
 
 To enable locking from the Config XML set the isLocked attribute to true
 

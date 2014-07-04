@@ -1,4 +1,4 @@
-## Go Developer Documentation
+## Go User Documentation
 
 Work in progress
 

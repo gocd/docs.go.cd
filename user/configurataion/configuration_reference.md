@@ -1,340 +1,197 @@
-Go Configuration Reference {#top}
-==========================
-
-[\<cruise\>](#cruise)
-
-[\<server\>](#server)
-
-[\<license/\>](#license) [\<security\>](#security)
-
-[\<ldap/\>](#ldap) [\<passwordFile/\>](#passwordFile)
-[\<roles/\>](#roles)
-
-[\<role/\>](#role_definition)
-
-[\<user/\>](#userinrole)
-
-[\<admins\>](#admins)
-
-[\<role/\>](#roleinadmin) [\<user/\>](#user)
-
-\</admins\>
-
-\</security\> [\<mailhost/\>](#mailhost)
-
-\</server\>
-
-[\<repositories\>](#repositories)
-
-[\<repository\>](#repository)
-
-[\<pluginConfiguration/\>](#pluginConfiguration)
-
-[\<configuration\>](#package-repo-configuration)
-
-[\<property\>](#package-repo-property)
-
-[\<key\>](#package-repo-property-key)
-
-[\<value\>](#package-repo-property-value)
-
-\</property\>
-
-\</configuration\>
-
-[\<packages\>](#packages)
-
-[\<package\>](#package)
-
-[\<configuration\>](#package-repo-configuration)
-
-[\<property\>](#package-repo-property)
-
-[\<key\>](#package-repo-property-key)
-
-[\<value\>](#package-repo-property-value)
-
-\</property\>
-
-\</configuration\>
-
-\</package\>
-
-\</packages\>
-
-\</repository\>
-
-\</repositories\>
-
-[\<pipelines\>](#pipelines)
-
-[\<authorization\>](#group_authorization)
-
-[\<admins\>](#group_admins)
-
-[\<user/\>](#user)
-
-[\<role/\>](#role)
-
-[\<view\>](#group_view)
-
-[\<user/\>](#user)
-
-[\<role/\>](#role)
-
-[\<operate\>](#group_operate)
-
-[\<user/\>](#user)
-
-[\<role/\>](#role)
-
-[\<pipeline\>](#pipeline)
-
-[\<params\>](#params)
-
-[\<param/\>](#param)
-
-\</params\>
-
-[\<trackingtool/\>](#trackingtool)
-
-[\<mingle/\>](#mingle)
-
-[\<timer/\>](#timer)
-
-[\<environmentvariables\>](#environmentvariables)
-
-[\<variable\>](#variable)
-
-\<value/\>
-
-\</variable\>
-
-\</environmentvariables\>
-
-[\<materials\>](#materials)
-
-[\<svn/\>](#svn)
-
-[\<filter/\>](#filter)
-
-[\<ignore/\>](#ignore)
-
-[\<hg/\>](#hg)
-
-[\<filter/\>](#filter)
-
-[\<ignore/\>](#ignore)
-
-[\<p4/\>](#p4)
-
-\<view\> [\<filter/\>](#filter)
-
-[\<ignore/\>](#ignore)
-
-[\<git/\>](#git)
-
-[\<filter/\>](#filter)
-
-[\<ignore/\>](#ignore)
-
-[\<tfs/\>](#tfs)
-
-[\<filter/\>](#filter)
-
-[\<ignore/\>](#ignore)
-
-[\<package/\>](#package-material) [\<pipeline/\>](#pipeline-dependency)
-
-\</materials\>
-
-[\<stage\>](#stage)
-
-[\<approval\>](#approval)
-
-[\<authorization\>](#authorization)
-
-[\<role/\>](#role) [\<user/\>](#user)
-
-\</authorization\>
-
-\</approval\>
-
-[\<environmentvariables\>](#environmentvariables)
-
-[\<variable\>](#variable)
-
-\<value/\>
-
-\</variable\>
-
-\</environmentvariables\>
-
-[\<jobs\>](#jobs)
-
-[\<job\>](#job)
-
-[\<environmentvariables\>](#environmentvariables)
-
-[\<variable\>](#variable)
-
-\<value/\>
-
-\</variable\>
-
-\</environmentvariables\>
-
-[\<resources\>](#resources)
-
-[\<resource/\>](#resource)
-
-\</resources\>
-
-[\<tasks\>](#tasks)
-
-[\<fetchartifact\>](#fetchartifact)
-
-[\<runif/\>](#runif)
-
-[\<oncancel/\>](#oncancel)
-
-\</fetchartifact\> [\<ant\>](#ant)
-
-[\<runif/\>](#runif%20)
-
-[\<oncancel/\>](#oncancel)
-
-\</ant\> [\<nant\>](#nant)
-
-[\<runif/\>](#runif%20)
-
-[\<oncancel/\>](#oncancel)
-
-\</nant\> [\<rake\>](#rake)
-
-[\<runif/\>](#runif%20)
-
-[\<oncancel/\>](#oncancel)
-
-\</rake\> [\<exec\>](#exec)
-
-[\<arg/\>](#arg)
-
-[\<runif/\>](#runif%20)
-
-[\<oncancel/\>](#oncancel)
-
-\</exec\>
-
-\</tasks\>
-
-[\<artifacts\>](#artifacts)
-
-[\<artifact/\>](#artifact) [\<test/\>](#test)
-
-\</artifacts\>
-
-[\<tabs\>](#tabs)
-
-[\<tab/\>](#tab)
-
-\</tabs\>
-
-[\<properties\>](#properties)
-
-[\<property/\>](#property)
-
-\</properties\>
-
-\</job\>
-
-\</jobs\>
-
-\</stage\>
-
-\</pipeline\>
-
-\</pipelines\>
-
-[\<templates\>](#templates)
-
-[\<pipeline\>](#pipeline-template)
-
-[\<stage\>](#stage)
-
-...
-
-\</stage\>
-
-\</pipeline\>
-
-\</pipeline\>
-
-[\<environments\>](#environments)
-
-[\<environment\>](#environment)
-
-[\<environmentvariables\>](#environmentvariables)
-
-[\<variable\>](#variable)
-
-\<value/\>
-
-\</variable\>
-
-\</environmentvariables\>
-
-[\<agents\>](#environment-agents)
-
-[\<physical\>](#environment-agents-physical) \</physical\>
-
-\</agents\>
-
-[\<pipelines\>](#environment-pipelines)
-
-[\<pipeline\>](#environment-pipeline) \</pipeline\>
-
-\</pipelines\>
-
-\</environment\>
-
-\</environments\> [\<agents\>](#agents)
-
-[\<agent\>](#agent)
-
-[\<resources\>](#agentresources)
-
-[\<resource/\>](#agentresource)
-
-\</resources\>
-
-\</agent\>
-
-\</agents\>
-
-\</cruise\>
-
-[top](#top)
-
-Configuration reference
-=======================
-
-\<cruise\>
-----------
-
-The \<cruise\> element is the root element of the configuration.
-
-[top](#top)
-
-\<server\>
-----------
-
-The \<server\> element can be used to define information and attributes
-of the Go Server.
+# Go Configuration Reference
+
+<big><pre>
+
+[< cruise >](#cruise)
+    [< server >](#server)
+        [< license/ >](#license) 
+        [< security >](#security)
+            [< ldap/ >](#ldap)
+            [< passwordFile/ >](#passwordFile)
+            [< roles/ >](#roles)
+                [< role/ >](#role_definition)
+                    [< user/ >](#userinrole)
+                [< admins >](#admins)
+                    [< role/ >](#roleinadmin)
+                    [< user/ >](#user)
+                < /admins >
+                < /security > 
+                [< mailhost/ >](#mailhost)
+            < /server >
+            [< repositories >](#repositories)
+                [< repository >](#repository)
+                    [< pluginConfiguration/ >](#pluginConfiguration)
+                    [< configuration >](#package-repo-configuration)
+                        [< property >](#package-repo-property)
+                            [< key >](#package-repo-property-key)
+                            [< value >](#package-repo-property-value)
+                        < /property >
+                    < /configuration >
+                    [< packages >](#packages)
+                        [< package >](#package)
+                            [< configuration >](#package-repo-configuration)
+                                [< property >](#package-repo-property)
+                                    [< key >](#package-repo-property-key)
+                                    [< value >](#package-repo-property-value)
+                                < /property >
+                            < /configuration >
+                        < /package >
+                    < /packages >
+                < /repository >
+            < /repositories >
+            [< pipelines >](#pipelines)
+                [< authorization >](#group_authorization)
+                    [< admins >](#group_admins)
+                        [< user/ >](#user)
+                        [< role/ >](#role)
+                    [< view >](#group_view)
+                        [< user/ >](#user)
+                        [< role/ >](#role)
+                    [< operate >](#group_operate)
+                        [< user/ >](#user)
+                        [< role/ >](#role)
+                [< pipeline >](#pipeline)
+                    [< params >](#params)
+                        [< param/ >](#param)
+                    < /params >
+                    [< trackingtool/ >](#trackingtool)
+                    [< mingle/ >](#mingle)
+                    [< timer/ >](#timer)
+                    [< environmentvariables >](#environmentvariables)
+                        [< variable >](#variable)
+                            < value/ >
+                        < /variable >
+                    < /environmentvariables >
+                    [< materials >](#materials)
+                        [< svn/ >](#svn)
+                            [< filter/ >](#filter)
+                                [< ignore/ >](#ignore)
+                        [< hg/ >](#hg)
+                            [< filter/ >](#filter)
+                                [< ignore/ >](#ignore)
+                        [< p4/ >](#p4)
+                            < view > 
+                            [< filter/ >](#filter)
+                                [< ignore/ >](#ignore)
+                        [< git/ >](#git)
+                            [< filter/ >](#filter)
+                                [< ignore/ >](#ignore)
+                        [< tfs/ >](#tfs)
+                            [< filter/ >](#filter)
+                                [< ignore/ >](#ignore)
+                        [< package/ >](#package-material)
+                        [< pipeline/ >](#pipeline-dependency)
+                    < /materials >
+                [< stage >](#stage)
+                    [< approval >](#approval)
+                    [< authorization >](#authorization)
+                        [< role/ >](#role)
+                        [< user/ >](#user)
+                    < /authorization >
+                < /approval >
+                    [< environmentvariables >](#environmentvariables)
+                        [< variable >](#variable)
+                            < value/ >
+                        < /variable >
+                    < /environmentvariables >
+                [< jobs >](#jobs)
+                    [< job >](#job)
+                        [< environmentvariables >](#environmentvariables)
+                            [< variable >](#variable)
+                                < value/ >
+                            < /variable >
+                        < /environmentvariables >
+                        [< resources >](#resources)
+                            [< resource/ >](#resource)
+                        < /resources >
+                        [< tasks >](#tasks)
+                            [< fetchartifact >](#fetchartifact)
+                                [< runif/ >](#runif)
+                                [< oncancel/ >](#oncancel)
+                            < /fetchartifact >
+                            [< ant >](#ant)
+                                [< runif/ >](#runif%20)
+                                [< oncancel/ >](#oncancel)
+                            < /ant >
+                            [< nant >](#nant)
+                                [< runif/ >](#runif%20)
+                                [< oncancel/ >](#oncancel)
+                            < /nant >
+                            [< rake >](#rake)
+                                [< runif/ >](#runif%20)
+                                [< oncancel/ >](#oncancel)
+                            < /rake >
+                            [< exec >](#exec)
+                                [< arg/ >](#arg)
+                                [< runif/ >](#runif%20)
+                                [< oncancel/ >](#oncancel)
+                            < /exec >
+                        < /tasks >
+                        [< artifacts >](#artifacts)
+                            [< artifact/ >](#artifact)
+                            [< test/ >](#test)
+                        < /artifacts >
+                        [< tabs >](#tabs)
+                            [< tab/ >](#tab)
+                        < /tabs >
+                        [< properties >](#properties)
+                            [< property/ >](#property)
+                        < /properties >
+                    < /job >
+                < /jobs >
+            < /stage >
+        < /pipeline >
+    < /pipelines >
+    [< templates >](#templates)
+        [< pipeline >](#pipeline-template)
+            [< stage >](#stage)
+                ...
+            < /stage >
+        < /pipeline >
+    < /pipeline >
+    [< environments >](#environments)
+        [< environment >](#environment)
+            [< environmentvariables >](#environmentvariables)
+                [< variable >](#variable)
+                    < value/ >
+                < /variable >
+            < /environmentvariables >
+            [< agents >](#environment-agents)
+                [< physical >](#environment-agents-physical)
+                < /physical >
+            < /agents >
+            [< pipelines >](#environment-pipelines)
+                [< pipeline >](#environment-pipeline)
+                < /pipeline >
+            < /pipelines >
+        < /environment >
+    < /environments >
+    [< agents >](#agents)
+        [< agent >](#agent)
+            [< resources >](#agentresources)
+                [< resource/ >](#agentresource)
+            < /resources >
+        < /agent >
+    < /agents >
+< /cruise >
+</pre></big>
+
+[top](#go-configuration-reference)
+
+# Configuration reference
+
+## < cruise >
+
+The < cruise > element is the root element of the configuration.
+
+[top](#go-configuration-reference)
+
+## < server >
+
+The < server > element can be used to define information and attributes of the Go Server.
 
 ### Attributes
 
-  --------------------------------------------------------------------------
   Attribute
   Required
   Description
