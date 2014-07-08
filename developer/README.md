@@ -1,7 +1,7 @@
 ## Go Developer Documentation
 
 ### Setting up [GitBook](https://github.com/GitbookIO/gitbook)
-We're using GitBook for generating our HTML Docs from markdown files. It is hosted [here](http://go.cd/documentation), and if you would like to contribute, you need GitBook [setup](https://github.com/GitbookIO/gitbook#how-to-use-it) for the same.
+We're using GitBook for generating our HTML Docs from markdown files. It is hosted [here](http://go.cd/documentation/developer), and if you would like to contribute, you need GitBook [setup](https://github.com/GitbookIO/gitbook#how-to-use-it) for the same.
 
 Building and serving 
 
