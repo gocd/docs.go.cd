@@ -1,6 +1,6 @@
 ## Go User Documentation
 
-Work in progress
+This documentation is still in it's initial stage. Please refer http://www.thoughtworks.com/products/docs/go/current/help/ for user documentation.
 
 * Not Done ![NOT DONE](../developer/images/red.png)
 
