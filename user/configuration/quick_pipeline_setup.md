@@ -106,11 +106,6 @@ You can see the complete configuration reference
 -   [Adding a stage to an existing pipeline](admin_add_stage.html)
 -   [Adding a job to an existing pipeline](admin_add_job.html)
 -   [Role-based authorization](dev_authorization.html)
--   [Role-based authorization](dev_authorization.html)
-
-
-
-
 
 © ThoughtWorks Studios, 2010
 
