@@ -37,7 +37,7 @@ Suppose the key of the configuration property stored in the XML is
 available to the template as "foobar" when used in an Angular-specific
 HTML attribute like "ng-model".
 
-![](resources/images/cruise/plugin_angular.png)
+![](../resources/images/cruise/plugin_angular.png)
 
 So, the name "foobar" needs to be the same across the configuration XML,
 the Angular template as well as in any code that the plugin has.

@@ -25,10 +25,10 @@ For this example, we're going to take the information out of
 -   On the [Administration Tab](administration_page.html), edit the job
     that should generate the properties
 -   Ensure the following "properties" block is in the job configuration
--   ![](resources/images/cruise/dev/save_properties/2_properties_config.png)
+-   ![](../resources/images/cruise/dev/save_properties/2_properties_config.png)
 -   Now, after that job has run, you should have extra properties
     information on the [Job Details](job_details_page.html) page
--   ![](resources/images/cruise/dev/save_properties/3_view_property.png)
+-   ![](../resources/images/cruise/dev/save_properties/3_view_property.png)
 -   You can export the property history as a CSV file
 
 Your search did not match any help pages.

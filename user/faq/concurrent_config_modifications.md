@@ -20,7 +20,7 @@ in a conflict.
 In case of a successful merge, user would see a success message as
 below:
 
-![](resources/images/cruise/admin/successful_config_merge.png)
+![](../resources/images/cruise/admin/successful_config_merge.png)
 
 ### Merge Conflicts {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -35,11 +35,11 @@ similar to the one displayed in the image below.
 User needs to re-apply their changes displayed on the left-hand pane, to
 the editable version on the right and save again.
 
-![](resources/images/cruise/admin/config_xml_merge_conflict.png)
+![](../resources/images/cruise/admin/config_xml_merge_conflict.png)
 
 ### Handling conflict while using Config XML tab (Pipeline group administrator) {.collapsible-heading onclick="toggleCollapse($(this));"}
 
-![](resources/images/cruise/admin/group_admin_merge_conflict.png)
+![](../resources/images/cruise/admin/group_admin_merge_conflict.png)
 
 ### Handling conflict while updating configuration via other Admin tabs {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -51,7 +51,7 @@ User should backup the required changes from the page. Clicking on
 latest version of the pipeline configuration. User should re-apply
 his/her changes from backup and save again.
 
-![](resources/images/cruise/admin/clicky_admin_merge_conflict.png)
+![](../resources/images/cruise/admin/clicky_admin_merge_conflict.png)
 
 Your search did not match any help pages.
 

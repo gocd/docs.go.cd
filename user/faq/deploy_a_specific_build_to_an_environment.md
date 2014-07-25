@@ -33,12 +33,12 @@ Steps to select the revisions of materials you want to deploy
 -   Navigate to the Environments page and locate the specific deployment
     pipeline you are interested in.
 -   Click on "Deploy Specific Revision".
--   ![](resources/images/cruise/release_manager/release_to_production/new_revisions.png)
+-   ![](../resources/images/cruise/release_manager/release_to_production/new_revisions.png)
 -   This gives you the list of available revisions for each material
 -   Click on the "Revision to Deploy" search box. This will list latest
     5 revisions/labels of your materials ordered by time of check-in
     (latest check-in on top)
--   ![](resources/images/cruise/release_manager/release_to_production/see_all_materials.png)
+-   ![](../resources/images/cruise/release_manager/release_to_production/see_all_materials.png)
 -   Select the revisions of all the materials that you would like to
     pick for deployment. You can search for the revision you want by
     -   revision hash/pipeline label
@@ -78,12 +78,12 @@ environment, then this is how you can use Go to do it.
     password as its value. This value will be encrypted by Go and passed
     along to the task.
 
-    ![](resources/images/cruise/release_manager/release_to_production/secure_variables_admin.png)
+    ![](../resources/images/cruise/release_manager/release_to_production/secure_variables_admin.png)
 
 -   Also, you can override secure variables when you use the 'Trigger
     With Options' feature.
 
-    ![](resources/images/cruise/release_manager/release_to_production/secure_variables_trigger.png)
+    ![](../resources/images/cruise/release_manager/release_to_production/secure_variables_trigger.png)
 
 Your search did not match any help pages.
 

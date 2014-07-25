@@ -20,7 +20,7 @@ To assign a user as a group administrator:
 3.  Click the "Edit" link for that group
 4.  Here, you can define permissions for users and roles
 
-![](resources/images/cruise/group_admin_permissions.png)
+![](../resources/images/cruise/group_admin_permissions.png)
 
 In the above screenshot, the Go admin has delegated group admin
 privileges to a user "jez" and all users defined under the role

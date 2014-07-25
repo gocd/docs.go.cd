@@ -39,7 +39,7 @@ are important so that artifacts for the stage are preserved.
 2.  Navigate to the pipelines section and choose a pipeline to edit
 3.  Navigate to the stage settings for the stage
 4.  ![Disable artifact
-    cleanup](resources/images/cruise/admin/artifact_disable_stage.png)
+    cleanup](../resources/images/cruise/admin/artifact_disable_stage.png)
 5.  Check the box 'Never Cleanup Aartifacts'
 
 ### Also see... {.collapsible-heading onclick="toggleCollapse($(this));"}

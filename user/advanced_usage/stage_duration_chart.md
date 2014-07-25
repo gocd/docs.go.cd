@@ -23,7 +23,7 @@ using the total duration of the last 300 stage instances.
 
 The following is a snapshot of a stage duration chart
 
-![](resources/images/cruise/stage_duration_graph.png)
+![](../resources/images/cruise/stage_duration_graph.png)
 
 Selecting a part of the graph zooms into the selected area. Once zoomed,
 a link called 'Reset Zoom' Appears on the chart which resets the graph.

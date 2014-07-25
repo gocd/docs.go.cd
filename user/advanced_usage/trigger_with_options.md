@@ -12,7 +12,7 @@ with a specific revision of the material(s).
 ### Trigger with options {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ![Trigger with
-options](resources/images/cruise/trigger_with_options.png)
+options](../resources/images/cruise/trigger_with_options.png)
 
 ### Information {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -44,7 +44,7 @@ Go will find matches and display the same. One of the matches can be
 chosen and the build triggered.
 
 ![Trigger with options
-search](resources/images/cruise/trigger_with_options_search.png)
+search](../resources/images/cruise/trigger_with_options_search.png)
 
 ### Environment and secure variables {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -52,7 +52,7 @@ If the pipeline has environment and/or secure variables configured,
 additional tabs will be displayed to allow you to override these values.
 
 ![Trigger with options and environment
-variables](resources/images/cruise/trigger_with_options_environment.png)
+variables](../resources/images/cruise/trigger_with_options_environment.png)
 
 ##### Also see... {.bullets-title}
 

@@ -24,7 +24,7 @@ To perform a custom cleanup through the web interface, edit the desired
 **task configuration** and check the **On Cancel Task** checkbox in
 **Advanced Options**
 
-![](resources/images/cruise/admin/clean_up_after_cancel.png)
+![](../resources/images/cruise/admin/clean_up_after_cancel.png)
 
 ### Using XML configuration {.collapsible-heading onclick="toggleCollapse($(this));"}
 

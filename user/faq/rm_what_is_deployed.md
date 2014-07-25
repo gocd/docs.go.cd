@@ -16,9 +16,9 @@ For this example, we will assume we have a stage name "production" that
 will automatically deploy a binary onto a production server
 
 -   Start at the [Environments](environments_page.html) page
--   ![](resources/images/cruise/topnav_environments.png)
+-   ![](../resources/images/cruise/topnav_environments.png)
 -   Click on the name of your "production" stage
--   ![](resources/images/cruise/release_manager/whats_in_an_environment/2_click_stage_activity.png)
+-   ![](../resources/images/cruise/release_manager/whats_in_an_environment/2_click_stage_activity.png)
 -   The [Stage Details](stage_details_page.html) page will show every
     time Go has deployed your application
 

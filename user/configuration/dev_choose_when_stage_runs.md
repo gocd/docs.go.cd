@@ -23,7 +23,7 @@ by later stages.
 -   [Add a new stage](admin_add_stage.html) named 'dist' after a build
     stage
 -   Set the Stage type to manual
--   ![](resources/images/cruise/dev/choose_when_stage_runs/1_add_approval_tag.png)
+-   ![](../resources/images/cruise/dev/choose_when_stage_runs/1_add_approval_tag.png)
 -   Now, when the build stage 'build' is completed, you can manually
     cause Go to create the binary from the [Pipeline
     activity](pipeline_activity_page.html) page

@@ -26,7 +26,7 @@ dashboard can verify their integirty by using the md5.checksum file
 within the cruise-output folder available on same tab. The file contains
 the name and checksum for each artifact saved by the job.
 
-![](resources/images/cruise/md5_checksum.png)
+![](../resources/images/cruise/md5_checksum.png)
 
 ### Also see... {.collapsible-heading onclick="toggleCollapse($(this));"}
 

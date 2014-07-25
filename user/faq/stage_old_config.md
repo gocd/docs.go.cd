@@ -25,7 +25,7 @@ configuration changes. These markers are visible to all users.
 
 Note: This tab is available to admin users only.
 
-![](resources/images/cruise/admin/stage_config.png)
+![](../resources/images/cruise/admin/stage_config.png)
 
 ### See what changed in the configuration between two stage runs {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -36,7 +36,7 @@ markers appear as links. Clicking on these links shows the exact
 difference between the configurations. The changes are shown in the same
 format as that of "Git Diff".
 
-![](resources/images/cruise/admin/stage_config_diff.png)
+![](../resources/images/cruise/admin/stage_config_diff.png)
 
 Your search did not match any help pages.
 

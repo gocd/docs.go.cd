@@ -12,9 +12,9 @@ of Go. You can also perform the backup [using the API](Backup_API.html).
 #### Steps to initiate backup {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   On the Go Administration page, click on the Backup tab.
--   ![](resources/images/cruise/admin/backup/backup_tab.png)
+-   ![](../resources/images/cruise/admin/backup/backup_tab.png)
 -   Click on "BACKUP"
--   ![](resources/images/cruise/admin/backup/backup_button.png)
+-   ![](../resources/images/cruise/admin/backup/backup_button.png)
 -   Click "PROCEED"
 -   Backup time is proportional to the database and configuration size.
     We suggest you backup Go when the Go Server is idle. Users who are

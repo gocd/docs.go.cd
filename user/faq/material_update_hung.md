@@ -26,7 +26,7 @@ delays and also lead to performance degradation
 Such a scenario is notified to the users by a warning in Server Health;
 when clicked shows a message similar to the one below.
 
-![](resources/images/cruise/material_update_hung.png)
+![](../resources/images/cruise/material_update_hung.png)
 
 ### What can I do with the information {.collapsible-heading onclick="toggleCollapse($(this));"}
 

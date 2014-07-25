@@ -54,7 +54,7 @@ shows all the plugins that have been loaded currently along with its
 details and status. If a plugin is marked invalid or incompatible, the
 reasons for the same would be reported here.
 
-![](resources/images/cruise/package-repo/plugin-tab.png)
+![](../resources/images/cruise/package-repo/plugin-tab.png)
 
 ### Notes {.collapsible-heading onclick="toggleCollapse($(this));"}
 

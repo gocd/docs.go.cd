@@ -20,7 +20,7 @@ To create a new pipeline, go to the **Pipelines** sub-tab of the
 a new pipeline within this group"](quick_pipeline_setup.html) link as
 shown in the screen shot below.
 
-![](resources/images/cruise/admin/create_new_pipeline_link.png)
+![](../resources/images/cruise/admin/create_new_pipeline_link.png)
 
 ### Add a new material to an existing pipeline {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -29,16 +29,16 @@ Now that you have a pipeline, lets add another material to it.
 -   Navigate to the new pipeline you created by clicking on the **Edit**
     link under the Actions against it. You can also click on the name of
     the pipeline.
--   ![](resources/images/cruise/admin/add_stage/edit_pipeline_link.png)
+-   ![](../resources/images/cruise/admin/add_stage/edit_pipeline_link.png)
 -   Click on the Materials tab.
--   ![](resources/images/cruise/admin/pipeline_general_options.png)
+-   ![](../resources/images/cruise/admin/pipeline_general_options.png)
 -   You will notice an existing material . Click on the "Add new
     material" link.
--   ![](resources/images/cruise/add_new_material.png)
+-   ![](../resources/images/cruise/add_new_material.png)
 -   You will get the following message
--   ![](resources/images/cruise/define_destination_folder.png)
+-   ![](../resources/images/cruise/define_destination_folder.png)
 -   Edit the existing material and specify the destination directory
--   ![](resources/images/cruise/edit_material.png)
+-   ![](../resources/images/cruise/edit_material.png)
 -   Click "Save".
 
 ### Blacklist {.collapsible-heading onclick="toggleCollapse($(this));"}
@@ -50,7 +50,7 @@ the [ignore](configuration_reference.html#ignore) section of the
 [configuration reference.](configuration_reference.html)
 
 -   Enter the items to blacklist using ant-style syntax below
--   ![](resources/images/cruise/edit_material_blacklist.png)
+-   ![](../resources/images/cruise/edit_material_blacklist.png)
 -   Click "Save".
 
 ### Add a new stage to an existing pipeline {.collapsed-heading onclick="toggleCollapse($(this));"}
@@ -61,19 +61,19 @@ to it.
 -   Navigate to the new pipeline you created by clicking on the **Edit**
     link under the Actions against it. You can also click on the name of
     the pipeline.
--   ![](resources/images/cruise/admin/add_stage/edit_pipeline_link.png)
+-   ![](../resources/images/cruise/admin/add_stage/edit_pipeline_link.png)
 -   Click on the Stages tab.
--   ![](resources/images/cruise/admin/pipeline_general_options.png)
+-   ![](../resources/images/cruise/admin/pipeline_general_options.png)
 -   You will notice that a defaultStage exists. Click on the "Add new
     stage" link.
--   ![](resources/images/cruise/admin/add_stage/stages_listing_with_add_stage_highlight.png)
+-   ![](../resources/images/cruise/admin/add_stage/stages_listing_with_add_stage_highlight.png)
 -   Fill stage name and trigger type.
 -   Fill in the details for the first job and first task belonging to
     this job. You can [add more jobs](admin_add_job.html)and [add more
     tasks](admin_add_task.html)to the jobs.
 -   Click on help icon next to the fields to get additional details
     about the fields you are editing.
--   ![](resources/images/cruise/admin/add_stage/add_stage_window.png)
+-   ![](../resources/images/cruise/admin/add_stage/add_stage_window.png)
 -   Click "Save".
 
 ### Add a new job to an existing stage {.collapsed-heading onclick="toggleCollapse($(this));"}
@@ -84,12 +84,12 @@ side of the screen to edit a stage or a job under a pipeline.
 
 -   Click on the stage name that you want to edit on the tree as shown
     below. The "defaultStage" is being edited.
--   ![](resources/images/cruise/admin/add_job/edit_stage_link_on_tree.png)
+-   ![](../resources/images/cruise/admin/add_job/edit_stage_link_on_tree.png)
 -   Click on the Jobs tab
 -   Click on "Add new job"
--   ![](resources/images/cruise/admin/add_job/add_new_job_link.png)
+-   ![](../resources/images/cruise/admin/add_job/add_new_job_link.png)
 -   Fill job name and job details
--   ![](resources/images/cruise/admin/add_job/add_new_job_window.png)
+-   ![](../resources/images/cruise/admin/add_job/add_new_job_window.png)
 -   Fill in the details for the initial task belonging to this job. You
     can edit this job later to [add more tasks](admin_add_task.html)
 -   You can choose the type of the task as required.
@@ -109,17 +109,17 @@ on the left side of the screen to edit a a job under a stage.
 
 -   Click on the job name that you want to edit on the tree as shown
     below. The "defaultJob" is being edited.
--   ![](resources/images/cruise/admin/add_task/edit_job_link_on_tree.png)
+-   ![](../resources/images/cruise/admin/add_task/edit_job_link_on_tree.png)
 -   Click on "Add new task". You can choose the task type from Ant,
     Nant, Rake and Fetch Artifact. Or you can choose "More..." to choose
     a command from [command repository](command_repository.html) or
     specify your own command
--   ![](resources/images/cruise/admin/add_task/add_new_task_link.png)
+-   ![](../resources/images/cruise/admin/add_task/add_new_task_link.png)
 -   Fill the basic settings for the task
 -   Click on help icon next to the fields to get additional details
     about the fields you are editing.
 -   Click "Save"
--   ![](resources/images/cruise/admin/add_task/add_new_task_window.png)
+-   ![](../resources/images/cruise/admin/add_task/add_new_task_window.png)
 -   Advanced Options section allows you to specify a Task in which you
     can provide the actions (typically clean up) that needs to be taken
     when users chooses to cancel the stage.
@@ -139,9 +139,9 @@ case the group gets created.
 -   Navigate to the Admin tab
 -   Locate the pipeline that needs to be cloned
 -   In that row, click on the "Clone" icon.
--   ![](resources/images/cruise/admin/pipeline/clone_icon.png)
+-   ![](../resources/images/cruise/admin/pipeline/clone_icon.png)
 -   Fill in the name of the new pipeline
--   ![](resources/images/cruise/admin/pipeline/clone_pipeline.png)
+-   ![](../resources/images/cruise/admin/pipeline/clone_pipeline.png)
 -   Select a pipeline group. If you are an admin, you will be able to
     enter the name of the pipeline group using the auto suggest or enter
     a new group name
@@ -158,20 +158,20 @@ pipelines easier.
 Pipeline Templates can be managed from the Templates tab on the
 Administration Page.
 
-![](resources/images/cruise/admin/pipeline_templates.png)
+![](../resources/images/cruise/admin/pipeline_templates.png)
 
 Clicking on the "Add New Template" brings up the following form which
 allows you to create a fresh template, or extract it from an existing
 pipeline. Once saved, the pipeline indicated will also start using this
 newly created template.
 
-![](resources/images/cruise/admin/add_new_template.png)
+![](../resources/images/cruise/admin/add_new_template.png)
 
 A template can also be extracted from a pipeline using the "Extract
 Template" link. This can be found on the "Pipelines" tab in the
 Administration page.
 
-![](resources/images/cruise/admin/extract_template_from_pipeline.png)
+![](../resources/images/cruise/admin/extract_template_from_pipeline.png)
 
 #### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -203,18 +203,18 @@ permissions for a template. They will also be able to see the number of
 pipelines in which the template is being used, but not the details of
 those pipelines.
 
-![](resources/images/cruise/admin/template/template_admin_edit_template.png)
+![](../resources/images/cruise/admin/template/template_admin_edit_template.png)
 
 #### Viewing Pipeline Templates {#view_template .collapsible-heading onclick="toggleCollapse($(this));"}
 
 Pipeline Templates can now be viewed by Administrators and Pipeline
 Group Administrators while editing or creating a Pipeline.
 
-![](resources/images/cruise/template_view_on_pipeline_tab.png)
+![](../resources/images/cruise/template_view_on_pipeline_tab.png)
 
 Clicking on the icon indicated by arrow will display the following:
 
-![](resources/images/cruise/view_template_popup.png)
+![](../resources/images/cruise/view_template_popup.png)
 
 The pop-up shows the extract of the template "Services-Template"
 configured for the pipeline "Service\_1".

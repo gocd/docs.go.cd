@@ -889,7 +889,7 @@ commit messages in Go. Use the folloing syntax:
 messages contain messages of the form '\#2350', you could see the link
 wherever you can see the commit message.
 
-![](resources/images/cruise/pipeline_activity_tracking_tool.png)
+![](../resources/images/cruise/pipeline_activity_tracking_tool.png)
 
 #### Set properties from artifact using XPath automatically. {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -918,7 +918,7 @@ extracts useful coverage metrics from EMMA reports..
 properties in the sub-tab 'properties' on job detail page, and export
 their history to a spreadsheet.
 
-![](resources/images/cruise/xpath_properties.png)
+![](../resources/images/cruise/xpath_properties.png)
 
 #### Improved CCTray feed {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -942,7 +942,7 @@ counter' which indexes the runs of the stage.
 -   Access any stage details page by the Go API
     http://[your\_cruise\_server]:8153/cruise/pipelines/[pipeline\_name]/[pipeline\_label]/[stage\_name]/[stage\_counter]
 
-![](resources/images/cruise/stage_counter.png)
+![](../resources/images/cruise/stage_counter.png)
 
 #### Support multiple repositories for Subversion {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -968,7 +968,7 @@ see exactly which version of your upstream pipeline triggered this one
 syntax](configuration_reference.html#pipeline-dependency) to define
 dependencies between pipelines.
 
-![](resources/images/cruise/multiple_materials.png)
+![](../resources/images/cruise/multiple_materials.png)
 
 #### Ability to filter materials {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -982,11 +982,11 @@ directory, not the sandbox in the agent side or the materials URL.
 
 For example, the structrure of a subversion repository is following:
 
-![](resources/images/cruise/repo-structure.png)
+![](../resources/images/cruise/repo-structure.png)
 
 The material and changes look like
 
-![](resources/images/cruise/ignore-example.png)
+![](../resources/images/cruise/ignore-example.png)
 
 If we want to ignore files under /trunk/lib/tmp, the configuration is:
 
@@ -1083,7 +1083,7 @@ through as normal.
 The Pipeline Activity tab has an improved user interface.
 
 ![Pipeline Activity
-Page](resources/images/cruise/NewPipelineActivity.png)
+Page](../resources/images/cruise/NewPipelineActivity.png)
 
 #### Solaris support {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -1104,7 +1104,7 @@ artifacts) in the Go log that can be viewed through the web page. This
 makes it much easier to debug issues with source control systems and
 other Go agent actions.
 
-![](resources/images/cruise/console_out.png)
+![](../resources/images/cruise/console_out.png)
 
 #### De-authorize agents through UI {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -1112,7 +1112,7 @@ The agents can be disabled from the server through the user interface
 which means that the agent will no longer process any work. Click the
 Enable button to start builds on the agent again.
 
-![Agents Page](resources/images/cruise/NewAgents.png)
+![Agents Page](../resources/images/cruise/NewAgents.png)
 
 #### Improved performance {.collapsible-heading onclick="toggleCollapse($(this));"}
 

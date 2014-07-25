@@ -30,7 +30,7 @@ You must be logged in as an admin user to configure this step.
 2.  Navigate to Server configuration
 3.  Navigate to the pipeline management sub-section
 4.  ![Job
-    timeout](resources/images/cruise/admin/pipeline_management_timeout.png)
+    timeout](../resources/images/cruise/admin/pipeline_management_timeout.png)
 5.  Enter the default timeout for a job.
 
 #### Configure timeout behavior for a job {.collapsible-heading onclick="toggleCollapse($(this));"}
@@ -43,7 +43,7 @@ be different from the default timeout.
 1.  Navigate to the Admin section on the Go dashboard.
 2.  Navigate to the job settings page for the job.
 3.  ![Job timeout
-    settings](resources/images/cruise/admin/job_timeout_individual.png)
+    settings](../resources/images/cruise/admin/job_timeout_individual.png)
 4.  Choose the desired timeout behavior. You can choose to never timeout
     the job, provide a specific value or use the default job timeout.
 

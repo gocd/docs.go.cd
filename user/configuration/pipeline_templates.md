@@ -15,20 +15,20 @@ pipelines easier.
 Pipeline Templates can be managed from the Templates tab on the
 Administration Page.
 
-![](resources/images/cruise/admin/pipeline_templates.png)
+![](../resources/images/cruise/admin/pipeline_templates.png)
 
 Clicking on the "Add New Template" brings up the following form which
 allows you to create a fresh template, or extract it from an existing
 pipeline. Once saved, the pipeline indicated will also start using this
 newly created template.
 
-![](resources/images/cruise/admin/add_new_template.png)
+![](../resources/images/cruise/admin/add_new_template.png)
 
 A template can also be extracted from a pipeline using the "Extract
 Template" link. This can be found on the "Pipelines" tab in the
 Administration page.
 
-![](resources/images/cruise/admin/extract_template_from_pipeline.png)
+![](../resources/images/cruise/admin/extract_template_from_pipeline.png)
 
 #### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -60,18 +60,18 @@ permissions for a template. They will also be able to see the number of
 pipelines in which the template is being used, but not the details of
 those pipelines.
 
-![](resources/images/cruise/admin/template/template_admin_edit_template.png)
+![](../resources/images/cruise/admin/template/template_admin_edit_template.png)
 
 #### Viewing Pipeline Templates {#view_template .collapsible-heading onclick="toggleCollapse($(this));"}
 
 Pipeline Templates can now be viewed by Administrators and Pipeline
 Group Administrators while editing or creating a Pipeline.
 
-![](resources/images/cruise/template_view_on_pipeline_tab.png)
+![](../resources/images/cruise/template_view_on_pipeline_tab.png)
 
 Clicking on the icon indicated by arrow will display the following:
 
-![](resources/images/cruise/view_template_popup.png)
+![](../resources/images/cruise/view_template_popup.png)
 
 The pop-up shows the extract of the template "Services-Template"
 configured for the pipeline "Service\_1".

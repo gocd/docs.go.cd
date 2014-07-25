@@ -23,7 +23,7 @@ This feature can be used anywhere you need to specify a custom command.
 
 -   Add a new pipeline
 
-    ![](resources/images/cruise/cmd_repo_wizard.png)
+    ![](../resources/images/cruise/cmd_repo_wizard.png)
 
 -   Add a new stage to a pipeline
 -   Add a new job to a stage
@@ -125,7 +125,7 @@ Switch Go Server to this location
 To do this, go to **Command Repository Management** section of **Server
 Configuration** in **Admin** tab and change the **default** value
 
-![](resources/images/cruise/cmd_repo_mgmt.png)
+![](../resources/images/cruise/cmd_repo_mgmt.png)
 
 From the Go server's point of view, the command repository is just a
 directory under which it recursively looks for valid command.xml files.
@@ -160,7 +160,7 @@ config. They become part of your Go server config only after you
 
 ### Command syntax and lookup logic {#lookup-logic .collapsible-heading onclick="toggleCollapse($(this));"}
 
-![](resources/images/cruise/cmd_repo_curl.png)
+![](../resources/images/cruise/cmd_repo_curl.png)
 
 The above screenshot resulted from the command below:
 

@@ -46,7 +46,7 @@ To configure Go to use a password file for authentication:
 4.  Fill out the "Password File Settings" field under the "User
     Management" section
 
-![](resources/images/cruise/admin/user_authentication_password_file.png)
+![](../resources/images/cruise/admin/user_authentication_password_file.png)
 
 Go should pick up this change immediately and start authenticating new
 users (note that anybody already using Go will be required to
@@ -116,7 +116,7 @@ To configure Go to use LDAP/AD for authentication:
 3.  Click on the "Server Configuration" tab
 4.  Fill out the "LDAP Settings" under the "User Management" section
 
-![](resources/images/cruise/admin/user_authentication_ldap.png)
+![](../resources/images/cruise/admin/user_authentication_ldap.png)
 
 The **Manager DN** is the LDAP/AD manager user's DN, used to connect to
 the LDAP/AD server.
@@ -192,7 +192,7 @@ To switch the mode in which the Go Server operates:
     log into Go, even if they haven't been explicitly added to Go"
     checkbox
 
-![](resources/images/cruise/admin/user_authentication_auto_login.png)
+![](../resources/images/cruise/admin/user_authentication_auto_login.png)
 
 ### Common errors {#common_errors .collapsible-heading onclick="toggleCollapse($(this));"}
 

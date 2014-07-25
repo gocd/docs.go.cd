@@ -30,7 +30,7 @@ actions:
 Users can be made administrators from the "User Summary" tab in the
 "Admin" section.
 
-![](resources/images/cruise/admin/user_summary_make_admin.png)
+![](../resources/images/cruise/admin/user_summary_make_admin.png)
 
 To give admin privileges to users and/or roles via "Config xml", please
 refer to the example in the section below, where members of the
@@ -46,7 +46,7 @@ section. Here, you can select any number of users and assign a new or
 existing role to them. In this example, user "aantony" is being added to
 the role "analyst"
 
-![](resources/images/cruise/admin/user_summary_add_user_to_role.png)
+![](../resources/images/cruise/admin/user_summary_add_user_to_role.png)
 
 For power users, here's how you would configure roles via "Config XML":
 
@@ -113,12 +113,12 @@ via the APIs without letting that user access any other features of Go.
 To edit the permissions for a pipeline group, navigate to the
 "Pipelines" tab on the "Admin" section:
 
-![](resources/images/cruise/group_list.png)
+![](../resources/images/cruise/group_list.png)
 
 Then, click the "Edit" link for the pipeline group you want to manage
 permissions for:
 
-![](resources/images/cruise/group_permission.png)
+![](../resources/images/cruise/group_permission.png)
 
 If no authorization is defined for a pipeline group, all Go users will
 have view and operate permissions to that group.
@@ -157,7 +157,7 @@ belongs to. But defining specific permissions overrides this. In the
 example below, only members of the role "admin", and the user "goleys",
 can trigger the approval.
 
-![](resources/images/cruise/admin/stage/stage_permissions.png)
+![](../resources/images/cruise/admin/stage/stage_permissions.png)
 
 For power users, here's how you would configure authorization for
 approvals for a stage via "Config XML":
@@ -195,12 +195,12 @@ edit the template to which he has permissions.
 To edit the permissions for a template, navigate to the "Templates" tab
 on the "Admin" section:
 
-![](resources/images/cruise/admin/template/templates_tab_on_admin_page.png)
+![](../resources/images/cruise/admin/template/templates_tab_on_admin_page.png)
 
 Then, click the "Permissions" link for the template you want to manage
 permissions for:
 
-![](resources/images/cruise/admin/template/add_template_permissions.png)
+![](../resources/images/cruise/admin/template/add_template_permissions.png)
 
 For power users, here's how you would configure permissions via "Config
 XML":

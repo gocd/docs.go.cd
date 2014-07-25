@@ -28,7 +28,7 @@ pipeline upstream\_pipeline. Here's how we'd achieve this:
 -   Enter **upstream\_pipeline [AutoStage1]** in the **Pipeline
     [stage]** field (it can also auto-complete)
 
-![](resources/images/cruise/admin/pipeline/pipeline_add_material.png)
+![](../resources/images/cruise/admin/pipeline/pipeline_add_material.png)
 
 Power users can also configure this via the **Config XML** tab on the
 Admin section:
@@ -49,13 +49,13 @@ Dependency visualization shows you all the downstream instances that
 were triggered off the upstream instance (label 14) currently being
 viewed.
 
-![](resources/images/cruise/dependent_build.png)
+![](../resources/images/cruise/dependent_build.png)
 
 If you want to view the materials that are associated with
 "downstream\_pipeline", the pipeline details page for that specific
 instance of the downstream pipeline will show you all this information.
 
-![](resources/images/cruise/downstream_pipeline.png)
+![](../resources/images/cruise/downstream_pipeline.png)
 
 ### Fetching artifacts from an upstream pipeline {#fetch_artifact_section .collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -78,7 +78,7 @@ You can do this via the admin screens for the respective pipelines.
 You'll need to first define the artifact in the "upstream\_pipeline" at
 the job level:
 
-![](resources/images/cruise/admin/pipeline/job_artifacts.png)
+![](../resources/images/cruise/admin/pipeline/job_artifacts.png)
 
 Then, you'll want to retrieve (fetch) that artifact from within the
 "downstream\_pipeline." You can do this by creating a "Fetch Artifact"
@@ -86,7 +86,7 @@ task within a job in that pipeline. Since you have already defined
 "upstream\_pipeline" as a dependency material, artifacts from that
 pipeline are accessible in this pipeline.
 
-![](resources/images/cruise/admin/pipeline/task_fetch_artifact.png)
+![](../resources/images/cruise/admin/pipeline/task_fetch_artifact.png)
 
 A fetch task can also be instructed to retrieve (fetch) an artifact from
 an ancestor pipeline. For example, lets assume that the
@@ -97,7 +97,7 @@ these pipelines as follows. You have to specify the hierarchy by
 separting the pipelines with a /. For example:
 topmost\_pipeline/upstream\_pipeline.
 
-![](resources/images/cruise/admin/pipeline/task_fetch_artifact_ancestor.png)
+![](../resources/images/cruise/admin/pipeline/task_fetch_artifact_ancestor.png)
 
 For power users, here's how you can configure this via Config XML:
 

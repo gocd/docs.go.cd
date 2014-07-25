@@ -15,7 +15,7 @@ The following shows an example of tracking cards on Mingle by card
 numbers starting with a "\#" (e.g: \#4618):
 
 ![Configure tracking
-tool](resources/images/cruise/pipeline_tracking_tool.png)
+tool](../resources/images/cruise/pipeline_tracking_tool.png)
 
 The pattern has an extra "\#" because it is an escape character for a
 parameter. [More
@@ -34,7 +34,7 @@ Now, when a user commits code with comments like "\#4618 - Make sure the
 TrackingToolConfig and...", Go detects the modifications and
 automatically links story/bug numbers to the configured tracking tool:
 
-![](resources/images/cruise/pipeline_activity_tracking_tool.png)
+![](../resources/images/cruise/pipeline_activity_tracking_tool.png)
 
 ### Monitoring your builds with client tools {#cctray .collapsible-heading onclick="toggleCollapse($(this));"}
 

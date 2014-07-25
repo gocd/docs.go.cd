@@ -11,7 +11,7 @@ knowledge base article in the Also see section below. Here we'll see how
 to disable automatic scheduling.
 
 ![Pipeline General
-Options](resources/images/cruise/admin/pipeline_auto_schedule.png)
+Options](../resources/images/cruise/admin/pipeline_auto_schedule.png)
 
 #### Disable automatic scheduling {.collapsible-heading onclick="toggleCollapse($(this));"}
 

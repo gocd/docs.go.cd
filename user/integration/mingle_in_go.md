@@ -53,7 +53,7 @@ next step. Below is an example screenshot of Go displaying its OAuth
 Redirect URI. (Please do not attempt to derive your own redirect URL
 from this screenshot.)
 
-![Go](resources/images/cruise/go_oauth_redirect_uri.png)
+![Go](../resources/images/cruise/go_oauth_redirect_uri.png)
 
 #### 1.2 - Create OAuth client entry in Mingle {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -65,7 +65,7 @@ OAuth client. In the first field, enter a description of the OAuth
 client, most likely something like "Go" and in the second field, OAuth
 Redirect URI, enter the Go URL you captured in the previous step.
 
-![Mingle](resources/images/cruise/mingle_enter_new_oauth_client_info.png)
+![Mingle](../resources/images/cruise/mingle_enter_new_oauth_client_info.png)
 
 Click the Submit button and note that Mingle has generated "Client ID"
 and "Client Secret" fields. Below is a listing similar to what you will
@@ -76,7 +76,7 @@ info box) on this page. If the Mingle administrator and Go administrator
 are not the same people, the Mingle administrator will need to securely
 communicate these values to the Go administrator.
 
-![Mingle](resources/images/cruise/mingle_oauth_client_listing.png)
+![Mingle](../resources/images/cruise/mingle_oauth_client_listing.png)
 
 ### Step 2 - Configure Go to render gadgets from Mingle {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -90,7 +90,7 @@ something that your users will recognize. For the OAuth Authorize URL,
 OAuth Client ID, and OAuth Client Secret fields enter the exact values
 you captured above in step 1.2.
 
-![Go](resources/images/cruise/go_create_new_oauth_gadget_provider.png)
+![Go](../resources/images/cruise/go_create_new_oauth_gadget_provider.png)
 
 Click submit to save the new entry. If you see the "Gadget provider was
 successfully created" message you can move on to Step 3.
@@ -99,7 +99,7 @@ However, if you see an error message like the one below, indicating that
 the certificate offered by the server is not trusted, you must complete
 one more action in this Step.
 
-![Mingle](resources/images/cruise/oauth_provider_cert_not_trusted_error.png)
+![Mingle](../resources/images/cruise/oauth_provider_cert_not_trusted_error.png)
 
 If you see the above message, you will also see a new section of text on
 the "New OAuth enabled gadget provider" page on which you have been
@@ -110,7 +110,7 @@ configuration is simply ticking the "Accept this configuration" checkbox
 and re-clicking "Submit." Go should not now be correctly configured to
 retrieve gadget content from Mingle.
 
-![Mingle](resources/images/cruise/oauth_provider_accept_cert_partial.png)
+![Mingle](../resources/images/cruise/oauth_provider_accept_cert_partial.png)
 
 ### Step 3 - Verify {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -133,7 +133,7 @@ authorize the gadget provider to send Mingle data on your behalf there
 are two possible problems.
 
 ![No gadget provider
-configured.](resources/images/cruise/gadget_provider_not_configured.png)
+configured.](../resources/images/cruise/gadget_provider_not_configured.png)
 
 The first possibility is that there simply is not a configured gadget
 provider. That is, a Go user attempted to use the Mingle card activity
@@ -153,7 +153,7 @@ If, on clicking on the Authorize link, the popup opens but shows this
 error:
 
 ![Gadget provider configuration
-error.](resources/images/cruise/gadget_provider_configuration_error.png)
+error.](../resources/images/cruise/gadget_provider_configuration_error.png)
 
 One possible cause is that there is a mismatch between the redirect URI
 displayed on the Go OAuth Enabled Gadget Providers page and the redirect
@@ -181,7 +181,7 @@ gadget provider entry for Go. Note that this error is not a reference to
 the user's credentials, but to the OAuth trust between Go and Mingle.
 
 ![Mismatched OAuth client
-secrets.](resources/images/cruise/mismatched_client_secret_error.png)
+secrets.](../resources/images/cruise/mismatched_client_secret_error.png)
 
 ### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
 

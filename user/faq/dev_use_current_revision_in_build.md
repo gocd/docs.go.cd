@@ -227,7 +227,7 @@ You can add variables to an environment by editing the configuration of
 the environment. Click on the name of the environment to edit
 configuration.
 
-![](resources/images/cruise/admin/env_variables_environment.png)
+![](../resources/images/cruise/admin/env_variables_environment.png)
 
 You specify variables on an environment in the Config XML by adding an
 [\<environmentvariables\>](configuration_reference.html#environmentvariables)
@@ -257,7 +257,7 @@ section to the environment definition.
 
 You can add variables for a job by editing the job configuration.
 
-![](resources/images/cruise/admin/env_variables_job.png)
+![](../resources/images/cruise/admin/env_variables_job.png)
 
 You specify variables on an job in the Config XML by adding an
 [\<environmentvariables\>](configuration_reference.html#environmentvariables)

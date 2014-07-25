@@ -13,7 +13,7 @@ from [ThoughtWorks Studios](http://www.thoughtworks.com/products).
 Please take a minute to understand [the basic concepts in
 Go](concepts_in_go.html) before you go any further.
 
-![Start using Go](resources/images/welcome.png)
+![Start using Go](../resources/images/welcome.png)
 
 ### Quick help {.collapsible-heading onclick="toggleCollapse($(this));"}
 

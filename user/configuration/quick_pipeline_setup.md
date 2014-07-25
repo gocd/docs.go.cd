@@ -16,14 +16,14 @@ in 3 steps.
 
 #### Step 1: Basic Settings {.collapsible-heading onclick="toggleCollapse($(this));"}
 
-![](resources/images/cruise/admin/new_pipeline_1.png)
+![](../resources/images/cruise/admin/new_pipeline_1.png)
 
 1.  Fill in the pipeline name
 2.  Fill in the pipeline group
 
 #### Step 2: Material {.collapsible-heading onclick="toggleCollapse($(this));"}
 
-![](resources/images/cruise/admin/new_pipeline_2.png)
+![](../resources/images/cruise/admin/new_pipeline_2.png)
 
 1.  Choose the material type. The material can be your Source Control
     Management (SCM or version control) repository or another pipeline
@@ -39,7 +39,7 @@ in 3 steps.
 
 #### Step 3: Stage and Job {.collapsible-heading onclick="toggleCollapse($(this));"}
 
-![](resources/images/cruise/admin/new_pipeline_3.png)
+![](../resources/images/cruise/admin/new_pipeline_3.png)
 
 A pipeline contains one or more stages. Define the first stage of your
 pipeline

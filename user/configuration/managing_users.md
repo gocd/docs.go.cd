@@ -21,7 +21,7 @@ of the features mentioned in this chapter.
 2.  Click on the "User Summary" tab
 3.  Click the "Add User" button
 
-    ![](resources/images/cruise/admin/user_summary_add_user.png)
+    ![](../resources/images/cruise/admin/user_summary_add_user.png)
 
 4.  Enter a name/email to search for (minimum 2 characters) and click
     "Search"
@@ -30,7 +30,7 @@ of the features mentioned in this chapter.
 6.  From the list of results, select the user to add and click "Add
     User"
 
-![](resources/images/cruise/admin/user_summary_search.png)
+![](../resources/images/cruise/admin/user_summary_search.png)
 
 ### Assigning Roles {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -66,7 +66,7 @@ doing, but you have controls around which role can do what.
     users by typing in the name of a role in the input box and clicking
     "Add"
 
-![](resources/images/cruise/admin/user_summary_roles.png)
+![](../resources/images/cruise/admin/user_summary_roles.png)
 
 ### Managing 'Go System Administrator' privilege {.collapsible-heading onclick="toggleCollapse($(this));"}
 

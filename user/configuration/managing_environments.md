@@ -36,17 +36,17 @@ steps. This example creates a production environment, adding the
 deployment pipeline and the agent installed on the production server.
 
 -   Click on the Environments tab
--   ![](resources/images/cruise/topnav_environments.png)
+-   ![](../resources/images/cruise/topnav_environments.png)
 -   Click on the "Add a new environment"
--   ![](resources/images/cruise/env_click_new.png)
+-   ![](../resources/images/cruise/env_click_new.png)
 -   Provide a name for the environment
--   ![](resources/images/cruise/env_name.png)
+-   ![](../resources/images/cruise/env_name.png)
 -   Add one or more pipelines that need to run on the environment
--   ![](resources/images/cruise/env_pipelines.png)
+-   ![](../resources/images/cruise/env_pipelines.png)
 -   Add one or more agents associated with the environment
--   ![](resources/images/cruise/env_agents.png)
+-   ![](../resources/images/cruise/env_agents.png)
 -   Add one or more environment variables that need to be passed.
--   ![](resources/images/cruise/env_env_variables.png)
+-   ![](../resources/images/cruise/env_env_variables.png)
 -   Click on finish
 
 Setting up an environment through the xml can be found in the
@@ -68,7 +68,7 @@ click the “Apply” button.
 -   An environment **without a check** will remove the environment from
     all selected agents.
 
-![](resources/images/cruise/associate_agent_environment.png)
+![](../resources/images/cruise/associate_agent_environment.png)
 
 Your search did not match any help pages.
 

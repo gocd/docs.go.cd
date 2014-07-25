@@ -20,7 +20,7 @@ Once the Go agent has been installed and pointed at your Go server, go
 to the [Agents](agents_page.html) tab on the Go dashboard. You should
 see something like this:
 
-![](resources/images/cruise/enable_agent.png)
+![](../resources/images/cruise/enable_agent.png)
 
 Note that the hostname is as reported by the agent, and the IP address
 is as reported by the server.
@@ -66,7 +66,7 @@ configuration** section of the
 [Administration](administration_page.html) tab and edit the job that you
 want to specify resources for:
 
-![](resources/images/cruise/edit_job_resources.png)
+![](../resources/images/cruise/edit_job_resources.png)
 
 Once you’ve specified the resources your jobs need, you’ll want to
 describe the resources your agents have. You can do this very easily in
@@ -77,7 +77,7 @@ describe, and click on the **Resources** button.
 
 Enter the name of the new resource and click the “Add” button.
 
-![](resources/images/cruise/associate_agent_resources_new.png)
+![](../resources/images/cruise/associate_agent_resources_new.png)
 
 #### Associate selected agent(s) with existing resources {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -93,7 +93,7 @@ want to associate and then click the “Apply” button.
 -   A resource **without a check** will remove the resource from all
     selected agents.
 
-![](resources/images/cruise/associate_agent_resources_existing.png)
+![](../resources/images/cruise/associate_agent_resources_existing.png)
 
 ### Agent states {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -127,7 +127,7 @@ must be disabled before it can be deleted
 
 Following this procedure, if you restart the agent, Go server will see
 it as a new agent, and you can enable it again in the same way as
-described above. ![](resources/images/cruise/delete_agent.png)
+described above. ![](../resources/images/cruise/delete_agent.png)
 
 ### Pausing agents {#pausing_agent .collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -141,7 +141,7 @@ the agent from the agents tab.
 A disabled agent can be enabled; this will make it eligible to pick up
 work again. You can use the api or enable an agent from the agents tab.
 
-![](resources/images/cruise/disable_agent.png)
+![](../resources/images/cruise/disable_agent.png)
 
 ### Details of a single agent {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -158,7 +158,7 @@ IP Adress and the OS of the agent.
 In terms of configuration, this tab shows the resources of the agent and
 the environment it belongs to. A sample Details tab looks as below:
 
-![](resources/images/cruise/admin/agent_details.png)
+![](../resources/images/cruise/admin/agent_details.png)
 
 #### Job Run History tab {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -167,7 +167,7 @@ You must be logged in as an admin user to configure this step.
 This tab shows a table of all the completed jobs that ran on this agent.
 A sample page is shown below
 
-![](resources/images/cruise/admin/agent_job_history.png)
+![](../resources/images/cruise/admin/agent_job_history.png)
 
 For every job, the following columns are shown:
 

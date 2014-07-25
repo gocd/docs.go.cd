@@ -16,7 +16,7 @@ https://your-go-server.com:8154/go/gadgets/pipeline.xml
 A sample of what the gadget will look like:
 
 ![Pipeline Status
-Gadget](resources/images/cruise/pipeline-status-gadget.png)
+Gadget](../resources/images/cruise/pipeline-status-gadget.png)
 
 ### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
 

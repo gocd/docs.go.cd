@@ -61,7 +61,7 @@ plugin](yum_repository_poller.html).
 3.  Use the check connection button to ensure that Go can work with this
     repository.
 
-![](resources/images/cruise/package-repo/yum-repo.png)
+![](../resources/images/cruise/package-repo/yum-repo.png)
 
 #### Package Definition {#pkgdefn .collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -74,14 +74,14 @@ in a repository cannot have the same name. Use the check package button
 to ensure that the package definition does indeed resolve to the package
 you are looking for.
 
-![](resources/images/cruise/package-repo/yum-pkg.png)
+![](../resources/images/cruise/package-repo/yum-pkg.png)
 
 Unlike other VCS/SCM materials, *the material definition in case of
 packages is not contained within the pipeline definition*. Many
 pipelines may have material definitions refering to the same package.
 Here is how we associate an existing package as material for a pipeline.
 
-![](resources/images/cruise/package-repo/yum-pkg-exist.png)
+![](../resources/images/cruise/package-repo/yum-pkg-exist.png)
 
 **Note:** Each package definition must resolve to exactly one package on
 the respository, else the pipeline will not run. In order to set up a
@@ -218,7 +218,7 @@ At the time of building the package, it is recommended to include as
 much of the above information as possible so that it is available for Go
 to display as below.
 
-![](resources/images/cruise/package-repo/package-changes.png)
+![](../resources/images/cruise/package-repo/package-changes.png)
 
 ### Downloading the package {#pkgdownload .collapsible-heading onclick="toggleCollapse($(this));"}
 

@@ -93,7 +93,7 @@ the plugin.xml file itself is optional, if it is not present, the plugin
 jar file name will be used as its ID.
 
 The XML Schema for plugin descriptor:
-[plugin-descriptor.xsd](resources/plugin-descriptor.xsd)
+[plugin-descriptor.xsd](../resources/plugin-descriptor.xsd)
 
 #### Plugin Extension Classes {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -150,12 +150,12 @@ classpath) to the code in **SomePlugin.class** .
 #### Plugin Essentials {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   Plugin API Jar:
-    [go-plugin-api-current.jar](resources/go-plugin-api-current.jar)
+    [go-plugin-api-current.jar](../resources/go-plugin-api-current.jar)
 -   Plugin API Documentation:
-    [go-plugin-api-javadoc-current.jar](resources/go-plugin-api-javadoc-current.jar)
+    [go-plugin-api-javadoc-current.jar](../resources/go-plugin-api-javadoc-current.jar)
 -   Sample Plugins: A set of sample plugins that serves as a reference
     implementation
-    [go-sample-plugins.zip](resources/go-sample-plugins.zip) (Start with
+    [go-sample-plugins.zip](../resources/go-sample-plugins.zip) (Start with
     README file in the zip)
 
 ### Installing a plugin {.collapsible-heading onclick="toggleCollapse($(this));"}
@@ -233,7 +233,7 @@ invoked if the unload callback is bound to fail.
 #### Logging {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Every plugin is provided with a
-[com.thoughtworks.go.plugin.api.logging.Logger](resources/javadoc/com/thoughtworks/go/plugin/api/logging/Logger.html)
+[com.thoughtworks.go.plugin.api.logging.Logger](../resources/javadoc/com/thoughtworks/go/plugin/api/logging/Logger.html)
 that can be used by the plugins. API documentation provides more details
 on the functionality.
 

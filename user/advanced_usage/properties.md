@@ -15,7 +15,7 @@ more information). Go also allows you to download the history of your
 job in a convenient CSV format, so that you can analyse the results in
 spreadsheets or scripts.
 
-![](resources/images/cruise/cruise_properties.png)
+![](../resources/images/cruise/cruise_properties.png)
 
 ### Property history {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -33,8 +33,8 @@ To open the property history in a spreadsheet application, you can click
 on the **Export property history to spreadsheet (csv)** link on the
 Properties tab of the job.
 
-![](resources/images/cruise/properties_export.png)
-![](resources/images/cruise/properties-chart.png)
+![](../resources/images/cruise/properties_export.png)
+![](../resources/images/cruise/properties-chart.png)
 
 ### Standard Properties {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -100,7 +100,7 @@ will add some properties associated with the tests.
 -   **tests\_total\_duration** -- total time taken for the tests
 -   **tests\_total\_count** -- total number of tests
 
-![](resources/images/cruise/properties-tests.png)
+![](../resources/images/cruise/properties-tests.png)
 
 Your search did not match any help pages.
 

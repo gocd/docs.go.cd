@@ -32,7 +32,7 @@ be it a source control modification or an upstream pipeline. Performing
 a compare lets you easily identify exactly what these changes were.
 
 ![Pipeline Compare -
-Changes](resources/images/cruise/compare_changes.png)
+Changes](../resources/images/cruise/compare_changes.png)
 
 1.  **To/from search box:** You can search for the appropriate pipeline
     instance using any of the following - pipeline label, check-in
@@ -53,7 +53,7 @@ Changes](resources/images/cruise/compare_changes.png)
 You can also select a pipeline by browsing the pipeline history.
 
 ![Pipeline Compare -
-Timeline](resources/images/cruise/compare_timeline.png)
+Timeline](../resources/images/cruise/compare_timeline.png)
 
 Steps to select a particular instance from the history:
 

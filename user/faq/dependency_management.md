@@ -28,7 +28,7 @@ generated as part of that build share a common revision.
 
 Consider the following dependency chain:
 
-![](resources/images/cruise/tester/dependency_management/revision_propagation.png)
+![](../resources/images/cruise/tester/dependency_management/revision_propagation.png)
 
 #### Legend {.collapsed-heading onclick="toggleCollapse($(this));"}
 

@@ -96,7 +96,7 @@ information to get latest package details. PackageMaterialConfiguration
 is also expected to validate configurations. Every configuration type
 (Example : RepositoryConfiguration and PackageConfiguration) will have a
 set properties. Each
-[property](resources/javadoc/com/thoughtworks/go/plugin/api/material/packagerepository/Property.html)
+[property](../resources/javadoc/com/thoughtworks/go/plugin/api/material/packagerepository/Property.html)
 has a key, value and a list of options. Options are a way to define
 metadata for the property, For example: Display name of the property can
 be set using the Property.DISPLAY\_NAME option.
@@ -184,7 +184,7 @@ plugin author to implement following methods.
     the package for given package and repository configuration. Package
     version details are returned as an instance of PackageRevision.
     [Package
-    Revision](resources/javadoc/com/thoughtworks/go/plugin/api/material/packagerepository/PackageRevision.html)
+    Revision](../resources/javadoc/com/thoughtworks/go/plugin/api/material/packagerepository/PackageRevision.html)
     has information like revision, timestamp of the package, user who is
     responsible for generating this package, comment and trackbackUrl
     (this url can point to CI system which generated this package).
