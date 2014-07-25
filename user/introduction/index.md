@@ -4,7 +4,7 @@
 
 Welcome to Go - the Continuous Integration and Release Management system from [ThoughtWorks Studios](http://www.thoughtworks.com/products). Please take a minute to understand [the basic concepts in Go](concepts_in_go.html) before you go any further.
 
-![Start using Go](resources/images/welcome.png)
+![Start using Go](../resources/images/welcome.png)
 
 ## Quick help
 
@@ -20,7 +20,7 @@ Need help fast? Try out the topics below to get building in no time.
 
 Installation done but need help setting up Go?
 
--   [Set up your first pipeline](quick_pipeline_setup.html) - Go captures the build plan for your project in a pipeline. Find out how to set up your first pipeline.
+-   [Set up your first pipeline](configuration/quick_pipeline_setup.html) - Go captures the build plan for your project in a pipeline. Find out how to set up your first pipeline.
 -   [Install agents](installing_go_agent.html) - You need a build agent in order to start building. Learn to deploy one or more agents here.
 
 ### Using Go
