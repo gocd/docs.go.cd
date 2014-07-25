@@ -35,7 +35,7 @@ This page is useful to figure out if there are agent issues and hence a certain 
 
 Consider a job which runs functional tests for a web application that need a browser to be available. The job was passing so far and only recently it has started to fail intermittently. Here are the steps you can follow to figure out if this is an agent issue.
 
-1.  Navigate to the [Job Details page](job_details_page.html) of the given job that failed.
+1.  Navigate to the [Job Details page](../navigations/job_details_page.html) of the given job that failed.
 2.  Locate the "Agent" label and click on the link to the agent
 3.  Navigate to the "Job Run History" tab
 4.  Sort on the Job Name and locate the job that just navigated from

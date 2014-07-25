@@ -17,7 +17,7 @@ sections talk about how to write a plugin which can communicate with
 other type of repositories.
 
 The starting point for the plugin author while writing [package
-material](package_material.html) plugin is to implement the
+material](../advanced_usage/package_material.html) plugin is to implement the
 PackageMaterialProvider interface. The implementation of
 PackageMaterialProvider interface is responsible for providing a
 configuration provider (say SampleRepositoryConfiguration) and a

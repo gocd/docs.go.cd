@@ -10,9 +10,9 @@ Go's user management features allow you to control access to Go and
 grant role-based permissions.
 
 All user management features depend on an [authentication
-mechanism](dev_authentication.html) having been configured in Go. Please
+mechanism](../configuration/dev_authentication.html) having been configured in Go. Please
 ensure you have at least one [authentication
-mechanism](dev_authentication.html) enabled before attempting to use any
+mechanism](../configuration/dev_authentication.html) enabled before attempting to use any
 of the features mentioned in this chapter.
 
 ### Adding Users {.collapsible-heading onclick="toggleCollapse($(this));"}

@@ -7,7 +7,7 @@ Command Repo API {.collapsible-heading onclick="toggleCollapse($(this));"}
 ----------------
 
 This API allows you to reload the command repository cache on the Go
-server. Please refer to [Command Repository](command_repository.html) to
+server. Please refer to [Command Repository](../advanced_usage/command_repository.html) to
 get more information about the functionality.
 
 **NOTE:** Only Go administrator users will be able to use this API

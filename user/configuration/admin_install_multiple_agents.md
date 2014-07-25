@@ -10,7 +10,7 @@ On Windows, multiple Go agents can be run in two ways - as Windows service or as
 
 ### Running as Windows service
 
--   [Install your first agent with the installer to the default location](installing_go_agent.md)
+-   [Install your first agent with the installer to the default location](../installation/installing_go_agent.md)
 -   Copy the installation folder ("C:\\Program Files\\Go Agent") to "C:\\Program Files\\Go Agent 2"
 -   Delete the file C:\\Program Files\\Go Agent 2\\config\\guid.txt
 -   Delete the file C:\\Program Files\\Go Agent 2\\.agent-bootstrapper.running
@@ -26,14 +26,14 @@ sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent2\cruisewrapper.exe\" -s
 
 ### Running as Windows command
 
--   Follow the instructions to [run Go without installation on Windows](run_go_without_install.md)
+-   Follow the instructions to [run Go without installation on Windows](../installation/run_go_without_install.md)
 -   Do the same steps on a different folder to set up another agent
 
 > You should use a VNC application (such as [TightVNC](http://www.tightvnc.com)) to keep windows user logged in. If the user logs out or the computer restarts, the agents will shutdown.
 
 ## Mac OSX
 
--   [Install your first agent with the installer](installing_go_agent.md)
+-   [Install your first agent with the installer](../installation/installing_go_agent.md)
 -   Run Terminal.app
 -   Make an empty folder called go-agent-2
 -   In this folder, run
@@ -43,7 +43,7 @@ java -jar "/Applications/Go Agent.app/agent-bootstrapper.jar" 127.0.0.1 &
 
 ## Linux (and other UNIX)
 
--   [Install your first agent with the installer](installing_go_agent.md)
+-   [Install your first agent with the installer](../installation/installing_go_agent.md)
 -   Make an empty folder called /var/lib/go-agent-2
 -   In this folder, run
 ```

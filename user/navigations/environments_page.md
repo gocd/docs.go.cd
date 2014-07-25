@@ -17,4 +17,4 @@ The Environments page displays all environments, every pipeline and material ass
 
 ### Also see...
 
--   [Managing Environments](managing_environments.html)
+-   [Managing Environments](../configuration/managing_environments.html)

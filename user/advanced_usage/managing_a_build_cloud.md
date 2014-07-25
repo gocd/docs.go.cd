@@ -13,11 +13,11 @@ maintaining your agents.
 ### Adding a Go agent to your cloud {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 The first thing you need to do is [install Go
-agent](installing_go_agent.html) on the machine you want to add to the
+agent](../installation/installing_go_agent.html) on the machine you want to add to the
 cloud.
 
 Once the Go agent has been installed and pointed at your Go server, go
-to the [Agents](agents_page.html) tab on the Go dashboard. You should
+to the [Agents](../navigations/agents_page.html) tab on the Go dashboard. You should
 see something like this:
 
 ![](../resources/images/cruise/enable_agent.png)
@@ -63,14 +63,14 @@ Notes: Resource matching is case-insensitive.
 
 To specify the resources that a job needs, go to the **Pipelines
 configuration** section of the
-[Administration](administration_page.html) tab and edit the job that you
+[Administration](../navigations/administration_page.html) tab and edit the job that you
 want to specify resources for:
 
 ![](../resources/images/cruise/edit_job_resources.png)
 
 Once you’ve specified the resources your jobs need, you’ll want to
 describe the resources your agents have. You can do this very easily in
-the [Agents](agents_page.html) tab. Just select the agents you want to
+the [Agents](../navigations/agents_page.html) tab. Just select the agents you want to
 describe, and click on the **Resources** button.
 
 #### Associate selected agent(s) with a newly created resource {.collapsible-heading onclick="toggleCollapse($(this));"}
@@ -99,7 +99,7 @@ want to associate and then click the “Apply” button.
 
 Go will tell you if it loses touch with agents. If Go server doesn't
 hear from an agent for two minutes, the agent will turn red in the
-[Agents](agents_page.html) tab, and Go will tell you the last time it
+[Agents](../navigations/agents_page.html) tab, and Go will tell you the last time it
 heard from the agent. Go will also transparently re-assign the build to
 the next available agent that can run it, if the lost agent was building
 a job.
@@ -193,7 +193,7 @@ need a browser to be available. The job was passing so far and only
 recently it has started to fail intermittently. Here are the steps you
 can follow to figure out if this is an agent issue.
 
-1.  Navigate to the [Job Details page](job_details_page.html) of the
+1.  Navigate to the [Job Details page](../navigations/job_details_page.html) of the
     given job that failed.
 2.  Locate the "Agent" label and click on the link to the agent
 3.  Navigate to the "Job Run History" tab

@@ -6,17 +6,17 @@ Help documentation
 Managing pipelines {.collapsible-heading onclick="toggleCollapse($(this));"}
 ==================
 
-Go can be configured using [Administration](administration_page.html)
+Go can be configured using [Administration](../navigations/administration_page.html)
 Tab. You can perform operations like add/edit Pipelines, Stages, Jobs,
 Tasks, Templates and Pipeline group. You can also configure Go by
 editing the full XML file if you wish, by clicking on the **Config XML**
-section of the [Administration](administration_page.html) tab. Go will
+section of the [Administration](../navigations/administration_page.html) tab. Go will
 check the syntax of the configuration before it saves it again
 
 ### Creating a new pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 To create a new pipeline, go to the **Pipelines** sub-tab of the
-[Administration](administration_page.html) tab and click on the ["Create
+[Administration](../navigations/administration_page.html) tab and click on the ["Create
 a new pipeline within this group"](quick_pipeline_setup.html) link as
 shown in the screen shot below.
 
@@ -112,7 +112,7 @@ on the left side of the screen to edit a a job under a stage.
 -   ![](../resources/images/cruise/admin/add_task/edit_job_link_on_tree.png)
 -   Click on "Add new task". You can choose the task type from Ant,
     Nant, Rake and Fetch Artifact. Or you can choose "More..." to choose
-    a command from [command repository](command_repository.html) or
+    a command from [command repository](../advanced_usage/command_repository.html) or
     specify your own command
 -   ![](../resources/images/cruise/admin/add_task/add_new_task_link.png)
 -   Fill the basic settings for the task

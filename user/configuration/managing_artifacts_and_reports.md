@@ -118,7 +118,7 @@ Go will:
 
 Go publishes all of its information as resources that can be queried
 through http in the form of RESTful API. See the [Go
-integration](go_integration.html) page for more information.
+integration](../integration/go_integration.html) page for more information.
 
 Your search did not match any help pages.
 

@@ -15,7 +15,7 @@ This is the summary of user documentation.
     * [Configure a Proxy](installation/configure_proxy.md)
     * [Performance Tuning](installation/performance_tuning.md)
 * [Using Go]()
-[Setup a new pipeline](configuration/quick_pipeline_setup.md)
+    * [Setup a new pipeline](configuration/quick_pipeline_setup.md)
     * [Managing pipelines](configuration/managing_pipelines.md)
     * [Managing agents](advanced_usage/managing_a_build_cloud.md)
     * [Managing artifacts and reports](configuration/managing_artifacts_and_reports.md)

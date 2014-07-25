@@ -58,8 +58,8 @@ variables](../resources/images/cruise/trigger_with_options_environment.png)
 
 -   [Deploy a specific build to an
     environment](deploy_a_specific_build_to_an_environment.html)
--   [Pipeline dashboard](Pipelines_Dashboard_page.html)
--   [Ordering of pipelines](ordering_of_pipelines.html)
+-   [Pipeline dashboard](../navigations/Pipelines_Dashboard_page.html)
+-   [Ordering of pipelines](../faq/ordering_of_pipelines.html)
 
 Your search did not match any help pages.
 

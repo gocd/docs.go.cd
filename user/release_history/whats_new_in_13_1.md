@@ -8,7 +8,7 @@ Go 13.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### New features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   **[Command Repository](command_repository.html)** : How do I run
+-   **[Command Repository](../advanced_usage/command_repository.html)** : How do I run
     maven with Go? Is it possible to do an EC2 deploy with Go? What is
     the syntax if I need to execute a remote command on a linux box? The
     answer to these and more are now provided within Go.
@@ -21,7 +21,7 @@ Go 13.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
     updates stop responding. Now you get to know when this happens and
     take suitable steps.
 -   Support for multiple organizational units (OUs) in [LDAP
-    configuration](dev_authentication.html#ldap_authentication). This
+    configuration](../configuration/dev_authentication.html#ldap_authentication). This
     allows finer-grained access control. If your organization has
     multiple OUs in your corporate LDAP, you can now to choose to
     specify those OUs, whose users are allowed to use Go.

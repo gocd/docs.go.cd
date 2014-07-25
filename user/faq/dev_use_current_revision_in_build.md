@@ -51,7 +51,7 @@ GO\_PIPELINE\_LABEL
 
 Label for the current pipeline. By default, this is set to the pipeline
 count (this can be set to a [custom pipeline
-label](build_labelling.html))
+label](../configuration/build_labelling.html))
 
 ``` {.code}
 1.1.2345
@@ -98,7 +98,7 @@ changes
 GO\_DEPENDENCY\_LABEL\_\${pipeline name}
 
 The label of the upstream pipeline (when using [dependent
-pipelines](managing_dependencies.html))
+pipelines](../configuration/managing_dependencies.html))
 
 ``` {.code}
 1.0.3456
@@ -107,7 +107,7 @@ pipelines](managing_dependencies.html))
 GO\_DEPENDENCY\_LOCATOR\_\${pipeline name}
 
 The locator of the upstream pipeline (when using [dependent
-pipelines](managing_dependencies.html)), which can be used to create the
+pipelines](../configuration/managing_dependencies.html)), which can be used to create the
 URL for RESTful API calls
 
 ``` {.code}

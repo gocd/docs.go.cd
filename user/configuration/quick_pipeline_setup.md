@@ -50,7 +50,7 @@ pipeline
 4.  If you use Ant, NAnt or Rake for scripting, Go provides convenience
     wrappers for these tools. To use any other scripting tool (e.g:
     Maven, msbuild, etc.), choose the "More..." option to use the
-    [command repository](command_repository.html) or specify the command
+    [command repository](../advanced_usage/command_repository.html) or specify the command
     line syntax for that tool.
 
 See the [Managing pipelines](managing_pipelines.html) documentation for
@@ -94,7 +94,7 @@ and executable by it.
 
 In addition to the above tasks, Go allows you to run anything on the
 command line. You can use the [command
-repository](command_repository.html) to help you choose the command.
+repository](../advanced_usage/command_repository.html) to help you choose the command.
 Alternately you can specify a command on your own.
 
 You can see the complete configuration reference

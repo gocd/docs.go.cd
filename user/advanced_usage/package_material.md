@@ -160,7 +160,7 @@ packages.
         [tip](http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines)
         may be used to pass package version information from X to Y). X
         will appear as an upstream component of Y in the [value stream
-        map.](value_stream_map.html)
+        map.](../navigations/value_stream_map.html)
     2.  Package material: Y adds P as a package material. Y no longer
         has to resolve P.
 
@@ -198,7 +198,7 @@ minute. This may be turned off at a package level by setting
 config xml (Go admins only). autoUpdate is turned on by default. When a
 newer package is found, the pipelines for which it is a material get
 scheduled (assuming [auto scheduling of
-pipelines](pipeline_scheduling.html) is on). Also see [API
+pipelines](../configuration/pipeline_scheduling.html) is on). Also see [API
 scheduling](Pipeline_API.html#key).
 
 ### Package information display {#pkginfo .collapsible-heading onclick="toggleCollapse($(this));"}
@@ -290,7 +290,7 @@ is simple enough for each type of package. e.g.
 You could also explore the command repository on
 [GitHub](https://github.com/goteam/go-command-repo/tree/master/deploy)
 for helpful commands. What is command repository? Please see
-[this](command_repository.html).
+[this](../advanced_usage/command_repository.html).
 
 ### Package Dependencies {.collapsible-heading onclick="toggleCollapse($(this));"}
 

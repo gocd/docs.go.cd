@@ -32,7 +32,7 @@ change this API.
 Go's main APIs are listed below:
 
 -   [Artifacts API](Artifacts_API.html)
--   [Properties API](Properties_API.html)
+-   [Properties API](../advanced_usage/Properties_API.html)
 -   [Configuration API](Configuration_API.html)
 -   [Pipeline API](Pipeline_API.html)
 -   [Stages API](Stages_API.html)

@@ -72,7 +72,7 @@ bundles a clone of this Git repository under
 server upgrades will overwrite the contents of this directory with an up
 to date set of commands. Hence, please do not add your commands here.
 Instead, set up a [private
-repository](command_repository.html#pvt-repo).
+repository](../advanced_usage/command_repository.html#pvt-repo).
 
 #### Pulling Updates {#pull-updates .collapsible-heading onclick="toggleCollapse($(this));"}
 

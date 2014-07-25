@@ -31,8 +31,8 @@ the name and checksum for each artifact saved by the job.
 ### Also see... {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   [Managing artifacts and
-    reports](managing_artifacts_and_reports.html)
--   [Auto purge old artifacts](delete_artifacts.html)
+    reports](../configuration/managing_artifacts_and_reports.html)
+-   [Auto purge old artifacts](../configuration/delete_artifacts.html)
 
 Your search did not match any help pages.
 

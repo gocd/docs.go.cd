@@ -16,7 +16,7 @@ having repoquery installed (part of the
 ### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 The Yum respository poller is a bundled [package
-material](package_material.html) plugin capable of polling yum
+material](../advanced_usage/package_material.html) plugin capable of polling yum
 repositories for rpm packages. Go server interacts with this plugin via
 package material plugin interfaces. The plugin makes use of a command
 similar to the following to poll the server. So it does not depend on

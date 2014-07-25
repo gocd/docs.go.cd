@@ -2,7 +2,7 @@
 
 When using Go to build your application, it is often useful to be able to include extra information in the label Go uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.
 
--   Click on the [Administration](administration_page.html) tab
+-   Click on the [Administration](../navigations/administration_page.html) tab
 -   ![](../resources/images/cruise/topnav_admin.png)
 -   Edit the pipeline
 -   ![](../resources/images/cruise/admin/2_edit_pipeline.png)

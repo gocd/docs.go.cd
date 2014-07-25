@@ -18,7 +18,7 @@ Administrators can choose to delete an agent which is no longer required. The ag
 4.  To enable or disable agents, first select the agents that you are interested in. Then click the 'ENABLE' or 'DISABLE' button. If you try to disable an agent that is already disabled, or enable an agent that is already enabled, Go will ignore that change.
 5.  To associate a resource with an agent, first select the agents you are interested in. Then click the 'Resources' button. You are now able to associate new or existing resources with your agents.
 6.  To associate an agent with an environment, first select the agents you are interested in. Then click the 'Environments' button. You are now able to associate your agents with an environment.
-7.  Admin users can click here to get to the [Agent details](agent_details.html) of the given agent
+7.  Admin users can click here to get to the [Agent details](../navigations/agent_details.html) of the given agent
 8.  Filter the agents list. See the section below.
 9.  To delete agents, first select the agents that you are interested in. Then click the 'DELETE' button. If you try to delete an agent that is in disabled(building) or disabled(cancelled), Go will not delete that agent.
 
@@ -57,5 +57,5 @@ You cannot combine autocomplete and exact search. Once you specify the values in
 
 #### Also see...
 
--   [Managing Agents](managing_a_build_cloud.html)
+-   [Managing Agents](../advanced_usage/managing_a_build_cloud.html)
 -   [Go overview](welcome_to_go.html)

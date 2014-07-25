@@ -27,7 +27,7 @@ of Go. You can also perform the backup [using the API](Backup_API.html).
 The backup will be performed into the
 **{ARTIFACT\_REPOSITORY\_LOCATION}/serverBackups** directory.
 {ARTIFACT\_REPOSITORY\_LOCATION} for your server can be found as
-mentioned [here](configuring_server_details.html#artifact_repo_config).
+mentioned [here](../installation/configuring_server_details.html#artifact_repo_config).
 
 The backup directory will be named **backup\_{TIMESTAMP}** where the
 **{TIMESTAMP}** is the time when the backup was initiated.
@@ -46,7 +46,7 @@ The backup directory will be named **backup\_{TIMESTAMP}** where the
 #### What is not backed up? {.collapsed-heading onclick="toggleCollapse($(this));"}
 
 Note: Please refer to the
-[this](installing_go_server.html#location_of_files) page to see what the
+[this](../installation/installing_go_server.html#location_of_files) page to see what the
 {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
 The following are not backed up as a part of the Go backup process.
@@ -83,7 +83,7 @@ contents.
 #### Restoring Go using backup {.collapsed-heading onclick="toggleCollapse($(this));"}
 
 Note: Please refer to the
-[this](installing_go_server.html#location_of_files) page to see what the
+[this](../installation/installing_go_server.html#location_of_files) page to see what the
 {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
 The restoration process is not automated and needs to be done manually.

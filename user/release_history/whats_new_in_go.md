@@ -47,12 +47,12 @@ for the year. For ex: 13.2 will be the second release in 2013.
 
 -   [Template Admin:](pipeline_templates.html#edit_template) Users in Go
     can now view and edit a template for which they have permissions.
--   [Pipeline Search:](Pipelines_Dashboard_page.html) Allows a user to
+-   [Pipeline Search:](../navigations/Pipelines_Dashboard_page.html) Allows a user to
     search for a specific pipeline on the pipeline dashboard.
 
 ### Enhancements {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Pipeline Edit:](Pipelines_Dashboard_page.html) Go Administrators
+-   [Pipeline Edit:](../navigations/Pipelines_Dashboard_page.html) Go Administrators
     and Pipeline Group Administrators can now navigate to edit a
     pipeline through a single click on the dashboard.
 -   Performance improvements have been made for pipeline dashboard page
@@ -67,7 +67,7 @@ for the year. For ex: 13.2 will be the second release in 2013.
 ### Features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   [External Package
-    Repositories:](package_material.html#package_material) Go supports
+    Repositories:](../advanced_usage/package_material.html#package_material) Go supports
     external packages repositories as materials, and changes to packages
     in these repositories can trigger Go pipelines.
 
@@ -112,11 +112,11 @@ Go 13.2.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
     creating or editing pipelines.
 -   [User Delete API:](users_api.html) A new API using which you can
     delete a disabled user.
--   Check-in comments in [Value Stream Map:](value_stream_map.html)
+-   Check-in comments in [Value Stream Map:](../navigations/value_stream_map.html)
     Showing more details, like the check-in comment, date and author for
     every Source Control Material in the Value Stream Map.
 -   [Improving Server Startup
-    Time:](performance_tuning.html#server_startup_time) The database
+    Time:](../installation/performance_tuning.html#server_startup_time) The database
     queries that run when the server starts, have been optimized. Also,
     additional JVM properties have been provided to delay material
     polling and pipeline scheduling, thereby, improving start up time.
@@ -144,12 +144,12 @@ Go 13.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### New features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [**Value Stream Map**](value_stream_map.html): Visualize end-to-end
+-   [**Value Stream Map**](../navigations/value_stream_map.html): Visualize end-to-end
     pipeline dependency. See what revisions triggered a pipeline and
     which dependent pipelines were triggered by it. Track changes from
     check-in to deploy.
 -   [**Better support for concurrent edits to
-    configuration**](concurrent_config_modifications.html)
+    configuration**](../faq/concurrent_config_modifications.html)
     -   Config Merge : Multiple users' changes to configuration are now
         merged by Go.
     -   Split Pane : A user-friendly interface appears in the config xml
@@ -158,10 +158,10 @@ Go 13.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
         edit config without losing any changes!
 -   [Support for named branches in
     Mercurial](configuration_reference.html#hg)
--   [**Config Diff**](stage_old_config.html): Go administrator can now
+-   [**Config Diff**](../faq/stage_old_config.html): Go administrator can now
     view configuration changes between two stage runs.
 -   [Delete disabled agents from agents
-    tab.](managing_a_build_cloud.html#delete_agents)
+    tab.](../advanced_usage/managing_a_build_cloud.html#delete_agents)
 
 ### Enhancements {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -175,8 +175,8 @@ Go 13.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
     pipeline options page.
 -   A file called wrapper-properties.conf can now be created in windows
     installations to hold custom properties. This can be done on both
-    [server](installing_go_server.html#windows_install_server) and
-    [agent](installing_go_agent.html#windows_install_agent) to avoid
+    [server](../installation/installing_go_server.html#windows_install_server) and
+    [agent](../installation/installing_go_agent.html#windows_install_agent) to avoid
     overwriting custom properties during upgrade.
 
 ### Bug fixes {.collapsible-heading onclick="toggleCollapse($(this));"}
@@ -189,7 +189,7 @@ Go 13.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### New features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   **[Command Repository](command_repository.html)** : How do I run
+-   **[Command Repository](../advanced_usage/command_repository.html)** : How do I run
     maven with Go? Is it possible to do an EC2 deploy with Go? What is
     the syntax if I need to execute a remote command on a linux box? The
     answer to these and more are now provided within Go.
@@ -202,7 +202,7 @@ Go 13.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
     updates stop responding. Now you get to know when this happens and
     take suitable steps.
 -   Support for multiple organizational units (OUs) in [LDAP
-    configuration](dev_authentication.html#ldap_authentication). This
+    configuration](../configuration/dev_authentication.html#ldap_authentication). This
     allows finer-grained access control. If your organization has
     multiple OUs in your corporate LDAP, you can now to choose to
     specify those OUs, whose users are allowed to use Go.
@@ -273,7 +273,7 @@ Go 12.4 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   **Line breaks displayed in commit messages** :This improves the
     readability of commit messages.
 -   Go now deletes the associated cache as part of [auto deletion of
-    artifacts](delete_artifacts.html).
+    artifacts](../configuration/delete_artifacts.html).
 -   The username of the user who triggered a build is now available as a
     [job environment
     variable](dev_use_current_revision_in_build.html#standard).
@@ -325,7 +325,7 @@ Go 12.3.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   **UI improvements** : Console and custom tabs now extend to the
     height of the browser window. And we have a "Top" icon to quickly
     get you upto the top of the page.
--   **[Filter agents by exact search](agents_page.html#exact_search)** :
+-   **[Filter agents by exact search](../navigations/agents_page.html#exact_search)** :
     Now you can specify the values in quotes to do an exact search. The
     result - you get exactly what you want and nothing more.
 
@@ -362,10 +362,10 @@ Go 12.3 {.collapsible-heading onclick="toggleCollapse($(this));"}
 ### Enhancements {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   **[Silent (Unattended) Windows
-    Installer](installing_go_agent.html).** You no longer need to stick
+    Installer](../installation/installing_go_agent.html).** You no longer need to stick
     (and click) around when you install a Windows agent. Thank you for
     your patience!
--   **Your [CCtray client](go_integration.html#cctray)** now shows you
+-   **Your [CCtray client](../integration/go_integration.html#cctray)** now shows you
     who broke the build
 -   **[API to cancel a stage](Stages_API.html)**
 
@@ -375,12 +375,12 @@ Go 12.3 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   Teams of up to 10 users can now have access to a fully featured
     Continous Delivery tool for free
 -   This includes [templates](pipeline_templates.html), [Go
-    Environments](managing_environments.html), pipeline groups and
+    Environments](../configuration/managing_environments.html), pipeline groups and
     pipeline group security
 
 ### Bugs Fixed {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   The **[Pipeline Compare](compare_pipelines.html)** now uses *push
+-   The **[Pipeline Compare](../advanced_usage/compare_pipelines.html)** now uses *push
     date* and not *author commit date*.
 -   Check connection issue with Perforce
 
@@ -428,7 +428,7 @@ Go 12.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
     can comfortably and safely store and use passwords in Go. You and
     your auditors will be happy.
 -   **[Store each artifact in one place and then fetch it whenever and
-    wherever](managing_dependencies.html#fetch_artifact_section):** You
+    wherever](../configuration/managing_dependencies.html#fetch_artifact_section):** You
     can now fetch artifacts from any ancestor pipeline. For example,
     this comes in handy when you want to deploy the same binaries using
     the same deployment process to various environments. This ensures
@@ -449,7 +449,7 @@ Go 12.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   Fetch Artifact task can be used to fetch artifacts from a particular
     stage in an [upstream
-    pipeline](managing_dependencies.html#fetch_artifact_section) or
+    pipeline](../configuration/managing_dependencies.html#fetch_artifact_section) or
     stages before it. Stages after the upstream stage **can not** be
     fetched from, because they may not be complete when the fetch task
     executes. Prior to 12.2 Go would allow fetching artifacts from
@@ -490,12 +490,12 @@ Go 2.4 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### Performance Enhancements {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   **[Tune Go for Better Performance](performance_tuning.html):** Go
+-   **[Tune Go for Better Performance](../installation/performance_tuning.html):** Go
     has been tested with a large number of pipelines, agents and load.
     Performance will vary based on your server configuration and usage
     patterns. Use this guide to optimize performance.
 -   **Faster Dashboard:** The [Pipelines
-    Dashboard](Pipelines_Dashboard_page.html) renders much faster even
+    Dashboard](../navigations/Pipelines_Dashboard_page.html) renders much faster even
     with a large number of pipelines.
 -   **Faster Artifact Transfers:** We reduced artifact upload and
     download times.
@@ -503,7 +503,7 @@ Go 2.4 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### New Features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   **[Filter on Agents page](agents_page.html):** Use tag:value style
+-   **[Filter on Agents page](../navigations/agents_page.html):** Use tag:value style
     syntax to easily find the agents you want to manage.
 -   **[Auto registration of remote agents](agent_auto_register.html):**
     You can now auto approve remote agents without having to enable them
@@ -530,25 +530,25 @@ Go 2.3 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### New Features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   **[Visualize build duration over time](stage_duration_chart.html):**
+-   **[Visualize build duration over time](../advanced_usage/stage_duration_chart.html):**
     Visualize trends in your build's duration with a brand new graphical
     chart
 -   **[Clone a pipeline](admin_clone_pipeline.html):** Use the admin UI
     to clone an existing pipeline.
 -   **[3 Step Pipeline Wizard](quick_pipeline_setup.html):** Use the new
     pipeline wizard to create a pipeline is 3 easy steps.
--   **[Job history on an agent](agent_details.html):** You can view the
+-   **[Job history on an agent](../navigations/agent_details.html):** You can view the
     history of all the work done by an agent. Analyze problems in your
     execution environment to identify flaky jobs on particular agents.
 -   **[Trace a pipeline instance back to its
-    configuration](stage_old_config.html):** Go now maintains a history
+    configuration](../faq/stage_old_config.html):** Go now maintains a history
     of all changes made to its configuration allowing you to audit all
     configuration changes. You can view the Go configuration for each
     run in the Config tab for a stage.
--   **[Job Timeout](job_timeout.html):** Non-responsive jobs are now
+-   **[Job Timeout](../configuration/job_timeout.html):** Non-responsive jobs are now
     detected by Go and can be configured to automatically cancel after a
     timeout period.
--   **[Auto purge old artifacts](delete_artifacts.html):** Configure Go
+-   **[Auto purge old artifacts](../configuration/delete_artifacts.html):** Configure Go
     to manage server disk space by automatically purging old artifacts.
 -   **[Artifact integrity verification](artifact_integrity.html):** Go
     verifies every file retrieved from its repository to ensure it
@@ -560,7 +560,7 @@ Go 2.3 {.collapsible-heading onclick="toggleCollapse($(this));"}
     variable which indicates the perforce client name.
 -   Configure and manage custom tabs for your jobs using the admin UI.
 -   You can now browse the history to select a pipeline on the[Pipeline
-    Compare screen](compare_pipelines.html).
+    Compare screen](../advanced_usage/compare_pipelines.html).
 -   The Stages XML feed now includes additional details on the material
     check-in that triggered the pipeline and information on related
     mingle cards.
@@ -573,7 +573,7 @@ Go 2.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### New Features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   **[Pipeline Compare](compare_pipelines.html):** Go now gives you the
+-   **[Pipeline Compare](../advanced_usage/compare_pipelines.html):** Go now gives you the
     ability to select any two pipeline instances and see exactly what
     changed between the two builds. The comparison will display a list
     of checkins grouped by material. If you use Mingle 3.3 (or greater)
@@ -636,13 +636,13 @@ Go 2.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
     environments.
 -   Better handling of [cloned agent](agent_guid_issue.html) conflicts
 -   Go now displays when a stage was triggered on the [stage details
-    page](stage_details_page.html)
+    page](../navigations/stage_details_page.html)
 -   Test failure information is now included in notification emails.
 -   Access to build cause information from within the [Failed Test
-    History](stage_details_page.html#failed_build_history) report.
+    History](../navigations/stage_details_page.html#failed_build_history) report.
 -   Access to failure message and stack trace for a failing test from
     within the [Failed Build
-    History](stage_details_page.html#failed_build_history) report.
+    History](../navigations/stage_details_page.html#failed_build_history) report.
 
 Go 2.0 {.collapsible-heading onclick="toggleCollapse($(this));"}
 ------
@@ -652,9 +652,9 @@ Go 2.0 {.collapsible-heading onclick="toggleCollapse($(this));"}
 #### Environments {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   [Create, manage, and use an
-    environment](managing_environments.html#create)
+    environment](../configuration/managing_environments.html#create)
 -   [Associate agents with an
-    environment](managing_environments.html#agents)
+    environment](../configuration/managing_environments.html#agents)
 
 #### Other Features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -686,9 +686,9 @@ Go 2.0 {.collapsible-heading onclick="toggleCollapse($(this));"}
 #### Agents {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   [Bulk edit of agent
-    resources](managing_a_build_cloud.html#jobstoagents)
+    resources](../advanced_usage/managing_a_build_cloud.html#jobstoagents)
 -   [Bulk enable and disable
-    agents](managing_a_build_cloud.html#jobstoagents)
+    agents](../advanced_usage/managing_a_build_cloud.html#jobstoagents)
 
 #### Scheduling {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -714,17 +714,17 @@ Cruise 1.3.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   [Go watches the disk space available for database and shows a
     warning message when it becomes low.](admin_out_of_disk_space.html)
 -   [Go shows the disk space available for pipelines folder under agent
-    installation root.](agents_page.html)
+    installation root.](../navigations/agents_page.html)
 -   [Pipeline label can now be customized by material revisions
-    number.](build_labelling.html)
+    number.](../configuration/build_labelling.html)
 -   [Link directly from pipeline history page to the different stage
-    histories.](pipeline_activity_page.html)
+    histories.](../navigations/pipeline_activity_page.html)
 
 ### Changes {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   Go uses pipeline counter instead of label in
     [artifacts](Artifacts_API.html) and
-    [properties](Properties_API.html) Restful urls.
+    [properties](../advanced_usage/Properties_API.html) Restful urls.
 -   Mercurial material no longer updates the working copy on the server
     when checking for modifications.
 -   Go now schedules pipelines concurrently.
@@ -775,7 +775,7 @@ Cruise 1.3 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   Go watch artifacts disk space and show warning message when it
     becomes low.
 -   [User tab to manage email notifications, with the ability to match
-    check-ins to users](dev_notifications.html)
+    check-ins to users](../configuration/dev_notifications.html)
 -   [Run multiple Go agents on one
     machine](admin_install_multiple_agents.html)
 -   [Cancelling a stage can run a process to clean up on the
@@ -788,17 +788,17 @@ Cruise 1.3 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   [Set environment variables containing the source control revision id
     when running a task](dev_use_current_revision_in_build.html)
 -   We now support SUSE
-    [[server](installing_go_server.html#install-linux)|[agent](installing_go_agent.html#install-linux)]
+    [[server](../installation/installing_go_server.html#install-linux)|[agent](../installation/installing_go_agent.html#install-linux)]
     (tested on Linux Enterprise Server 10 SP2).
 -   We now support Solaris
-    [[server](installing_go_server.html#install-solaris)|[agent](installing_go_agent.html#install-solaris)]
+    [[server](../installation/installing_go_server.html#install-solaris)|[agent](../installation/installing_go_agent.html#install-solaris)]
     (tested on SunOS Solaris10 5.10).
 
 In the professional edition:
 
 -   [Ability to group (and secure) similar
     pipelines](dev_authorization.html#pipeline-groups)
--   [Pipeline dependencies](managing_dependencies.html)
+-   [Pipeline dependencies](../configuration/managing_dependencies.html)
 -   [Lock down who can view and operate
     pipelines](dev_authorization.html)
 -   More than one material per pipeline
@@ -817,7 +817,7 @@ In the professional edition:
     actions](dev_authorization.html) for more information.
 -   Go server can now be downloaded as a single jar. For more
     information see [running Go without an
-    install](run_go_without_install.html).
+    install](../installation/run_go_without_install.html).
 -   The "Pipelines" tab has been removed. The Pipeline Activity page
     provides a much better visualizatiion.
 -   Manual pipelines no longer poll source control. A pipeline with a
@@ -1025,9 +1025,9 @@ example](configuration_reference.html#fetchartifact).
 
 ### References {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Installing Go server](installing_go_server.html)
--   [Installing Go agent](installing_go_agent.html)
--   [Upgrading Go](upgrading_go.html)
+-   [Installing Go server](../installation/installing_go_server.html)
+-   [Installing Go agent](../installation/installing_go_agent.html)
+-   [Upgrading Go](../installation/upgrading_go.html)
 
 Cruise 1.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
 ----------
@@ -1131,9 +1131,9 @@ responsive for very large installations with a lot of history.
 
 ### References {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Installing Go server](installing_go_server.html)
--   [Installing Go agent](installing_go_agent.html)
--   [Upgrading Go](upgrading_go.html)
+-   [Installing Go server](../installation/installing_go_server.html)
+-   [Installing Go agent](../installation/installing_go_agent.html)
+-   [Upgrading Go](../installation/upgrading_go.html)
 
 Your search did not match any help pages.
 

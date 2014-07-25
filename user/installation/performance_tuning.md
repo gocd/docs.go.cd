@@ -6,7 +6,7 @@ This section provides recommendations to evaluate server hardware and memory req
 
 ### Minimum server requirements
 
-The minimum requirements for a Go server can be found [here](system_requirements.html)
+The minimum requirements for a Go server can be found [here](../installation/system_requirements.html)
 
 ### Scaling Go
 
@@ -20,7 +20,7 @@ Do not run any other CPU intensive applications on the same box as the Go Server
 
 When the Go server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the Go server are -Xms512m (minimum) and -Xmx1024m (maximum). These values can be increased by setting the environment variables SERVER\_MEM (for minimum) and SERVER\_MAX\_MEM (for maximum).
 
-On linux, these can be added/updated in /etc/default/go-server. On Windows, copy the following lines in *[wrapper-properties.conf](installing_go_server.html)* and change it to desired value.
+On linux, these can be added/updated in /etc/default/go-server. On Windows, copy the following lines in *[wrapper-properties.conf](../installation/installing_go_server.html)* and change it to desired value.
 
 ``` {.code}
 wrapper.java.additional.1=-Xms512m
@@ -116,7 +116,7 @@ For Windows
 
 1.  By default, Go server looks for the yourkit profiler agent yjpagent.dll in the location C:\\yjpagent.dll. Therefore, copy the file yjpagent.dll (which is the yourkit profiler agent) from '{yourkit\_profiler\_directory}\\bin\\win32' to C:\\yjpagent.dll. Copy the file from '{yourkit\_profiler\_directory}\\bin\\win64' if you are using 64 bit JVM.
 2.  To change the above mentioned default location: define environment variable YOURKIT\_PATH with value equal to location of yjpagent.dll.
-3.  If you are running the Go server as a service, you will need to perform an additional step. In the config folder of the Go server installation, edit the *[wrapper-properties.conf](installing_go_server.html)* file, and add an additional property with the following value
+3.  If you are running the Go server as a service, you will need to perform an additional step. In the config folder of the Go server installation, edit the *[wrapper-properties.conf](../installation/installing_go_server.html)* file, and add an additional property with the following value
 
     ``` {.code}
     "-agentpath:<Path to yjpagent.dll>=port=6133,builtinprobes=none"

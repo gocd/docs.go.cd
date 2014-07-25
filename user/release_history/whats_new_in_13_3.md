@@ -9,7 +9,7 @@ Go 13.3 {.collapsible-heading onclick="toggleCollapse($(this));"}
 ### Features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   [External Package
-    Repositories:](package_material.html#package_material) Go supports
+    Repositories:](../advanced_usage/package_material.html#package_material) Go supports
     external packages repositories as materials, and changes to packages
     in these repositories can trigger Go pipelines.
 

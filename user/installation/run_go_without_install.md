@@ -2,7 +2,7 @@
 
 If you want to run Go on a platform which does not have a native installer or want to run Go without requiring to install it, you could do so by using the zip installers.
 
-Ensure that the [system requirements](system_requirements.html) are met. Specifically:
+Ensure that the [system requirements](../installation/system_requirements.html) are met. Specifically:
 
 -   Java Runtime Environment (JRE) version 6 or above
 -   RAM: 1Gb minimum, 2Gb recommended

@@ -15,7 +15,7 @@ broken](dev_understand_why_build_broken.html).
 
 -   Suppose we have configured Go to [upload a flash video and html file
     and display it as a tab](dev_upload_test_report.html)
--   Click on the [Pipelines](Pipelines_Dashboard_page.html) tab
+-   Click on the [Pipelines](../navigations/Pipelines_Dashboard_page.html) tab
 -   ![](../resources/images/cruise/topnav_pipelines.png)
 -   Click on the stage you want to investigate
 -   ![](../resources/images/cruise/dev/see_artifact_as_tab/click_on_stage.png)

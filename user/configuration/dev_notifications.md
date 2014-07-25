@@ -12,7 +12,7 @@ check-in has broken the build. Alternatively, a manager might want an
 email whenever a project is deployed into production. Both of these
 scenarios can be covered by Notification Filters
 
-Notifications will only work if [Security](dev_authentication.html) is
+Notifications will only work if [Security](../configuration/dev_authentication.html) is
 enabled and [mailhost information](admin_mailhost_info.html) is correct.
 
 ### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}

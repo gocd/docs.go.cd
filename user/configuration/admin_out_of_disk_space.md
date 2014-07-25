@@ -41,7 +41,7 @@ You can disallow deletion of artifacts from a particular stage so that those art
 
 ### Also see...
 
--   [Managing artifacts and reports](managing_artifacts_and_reports.md)
+-   [Managing artifacts and reports](../configuration/managing_artifacts_and_reports.md)
 -   [Clean up after cancelling a task](dev_clean_up_when_cancel.md)
 
 ## Compress large log files
@@ -59,7 +59,7 @@ Now, if you add this to a system [crontab](http://en.wikipedia.org/wiki/Cron), y
 If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location Go uses for it's artifact repository.
 
 -   Find the location of the Go configuration file
--   Navigate to the [Admin](administration_page.md) section
+-   Navigate to the [Admin](../navigations/administration_page.md) section
 ![](../resources/images/cruise/topnav_admin.png)
 -   Click on the "Config XML" tab
 -   The location of the configuration file is listed here
@@ -83,7 +83,7 @@ The directory structure of the artifact repository makes selecting which artifac
 ```
 [artifacts-dir]/pipelines/[pipelineName]/[pipelineLabel]/[stageName]/[stageCounter]/[jobName]
 ```
-> Keep in mind that there are two files that Go needs in order to display the [Job](job_details_page.md) or [Stage](stage_details_page.md) details pages
+> Keep in mind that there are two files that Go needs in order to display the [Job](../navigations/job_details_page.md) or [Stage](../navigations/stage_details_page.md) details pages
 
 >-   cruise-output/console.log
 >-   cruise-output/log.xml

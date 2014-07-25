@@ -22,7 +22,7 @@ Check the appropriate **Run if conditions** when defining the **Task**
 Usage: As a developer, I want to run a task only when the build has
 already failed.
 
--   On the [Administration Tab](administration_page.html), edit the jobs
+-   On the [Administration Tab](../navigations/administration_page.html), edit the jobs
     that should run a task when the build has failed
 -   Ensure the following "task" block is in the job configuration
 -   ![](../resources/images/cruise/dev/conditional_task/2_conditional_task_config.png)

@@ -56,7 +56,7 @@ When you see warning messages like the one above
     determine if a material update is possibly hung, to 20 minutes.
 
 -   On Windows, add the following line in the
-    *[wrapper-properties.conf](installing_go_server.html)* file in the
+    *[wrapper-properties.conf](../installation/installing_go_server.html)* file in the
     config folder of the Go server installation where **x** is 1 more
     than the highest number in *wrapper-server.conf* and
     *wrapper-properties.conf* combined.

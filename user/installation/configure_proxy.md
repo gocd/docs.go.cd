@@ -38,4 +38,4 @@ This directive can replace HTTP request headers. The header is modified just bef
 
 ## Also see...
 
--   [Configure site URLs](configuring_server_details.html#configure_site_url)
+-   [Configure site URLs](../installation/configuring_server_details.html#configure_site_url)

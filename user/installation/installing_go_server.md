@@ -1,6 +1,6 @@
 # Installing Go server
 
-Before you install the Go server or agent, please take a look at [System Requirements](system_requirements.html).
+Before you install the Go server or agent, please take a look at [System Requirements](../installation/system_requirements.html).
 
 ## Installation
 
@@ -139,6 +139,6 @@ Some logging information is also written to */var/log/system.log*
 
 ### Also see...
 
--   [Installing Go agents](installing_go_agent.html)
--   [Configuring server details](configuring_server_details.html)
--   [Configure Go to work with a proxy](configure_proxy.html)
+-   [Installing Go agents](../installation/installing_go_agent.html)
+-   [Configuring server details](../installation/configuring_server_details.html)
+-   [Configure Go to work with a proxy](../installation/configure_proxy.html)

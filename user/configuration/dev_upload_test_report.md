@@ -17,7 +17,7 @@ your build and view it in Go.
 To publish artifacts you add a an
 [\<artifact\>](configuration_reference.html#artifact) to the job
 configuration. More information can be found on the [Managing artifacts
-and reports](managing_artifacts_and_reports.html) page.
+and reports](../configuration/managing_artifacts_and_reports.html) page.
 
 ### Example usages {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -48,7 +48,7 @@ For each job that runs JUnit:
 We are going to assume that the flash file, and the html file
 referencing it, are being created in the "target/reports" folder.
 
-Click on the [Adminstration](administration_page.html) tab
+Click on the [Adminstration](../navigations/administration_page.html) tab
 
 ![](../resources/images/cruise/topnav_admin.png)
 

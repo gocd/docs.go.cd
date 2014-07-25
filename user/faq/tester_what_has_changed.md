@@ -17,11 +17,11 @@ For this example, we'll assume that there is a manual "UAT" stage will
 automatically deploy and install an executable on your user acceptance
 testing machine.
 
--   On the [Pipelines](Pipelines_Dashboard_page.html) page, click on the
+-   On the [Pipelines](../navigations/Pipelines_Dashboard_page.html) page, click on the
     name of your pipeline
 -   ![](../resources/images/cruise/tester/what_has_changed/1_click_pipeline_name.png)
 -   Now that you're on the [pipeline
-    Activity](pipeline_activity_page.html) page, you can see exactly how
+    Activity](../navigations/pipeline_activity_page.html) page, you can see exactly how
     far each check-in has gotten in your pipeline
 -   Find the check-in that's currently in UAT. In this example, it has
     the pipeline label of **2.0.0.5077**

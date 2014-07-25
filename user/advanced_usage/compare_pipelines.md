@@ -43,7 +43,7 @@ Changes](../resources/images/cruise/compare_changes.png)
 3.  **Changes to version control systems:** All check-ins that went into
     dependent VCS materials within the search range.
 4.  **Tracking tool integration:** If you've configured a [tracking tool
-    integration](go_integration.html#tracking_tool) for this pipeline or
+    integration](../integration/go_integration.html#tracking_tool) for this pipeline or
     any upstream pipelines, check-in comments containing
     story/defect/ticket numbers would be hyperlinked to the appropriate
     tracking tool.

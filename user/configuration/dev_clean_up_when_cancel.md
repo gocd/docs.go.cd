@@ -33,7 +33,7 @@ To perform a custom cleanup through the web interface, edit the desired
 Usage: As a developer, I want to stop running my [Twist]() tests and
 clean up the environment on each job when I cancel the stage.
 
--   On the [Administration Tab](administration_page.html), edit the jobs
+-   On the [Administration Tab](../navigations/administration_page.html), edit the jobs
     that should handle canceling correctly
 -   Ensure the following "task" block is in the job configuration
 -   Now, whenever you cancel the stage while the jobs are running the
@@ -44,7 +44,7 @@ clean up the environment on each job when I cancel the stage.
 Usage: As a developer, I want to allow my database tests to not be
 halted when I cancel the stage.
 
--   On the [Administration Tab](administration_page.html), edit the jobs
+-   On the [Administration Tab](../navigations/administration_page.html), edit the jobs
     that should handle canceling correctly
 -   Ensure the following "task" block is in the job configuration
 -   Now, whenever you cancel the stage while the jobs are running the

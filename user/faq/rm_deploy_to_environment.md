@@ -35,7 +35,7 @@ us to use.
 
 When you are ready to deploy something into the UAT environment...
 
--   Navigate to the [pipeline activity](pipeline_activity_page.html)
+-   Navigate to the [pipeline activity](../navigations/pipeline_activity_page.html)
     page
 -   Find the check-in you want to deploy
 -   Click on the manual transition into the **UAT** stage
@@ -62,7 +62,7 @@ will have already created the binary for us to use.
 When you are ready to deploy something into the production
 environment...
 
--   Navigate to the [pipeline activity](pipeline_activity_page.html)
+-   Navigate to the [pipeline activity](../navigations/pipeline_activity_page.html)
     page
 -   Find the check-in you want to deploy
 -   Click on the details link of the **dist** stage

@@ -70,7 +70,7 @@ materials[repo-name:pkg-name]=gcc-4.4.7-3.el6.x86\_64
 
 Triggers a new instance of the specified pipeline with revision
 gcc-4.4.7-3.el6.x86\_64 of the rpm [package
-material](package_material.html) and the latest of all other materials
+material](../advanced_usage/package_material.html) and the latest of all other materials
 
 POST
 

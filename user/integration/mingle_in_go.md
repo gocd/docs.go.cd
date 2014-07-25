@@ -20,7 +20,7 @@ configured with some special URLs that match exactly. And these URLs
 must be HTTPS endpoints. The Go administrator should double check that a
 secure site URL has been properly specified, via either the siteURL or
 secureSiteURL attributes of the server element, in the [Go configuration
-XML](configuring_server_details.html#configure_site_url). The Mingle
+XML](../installation/configuring_server_details.html#configure_site_url). The Mingle
 administrator should make a similar check of his Mingle configuration
 (although the mechanism for specifying site URLs differs in Mingle).
 
