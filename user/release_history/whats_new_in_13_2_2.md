@@ -18,7 +18,7 @@ Go 13.2.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
     therefore we are reverting to TFS SDK v10.1 with this minor release
     of Go to take the time and investigate the issue further.
 
-Your search did not match any help pages.
+
 
 
 

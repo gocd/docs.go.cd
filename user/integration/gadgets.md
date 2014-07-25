@@ -22,7 +22,7 @@ Gadget](../resources/images/cruise/pipeline-status-gadget.png)
 
 -   [Integrating Go with Mingle - an overview](mingle_integration.html)
 
-Your search did not match any help pages.
+
 
 
 

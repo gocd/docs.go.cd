@@ -92,7 +92,7 @@ role(s).
 5.  Check/un-check the 'Go System Administrator' checkbox and click
     "Apply"
 
-Your search did not match any help pages.
+
 
 
 

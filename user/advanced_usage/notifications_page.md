@@ -18,7 +18,7 @@ current logged in user.
 3.  'My check-in aliases' is a comma separated list of aliases used for
     check in.
 
-Your search did not match any help pages.
+
 
 
 

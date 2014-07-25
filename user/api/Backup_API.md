@@ -48,7 +48,7 @@ To initiate the backup
 curl -u jez:badger -d "" http://goserver.com:8153/go/api/admin/start_backup
 ```
 
-Your search did not match any help pages.
+
 
 
 

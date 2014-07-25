@@ -220,7 +220,7 @@ Accepted commands will be bundled into the next release.
 [Use it to lookup your config
 scripts](http://www.thoughtworks.com/insights/blog/use-gos-new-command-repository-lookup-your-config-scripts)
 
-Your search did not match any help pages.
+
 
 
 

@@ -70,7 +70,7 @@ click the “Apply” button.
 
 ![](../resources/images/cruise/associate_agent_environment.png)
 
-Your search did not match any help pages.
+
 
 
 

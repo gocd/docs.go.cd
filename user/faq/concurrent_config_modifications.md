@@ -53,7 +53,7 @@ his/her changes from backup and save again.
 
 ![](../resources/images/cruise/admin/clicky_admin_merge_conflict.png)
 
-Your search did not match any help pages.
+
 
 
 

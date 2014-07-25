@@ -38,7 +38,7 @@ a link called 'Reset Zoom' Appears on the chart which resets the graph.
 5.  Toggles the line graph of the failed runs.
 6.  Toggles the line graph of the passed runs.
 
-Your search did not match any help pages.
+
 
 
 

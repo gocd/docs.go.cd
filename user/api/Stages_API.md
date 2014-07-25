@@ -77,7 +77,7 @@ Run this command to cancel the stage of the pipeline:
 curl -u jez:badger -d "" http://goserver.com:8153/go/api/stages/demo_pipeline/first_stage/cancel
 ```
 
-Your search did not match any help pages.
+
 
 
 

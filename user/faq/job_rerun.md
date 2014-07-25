@@ -31,7 +31,7 @@ jobs that have been re-run:
 
 ![](../resources/images/cruise/stage_details_post_job_rerun.png)
 
-Your search did not match any help pages.
+
 
 
 

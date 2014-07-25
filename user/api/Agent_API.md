@@ -201,7 +201,7 @@ If you want to delete agent on 'agent-machine4'
 curl -u jez:badger -d "" http://goserver.com:8153/go/api/agents/31aea908-717a-435c-ad04-96dcc8d941df/delete
 ```
 
-Your search did not match any help pages.
+
 
 
 

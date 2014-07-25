@@ -29,7 +29,7 @@ You may now start your agent and it should appear under the Agents tab
 on the Go server. Approve it as you would any new agent and you're ready
 to go.
 
-Your search did not match any help pages.
+
 
 
 

@@ -242,7 +242,7 @@ plugin author to implement following methods.
                     
     ```
 
-Your search did not match any help pages.
+
 
 
 

@@ -198,7 +198,7 @@ pointers to information on the web.
     repository](https://github.com/goteam/go-command-repo/tree/master/package/rpm)
     has a bunch of commands related to rpm packages.
 
-Your search did not match any help pages.
+
 
 
 

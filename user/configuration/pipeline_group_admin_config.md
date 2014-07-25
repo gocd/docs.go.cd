@@ -26,7 +26,7 @@ at a time.
 
 ![](../resources/images/cruise/group_admin_config_xml.jpg)
 
-Your search did not match any help pages.
+
 
 
 

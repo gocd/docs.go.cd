@@ -322,7 +322,7 @@ The returned xml looks similar to:
         
 ```
 
-Your search did not match any help pages.
+
 
 
 

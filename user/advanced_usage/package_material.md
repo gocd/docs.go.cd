@@ -308,7 +308,7 @@ yum install componentA-1.2.0-b234-noarch
 
 do the resolution of componentB for you.
 
-Your search did not match any help pages.
+
 
 
 

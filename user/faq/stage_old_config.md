@@ -38,7 +38,7 @@ format as that of "Git Diff".
 
 ![](../resources/images/cruise/admin/stage_config_diff.png)
 
-Your search did not match any help pages.
+
 
 
 

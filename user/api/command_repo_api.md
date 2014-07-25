@@ -48,7 +48,7 @@ To reload the cache
 curl -u jez:badger -d "" http://goserver.com:8153/go/api/admin/command-repo-cache/reload
 ```
 
-Your search did not match any help pages.
+
 
 
 

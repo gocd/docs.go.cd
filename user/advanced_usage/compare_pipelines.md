@@ -65,7 +65,7 @@ Steps to select a particular instance from the history:
 
 -   [Mingle card activity gadget](mingle_card_activity_gadget.html)
 
-Your search did not match any help pages.
+
 
 
 

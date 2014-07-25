@@ -102,7 +102,7 @@ will add some properties associated with the tests.
 
 ![](../resources/images/cruise/properties-tests.png)
 
-Your search did not match any help pages.
+
 
 
 

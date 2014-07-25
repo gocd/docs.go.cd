@@ -70,7 +70,7 @@ Configuration or perform user management. While a group administrator
 cannot access Pipeline Templates either, they can use existing templates
 for pipelines within their pipeline group.
 
-Your search did not match any help pages.
+
 
 
 

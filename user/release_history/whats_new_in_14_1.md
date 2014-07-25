@@ -24,7 +24,7 @@ Go 14.1 {#has_github_links .collapsible-heading onclick="toggleCollapse($(this))
 -   Task running executables in the working directory should now be
     prefixed with ./ [(link)](https://github.com/GoCD/GoCD/issues/21)
 
-Your search did not match any help pages.
+
 
 
 

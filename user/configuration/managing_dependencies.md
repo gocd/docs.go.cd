@@ -162,7 +162,7 @@ For power users, here's how you can configure this via Config XML:
   
 ```
 
-Your search did not match any help pages.
+
 
 
 

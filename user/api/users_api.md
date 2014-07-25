@@ -69,7 +69,7 @@ To delete a user named 'another\_user'
 curl -u admin:badger -X "DELETE" http://goserver.com:8153/go/api/users/another_user
 ```
 
-Your search did not match any help pages.
+
 
 
 

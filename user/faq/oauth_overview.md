@@ -168,7 +168,7 @@ Now you are ready to query data from the Go server.
  curl -H 'Authorization: Token token="f180f7bb68d38531aac2f49e5b0cac0c5ed5ced9b72842a429e783747e819664"' https://www.your-go-server.com:8154/go/gadgets
 ```
 
-Your search did not match any help pages.
+
 
 
 

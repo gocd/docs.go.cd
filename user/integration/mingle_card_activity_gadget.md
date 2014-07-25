@@ -110,7 +110,7 @@ card activity.
 -   [What is OAuth?](what_is_oauth.html)
 -   [What is OpenSocial?](what_is_opensocial.html)
 
-Your search did not match any help pages.
+
 
 
 

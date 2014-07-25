@@ -59,7 +59,7 @@ If things appear to hang, chances are you forgot to replace twm with
 fvwm. twm requires you to place a window on the desktop when it starts
 up
 
-Your search did not match any help pages.
+
 
 
 

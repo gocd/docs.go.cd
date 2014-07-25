@@ -31,7 +31,7 @@ For this example, we're going to take the information out of
 -   ![](../resources/images/cruise/dev/save_properties/3_view_property.png)
 -   You can export the property history as a CSV file
 
-Your search did not match any help pages.
+
 
 
 

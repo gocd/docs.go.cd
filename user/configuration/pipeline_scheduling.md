@@ -28,7 +28,7 @@ only be toggled by editing the first stage in the template.
 -   [Different Types of Triggers for a
     Pipeline](http://support.thoughtworks.com/entries/23291981)
 
-Your search did not match any help pages.
+
 
 
 
