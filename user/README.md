@@ -1,6 +1,6 @@
 ## Go User Documentation
 
-This documentation is still in it's initial stage. Please refer http://www.thoughtworks.com/products/docs/go/current/help/ for user documentation.
+This documentation is still in its initial stage. Please refer http://www.thoughtworks.com/products/docs/go/current/help/ for user documentation.
 
 ### Setting up [GitBook](https://github.com/GitbookIO/gitbook)
 
