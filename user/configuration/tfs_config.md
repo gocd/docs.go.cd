@@ -3,7 +3,7 @@ Help documentation
 
  
 
-TFS Material configuration {.collapsible-heading onclick="toggleCollapse($(this));"}
+TFS Material configuration<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==========================
 
 You can use TFS SCM as a material for your pipeline. Go server and agent
@@ -47,7 +47,7 @@ Notes:
     different location or machine, you will need to manually delete the
     old tfs mappings at the old Go server location.
 
-### Known Caveats {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Known Caveats<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   If TFS server is accessed using HTTPS and the SSL certificate is an
     untrusted certificate then the certificate must be added to the

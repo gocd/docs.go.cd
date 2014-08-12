@@ -3,7 +3,7 @@ Help documentation
 
  
 
-See artifacts as sub-tabs {.collapsible-heading onclick="toggleCollapse($(this));"}
+See artifacts as sub-tabs<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =========================
 
 After [uploading html reports](dev_upload_test_report.html), it is often
@@ -11,7 +11,7 @@ useful to be able to easily view this information when trying to
 [understand why the build is
 broken](dev_understand_why_build_broken.html).
 
-### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example usage<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Suppose we have configured Go to [upload a flash video and html file
     and display it as a tab](dev_upload_test_report.html)

@@ -3,7 +3,7 @@ Help documentation
 
  
 
-UI testing {.collapsible-heading onclick="toggleCollapse($(this));"}
+UI testing<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==========
 
 Because Go installs itself as a service (Windows) or daemon (Linux) by
@@ -12,7 +12,7 @@ windowing environment can cause problems. Access to a windowing
 environment is usually required for testing UI applications or for
 driving browsers for web testing. Here's how you do it.
 
-#### Windows {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Windows<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The first step is to disable the Go agent service. To do this:
 
@@ -29,7 +29,7 @@ The next step is to start the Go agent as an application.
 2.  To get the Go agent to start every time you log in, copy the Run Go
     Agent shortcut to the Startup folder of your start menu.
 
-#### Linux {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Linux<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 There are many different ways to get a Linux build agent to interact
 with a UI. The easiest is to use a VNC service to provide a dedicated

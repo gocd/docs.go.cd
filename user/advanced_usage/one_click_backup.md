@@ -3,13 +3,13 @@ Help documentation
 
  
 
-Backup Go Server {.collapsible-heading onclick="toggleCollapse($(this));"}
+Backup Go Server<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ================
 
 You can use Go's administration interface to perform an One-Click Backup
 of Go. You can also perform the backup [using the API](Backup_API.html).
 
-#### Steps to initiate backup {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Steps to initiate backup<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   On the Go Administration page, click on the Backup tab.
 -   ![](../resources/images/cruise/admin/backup/backup_tab.png)

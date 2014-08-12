@@ -3,10 +3,10 @@ Help documentation
 
  
 
-Properties {.collapsible-heading onclick="toggleCollapse($(this));"}
+Properties<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==========
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Properties provide a simple way of collecting metrics over time. Go sets
 some standard properties for you. You can also set properties yourself
@@ -17,7 +17,7 @@ spreadsheets or scripts.
 
 ![](../resources/images/cruise/cruise_properties.png)
 
-### Property history {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Property history<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Go allows you to download the history of properties that you have
 defined. This history is available as a Comma Separated Values (CSV)
@@ -36,7 +36,7 @@ Properties tab of the job.
 ![](../resources/images/cruise/properties_export.png)
 ![](../resources/images/cruise/properties-chart.png)
 
-### Standard Properties {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Standard Properties<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The standard properties defined by Go are:
 
@@ -65,7 +65,7 @@ The standard properties defined by Go are:
 -   **cruise\_timestamp\_06\_completed** -- time at which the job
     completed
 
-### Generating Properties from Artifacts {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Generating Properties from Artifacts<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Go allows you to generate properties from XML artifacts that you create
 during the build. This can be used to harvest statistics produced by
@@ -90,7 +90,7 @@ this:
             
 ```
 
-### Tests {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Tests<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 If you define a tests artifact that contains the test reports, then Go
 will add some properties associated with the tests.

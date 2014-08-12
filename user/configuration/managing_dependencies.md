@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Managing dependencies {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing dependencies<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =====================
 
 Sometimes you need more complex triggers than a simple pipeline of
@@ -11,7 +11,7 @@ stages and jobs. In particular, you may want a pipeline to trigger based
 on the result of a stage in another pipeline. This is possible by adding
 pipelines as materials.
 
-### Creating a dependency {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Creating a dependency<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Say we have two pipelines - **upstream\_pipeline** and
 **downstream\_pipeline** . We want downstream\_pipeline to automatically

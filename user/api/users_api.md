@@ -3,14 +3,14 @@ Help documentation
 
  
 
-Users API {.collapsible-heading onclick="toggleCollapse($(this));"}
+Users API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ---------
 
 This API allows you to control User accounts in Go
 
 **NOTE:** Only Go administrator users will be able to use this API
 
-#### API {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Parameters
 
@@ -53,7 +53,7 @@ User executing the request is unauthorized to perform this operation.
 
 The user to be deleted does not exist.
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   We use curl, a command line tool for transferring files with URL
     syntax, in the following examples. Of course, you can use any HTTP

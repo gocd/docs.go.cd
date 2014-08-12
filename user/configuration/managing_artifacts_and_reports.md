@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Managing artifacts and reports {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing artifacts and reports<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==============================
 
 Because all your work is done on remote agents, Go provides a mechanism
@@ -11,7 +11,7 @@ for files to be automatically uploaded to Go server following the
 completion of every job. These files can then be accessed via the Go
 server dashboard, or via the RESTful API.
 
-### Publishing artifacts {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Publishing artifacts<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The first step in using the artifact repository is to tell Go which
 files you want to publish. To do this just specify the path to the file
@@ -38,7 +38,7 @@ For power users, here's how you would configure this via Config XML:
 </artifacts>
 ```
 
-### Using tabs {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Using tabs<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Once your artifacts are safely in Go server's artifact repository, you
 can have the dashboard display them in tabs.
@@ -52,7 +52,7 @@ display correctly.
 This mechanism is a simple way to include reports (for example code
 coverage) in Go.
 
-#### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Example<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The console tab shows output information from all the phases of the job.
 This also includes information from the version control system and
@@ -78,7 +78,7 @@ file in the tab when you click on it:
 
 ![](../resources/images/cruise/recording.png)
 
-### Publishing tests {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Publishing tests<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Go has support for publishing tests from JUnit or NUnit test reports.
 
@@ -114,7 +114,7 @@ Go will:
     reports will be copied into a new directory test-reports in the
     artifact repository
 
-### RESTful API {.collapsible-heading onclick="toggleCollapse($(this));"}
+### RESTful API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Go publishes all of its information as resources that can be queried
 through http in the form of RESTful API. See the [Go

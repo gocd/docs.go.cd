@@ -3,7 +3,7 @@ Help documentation
 
  
 
-OAuth 2.0 {.collapsible-heading onclick="toggleCollapse($(this));"}
+OAuth 2.0<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ---------
 
 OAuth is an open-standard that enables a user to share private protected

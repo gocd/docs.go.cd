@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Yum Repository Poller {.collapsible-heading onclick="toggleCollapse($(this));"}
+Yum Repository Poller<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =====================
 
 **Note:** This plugin is available for Go servers running on Linux nodes
@@ -13,7 +13,7 @@ having repoquery installed (part of the
 [CentOS](http://rpmfind.net//linux/RPM/centos/6.4/i386/Packages/yum-utils-1.1.30-14.el6.noarch.html)
 )
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The Yum respository poller is a bundled [package
 material](../advanced_usage/package_material.html) plugin capable of polling yum
@@ -29,7 +29,7 @@ repoquery --repofrompath=uuid,$REPO_URL --repoid=uuid -q $PACKAGE_SPEC -qf "%{LO
 A given instance of polling is considered successful if repoquery
 returns a single package as output.
 
-### Turn your Maven Nexus Repo into a Yum repo {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Turn your Maven Nexus Repo into a Yum repo<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Using the [Yum plugin for
 Nexus](https://github.com/sonatype/nexus-yum-plugin), it is possible to

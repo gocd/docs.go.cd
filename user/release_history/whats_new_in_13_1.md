@@ -3,17 +3,17 @@ Help documentation
 
  
 
-Go 13.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
+Go 13.1<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =======
 
-### New features {.collapsible-heading onclick="toggleCollapse($(this));"}
+### New features<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   **[Command Repository](../advanced_usage/command_repository.html)** : How do I run
     maven with Go? Is it possible to do an EC2 deploy with Go? What is
     the syntax if I need to execute a remote command on a linux box? The
     answer to these and more are now provided within Go.
 
-### Enhancements {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Enhancements<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   **[Notification if material update is
     hung](material_update_hung.html)** : Go server becomes less
@@ -32,12 +32,12 @@ Go 13.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
     now look up community articles from within the help documentation by
     clicking the Help icon on the center right of each help page.
 
-### UI changes {.collapsible-heading onclick="toggleCollapse($(this));"}
+### UI changes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Docking of primary header
 -   Docking of breadcrumbs
 
-### Bug fixes {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Bug fixes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   When a "run on all agents" job involves more than 100 agents, some
     of the jobs failed reporting completion

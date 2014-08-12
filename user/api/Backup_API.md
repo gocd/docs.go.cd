@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Backup API {.collapsible-heading onclick="toggleCollapse($(this));"}
+Backup API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ----------
 
 This API allows you to backup Go server. Please refer to [Backup Go
@@ -12,7 +12,7 @@ functionality.
 
 **NOTE:** Only Go administrator users will be able to use this API
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Parameters
 
@@ -32,7 +32,7 @@ no parameters
 
 Go server backup initiates
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   We use curl, a command line tool for transferring files with URL
     syntax, in the following examples. Of course, you can use any HTTP

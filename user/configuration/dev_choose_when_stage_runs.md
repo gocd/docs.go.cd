@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Choose when a stage runs {.collapsible-heading onclick="toggleCollapse($(this));"}
+Choose when a stage runs<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ========================
 
 Often there are steps in your [pipeline](../introduction/concepts_in_go.html) that you
@@ -15,7 +15,7 @@ Stages in Go can be marked as 'manual' just for this purpose.
 
 You can create a manual pipeline by setting the first stage to manual.
 
-### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example usage<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Usage: We need a manual 'dist' stage that will create the binaries used
 by later stages.

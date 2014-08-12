@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Authorization {.collapsible-heading onclick="toggleCollapse($(this));"}
+Authorization<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =============
 
 With no security switched on, there is of course no authorization
@@ -12,7 +12,7 @@ can perform any operation. However you can get Go to limit certain
 operations to particular Users or Roles, and manage membership of those
 Roles.
 
-### Administrators {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Administrators<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Go allows you to restrict the users who can perform certain functions.
 Administrators is a special role that allows its members to perform any
@@ -37,7 +37,7 @@ refer to the example in the section below, where members of the
 "go\_admin" role (jhumble and qiao), along with the user chris, can
 administer Go.
 
-### Role-based security {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Role-based security<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 You can define roles that can be used anywhere that authorization is
 required. A role is just a group of users. Administrators can add users
@@ -218,7 +218,7 @@ XML":
   </templates>
 ```
 
-### Also See {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also See<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   [Delegating group
     administration](delegating_group_administration.html)

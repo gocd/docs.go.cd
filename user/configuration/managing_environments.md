@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Managing environments {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing environments<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =====================
 
 Go is configured using an XML configuration file. This file can be

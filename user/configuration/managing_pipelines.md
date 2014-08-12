@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Managing pipelines {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing pipelines<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==================
 
 Go can be configured using [Administration](../navigations/administration_page.html)
@@ -13,7 +13,7 @@ editing the full XML file if you wish, by clicking on the **Config XML**
 section of the [Administration](../navigations/administration_page.html) tab. Go will
 check the syntax of the configuration before it saves it again
 
-### Creating a new pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Creating a new pipeline<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 To create a new pipeline, go to the **Pipelines** sub-tab of the
 [Administration](../navigations/administration_page.html) tab and click on the ["Create
@@ -41,7 +41,7 @@ Now that you have a pipeline, lets add another material to it.
 -   ![](../resources/images/cruise/edit_material.png)
 -   Click "Save".
 
-### Blacklist {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Blacklist<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Often you do want to specify a set of files that Go should ignore when
 it checks for changes. Repository changesets which contain only these
@@ -153,7 +153,7 @@ Templating helps to create reusable workflows in order to make tasks
 like creating and maintaining branches, and managing large number of
 pipelines easier.
 
-#### Creating Pipeline Templates {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Creating Pipeline Templates<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Pipeline Templates can be managed from the Templates tab on the
 Administration Page.
@@ -173,7 +173,7 @@ Administration page.
 
 ![](../resources/images/cruise/admin/extract_template_from_pipeline.png)
 
-#### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Example<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 As an example, assume that there is a pipeline group called "my-app" and
 it contains a pipeline called "app-trunk" which builds the application

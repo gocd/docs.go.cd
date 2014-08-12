@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Schema {.collapsible-heading onclick="toggleCollapse($(this));"}
+Schema<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ======
 
 -   Configuration file schema :

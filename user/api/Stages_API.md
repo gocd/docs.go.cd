@@ -3,10 +3,10 @@ Help documentation
 
  
 
-Stages API {.collapsible-heading onclick="toggleCollapse($(this));"}
+Stages API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==========
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The Go API documented here is a work in progress. Future versions may
 change this API.
@@ -20,12 +20,12 @@ cancellation.
 Security Note: The user invoking the API should have sufficient
 permission to operate on the pipeline.
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 **POST** to **URL
 http://[server]:8153/go/api/stages/[pipelineName]/[stageName]/cancel**
 
-#### Response Codes {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Response Codes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 HTTP response code
 
@@ -43,7 +43,7 @@ given stage does not exist.
 
 User does not have operate permission on the give stage.
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   We use curl, a command line tool to demonstrate the use of the API,
     in the following examples. Of course, you can use any HTTP client

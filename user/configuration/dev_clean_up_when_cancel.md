@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Clean up after canceling a task {.collapsible-heading onclick="toggleCollapse($(this));"}
+Clean up after canceling a task<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ===============================
 
 When you have jobs that take a long time to run, it is very useful to
@@ -18,7 +18,7 @@ other alternatives to this behaviour
     task to finish executing so the agent does not get into an
     inconsistent state.
 
-### Using web interface {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Using web interface<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 To perform a custom cleanup through the web interface, edit the desired
 **task configuration** and check the **On Cancel Task** checkbox in
@@ -26,9 +26,9 @@ To perform a custom cleanup through the web interface, edit the desired
 
 ![](../resources/images/cruise/admin/clean_up_after_cancel.png)
 
-### Using XML configuration {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Using XML configuration<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
-#### Example: Override task to perform custom cleanup {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Example: Override task to perform custom cleanup<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Usage: As a developer, I want to stop running my [Twist]() tests and
 clean up the environment on each job when I cancel the stage.
@@ -39,7 +39,7 @@ clean up the environment on each job when I cancel the stage.
 -   Now, whenever you cancel the stage while the jobs are running the
     ant "twist" target, the target "kill\_twist" will execute
 
-#### Example: Override task to disable all cleanup {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Example: Override task to disable all cleanup<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Usage: As a developer, I want to allow my database tests to not be
 halted when I cancel the stage.

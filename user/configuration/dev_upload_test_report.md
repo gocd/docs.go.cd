@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Publishing artifacts {.collapsible-heading onclick="toggleCollapse($(this));"}
+Publishing artifacts<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ====================
 
 When executing a job on an agent there are often artifacts created that
@@ -19,7 +19,7 @@ To publish artifacts you add a an
 configuration. More information can be found on the [Managing artifacts
 and reports](../configuration/managing_artifacts_and_reports.html) page.
 
-### Example usages {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example usages<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 #### Uploading JUnit xml reports {.collapsed-heading onclick="toggleCollapse($(this));"}
 

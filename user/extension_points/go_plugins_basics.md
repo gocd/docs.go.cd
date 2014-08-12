@@ -3,10 +3,10 @@ Help documentation
 
  
 
-Plugins in Go {.collapsible-heading onclick="toggleCollapse($(this));"}
+Plugins in Go<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =============
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Plugins,as the name implies,help in extending the functionality of Go.
 Go publishes a list of extension points for which plugins can be
@@ -19,7 +19,7 @@ Details about available extension points and their lifecycle can be
 obtained using this documentation along with the Go Plugin API
 reference.
 
-### Structure of a Go Plugin {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Structure of a Go Plugin<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 A plugin for Go is a JAR file with the following structure:
 
@@ -95,7 +95,7 @@ jar file name will be used as its ID.
 The XML Schema for plugin descriptor:
 [plugin-descriptor.xsd](../resources/plugin-descriptor.xsd)
 
-#### Plugin Extension Classes {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Plugin Extension Classes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 These are the classes in the JAR file, which implement the behaviour of
 the plugin.
@@ -137,7 +137,7 @@ methods in the class may be invoked by multiple threads simultaneously.
 This is approach of single class multiple extenion interface is useful
 to maintain state across multiple extension points.
 
-#### Dependency JAR directory (lib/) {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Dependency JAR directory (lib/)<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Any JAR you drop into the **lib/** directory of the plugin JAR file will
 be available(in their classpath) to the plugin extension classes and any
@@ -147,7 +147,7 @@ classpath) to the code in **SomePlugin.class** .
 
 ### Building a plugin {#building_a_plugin .collapsible-heading onclick="toggleCollapse($(this));"}
 
-#### Plugin Essentials {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Plugin Essentials<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Plugin API Jar:
     [go-plugin-api-current.jar](../resources/go-plugin-api-current.jar)
@@ -158,7 +158,7 @@ classpath) to the code in **SomePlugin.class** .
     [go-sample-plugins.zip](../resources/go-sample-plugins.zip) (Start with
     README file in the zip)
 
-### Installing a plugin {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Installing a plugin<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 A directory named **plugins** exist at the same level as *server.sh/cmd*
 and *go.jar*. This directory consists of two sub directories
@@ -171,13 +171,13 @@ and *go.jar*. This directory consists of two sub directories
     developers.If you have a Go plugin JAR file, you can drop it in this
     directory and restart the server.
 
-### Plugin Extension Point Lifecycle {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Plugin Extension Point Lifecycle<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Every plugin extension point is provided a callback at the time of its
 load and unload. A plugin extension point that wishes to initialize and
 release resources can make use of these callbacks.
 
-#### @Load {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### @Load<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 A method in an extension point implementation marked with **@Load**
 annotation will be called during the extension load time. Following is
@@ -200,7 +200,7 @@ An example callback is shown below
             
 ```
 
-#### @UnLoad {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### @UnLoad<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 A method in an extension point implementation marked with **@UnLoad**
 annotation will be called during the extension unload time. Following is
@@ -228,9 +228,9 @@ load time of plugin but will be invoked only at the unload time. The
 rationale behind this validation is that load callback will not be
 invoked if the unload callback is bound to fail.
 
-### Plugin Environment {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Plugin Environment<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
-#### Logging {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Logging<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Every plugin is provided with a
 [com.thoughtworks.go.plugin.api.logging.Logger](../resources/javadoc/com/thoughtworks/go/plugin/api/logging/Logger.html)

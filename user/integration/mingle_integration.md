@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Mingle Integration {.collapsible-heading onclick="toggleCollapse($(this));"}
+Mingle Integration<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==================
 
 Go integrates with [Mingle, the Agile Project Management
@@ -21,7 +21,7 @@ features require testing. To enable this integration, please follow the
 instructions for [configuring the display of Mingle gadgets within
 Go.](mingle_in_go.html)
 
-### Supported versions {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Supported versions<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 To display a Go pipeline status gadget in Mingle, Mingle must be version
 3.3 or greater and Go must be version 2.1 or greater.
@@ -29,9 +29,9 @@ To display a Go pipeline status gadget in Mingle, Mingle must be version
 To display a Mingle card activity gadget in Go, Mingle must be version
 3.3 or greater and Go must be version 2.2 or greater.
 
-### Integration technologies {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Integration technologies<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
-#### OpenSocial gadgets {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### OpenSocial gadgets<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 ThoughtWorks Studios products use the
 [OpenSocial](http://www.opensocial.org/) gadget stack to provide UI
@@ -64,7 +64,7 @@ would be possible to display ThoughtWorks Studios gadgets on your home
 page. This is not currently possible so look for more on this from us in
 the future.
 
-#### OAuth 2.0 {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### OAuth 2.0<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 OAuth is an open-standard that enables a user to share private protected
 resources (e.g. photos or financial records) which she stores on one
@@ -100,7 +100,7 @@ Below is a series of movies we've made that explain how OAuth works.
 Part 1 covers the basics and is likely enough for most users. Parts 2-4
 get into the more technical details of how the protocol works.
 
-### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also see<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   [Integrating Go with Mingle - an overview](mingle_integration.html)
 -   [Reference for Mingle card activity

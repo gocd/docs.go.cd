@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Fan-in Dependency Management {.collapsible-heading onclick="toggleCollapse($(this));"}
+Fan-in Dependency Management<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ============================
 
 Go supports fan-in dependency resolution for pipelines that are on auto
@@ -52,7 +52,7 @@ Go helps solve all of the above problems
 -   Pipelines where fan-in dependency resolution is required will need
     to have trigger type set as auto
 
-### Example use cases for fan-in resolution {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example use cases for fan-in resolution<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 #### Creating a gate to production {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -141,7 +141,7 @@ How to configure:
     same URL.
 -   Pipelines Build and Acceptance have trigger type as auto.
 
-### Limitations {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Limitations<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   **Fan-in and blacklist** : If the pipelines contributing to the
     fan-in have blacklist in their material definitions, the target
@@ -160,7 +160,7 @@ How to configure:
     In this scenario, P3, which is dependant on P1 and P2 does not
     trigger.
 
-### Notes {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Notes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Fan-in as a feature is enabled by default. In case you need
     pipelines to trigger with every version regardless of ancestor

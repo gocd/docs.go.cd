@@ -3,19 +3,19 @@ Help documentation
 
  
 
-Auto delete artifacts {.collapsible-heading onclick="toggleCollapse($(this));"}
+Auto delete artifacts<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =====================
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Go can be configured to automatically delete artifacts if the available
 disk space on the server is low. Go will purge artifacts when available
 disk space is lower than the given value. Artifacts will be purged upto
 the point when available disk space is greater than a defined value.
 
-### Configuration {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Configuration<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
-#### Specify artifact purge start and end limits {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Specify artifact purge start and end limits<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 You must be logged in as an admin user to configure this step.
 
@@ -42,7 +42,7 @@ are important so that artifacts for the stage are preserved.
     cleanup](../resources/images/cruise/admin/artifact_disable_stage.png)
 5.  Check the box 'Never Cleanup Aartifacts'
 
-### Also see... {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also see...<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   [Managing artifacts and
     reports](../configuration/managing_artifacts_and_reports.html)

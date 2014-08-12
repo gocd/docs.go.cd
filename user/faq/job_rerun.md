@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Re-running Job(s) {.collapsible-heading onclick="toggleCollapse($(this));"}
+Re-running Job(s)<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =================
 
 You may sometimes encounter situations where you want to re-run only a
@@ -14,7 +14,7 @@ Examples of such scenarios include:
 -   Unsuccessful build deployment to one (or more) servers within a
     cluster of servers
 
-#### To re-run a job {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### To re-run a job<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Navigate to the **Stage Details** screen of the stage who's job you
     want to re-run.

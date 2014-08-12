@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Saving properties about a build {.collapsible-heading onclick="toggleCollapse($(this));"}
+Saving properties about a build<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ===============================
 
 When building your code, there can be quite a bit of extra information
@@ -12,7 +12,7 @@ that you are interested in. For example, you might run
 coverage. With properties, you can save this information, and even look
 at the history of a property (by way of an exported spreadsheet).
 
-### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example usage<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Usage: As a developer, I want to save the average [cyclomatic
 complexity](http://en.wikipedia.org/wiki/Cyclomatic_complexity) of a

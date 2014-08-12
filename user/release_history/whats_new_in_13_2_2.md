@@ -3,10 +3,10 @@ Help documentation
 
  
 
-Go 13.2.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
+Go 13.2.2<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =========
 
-### Bug fixes {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Bug fixes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Fixed bug in SVN Post-Commit hook implementation to handle commits
     in quick succession

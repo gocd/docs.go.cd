@@ -3,10 +3,10 @@ Help documentation
 
  
 
-Graphs {.collapsible-heading onclick="toggleCollapse($(this));"}
+Graphs<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ======
 
-### Stage Duration Chart {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Stage Duration Chart<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 Go provides a chart on the stage details page which can be used for
 trend analysis of the stage's periodic runs. This graph shows two line
@@ -19,7 +19,7 @@ using the total duration of the last 300 stage instances.
     dashboard.
 2.  Click on the tab 'Graphs'.
 
-#### Features of the Graph {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Features of the Graph<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The following is a snapshot of a stage duration chart
 

@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Go unable to poll for changes {.collapsible-heading onclick="toggleCollapse($(this));"}
+Go unable to poll for changes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 =============================
 
 Go server polls for changes to all materials of 'Auto Triggered'
@@ -28,7 +28,7 @@ when clicked shows a message similar to the one below.
 
 ![](../resources/images/cruise/material_update_hung.png)
 
-### What can I do with the information {.collapsible-heading onclick="toggleCollapse($(this));"}
+### What can I do with the information<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 When you see warning messages like the one above
 
@@ -40,7 +40,7 @@ When you see warning messages like the one above
 -   Kill the process and all its children (the whole process tree).
 -   Ensure that the warning message goes away from Server Health.
 
-### Configuring warning time {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Configuring warning time<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Go server waits for 15 minutes (of no output) before it warns user
     about possible hung material update. User can modify this wait time

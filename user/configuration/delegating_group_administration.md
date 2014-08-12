@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Delegating Group Administration {.collapsible-heading onclick="toggleCollapse($(this));"}
+Delegating Group Administration<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ===============================
 
 A Go Administrator can authorize users and roles to be administrators
@@ -11,7 +11,7 @@ for Pipeline Groups. These group administrators have certain privileges
 which are explained in the section "Privileges of a Group
 Administrator".
 
-### Steps to assign Group Administrators {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Steps to assign Group Administrators<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 To assign a user as a group administrator:
 
@@ -45,7 +45,7 @@ XML:
         
 ```
 
-### Privileges of a Group Administrator {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Privileges of a Group Administrator<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 As a group administrator of a pipeline group, a user is privileged to:
 

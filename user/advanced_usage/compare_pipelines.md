@@ -3,7 +3,7 @@ Help documentation
 
  
 
-Compare Builds {.collapsible-heading onclick="toggleCollapse($(this));"}
+Compare Builds<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 ==============
 
 Go allows you to compare any two builds of a pipeline and see exactly
@@ -14,7 +14,7 @@ this view will include:
 -   Upstream pipelines
 -   Story/defect numbers (when linked to a tracking tool)
 
-### Accessing Pipeline Compare {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Accessing Pipeline Compare<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 There are several locations from where the Pipeline Compare feature can
 be invoked. These include:
@@ -24,7 +24,7 @@ be invoked. These include:
 -   Stage Details page
 -   Stage History widget within the Stage Details page
 
-### Understanding the Pipeline Compare Screen {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Understanding the Pipeline Compare Screen<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 The Pipeline Compare screen lets you compare any two instances of a
 pipeline. Every pipeline instance is associated with a set of changes;
@@ -48,7 +48,7 @@ Changes](../resources/images/cruise/compare_changes.png)
     story/defect/ticket numbers would be hyperlinked to the appropriate
     tracking tool.
 
-### Using Pipeline History {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Using Pipeline History<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 You can also select a pipeline by browsing the pipeline history.
 
@@ -61,7 +61,7 @@ Steps to select a particular instance from the history:
 2.  Click on "Browse the timeline"
 3.  Browse the history and select a pipeline
 
-### See Also {.collapsible-heading onclick="toggleCollapse($(this));"}
+### See Also<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   [Mingle card activity gadget](../integration/mingle_card_activity_gadget.html)
 
