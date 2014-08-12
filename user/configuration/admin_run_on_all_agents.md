@@ -32,4 +32,4 @@ to the job's definition (see configuration reference for [< job >](configuration
 
 ### Also See...
 
--   [Re-running job(s)](job_rerun.html)
+-   [Re-running job(s)](../faq/job_rerun.html)

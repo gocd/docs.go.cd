@@ -34,7 +34,7 @@ pipelines.**
 Since there are many package formats each with its own package manager
 and repository, the support for package-as-material has been implemented
 as an extension point. Using the bundled [yum-repo-poller
-plugin](yum_repository_poller.html), it is possible to specify an rpm
+plugin](../extension_points/yum_repository_poller.html), it is possible to specify an rpm
 package held in a yum repository as a material for a Go pipeline. Using
 other [external
 plugins](http://thoughtworksinc.github.io/go-external-plugins/), it is
@@ -51,7 +51,7 @@ interested pipelines will get scheduled.
 A package material plugin lets pipeline group admins provide details of
 the corresponding repository type to Go. e.g. here is how we define a
 yum repository using the bundled [yum-repo-poller
-plugin](yum_repository_poller.html).
+plugin](../extension_points/yum_repository_poller.html).
 
 **Note:**
 
@@ -194,19 +194,19 @@ Config XML tab.
 
 Even if no pipelines use a package, Go polls for newer packages every
 minute. This may be turned off at a package level by setting
-[autoUpdate](configuration_reference.html#package) to false via the
+[autoUpdate](../configuration/configuration_reference.html#package) to false via the
 config xml (Go admins only). autoUpdate is turned on by default. When a
 newer package is found, the pipelines for which it is a material get
 scheduled (assuming [auto scheduling of
 pipelines](../configuration/pipeline_scheduling.html) is on). Also see [API
-scheduling](Pipeline_API.html#key).
+scheduling](../api/Pipeline_API.html#key).
 
 ### Package information display {#pkginfo .collapsible-heading onclick="toggleCollapse($(this));"}
 
 The following information is expected from the package material plugin
 (which in turn obtains it from the package metadata if available)
 
-1.  Package revision (e.g. gcc-4.4.7-3.el6.x86\_64)
+1.  Package revision (e.g. gcc-4.4.7-3.el6.x86_64)
 2.  Package build time
 3.  Name of package creator (if available)
 4.  Package comment
@@ -237,7 +237,7 @@ Repository and package names are converted to all uppercase and hyphens
 are converted to underscores before inclusion in the environment
 variable names. For example, let's say we set up a repository named ORA
 pointing to
-http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86\_64 and
+http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64 and
 define a package gcc with a spec of gcc-4.\* and set it up as material
 for a pipeline. To download the package locally on the agent, we could
 write a task like this:
@@ -275,7 +275,7 @@ server
         </exec>
 ```
 
-**Also see [Installing RPMs](yum_repository_poller.html#install)**
+**Also see [Installing RPMs](../extension_points/yum_repository_poller.html#install)**
 
 **Important:** Please note that if you change repository credentials and
 then try to re-trigger (redeploy) an old package, the published
@@ -285,7 +285,7 @@ environment variables will not reflect new credentials.
 
 At the moment, Go does not create or publish the package for you. But it
 is simple enough for each type of package. e.g.
-[rpm](yum_repository_poller.html#create)
+[rpm](../extension_points/yum_repository_poller.html#create)
 
 You could also explore the command repository on
 [GitHub](https://github.com/goteam/go-command-repo/tree/master/deploy)

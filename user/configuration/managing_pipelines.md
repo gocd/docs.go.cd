@@ -69,8 +69,8 @@ to it.
 -   ![](../resources/images/cruise/admin/add_stage/stages_listing_with_add_stage_highlight.png)
 -   Fill stage name and trigger type.
 -   Fill in the details for the first job and first task belonging to
-    this job. You can [add more jobs](admin_add_job.html)and [add more
-    tasks](admin_add_task.html)to the jobs.
+    this job. You can [add more jobs](admin_add_job.html) and [add more
+    tasks](admin_add_task.html) to the jobs.
 -   Click on help icon next to the fields to get additional details
     about the fields you are editing.
 -   ![](../resources/images/cruise/admin/add_stage/add_stage_window.png)

@@ -11,4 +11,4 @@ The Server Details page describes the Go server version and environment.
 
 ##### Also see...
 
--   [Go overview](welcome_to_go.html)
+-   [Go overview](../introduction/index.html)

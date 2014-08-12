@@ -86,7 +86,7 @@ While parameters are generally very flexible, there are some restrictions.
 -   Stage name
 -   Job name
 -   A Job's property name
--   The \<runif\> configuraion for a job's task
+-   The \<runif\> configuration for a job's task
 -   Another parameter (i.e. you cannot define a parameter using another paramter)
 -   Pipeline template name
 -   Material name

@@ -58,4 +58,4 @@ You cannot combine autocomplete and exact search. Once you specify the values in
 #### Also see...
 
 -   [Managing Agents](../advanced_usage/managing_a_build_cloud.html)
--   [Go overview](welcome_to_go.html)
+-   [Go overview](../introduction/index.html)

@@ -44,7 +44,7 @@ Alternatively, create a symbolic link to the path to the executable from
 
 #### Args style commands {#args .collapsible-heading onclick="toggleCollapse($(this));"}
 
-The older [args](configuration_reference.html#exec) style commands are
+The older [args](../configuration/configuration_reference.html#exec) style commands are
 not supported by this feature. Please convert them to the new syntax
 using the config xml editor ( **Admin \> Config XML** ). For example:
 
@@ -65,7 +65,7 @@ becomes
 ### Bundled Repository {#bundled-repo .collapsible-heading onclick="toggleCollapse($(this));"}
 
 The default set of commands come from
-[https://github.com/goteam/go-command-repo](%20https://github.com/goteam/go-command-repo).
+[https://github.com/goteam/go-command-repo](https://github.com/goteam/go-command-repo).
 This repository is maintained by the Go team. The Go server installer
 bundles a clone of this Git repository under
 **\<server-install-root\>/db/command\_repository/default** . Future Go
@@ -108,7 +108,7 @@ Go caches these commands with a refresh interval of 30 minutes so you
 may not see the results of a pull immediately in the lookup unless you
 hit the reload cache button under the command repository section on the
 server configuration admin page or by using the [reload
-API](command_repo_api.html).
+API](../api/command_repo_api.html).
 
 ### Private Repository {#pvt-repo .collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -151,7 +151,7 @@ one of the following ways:
 1.  The default cache invalidation interval of 30 mins kicks in and the
     cache gets refreshed
 2.  Go server admin clicks on the **RELOAD CACHE** button
-3.  Go server admin uses the [**reload API**](command_repo_api.html)
+3.  Go server admin uses the [**reload API**](../api/command_repo_api.html)
     through a cron job or otherwise to force a cache reload.
 
 The commands in the command repository are not part of your Go Server

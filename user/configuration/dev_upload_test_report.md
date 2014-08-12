@@ -71,7 +71,7 @@ For each job that creates a flash video
 -   ![](../resources/images/cruise/dev/upload_test_reports/8_add_tab_section.png)
 -   Click "Save"
 -   [Watch the flash video as a sub-tab on the Job Details
-    page](dev_see_artifact_as_tab.html)
+    page](../faq/dev_see_artifact_as_tab.html)
 
 
 

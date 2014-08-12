@@ -23,11 +23,11 @@ require authorization. To accomplish this, Go's gadget rendering server
 supports OAuth 2.0 services.
 
 Enabling Go for OAuth 2.0 enabled gadgets does require the Go
-administrator to take [extra configuration steps](mingle_in_go.html).
+administrator to take [extra configuration steps](../integration/mingle_in_go.html).
 
 If you are simply looking to configure the display of Mingle card
 activity gadgets in Go, please skip straight to the [instructions that
-are specific to showing Mingle gadgets in Go.](mingle_in_go.html)
+are specific to showing Mingle gadgets in Go.](../integration/mingle_in_go.html)
 
 A gadget rendering server with OAuth 2.0 capabilities similar to what Go
 provides would be capable of showing ThoughtWorks Studios gadgets. That

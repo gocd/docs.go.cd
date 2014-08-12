@@ -39,7 +39,7 @@ automatically links story/bug numbers to the configured tracking tool:
 ### Monitoring your builds with client tools {#cctray .collapsible-heading onclick="toggleCollapse($(this));"}
 
 Go allows you to monitor your builds with CCTray through the url
-'http://[your\_go\_server]:8153/go/cctray.xml.
+'http://[your_go_server]:8153/go/cctray.xml.
 
 If you have switched on security in your configuration you can use BASIC
 authentication to connect. In many cases you can do this by including

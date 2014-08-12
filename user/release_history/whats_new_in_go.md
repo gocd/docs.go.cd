@@ -590,7 +590,7 @@ Go 2.2 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   **Version Controlled Configuration:** Go now maintains a history of
     all changes made to its configuration allowing you to audit all
     configuration changes.
--   **[Job Re-runs](job_rerun.html):** Go now allows you to re-run
+-   **[Job Re-runs](../faq/job_rerun.html):** Go now allows you to re-run
     specific jobs like it was possible to re-run stages. This helps in
     cases like environment problems where you had to rerun an entire
     stage. Job re-run gets you to the same state with lower agent
@@ -826,7 +826,7 @@ In the professional edition:
     source control systems.
 -   Artifacts to be uploaded can now be specified with wildcards. For
     more information see [uploading test
-    reports](dev_upload_test_report.html).
+    reports](../configuration/dev_upload_test_report.html).
 -   Artifacts are now stored on the server in directories named for the
     pipelines. The directory for a pipeline is
     "pipelineName/pipelineLabel/stageName/stageCounter/jobName".

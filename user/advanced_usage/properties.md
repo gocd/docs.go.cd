@@ -10,7 +10,7 @@ Properties {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Properties provide a simple way of collecting metrics over time. Go sets
 some standard properties for you. You can also set properties yourself
-using the Go REST APIs (see [Properties API](../advanced_usage/Properties_API.html) for
+using the Go REST APIs (see [Properties API](../api/Properties_API.html) for
 more information). Go also allows you to download the history of your
 job in a convenient CSV format, so that you can analyse the results in
 spreadsheets or scripts.

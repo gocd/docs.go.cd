@@ -12,7 +12,7 @@ This shows the current activity in the system. You can see all the instances of 
 4.  Click on each stage segment to see [stage details](../navigations/stage_details_page.html) for that stage instance.
 5.  "triggered by [user name] about [how long ago]" gives you a quick look at who activated this pipeline and when this was triggered.
 6.  The "Trigger" button forces a pipeline to begin build activity
-7.  The [Trigger with Options](trigger_with_options.html) button allows the you to pick the revisions of materials that the pipelines should build with, and trigger the pipeline.
+7.  The [Trigger with Options](../advanced_usage/trigger_with_options.html) button allows the you to pick the revisions of materials that the pipelines should build with, and trigger the pipeline.
 8.  The "Pause" button pauses scheduling of the pipeline.
 9.  The "Changes" shows you the modifications to materials that have been built in this instance. The "!" indicates that the changes are being built for the first time.
 10. "previously:[status]" tells you what the status of the currently running stage in the previous pipeline instance was. The previous instance is based on [natural ordering](../faq/ordering_of_pipelines.html). On hover, you can see the label of the 'previous' pipeline instance.
@@ -26,5 +26,5 @@ This shows the current activity in the system. You can see all the instances of 
 
 -   [Pipeline activity](../navigations/pipeline_activity_page.html)
 -   [Job details](../navigations/job_details_page.html)
--   [Clean up after canceling a task](dev_clean_up_when_cancel.html)
--   [Go overview](welcome_to_go.html)
+-   [Clean up after canceling a task](../configuration/dev_clean_up_when_cancel.html)
+-   [Go overview](../introduction/index.html)

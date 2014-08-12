@@ -122,7 +122,7 @@ continue to be disabled. Disabled agents do not count towards Go's
 licensed agents.
 
 To permanently remove an agent from Go's configuration, you can use the
-[agent api](Agent_API.html) or delete from the agents tab. The agent
+[agent api](../api/Agent_API.html) or delete from the agents tab. The agent
 must be disabled before it can be deleted
 
 Following this procedure, if you restart the agent, Go server will see
@@ -135,7 +135,7 @@ If you want to pause an agent or temporarily disable it so that Go
 server will not assign work to the agent. Go will record in its
 configuration file that the agent has been disabled. This means, if you
 restart Go server, the disabled agent will remain disabled. You can use
-the following api to [disable agents](Agent_API.html) or you can disable
+the following api to [disable agents](../api/Agent_API.html) or you can disable
 the agent from the agents tab.
 
 A disabled agent can be enabled; this will make it eligible to pick up

@@ -63,7 +63,7 @@ Steps to select a particular instance from the history:
 
 ### See Also {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Mingle card activity gadget](mingle_card_activity_gadget.html)
+-   [Mingle card activity gadget](../integration/mingle_card_activity_gadget.html)
 
 
 

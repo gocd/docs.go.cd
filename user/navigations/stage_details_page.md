@@ -62,5 +62,5 @@ If there are no tests configured in the stage or Go is still computing results, 
 ### Also See...
 
 -   [Job details](../navigations/job_details_page.html)
--   [Re-running job(s)](job_rerun.html)
+-   [Re-running job(s)](../faq/job_rerun.html)
 -   [Historical Configuration](../faq/stage_old_config.html)
