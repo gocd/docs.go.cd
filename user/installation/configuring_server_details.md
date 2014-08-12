@@ -20,7 +20,7 @@ You can also specify the license by clicking on "Server Details" link in the bot
 
 ![Enter license key](../resources/images/cruise/license_server_details.png)
 
-Once you've entered your license key, you can proceed to [set up your first pipeline](quick_pipeline_setup.html) by clicking on the "Pipelines" tab.
+Once you've entered your license key, you can proceed to [set up your first pipeline](../configuration/quick_pipeline_setup.html) by clicking on the "Pipelines" tab.
 
 ## Artifact repository configuration
 
@@ -77,7 +77,7 @@ Click on "Server Configuration" tab of the "Admin" tab. Go to the "Server Manage
 
 Go generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where Go cannot rely upon publishing URLs relative to a request. If you have fronted Go with a reverse proxy, this value should be the base URL for the proxy and not the internal Go address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.
 
-Power users, if they so desire, can directly update the [server](configuration_reference.html#server) section.
+Power users, if they so desire, can directly update the [server](../configuration/configuration_reference.html#server) section.
 
 ``` {.code}
     <cruise>
@@ -93,4 +93,4 @@ Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoi
 
 -   [Installing Go agents](../installation/installing_go_agent.html)
 -   [Configure Go to work with a proxy](../installation/configure_proxy.html)
--   [Displaying mingle gadgets in Go](mingle_in_go.html)
+-   [Displaying mingle gadgets in Go](../integration/mingle_in_go.html)

@@ -107,8 +107,8 @@ card activity.
 -   [Integrating Go with Mingle - an overview](mingle_integration.html)
 -   [Reference for Mingle card activity
     gadget](mingle_card_activity_gadget.html)
--   [What is OAuth?](what_is_oauth.html)
--   [What is OpenSocial?](what_is_opensocial.html)
+-   [What is OAuth?](../faq/what_is_oauth.html)
+-   [What is OpenSocial?](../faq/what_is_opensocial.html)
 
 
 

@@ -42,7 +42,7 @@ Installation done but need help setting up Go?
 
 -   [Concepts in Go](../introduction/concepts_in_go.html) - Review basic concepts in Go.
     Understand how Go sees the world.
--   [Managing pipelines](managing_pipelines.html) - Release Management
+-   [Managing pipelines](../configuration/managing_pipelines.html) - Release Management
     with Go.
 -   [Managing a build cloud](../advanced_usage/managing_a_build_cloud.html) - How to set
     up and scale your build cloud.

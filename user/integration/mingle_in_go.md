@@ -38,7 +38,7 @@ The first step of allowing Go and Mingle to use OAuth for this gadget is
 to configure Mingle as an OAuth 2.0 (v9) Provider. This step must be
 performed by a Mingle administrator.
 
-[What is OAuth?](what_is_oauth.html)
+[What is OAuth?](../faq/what_is_oauth.html)
 
 #### 1.1 - Capture Go OAuth Redirect URI {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -188,8 +188,8 @@ secrets.](../resources/images/cruise/mismatched_client_secret_error.png)
 -   [Integrating Go with Mingle - an overview](mingle_integration.html)
 -   [Reference for Mingle card activity
     gadget](mingle_card_activity_gadget.html)
--   [What is OAuth?](what_is_oauth.html)
--   [What is OpenSocial?](what_is_opensocial.html)
+-   [What is OAuth?](../faq/what_is_oauth.html)
+-   [What is OpenSocial?](../faq/what_is_opensocial.html)
 
 
 

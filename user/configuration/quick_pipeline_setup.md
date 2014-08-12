@@ -27,7 +27,7 @@ in 3 steps.
 
 1.  Choose the material type. The material can be your Source Control
     Management (SCM or version control) repository or another pipeline
-    or a [package repository](under_construction.html) (e.g. yum).
+    or a package repository (e.g. yum).
     Currently Go supports the following SCMs:
     1.  Subversion
     2.  Mercurial
@@ -105,7 +105,7 @@ You can see the complete configuration reference
 -   [Adding a material to an existing pipeline](admin_add_material.html)
 -   [Adding a stage to an existing pipeline](admin_add_stage.html)
 -   [Adding a job to an existing pipeline](admin_add_job.html)
--   [Role-based authorization](dev_authorization.html)
+-   [Role-based authorization](../configuration/dev_authorization.html)
 
 © ThoughtWorks Studios, 2010
 
