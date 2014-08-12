@@ -255,10 +255,10 @@ The < server > element can be used to define information and attributes of the G
 
 [top](#top)
 
-\<license\>
+`<license>`
 -----------
 
-The \<license\> element contains your Go license. Go works in the
+The `<license>` element contains your Go license. Go works in the
 community edition if this element is not present. To obtain a Go
 license, please visit the [Go
 Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
@@ -289,10 +289,10 @@ Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
 
 [top](#top)
 
-\<security\>
+`<security>`
 ------------
 
-The \<security\> element can be used to enable authentication. If the
+The `<security>` element can be used to enable authentication. If the
 element is not defined anyone can use Go without logging in. We
 currently support [LDAP](#ldap) and a simple [password
 file](#passwordFile) format. You can use both methods if you want. This
@@ -342,10 +342,10 @@ add a lot of users to your corporate LDAP. In this case you could add a
 
 [top](#top)
 
-\<mailhost\>
+`<mailhost>`
 ------------
 
-The \<mailhost\> element is used to configure mail notifications. Mail
+The `<mailhost>` element is used to configure mail notifications. Mail
 notifications require [security](#security) to be enabled.
 
 ### Attributes
@@ -373,10 +373,10 @@ notifications require [security](#security) to be enabled.
 
 [top](#top)
 
-\<ldap\>
+`<ldap>`
 --------
 
-The \<ldap\> element is used to specify the ldap server. Users can
+The `<ldap>` element is used to specify the ldap server. Users can
 access Go with their username and password from this ldap server.
 
 ### Attributes
@@ -422,10 +422,10 @@ access Go with their username and password from this ldap server.
 
 [top](#top)
 
-\<passwordFile\>
+`<passwordFile>`
 ----------------
 
-The \<passwordFile\> element is used to specify a file which has a set
+The `<passwordFile>` element is used to specify a file which has a set
 of username and password pairs. The format of username and password in
 this file is \${username}=\${password which has been encrypted with
 SHA1}, with one line per user.
@@ -472,11 +472,11 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 
 [top](#top)
 
-\<roles\>
+`<roles>`
 ---------
 
-The \<roles\> element is a container for roles that users defined. It
-can't be defined without \<role\>.
+The `<roles>` element is a container for roles that users defined. It
+can't be defined without `<role>`.
 
 ### Examples
 
@@ -495,18 +495,18 @@ can't be defined without \<role\>.
 
 [top](#top)
 
-\<role\>
+`<role>`
 --------
 
-The \<role\> element is used to define a group of users who perform
+The `<role>` element is used to define a group of users who perform
 similar tasks. Each user is added by adding the sub-tag
-[\<user\>](#userinrole).
+[`<user>`](#userinrole).
 
 **Notes:**
 
 -   If you want to define roles, you must define an authentication
-    method, either [\<ldap\>](#ldap) or
-    [\<passwordFile\>](#passwordFile).
+    method, either [`<ldap>`](#ldap) or
+    [`<passwordFile>`](#passwordFile).
 -   These roles are not associated with roles defined in LDAP; they only
     work within Go. For example, you can assign a role to the
     [manual-approval](#approval) in a stage, so that only the users in
@@ -541,10 +541,10 @@ and **lqiao**.
 
 [top](#top)
 
-\<user\>
+`<user>`
 --------
 
-One \<user\> element defines a particular user in a rolw. You can add as
+One `<user>` element defines a particular user in a rolw. You can add as
 many as you like.
 
 **Notes:**
@@ -567,10 +567,10 @@ and **lqiao**.
 
 [top](#top)
 
-\<admins\>
+`<admins>`
 ----------
 
-The \<admins\> element specifies which users are administrators. Only
+The `<admins>` element specifies which users are administrators. Only
 administrators can open the Administration tab to maintain Go
 Configuration. Administrators can perform all functions in Go (including
 triggering pipelines, deploying to environments etc.)
@@ -594,15 +594,15 @@ The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 
 [top](#top)
 
-\<role\>
+`<role>`
 --------
 
-One \<role\> element in [\<admins\>](#admins) is used to specify a group
+One `<role>` element in [`<admins>`](#admins) is used to specify a group
 as administrators. You can add as many as you like.
 
 **Notes:**
 
--   The role must refer to [\<roles\>](#roles).
+-   The role must refer to [`<roles>`](#roles).
 
 ### Examples
 
@@ -618,7 +618,7 @@ The users in role '**go-admin**' would be administrators.
 
 [top](#top)
 
-\<user\>
+`<user>`
 --------
 
 **Notes:**
@@ -640,12 +640,12 @@ Two users would be administrators, they are **Jez** and **lqiao**.
 
 [top](#top)
 
-\<role\>
+`<role>`
 --------
 
 **Notes:**
 
--   The role must be defined in [\<roles\>](#roles).
+-   The role must be defined in [`<roles>`](#roles).
 
 ### Examples
 
@@ -659,10 +659,10 @@ Two users would be administrators, they are **Jez** and **lqiao**.
 
 [top](#top)
 
-\<repositories\>
+`<repositories>`
 ----------------
 
-The \<repositories\> element is a container of package repositories.
+The `<repositories>` element is a container of package repositories.
 
 ### Example
 
@@ -698,10 +698,10 @@ The \<repositories\> element is a container of package repositories.
 
 [top](#top)
 
-\<repository\>
+`<repository>`
 --------------
 
-The \<repository\> element specifies a single repository. Repository
+The `<repository>` element specifies a single repository. Repository
 must be be unique by id and name (name is case-insensitive) across
 repositories configuration.
 
@@ -766,10 +766,10 @@ repositories configuration.
 
 [top](#top)
 
-\<pluginConfiguration\>
+`<pluginConfiguration>`
 -----------------------
 
-The \<pluginConfiguration\> element specifies configuration related to
+The `<pluginConfiguration>` element specifies configuration related to
 plugin.
 
 ### Attributes
@@ -788,46 +788,46 @@ plugin.
 
 [top](#top)
 
-\<configuration\>
+`<configuration>`
 -----------------
 
-The \<configuration\> element specifies configuration related repository
+The `<configuration>` element specifies configuration related repository
 or package as one or more properties.
 
 [top](#top)
 
-\<property\>
+`<property>`
 ------------
 
-The \<property\> element holds key and value.
+The `<property>` element holds key and value.
 
 [top](#top)
 
-\<key\>
+`<key>`
 -------
 
-The \<key\> element specifies name of property.
+The `<key>` element specifies name of property.
 
 [top](#top)
 
-\<value\>
+`<value>`
 ---------
 
-The \<value\> element specifies value of property.
+The `<value>` element specifies value of property.
 
 [top](#top)
 
-\<packages\>
+`<packages>`
 ------------
 
-The \<packages\> element specifies list of packages under a repository.
+The `<packages>` element specifies list of packages under a repository.
 
 [top](#top)
 
-\<package\>
+`<package>`
 -----------
 
-The \<package\> element specifies single package under a repository.
+The `<package>` element specifies single package under a repository.
 This tag holds configuration related to package
 
 ### Attributes
@@ -859,10 +859,10 @@ This tag holds configuration related to package
 
 [top](#top)
 
-\<pipelines\>
+`<pipelines>`
 -------------
 
-The \<pipelines\> element is a container of pipelines.
+The `<pipelines>` element is a container of pipelines.
 
 ### Attributes
 
@@ -918,19 +918,19 @@ The \<pipelines\> element is a container of pipelines.
 
 [top](#top)
 
-\<authorization\>
+`<authorization>`
 -----------------
 
-The \<authorization\> tag allows you to specify the what users and roles
+The `<authorization>` tag allows you to specify the what users and roles
 are able to administer, view or operate any particular group of
 pipelines.
 
 [top](#top)
 
-\<admins\>
+`<admins>`
 ----------
 
-The \<admins\> element is a permission section to specify who can
+The `<admins>` element is a permission section to specify who can
 administer the pipeline group. Go administrators can define roles and
 users in the tag.
 
@@ -969,15 +969,15 @@ users having the role 'studios\_group\_admin'.
 
 [top](#top)
 
-\<view\>
+`<view>`
 --------
 
-The \<view\> element is a permission section to specify who can see the
+The `<view>` element is a permission section to specify who can see the
 pipelines under the pipeline group. You can define roles and users in
 the tag.
 
 **Note:**Administrators ([admins](#admins)) can see all pipeline groups.
-Any other users or roles that are not listed under the \<view\> tag will
+Any other users or roles that are not listed under the `<view>` tag will
 be unable to see this pipeline group
 
 ### Examples
@@ -1006,15 +1006,15 @@ the role 'go\_readonly\_member' can see the pipeline.
 
 [top](#top)
 
-\<operate\>
+`<operate>`
 -----------
 
-The \<operate\> element specifies who can operate the pipelines under
+The `<operate>` element specifies who can operate the pipelines under
 the pipeline group. You can define roles and users.
 
 **Note:**Any users/roles that are not listed under the
-[\<view\>](#group_view) tag will be unable to see this pipeline group
-(even if they are listed as being allowed to \<operate\> that pipeline
+[`<view>`](#group_view) tag will be unable to see this pipeline group
+(even if they are listed as being allowed to `<operate>` that pipeline
 group)
 
 ### Examples
@@ -1050,10 +1050,10 @@ go\_core\_member cannot).
 
 [top](#top)
 
-\<pipeline\>
+`<pipeline>`
 ------------
 
-The \<pipeline\> element specifies a single pipeline. It must be unique
+The `<pipeline>` element specifies a single pipeline. It must be unique
 (including case) across the entire configuration (not only in the
 pipeline group).
 
@@ -1146,20 +1146,20 @@ lose the history of the pipeline.
 
 [top](#top)
 
-\<params\>
+`<params>`
 ----------
 
-The element \<params\> specifies the list of parameters (Element
+The element `<params>` specifies the list of parameters (Element
 [param](#param)) elements to be used in a pipeline or a pipeline
-template. You can specify these under a [\<pipeline\>](#pipeline) and
+template. You can specify these under a [`<pipeline>`](#pipeline) and
 can be used anywhere inside pipeline/stage/job definition.
 
 [top](#top)
 
-\<param\>
+`<param>`
 ---------
 
-A \<param\> defines the parameter name that will be substituted with the
+A `<param>` defines the parameter name that will be substituted with the
 paramerter value that will be substituted in a pipeline or a pipeline
 template.
 
@@ -1175,10 +1175,10 @@ template.
 
 [top](#top)
 
-\<trackingtool\>
+`<trackingtool>`
 ----------------
 
-The \<trackingtool\> element can be used to specify links to an issue
+The `<trackingtool>` element can be used to specify links to an issue
 tracker. Go will construct a link based on the commit message that you
 can use to take you to your tracking tool (Mingle card, JIRA issue, Trac
 issue etc).
@@ -1239,7 +1239,7 @@ for your task manager, the configuration would be:
 
 [top](#top)
 
-\<mingle\>
+`<mingle>`
 ----------
 
 This element let's you associate a
@@ -1278,10 +1278,10 @@ is configured for a pipeline.
 
 [top](#top)
 
-\<timer\>
+`<timer>`
 ---------
 
-The \<timer\> element specifies a cron-like schedule to build the
+The `<timer>` element specifies a cron-like schedule to build the
 pipeline.
 
 ### Attributes
@@ -1562,10 +1562,10 @@ day-of-month fields!
 
 [top](#top)
 
-\<materials\>
+`<materials>`
 -------------
 
-The \<materials\> element specifies the source of the pipeline changes.
+The `<materials>` element specifies the source of the pipeline changes.
 Generally this will be your codebase in your source control repository.
 
 **Notes:**
@@ -1608,10 +1608,10 @@ Multiple materials:
 
 [top](#top)
 
-\<filter\>
+`<filter>`
 ----------
 
-The \<filter\> element specifies files in changesets that should not
+The `<filter>` element specifies files in changesets that should not
 trigger a pipeline automatically. When a pipeline is triggered by files
 that are not ignored the filtered files will still be updated with other
 files. You can only define one filter under each SCM material. When you
@@ -1631,10 +1631,10 @@ including filtered files.
 
 [top](#top)
 
-\<ignore\>
+`<ignore>`
 ----------
 
-The \<ignore\> element is used to specify a set of files that are
+The `<ignore>` element is used to specify a set of files that are
 ignored when Go checks for changes. Repository changesets which only
 contain these files will not trigger a pipeline automatically.
 
@@ -1661,7 +1661,7 @@ contain these files will not trigger a pipeline automatically.
 
 ### Notes
 
--   \<ignore\> can occur multiple times under [\<filter\>](#filter).
+-   `<ignore>` can occur multiple times under [`<filter>`](#filter).
 -   The pattern is relative to the root directory of the SCM repository,
     not the sandbox in the agent side or the materials URL.
 -   Ignored files are still updated when other files are updated.
@@ -1715,10 +1715,10 @@ Ignore all the files that are in the nested directory under folder
 
 [top](#top)
 
-\<svn\>
+`<svn>`
 -------
 
-The \<svn\> element specifies the location of your code base in
+The `<svn>` element specifies the location of your code base in
 Subversion repository.
 
 ### Attributes
@@ -1774,10 +1774,10 @@ Go Agent will check out source code from
 
 [top](#top)
 
-\<hg\>
+`<hg>`
 ------
 
-The \<hg\> element specifies the location of your code base in a
+The `<hg>` element specifies the location of your code base in a
 Mercural repository. Go supports the http and ssh for mercural.
 
 ### Notes:
@@ -1979,10 +1979,10 @@ For example:
 
 [top](#top)
 
-\<git\>
+`<git>`
 -------
 
-The \<git\> element specifies the location of your code base in a GIT
+The `<git>` element specifies the location of your code base in a GIT
 repository. Go only supports remote repositories.
 
 ### Notes:
@@ -2048,10 +2048,10 @@ directory where the .ssh/ directory is located.
 
 [top](#top)
 
-\<tfs\>
+`<tfs>`
 -------
 
-The \<tfs\> element specifies the location of your code base in a TFS
+The `<tfs>` element specifies the location of your code base in a TFS
 Source repository.
 
 ### Attributes
@@ -2092,10 +2092,10 @@ Source repository.
 
 [top](#top)
 
-\<package\>
+`<package>`
 -----------
 
-The \<package\> element refers to package which is defined as part of
+The `<package>` element refers to package which is defined as part of
 repositories configuration.
 
 ### Attributes
@@ -2155,10 +2155,10 @@ repositories configuration.
 
 [top](#top)
 
-\<pipeline\>
+`<pipeline>`
 ------------
 
-The \<pipeline\> element specifies that successful completion of a stage
+The `<pipeline>` element specifies that successful completion of a stage
 in another pipeline will trigger the current pipeline to start.
 
 If there are multiple pipeline dependencies, then any one of them
@@ -2230,12 +2230,12 @@ would be:
 
 [top](#top)
 
-\<stage\>
+`<stage>`
 ---------
 
-The \<stage\> element specifies a set of jobs. If any job in a given
+The `<stage>` element specifies a set of jobs. If any job in a given
 stage fails then the stage will fail. If a stage has an
-[\<approval\>](#approval) configuration with manual type it can only be
+[`<approval>`](#approval) configuration with manual type it can only be
 triggered manually (i.e. a user must click on the trigger button on the
 UI). If the previous stage has failed, you can still trigger the
 following stage manually.
@@ -2258,7 +2258,7 @@ There must be at least one job in stage.
   pipeline, so it has to   attribute to false to    working directory on the
   be unique (case          skip this operation.     agent. By default this
   insensitive) for that                             operation is skipped.
-  [\<pipeline\>](#pipeline                          
+  [`<pipeline>`](#pipeline                          
   ).                                                
   The available characters                          
   in stage name are                                 
@@ -2294,15 +2294,15 @@ There must be at least one job in stage.
 
 [top](#top)
 
-\<jobs\>
+`<jobs>`
 --------
 
-The \<jobs\> element specify the set of jobs for a stage.
+The `<jobs>` element specify the set of jobs for a stage.
 
 **Note:**
 
-\<jobs\> can contain several [\<job\>](#job) elements. These jobs can
-run in parallel on different [\<agents\>](#agents).
+`<jobs>` can contain several [`<job>`](#job) elements. These jobs can
+run in parallel on different [`<agents>`](#agents).
 
 ### Examples
 
@@ -2324,14 +2324,14 @@ run in parallel on different [\<agents\>](#agents).
 
 [top](#top)
 
-\<job\>
+`<job>`
 -------
 
 A job is the basic unit of work. It is executed on an agent. A job can
 fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.
 
-A job can also be associated with a set of [\<resources\>](#resources).
+A job can also be associated with a set of [`<resources>`](#resources).
 Resources are used to match a Job to an Agent. An Agent can run a Job if
 it has all the resources that the Job specifies.
 
@@ -2349,7 +2349,7 @@ If a Job has no resources then it can be built by any Agent
   The name of the job. The If set to 'true' then    A job can be configured
   name must be unique      the Job will run on all  to time out if it does
   (ignoring case) within a agents that can run the  not generate any console
-  [\<stage\>](#stage). The job.                     output for a period of
+  [`<stage>`](#stage). The job.                     output for a period of
   name can contain: a-z,                            time. Use this attribute
   A-Z, 0-9, fullstop,                               to define the timeout
   underscore and hyphen                             value in minutes. Define
@@ -2357,7 +2357,7 @@ If a Job has no resources then it can be built by any Agent
   allowed.                                          should never time out.
                                                     If the attribute is not
                                                     defined, the default
-                                                    [\<server\>](#server)
+                                                    [`<server>`](#server)
                                                     level timeout behaviour
                                                     will apply.
   --------------------------------------------------------------------------
@@ -2393,10 +2393,10 @@ If a Job has no resources then it can be built by any Agent
 
 [top](#top)
 
-\<resources\>
+`<resources>`
 -------------
 
-\<resources\> specifies the [resources](#resource) needed for a job. A
+`<resources>` specifies the [resources](#resource) needed for a job. A
 job can have zero or more resources.
 
 If a job has no resources it can be built on any agent.
@@ -2416,10 +2416,10 @@ If a job has no resources it can be built on any agent.
 
 [top](#top)
 
-\<resource\>
+`<resource>`
 ------------
 
-A \<resource\> is a text tag that specifies a resource which a job
+A `<resource>` is a text tag that specifies a resource which a job
 requires to build. An Agent must have all the Resources specified for a
 Job to be able to run that Job.
 
@@ -2440,10 +2440,10 @@ characters, hyphens (-), spaces, periods (.) and pipes (|).
 
 [top](#top)
 
-\<tasks\>
+`<tasks>`
 ---------
 
-\<tasks\> specifies the tasks (like [\<ant\>](#ant), [\<rake\>](#rake)
+`<tasks>` specifies the tasks (like [`<ant>`](#ant), [`<rake>`](#rake)
 etc) that will run as part of a job.
 
 There can be zero or more tasks. These tasks are executed in the order
@@ -2476,7 +2476,7 @@ The following environment variables are set for all tasks:
 
 [top](#top)
 
-\<ant\>
+`<ant>`
 -------
 
 Specifies an Ant build to run. Ant is assumed to be present from the
@@ -2521,7 +2521,7 @@ All paths specified are relative to the pipeline working directory.
 
 [top](#top)
 
-\<exec\>
+`<exec>`
 --------
 
 Runs a specified command. The build fails if the command cannot be run
@@ -2545,7 +2545,7 @@ All paths specified are relative to the pipeline working directory.
                            complex or quoted        relative to the
                            arguments we suggest     directory where the
                            that you use separate    agent checks out the
-                           [\<arg\>](#arg) tags for materials./
+                           [`<arg>`](#arg) tags for materials./
                            each argument.           
   --------------------------------------------------------------------------
 
@@ -2562,7 +2562,7 @@ All paths specified are relative to the pipeline working directory.
 
 [top](#top)
 
-\<arg\>
+`<arg>`
 -------
 
 Specify a single argument for [exec](#exec) command.
@@ -2604,7 +2604,7 @@ On Windows you should specify the full name of your script file such as
 
 [top](#top)
 
-\<nant\>
+`<nant>`
 --------
 
 Specifies a NAnt build to run. NAnt is assumed to be present from the
@@ -2643,7 +2643,7 @@ Invoke NAnt, specifying a set of targets to run:
 
 [top](#top)
 
-\<rake\>
+`<rake>`
 --------
 
 Specifies a Rake build to be run. Ruby and Rake are assumed to be
@@ -2679,7 +2679,7 @@ Invoke rake, specifying a set of targets to run:
 
 [top](#top)
 
-\<fetchartifact\>
+`<fetchartifact>`
 -----------------
 
 Fetch artifacts from:
@@ -2711,7 +2711,7 @@ This value can either be:
 
 -   1\. the name of upstream pipeline on which the pipeline of the job
     depends on. The pipeline should be added as a dependency under
-    [\<materials\>](#materials), or
+    [`<materials>`](#materials), or
 -   2\. the hierarchy of an ancestor pipeline of the current pipeline.
     Example, The value "BuildPipeline/AcceptancePipeline" denotes that the
     fetch task attempts to fetch artifacts from its ancestor
@@ -2831,7 +2831,7 @@ relative to the pipeline working directory.
 
 [top](#top)
 
-\<runif\>
+`<runif>`
 ---------
 
 Specifies when a task should be allowed to run. Multiple conditions may
@@ -2862,8 +2862,8 @@ A task can specify any of three possible runif filters: 'passed',
 
 ### **Notes:**
 
-[\<runif\>](#runif) can also be defined under [\<exec\>](#exec) task
-even if \<exec\> has some \<arg\>s e.g.
+[`<runif>`](#runif) can also be defined under [`<exec>`](#exec) task
+even if `<exec>` has some `<arg>`s e.g.
 
 ``` {.code}
     <exec command="echo">
@@ -2890,27 +2890,27 @@ Given the tasks in a job is following:
 
 #### Scenario one:
 
-If task 1 \<ant\> passed, task 2 \<fetchartifact\> would be executed.
+If task 1 `<ant>` passed, task 2 `<fetchartifact>` would be executed.
 
-If task 2 \<fetchartifact\> passed, task 3 \<exec\> would NOT be
+If task 2 `<fetchartifact>` passed, task 3 `<exec>` would NOT be
 executed.
 
-If task 2 \<fetchartifact\> failed, task 3 \<exec\> would be executed.
+If task 2 `<fetchartifact>` failed, task 3 `<exec>` would be executed.
 
 #### Scenario two:
 
-If task 1 \<ant\> failed, task 2 \<fetchartifact\> would NOT be
+If task 1 `<ant>` failed, task 2 `<fetchartifact>` would NOT be
 executed.
 
-Instead, task 3 \<exec\> would be executed.
+Instead, task 3 `<exec>` would be executed.
 
 [top](#top)
 
-\<oncancel\>
+`<oncancel>`
 ------------
 
 Specifies a task to execute when a stage is cancelled. Only one task can
-be defined in \<oncancel\>.
+be defined in `<oncancel>`.
 
 If a job is cancelled during the assigning phase, the job will not start
 preparing
@@ -2920,11 +2920,11 @@ complete, but no tasks will be executed
 
 If a job is cancelled during the building phase:
 
--   If the currently running task **does not** have \<oncancel\>
+-   If the currently running task **does not** have `<oncancel>`
     defined, the task will be killed
--   If the currently running task **does** have \<oncancel\> defined,
-    the task defined within \<oncancel\> will execute immediately. As
-    soon as both the original task and the \<oncancel\> task are
+-   If the currently running task **does** have `<oncancel>` defined,
+    the task defined within `<oncancel>` will execute immediately. As
+    soon as both the original task and the `<oncancel>` task are
     completed, no other tasks will execute
 
 If a job is cancelled during the completing phase, the agent will ignore
@@ -2948,10 +2948,10 @@ the process early and clean up any extra files.
 
 [top](#top)
 
-\<artifacts\>
+`<artifacts>`
 -------------
 
-\<artifacts\> specifies what files the agent will publish to the server.
+`<artifacts>` specifies what files the agent will publish to the server.
 
 ### Examples
 
@@ -2966,7 +2966,7 @@ the process early and clean up any extra files.
 
 [top](#top)
 
-\<artifact\>
+`<artifact>`
 ------------
 
 Publish build artifacts to the artifact repository for the job.
@@ -3030,7 +3030,7 @@ repository.
 
 [top](#top)
 
-\<test\>
+`<test>`
 --------
 
 The src attribute should point towards a folder that contains the test
@@ -3069,10 +3069,10 @@ if they are run in different jobs.
 
 [top](#top)
 
-\<tabs\>
+`<tabs>`
 --------
 
-The \<tabs\> element allows you to add tabs to the Job Details page. You
+The `<tabs>` element allows you to add tabs to the Job Details page. You
 can put any artifact that can be rendered by a web browser into a tab.
 For example, if your coverage tool produces an html report, you can
 easily place that report into a tab. Tabs are implemented as iframes
@@ -3094,7 +3094,7 @@ easily place that report into a tab. Tabs are implemented as iframes
 
 [top](#top)
 
-\<tab\>
+`<tab>`
 -------
 
 Define a tab with specific name and artifact to show.
@@ -3131,10 +3131,10 @@ a tab with the index.html file.
     
 ```
 
-\<properties\>
+`<properties>`
 --------------
 
-The \<properties\> element allows you to create properties of the build
+The `<properties>` element allows you to create properties of the build
 from XML files or artifacts created during your build. You can export
 the values of properties over time. This allows you to track properties
 against certain builds, for example to see whether build time is
@@ -3162,7 +3162,7 @@ improving or getting worse.
 
 [top](#top)
 
-\<property\>
+`<property>`
 ------------
 
 Define a Property based on the contents of an XML file.
@@ -3179,7 +3179,7 @@ Define a Property based on the contents of an XML file.
   The name of the          The xml file containing  The XPath that will be
   property. It has to be   the data that you want   used to create the
   unique within a          to use to create the     property.
-  [\<job\>](#job). The     property, and it isn't   
+  [`<job>`](#job). The     property, and it isn't   
   name can contain: a-z,   allowed to start from    
   A-Z, 0-9, fullstop,      '.'\                     
   underscore and hyphen     Properties are set on   
@@ -3232,10 +3232,10 @@ coverage.xml file.
 
 [top](#top)
 
-\<approval\>
+`<approval>`
 ------------
 
-Specifies how a stage should be triggered. \<approval\> of type 'manual'
+Specifies how a stage should be triggered. `<approval>` of type 'manual'
 or 'success' can be used to stop a pipeline execution at the start of a
 stage and can only be resumed when it is manually approved on the
 pipeline activity page, stage details page or through RESTful url.
@@ -3262,7 +3262,7 @@ pipeline activity page, stage details page or through RESTful url.
 
 **Notes:**
 
--   \<approval\> must be the first sub-element of [\<stage\>](#stage).
+-   `<approval>` must be the first sub-element of [`<stage>`](#stage).
 -   If an approval is not specified then the behavior is same as
     'success' i.e. the stage will be automatically triggered when the
     previous stage passes.
@@ -3278,12 +3278,12 @@ pipeline activity page, stage details page or through RESTful url.
 
 [top](#top)
 
-\<authorization\>
+`<authorization>`
 -----------------
 
-You can use \<authorization\> under an [\<approval\>](#approval) with a
+You can use `<authorization>` under an [`<approval>`](#approval) with a
 'manual' or 'success' type to specify who can approve this stage. There
-are two sub-elements: [\<user\>](#user) and [\<role\>](#role).
+are two sub-elements: [`<user>`](#user) and [`<role>`](#role).
 
 ### Examples
 
@@ -3307,15 +3307,15 @@ are two sub-elements: [\<user\>](#user) and [\<role\>](#role).
 
 [top](#top)
 
-\<templates\>
+`<templates>`
 -------------
 
-The \<templates\> element specifies the set of templates known by the
+The `<templates>` element specifies the set of templates known by the
 server.
 
 [top](#top)
 
-\<pipeline\>
+`<pipeline>`
 ------------
 
 Allows you to provide a template for pipeline definition
@@ -3371,15 +3371,15 @@ Allows you to provide a template for pipeline definition
 
 [top](#top)
 
-\<environments\>
+`<environments>`
 ----------------
 
-The \<environments\> element specifies the set of environments known by
+The `<environments>` element specifies the set of environments known by
 the server.
 
 [top](#top)
 
-\<environment\>
+`<environment>`
 ---------------
 
 Allows you to group a set of agents together for exclusive use.
@@ -3428,34 +3428,34 @@ Allows you to group a set of agents together for exclusive use.
 
 [top](#top)
 
-\<agents\>
+`<agents>`
 ----------
 
-The \<agents\> element inside the [\<environment\>](#environment)
+The `<agents>` element inside the [`<environment>`](#environment)
 element specifies the set of agents that it references.
 
 [top](#top)
 
-\<environmentvariables\>
+`<environmentvariables>`
 ------------------------
 
-\<environmentvariables\> specifies the [variables](#variable) to pass to
+`<environmentvariables>` specifies the [variables](#variable) to pass to
 jobs and their tasks. You can specify these on a
-[\<pipeline\>](#pipeline), [\<stage\>](#stage), [\<job\>](#job) or an
-[\<environment\>](#environment). If the same environment variable is
+[`<pipeline>`](#pipeline), [`<stage>`](#stage), [`<job>`](#job) or an
+[`<environment>`](#environment). If the same environment variable is
 definied either on the agent where the job runs or on the
 pipeline/stage/environment of the job, the precedence is in the order
-[\<job\>](#job), [\<stage\>](#stage), [\<pipeline\>](#pipeline),
-[\<environment\>](#environment) and the system environment variable. For
+[`<job>`](#job), [`<stage>`](#stage), [`<pipeline>`](#pipeline),
+[`<environment>`](#environment) and the system environment variable. For
 example, variable "FOO" defined in a job overrides the variable definied
 in the job's stage.
 
 [top](#top)
 
-\<variable\>
+`<variable>`
 ------------
 
-A \<variable\> defines the variable name and property value that will be
+A `<variable>` defines the variable name and property value that will be
 passed to a job. It will be set on the system environment when the job
 is run. The value can be include multiple lines or CDATA. Note that the
 behaviour is operating system dependent. Your operating system may not
@@ -3491,7 +3491,7 @@ allow certain variable names and/or values.
 
 [top](#top)
 
-\<physical\>
+`<physical>`
 ------------
 
 References a physical agent to be associated with this environment.
@@ -3522,15 +3522,15 @@ References a physical agent to be associated with this environment.
 
 [top](#top)
 
-\<pipelines\>
+`<pipelines>`
 -------------
 
-The \<pipelines\> element inside the [\<environment\>](#environment)
+The `<pipelines>` element inside the [`<environment>`](#environment)
 element specifies the set of pipelines that it references.
 
 [top](#top)
 
-\<pipeline\>
+`<pipeline>`
 ------------
 
 References a pipeline to be associated with this environment.
@@ -3561,10 +3561,10 @@ References a pipeline to be associated with this environment.
 
 [top](#top)
 
-\<agents\>
+`<agents>`
 ----------
 
-The \<agents\> element specifies the set of agents known by the server.
+The `<agents>` element specifies the set of agents known by the server.
 
 **Notes:**
 
@@ -3572,7 +3572,7 @@ Do not change it manually. You can manage these through the Agents tab.
 
 [top](#top)
 
-\<agent\>
+`<agent>`
 ---------
 
 An approved agent. Before it is approved, the agent is displayed on the
@@ -3599,19 +3599,19 @@ A local agent will be approved automatically.
 
 [top](#top)
 
-\<resources\>
+`<resources>`
 -------------
 
-\<resources\> descibes the resources available on a particular agent.
+`<resources>` descibes the resources available on a particular agent.
 
 **Note:**
 
 An agent without any resources will build any jobs that don't specify
-resources. Refer to the [\<resources\>](#resources) of [\<job\>](#job).
+resources. Refer to the [`<resources>`](#resources) of [`<job>`](#job).
 
 [top](#top)
 
-\<resource\>
+`<resource>`
 ------------
 
 resources names can contain the following characters: a-z, A-Z, 0-9,
