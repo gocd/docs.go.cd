@@ -3602,7 +3602,7 @@ A local agent will be approved automatically.
 `<resources>`
 -------------
 
-`<resources>` descibes the resources available on a particular agent.
+`<resources>` describes the resources available on a particular agent.
 
 **Note:**
 
