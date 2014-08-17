@@ -1,13 +1,13 @@
 
  
 
-OAuth Overview<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+OAuth Overview {.collapsible-heading onclick="toggleCollapse($(this));"}
 ==============
 
 Go implements the OAuth protocol to authorize third party application's
 (client's) request to access data on the Go server.
 
-### What is OAuth?<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### What is OAuth? {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 OAuth is an open-source specification for building a framework for
 allowing a third-party app (the “client”) to access protected resources
@@ -33,12 +33,12 @@ Common terms:
     of clients that are allowed to access their data. Client apps can be
     identified in a number of ways, including with an id and a secret.
 
-### OAuth Authorization Workflow<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### OAuth Authorization Workflow {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 An overview of the basic OAuth workflow can be found at [Beginner's
 guide to OAuth](http://oauth.net/documentation/getting-started/).
 
-### Manage OAuth Clients<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Manage OAuth Clients {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 #### Create a new OAuth client {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -78,7 +78,7 @@ accessing Go via OAuth), here's how:
     next to it.
 -   Confirm the deletion in the popup box.
 
-### Consume Go Gadgets<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Consume Go Gadgets {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 If you are a third-part client developer and want to consume Go gadgets,
 the following sections will provide you an overview of what you need to

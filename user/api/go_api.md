@@ -1,10 +1,10 @@
 
  
 
-Go API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Go API {.collapsible-heading onclick="toggleCollapse($(this));"}
 ======
 
-### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 RESTful APIs offer a convenient way to integrate networked systems. Go
 provides a RESTful API through which you can access and manipulate
@@ -13,7 +13,7 @@ the kinds of resources that are available in this version of the API.
 The following sections will walk you through the various resources and
 the operations that are supported on each of them.
 
-#### Go API features<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Go API features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 The Go API provides access to various kinds of resources in Go over
 HTTP. The standard HTTP operation of GET, POST and PUT and DELETE are
@@ -22,7 +22,7 @@ use HTTP basic authentication. Hence performing a GET operation for
 Artifacts would be the equivalent of getting that resource, performing a
 PUT would be the equivalent of updating that artifact; and so on.
 
-#### Main APIs<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Main APIs {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 The Go API documented here is a work in progress. Future versions may
 change this API.

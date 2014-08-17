@@ -1,7 +1,7 @@
 
  
 
-Authentication<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Authentication {.collapsible-heading onclick="toggleCollapse($(this));"}
 ==============
 
 Go was built from the bottom up with security in mind. Go server
@@ -21,7 +21,7 @@ finds that your username and password do not match, it will try LDAP/AD
 next. This can be very useful if you need a read-only user that can be
 used by scripts, and you do not want to add this user to your LDAP.
 
-### File Based Authentication<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### File Based Authentication {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 The simplest way to authenticate people is to create a password file for
 Go to use. This is just a plain text file with the following format:
@@ -167,7 +167,7 @@ searching when it finds the information in a search base. In case any of
 the search bases are invalid, Go server will log this information in the
 server log, but continue searching in the remaining search bases.
 
-### Controlling User Access<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Controlling User Access {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Once a user is authenticated, Go checks to see if he is an existing user
 or a new user (logging in for the first time). If a new user, there are

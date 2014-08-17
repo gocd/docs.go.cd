@@ -1,7 +1,7 @@
 
  
 
-Materials API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Materials API {.collapsible-heading onclick="toggleCollapse($(this));"}
 -------------
 
 APIs that notify Go Server when a commit has been made in Version
@@ -9,7 +9,7 @@ Control and Go needs to trigger relevant pipelines.
 
 **NOTE** : Only Go Administrators will be able to invoke this API
 
-### Subversion<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Subversion {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -34,7 +34,7 @@ When using this feature, uncheck **Poll for new changes** or set
 **autoUpdate** flag in cruise configuration to **false** for the
 relevant subversion materials
 
-#### Examples<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   We use curl, a command line tool for transferring files with URL
     syntax, in the following examples. Of course, you can use any HTTP

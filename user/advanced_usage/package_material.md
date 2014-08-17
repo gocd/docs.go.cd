@@ -1,10 +1,10 @@
 
  
 
-Package Material<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Package Material {.collapsible-heading onclick="toggleCollapse($(this));"}
 ================
 
-### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Pipelines in Go can poll packages in repositories similar to how they
 poll version control systems. A build typically consumes source code
@@ -290,7 +290,7 @@ You could also explore the command repository on
 for helpful commands. What is command repository? Please see
 [this](../advanced_usage/command_repository.html).
 
-### Package Dependencies<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Package Dependencies {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Please note that Go does not support any sort of automatic polling or
 other support for package dependencies. Each pacakge dependency has to

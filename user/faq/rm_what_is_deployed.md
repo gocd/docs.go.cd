@@ -1,14 +1,14 @@
 
  
 
-Discover what's in an environment<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Discover what's in an environment {.collapsible-heading onclick="toggleCollapse($(this));"}
 =================================
 
 Before [deploying something into
 production](rm_deploy_to_environment.html), it is often useful to know
 what is currently there.
 
-### Example usage<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 For this example, we will assume we have a stage name "production" that
 will automatically deploy a binary onto a production server

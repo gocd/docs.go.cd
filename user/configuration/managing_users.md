@@ -1,7 +1,7 @@
 
  
 
-Managing Users<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Managing Users {.collapsible-heading onclick="toggleCollapse($(this));"}
 ==============
 
 Go's user management features allow you to control access to Go and
@@ -13,7 +13,7 @@ ensure you have at least one [authentication
 mechanism](../configuration/dev_authentication.html) enabled before attempting to use any
 of the features mentioned in this chapter.
 
-### Adding Users<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Adding Users {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 1.  Navigate to the Admin section
 2.  Click on the "User Summary" tab
@@ -30,7 +30,7 @@ of the features mentioned in this chapter.
 
 ![](../resources/images/cruise/admin/user_summary_search.png)
 
-### Assigning Roles<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Assigning Roles {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Roles allow you to group a set of users with similar functional duties
 and grant them a common set of permissions.
@@ -66,7 +66,7 @@ doing, but you have controls around which role can do what.
 
 ![](../resources/images/cruise/admin/user_summary_roles.png)
 
-### Managing 'Go System Administrator' privilege<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Managing 'Go System Administrator' privilege {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 'Go System Administrator' has access to all administrative functions,
 and has operational access to all parts of a Go installation.

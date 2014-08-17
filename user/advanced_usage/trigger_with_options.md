@@ -1,18 +1,18 @@
 
  
 
-Trigger with a different revision of material<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Trigger with a different revision of material {.collapsible-heading onclick="toggleCollapse($(this));"}
 ---------------------------------------------
 
 Go supports a Trigger with option that allows you to run the pipeline
 with a specific revision of the material(s).
 
-### Trigger with options<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Trigger with options {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ![Trigger with
 options](../resources/images/cruise/trigger_with_options.png)
 
-### Information<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Information {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 The following information are displayed for the last 5 revisions. For an
 SCM materal, the following information is shown
@@ -25,7 +25,7 @@ SCM materal, the following information is shown
 For a pipeline materal, the pipeline label and the corresponding run
 time is shown
 
-### Choosing the revision<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Choosing the revision {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 You can choose one of the revisions and then click on Trigger Pipeline
 button.
@@ -44,7 +44,7 @@ chosen and the build triggered.
 ![Trigger with options
 search](../resources/images/cruise/trigger_with_options_search.png)
 
-### Environment and secure variables<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Environment and secure variables {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 If the pipeline has environment and/or secure variables configured,
 additional tabs will be displayed to allow you to override these values.

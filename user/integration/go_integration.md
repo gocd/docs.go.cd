@@ -1,7 +1,7 @@
 
  
 
-Integration with external tools<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Integration with external tools {.collapsible-heading onclick="toggleCollapse($(this));"}
 ===============================
 
 ### Integration with bug tracking and story management tools {#tracking_tool .collapsible-heading onclick="toggleCollapse($(this));"}

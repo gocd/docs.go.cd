@@ -1,7 +1,7 @@
 
  
 
-Using Environment Variables in Go<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Using Environment Variables in Go {.collapsible-heading onclick="toggleCollapse($(this));"}
 =================================
 
 ### Standard Go environment variables {#standard .collapsible-heading onclick="toggleCollapse($(this));"}
@@ -185,7 +185,7 @@ your build. For example, you might want to use the svn version number in
 the name of your binary for tracing purposes. Go makes much of this
 information available to your build scripts as environment variables.
 
-#### Example usages<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Example usages {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 #### One material {.collapsed-heading onclick="toggleCollapse($(this));"}
 
@@ -282,7 +282,7 @@ section to the job definition.
 </job>
 ```
 
-### Using environment variables in task<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Using environment variables in task {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 You can access these environment variables to construct versioned
 artifacts or to store properties on the current build. For example the

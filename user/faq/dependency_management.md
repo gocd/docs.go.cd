@@ -1,7 +1,7 @@
 
  
 
-Dependency Management<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Dependency Management {.collapsible-heading onclick="toggleCollapse($(this));"}
 =====================
 
 When you have non-trivial dependency pipeline chains, you may have
@@ -12,7 +12,7 @@ to be used for pipelines that build and test your code. This section
 covers some Dependency Management concepts and how Go handles certain
 complex scenarios.
 
-### Propagate material revision throughout the dependency chain<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Propagate material revision throughout the dependency chain {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 If you have frequent material updates coupled with long running
 dependent pipelines sharing that same material, you may encounter
@@ -22,7 +22,7 @@ dependency chain and ensures that the same version propagates throughout
 all members of that chain. This helps ensure that all artifacts
 generated as part of that build share a common revision.
 
-#### Example<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Consider the following dependency chain:
 
@@ -35,7 +35,7 @@ Consider the following dependency chain:
 -   **A** : Pipeline for development build
 -   dependent **B** : Pipeline for acceptance tests
 
-#### How it works<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### How it works {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   Code is checked in to SCM (rev1)
 -   Development build (A) is triggered by the check-in
