@@ -6,7 +6,7 @@ Go 13.4 {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 ### Features {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Template Admin:](pipeline_templates.html#edit_template) Users in Go
+-   [Template Admin:](../configuration/pipeline_templates.html#edit_template) Users in Go
     can now view and edit a template for which they have permissions.
 -   [Pipeline Search:](../navigations/Pipelines_Dashboard_page.html) Allows a user to
     search for a specific pipeline on the pipeline dashboard.

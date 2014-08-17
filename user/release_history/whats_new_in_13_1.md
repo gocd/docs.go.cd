@@ -14,7 +14,7 @@ Go 13.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
 ### Enhancements {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   **[Notification if material update is
-    hung](material_update_hung.html)** : Go server becomes less
+    hung](../faq/material_update_hung.html)** : Go server becomes less
     responsive when some of the processes that it invokes to do material
     updates stop responding. Now you get to know when this happens and
     take suitable steps.
@@ -23,7 +23,7 @@ Go 13.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
     allows finer-grained access control. If your organization has
     multiple OUs in your corporate LDAP, you can now to choose to
     specify those OUs, whose users are allowed to use Go.
--   [Additional agent APIs](Agent_API.html): Go now provides an API to
+-   [Additional agent APIs](../api/Agent_API.html): Go now provides an API to
     list details of all agents and another API to delete disabled
     agents.
 -   Ability to seach community forum from help documentation. You can
@@ -40,7 +40,7 @@ Go 13.1 {.collapsible-heading onclick="toggleCollapse($(this));"}
 -   When a "run on all agents" job involves more than 100 agents, some
     of the jobs failed reporting completion
 -   Run-if conditions is shown for Cancel task
--   Extraction of [pipeline templates](pipeline_templates.html) not
+-   Extraction of [pipeline templates](../configuration/pipeline_templates.html) not
     retaining parameters
 -   Fan-in resolution not happening in some scenarios
 -   nunit test reports not parsed by Go due to case-sensitivity of file

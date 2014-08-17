@@ -74,6 +74,7 @@ This is the summary of user documentation.
     * [What is OAuth?](faq/what_is_oauth.md)
     * [What is OpenSocial?](faq/what_is_opensocial.md)
     * [How do I re-run jobs?](faq/job_rerun.md)
+    * [Go unable to poll for changes](faq/material_update_hung.md)
 * [Go API](api/go_api.md)
     * [Artifacts API](api/Artifacts_API.md)
     * [Properties API](api/Properties_API.md)
