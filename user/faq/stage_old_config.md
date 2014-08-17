@@ -1,10 +1,10 @@
 
  
 
-Historical Configuration<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Historical Configuration {.collapsible-heading onclick="toggleCollapse($(this));"}
 ========================
 
-### Trace a stage run to it's config<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Trace a stage run to it's config {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Go provides a section on the stage details page to view the Go
 configuration xml used when executing a particular instance of the
@@ -25,7 +25,7 @@ Note: This tab is available to admin users only.
 
 ![](../resources/images/cruise/admin/stage_config.png)
 
-### See what changed in the configuration between two stage runs<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### See what changed in the configuration between two stage runs {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 As mentioned in the previous section, the stage history widget has
 markers to show if configuration has changed between two stage runs. For

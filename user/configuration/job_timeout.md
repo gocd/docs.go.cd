@@ -1,10 +1,10 @@
 
  
 
-Job Timeout<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Job Timeout {.collapsible-heading onclick="toggleCollapse($(this));"}
 ===========
 
-### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Go can be configured to automatically cancel jobs that do not generate
 any console output for a period of time. Default Job timeout options
@@ -18,9 +18,9 @@ include:
 When a job is timed out, the onCancel task for the job will be
 triggered.
 
-### Configuration<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Configuration {.collapsible-heading onclick="toggleCollapse($(this));"}
 
-#### Specify default job timeout at the server level<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Specify default job timeout at the server level {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 You must be logged in as an admin user to configure this step.
 
@@ -31,7 +31,7 @@ You must be logged in as an admin user to configure this step.
     timeout](../resources/images/cruise/admin/pipeline_management_timeout.png)
 5.  Enter the default timeout for a job.
 
-#### Configure timeout behavior for a job<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Configure timeout behavior for a job {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 You must be logged in as an admin user to configure this step.
 
@@ -45,7 +45,7 @@ be different from the default timeout.
 4.  Choose the desired timeout behavior. You can choose to never timeout
     the job, provide a specific value or use the default job timeout.
 
-### Also see...<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Also see... {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   [Adding a job](admin_add_job.html)
 -   [Clean up after cancelling a task](dev_clean_up_when_cancel.html)

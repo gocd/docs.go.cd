@@ -1,14 +1,14 @@
 
  
 
-Pipeline Templates<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Pipeline Templates {.collapsible-heading onclick="toggleCollapse($(this));"}
 ------------------
 
 Templating helps to create reusable workflows in order to make tasks
 like creating and maintaining branches, and managing large number of
 pipelines easier.
 
-#### Creating Pipeline Templates<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Creating Pipeline Templates {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Pipeline Templates can be managed from the Templates tab on the
 Administration Page.
@@ -28,7 +28,7 @@ Administration page.
 
 ![](../resources/images/cruise/admin/extract_template_from_pipeline.png)
 
-#### Example<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 As an example, assume that there is a pipeline group called "my-app" and
 it contains a pipeline called "app-trunk" which builds the application

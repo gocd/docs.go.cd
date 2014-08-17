@@ -1,10 +1,10 @@
 
  
 
-Plugin User Guide<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Plugin User Guide {.collapsible-heading onclick="toggleCollapse($(this));"}
 =================
 
-### Introduction<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Plugins allow users to extend the functionality of Go. Each plugin is
 assigned an identifier which is determined by the **id** attribute
@@ -18,7 +18,7 @@ plugin will be converted into an OSGi bundle and extracted into
 **Plugins** tab, under Go server Administration, would list all the
 loaded plugins.
 
-### Bundled versus External<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Bundled versus External {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   **Bundled Plugins:** As the name suggests, bundled plugins are
     bundled/packaged along with Go server. These are developed and
@@ -35,7 +35,7 @@ loaded plugins.
     directory\>/plugins/external** directory. [Listing of external
     plugins](http://thoughtworksinc.github.io/go-external-plugins/)
 
-### Installing and Uninstalling of plugins<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Installing and Uninstalling of plugins {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 You need access to the Go server machine to be able to install/uninstall
 a plugin. To install a plugin, drop the plugin jar under the external
@@ -45,7 +45,7 @@ plugin, remove the plugin jar from the external plugin directory (
 **\<server installation directory\>/plugins/external** ) and restart Go
 server.
 
-### Plugins Tab<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Plugins Tab {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Plugins tab can be found under Go server Administration. Plugins tab
 shows all the plugins that have been loaded currently along with its
@@ -54,7 +54,7 @@ reasons for the same would be reported here.
 
 ![](../resources/images/cruise/package-repo/plugin-tab.png)
 
-### Notes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Notes {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   Add/delete/upgrade of a plugin will take effect only after a Go
     server restart.

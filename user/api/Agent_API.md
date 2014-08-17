@@ -1,16 +1,16 @@
 
  
 
-Agent API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Agent API {.collapsible-heading onclick="toggleCollapse($(this));"}
 ---------
 
 A collection of APIs to get information and do operations on agents.
 They allow Go administrators to provision and de-provision agents
 without needing to use the web interface.
 
-### List Agents<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### List Agents {.collapsible-heading onclick="toggleCollapse($(this));"}
 
-#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -47,7 +47,7 @@ JSON response:
 
 ### Enable and Disable Agent {.collapsed-heading onclick="toggleCollapse($(this));"}
 
-#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -77,7 +77,7 @@ Disable an enabled/pending agent.
 
 ### Delete Agent {.collapsed-heading onclick="toggleCollapse($(this));"}
 
-#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -98,7 +98,7 @@ no parameters
 Delete a disabled agent. Note that the agent will not be deleted unless
 it is in disabled state and is not building any job
 
-#### Response Codes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Response Codes {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 HTTP response code
 

@@ -1,7 +1,7 @@
 
  
 
-Feeds API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Feeds API {.collapsible-heading onclick="toggleCollapse($(this));"}
 ---------
 
 The Go API documented here is a work in progress. Future versions may
@@ -11,7 +11,7 @@ Unless specified otherwise, all the api requests enforce user security.
 For example, if security is turned on, and a user has access to only two
 pipelines, all api requests will return data for those two pipelines.
 
-#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -84,7 +84,7 @@ Xml representation of a job
 -   [job\_id] is a unique identifier for a stage run.
 -   The urls are case-sensitive.
 
-#### Examples<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   We use curl, a command line tool for transferring files over HTTP,
     in the following examples. Of course, you can use any HTTP client

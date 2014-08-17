@@ -1,7 +1,7 @@
 
  
 
-Notifications<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Notifications {.collapsible-heading onclick="toggleCollapse($(this));"}
 =============
 
 It is often useful to receive an email when certain status changes occur
@@ -13,7 +13,7 @@ scenarios can be covered by Notification Filters
 Notifications will only work if [Security](../configuration/dev_authentication.html) is
 enabled and [mailhost information](../configuration/admin_mailhost_info.html) is correct.
 
-### Example usage<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Usage: As a developer, I want to be notified when I break the build.
 
@@ -36,7 +36,7 @@ mine breaks the build
 
 ![](../resources/images/cruise/dev/notifications/4_add_filter.png)
 
-#### Events<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Events {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 You can set up notifications for different events
 

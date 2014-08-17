@@ -1,7 +1,7 @@
 
  
 
-OpenSocial gadgets<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+OpenSocial gadgets {.collapsible-heading onclick="toggleCollapse($(this));"}
 ==================
 
 ThoughtWorks Studios products use the

@@ -1,7 +1,7 @@
 
  
 
-Command Repository<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Command Repository {.collapsible-heading onclick="toggleCollapse($(this));"}
 ==================
 
 ### Introduction {#introduction .collapsible-heading onclick="toggleCollapse($(this));"}
@@ -15,7 +15,7 @@ point, you may need to edit the arguments, specify a working directory
 etc. Once saved, the behaviour is the same as a manually entered custom
 command.
 
-### Using the command repository<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Using the command repository {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 This feature can be used anywhere you need to specify a custom command.
 

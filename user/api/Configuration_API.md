@@ -1,13 +1,13 @@
 
  
 
-Configuration API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Configuration API {.collapsible-heading onclick="toggleCollapse($(this));"}
 -----------------
 
 The Go API documented here is a work in progress. Future versions may
 change this API.
 
-### Configuration versioning<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Configuration versioning {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Go stores snapshots of all valid configuration files ever used by the
 server. Any change to configuration through Go admin pages or
@@ -22,7 +22,7 @@ Digest for configuration file is reported in the response to all of the
 following API calls as value of HTTP header field named
 'X-CRUISE-CONFIG-MD5'.
 
-#### Retriving historical configuration snapshot<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Retriving historical configuration snapshot {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 A user with admin privileges can invoke:
 
@@ -40,7 +40,7 @@ by invoking:
 curl -u my_user:my_password http://yourservername:8153/go/api/admin/config/5059cf548db9ea2d1b9192b45529ccf0.xml
 ```
 
-#### Other convenience APIs<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Other convenience APIs {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 In addition to 'historical configuration version retrieval', Go exposes
 other convenience APIs around this feature, that allow retrieval of
@@ -58,7 +58,7 @@ curl -u my_user:my_password http://yourservername:8153/go/api/admin/config/curre
 
 can be invoked to fetch current/latest-version of config.
 
-### Adding a new pipeline<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+### Adding a new pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 To add a pipeline, you perform a POST to the URL
 http://[server]/go/tab/admin/pipelines/[pipeline\_name].json where
@@ -75,7 +75,7 @@ username and password, and the location of repository is
 curl -u my_user:my_password -d "url=http://yoursvnrepository/trunk" http://yourservername:8153/go/tab/admin/pipelines/mypipeline.json
 ```
 
-#### General parameters<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### General parameters {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -144,7 +144,7 @@ No
 
 no default value
 
-#### Subversion<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Subversion {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -184,7 +184,7 @@ checkout\_password
 
 No
 
-#### Mercurial<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Mercurial {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -210,7 +210,7 @@ Yes
 
 The URL of the repository
 
-#### Git<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Git {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -236,7 +236,7 @@ Yes
 
 The URL of the repository
 
-#### Perforce<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Perforce {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -290,7 +290,7 @@ view
 
 Yes
 
-#### Team Foundation Server<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Team Foundation Server {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 

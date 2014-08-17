@@ -1,7 +1,7 @@
 
  
 
-Artifacts API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Artifacts API {.collapsible-heading onclick="toggleCollapse($(this));"}
 -------------
 
 The Go API documented here is a work in progress. Future versions may
@@ -10,7 +10,7 @@ change this API.
 The Artifacts API is not as much an API as a way to list, download and
 upload artifacts through command-line.
 
-#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Parameters
 
@@ -104,7 +104,7 @@ folder of the pipeline/stage/job with particular pipeline counter
 
 Go no longer supports 'last good' option for RESTful URLs as of R1.2.
 
-#### Examples<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   We use curl, a command line tool for transferring files with URL
     syntax, in the following examples. Of course, you can use any HTTP

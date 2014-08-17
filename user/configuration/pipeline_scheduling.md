@@ -1,7 +1,7 @@
 
  
 
-Pipeline Scheduling<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Pipeline Scheduling {.collapsible-heading onclick="toggleCollapse($(this));"}
 -------------------
 
 Pipelines get scheduled automatically by default. Please see the
@@ -11,7 +11,7 @@ to disable automatic scheduling.
 ![Pipeline General
 Options](../resources/images/cruise/admin/pipeline_auto_schedule.png)
 
-#### Disable automatic scheduling<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Disable automatic scheduling {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 Unchecking the "Automatic Pipeline Scheduling" checkbox above disables
 auto scheduling. Actually this is the same as marking first stage as

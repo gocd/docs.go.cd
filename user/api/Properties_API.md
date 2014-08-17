@@ -1,7 +1,7 @@
 
  
 
-Properties API<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+Properties API {.collapsible-heading onclick="toggleCollapse($(this));"}
 --------------
 
 The Go API documented here is a work in progress. Future versions may
@@ -12,7 +12,7 @@ by using the properties API.
 
 There is no way to delete or update a property.
 
-#### Key<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 StageCounter is a number which indicate how many times the stage has
 been run in the pipeline with the same pipeline label.
@@ -70,7 +70,7 @@ that Go should return. ;limitCount is optional and its default value is
 -   RESTful urls are case sensitive.
 -   Go does not support JSON format for properties API.
 
-#### Examples<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
+#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   We use curl, a command line tool for transferring files with URL
     syntax, in the following examples. Of course, you can use any HTTP
