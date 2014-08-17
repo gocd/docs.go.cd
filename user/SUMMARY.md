@@ -56,6 +56,7 @@ This is the summary of user documentation.
     * [Package Material](advanced_usage/package_material.md)
     * [Plugin User Guide](extension_points/plugin_user_guide.md)
     * [Yum Repository Poller](extension_points/yum_repository_poller.md)
+    * [Writing a task plugin](extension_points/writing_go_task_plugins.md)
 * [Go Tour]()
     * [Pipeline Dashboard](navigations/Pipelines_Dashboard_page.md)
     * [Agents](navigations/agents_page.md)

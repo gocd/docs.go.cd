@@ -7,7 +7,7 @@ Go 14.1 {#has_github_links .collapsible-heading onclick="toggleCollapse($(this))
 ### Features<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
 -   Added capability to create a [Task
-    plugin](writing_go_task_plugins.html).
+    plugin](../extension_points/writing_go_task_plugins.html).
 
 ### Bug fixes<!-- {.collapsible-heading onclick="toggleCollapse($(this));"} -->
 
