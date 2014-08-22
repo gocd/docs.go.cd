@@ -1,13 +1,13 @@
 
  
 
-OAuth Overview {.collapsible-heading onclick="toggleCollapse($(this));"}
+OAuth Overview
 ==============
 
 Go implements the OAuth protocol to authorize third party application's
 (client's) request to access data on the Go server.
 
-### What is OAuth? {.collapsible-heading onclick="toggleCollapse($(this));"}
+### What is OAuth?
 
 OAuth is an open-source specification for building a framework for
 allowing a third-party app (the “client”) to access protected resources
@@ -33,14 +33,14 @@ Common terms:
     of clients that are allowed to access their data. Client apps can be
     identified in a number of ways, including with an id and a secret.
 
-### OAuth Authorization Workflow {.collapsible-heading onclick="toggleCollapse($(this));"}
+### OAuth Authorization Workflow
 
 An overview of the basic OAuth workflow can be found at [Beginner's
 guide to OAuth](http://oauth.net/documentation/getting-started/).
 
-### Manage OAuth Clients {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Manage OAuth Clients
 
-#### Create a new OAuth client {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Create a new OAuth client
 
 Before any third-party application can use Go gadgets, it needs to be
 registered in Go as an OAuth client.
@@ -55,7 +55,7 @@ registered in Go as an OAuth client.
     application. Use the provided Client ID and Secret in the
     third-party application to enable OAuth communications with Go.
 
-#### Edit an existing OAuth client {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Edit an existing OAuth client
 
 If you've already registered an OAuth Client, but want to change its
 name or redirect URL, here's how:
@@ -67,7 +67,7 @@ name or redirect URL, here's how:
 -   Edit the necessary fields and click the **Update** button to save
     your changes.
 
-#### Delete an existing OAuth client {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Delete an existing OAuth client
 
 If you want to un-register/delete an OAuth Client (prevent it from
 accessing Go via OAuth), here's how:
@@ -78,13 +78,13 @@ accessing Go via OAuth), here's how:
     next to it.
 -   Confirm the deletion in the popup box.
 
-### Consume Go Gadgets {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Consume Go Gadgets
 
 If you are a third-part client developer and want to consume Go gadgets,
 the following sections will provide you an overview of what you need to
 do to consume gadgets using OAuth.
 
-#### Request for authorization code {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Request for authorization code
 
 Your client needs to contact Go server for an authorization code using
 the client Id and client secret. Go verifies that the requesting
@@ -125,7 +125,7 @@ will need it for the next step.
 http://www.my_redirect_uri.com?code=26a7dea5e7e121be5ad5832a4a5b09d505c234c7625de3f375971264688bdb51
 ```
 
-#### Get access token {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Get access token
 
 For this step you’ll need to send a POST request to /oauth/token with
 the following key/value pairs as form data:
@@ -156,7 +156,7 @@ access token, and its expiration time in seconds
   
 ```
 
-#### Use the access token {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Use the access token
 
 Now you are ready to query data from the Go server.
 

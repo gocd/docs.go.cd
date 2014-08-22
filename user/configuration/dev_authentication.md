@@ -1,7 +1,7 @@
 
  
 
-Authentication {.collapsible-heading onclick="toggleCollapse($(this));"}
+Authentication
 ==============
 
 Go was built from the bottom up with security in mind. Go server
@@ -21,7 +21,7 @@ finds that your username and password do not match, it will try LDAP/AD
 next. This can be very useful if you need a read-only user that can be
 used by scripts, and you do not want to add this user to your LDAP.
 
-### File Based Authentication {.collapsible-heading onclick="toggleCollapse($(this));"}
+### File Based Authentication
 
 The simplest way to authenticate people is to create a password file for
 Go to use. This is just a plain text file with the following format:
@@ -55,7 +55,7 @@ Properties](http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#l
 which means that spaces, the equals sign, and the colon are special
 characters in the username and must be escaped with a backslash.
 
-#### Generating passwords using htpasswd {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Generating passwords using htpasswd
 
 You can use the [htpasswd program from
 Apache](http://httpd.apache.org/docs/2.0/programs/htpasswd.html) to
@@ -68,17 +68,17 @@ and put the password for the user "user" in it:
 htpasswd -c -s passwd user
 ```
 
-#### htpasswd on Windows {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### htpasswd on Windows
 
 htpasswd is not available on windows, but there are plenty of
 [websites](http://www.google.com/search?q=generate+htpasswd+sha) that
 perform the encryption for free. Make sure you use the SHA1 algorithm.
 
-#### htpasswd on Mac OSX {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### htpasswd on Mac OSX
 
 htpasswd is already installed by default on Mac OSX.
 
-#### htpasswd on Linux {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### htpasswd on Linux
 
 Debian based distributions (e.g. Ubuntu) htpasswd can be installed from
 the apache2-utils
@@ -87,7 +87,7 @@ the apache2-utils
 $ apt-get install apache2-utils
 ```
 
-#### Generating passwords using python {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Generating passwords using python
 
 Another option is to use the following command (assumes python is
 installed on your system)
@@ -96,7 +96,7 @@ installed on your system)
 $ python -c "import sha;from base64 import b64encode;print b64encode(sha.new('my-password').digest())"
 ```
 
-### LDAP/ActiveDirectory Authentication {#ldap_authentication .collapsible-heading onclick="toggleCollapse($(this));"}
+### LDAP/ActiveDirectory Authentication
 
 Go can authenticate against an LDAP or Active Directory (AD) server. Go
 uses the standard JNDI APIs to access LDAP/AD, using the well known
@@ -167,7 +167,7 @@ searching when it finds the information in a search base. In case any of
 the search bases are invalid, Go server will log this information in the
 server log, but continue searching in the remaining search bases.
 
-### Controlling User Access {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Controlling User Access
 
 Once a user is authenticated, Go checks to see if he is an existing user
 or a new user (logging in for the first time). If a new user, there are
@@ -192,29 +192,29 @@ To switch the mode in which the Go Server operates:
 
 ![](../resources/images/cruise/admin/user_authentication_auto_login.png)
 
-### Common errors {#common_errors .collapsible-heading onclick="toggleCollapse($(this));"}
+### Common errors
 
 Below are few of the common errors you might encounter while integrating
 with an authentication provider
 
-#### Bad credentials {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Bad credentials
 
 -   Invalid username/password combination. Please check if the
     combination is valid and try again.
 
-#### User [username] not found in directory {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### User [username] not found in directory
 
 -   A user with [username] is not found in LDAP. Please check with your
     LDAP administrator to verify if the user exists.
 -   Check with your Go Administrator to verify that the user with
     [username] exists in the LDAP search base configured in Go.
 
-#### Empty username not allowed {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Empty username not allowed
 
 -   The user has supplied an empty username. Please enter a valid
     username in the field.
 
-#### Failed to authenticate with your authentication provider. Please check if your authentication provider is up and available to serve requests. {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Failed to authenticate with your authentication provider. Please check if your authentication provider is up and available to serve requests.
 
 -   Your LDAP server could not be reached by Go Server. Please check
     with your LDAP Administrator to resolve connectivity issues, if one
@@ -222,7 +222,7 @@ with an authentication provider
 -   Please check with your Go Administrator to verify that the LDAP
     configuration is correct. Also check the Go Server logs for errors.
 
-#### User license limit exceeded, please contact the administrator {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### User license limit exceeded, please contact the administrator
 
 -   This error is displayed when the number of users logged into Go has
     exceeded the number permited by the license. This typically happens
@@ -230,7 +230,7 @@ with an authentication provider
     which allowed certain number of users has been replaced by another
     which allows a lesser number of users.
 
-#### Your account has been disabled by the administrator {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Your account has been disabled by the administrator
 
 -   This error is displayed when the user trying to log into Go has been
     disabled by the administrator. Please check with your Go

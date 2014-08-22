@@ -1,7 +1,7 @@
 
  
 
-Gadgets {.collapsible-heading onclick="toggleCollapse($(this));"}
+Gadgets
 =======
 
 Go provides a Pipeline gadget that enables you to see the latest status
@@ -16,7 +16,7 @@ A sample of what the gadget will look like:
 ![Pipeline Status
 Gadget](../resources/images/cruise/pipeline-status-gadget.png)
 
-### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also see
 
 -   [Integrating Go with Mingle - an overview](mingle_integration.md)
 

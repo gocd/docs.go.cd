@@ -1,7 +1,7 @@
 
  
 
-Yum Repository Poller {.collapsible-heading onclick="toggleCollapse($(this));"}
+Yum Repository Poller
 =====================
 
 **Note:** This plugin is available for Go servers running on Linux nodes
@@ -11,7 +11,7 @@ having repoquery installed (part of the
 [CentOS](http://rpmfind.net//linux/RPM/centos/6.4/i386/Packages/yum-utils-1.1.30-14.el6.noarch.html)
 )
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction
 
 The Yum respository poller is a bundled [package
 material](../advanced_usage/package_material.html) plugin capable of polling yum
@@ -27,7 +27,7 @@ repoquery --repofrompath=uuid,$REPO_URL --repoid=uuid -q $PACKAGE_SPEC -qf "%{LO
 A given instance of polling is considered successful if repoquery
 returns a single package as output.
 
-### Turn your Maven Nexus Repo into a Yum repo {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Turn your Maven Nexus Repo into a Yum repo
 
 Using the [Yum plugin for
 Nexus](https://github.com/sonatype/nexus-yum-plugin), it is possible to
@@ -37,7 +37,7 @@ and consume them on the deployment side using rpm or yum. There is a [Go
 webinar](http://www.youtube.com/watch?v=hFRd_8mbIXI) that describes this
 set up.
 
-### Repository definition {#repodefn .collapsible-heading onclick="toggleCollapse($(this));"}
+### Repository definition
 
 Repo URL must be a valid http, https or file URL. This plugin looks for
 the presence of
@@ -45,7 +45,7 @@ the presence of
 to ascertain validity. Basic authentication (user:password@domain/path)
 is supported for http and https repositories.
 
-### Package definition {#pkgdefn .collapsible-heading onclick="toggleCollapse($(this));"}
+### Package definition
 
 In case of this plugin, the package definition is completely determined
 by the package spec. The package spec may be in any of the following
@@ -72,7 +72,7 @@ we have a deployment pipeline that is only interested in 1.2 series
 packages, the package spec needs to be mycomp-1.2.\* rather than just
 mycomp
 
-### Package Metadata {#pkgmeta .collapsible-heading onclick="toggleCollapse($(this));"}
+### Package Metadata
 
 The following [rpm
 metadata](http://www.rpm.org/max-rpm-snapshot/s1-rpm-inside-tags.html)
@@ -88,7 +88,7 @@ is accessed by the plugin
     outside) to the yum repository.
 4.  BuildHost - Displayed by Go as *Comment: Built on \$BUILDHOST*
 
-### Published Environment Variables {#envvar .collapsible-heading onclick="toggleCollapse($(this));"}
+### Published Environment Variables
 
 The following information is made available as environment variables for
 tasks:
@@ -101,7 +101,7 @@ tasks:
 Individual plugins may provide additional info via additional
 environment variables.
 
-### Downloading RPMs {#download .collapsible-heading onclick="toggleCollapse($(this));"}
+### Downloading RPMs
 
 Let's say we set up a repository named ORA pointing to
 http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86\_64 and
@@ -142,7 +142,7 @@ server
                 </exec>
 ```
 
-### Installing RPMs {#install .collapsible-heading onclick="toggleCollapse($(this));"}
+### Installing RPMs
 
 For self contained packages (no external dependencies other than what is
 already installed on the target node), it is just enough to do:
@@ -160,7 +160,7 @@ On the other hand, if the package isn't self-contained, we'd run:
 This would require that /etc/yum.repos.d contain the repository
 definitions.
 
-### Creating and Publishing RPMs {#create .collapsible-heading onclick="toggleCollapse($(this));"}
+### Creating and Publishing RPMs
 
 Although the support for package as material in Go isn't concerned with
 how the packages are created and published, here is a short set of
@@ -175,7 +175,7 @@ pointers to information on the web.
     yum repo simply involves uploading/copying over a new package
     revision at the correct location and running createrepo --update
 
-### Notes {#note .collapsible-heading onclick="toggleCollapse($(this));"}
+### Notes
 
 1.  This plugin will detect at max one package revision per minute (the
     default interval at which Go materials poll). If multiple versions

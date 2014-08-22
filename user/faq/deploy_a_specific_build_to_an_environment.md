@@ -1,7 +1,7 @@
 
  
 
-Deploy specific revisions of the materials to an environment {.collapsible-heading onclick="toggleCollapse($(this));"}
+Deploy specific revisions of the materials to an environment
 ============================================================
 
 Go allows you to hand pick which revision of your materials you would
@@ -10,7 +10,7 @@ on larger projects which have multiple materials in their deployment
 pipeline. Sometimes you may wish to have control over which revision of
 the application is deployed to a particular environment (say UAT).
 
-### Select specific revisions of materials to deploy {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Select specific revisions of materials to deploy
 
 Consider the case where a deployment pipeline 'deploy\_bookstore' has 2
 materials - Material 'svn' and upstream pipeline 'bookstore'. It is very
@@ -48,7 +48,7 @@ Steps to select the revisions of materials you want to deploy
     verify which revision will be deployed.
 -   Click "Deploy Changes" to start the deployment.
 
-### Why is the 'Deploy Changes' button disabled? {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Why is the 'Deploy Changes' button disabled?
 
 There are 3 reasons this can happen
 
@@ -57,7 +57,7 @@ There are 3 reasons this can happen
     [locked](admin_lock_pipelines.md) mode
 -   You do not have sufficient permissions to operate on that pipeline
 
-### Deploying the latest of all materials {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Deploying the latest of all materials
 
 If you always want to have the latest of all materials deployed to your
 environment, then this is how you can use Go to do it.
@@ -67,7 +67,7 @@ environment, then this is how you can use Go to do it.
 -   This will pick up the latest available revision of your materials at
     the time the pipeline is scheduled
 
-### Using passwords while deploying {#secure_variables_section .collapsible-heading onclick="toggleCollapse($(this));"}
+### Using passwords while deploying
 
 -   You can set secure variables in Go that gets passed along as
     environment variables to the executing task. You can use this

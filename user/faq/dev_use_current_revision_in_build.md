@@ -1,10 +1,10 @@
 
  
 
-Using Environment Variables in Go {.collapsible-heading onclick="toggleCollapse($(this));"}
+Using Environment Variables in Go
 =================================
 
-### Standard Go environment variables {#standard .collapsible-heading onclick="toggleCollapse($(this));"}
+### Standard Go environment variables
 
 Environment Variable
 
@@ -178,16 +178,16 @@ are replaced with underscores ("\_").
 121
 ```
 
-### Use current revision in a build {#current .collapsible-heading onclick="toggleCollapse($(this));"}
+### Use current revision in a build
 
 It is often useful to use the current version control revision number in
 your build. For example, you might want to use the svn version number in
 the name of your binary for tracing purposes. Go makes much of this
 information available to your build scripts as environment variables.
 
-#### Example usages {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Example usages
 
-#### One material {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### One material
 
 For this example, we are going to assume we are using a single
 [Subversion](http://subversion.tigris.org/) repository for our source
@@ -197,7 +197,7 @@ control system and we have a job set up to call the ant target "dist".
 -   Now, when Go runs the 'my-app' pipeline on revision 123, the file
     deploy-123.txt will be created, with the following content:
 
-#### Multiple materials {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Multiple materials
 
 For this example we are going to assume we are using a
 [Subversion](http://subversion.tigris.org/) repository containing the
@@ -211,7 +211,7 @@ repository containing configuration scripts.
     '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt
     will be created with the following content:
 
-### Pass environment variables to a job {#job .collapsible-heading onclick="toggleCollapse($(this));"}
+### Pass environment variables to a job
 
 You can specify variables for Environments, Pipelines, Stages and Jobs.
 If a variable is specified more than once, the most specific scope is
@@ -219,7 +219,7 @@ used. For example if you specify variable FOO='foo' for an environment,
 and FOO='bar' for a Job, then the variable will have the value 'bar'
 when the job runs.
 
-#### Setting variables on an environment {#environment .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Setting variables on an environment
 
 You can add variables to an environment by editing the configuration of
 the environment. Click on the name of the environment to edit
@@ -282,7 +282,7 @@ section to the job definition.
 </job>
 ```
 
-### Using environment variables in task {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Using environment variables in task
 
 You can access these environment variables to construct versioned
 artifacts or to store properties on the current build. For example the

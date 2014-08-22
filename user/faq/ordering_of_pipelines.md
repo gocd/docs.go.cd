@@ -1,7 +1,7 @@
 
  
 
-Ordering of pipelines {.collapsible-heading onclick="toggleCollapse($(this));"}
+Ordering of pipelines
 =====================
 
 In Go, we use two distinct types of ordering of pipelines:
@@ -19,7 +19,7 @@ trigger a pipeline with older materials. In this case, the changes to
 the material as reported by the repository and the order of pipelines
 containing these changes are not the same
 
-### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example
 
 ``` {.code}
 Order of check-ins retrieved from Hg log:

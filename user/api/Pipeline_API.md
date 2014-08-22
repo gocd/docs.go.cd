@@ -1,17 +1,17 @@
 
  
 
-Pipeline API {.collapsible-heading onclick="toggleCollapse($(this));"}
+Pipeline API
 ============
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction
 
 The Go API documented here is a work in progress. Future versions may
 change this API.
 
 This API allows you to schedule new pipelines and unlock pipelines.
 
-### Scheduling pipelines {#scheduling .collapsible-heading onclick="toggleCollapse($(this));"}
+### Scheduling pipelines
 
 You can specify particular versions of the materials to use for the new
 pipeline. If you do not specify a particular revision for a material, Go
@@ -34,7 +34,7 @@ If a new value for an environment variable is not provided at the time
 of triggering the pipeline, then the values specified in the
 configuration file for this pipeline will be used.
 
-#### Key {#key .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 Parameters
 
@@ -87,7 +87,7 @@ the svn material and instance 'upstream/2/dist/1' of the upstream
 pipeline. Here the upstream pipeline's materialName is set to
 'my-upstream-pipeline-name'.
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples
 
 -   We use curl, a command line tool to demonstrate the use of the API,
     in the following examples. Of course, you can use any HTTP client
@@ -221,7 +221,7 @@ value 'new\_password' for this specific run
 curl -u jez:badger -d "secure_variables[PASSWORD]=new_password" http://goserver.com:8153/go/api/pipelines/foo/schedule
 ```
 
-### Releasing a pipeline lock {#releasing .collapsed-heading onclick="toggleCollapse($(this));"}
+### Releasing a pipeline lock
 
 This API allows you to release a lock on a pipeline so that you can
 start up a new instance without having to wait for the earlier instance
@@ -234,7 +234,7 @@ A pipeline lock can only be released when:
 -   A locked pipeline is waiting for a manual stage (i.e. a stage
     requiring manual approval)
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 Parameters
 
@@ -254,7 +254,7 @@ no parameters
 
 Releases a lock on the specified pipeline
 
-#### Response Codes {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Response Codes
 
 HTTP response code
 
@@ -286,7 +286,7 @@ progress)
 
 user does not have operate permission on the pipeline
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples
 
 -   We use curl, a command line tool to demonstrate the use of the API,
     in the following examples. Of course, you can use any HTTP client
@@ -331,7 +331,7 @@ Let's say the **"DEV"** stage failed in an instance of pipeline
 curl -u jez:badger -d "" http://goserver.com:8153/go/api/pipelines/foo/releaseLock
 ```
 
-### Scheduled Jobs {#releasing .collapsed-heading onclick="toggleCollapse($(this));"}
+### Scheduled Jobs
 
 This api gives a list of all the current job instances which are
 scheduled but not yet assigned to any agent.
@@ -343,7 +343,7 @@ The XML output provides:
 -   Environments the job's pipeline belongs to.
 -   Environment Variables configured for the job.
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples
 
 -   We use curl,a command line tool to demonstrate the use of the API,
     in the following examples. Of course, you can use any HTTP client
@@ -404,11 +404,11 @@ Sample output is shown below:
             
 ```
 
-### Pause And Unpause Pipelines {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Pause And Unpause Pipelines
 
 This API provides the ability to pause and unpause a pipeline.
 
-#### Pause a pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Pause a pipeline
 
 API to pause a pipeline needs the following as input:
 
@@ -418,7 +418,7 @@ API to pause a pipeline needs the following as input:
 Security Note: The user invoking the API should have sufficient
 permission to operate on the pipeline.
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 Parameters
 
@@ -438,7 +438,7 @@ pauseCause
 
 Pauses the specified pipeline with the given reason.
 
-#### Response Codes {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Response Codes
 
 HTTP response code
 
@@ -456,7 +456,7 @@ Explanation
 
 User does not have operate permission on the pipeline.
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples
 
 -   We use curl, a command line tool to demonstrate the use of the API,
     in the following examples. Of course, you can use any HTTP client
@@ -490,19 +490,19 @@ Run this command to pause the pipeline:
 curl -u jez:badger -d "pauseCause=take some rest" http://goserver.com:8153/go/api/pipelines/demo_pipeline/pause
 ```
 
-#### Unpause a pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Unpause a pipeline
 
 API to unpause a pipeline needs only the name of the pipeline as input.
 
 Security Note: The user invoking the API should have sufficient
 permission to operate on the pipeline.
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 **POST** to **URL
 http://[server]:8153/go/api/pipelines/[pipeline]/unpause**
 
-#### Response Codes {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Response Codes
 
 HTTP response code
 
@@ -520,7 +520,7 @@ Explanation
 
 User does not have operate permission on the pipeline.
 
-#### Examples {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Examples
 
 -   We use curl, a command line tool to demonstrate the use of the API,
     in the following examples. Of course, you can use any HTTP client

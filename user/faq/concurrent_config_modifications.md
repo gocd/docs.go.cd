@@ -1,7 +1,7 @@
 
  
 
-Concurrent Modifications to Go's Configuration {.collapsible-heading onclick="toggleCollapse($(this));"}
+Concurrent Modifications to Go's Configuration
 ==============================================
 
 Go handles concurrent modifications to its configuration. Multiple
@@ -13,16 +13,16 @@ leverages git’s merge feature to merge changes from multiple users. As
 expected, concurrent changes to the same section by users would result
 in a conflict.
 
-### Successful Merge {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Successful Merge
 
 In case of a successful merge, user would see a success message as
 below:
 
 ![](../resources/images/cruise/admin/successful_config_merge.png)
 
-### Merge Conflicts {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Merge Conflicts
 
-### Handling conflict while using Config XML tab (Go Administrator) {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Handling conflict while using Config XML tab (Go Administrator)
 
 In case of a conflict, Go provides an interface with the latest version
 of config along with the changes made by the user. As an example, if the
@@ -35,11 +35,11 @@ the editable version on the right and save again.
 
 ![](../resources/images/cruise/admin/config_xml_merge_conflict.png)
 
-### Handling conflict while using Config XML tab (Pipeline group administrator) {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Handling conflict while using Config XML tab (Pipeline group administrator)
 
 ![](../resources/images/cruise/admin/group_admin_merge_conflict.png)
 
-### Handling conflict while updating configuration via other Admin tabs {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Handling conflict while updating configuration via other Admin tabs
 
 If two users make similar changes to a pipeline using the ‘Edit
 Pipeline’ UI, the second user would see the error as displayed below.

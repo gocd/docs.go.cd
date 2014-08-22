@@ -1,7 +1,7 @@
 
  
 
-Releasing into an environment {.collapsible-heading onclick="toggleCollapse($(this));"}
+Releasing into an environment
 =============================
 
 One of the most useful aspects of having your build mapped as a
@@ -12,9 +12,9 @@ Due to process restriction within your company, you might want to
 manually install a binary yourself, but have Go still retain the
 information of what is currently released.
 
-### Example usages {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example usages
 
-#### Automatically deploy to UAT {#deploy_uat .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Automatically deploy to UAT
 
 For this example, we'll assume that there is already an ant task defined
 in your build that will take a binary and deploy it to your environment.
@@ -44,7 +44,7 @@ When you are ready to deploy something into the UAT environment...
 -   When the deploy fails for some reason, the stage will be red and the
     UAT environment will contain the original check-in
 
-#### Manually deploy to production {#deploy_prod .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Manually deploy to production
 
 For this example, we'll assume that there is a known way to rollback to
 a previous installation. We will also assume that earlier in the

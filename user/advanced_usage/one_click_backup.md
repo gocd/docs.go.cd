@@ -1,13 +1,13 @@
 
  
 
-Backup Go Server {.collapsible-heading onclick="toggleCollapse($(this));"}
+Backup Go Server
 ================
 
 You can use Go's administration interface to perform an One-Click Backup
 of Go. You can also perform the backup [using the API](Backup_API.md).
 
-#### Steps to initiate backup {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Steps to initiate backup
 
 -   On the Go Administration page, click on the Backup tab.
 -   ![](../resources/images/cruise/admin/backup/backup_tab.png)
@@ -20,7 +20,7 @@ of Go. You can also perform the backup [using the API](Backup_API.md).
     page during the backup. On backup completion they will be redirected
     to the page they were on.
 
-#### What is backed up? {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### What is backed up?
 
 The backup will be performed into the
 **{ARTIFACT\_REPOSITORY\_LOCATION}/serverBackups** directory.
@@ -41,7 +41,7 @@ The backup directory will be named **backup\_{TIMESTAMP}** where the
 -   Go version – This is a file called **version.txt** . This file
     contains the version of the Go server when the backup was initiated
 
-#### What is not backed up? {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### What is not backed up?
 
 Note: Please refer to the
 [this](../installation/installing_go_server.html#location_of_files) page to see what the
@@ -78,7 +78,7 @@ rsync -avzP {ARTIFACT_LOCATION} {BACKUP_LOCATION}
 added will be synced to the {BACKUP\_LOCATION} and not the entire
 contents.
 
-#### Restoring Go using backup {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Restoring Go using backup
 
 Note: Please refer to the
 [this](../installation/installing_go_server.html#location_of_files) page to see what the

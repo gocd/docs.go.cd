@@ -1,10 +1,10 @@
 
  
 
-Writing a task plugin {.collapsible-heading onclick="toggleCollapse($(this));"}
+Writing a task plugin
 =====================
 
-### Overview {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Overview
 
 Go supports configuring a few kinds of tasks (Nant, Ant and Rake),
 directly, from the configuration UI, without specifying them as a custom
@@ -82,7 +82,7 @@ Dload  Upload   Total   Spent    Left  Speed
 The objective of this guide is to explain how to write such a task
 plugin, for Go.
 
-### Interface {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Interface
 
 Creating a task plugin involves implementing a few interfaces, which are
 described below. If you need to know the basics of writing a plugin in
@@ -91,7 +91,7 @@ mentioned there apply to the task plugin end-point as well. On that
 page, you can also find the go-plugin-api.jar file which contains the
 interfaces mentioned below.
 
-#### Task {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Task
 
 The Task interface is the starting point of the task plugin end-point.
 It is the top-level interface that needs to be implemented. However, to
@@ -100,7 +100,7 @@ interfaces and classes.
 
 ![](../resources/images/cruise/task_plugin/Task.png)
 
-#### TaskConfig {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### TaskConfig
 
 TaskConfig is a class, which is used by the plugin to define the set of
 configuration properties accepted and expected by it.
@@ -117,7 +117,7 @@ method of your plugin's task implementation):
 config.addProperty("MyProperty).withDefault("DEFAULT VALUE");
 ```
 
-#### TaskView {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### TaskView
 
 The TaskView implementation provided by the plugin defines the UI part
 of the configuration. The template() method returns a string, which is
@@ -130,7 +130,7 @@ available as a variable, which can be used in the template.
 You can read more about Go's use of Angular.js templates
 [here](angular-js-templates-in-go-plugins.md).
 
-#### TaskExecutor {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### TaskExecutor
 
 The TaskExecutor implementation provided by the plugin (and its
 execute() method, actually) is the one that gets called, on an agent,
@@ -147,14 +147,14 @@ The execute() method gets called with two arguments:
     related to this run of the task. It is explained in a bit more
     detail below.
 
-#### TaskExecutionContext {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### TaskExecutionContext
 
 The TaskExecutionContext is provided by Go, when the execute() method of
 TaskExecutor is called on the agent, when a task needs to be run.
 
 ![](../resources/images/cruise/task_plugin/TaskExecutionContext.png)
 
-### Writing a simple task plugin {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Writing a simple task plugin
 
 You can find the source of the sample Curl plugin mentioned earlier, [at
 this location](go_plugins_basics.html#building_a_plugin).
@@ -167,7 +167,7 @@ specifying a UI for it. Do not forget to annotate the class with
 @Extension annotation, as specified in the [Go plugin basics
 page](go_plugins_basics.md).
 
-#### Version 1 - No validation {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Version 1 - No validation
 
 For version 1 of this plugin, we will ignore the validate() method. The
 code looks like this:
@@ -237,7 +237,7 @@ The output of the task, when it runs, looks like this:
 Message is: Test
 ```
 
-#### Version 2 - With validation {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Version 2 - With validation
 
 Let's add a validation to the save, so that only messages with length 5
 are allowed. To do this, we need to add a validation error when a

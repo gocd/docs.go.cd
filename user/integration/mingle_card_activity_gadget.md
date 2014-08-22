@@ -1,7 +1,7 @@
 
  
 
-Mingle Card Activity Gadget {.collapsible-heading onclick="toggleCollapse($(this));"}
+Mingle Card Activity Gadget
 ===========================
 
 Go's Mingle card activity gadget allows users to see the new activity in
@@ -13,7 +13,7 @@ features require testing.
 For this feature to work, the Go and Mingle administrators must first
 [configure the display of Mingle gadgets in Go](mingle_in_go.md).
 
-### Configuring Mingle Card Activity for a Go pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Configuring Mingle Card Activity for a Go pipeline
 
 Navigate to the Administration page for the pipeline for which you would
 like to view card activity.
@@ -44,7 +44,7 @@ Below is an example configuration for the card activity feature:
 
 ![](../resources/images/cruise/mingle_card_activity_example_configuration.png)
 
-### Accessing Mingle Card Activity in Go {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Accessing Mingle Card Activity in Go
 
 There are several locations from where Mingle card activity can be
 accessed. These include:
@@ -60,13 +60,13 @@ the 'Compare' link as displayed on the Pipelines Dashboard page.
 
 ![](../resources/images/cruise/mingle_card_activity_compare_link.png)
 
-### Card Activity information {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Card Activity information
 
 For cards to be included in the card activity list, the commit messages
 must include the card number in the following format: \#card\_number
 (e.g. \#412). Do not put a space between the \# and the card number.
 
-#### With MQL Grouping Conditions {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### With MQL Grouping Conditions
 
 When MQL Grouping Conditions are used, the cards are listed in groups
 according to whether they:
@@ -87,7 +87,7 @@ will be shown at the top of the list.
 
 ![](../resources/images/cruise/mingle_card_activity_with_grouping_conditions.png)
 
-#### Without MQL Grouping Conditions {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Without MQL Grouping Conditions
 
 When MQL Grouping Conditions are not provided, the cards are listed in
 the order in which the commits were made against them.
@@ -100,7 +100,7 @@ Mingle data from the time of pipeline execution of deployment. As
 changes are made to cards in Mingle, this page will reflect the latest
 card activity.
 
-### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also see
 
 -   [Integrating Go with Mingle - an overview](mingle_integration.md)
 -   [Reference for Mingle card activity

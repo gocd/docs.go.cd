@@ -1,10 +1,10 @@
 
  
 
-Artifact integrity verification {.collapsible-heading onclick="toggleCollapse($(this));"}
+Artifact integrity verification
 ===============================
 
-### Overview {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Overview
 
 Go verifies artifact integrity to ensure that they are unchanged from
 the point of origin. While executing a job, Go applies the following
@@ -26,7 +26,7 @@ the name and checksum for each artifact saved by the job.
 
 ![](../resources/images/cruise/md5_checksum.png)
 
-### Also see... {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also see...
 
 -   [Managing artifacts and
     reports](../configuration/managing_artifacts_and_reports.html)

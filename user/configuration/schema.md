@@ -1,7 +1,7 @@
 
  
 
-Schema {.collapsible-heading onclick="toggleCollapse($(this));"}
+Schema
 ======
 
 -   Configuration file schema :

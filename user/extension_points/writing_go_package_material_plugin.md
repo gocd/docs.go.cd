@@ -1,10 +1,10 @@
 
  
 
-Writing a package material plugin {.collapsible-heading onclick="toggleCollapse($(this));"}
+Writing a package material plugin
 =================================
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction
 
 A package repository typically holds a set of packages, each of which
 can have multiple versions. Package repository material allows Go to
@@ -84,7 +84,7 @@ repository to fetch the latest package.
         
 ```
 
-### Configuration Provider {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Configuration Provider
 
 The configuration provider should implement PackageMaterialConfiguration
 interface. Go will communicate with the implementation of
@@ -166,7 +166,7 @@ methods.
                     
     ```
 
-### Repository Poller {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Repository Poller
 
 Periodically, Go checks all the configured materials for new updates.
 For a package material, it would invoke the corresponding repository

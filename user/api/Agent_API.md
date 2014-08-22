@@ -1,16 +1,16 @@
 
  
 
-Agent API {.collapsible-heading onclick="toggleCollapse($(this));"}
+Agent API
 ---------
 
 A collection of APIs to get information and do operations on agents.
 They allow Go administrators to provision and de-provision agents
 without needing to use the web interface.
 
-### List Agents {.collapsible-heading onclick="toggleCollapse($(this));"}
+### List Agents
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 Parameters
 
@@ -45,9 +45,9 @@ JSON response:
 -   resources: [] (Maps to "Resources" column of Agents tab)
 -   environments: [] (Maps to "Environments" column of Agents tab)
 
-### Enable and Disable Agent {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Enable and Disable Agent
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 Parameters
 
@@ -75,9 +75,9 @@ no parameters
 
 Disable an enabled/pending agent.
 
-### Delete Agent {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Delete Agent
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 Parameters
 
@@ -98,7 +98,7 @@ no parameters
 Delete a disabled agent. Note that the agent will not be deleted unless
 it is in disabled state and is not building any job
 
-#### Response Codes {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Response Codes
 
 HTTP response code
 
@@ -140,7 +140,7 @@ happen. Follow the steps below to achieve this.
     this within 5 seconds of the disable agent API
 -   Use the delete agents API to delete the agent
 
-### Examples {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Examples
 
 -   We use curl, a command line tool for transferring files with URL
     syntax, in the following examples. Of course, you can use any HTTP

@@ -1,10 +1,10 @@
 
  
 
-Angular JS templates in Go plugins {.collapsible-heading onclick="toggleCollapse($(this));"}
+Angular JS templates in Go plugins
 ==================================
 
-### Overview {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Overview
 
 Go uses [Angular JS](http://docs.angularjs.org/guide/templates) as its
 templating engine for plugin UI. This means that plugin authors can use
@@ -19,9 +19,9 @@ relevant links from the Angular JS site, related to templates:
 -   [Templates](http://docs.angularjs.org/tutorial/step_08)
 -   [Expressions](http://docs.angularjs.org/guide/expression)
 
-### Creating a template for a Go plugin - Configuration UI {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Creating a template for a Go plugin - Configuration UI
 
-#### Importance of the configuration key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Importance of the configuration key
 
 When an Angular template is used in a Go plugin, to define the
 configuration UI, the configuration key which is stored in the
@@ -40,7 +40,7 @@ HTML attribute like "ng-model".
 So, the name "foobar" needs to be the same across the configuration XML,
 the Angular template as well as in any code that the plugin has.
 
-#### Using Angular expressions in the template {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Using Angular expressions in the template
 
 To use an Angular expression (of the form "{{ expression }}") inside a
 template, you need to use this form:
@@ -70,7 +70,7 @@ in the dialog box, you can use something like this:
 </div>
 ```
 
-#### Showing validation errors in the UI {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Showing validation errors in the UI
 
 Similar to the errors available in Angular (described
 [here](http://docs.angularjs.org/api/ng/directive/input) and

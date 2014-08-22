@@ -1,10 +1,10 @@
 
  
 
-Command Repository {.collapsible-heading onclick="toggleCollapse($(this));"}
+Command Repository
 ==================
 
-### Introduction {#introduction .collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction
 
 This feature is an enhancement to [Custom
 Commands](http://support.thoughtworks.com/entries/22873043-go-s-custom-command)
@@ -15,7 +15,7 @@ point, you may need to edit the arguments, specify a working directory
 etc. Once saved, the behaviour is the same as a manually entered custom
 command.
 
-### Using the command repository {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Using the command repository
 
 This feature can be used anywhere you need to specify a custom command.
 
@@ -40,7 +40,7 @@ If it is not available on the default path, add it to the path in
 Alternatively, create a symbolic link to the path to the executable from
 /bin or equivalent folder. This doesn't require an agent restart
 
-#### Args style commands {#args .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Args style commands
 
 The older [args](../configuration/configuration_reference.html#exec) style commands are
 not supported by this feature. Please convert them to the new syntax
@@ -60,7 +60,7 @@ becomes
 </exec>
 ```
 
-### Bundled Repository {#bundled-repo .collapsible-heading onclick="toggleCollapse($(this));"}
+### Bundled Repository
 
 The default set of commands come from
 [https://github.com/goteam/go-command-repo](https://github.com/goteam/go-command-repo).
@@ -72,7 +72,7 @@ to date set of commands. Hence, please do not add your commands here.
 Instead, set up a [private
 repository](../advanced_usage/command_repository.html#pvt-repo).
 
-#### Pulling Updates {#pull-updates .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Pulling Updates
 
 Go team will continue to add (and sometimes update) commands to the
 repository on GitHub. If you want to make these commands available to
@@ -108,7 +108,7 @@ hit the reload cache button under the command repository section on the
 server configuration admin page or by using the [reload
 API](../api/command_repo_api.html).
 
-### Private Repository {#pvt-repo .collapsible-heading onclick="toggleCollapse($(this));"}
+### Private Repository
 
 If you want to add your own commands for look up, you should set up your
 own Git/Mercurial/Subversion/Perforce/TFS repository that your command
@@ -134,7 +134,7 @@ repository. You could choose to manually seed your private command
 repository with Go's bundled set of commands if you want to have them in
 addition to your own commands.
 
-#### Recommended process {#pvt-repo-process .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Recommended process
 
 Command author pushes/checks-in command to corporate version control
 system
@@ -156,7 +156,7 @@ The commands in the command repository are not part of your Go Server
 config. They become part of your Go server config only after you
 (optionally edit and) save them.
 
-### Command syntax and lookup logic {#lookup-logic .collapsible-heading onclick="toggleCollapse($(this));"}
+### Command syntax and lookup logic
 
 ![](../resources/images/cruise/cmd_repo_curl.png)
 
@@ -200,7 +200,7 @@ resulting suggestions:
 
 Within each category, the sorting is alphabetical.
 
-### Contributing Commands {#contrib-cmds .collapsible-heading onclick="toggleCollapse($(this));"}
+### Contributing Commands
 
 We welcome commands contributed by users. Simply,
 
@@ -213,7 +213,7 @@ We welcome commands contributed by users. Simply,
 
 Accepted commands will be bundled into the next release.
 
-### Further Reading {#further .collapsible-heading onclick="toggleCollapse($(this));"}
+### Further Reading
 
 [Use it to lookup your config
 scripts](http://www.thoughtworks.com/insights/blog/use-gos-new-command-repository-lookup-your-config-scripts)

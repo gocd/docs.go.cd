@@ -1,10 +1,10 @@
 
  
 
-Integration with external tools {.collapsible-heading onclick="toggleCollapse($(this));"}
+Integration with external tools
 ===============================
 
-### Integration with bug tracking and story management tools {#tracking_tool .collapsible-heading onclick="toggleCollapse($(this));"}
+### Integration with bug tracking and story management tools
 
 Go allows you to link your commit messages with bug tracking and story
 management tools which are web applications.
@@ -34,7 +34,7 @@ automatically links story/bug numbers to the configured tracking tool:
 
 ![](../resources/images/cruise/pipeline_activity_tracking_tool.png)
 
-### Monitoring your builds with client tools {#cctray .collapsible-heading onclick="toggleCollapse($(this));"}
+### Monitoring your builds with client tools
 
 Go allows you to monitor your builds with CCTray through the url
 'http://[your_go_server]:8153/go/cctray.xml.

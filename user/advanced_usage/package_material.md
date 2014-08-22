@@ -1,10 +1,10 @@
 
  
 
-Package Material {.collapsible-heading onclick="toggleCollapse($(this));"}
+Package Material
 ================
 
-### Introduction {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Introduction
 
 Pipelines in Go can poll packages in repositories similar to how they
 poll version control systems. A build typically consumes source code
@@ -27,7 +27,7 @@ These files (packages) are often maintained in corresponding package
 repositories. **Such packages may be specified as materials for Go
 pipelines.**
 
-### Supported Packages {#support .collapsible-heading onclick="toggleCollapse($(this));"}
+### Supported Packages
 
 Since there are many package formats each with its own package manager
 and repository, the support for package-as-material has been implemented
@@ -38,13 +38,13 @@ other [external
 plugins](http://thoughtworksinc.github.io/go-external-plugins/), it is
 possible to do the same for other types of packages.
 
-### Repositories, Packages and Materials {#repopkgmat .collapsible-heading onclick="toggleCollapse($(this));"}
+### Repositories, Packages and Materials
 
 A repository may contain one or more packages. A pipeline may refer to a
 package as a material. When the package is updated in the respository,
 interested pipelines will get scheduled.
 
-#### Repository Definition {#repodefn .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Repository Definition
 
 A package material plugin lets pipeline group admins provide details of
 the corresponding repository type to Go. e.g. here is how we define a
@@ -61,7 +61,7 @@ plugin](../extension_points/yum_repository_poller.html).
 
 ![](../resources/images/cruise/package-repo/yum-repo.png)
 
-#### Package Definition {#pkgdefn .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Package Definition
 
 A package material plugin also lets you define packages at the time of
 pipeline material configuration (Admin \> Material \>Add Material \>
@@ -100,7 +100,7 @@ action:\
 'orchard', Package Name: 'apple'], [Repo Name: 'orchard', Package Name:
 'orange']
 
-#### Sample XML Configuration {#xml .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Sample XML Configuration
 
 Here is a XML view of an RPM package defintion. Note the relation
 between repository, package and pipeline material. Loosely typed
@@ -143,7 +143,7 @@ the browser frame.
     
 ```
 
-### Value stream modeling tip {#vsm .collapsible-heading onclick="toggleCollapse($(this));"}
+### Value stream modeling tip
 
 Depending on whether Go is also publishing the package or just consuming
 it, there are two options for modeling a value stream that includes
@@ -176,7 +176,7 @@ packages.
     of the bundled yum plugin, we use the URL field in rpm metadata for
     this.
 
-### Permissions {#permissions .collapsible-heading onclick="toggleCollapse($(this));"}
+### Permissions
 
 Repositories and their packages are global entities not tied to a
 pipeline group or environment. Pipeline group admins may define
@@ -188,7 +188,7 @@ person editing. Because of this, we don't have a UI way of changing the
 definition of a package. Only the Go admin can change it via Admin \>
 Config XML tab.
 
-### Polling {#polling .collapsible-heading onclick="toggleCollapse($(this));"}
+### Polling
 
 Even if no pipelines use a package, Go polls for newer packages every
 minute. This may be turned off at a package level by setting
@@ -199,7 +199,7 @@ scheduled (assuming [auto scheduling of
 pipelines](../configuration/pipeline_scheduling.html) is on). Also see [API
 scheduling](../api/Pipeline_API.html#key).
 
-### Package information display {#pkginfo .collapsible-heading onclick="toggleCollapse($(this));"}
+### Package information display
 
 The following information is expected from the package material plugin
 (which in turn obtains it from the package metadata if available)
@@ -218,7 +218,7 @@ to display as below.
 
 ![](../resources/images/cruise/package-repo/package-changes.png)
 
-### Downloading the package {#pkgdownload .collapsible-heading onclick="toggleCollapse($(this));"}
+### Downloading the package
 
 The package isn't automatically downloaded on the agent and made
 available to the jobs. This is unlike VCS/SCM materials where a checkout
@@ -279,7 +279,7 @@ server
 then try to re-trigger (redeploy) an old package, the published
 environment variables will not reflect new credentials.
 
-### Publishing a Package {#publish .collapsible-heading onclick="toggleCollapse($(this));"}
+### Publishing a Package
 
 At the moment, Go does not create or publish the package for you. But it
 is simple enough for each type of package. e.g.
@@ -290,7 +290,7 @@ You could also explore the command repository on
 for helpful commands. What is command repository? Please see
 [this](../advanced_usage/command_repository.html).
 
-### Package Dependencies {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Package Dependencies
 
 Please note that Go does not support any sort of automatic polling or
 other support for package dependencies. Each pacakge dependency has to

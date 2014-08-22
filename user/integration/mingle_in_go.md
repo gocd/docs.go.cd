@@ -1,7 +1,7 @@
 
  
 
-Displaying Mingle gadgets in Go {.collapsible-heading onclick="toggleCollapse($(this));"}
+Displaying Mingle gadgets in Go
 ===============================
 
 Before a user can use the [Mingle card activity
@@ -22,7 +22,7 @@ XML](../installation/configuring_server_details.html#configure_site_url). The Mi
 administrator should make a similar check of his Mingle configuration
 (although the mechanism for specifying site URLs differs in Mingle).
 
-### Step 1 - Configure Mingle as OAuth 2.0 Provider {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Step 1 - Configure Mingle as OAuth 2.0 Provider
 
 A Go user is only allowed to see Mingle card activity in Go that he
 would normally be allowed to see in Mingle. That is, when Go show's
@@ -38,7 +38,7 @@ performed by a Mingle administrator.
 
 [What is OAuth?](../faq/what_is_oauth.html)
 
-#### 1.1 - Capture Go OAuth Redirect URI {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### 1.1 - Capture Go OAuth Redirect URI
 
 Before configuring Mingle, a bit of information must be captured from
 Go: the Go OAuth Redirect URI. If the Mingle administrator and Go
@@ -53,7 +53,7 @@ from this screenshot.)
 
 ![Go](../resources/images/cruise/go_oauth_redirect_uri.png)
 
-#### 1.2 - Create OAuth client entry in Mingle {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### 1.2 - Create OAuth client entry in Mingle
 
 In Mingle, logged in as an administrator, go to the home page that lists
 all projects. In the administration menu at the top of the page, click
@@ -76,7 +76,7 @@ communicate these values to the Go administrator.
 
 ![Mingle](../resources/images/cruise/mingle_oauth_client_listing.png)
 
-### Step 2 - Configure Go to render gadgets from Mingle {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Step 2 - Configure Go to render gadgets from Mingle
 
 In Mingle, we have just created an entry for a new OAuth client. Go is
 that client. You must now configure the Go half of that trust
@@ -110,7 +110,7 @@ retrieve gadget content from Mingle.
 
 ![Mingle](../resources/images/cruise/oauth_provider_accept_cert_partial.png)
 
-### Step 3 - Verify {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Step 3 - Verify
 
 The final step is to verify by testing an integration. Go to the
 reference for the [Mingle card activity
@@ -119,12 +119,12 @@ Mingle card activity gadget for one of your Go pipelines. If the
 integration fails, please read through the troubleshooting section
 below.
 
-### Troubleshooting {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Troubleshooting
 
 As you are configuring an integration, something might go wrong. Here
 are some of the more common issues seen with this integration.
 
-#### Gadget does not render user authorization message... instead you see 'BAD\_OAUTH\_CONFIGURATION: There is no OAuth enabeld gadget provider... {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Gadget does not render user authorization message... instead you see 'BAD\_OAUTH\_CONFIGURATION: There is no OAuth enabeld gadget provider...
 
 If users are seeing the error below rather than an opportunity to
 authorize the gadget provider to send Mingle data on your behalf there
@@ -145,7 +145,7 @@ the url specified for the value of the gadget provider's OAuth
 Authorization URL on the OAuth enabled gadget providers page. Please
 make sure that these values match.
 
-#### Authorization popup shows gadget provider configuration error {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Authorization popup shows gadget provider configuration error
 
 If, on clicking on the Authorize link, the popup opens but shows this
 error:
@@ -168,7 +168,7 @@ value in the browser's address bar. There is most likely a fairly
 readable error code contained in the address that will reveal the
 specific configuration error.
 
-#### User clicks 'Yes' on authorization popup but gadget still not showing {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### User clicks 'Yes' on authorization popup but gadget still not showing
 
 If, upon clicking Yes in the authorization popup, the user sees the
 error below showing invalid client credentials, there is a mismatch
@@ -181,7 +181,7 @@ the user's credentials, but to the OAuth trust between Go and Mingle.
 ![Mismatched OAuth client
 secrets.](../resources/images/cruise/mismatched_client_secret_error.png)
 
-### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also see
 
 -   [Integrating Go with Mingle - an overview](mingle_integration.md)
 -   [Reference for Mingle card activity

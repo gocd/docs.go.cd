@@ -1,7 +1,7 @@
 
  
 
-Managing dependencies {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing dependencies
 =====================
 
 Sometimes you need more complex triggers than a simple pipeline of
@@ -9,7 +9,7 @@ stages and jobs. In particular, you may want a pipeline to trigger based
 on the result of a stage in another pipeline. This is possible by adding
 pipelines as materials.
 
-### Creating a dependency {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Creating a dependency
 
 Say we have two pipelines - **upstream\_pipeline** and
 **downstream\_pipeline** . We want downstream\_pipeline to automatically
@@ -55,7 +55,7 @@ instance of the downstream pipeline will show you all this information.
 
 ![](../resources/images/cruise/downstream_pipeline.png)
 
-### Fetching artifacts from an upstream pipeline {#fetch_artifact_section .collapsible-heading onclick="toggleCollapse($(this));"}
+### Fetching artifacts from an upstream pipeline
 
 Go can automatically fetch artifacts from a previous stage of the
 current pipeline or from any ancestor pipeline it depends on. This is

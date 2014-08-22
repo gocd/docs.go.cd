@@ -1,7 +1,7 @@
 
  
 
-Publishing artifacts {.collapsible-heading onclick="toggleCollapse($(this));"}
+Publishing artifacts
 ====================
 
 When executing a job on an agent there are often artifacts created that
@@ -17,9 +17,9 @@ To publish artifacts you add a an
 configuration. More information can be found on the [Managing artifacts
 and reports](../configuration/managing_artifacts_and_reports.html) page.
 
-### Example usages {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example usages
 
-#### Uploading JUnit xml reports {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Uploading JUnit xml reports
 
 We are going to assume that the JUnit test reports are being placed in
 the "target/reports" folder.
@@ -41,7 +41,7 @@ For each job that runs JUnit:
 -   ![](../resources/images/cruise/dev/upload_test_reports/4_add_test_artifacts_tag.png)
 -   Click "Save"
 
-#### Uploading a flash video and displaying it as a sub-tab {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Uploading a flash video and displaying it as a sub-tab
 
 We are going to assume that the flash file, and the html file
 referencing it, are being created in the "target/reports" folder.

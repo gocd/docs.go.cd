@@ -1,7 +1,7 @@
 
  
 
-Managing environments {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing environments
 =====================
 
 Go is configured using an XML configuration file. This file can be
@@ -11,7 +11,7 @@ configuration before it saves it again. You can also edit the full XML
 file if you wish, by clicking on the Config XML section of the
 Administration tab.
 
-### Creating a new environment {#create .collapsible-heading onclick="toggleCollapse($(this));"}
+### Creating a new environment
 
 An Environment is a grouping of pipelines and agents. By assigning an
 agent to an environment, it will be used to run only those jobs that
@@ -50,7 +50,7 @@ deployment pipeline and the agent installed on the production server.
 Setting up an environment through the xml can be found in the
 [configuration reference](configuration_reference.html#environments)
 
-### Add a new agent to an existing environment {#agents .collapsible-heading onclick="toggleCollapse($(this));"}
+### Add a new agent to an existing environment
 
 You can do this very easily in the Agents tab. Just select the agents
 you want to add to your environment and click on the Environments

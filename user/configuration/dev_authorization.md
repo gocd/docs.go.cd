@@ -1,7 +1,7 @@
 
  
 
-Authorization {.collapsible-heading onclick="toggleCollapse($(this));"}
+Authorization
 =============
 
 With no security switched on, there is of course no authorization
@@ -10,7 +10,7 @@ can perform any operation. However you can get Go to limit certain
 operations to particular Users or Roles, and manage membership of those
 Roles.
 
-### Administrators {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Administrators
 
 Go allows you to restrict the users who can perform certain functions.
 Administrators is a special role that allows its members to perform any
@@ -35,7 +35,7 @@ refer to the example in the section below, where members of the
 "go\_admin" role (jhumble and qiao), along with the user chris, can
 administer Go.
 
-### Role-based security {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Role-based security
 
 You can define roles that can be used anywhere that authorization is
 required. A role is just a group of users. Administrators can add users
@@ -79,7 +79,7 @@ For power users, here's how you would configure roles via "Config XML":
 In this example, the "qa" role has two users: dyang and pavan. The
 "go\_admin" role also has two users: jhumble and qiao.
 
-### Specifying permissions for pipeline groups {#pipeline-groups .collapsible-heading onclick="toggleCollapse($(this));"}
+### Specifying permissions for pipeline groups
 
 Go allows you to group pipelines together. If you define pipeline
 groups, you can specify who is able to view or operate those groups. To
@@ -144,7 +144,7 @@ XML":
 </pipelines>
 ```
 
-### Adding authorization to approvals {#approvals .collapsible-heading onclick="toggleCollapse($(this));"}
+### Adding authorization to approvals
 
 In Go, it is possible to specify [manual
 approvals](managing_pipelines.md) between stages. You can also specify
@@ -184,7 +184,7 @@ approvals for a stage via "Config XML":
   
 ```
 
-### Specifying permissions for templates {#template-admin .collapsible-heading onclick="toggleCollapse($(this));"}
+### Specifying permissions for templates
 
 A Go Administrator can make any user a template administrator for a
 specific template. As a template administrator, a user can now view and
@@ -216,7 +216,7 @@ XML":
   </templates>
 ```
 
-### Also See {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Also See
 
 -   [Delegating group
     administration](delegating_group_administration.md)

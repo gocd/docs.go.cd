@@ -1,14 +1,14 @@
 
  
 
-Managing agents {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing agents
 ===============
 
 Go is designed to make managing a build cloud extremely simple. This
 page takes you through the lifecycle of expanding your cloud and
 maintaining your agents.
 
-### Adding a Go agent to your cloud {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Adding a Go agent to your cloud
 
 The first thing you need to do is [install Go
 agent](../installation/installing_go_agent.html) on the machine you want to add to the
@@ -34,7 +34,7 @@ agent will automatically begin picking up jobs. Agents will
 automatically check out any code they need in order to start running
 jobs.
 
-### Matching jobs to agents {#jobstoagents .collapsed-heading onclick="toggleCollapse($(this));"}
+### Matching jobs to agents
 
 In its default state, Go server will assign scheduled jobs to the first
 available agent. Go doesn't have the ability to determine what operating
@@ -71,13 +71,13 @@ describe the resources your agents have. You can do this very easily in
 the [Agents](../navigations/agents_page.html) tab. Just select the agents you want to
 describe, and click on the **Resources** button.
 
-#### Associate selected agent(s) with a newly created resource {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Associate selected agent(s) with a newly created resource
 
 Enter the name of the new resource and click the “Add” button.
 
 ![](../resources/images/cruise/associate_agent_resources_new.png)
 
-#### Associate selected agent(s) with existing resources {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Associate selected agent(s) with existing resources
 
 All existing resources across your agents and jobs will appear in
 alphabetical order. Select one of three states for all resources you
@@ -93,7 +93,7 @@ want to associate and then click the “Apply” button.
 
 ![](../resources/images/cruise/associate_agent_resources_existing.png)
 
-### Agent states {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Agent states
 
 Go will tell you if it loses touch with agents. If Go server doesn't
 hear from an agent for two minutes, the agent will turn red in the
@@ -110,7 +110,7 @@ If an agent is working on a job, it will turn orange, and display the
 name of the job it is working on. You can click on the job description
 to go to the job details page for that job:
 
-### Removing agents {#delete_agents .collapsed-heading onclick="toggleCollapse($(this));"}
+### Removing agents
 
 If you want to remove an agent from Go's build cloud, go to the agents
 tab, locate the agent you want to remove, and click on the button marked
@@ -127,7 +127,7 @@ Following this procedure, if you restart the agent, Go server will see
 it as a new agent, and you can enable it again in the same way as
 described above. ![](../resources/images/cruise/delete_agent.png)
 
-### Pausing agents {#pausing_agent .collapsed-heading onclick="toggleCollapse($(this));"}
+### Pausing agents
 
 If you want to pause an agent or temporarily disable it so that Go
 server will not assign work to the agent. Go will record in its
@@ -141,13 +141,13 @@ work again. You can use the api or enable an agent from the agents tab.
 
 ![](../resources/images/cruise/disable_agent.png)
 
-### Details of a single agent {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Details of a single agent
 
 Go now provides a page that shows the details of a single agent. This
 page provides details about the agent configuration and the history of
 all the jobs that ran on that agent.
 
-#### Agent Details tab {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Agent Details tab
 
 This tab shows the configuration and runtime information of an agent.
 For example, this tab shows the free space available on the agent, the
@@ -158,7 +158,7 @@ the environment it belongs to. A sample Details tab looks as below:
 
 ![](../resources/images/cruise/admin/agent_details.png)
 
-#### Job Run History tab {.collapsed-heading onclick="toggleCollapse($(this));"}
+#### Job Run History tab
 
 You must be logged in as an admin user to configure this step.
 
@@ -181,7 +181,7 @@ For every job, the following columns are shown:
 The job listing table can be sorted on any column, except for the
 Duration column.
 
-#### Using Agent details to debug agent issues {#identifying_environment_issues .collapsed-heading onclick="toggleCollapse($(this));"}
+#### Using Agent details to debug agent issues
 
 This page is useful to figure out if there are agent issues and hence a
 certain job keeps failing on that agent.

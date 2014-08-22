@@ -1,13 +1,13 @@
 
  
 
-Why is the build broken? {.collapsible-heading onclick="toggleCollapse($(this));"}
+Why is the build broken?
 ========================
 
 Knowing the build is broken is only the first step. Now we need to
 understand what caused it to break.
 
-### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Example usage
 
 Usage: As a developer, I want to understand why the build is broken.
 

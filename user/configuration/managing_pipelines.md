@@ -1,7 +1,7 @@
 
  
 
-Managing pipelines {.collapsible-heading onclick="toggleCollapse($(this));"}
+Managing pipelines
 ==================
 
 Go can be configured using [Administration](../navigations/administration_page.html)
@@ -11,7 +11,7 @@ editing the full XML file if you wish, by clicking on the **Config XML**
 section of the [Administration](../navigations/administration_page.html) tab. Go will
 check the syntax of the configuration before it saves it again
 
-### Creating a new pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Creating a new pipeline
 
 To create a new pipeline, go to the **Pipelines** sub-tab of the
 [Administration](../navigations/administration_page.html) tab and click on the ["Create
@@ -20,7 +20,7 @@ shown in the screen shot below.
 
 ![](../resources/images/cruise/admin/create_new_pipeline_link.png)
 
-### Add a new material to an existing pipeline {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Add a new material to an existing pipeline
 
 Now that you have a pipeline, lets add another material to it.
 
@@ -39,7 +39,7 @@ Now that you have a pipeline, lets add another material to it.
 -   ![](../resources/images/cruise/edit_material.png)
 -   Click "Save".
 
-### Blacklist {.collapsible-heading onclick="toggleCollapse($(this));"}
+### Blacklist
 
 Often you do want to specify a set of files that Go should ignore when
 it checks for changes. Repository changesets which contain only these
@@ -51,7 +51,7 @@ the [ignore](configuration_reference.html#ignore) section of the
 -   ![](../resources/images/cruise/edit_material_blacklist.png)
 -   Click "Save".
 
-### Add a new stage to an existing pipeline {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Add a new stage to an existing pipeline
 
 Now that you have a pipeline with a single stage, lets add more stages
 to it.
@@ -74,7 +74,7 @@ to it.
 -   ![](../resources/images/cruise/admin/add_stage/add_stage_window.png)
 -   Click "Save".
 
-### Add a new job to an existing stage {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Add a new job to an existing stage
 
 Now that we have a pipeline with stage(s), we can add more jobs to any
 of the existing stages. You can now use the tree navigation on the left
@@ -99,7 +99,7 @@ side of the screen to edit a stage or a job under a pipeline.
     about the fields you are editing.
 -   Click "Save"
 
-### Add a new task to an existing Job {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Add a new task to an existing Job
 
 Now that we have a pipeline with stage(s) containing job(s) we can add
 tasks to any of the existing jobs. You can now use the tree navigation
@@ -122,7 +122,7 @@ on the left side of the screen to edit a a job under a stage.
     can provide the actions (typically clean up) that needs to be taken
     when users chooses to cancel the stage.
 
-### Clone an existing pipeline {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Clone an existing pipeline
 
 Clone pipeline functionality helps you create a new pipeline from an
 existing pipeline by giving it a new name. Typically when setting up a
@@ -145,13 +145,13 @@ case the group gets created.
     a new group name
 -   Click "Save"
 
-### Pipeline Templates {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Pipeline Templates
 
 Templating helps to create reusable workflows in order to make tasks
 like creating and maintaining branches, and managing large number of
 pipelines easier.
 
-#### Creating Pipeline Templates {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Creating Pipeline Templates
 
 Pipeline Templates can be managed from the Templates tab on the
 Administration Page.
@@ -171,7 +171,7 @@ Administration page.
 
 ![](../resources/images/cruise/admin/extract_template_from_pipeline.png)
 
-#### Example {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Example
 
 As an example, assume that there is a pipeline group called "my-app" and
 it contains a pipeline called "app-trunk" which builds the application
@@ -179,16 +179,16 @@ from trunk. Now, if we need to create another pipeline called
 "app-1.0-branch" which builds 1.0 version of the application, we can use
 Pipeline Templates as follows
 
-##### Using Administration UI {.bullets-title}
+##### Using Administration UI
 
 -   Create a template "my-app-build" by extracting it from the pipeline
     "app-trunk", as shown in the previous section.
 -   Create a new pipeline "app-1.0-branch" which defines SCM material
     with the branch url and uses the template "my-app-build".
 
-##### Using XML {.bullets-title}
+##### Using XML
 
-#### Editing Pipeline Templates {#edit_template .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Editing Pipeline Templates
 
 Go Administrators can now enable any Go user to edit a template by
 [making them a template
@@ -203,7 +203,7 @@ those pipelines.
 
 ![](../resources/images/cruise/admin/template/template_admin_edit_template.png)
 
-#### Viewing Pipeline Templates {#view_template .collapsible-heading onclick="toggleCollapse($(this));"}
+#### Viewing Pipeline Templates
 
 Pipeline Templates can now be viewed by Administrators and Pipeline
 Group Administrators while editing or creating a Pipeline.
@@ -226,12 +226,12 @@ configured for the pipeline "Service\_1".
     like this.
 4.  Shows the "Run If Condition" for this task.
 
-##### See also... {.bullets-title}
+##### See also...
 
 -   [Templates - Configuration
     Reference](configuration_reference.html#templates)
 
-### Stage approvals in action {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Stage approvals in action
 
 By default, when one stage completes successfully, the next stage is
 automatically triggered by Go. However sometimes you don't want the next
@@ -252,7 +252,7 @@ From Cruise 1.1 (legacy version of Go), you can control who can trigger
 manual approvals. See the section on [Adding authorization to
 approvals](dev_authorization.html#approvals) for more details.
 
-### Managing pipeline groups {.collapsed-heading onclick="toggleCollapse($(this));"}
+### Managing pipeline groups
 
 Starting with Cruise 1.3 (legacy version of Go), there is support for
 collecting multiple pipelines into a single named group. See the section

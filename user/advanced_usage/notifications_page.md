@@ -1,7 +1,7 @@
 
  
 
-Notifications {.collapsible-heading onclick="toggleCollapse($(this));"}
+Notifications
 -------------
 
 The Notifications page is to customize the email notifications for the
@@ -9,7 +9,7 @@ current logged in user.
 
 ![Notifications Page](../resources/images/cruise/my_cruise_page.png)
 
-#### Key {.collapsible-heading onclick="toggleCollapse($(this));"}
+#### Key
 
 1.  The email address to which email notification from Go will be sent.
 2.  Tick to enable email notification for the current logged in user.
