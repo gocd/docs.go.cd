@@ -5,7 +5,7 @@ Backup API {.collapsible-heading onclick="toggleCollapse($(this));"}
 ----------
 
 This API allows you to backup Go server. Please refer to [Backup Go
-Server](one_click_backup.html) to get more information about the backup
+Server](one_click_backup.md) to get more information about the backup
 functionality.
 
 **NOTE:** Only Go administrator users will be able to use this API

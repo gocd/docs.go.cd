@@ -7,7 +7,7 @@ Publishing artifacts {.collapsible-heading onclick="toggleCollapse($(this));"}
 When executing a job on an agent there are often artifacts created that
 we need to keep around. For example, JUnit creates xml reports that Go
 is able to parse in order to help you [understand why the build is
-broken](dev_understand_why_build_broken.html). You can use Go with any
+broken](dev_understand_why_build_broken.md). You can use Go with any
 XUnit style xml reports. Or you might create a flash video of your UI
 tests that we want displayed in Go. You can upload any html file from
 your build and view it in Go.

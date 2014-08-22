@@ -10,14 +10,14 @@ from ThoughtWorks Studios. This allows the users of Go and Mingle to
 surround their data with additional context, increasing the value of the
 information.
 
-Go's [Mingle card activity gadget](mingle_card_activity_gadget.html)
+Go's [Mingle card activity gadget](mingle_card_activity_gadget.md)
 allows users to see, in the context of Go, the new activity in a
 pipeline in terms of the Mingle cards that were worked on in that
 period. This card activity can reflect information about your project,
 such as which features were just deployed to production or which
 features require testing. To enable this integration, please follow the
 instructions for [configuring the display of Mingle gadgets within
-Go.](mingle_in_go.html)
+Go.](mingle_in_go.md)
 
 ### Supported versions {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -48,11 +48,11 @@ require authorization. To accomplish this, Go's gadget rendering server
 supports OAuth 2.0 services.
 
 Enabling Go for OAuth 2.0 enabled gadgets does require the Go
-administrator to take [extra configuration steps](mingle_in_go.html).
+administrator to take [extra configuration steps](mingle_in_go.md).
 
 If you are simply looking to configure the display of Mingle card
 activity gadgets in Go, please skip straight to the [instructions that
-are specific to showing Mingle gadgets in Go.](mingle_in_go.html)
+are specific to showing Mingle gadgets in Go.](mingle_in_go.md)
 
 A gadget rendering server with OAuth 2.0 capabilities similar to what Go
 provides would be capable of showing ThoughtWorks Studios gadgets. That
@@ -100,11 +100,11 @@ get into the more technical details of how the protocol works.
 
 ### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Integrating Go with Mingle - an overview](mingle_integration.html)
+-   [Integrating Go with Mingle - an overview](mingle_integration.md)
 -   [Reference for Mingle card activity
-    gadget](mingle_card_activity_gadget.html)
--   [What is OAuth?](what_is_oauth.html)
--   [What is OpenSocial?](what_is_opensocial.html)
+    gadget](mingle_card_activity_gadget.md)
+-   [What is OAuth?](what_is_oauth.md)
+-   [What is OpenSocial?](what_is_opensocial.md)
 
 
 

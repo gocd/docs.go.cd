@@ -51,7 +51,7 @@ pipeline
     [command repository](../advanced_usage/command_repository.html) or specify the command
     line syntax for that tool.
 
-See the [Managing pipelines](managing_pipelines.html) documentation for
+See the [Managing pipelines](managing_pipelines.md) documentation for
 editing these settings following the creation of your pipeline.
 
 ### Initial task settings {.collapsible-heading onclick="toggleCollapse($(this));"}
@@ -96,13 +96,13 @@ repository](../advanced_usage/command_repository.html) to help you choose the co
 Alternately you can specify a command on your own.
 
 You can see the complete configuration reference
-[here](configuration_reference.html).
+[here](configuration_reference.md).
 
 ### Also See {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Adding a material to an existing pipeline](admin_add_material.html)
--   [Adding a stage to an existing pipeline](admin_add_stage.html)
--   [Adding a job to an existing pipeline](admin_add_job.html)
+-   [Adding a material to an existing pipeline](admin_add_material.md)
+-   [Adding a stage to an existing pipeline](admin_add_stage.md)
+-   [Adding a job to an existing pipeline](admin_add_job.md)
 -   [Role-based authorization](../configuration/dev_authorization.html)
 
 © ThoughtWorks Studios, 2010

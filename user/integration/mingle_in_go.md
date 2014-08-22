@@ -5,7 +5,7 @@ Displaying Mingle gadgets in Go {.collapsible-heading onclick="toggleCollapse($(
 ===============================
 
 Before a user can use the [Mingle card activity
-gadget](mingle_card_activity_gadget.html) to display Mingle card
+gadget](mingle_card_activity_gadget.md) to display Mingle card
 activity for pipelines in Go, both the Mingle and Go administrators must
 do a bit of configuration. Mingle must be configured to be an OAuth
 provider. Go must be configured as an OAuth-capable gadget rendering
@@ -114,7 +114,7 @@ retrieve gadget content from Mingle.
 
 The final step is to verify by testing an integration. Go to the
 reference for the [Mingle card activity
-gadget](mingle_card_activity_gadget.html) and see if you can configure a
+gadget](mingle_card_activity_gadget.md) and see if you can configure a
 Mingle card activity gadget for one of your Go pipelines. If the
 integration fails, please read through the troubleshooting section
 below.
@@ -183,9 +183,9 @@ secrets.](../resources/images/cruise/mismatched_client_secret_error.png)
 
 ### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Integrating Go with Mingle - an overview](mingle_integration.html)
+-   [Integrating Go with Mingle - an overview](mingle_integration.md)
 -   [Reference for Mingle card activity
-    gadget](mingle_card_activity_gadget.html)
+    gadget](mingle_card_activity_gadget.md)
 -   [What is OAuth?](../faq/what_is_oauth.html)
 -   [What is OpenSocial?](../faq/what_is_opensocial.html)
 

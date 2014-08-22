@@ -7,7 +7,7 @@ See artifacts as sub-tabs {.collapsible-heading onclick="toggleCollapse($(this))
 After [uploading html reports](../configuration/dev_upload_test_report.html), it is often
 useful to be able to easily view this information when trying to
 [understand why the build is
-broken](dev_understand_why_build_broken.html).
+broken](dev_understand_why_build_broken.md).
 
 ### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}
 

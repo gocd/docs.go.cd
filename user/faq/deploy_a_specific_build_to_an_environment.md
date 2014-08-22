@@ -54,7 +54,7 @@ There are 3 reasons this can happen
 
 -   There is a deployment is progress, so another one cannot be started
 -   Your deployment pipeline is operating in
-    [locked](admin_lock_pipelines.html) mode
+    [locked](admin_lock_pipelines.md) mode
 -   You do not have sufficient permissions to operate on that pipeline
 
 ### Deploying the latest of all materials {.collapsible-heading onclick="toggleCollapse($(this));"}

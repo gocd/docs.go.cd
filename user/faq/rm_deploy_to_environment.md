@@ -24,10 +24,10 @@ earlier in the pipeline there is a **dist** stage with a
 **create-installers** job that will have already created the binary for
 us to use.
 
--   [Add a new stage](admin_add_stage.html) named **UAT** with a job
+-   [Add a new stage](admin_add_stage.md) named **UAT** with a job
     named **deploy**
 -   [Ensure that the **UAT** stage is
-    manual](dev_choose_when_stage_runs.html)
+    manual](dev_choose_when_stage_runs.md)
 -   Ensure the following task block is in the **deploy** job
     configuration
 
@@ -51,10 +51,10 @@ a previous installation. We will also assume that earlier in the
 pipeline there is a **dist** stage with a **create-installers** job that
 will have already created the binary for us to use.
 
--   [Add a new stage](admin_add_stage.html) named **production** with a
+-   [Add a new stage](admin_add_stage.md) named **production** with a
     job named **deploy**
 -   [Ensure that the **production** stage is
-    manual](dev_choose_when_stage_runs.html)
+    manual](dev_choose_when_stage_runs.md)
 -   Ensure there is no task block in the **deploy** job configuration
 
 When you are ready to deploy something into the production

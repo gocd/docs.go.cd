@@ -55,7 +55,7 @@ variables](../resources/images/cruise/trigger_with_options_environment.png)
 ##### Also see... {.bullets-title}
 
 -   [Deploy a specific build to an
-    environment](deploy_a_specific_build_to_an_environment.html)
+    environment](deploy_a_specific_build_to_an_environment.md)
 -   [Pipeline dashboard](../navigations/Pipelines_Dashboard_page.html)
 -   [Ordering of pipelines](../faq/ordering_of_pipelines.html)
 

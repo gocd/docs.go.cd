@@ -98,7 +98,7 @@ operate permission and will be able to trigger pipelines and its stages
 within this group.
 
 The **"admin" permission** makes the user a [Pipeline Group
-Administrator](delegating_group_administration.html) allowing him to
+Administrator](delegating_group_administration.md) allowing him to
 view, operate and administer the pipeline group. In the below example,
 role "admins" has been granted this permission.
 
@@ -147,7 +147,7 @@ XML":
 ### Adding authorization to approvals {#approvals .collapsible-heading onclick="toggleCollapse($(this));"}
 
 In Go, it is possible to specify [manual
-approvals](managing_pipelines.html) between stages. You can also specify
+approvals](managing_pipelines.md) between stages. You can also specify
 which user is allowed to trigger manual approvals.
 
 The authorization can be inherited from the pipeline group this pipeline
@@ -219,7 +219,7 @@ XML":
 ### Also See {.collapsible-heading onclick="toggleCollapse($(this));"}
 
 -   [Delegating group
-    administration](delegating_group_administration.html)
+    administration](delegating_group_administration.md)
 
 
 

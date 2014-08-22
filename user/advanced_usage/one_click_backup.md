@@ -5,7 +5,7 @@ Backup Go Server {.collapsible-heading onclick="toggleCollapse($(this));"}
 ================
 
 You can use Go's administration interface to perform an One-Click Backup
-of Go. You can also perform the backup [using the API](Backup_API.html).
+of Go. You can also perform the backup [using the API](Backup_API.md).
 
 #### Steps to initiate backup {.collapsible-heading onclick="toggleCollapse($(this));"}
 

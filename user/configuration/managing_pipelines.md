@@ -15,7 +15,7 @@ check the syntax of the configuration before it saves it again
 
 To create a new pipeline, go to the **Pipelines** sub-tab of the
 [Administration](../navigations/administration_page.html) tab and click on the ["Create
-a new pipeline within this group"](quick_pipeline_setup.html) link as
+a new pipeline within this group"](quick_pipeline_setup.md) link as
 shown in the screen shot below.
 
 ![](../resources/images/cruise/admin/create_new_pipeline_link.png)
@@ -45,7 +45,7 @@ Often you do want to specify a set of files that Go should ignore when
 it checks for changes. Repository changesets which contain only these
 files will not automatically trigger a pipeline. These are detailed in
 the [ignore](configuration_reference.html#ignore) section of the
-[configuration reference.](configuration_reference.html)
+[configuration reference.](configuration_reference.md)
 
 -   Enter the items to blacklist using ant-style syntax below
 -   ![](../resources/images/cruise/edit_material_blacklist.png)
@@ -67,8 +67,8 @@ to it.
 -   ![](../resources/images/cruise/admin/add_stage/stages_listing_with_add_stage_highlight.png)
 -   Fill stage name and trigger type.
 -   Fill in the details for the first job and first task belonging to
-    this job. You can [add more jobs](admin_add_job.html) and [add more
-    tasks](admin_add_task.html) to the jobs.
+    this job. You can [add more jobs](admin_add_job.md) and [add more
+    tasks](admin_add_task.md) to the jobs.
 -   Click on help icon next to the fields to get additional details
     about the fields you are editing.
 -   ![](../resources/images/cruise/admin/add_stage/add_stage_window.png)
@@ -89,7 +89,7 @@ side of the screen to edit a stage or a job under a pipeline.
 -   Fill job name and job details
 -   ![](../resources/images/cruise/admin/add_job/add_new_job_window.png)
 -   Fill in the details for the initial task belonging to this job. You
-    can edit this job later to [add more tasks](admin_add_task.html)
+    can edit this job later to [add more tasks](admin_add_task.md)
 -   You can choose the type of the task as required.
 -   For task types Ant, Nant and Rake, the build file and target will
     default as per the tool used. For example, Ant task, would look for

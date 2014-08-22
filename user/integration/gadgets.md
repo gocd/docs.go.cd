@@ -18,7 +18,7 @@ Gadget](../resources/images/cruise/pipeline-status-gadget.png)
 
 ### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Integrating Go with Mingle - an overview](mingle_integration.html)
+-   [Integrating Go with Mingle - an overview](mingle_integration.md)
 
 
 

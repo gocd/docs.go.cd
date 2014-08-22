@@ -15,7 +15,7 @@ Let's assume that in this case, we are on a java project using JUnit as
 our testing library.
 
 -   If we're not already, we need to configure Go to [upload JUnit xml
-    reports](dev_upload_test_report.html)
+    reports](dev_upload_test_report.md)
 -   Click on the **Pipelines** tab
 -   ![](../resources/images/cruise/topnav_pipelines.png)
 -   Click on the failed stage you want to investigate

@@ -44,7 +44,7 @@ are important so that artifacts for the stage are preserved.
 
 -   [Managing artifacts and
     reports](../configuration/managing_artifacts_and_reports.html)
--   [Clean up after cancelling a task](dev_clean_up_when_cancel.html)
+-   [Clean up after cancelling a task](dev_clean_up_when_cancel.md)
 
 
 

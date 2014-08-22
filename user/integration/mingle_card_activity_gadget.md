@@ -11,7 +11,7 @@ such as which features were just deployed to production or which
 features require testing.
 
 For this feature to work, the Go and Mingle administrators must first
-[configure the display of Mingle gadgets in Go](mingle_in_go.html).
+[configure the display of Mingle gadgets in Go](mingle_in_go.md).
 
 ### Configuring Mingle Card Activity for a Go pipeline {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -102,9 +102,9 @@ card activity.
 
 ### Also see {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Integrating Go with Mingle - an overview](mingle_integration.html)
+-   [Integrating Go with Mingle - an overview](mingle_integration.md)
 -   [Reference for Mingle card activity
-    gadget](mingle_card_activity_gadget.html)
+    gadget](mingle_card_activity_gadget.md)
 -   [What is OAuth?](../faq/what_is_oauth.html)
 -   [What is OpenSocial?](../faq/what_is_opensocial.html)
 

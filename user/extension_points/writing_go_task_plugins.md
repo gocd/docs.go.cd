@@ -86,7 +86,7 @@ plugin, for Go.
 
 Creating a task plugin involves implementing a few interfaces, which are
 described below. If you need to know the basics of writing a plugin in
-Go, read [this](go_plugins_basics.html). The concepts and processes
+Go, read [this](go_plugins_basics.md). The concepts and processes
 mentioned there apply to the task plugin end-point as well. On that
 page, you can also find the go-plugin-api.jar file which contains the
 interfaces mentioned below.
@@ -128,7 +128,7 @@ available as a variable, which can be used in the template.
 ![](../resources/images/cruise/task_plugin/TaskView.png)
 
 You can read more about Go's use of Angular.js templates
-[here](angular-js-templates-in-go-plugins.html).
+[here](angular-js-templates-in-go-plugins.md).
 
 #### TaskExecutor {.collapsible-heading onclick="toggleCollapse($(this));"}
 
@@ -165,7 +165,7 @@ back. We need to start with a Task interface implementation, with the
 config() method specifying the "message" field and the view() method
 specifying a UI for it. Do not forget to annotate the class with
 @Extension annotation, as specified in the [Go plugin basics
-page](go_plugins_basics.html).
+page](go_plugins_basics.md).
 
 #### Version 1 - No validation {.collapsible-heading onclick="toggleCollapse($(this));"}
 

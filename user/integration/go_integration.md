@@ -17,7 +17,7 @@ tool](../resources/images/cruise/pipeline_tracking_tool.png)
 
 The pattern has an extra "\#" because it is an escape character for a
 parameter. [More
-information...](admin_use_parameters_in_configuration.html)
+information...](admin_use_parameters_in_configuration.md)
 
 For power users, here's how you'd do it from Config XML:
 

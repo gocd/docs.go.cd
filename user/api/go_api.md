@@ -29,15 +29,15 @@ change this API.
 
 Go's main APIs are listed below:
 
--   [Artifacts API](Artifacts_API.html)
--   [Properties API](Properties_API.html)
--   [Configuration API](Configuration_API.html)
--   [Pipeline API](Pipeline_API.html)
--   [Stages API](Stages_API.html)
--   [Command Repo API](command_repo_api.html)
--   [Agent API](Agent_API.html)
--   [Backup API](Backup_API.html)
--   [Users API](users_api.html)
+-   [Artifacts API](Artifacts_API.md)
+-   [Properties API](Properties_API.md)
+-   [Configuration API](Configuration_API.md)
+-   [Pipeline API](Pipeline_API.md)
+-   [Stages API](Stages_API.md)
+-   [Command Repo API](command_repo_api.md)
+-   [Agent API](Agent_API.md)
+-   [Backup API](Backup_API.md)
+-   [Users API](users_api.md)
 
 
 

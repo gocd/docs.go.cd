@@ -47,8 +47,8 @@ be different from the default timeout.
 
 ### Also see... {.collapsible-heading onclick="toggleCollapse($(this));"}
 
--   [Adding a job](admin_add_job.html)
--   [Clean up after cancelling a task](dev_clean_up_when_cancel.html)
+-   [Adding a job](admin_add_job.md)
+-   [Clean up after cancelling a task](dev_clean_up_when_cancel.md)
 
 
 

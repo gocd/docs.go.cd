@@ -5,7 +5,7 @@ Discover what's in an environment {.collapsible-heading onclick="toggleCollapse(
 =================================
 
 Before [deploying something into
-production](rm_deploy_to_environment.html), it is often useful to know
+production](rm_deploy_to_environment.md), it is often useful to know
 what is currently there.
 
 ### Example usage {.collapsible-heading onclick="toggleCollapse($(this));"}

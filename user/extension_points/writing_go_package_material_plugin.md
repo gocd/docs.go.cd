@@ -9,7 +9,7 @@ Writing a package material plugin {.collapsible-heading onclick="toggleCollapse(
 A package repository typically holds a set of packages, each of which
 can have multiple versions. Package repository material allows Go to
 trigger a pipeline(s) when a newer version of a package is published. Go
-bundles [yum-repo-poller plugin](yum_repository_poller.html) by default,
+bundles [yum-repo-poller plugin](yum_repository_poller.md) by default,
 this plugin can communicate with a yum repository. The following
 sections talk about how to write a plugin which can communicate with
 other type of repositories.
