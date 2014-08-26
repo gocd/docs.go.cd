@@ -4,7 +4,7 @@ There are four ways to configure pipelines etc
 
 1.  Via the admin UI described below
 2.  Direct XML edit via the admin UI's Config XML tab
-<!-- 3.  Some limited configuration is possible via [config API](../api/Configuration_API.html) -->
+3.  Some limited configuration is possible via [config API](../api/Configuration_API.html)
 4.  Direct XML edit via the file system. By default, Go server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin \> Config XML tab.
 
 ## Pipelines
