@@ -1,10 +1,17 @@
 ## Go User Documentation
 
-This documentation is still in it's initial stage. Please refer http://www.thoughtworks.com/products/docs/go/current/help/ for user documentation.
+This documentation is still in its initial stage. Please refer http://www.thoughtworks.com/products/docs/go/current/help/ for user documentation.
 
-* Not Done ![NOT DONE](../developer/images/red.png)
+### Setting up [GitBook](https://github.com/GitbookIO/gitbook)
 
-* 2.4 [Agent API](./Agent_API.md) ![DONE](../developer/images/green.png)
-* 3.2 [Backup](./Backup_API.md) ![DONE](images/green.png)
-* 2.4 [Feeds API](Feeds_API.md) ![DONE](../developer/images/green.png)
+We're using GitBook for generating our HTML Docs from markdown files. It is hosted [here](http://go.cd/documentation/developer), and if you would like to contribute, you need GitBook [setup](https://github.com/GitbookIO/gitbook#how-to-use-it) for the same.
 
+Building and serving 
+
+`gitbook serve`
+
+* Not Done ![NOT DONE](images/red.png)
+
+* 2.4 [Agent API](api/Agent_API.html) ![DONE](images/green.png)
+* 3.2 [Backup](api/Backup_API.html) ![DONE](images/green.png)
+* 2.4 [Feeds API](api/Feeds_API.html) ![DONE](images/green.png)

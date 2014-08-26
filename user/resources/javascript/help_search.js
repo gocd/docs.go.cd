@@ -106,7 +106,7 @@ GoHelpSearch = Class.create({
       var link = $$(some)[0];
 
       if (link === undefined) {
-          link = $$("a[href='welcome_to_go.html']")[0];
+          link = $$("a[href='index.html']")[0];
       }
       this.lastSelectedToCLink = new LastVisitedTocLink($('nav').select('.toc').first());
       this.lastSelectedToCLink.highlightLastRemembered(link);

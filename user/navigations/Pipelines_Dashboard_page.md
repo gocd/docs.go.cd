@@ -7,15 +7,15 @@ This shows the current activity in the system. You can see all the instances of 
 ### Key
 
 1.  The pipelines are listed under the pipeline group that they belong to
-2.  Click the pipeline name to see [pipeline activity](pipeline_activity_page.html) for that pipeline.
+2.  Click the pipeline name to see [pipeline activity](../navigations/pipeline_activity_page.html) for that pipeline.
 3.  Click pipeline instance label to see details for that instance.
-4.  Click on each stage segment to see [stage details](stage_details_page.html) for that stage instance.
+4.  Click on each stage segment to see [stage details](../navigations/stage_details_page.html) for that stage instance.
 5.  "triggered by [user name] about [how long ago]" gives you a quick look at who activated this pipeline and when this was triggered.
 6.  The "Trigger" button forces a pipeline to begin build activity
-7.  The [Trigger with Options](trigger_with_options.html) button allows the you to pick the revisions of materials that the pipelines should build with, and trigger the pipeline.
+7.  The [Trigger with Options](../advanced_usage/trigger_with_options.html) button allows the you to pick the revisions of materials that the pipelines should build with, and trigger the pipeline.
 8.  The "Pause" button pauses scheduling of the pipeline.
 9.  The "Changes" shows you the modifications to materials that have been built in this instance. The "!" indicates that the changes are being built for the first time.
-10. "previously:[status]" tells you what the status of the currently running stage in the previous pipeline instance was. The previous instance is based on [natural ordering](ordering_of_pipelines.html). On hover, you can see the label of the 'previous' pipeline instance.
+10. "previously:[status]" tells you what the status of the currently running stage in the previous pipeline instance was. The previous instance is based on [natural ordering](../faq/ordering_of_pipelines.html). On hover, you can see the label of the 'previous' pipeline instance.
 11. This shows you the name and status of the last executed stage in that pipeline instance.
 12. View all changes between the current pipeline instance with the previous one.
 13. Lets you customize which pipelines are displayed on the dashboard. This view is saved across user sessions.
@@ -24,7 +24,7 @@ This shows the current activity in the system. You can see all the instances of 
 
 ##### Also see...
 
--   [Pipeline activity](pipeline_activity_page.html)
--   [Job details](job_details_page.html)
--   [Clean up after canceling a task](dev_clean_up_when_cancel.html)
--   [Go overview](welcome_to_go.html)
+-   [Pipeline activity](../navigations/pipeline_activity_page.html)
+-   [Job details](../navigations/job_details_page.html)
+-   [Clean up after canceling a task](../configuration/dev_clean_up_when_cancel.html)
+-   [Go overview](../introduction/index.html)

@@ -1,0 +1,29 @@
+{
+    "output": "_book",
+
+    "generator": "site",
+
+    "title": "Go User Documentation",
+    "description": "Help documentation for Go.",
+
+    "github": null,
+    "githubHost": "https://github.com/",
+
+    "plugins": [],
+
+    "pluginsConfig": {},
+
+    "links": {
+        "home": "http://go.cd",
+
+        "about": "https://github.com/gocd/documentation/",
+        "issues": "https://github.com/gocd/documentation/issues",
+        "contribute": "https://github.com/gocd/documentation/",
+
+        "sharing": {
+            "google": "http://go.cd",
+            "facebook": "http://go.cd",
+            "twitter": "http://go.cd"
+        }
+    }
+}
