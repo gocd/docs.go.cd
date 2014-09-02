@@ -1,27 +1,5 @@
 # Configuring server details
 
-## Entering your license key
-
-Go requires you to enter a license key before you can use it with remote agents
-
-You should have been emailed a license key when you downloaded Go. If not, you can get a trial license key from the Studios website: visit the [Go homepage](http://www.thoughtworks.com/products/go-continuous-delivery) and follow the instructions to get your trial license.
-
-Click on "Server Configuration" tab of the "Admin" tab.
-
-You will see the License section
-
-![Enter license key](../resources/images/cruise/license_key.png)
-
-Your license key is tied to the username you used to register. Enter the username you used to register, and copy and paste the license key from your email into the textbox provided. Go will ignore spaces, line breaks and so forth in the license key.
-
-When you are done, click on "Save" in the bottom of the "Server configuration" page. Go should tell you either that your license key has been updated successfully, or give you an error message telling you what went wrong.
-
-You can also specify the license by clicking on "Server Details" link in the bottom of Go footer after logging in
-
-![Enter license key](../resources/images/cruise/license_server_details.png)
-
-Once you've entered your license key, you can proceed to [set up your first pipeline](../configuration/quick_pipeline_setup.html) by clicking on the "Pipelines" tab.
-
 ## Artifact repository configuration
 
 Go needs no configuration once installed. However, we recommend that you create a separate partition on your computer's hard disk for Go server artifacts. The artifact repository can grow in size very quickly. If located on your system's main partition you may experience data loss and unpredictable application behaviour as the disk fills up.
