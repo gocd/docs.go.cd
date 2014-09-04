@@ -45,7 +45,7 @@ becomes
 
 ## Bundled Repository
 
-The default set of commands come from [https://github.com/goteam/go-command-repo](https://github.com/goteam/go-command-repo). This repository is maintained by the Go team. The Go server installer bundles a clone of this Git repository under `<server-install-root>/db/command_repository/default`. Every upgrade of Go Server will overwrite the contents of this directory with an up to date set of commands. Hence, please do not add your commands here. Instead, set up a [private repository](../advanced_usage/command_repository.html#private-repository).
+The default set of commands come from [https://github.com/gocd/go-command-repo](https://github.com/gocd/go-command-repo). This repository is maintained by the Go team. The Go server installer bundles a clone of this Git repository under `<server-install-root>/db/command_repository/default`. Every upgrade of Go Server will overwrite the contents of this directory with an up to date set of commands. Hence, please do not add your commands here. Instead, set up a [private repository](../advanced_usage/command_repository.html#private-repository).
 
 ### Pulling Updates
 
@@ -122,7 +122,7 @@ moreinfo: http://curl.haxx.se/docs/manual.html
 
 This is an example of valid command syntax. The command attribute is mandatory. No other attributes are valid. Zero or more arg child elements can be specified. No other child elements are allowed. One command file may only contain one command.
 
->**Please refer the [README](https://github.com/goteam/go-command-repo/blob/master/README.md) for full command and documentation syntax.**
+>**Please refer the [README](https://github.com/gocd/go-command-repo/blob/master/README.md) for full command and documentation syntax.**
 
 When you lookup a command, the following logic is used to sort the resulting suggestions:
     
@@ -136,7 +136,7 @@ Within each category, the sorting is alphabetical.
 
 We welcome commands contributed by users. Simply,
 
-1.  [fork](https://help.github.com/articles/fork-a-repo) this [GitHub repo](https://github.com/goteam/go-command-repo)
+1.  [fork](https://help.github.com/articles/fork-a-repo) this [GitHub repo](https://github.com/gocd/go-command-repo)
 2.  Clone it locally
 3.  Commit and push your change
 4.  Send us a [pull request](https://help.github.com/articles/using-pull-requests)

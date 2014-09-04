@@ -193,7 +193,7 @@ pointers to information on the web.
     do.
 4.  Package groups are not supported.
 5.  The [Go command
-    repository](https://github.com/goteam/go-command-repo/tree/master/package/rpm)
+    repository](https://github.com/gocd/go-command-repo/tree/master/package/rpm)
     has a bunch of commands related to rpm packages.
 
 

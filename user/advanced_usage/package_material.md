@@ -166,7 +166,7 @@ Or, to simply pass it as an argument to a deploy script on a remote server
 
 At the moment, Go does not create or publish the package for you. But it is simple enough for each type of package. e.g. [rpm](../extension_points/yum_repository_poller.html#creating-and-publishing-rpms)
 
-You could also explore the command repository on [GitHub](https://github.com/goteam/go-command-repo/tree/master/deploy) for helpful commands. What is command repository? Please see [this](../advanced_usage/command_repository.html).
+You could also explore the command repository on [GitHub](https://github.com/gocd/go-command-repo/tree/master/deploy) for helpful commands. What is command repository? Please see [this](../advanced_usage/command_repository.html).
 
 ### Package Dependencies
 
