@@ -25,13 +25,13 @@ The following information about each of the agents is returned in the JSON respo
 
 | URL format | HTTP Verb | Data | Explanation |
 |------------|-----------|------|-------------|
-| http://[server]/go/api/agents/[agent-uuid]/enable |POST |no parameters |Enable a disabled agent. Approve a pending agent. |
+| http://[server]/go/api/agents/[agent-uuid]/enable | POST |no parameters |Enable a disabled agent. Approve a pending agent. |
 
 ## Disable Agent
 
 | URL format | HTTP Verb | Data | Explanation |
 |------------|-----------|------|-------------|
-| http://[server]/go/api/agents/[agent-uuid]/disable |POST |no parameters |Disable an enabled/pending agent. |
+| http://[server]/go/api/agents/[agent-uuid]/disable | POST |no parameters |Disable an enabled/pending agent. |
 
 ## Delete Agent
 
@@ -39,7 +39,7 @@ The following information about each of the agents is returned in the JSON respo
 |------------|-----------|------|-------------|
 | http://[server]/go/api/agents/[agent-uuid]/delete | POST | no parameters | Delete a disabled agent. Note that the agent will not be deleted unless it is in disabled state and is not building any job. |
 
-### Response Codes
+**Response Codes**
 
 | HTTP response code | Explanation |
 |--------------------|-------------|
@@ -97,17 +97,17 @@ curl -u admin:badger http://goserver.com:8153/go/api/agents
 If you want to enable agent on 'agent-machine1':
 
 ```
-curl -u admin:badger -d "" http://goserver.com:8153/go/api/agents/e4d86ae7-7b7d-4bb9-9b3e-876c06d01605/enable
+curl -u admin:badger -X POST http://goserver.com:8153/go/api/agents/e4d86ae7-7b7d-4bb9-9b3e-876c06d01605/enable
 ```
 
 If you want to disable agent on 'agent-machine2':
 
 ```
-curl -u admin:badger -d "" http://goserver.com:8153/go/api/agents/bf0e5682-51ad-4183-8776-b13491cf2f59/disable
+curl -u admin:badger -X POST http://goserver.com:8153/go/api/agents/bf0e5682-51ad-4183-8776-b13491cf2f59/disable
 ```
 
 If you want to delete agent on 'agent-machine4':
 
 ```
-curl -u admin:badger -d "" http://goserver.com:8153/go/api/agents/31aea908-717a-435c-ad04-96dcc8d941df/delete
+curl -u admin:badger -X POST http://goserver.com:8153/go/api/agents/31aea908-717a-435c-ad04-96dcc8d941df/delete
 ```
