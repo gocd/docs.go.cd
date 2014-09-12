@@ -58,7 +58,7 @@ The following information about each of the agents is returned in the JSON respo
 -   Stop the Go agent service, manually or through a script. This is to prevent the agent from contacting the server again. You need to do this within 5 seconds of the disable agent API
 -   Use the delete agents API to delete the agent
 
-## Examples
+### Examples
 
 -   We use curl, a command line tool for transferring files with URL syntax, in the following examples. Of course, you can use any HTTP client library.
 -   We assume that the URL of the Go server is **http://goserver.com:8153/** .
@@ -111,3 +111,9 @@ If you want to delete agent on 'agent-machine4':
 ```
 curl -u admin:badger -X POST http://goserver.com:8153/go/api/agents/31aea908-717a-435c-ad04-96dcc8d941df/delete
 ```
+
+## Agent Job Run History
+
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/agents/[agent-uuid]/job_run_history/[offset] | GET | no parameters | List Agent Job Run history. |

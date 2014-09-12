@@ -26,7 +26,7 @@ Security Note: The user invoking the API should have sufficient permission to op
 
 -   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
 -   We assume that the URL of the Go server is **http://goserver.com:8153/** .
--   We assume security has been switched on, and that there is a user named **jez** with the password **badger** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
 
 Assuming the pipeline configuration looks like:
 
@@ -49,5 +49,11 @@ Assuming the pipeline configuration looks like:
 Run this command to cancel the stage of the pipeline:
 
 ```
-curl -u jez:badger -d "" http://goserver.com:8153/go/api/stages/demo_pipeline/first_stage/cancel
+curl -u admin:badger -d "" http://goserver.com:8153/go/api/stages/demo_pipeline/first_stage/cancel
 ```
+
+## Stage History
+
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/stages/[pipeline]/[stage]/history/[offset] | GET | no parameters | List Stage history. |

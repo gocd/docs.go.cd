@@ -15,7 +15,7 @@ Digest for configuration file is reported in the response to all of the followin
 A user with admin privileges can invoke:
 
 ```
-curl -u my_user:my_password http://yourservername:8153/go/api/admin/config/[digest].xml
+curl -u admin:badger http://goserver.com:8153/go/api/admin/config/[digest].xml
 ```
 
 to get the version of configuration identified by *[digest]*.
@@ -23,7 +23,7 @@ to get the version of configuration identified by *[digest]*.
 For instance, if configuration as on a certain day has digest value 5059cf548db9ea2d1b9192b45529ccf0, it can be retrieved on any future day by invoking:
 
 ```
-curl -u my_user:my_password http://goserver.com:8153/go/api/admin/config/5059cf548db9ea2d1b9192b45529ccf0.xml
+curl -u admin:badger http://goserver.com:8153/go/api/admin/config/5059cf548db9ea2d1b9192b45529ccf0.xml
 ```
 
 ### Other convenience APIs
@@ -31,16 +31,22 @@ curl -u my_user:my_password http://goserver.com:8153/go/api/admin/config/5059cf5
 In addition to 'historical configuration version retrieval', Go exposes other convenience APIs around this feature, that allow retrieval of current configuration without passing in the digest value.
 
 ```
-curl -u my_user:my_password http://goserver.com:8153/go/api/admin/config.xml
+curl -u admin:badger http://goserver.com:8153/go/api/admin/config.xml
 ```
 
 or
 
 ```
-curl -u my_user:my_password http://goserver.com:8153/go/api/admin/config/current.xml
+curl -u admin:badger http://goserver.com:8153/go/api/admin/config/current.xml
 ```
 
 can be invoked to fetch current/latest-version of config.
+
+## Config repository
+
+### Modification listing API
+
+### Diff API
 
 ## Adding a new pipeline
 
@@ -49,7 +55,7 @@ To add a pipeline, you perform a POST to the URL http://[server]/go/tab/admin/pi
 For example, suppose you have switched on security and the username and the password are 'my\_user' and 'my\_password'. If you want to create a new pipeline named 'mypipeline', which uses an svn repository without username and password, and the location of repository is 'http://http://yoursvnrepository/trunk'. The command should be:
 
 ```
-curl -u my_user:my_password -d "url=http://yoursvnrepository/trunk" http://yourservername:8153/go/tab/admin/pipelines/mypipeline.json
+curl -u admin:badger -d "url=http://yoursvnrepository/trunk" http://goserver.com:8153/go/tab/admin/pipelines/mypipeline.json
 ```
 
 ### General parameters
