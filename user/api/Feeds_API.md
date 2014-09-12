@@ -1,102 +1,35 @@
+# Feeds API
 
- 
+> The Go API documented here is a work in progress. Future versions may change this API.
 
-Feeds API
----------
+> Unless specified otherwise, all the api requests enforce user security. For example, if security is turned on, and a user has access to only two pipelines, all api requests will return data for those two pipelines.
 
-The Go API documented here is a work in progress. Future versions may
-change this API.
+## List
 
-Unless specified otherwise, all the api requests enforce user security.
-For example, if security is turned on, and a user has access to only two
-pipelines, all api requests will return data for those two pipelines.
+| URL format | HTTP Verb | Explanation |
+|------------|-----------|-------------|
+| http://[server]/go/api/pipelines.xml | GET | List of all pipelines |
+| http://[server]/go/api/pipelines/[pipeline]/[pipeline-id].xml | GET | Feed of a pipeline |
+| http://[server]/go/api/pipelines/[pipeline]/stages.xml | GET | Feed of all stages for the pipeline [pipeline_name] |
+| http://[server]/go/api/stages/[stage-id].xml | GET | Xml representation of a stage |
+| http://[server]/go/pipelines/[pipeline]/[pipeline-counter]/[stage]/[stage-counter].xml | GET | Xml representation of a stage |
+| http://[server]/go/pipelines/[pipeline]/[pipeline-label]/[stage]/[stage-counter].xml | GET | Xml representation of a stage |
+| http://[server]/go/api/jobs/[job-id].xml | GET | Xml representation of a job |
 
-#### Key
-
-Parameters
-
-Method
-
-URL format
-
-HTTPVerb
-
-Explanation
-
-list
-
-http://[server]/go/api/pipelines.xml
-
-GET
-
-List of all pipelines
-
-list
-
-http://[server]/go/api/pipelines/[pipeline\_name]/[pipeline\_id].xml
-
-GET
-
-Feed of a pipeline
-
-list
-
-http://[server]/go/api/pipelines/[pipeline\_name]/stages.xml
-
-GET
-
-Feed of all stages for the pipeline [pipeline\_name]
-
-list
-
-http://[server]/go/api/stages/[stage\_id].xml
-
-GET
-
-Xml representation of a stage
-
-list
-
-http://[server]/go/pipelines/[pipeline\_name]/[pipeline\_counter]/[stage\_name]/[stage\_counter].xml
-
-GET
-
-Xml representation of a stage
-
-list
-
-http://[server]/go/pipelines/[pipeline\_name]/[pipeline\_label]/[stage\_name]/[stage\_counter].xml
-
-GET
-
-Xml representation of a stage
-
-list
-
-http://[server]/go/api/jobs/[job\_id].xml
-
-GET
-
-Xml representation of a job
-
--   [pipeline\_id] is a unique identifier for a pipeline run.
--   [stage\_id] is a unique identifier for a stage run.
--   [job\_id] is a unique identifier for a stage run.
+-   [pipeline-id] is a unique identifier for a pipeline run.
+-   [stage-id] is a unique identifier for a stage run.
+-   [job-id] is a unique identifier for a stage run.
 -   The urls are case-sensitive.
 
-#### Examples
+## Examples
 
--   We use curl, a command line tool for transferring files over HTTP,
-    in the following examples. Of course, you can use any HTTP client
-    library.
--   We assume that the url of the Go server is
-    **http://goserver.com:8153/** .
--   We assume security has been switched on, and that there is a user
-    named **jez** with the password **badger** .
+-   We use curl, a command line tool for transferring files over HTTP, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the url of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
 
 Given a pipeline configuration like:
 
-``` {.code}
+```xml
 <pipeline name="go_pipeline" labeltemplate="go-1.0-${COUNT}">
     <materials>
         <svn url="...."/>
@@ -119,43 +52,36 @@ Given a pipeline configuration like:
         </jobs>
     </stage>
 </pipeline>
-        
 ```
 
 You can get a list of all pipelines using the following command:
 
-``` {.code}
-curl -u jez:badger http://goserver.com:8153/go/api/pipelines.xml
+```
+curl -u admin:badger http://goserver.com:8153/go/api/pipelines.xml
 ```
 
 This would return xml that looks similar to:
 
-``` {.code}
+```xml
 <pipelines>
     <link rel="self" href="http://goserver.com:8153/go/api/pipelines.xml"/>
     <pipeline href="http://goserver.com:8153/go/api/pipelines/go_pipeline/stages.xml"/>
 </pipelines>
-         
 ```
 
-You can now get a feed of completed stages for a pipeline. In the feed
-entry you can get information about the completed stage, pipeline it
-belongs to, names of the people who checked in to trigger a given
-pipeline and links to Mingle cards that were worked upon.
+You can now get a feed of completed stages for a pipeline. In the feed entry you can get information about the completed stage, pipeline it belongs to, names of the people who checked in to trigger a given pipeline and links to Mingle cards that were worked upon.
 
-Currently stages.xml does not provide results when an upstream pipeline
-is renamed.
+> Currently stages.xml does not provide results when an upstream pipeline is renamed.
 
-The following is the command to get the feed for a pipeline called
-'go\_pipeline':
+The following is the command to get the feed for a pipeline called 'go\_pipeline':
 
-``` {.code}
-curl -u jez:badger http://goserver.com:8153/go/api/pipelines/go_pipeline/stages.xml
+```
+curl -u admin:badger http://goserver.com:8153/go/api/pipelines/go_pipeline/stages.xml
 ```
 
 This would return an ATOM feed that looks similar to the following.:
 
-``` {.code}
+```xml
 <feed xmlns="http://www.w3.org/2005/Atom" xmlns:go="http://www.thoughtworks-studios.com/ns/go">
     <title>go_pipeline</title>
     <id>http://goserver.com:8153/go/api/pipelines/go_pipeline/stages.xml</id>
@@ -213,37 +139,31 @@ This would return an ATOM feed that looks similar to the following.:
         <category scheme="http://www.thoughtworks-studios.com/ns/categories/go" term="cancelled" label="Cancelled" />
     </entry>
 </feed>
-      
 ```
 
-All tags will have a CDATA element wherever appropriate in order to make
-the XML valid
+> All tags will have a CDATA element wherever appropriate in order to make the XML valid
 
-If you want details of a particular stage, use the alternate link
-provided in each entry:
+If you want details of a particular stage, use the alternate link provided in each entry:
 
-``` {.code}
-curl -u jez:badger http://goserver.com:8153/go/api/stages/76.xml
+```
+curl -u admin:badger http://goserver.com:8153/go/api/stages/76.xml
 ```
 
-**Note:** stage\_id in the url above is 76, which matches the first feed
-entry above.
+**Note:** stage-id in the url above is 76, which matches the first feed entry above.
 
-Additionally, you can directly get the same xml if you know the pipeline
-name and stage name
+Additionally, you can directly get the same xml if you know the pipeline name and stage name
 
 For example, in the case above, you could use the following command
 
-``` {.code}
-curl -u jez:badger http://goserver.com:8153/go/pipelines/go_pipeline/2/DEV/1.xml
+```
+curl -u admin:badger http://goserver.com:8153/go/pipelines/go_pipeline/2/DEV/1.xml
 ```
 
-Notice that this is the url one gets by appending .xml to the id element
-for the stage entry above
+Notice that this is the url one gets by appending .xml to the id element for the stage entry above
 
 The returned xml looks similar to:
 
-``` {.code}
+```xml
 <stage name="dev" counter="1">
     <link rel="self" href="http://goserver.com:8153/go/api/stages/65615.xml"/>
     <id>urn:x-go.studios.thoughtworks.com:stage-id:go_pipeline:2:dev:1></id>
@@ -257,19 +177,17 @@ The returned xml looks similar to:
         <job href="http://goserver.com:8153/go/api/jobs/46.xml" />
     </jobs>
 </stage>
-       
 ```
 
-You can now get the details of each job in this stage by using the urls
-in the job elements. For example:
+You can now get the details of each job in this stage by using the urls in the job elements. For example:
 
-``` {.code}
-curl -u jez:badger http://goserver.com:8153/go/api/jobs/45.xml
+```
+curl -u admin:badger http://goserver.com:8153/go/api/jobs/45.xml
 ```
 
 The returned xml looks similar to:
 
-``` {.code}
+```xml
 <job name="build">
     <link rel="self" href="http://goserver.com:8153/go/api/jobs/45.xml"/>
     <id>urn:x-go.studios.thoughtworks.com:job-id:acceptance:1039:twist:1:firefox-7></id>
@@ -317,12 +235,4 @@ The returned xml looks similar to:
         </variable>
     </environmentvariables>
  </job>
-        
 ```
-
-
-
-
-
-© ThoughtWorks Studios, 2010
-
