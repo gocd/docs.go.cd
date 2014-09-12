@@ -2,7 +2,7 @@
 
 ## Introduction
 
-RESTful APIs offer a convenient way to integrate networked systems. Go provides a RESTful API through which you can access and manipulate various kinds of resources. Artifacts, Properties and configurations are the kinds of resources that are available in this version of the API. The following sections will walk you through the various resources and the operations that are supported on each of them.
+RESTful APIs offer a convenient way to integrate networked systems. Go provides a RESTful API through which you can access and manipulate various kinds of resources. The following sections will walk you through the various resources and the operations that are supported on each of them.
 
 ### Go API features
 
@@ -14,12 +14,16 @@ The Go API documented here is a work in progress. Future versions may change thi
 
 Go's main APIs are listed below:
 
--   [Artifacts API](Artifacts_API.md)
--   [Properties API](Properties_API.md)
--   [Configuration API](Configuration_API.md)
+-   [Pipeline Group API](Pipeline_Group_API.md)
 -   [Pipeline API](Pipeline_API.md)
 -   [Stages API](Stages_API.md)
--   [Command Repo API](command_repo_api.md)
+-   [Job API](Job_API.md)
 -   [Agent API](Agent_API.md)
--   [Backup API](Backup_API.md)
+-   [Materials API](materials_api.md)
+-   [Configuration API](Configuration_API.md)
+-   [Artifacts API](Artifacts_API.md)
 -   [Users API](users_api.md)
+-   [Backup API](Backup_API.md)
+-   [Properties API](Properties_API.md)
+-   [Feeds API](Feeds_API.md)
+-   [Command Repo API](command_repo_api.md)

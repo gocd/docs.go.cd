@@ -8,8 +8,7 @@ This API allows you to control User accounts in Go
 
 | URL format | HTTP Verb | Data | Explanation |
 |------------|-----------|------|-------------|
-| http://[server]/go/api/users/[user_name] | DELETE | no parameters | Deletes the user with username 'user\_name'. Note: Only disabled users
-can be deleted. |
+| http://[server]/go/api/users/[user_name] | DELETE | no parameters | Deletes the user with username 'user\_name'. Note: Only disabled users can be deleted. |
 
 **Return codes**
 
