@@ -1,5 +1,6 @@
 # Steps to generate gitbook:
 
+- You should have gitbook [setup](https://github.com/GitbookIO/gitbook#how-to-use-it) for generating the gitbook
 - Run the following command in the repo to generate the static website:
 ```
 $ gitbook build path_to_repository --output=path_to_output_folder
