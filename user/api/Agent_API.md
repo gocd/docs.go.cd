@@ -1,158 +1,72 @@
+# Agent API
 
- 
+A collection of APIs to get information and do operations on agents. They allow Go administrators to provision and de-provision agents without needing to use the web interface.
 
-Agent API
----------
+## List Agents
 
-A collection of APIs to get information and do operations on agents.
-They allow Go administrators to provision and de-provision agents
-without needing to use the web interface.
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/agents | GET | no parameters | List all the agents of the Go Server in JSON format along with the their information. |
 
-### List Agents
+The following information about each of the agents is returned in the JSON response:
 
-#### Key
+-   `uuid`
+-   `buildLocator`
+-   `agent_name`: (Maps to "Agent Name" column of Agents tab)
+-   `ipAddress`: (Maps to "IP Address" column of Agents tab)
+-   `status`: (Maps to "Status" column of Agents tab)
+-   `sandbox`: (Maps to "Sandbox" column of Agents tab)
+-   `os`: (Maps to "OS" column of Agents tab)
+-   `free_space`: (Maps to "Free Space" column of Agents tab)
+-   `resources`: (Maps to "Resources" column of Agents tab)
+-   `environments`: (Maps to "Environments" column of Agents tab)
 
-Parameters
+## Enable Agent
 
-URL format
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/agents/[agent-uuid]/enable |POST |no parameters |Enable a disabled agent. Approve a pending agent. |
 
-HTTP Verb
+## Disable Agent
 
-Data
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/agents/[agent-uuid]/disable |POST |no parameters |Disable an enabled/pending agent. |
 
-Explanation
+## Delete Agent
 
-http://[server]/go/api/agents
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/agents/[agent-uuid]/delete | POST | no parameters | Delete a disabled agent. Note that the agent will not be deleted unless it is in disabled state and is not building any job. |
 
-GET
+### Response Codes
 
-no parameters
-
-List all the agents of the Go Server in JSON format along with the their
-information.
-
-The following information about each of the agents is returned in the
-JSON response:
-
--   uuid
--   buildLocator
--   agent\_name: (Maps to "Agent Name" column of Agents tab)
--   ipAddress: (Maps to "IP Address" column of Agents tab)
--   status: (Maps to "Status" column of Agents tab)
--   sandbox: (Maps to "Sandbox" column of Agents tab)
--   os: (Maps to "OS" column of Agents tab)
--   free\_space: (Maps to "Free Space" column of Agents tab)
--   resources: [] (Maps to "Resources" column of Agents tab)
--   environments: [] (Maps to "Environments" column of Agents tab)
-
-### Enable and Disable Agent
-
-#### Key
-
-Parameters
-
-URL format
-
-HTTP Verb
-
-Data
-
-Explanation
-
-http://[server]/go/api/agents/[agent-uuid]/enable
-
-POST
-
-no parameters
-
-Enable a disabled agent. Approve a pending agent.
-
-http://[server]/go/api/agents/[agent-uuid]/disable
-
-POST
-
-no parameters
-
-Disable an enabled/pending agent.
-
-### Delete Agent
-
-#### Key
-
-Parameters
-
-URL format
-
-HTTP Verb
-
-Data
-
-Explanation
-
-http://[server]/go/api/agents/[agent-uuid]/delete
-
-POST
-
-no parameters
-
-Delete a disabled agent. Note that the agent will not be deleted unless
-it is in disabled state and is not building any job
-
-#### Response Codes
-
-HTTP response code
-
-Explanation
-
-200
-
-Agent deleted successfully
-
-404
-
-Agent with [uuid] does not exist
-
-406
-
-Agent is not 'Disabled' or is still 'Building' or 'Cancelled'
-
-401
-
-User does not have operate permission to delete agent
-
-500
-
-An internal server error occurred
+| HTTP response code | Explanation |
+|--------------------|-------------|
+| 200 | Agent deleted successfully |
+| 404 | Agent with [uuid] does not exist |
+| 406 | Agent is not 'Disabled' or is still 'Building' or 'Cancelled' |
+| 401 | User does not have operate permission to delete agent |
+| 500 | An internal server error occurred |
 
 **A note on deleting agents**
 
-An agent continually contacts the Go server so long as it is running. If
-it is deleted from Go server, the next time it contacts Go server, Go
-will add it back to the list of agents. Normally you do not want this to
-happen. Follow the steps below to achieve this.
+>An agent continually contacts the Go server so long as it is running. If it is deleted from Go server, the next time it contacts Go server, Go will add it back to the list of agents. Normally you do not want this to happen. Follow the steps below to achieve this.
 
--   Use the list agents API and keep checking the status of the agent
-    that you want to delete till it shows Idle
--   Use the disable agent API to disable the agent, using the UUID
-    available from the list agent API
--   Stop the Go agent service, manually or through a script. This is to
-    prevent the agent from contacting the server again. You need to do
-    this within 5 seconds of the disable agent API
+>-   Use the list agents API and keep checking the status of the agent that you want to delete till it shows Idle
+-   Use the disable agent API to disable the agent, using the UUID available from the list agent API
+-   Stop the Go agent service, manually or through a script. This is to prevent the agent from contacting the server again. You need to do this within 5 seconds of the disable agent API
 -   Use the delete agents API to delete the agent
 
-### Examples
+## Examples
 
--   We use curl, a command line tool for transferring files with URL
-    syntax, in the following examples. Of course, you can use any HTTP
-    client library.
--   We assume that the URL of the Go server is
-    **http://goserver.com:8153/** .
--   We assume security has been switched on, and that there is a user
-    named **jez** with the password **badger** .
+-   We use curl, a command line tool for transferring files with URL syntax, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
 
 The configuration with agents like this:
 
-``` {.code}
+```xml
         <cruise>
         ....
           <agents>
@@ -172,36 +86,28 @@ The configuration with agents like this:
             <agent hostname="agent-machine4" ipaddress="10.18.3.153" uuid="31aea908-717a-435c-ad04-96dcc8d941df" isDisabled="true">
           </agents>
         </cruise>
-        
 ```
 
-If you want to get all agents' information
+If you want to get all agents' information:
 
-``` {.code}
-curl -u jez:badger http://goserver.com:8153/go/api/agents
+```
+curl -u admin:badger http://goserver.com:8153/go/api/agents
 ```
 
-If you want to enable agent on 'agent-machine1'
+If you want to enable agent on 'agent-machine1':
 
-``` {.code}
-curl -u jez:badger -d "" http://goserver.com:8153/go/api/agents/e4d86ae7-7b7d-4bb9-9b3e-876c06d01605/enable
+```
+curl -u admin:badger -d "" http://goserver.com:8153/go/api/agents/e4d86ae7-7b7d-4bb9-9b3e-876c06d01605/enable
 ```
 
-If you want to disable agent on 'agent-machine2'
+If you want to disable agent on 'agent-machine2':
 
-``` {.code}
-curl -u jez:badger -d "" http://goserver.com:8153/go/api/agents/bf0e5682-51ad-4183-8776-b13491cf2f59/disable
+```
+curl -u admin:badger -d "" http://goserver.com:8153/go/api/agents/bf0e5682-51ad-4183-8776-b13491cf2f59/disable
 ```
 
-If you want to delete agent on 'agent-machine4'
+If you want to delete agent on 'agent-machine4':
 
-``` {.code}
-curl -u jez:badger -d "" http://goserver.com:8153/go/api/agents/31aea908-717a-435c-ad04-96dcc8d941df/delete
 ```
-
-
-
-
-
-© ThoughtWorks Studios, 2010
-
+curl -u admin:badger -d "" http://goserver.com:8153/go/api/agents/31aea908-717a-435c-ad04-96dcc8d941df/delete
+```
