@@ -242,7 +242,7 @@ The < server > element can be used to define information and attributes of the G
 
 ### Examples
 
-``` {.code}
+```xml
 <cruise>
   <server artifactsdir="/var/lib/go/big-artifacts-folder" siteUrl="http://go.example.com" secureSiteUrl="https://go.example.com" purgeStart='5' purgeUpto='10' jobTimeout='30'>
     <license user="${the user name in your license}">
@@ -250,7 +250,6 @@ The < server > element can be used to define information and attributes of the G
     </license>
   </server>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -278,13 +277,12 @@ Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
 
 ### Examples
 
-``` {.code}
+```xml
 <server artifactsdir="/var/lib/go/big-artifacts-folder">
   <license user="${the user name in your license}">
     ${license key}
   </license>
-</server>
-          
+</server> 
 ```
 
 [top](#top)
@@ -324,7 +322,7 @@ add a lot of users to your corporate LDAP. In this case you could add a
 
 ### Examples
 
-``` {.code}
+```xml
 <server artifactsdir="/var/lib/go/big-artifacts-folder">
   <license user="${the user name in your license}">
     ${license key}
@@ -336,8 +334,7 @@ add a lot of users to your corporate LDAP. In this case you could add a
        searchBase="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
        searchFilter="(sAMAccountName={0})" />
   </security>
-</server>
-          
+</server>     
 ```
 
 [top](#top)
@@ -366,9 +363,8 @@ notifications require [security](#security) to be enabled.
 
 ### Examples
 
-``` {.code}
-<mailhost hostname="mailhost.yourcompany.com" port="25" username="go-user" password="crs123" tls="false" from="go@yourcompany.com" admin="goadministrator@yourcompany.com" />
-          
+```xml
+<mailhost hostname="mailhost.yourcompany.com" port="25" username="go-user" password="crs123" tls="false" from="go@yourcompany.com" admin="goadministrator@yourcompany.com" />    
 ```
 
 [top](#top)
@@ -399,7 +395,7 @@ access Go with their username and password from this ldap server.
 
 ### Examples
 
-``` {.code}
+```xml
 <security>
   <ldap uri="ldap://xxx.yourcompany.com"
      managerDn="cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
@@ -455,16 +451,15 @@ Suppose the password file is **admins.properties**, which is located in
 
 The configuration could look like:
 
-``` {.code}
+```xml
 <security>
   <passwordFile path="/home/go/admins.properties"/>
 </security>
-          
 ```
 
 The username and password could be set in admins.properties as follows:
 
-``` {.code}
+```
 Jez=ThmbShxAtJepX80c2JY1FzOEmUk
 lqiao=TfkgShslgJepX80c2JY1trwEskT
           
@@ -480,7 +475,7 @@ can't be defined without `<role>`.
 
 ### Examples
 
-``` {.code}
+```xml
 <security>
   ...
   <roles>
@@ -489,8 +484,7 @@ can't be defined without `<role>`.
       <user>lqiao</user>
     </role>
   </roles>
-</security>
-          
+</security>    
 ```
 
 [top](#top)
@@ -529,14 +523,13 @@ similar tasks. Each user is added by adding the sub-tag
 Two users would be in the role 'pipeline-operators', they are **Jez**
 and **lqiao**.
 
-``` {.code}
+```xml
 <roles>
   <role name="pipeline-operators">
     <user>Jez</user>
     <user>lqiao</user>
   </role>
 </roles>
-          
 ```
 
 [top](#top)
@@ -557,12 +550,11 @@ many as you like.
 Two users would be in the role 'pipeline-operators', they are **Jez**
 and **lqiao**.
 
-``` {.code}
+```xml
 <role name="pipeline-operators">
   <user>Jez</user>
   <user>lqiao</user>
-</role>
-          
+</role> 
 ```
 
 [top](#top)
@@ -581,15 +573,14 @@ The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 
 ### Examples
 
-``` {.code}
+```xml
 <security>
   ...
   <admins>
     <role>go-admin</role>
     <user>lqiao</user>
   </admins>
-</security>
-          
+</security>    
 ```
 
 [top](#top)
@@ -608,12 +599,11 @@ as administrators. You can add as many as you like.
 
 The users in role '**go-admin**' would be administrators.
 
-``` {.code}
+```xml
 <admins>
   <role>go-admin</role>
   <user>lqiao</user>
-</admins>
-          
+</admins>  
 ```
 
 [top](#top)
@@ -630,12 +620,11 @@ The users in role '**go-admin**' would be administrators.
 
 Two users would be administrators, they are **Jez** and **lqiao**.
 
-``` {.code}
+```xml
 <admins>
   <user>Jez</user>
   <user>lqiao</user>
-</admins>
-          
+</admins>    
 ```
 
 [top](#top)
@@ -649,12 +638,11 @@ Two users would be administrators, they are **Jez** and **lqiao**.
 
 ### Examples
 
-``` {.code}
+```xml
 <view>
    <user>lqiao<user>
    <role>_readonly_member<role>
 </view>
-    
 ```
 
 [top](#top)
@@ -666,7 +654,7 @@ The `<repositories>` element is a container of package repositories.
 
 ### Example
 
-``` {.code}
+```xml
 <cruise>
   ...
   <repositories>
@@ -693,7 +681,6 @@ The `<repositories>` element is a container of package repositories.
     </repository>
   </repositories>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -734,7 +721,7 @@ repositories configuration.
 
 ### Example
 
-``` {.code}
+```xml
 <cruise>
   ...
   <repositories>
@@ -761,7 +748,6 @@ repositories configuration.
     </repository>
   </repositories>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -890,7 +876,7 @@ The `<pipelines>` element is a container of pipelines.
 
 ### Examples
 
-``` {.code}
+```xml
 <cruise>
   ...
   <pipelines group="studios">
@@ -913,7 +899,6 @@ The `<pipelines>` element is a container of pipelines.
     </pipeline>
   </pipelines>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -949,7 +934,7 @@ Pipeline Templates even if they are used by any pipeline in this group.
 Given the following configuration only [admins](#admins), lqiao and any
 users having the role 'studios\_group\_admin'.
 
-``` {.code}
+```xml
 <cruise>
   ...
   <pipelines group="studios">
@@ -964,7 +949,6 @@ users having the role 'studios\_group\_admin'.
     </pipeline>
   </pipelines>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -986,7 +970,7 @@ Given the following configuration only administrators can operate the
 pipeline group, and only [admins](#admins), lqiao and any users having
 the role 'go\_readonly\_member' can see the pipeline.
 
-``` {.code}
+```xml
 <cruise>
   ...
   <pipelines group="studios">
@@ -1001,7 +985,6 @@ the role 'go\_readonly\_member' can see the pipeline.
     </pipeline>
   </pipelines>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -1025,7 +1008,7 @@ pipeline group. Only [admins](#admins), lqiao and the users having the
 role 'go\_readonly\_member' can see the pipeline (jez and
 go\_core\_member cannot).
 
-``` {.code}
+```xml
 <cruise>
   ...
   <pipelines group="studios">
@@ -1045,7 +1028,6 @@ go\_core\_member cannot).
     </pipeline>
   </pipelines>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -1117,7 +1099,7 @@ lose the history of the pipeline.
 
 ### Examples
 
-``` {.code}
+```xml
 <pipelines>
   <pipeline name="yourproject" labeltemplate="foo-1.0.${COUNT}-${svn}" isLocked="true">
   <environmentvariables>
@@ -1140,8 +1122,7 @@ lose the history of the pipeline.
       </jobs>
     </stage>
   </pipeline>
-</pipelines>
-          
+</pipelines>   
 ```
 
 [top](#top)
@@ -1165,12 +1146,11 @@ template.
 
 ### Example:
 
-``` {.code}
+```xml
   <params>
     <param name="COMMAND">echo</param>
     <param name="WORKING_DIR">/repo/branch</param>
   </params>
-  
 ```
 
 [top](#top)
@@ -1210,12 +1190,11 @@ Suppose you are using a Web Application to manage your tasks or bugs,
 and the link looks like http://your-trackingtool/yourproject/512, '512'
 is your task ID. Your configuration would be:
 
-``` {.code}
+```xml
 <pipeline name="yourproject">
   <trackingtool link="http://your-trackingtool/yourproject/${ID}" regex="evo-(\d+)"/>
   ...
 </pipeline>
-      
 ```
 
 If you check in some code with a commit message which includes the
@@ -1227,12 +1206,11 @@ For example: If you use
 [Mingle](http://www.thoughtworks.com/products/mingle-agile-project-management/)
 for your task manager, the configuration would be:
 
-``` {.code}
+```xml
 <pipeline name="yourproject">
   <trackingtool link="http://your-mingle-server/projects/yourproject/cards/${ID}" regex="##(\d+)"/>
   ...
-</pipeline>
-      
+</pipeline>  
 ```
 
 **Notes:** You can not define multiple tracking tools in one pipeline.
@@ -1267,13 +1245,12 @@ is configured for a pipeline.
 
 ### Examples
 
-``` {.code}
+```xml
 <mingle
     baseUrl="http://mingle.example.com"
     projectIdentifier="my_project">
     <mqlGroupingConditions>status > 'In Dev'</mqlGroupingConditions>
 </mingle>
-    
 ```
 
 [top](#top)
@@ -1307,12 +1284,11 @@ pipeline.
 
 For example to run a pipeline once a night at 10pm on weekdays:
 
-``` {.code}
+```xml
 <pipeline name="yourproject">
   <timer>0 0 22 ? * MON-FRI</timer>
   ...
 </pipeline>
-      
 ```
 
 Go uses the
@@ -1577,19 +1553,18 @@ each material.
 
 ### Examples
 
-``` {.code}
+```xml
 <pipeline name="yourproject" labeltemplate="foo-1.0.${COUNT}">
   <materials>
     <svn url="http://your-svn/"/>
   </materials>
   ...
 </pipeline>
-    
 ```
 
 Multiple materials:
 
-``` {.code}
+```xml
 <pipeline name="yourproject" labeltemplate="foo-1.0.${COUNT}">
   <materials>
     <svn url="http://your-svn/" dest="svn-folder" />
@@ -1603,7 +1578,6 @@ Multiple materials:
   </materials>
   ...
 </pipeline>
-    
 ```
 
 [top](#top)
@@ -1620,13 +1594,12 @@ including filtered files.
 
 ### Examples
 
-``` {.code}
+```xml
 <svn url="http://your-svn/">
   <filter>
     <ignore pattern="doc/**/*.*" />
   </filter>
 </svn>
-          
 ```
 
 [top](#top)
@@ -1668,21 +1641,21 @@ contain these files will not trigger a pipeline automatically.
 
 ### Examples:
 
-``` {.code}
+```xml
 <ignore pattern="doc/**/*" />
 ```
 
 Ignore everything under the folder **'doc'**.\
 \
 
-``` {.code}
+```xml
 <ignore pattern="doc/*" />
 ```
 
 Ignore files under the folder **'doc'**, excluding any subfolder.\
 \
 
-``` {.code}
+```xml
 <ignore pattern="framework/helper/*.doc" />
 ```
 
@@ -1690,7 +1663,7 @@ Ignore files that are under the directory 'framework/helper' and the
 file extension is **.doc**.\
 \
 
-``` {.code}
+```xml
 <ignore pattern="*.pdf" />
 ```
 
@@ -1698,7 +1671,7 @@ Ignore files that are under the root directory of SCM repository and the
 file extension is **.pdf**.\
 \
 
-``` {.code}
+```xml
 <ignore pattern="**/helper/*.pdf" />
 ```
 
@@ -1706,7 +1679,7 @@ Ignore all the files that is under any **'helper'** folder and the file
 extension is **.pdf**.\
 \
 
-``` {.code}
+```xml
 <ignore pattern="helper/**/*.pdf" />
 ```
 
@@ -1755,15 +1728,14 @@ in the cache permanently.
 
 For a Go Agent on linux with the following configuration:
 
-``` {.code}
+```xml
 <pipeline name="myproduct">
   <materials>
     <svn  url="http://svn-server.com/framework" dest="framework"/>
     <svn  url="http://svn-server.com/componentOne" dest="mycomponent"/>
   </materials>
   ...
-</pipeline>
-      
+</pipeline> 
 ```
 
 Go Agent will check out source code from
@@ -1814,26 +1786,24 @@ for the jobs need Mercurial. Go does not ship with Mercurial.
 
 ### Examples
 
-``` {.code}
+```xml
 <pipeline name="yourproject">
   <materials>
     <hg url="http://username:password@your-hg/"/>
   </materials>
   ...
-</pipeline>
-          
+</pipeline> 
 ```
 
 #### Specifying a mercurial branch.
 
-``` {.code}
+```xml
 <pipeline name="yourproject_branch">
   <materials>
     <hg url="http://username:password@your-hg##branch_name"/>
   </materials>
   ...
 </pipeline>
-          
 ```
 
 Note that \# needs to be escaped with another \# - hence the \#\# in the
@@ -1961,7 +1931,7 @@ setup and paste it into the view section.
 
 For example:
 
-``` {.code}
+```xml
 <pipeline name="perforce-example"/>
   <materials>
     <p4 port="10.18.3.102:1666" username="userName" password="passwd">
@@ -1973,8 +1943,7 @@ For example:
     </p4>
   </materials>
   ...
-</pipeline>
-      
+</pipeline>   
 ```
 
 [top](#top)
@@ -2026,24 +1995,22 @@ directory where the .ssh/ directory is located.
 
 ### Examples are:
 
-``` {.code}
+```xml
 <pipeline name="yourproject">
   <materials>
     <git url="git://127.0.0.1/precommit.git" branch="1.3branch"/>
   </materials>
   ...
 </pipeline>
-          
 ```
 
-``` {.code}
+```xml
 <pipeline name="yourproject">
   <materials>
     <git url="http://ccegit:pst@goserver.yourcompany.com/httpgit.git" />
   </materials>
   ...
-</pipeline>
-          
+</pipeline> 
 ```
 
 [top](#top)
@@ -2070,24 +2037,22 @@ Source repository.
 
 ### Examples are:
 
-``` {.code}
+```xml
 <pipeline name="webproject">
   <materials>
     <tfs url="http://10.21.3.210:8080/tfs/New" domain="DOMAIN" username="jim" password="as802nsk9==" projectPath="$/webapp" />
   </materials>
   ...
 </pipeline>
-      
 ```
 
-``` {.code}
+```xml
 <pipeline name="myproject">
   <materials>
     <tfs url="http://tfshost.tw.com:8080/tfs/DefaultCollection" domain="DOMAIN" username="jim" password="as802nsk9==" projectPath="$/webapp/component/branch" />
   </materials>
   ...
-</pipeline>
-          
+</pipeline>    
 ```
 
 [top](#top)
@@ -2113,7 +2078,7 @@ repositories configuration.
 
 ### Example
 
-``` {.code}
+```xml
 <cruise>
   ...
   <repositories>
@@ -2150,7 +2115,6 @@ repositories configuration.
     ...
    </pipelines>
 </cruise>
-    
 ```
 
 [top](#top)
@@ -2211,7 +2175,7 @@ pipeline can trigger the other two pipelines, and the stage 'pkgstage'
 in commonLib2 pipeline can trigger Server pipeline. The configuration
 would be:
 
-``` {.code}
+```xml
 <pipeline name="Server">
   <materials>
     <pipeline pipelineName="commonLib1" stageName="distStage"/>
@@ -2225,7 +2189,6 @@ would be:
   </materials>
   ...
 </pipeline>
-      
 ```
 
 [top](#top)
@@ -2270,7 +2233,7 @@ There must be at least one job in stage.
 
 ### Examples
 
-``` {.code}
+```xml
 <pipeline name="yourproject">
   ...
   <stage name="ut">
@@ -2288,8 +2251,7 @@ There must be at least one job in stage.
       </job>
     </jobs>
   </stage>
-</pipeline>
-          
+</pipeline>  
 ```
 
 [top](#top)
@@ -2306,7 +2268,7 @@ run in parallel on different [`<agents>`](#agents).
 
 ### Examples
 
-``` {.code}
+```xml
 <stage name="ut">
   <jobs>
     <job name="linux">
@@ -2318,8 +2280,7 @@ run in parallel on different [`<agents>`](#agents).
       </tasks>
     </job>
   </jobs>
-</stage>
-          
+</stage>   
 ```
 
 [top](#top)
@@ -2364,7 +2325,7 @@ If a Job has no resources then it can be built by any Agent
 
 ### Examples
 
-``` {.code}
+```xml
 <job name="linux">
   <environmentvariables>
  <variable name="FOO"><value>bar</value></variable>
@@ -2375,11 +2336,10 @@ If a Job has no resources then it can be built by any Agent
   <tasks>
     <ant target="unit-test" />
   </tasks>
-</job>
-          
+</job>     
 ```
 
-``` {.code}
+```xml
   <job name="run-upgrade" runOnAllAgents="true" timeout='30'>
     <resources>
       <resource>linux</resource>
@@ -2388,7 +2348,6 @@ If a Job has no resources then it can be built by any Agent
       <ant target="upgrade" />
     </tasks>
   </job>
-    
 ```
 
 [top](#top)
@@ -2403,7 +2362,7 @@ If a job has no resources it can be built on any agent.
 
 ### Example:
 
-``` {.code}
+```xml
 <job name="linux">
   <resources>
     <resource>jdk5</resource>
@@ -2411,7 +2370,6 @@ If a job has no resources it can be built on any agent.
     <resource>mercurial</resource>
   </resources>
 </job>
-    
 ```
 
 [top](#top)
@@ -2430,7 +2388,7 @@ characters, hyphens (-), spaces, periods (.) and pipes (|).
 
 ### Example:
 
-``` {.code}
+```xml
 <resources>
   <resource>jdk5</resource>
   <resource>tomcat5</resource>
@@ -2465,13 +2423,12 @@ The following environment variables are set for all tasks:
 
 ### Examples
 
-``` {.code}
+```xml
 <job name="linux">
   <tasks>
     <ant target="unit-test" />
   </tasks>
-</job>
-          
+</job>   
 ```
 
 [top](#top)
@@ -2505,7 +2462,7 @@ All paths specified are relative to the pipeline working directory.
 
 -   Invoke Ant, specifying a set of targets to run:
 
-    ``` {.code}
+    ```xml
     <tasks>
       <ant target="-Drun=all clean.ivy.localivy clean ft.long_running"/>
     </tasks>
@@ -2513,7 +2470,7 @@ All paths specified are relative to the pipeline working directory.
 
 -   Invoke Ant in a specific working directory with a set of targets:
 
-    ``` {.code}
+    ```xml
     <tasks>
       <ant workingdir="build" buildfile="mybuild.xml" target="-Drun=all clean.ivy.localivy clean ft.long_running"/>
     </tasks>
@@ -2554,7 +2511,7 @@ All paths specified are relative to the pipeline working directory.
 -   Invoke ruby, specifying the working directory as
     **tools/my-ruby-tool** and executing the ruby script **backup.rb**.
 
-    ``` {.code}
+    ```xml
     <tasks>
       <exec command="/usr/local/bin/ruby" args="backup.rb" workingdir="tools/my-ruby-tool"/>
     </tasks>
@@ -2584,7 +2541,7 @@ On Windows you should specify the full name of your script file such as
 
 -   Echo something on Windows:
 
-    ``` {.code}
+    ```xml
     <exec command="cmd">
       <arg>/c</arg>
       <arg>echo</arg>
@@ -2594,7 +2551,7 @@ On Windows you should specify the full name of your script file such as
 
 -   Run command with pipe character in arguments:
 
-    ``` {.code}
+    ```xml
     <exec command="MsBuild">
       <arg>D:\projects\project\project-8.sln</arg>
       <arg>/REBUILD</arg>
@@ -2635,7 +2592,7 @@ All paths specified must be relative to the pipeline working directory.
 
 Invoke NAnt, specifying a set of targets to run:
 
-``` {.code}
+```xml
 <tasks>
   <nant buildfile="myproject.build" target="smoke-test"/>
 </tasks>
@@ -2671,7 +2628,7 @@ All paths specified must be relative to the pipeline working directory.
 
 Invoke rake, specifying a set of targets to run:
 
-``` {.code}
+```xml
 <tasks>
   <rake buildfile="rakefile" target="smoke-test"/>
 </tasks>
@@ -2761,7 +2718,7 @@ relative to the pipeline working directory.
 1.  Fetch all artifacts in the directory 'pkg' from the previous stage
     in the same pipeline and put them under the directory 'lib'
 
-    ``` {.code}
+    ```xml
     <pipelines>
       <pipeline name="go">
         ...
@@ -2790,7 +2747,7 @@ relative to the pipeline working directory.
 2.  Fetch a single artifact from a stage in the upstream pipeline
     'framework' and put it under the directory 'lib'
 
-    ``` {.code}
+    ```xml
     <pipeline name="go">
       <materials>
         <pipeline name="framework" stage="ft"/>
@@ -2811,7 +2768,7 @@ relative to the pipeline working directory.
 3.  Fetch a single artifact from a stage in an ancestor pipeline 'Build'
     and put it under the directory 'pkg'
 
-    ``` {.code}
+    ```xml
     <pipeline name="deploy">
       <materials>
         <pipeline name="acceptance" stage="ft"/>
@@ -2865,7 +2822,7 @@ A task can specify any of three possible runif filters: 'passed',
 [`<runif>`](#runif) can also be defined under [`<exec>`](#exec) task
 even if `<exec>` has some `<arg>`s e.g.
 
-``` {.code}
+```xml
     <exec command="echo">
        <arg value="test" />
        <runif status="passed" />
@@ -2876,7 +2833,7 @@ even if `<exec>` has some `<arg>`s e.g.
 
 Given the tasks in a job is following:
 
-``` {.code}
+```xml
 <tasks>
     <ant  buildfile="build.xml" target="complie-test-source"/>
     <fetchartifact  pipeline="my_app" stage="dist" job="package-artifact" srcdir="pkg">
@@ -2936,7 +2893,7 @@ The task 'start\_server' starts a process on an agent. When the stage is
 cancelled, the agent will invoke the cancel task 'kill\_server' to kill
 the process early and clean up any extra files.
 
-``` {.code}
+```xml
 <tasks>
   <ant target="start_server">
     <oncancel>
@@ -2955,7 +2912,7 @@ the process early and clean up any extra files.
 
 ### Examples
 
-``` {.code}
+```xml
 <job name="unit">
   <artifacts>
     <artifact src="target/deployable.jar" dest="pkg"/>
@@ -3001,7 +2958,7 @@ server.
 
 ### Examples
 
-``` {.code}
+```xml
 <job name="unit">
   <artifacts>
     <artifact src="target/deployable.jar" dest="pkg"/>
@@ -3009,7 +2966,7 @@ server.
 </job>
 ```
 
-``` {.code}
+```xml
 <job name="unit">
   <artifacts>
     <artifact src="target/**/*Test.xml" dest="pkg"/>
@@ -3020,7 +2977,7 @@ server.
 The following will upload all xml files to the server's artifact
 repository.
 
-``` {.code}
+```xml
 <job name="unit">
   <artifacts>
     <artifact src="target/**/*.xml" />
@@ -3059,7 +3016,7 @@ if they are run in different jobs.
 
 ### Examples
 
-``` {.code}
+```xml
 <job name="unit">
   <artifacts>
     <test src="target/junit-output" dest="junit"/>
@@ -3080,7 +3037,7 @@ easily place that report into a tab. Tabs are implemented as iframes
 
 ### Example:
 
-``` {.code}
+```xml
 <job name="unit">
   <artifacts>
     <artifact src="target/jcoverage" dest="Jcoverage"/>
@@ -3089,7 +3046,6 @@ easily place that report into a tab. Tabs are implemented as iframes
     <tab name="coverage" path="Jcoverage/index.html"/>
   </tabs> 
 </job>
-    
 ```
 
 [top](#top)
@@ -3119,7 +3075,7 @@ Given some coverage infomation in 'target/Jcoverage' folder on the agent
 side, We configure a tab to show the coverage information by specifying
 a tab with the index.html file.
 
-``` {.code}
+```xml
 <job name="unit">
   <artifacts>
     <artifact src="target/jcoverage" dest="Jcoverage"/>
@@ -3128,7 +3084,6 @@ a tab with the index.html file.
     <tab name="coverage" path="Jcoverage/index.html"/>
   </tabs> 
 </job>
-    
 ```
 
 `<properties>`
@@ -3142,7 +3097,7 @@ improving or getting worse.
 
 ### Example:
 
-``` {.code}
+```xml
 <job name="emma">
   <artifacts>
     <artifact src="target/emma" dest="analysis" />
@@ -3157,7 +3112,6 @@ improving or getting worse.
     <property name="coverage.line" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'line')]/@value, '%')" />
   </properties> 
 </job>
-    
 ```
 
 [top](#top)
@@ -3195,7 +3149,7 @@ Define a Property based on the contents of an XML file.
 This is a simple example to parse the errors and failures count from a
 single junit file and turn them into properties.
 
-``` {.code}
+```xml
 <job name="junit">
   <tasks>
     <ant target="unittest">
@@ -3205,14 +3159,13 @@ single junit file and turn them into properties.
     <property name="junit.failures" src="target/junit-reports/TEST-MainAppTest.xml" xpath="string(/testsuite/@failures)" />
   </properties> 
 </job>
-    
 ```
 
 Here's a more complex example. This will parse the class, method, block,
 and line coverage out of an [EMMA](http://emma.sourceforge.net/)
 coverage.xml file.
 
-``` {.code}
+```xml
 <job name="emma">
   <artifacts>
     <artifact src="target/emma" dest="analysis" />
@@ -3227,7 +3180,6 @@ coverage.xml file.
     <property name="coverage.line" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'line')]/@value, '%')" />
   </properties> 
 </job>
-    
 ```
 
 [top](#top)
@@ -3269,7 +3221,7 @@ pipeline activity page, stage details page or through RESTful url.
 
 ### Example:
 
-``` {.code}
+```xml
 <stage name="ut">
   <approval type="manual" />
   ...
@@ -3287,7 +3239,7 @@ are two sub-elements: [`<user>`](#user) and [`<role>`](#role).
 
 ### Examples
 
-``` {.code}
+```xml
 <approval type="manual">
   <authorization>
     <user>lqiao</user>
@@ -3296,7 +3248,7 @@ are two sub-elements: [`<user>`](#user) and [`<role>`](#role).
 </approval>
 ```
 
-``` {.code}
+```xml
 <approval type="success">
   <authorization>
     <user>lqiao</user>
@@ -3335,7 +3287,7 @@ Allows you to provide a template for pipeline definition
 
 ### Examples
 
-``` {.code}
+```xml
 <cruise>
   ...
   <pipelines group="studios" >
@@ -3399,7 +3351,7 @@ Allows you to group a set of agents together for exclusive use.
 
 ### Examples
 
-``` {.code}
+```xml
 <cruise>
   ...
   <pipelines group="studios" />
@@ -3480,13 +3432,12 @@ allow certain variable names and/or values.
 
 ### Example:
 
-``` {.code}
+```xml
   <environmentvariables>
      <variable name="FOO"><value>bar</value></variable>
      <variable name="MULTIPLE_LINES"><value>multiplelines</value></variable>
      <variable name="COMPLEX"><value>![CDATA[This has very <complex> data]]</value></variable>
   </environmentvariables>
-  
 ```
 
 [top](#top)
@@ -3512,7 +3463,7 @@ References a physical agent to be associated with this environment.
 
 ### Examples
 
-``` {.code}
+```xml
 <environment name="UAT">
   <agents>
     <physical uuid="94fcb7ad-8b97-4078-b5f6-3c7436d6a390"/>
@@ -3551,7 +3502,7 @@ References a pipeline to be associated with this environment.
 
 ### Examples
 
-``` {.code}
+```xml
 <environment name="UAT">
   <pipelines>
     <pipeline name="yourproject"/>
@@ -3619,7 +3570,7 @@ fullstop, underscore and hyphen. Spaces are not allowed.
 
 ### Examples
 
-``` {.code}
+```xml
 <agents>
   <agent hostname="agent01" ipaddress="192.168.0.1" uuid="94fcb7ad-8b97-4078-b5f6-3c7436d6a390">
     <resources>
@@ -3627,6 +3578,5 @@ fullstop, underscore and hyphen. Spaces are not allowed.
       <resource>linux</resource>
     </resources>
   </agent>
-</agents>
-      
+</agents>   
 ```
