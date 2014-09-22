@@ -1,7 +1,6 @@
 # Go Configuration Reference
 
 <big><pre>
-
 [< cruise >](#cruise)
     [< server >](#server)
         [< license/ >](#license) 
@@ -180,15 +179,15 @@
 
 # Configuration reference
 
-## < cruise >
+## `<cruise>`
 
-The < cruise > element is the root element of the configuration.
+The `<cruise>` element is the root element of the configuration.
 
 [top](#go-configuration-reference)
 
-## < server >
+## `<server>`
 
-The < server > element can be used to define information and attributes of the Go Server.
+The `<server>` element can be used to define information and attributes of the Go Server.
 
 ### Attributes
 
@@ -226,19 +225,11 @@ The < server > element can be used to define information and attributes of the G
 
 ### Notes:
 
--   If both siteUrl and secureSiteUrl are not defined, Go URLs will use
-    the default domain which in most cases will be
-    http://your-go-server:8153
--   If only siteUrl is defined and is not HTTPS, Go URLs will be
-    composed from the siteUrl entry. In this case, the secure pages of
-    Go will not be navigable.
--   If only siteUrl is defined and is HTTPS, Go URLs will be composed
-    from the siteUrl entry and all pages will be HTTPS.
--   If only secureSiteUrl is defined, Go URLs will use the default
-    domain for non-HTTPS pages, while HTTPs pages will be composed from
-    the secureSiteUrl entry.
--   If purgeStart and purgeUpto are not defined, artifacts will never be
-    deleted.
+-   If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be http://your-go-server:8153
+-   If only siteUrl is defined and is not HTTPS, Go URLs will be composed from the siteUrl entry. In this case, the secure pages of Go will not be navigable.
+-   If only siteUrl is defined and is HTTPS, Go URLs will be composed from the siteUrl entry and all pages will be HTTPS.
+-   If only secureSiteUrl is defined, Go URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the secureSiteUrl entry.
+-   If purgeStart and purgeUpto are not defined, artifacts will never be deleted.
 
 ### Examples
 
@@ -257,10 +248,7 @@ The < server > element can be used to define information and attributes of the G
 `<license>`
 -----------
 
-The `<license>` element contains your Go license. Go works in the
-community edition if this element is not present. To obtain a Go
-license, please visit the [Go
-Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
+The `<license>` element contains your Go license. Go works in the community edition if this element is not present. To obtain a Go license, please visit the [Go Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
 
 ### Attributes
 
@@ -290,13 +278,7 @@ Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
 `<security>`
 ------------
 
-The `<security>` element can be used to enable authentication. If the
-element is not defined anyone can use Go without logging in. We
-currently support [LDAP](#ldap) and a simple [password
-file](#passwordFile) format. You can use both methods if you want. This
-can be useful if you want to allow access from scripts without having to
-add a lot of users to your corporate LDAP. In this case you could add a
-'script' user to the password file.
+The `<security>` element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support [LDAP](#ldap) and a simple [password file](#passwordFile) format. You can use both methods if you want. This can be useful if you want to allow access from scripts without having to add a lot of users to your corporate LDAP. In this case you could add a 'script' user to the password file.
 
 ### Attributes
 
@@ -342,8 +324,7 @@ add a lot of users to your corporate LDAP. In this case you could add a
 `<mailhost>`
 ------------
 
-The `<mailhost>` element is used to configure mail notifications. Mail
-notifications require [security](#security) to be enabled.
+The `<mailhost>` element is used to configure mail notifications. Mail notifications require [security](#security) to be enabled.
 
 ### Attributes
 
@@ -372,8 +353,7 @@ notifications require [security](#security) to be enabled.
 `<ldap>`
 --------
 
-The `<ldap>` element is used to specify the ldap server. Users can
-access Go with their username and password from this ldap server.
+The `<ldap>` element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.
 
 ### Attributes
 
@@ -421,10 +401,7 @@ access Go with their username and password from this ldap server.
 `<passwordFile>`
 ----------------
 
-The `<passwordFile>` element is used to specify a file which has a set
-of username and password pairs. The format of username and password in
-this file is \${username}=\${password which has been encrypted with
-SHA1}, with one line per user.
+The `<passwordFile>` element is used to specify a file which has a set of username and password pairs. The format of username and password in this file is \${username}=\${password which has been encrypted with SHA1}, with one line per user.
 
 ### Attributes
 
@@ -441,13 +418,10 @@ SHA1}, with one line per user.
 
 ### Examples
 
-Suppose the password file is **admins.properties**, which is located in
-**/home/go**. You want to create two users as Administrators:
+Suppose the password file is **admins.properties**, which is located in **/home/go**. You want to create two users as Administrators:
 
--   one username is **Jez**, the password encrypted with SHA1 is
-    **ThmbShxAtJepX80c2JY1FzOEmUk=**
--   the other one is **lqiao**, the password encrypted with SHA1 is
-    **TfkgShslgJepX80c2JY1trwEskT=**
+-   one username is **Jez**, the password encrypted with SHA1 is **ThmbShxAtJepX80c2JY1FzOEmUk=**
+-   the other one is **lqiao**, the password encrypted with SHA1 is **TfkgShslgJepX80c2JY1trwEskT=**
 
 The configuration could look like:
 
@@ -461,8 +435,7 @@ The username and password could be set in admins.properties as follows:
 
 ```
 Jez=ThmbShxAtJepX80c2JY1FzOEmUk
-lqiao=TfkgShslgJepX80c2JY1trwEskT
-          
+lqiao=TfkgShslgJepX80c2JY1trwEskT      
 ```
 
 [top](#top)
@@ -470,8 +443,7 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 `<roles>`
 ---------
 
-The `<roles>` element is a container for roles that users defined. It
-can't be defined without `<role>`.
+The `<roles>` element is a container for roles that users defined. It can't be defined without `<role>`.
 
 ### Examples
 
@@ -492,19 +464,12 @@ can't be defined without `<role>`.
 `<role>`
 --------
 
-The `<role>` element is used to define a group of users who perform
-similar tasks. Each user is added by adding the sub-tag
-[`<user>`](#userinrole).
+The `<role>` element is used to define a group of users who perform similar tasks. Each user is added by adding the sub-tag [`<user>`](#userinrole).
 
 **Notes:**
 
--   If you want to define roles, you must define an authentication
-    method, either [`<ldap>`](#ldap) or
-    [`<passwordFile>`](#passwordFile).
--   These roles are not associated with roles defined in LDAP; they only
-    work within Go. For example, you can assign a role to the
-    [manual-approval](#approval) in a stage, so that only the users in
-    that role can approve the stage to run.
+-   If you want to define roles, you must define an authentication method, either [`<ldap>`](#ldap) or [`<passwordFile>`](#passwordFile).
+-   These roles are not associated with roles defined in LDAP; they only work within Go. For example, you can assign a role to the [manual-approval](#approval) in a stage, so that only the users in that role can approve the stage to run.
 
 ### Attributes
 
@@ -520,8 +485,7 @@ similar tasks. Each user is added by adding the sub-tag
 
 ### Examples
 
-Two users would be in the role 'pipeline-operators', they are **Jez**
-and **lqiao**.
+Two users would be in the role 'pipeline-operators', they are **Jez** and **lqiao**.
 
 ```xml
 <roles>
@@ -537,18 +501,15 @@ and **lqiao**.
 `<user>`
 --------
 
-One `<user>` element defines a particular user in a rolw. You can add as
-many as you like.
+One `<user>` element defines a particular user in a rolw. You can add as many as you like.
 
 **Notes:**
 
--   The user must be in your [LDAP](#ldap) or
-    [passwordFile](#passwordFile).
+-   The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 
 ### Examples
 
-Two users would be in the role 'pipeline-operators', they are **Jez**
-and **lqiao**.
+Two users would be in the role 'pipeline-operators', they are **Jez** and **lqiao**.
 
 ```xml
 <role name="pipeline-operators">
@@ -562,10 +523,7 @@ and **lqiao**.
 `<admins>`
 ----------
 
-The `<admins>` element specifies which users are administrators. Only
-administrators can open the Administration tab to maintain Go
-Configuration. Administrators can perform all functions in Go (including
-triggering pipelines, deploying to environments etc.)
+The `<admins>` element specifies which users are administrators. Only administrators can open the Administration tab to maintain Go Configuration. Administrators can perform all functions in Go (including triggering pipelines, deploying to environments etc.)
 
 **Notes:**
 
@@ -588,8 +546,7 @@ The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 `<role>`
 --------
 
-One `<role>` element in [`<admins>`](#admins) is used to specify a group
-as administrators. You can add as many as you like.
+One `<role>` element in [`<admins>`](#admins) is used to specify a group as administrators. You can add as many as you like.
 
 **Notes:**
 
@@ -613,8 +570,7 @@ The users in role '**go-admin**' would be administrators.
 
 **Notes:**
 
--   The user must be in your [LDAP](#ldap) or
-    [passwordFile](#passwordFile).
+-   The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 
 ### Examples
 
@@ -688,9 +644,7 @@ The `<repositories>` element is a container of package repositories.
 `<repository>`
 --------------
 
-The `<repository>` element specifies a single repository. Repository
-must be be unique by id and name (name is case-insensitive) across
-repositories configuration.
+The `<repository>` element specifies a single repository. Repository must be be unique by id and name (name is case-insensitive) across repositories configuration.
 
 ### Attributes
 
@@ -755,8 +709,7 @@ repositories configuration.
 `<pluginConfiguration>`
 -----------------------
 
-The `<pluginConfiguration>` element specifies configuration related to
-plugin.
+The `<pluginConfiguration>` element specifies configuration related to plugin.
 
 ### Attributes
 
@@ -777,8 +730,7 @@ plugin.
 `<configuration>`
 -----------------
 
-The `<configuration>` element specifies configuration related repository
-or package as one or more properties.
+The `<configuration>` element specifies configuration related repository or package as one or more properties.
 
 [top](#top)
 
@@ -813,8 +765,7 @@ The `<packages>` element specifies list of packages under a repository.
 `<package>`
 -----------
 
-The `<package>` element specifies single package under a repository.
-This tag holds configuration related to package
+The `<package>` element specifies single package under a repository. This tag holds configuration related to package
 
 ### Attributes
 
@@ -906,33 +857,22 @@ The `<pipelines>` element is a container of pipelines.
 `<authorization>`
 -----------------
 
-The `<authorization>` tag allows you to specify the what users and roles
-are able to administer, view or operate any particular group of
-pipelines.
+The `<authorization>` tag allows you to specify the what users and roles are able to administer, view or operate any particular group of pipelines.
 
 [top](#top)
 
 `<admins>`
 ----------
 
-The `<admins>` element is a permission section to specify who can
-administer the pipeline group. Go administrators can define roles and
-users in the tag.
+The `<admins>` element is a permission section to specify who can administer the pipeline group. Go administrators can define roles and users in the tag.
 
-Users and Roles defined as group admins can view and operate on all
-pipelines in this pipeline group. They are allowed to navigate to the
-admin page where they can only see and edit this pipeline group which
-includes creating and modifying pipelines in this group,via the Pipeline
-Configuration Tab. They have no permission to view or modify the
-Pipeline Templates even if they are used by any pipeline in this group.
+Users and Roles defined as group admins can view and operate on all pipelines in this pipeline group. They are allowed to navigate to the admin page where they can only see and edit this pipeline group which includes creating and modifying pipelines in this group,via the Pipeline Configuration Tab. They have no permission to view or modify the Pipeline Templates even if they are used by any pipeline in this group.
 
-**Note:** Go Administrators ([admins](#admins)) defined in
-[security](#security) tab, can administer all pipeline groups.
+**Note:** Go Administrators ([admins](#admins)) defined in [security](#security) tab, can administer all pipeline groups.
 
 ### Examples
 
-Given the following configuration only [admins](#admins), lqiao and any
-users having the role 'studios\_group\_admin'.
+Given the following configuration only [admins](#admins), lqiao and any users having the role 'studios\_group\_admin'.
 
 ```xml
 <cruise>
@@ -956,19 +896,13 @@ users having the role 'studios\_group\_admin'.
 `<view>`
 --------
 
-The `<view>` element is a permission section to specify who can see the
-pipelines under the pipeline group. You can define roles and users in
-the tag.
+The `<view>` element is a permission section to specify who can see the pipelines under the pipeline group. You can define roles and users in the tag.
 
-**Note:**Administrators ([admins](#admins)) can see all pipeline groups.
-Any other users or roles that are not listed under the `<view>` tag will
-be unable to see this pipeline group
+**Note:**Administrators ([admins](#admins)) can see all pipeline groups. Any other users or roles that are not listed under the `<view>` tag will be unable to see this pipeline group
 
 ### Examples
 
-Given the following configuration only administrators can operate the
-pipeline group, and only [admins](#admins), lqiao and any users having
-the role 'go\_readonly\_member' can see the pipeline.
+Given the following configuration only administrators can operate the pipeline group, and only [admins](#admins), lqiao and any users having the role 'go\_readonly\_member' can see the pipeline.
 
 ```xml
 <cruise>
@@ -992,21 +926,13 @@ the role 'go\_readonly\_member' can see the pipeline.
 `<operate>`
 -----------
 
-The `<operate>` element specifies who can operate the pipelines under
-the pipeline group. You can define roles and users.
+The `<operate>` element specifies who can operate the pipelines under the pipeline group. You can define roles and users.
 
-**Note:**Any users/roles that are not listed under the
-[`<view>`](#group_view) tag will be unable to see this pipeline group
-(even if they are listed as being allowed to `<operate>` that pipeline
-group)
+**Note:**Any users/roles that are not listed under the [`<view>`](#group_view) tag will be unable to see this pipeline group (even if they are listed as being allowed to `<operate>` that pipeline group)
 
 ### Examples
 
-Given the following configuration, only [admins](#admins), lqiao, jez
-and the users having the role 'go\_core\_member' can operate the
-pipeline group. Only [admins](#admins), lqiao and the users having the
-role 'go\_readonly\_member' can see the pipeline (jez and
-go\_core\_member cannot).
+Given the following configuration, only [admins](#admins), lqiao, jez and the users having the role 'go\_core\_member' can operate the pipeline group. Only [admins](#admins), lqiao and the users having the role 'go\_readonly\_member' can see the pipeline (jez and go\_core\_member cannot).
 
 ```xml
 <cruise>
@@ -1035,15 +961,12 @@ go\_core\_member cannot).
 `<pipeline>`
 ------------
 
-The `<pipeline>` element specifies a single pipeline. It must be unique
-(including case) across the entire configuration (not only in the
+The `<pipeline>` element specifies a single pipeline. It must be unique (including case) across the entire configuration (not only in the
 pipeline group).
 
 **Notes:**
 
-There should be at least one stage in one pipeline. Go uses the pipeline
-name to identify the pipeline. If you change the pipeline name, you will
-lose the history of the pipeline.
+There should be at least one stage in one pipeline. Go uses the pipeline name to identify the pipeline. If you change the pipeline name, you will lose the history of the pipeline.
 
 ### Attributes
 
@@ -1130,18 +1053,14 @@ lose the history of the pipeline.
 `<params>`
 ----------
 
-The element `<params>` specifies the list of parameters (Element
-[param](#param)) elements to be used in a pipeline or a pipeline
-template. You can specify these under a [`<pipeline>`](#pipeline) and
-can be used anywhere inside pipeline/stage/job definition.
+The element `<params>` specifies the list of parameters (Element [param](#param)) elements to be used in a pipeline or a pipeline template. You can specify these under a [`<pipeline>`](#pipeline) and can be used anywhere inside pipeline/stage/job definition.
 
 [top](#top)
 
 `<param>`
 ---------
 
-A `<param>` defines the parameter name that will be substituted with the
-paramerter value that will be substituted in a pipeline or a pipeline
+A `<param>` defines the parameter name that will be substituted with the paramerter value that will be substituted in a pipeline or a pipeline
 template.
 
 ### Example:
@@ -1158,10 +1077,8 @@ template.
 `<trackingtool>`
 ----------------
 
-The `<trackingtool>` element can be used to specify links to an issue
-tracker. Go will construct a link based on the commit message that you
-can use to take you to your tracking tool (Mingle card, JIRA issue, Trac
-issue etc).
+The `<trackingtool>` element can be used to specify links to an issue tracker. Go will construct a link based on the commit message that you
+can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue etc).
 
 ### Attributes
 
@@ -1186,8 +1103,7 @@ issue etc).
 
 ### Examples
 
-Suppose you are using a Web Application to manage your tasks or bugs,
-and the link looks like http://your-trackingtool/yourproject/512, '512'
+Suppose you are using a Web Application to manage your tasks or bugs, and the link looks like http://your-trackingtool/yourproject/512, '512'
 is your task ID. Your configuration would be:
 
 ```xml
@@ -1197,14 +1113,10 @@ is your task ID. Your configuration would be:
 </pipeline>
 ```
 
-If you check in some code with a commit message which includes the
-characters 'evo-512' then that will appear in the modification pop-up
-box as a link. When you click it, Go will take you to the web page
-'http://your-trackingtool/yourproject/512'.
+If you check in some code with a commit message which includes the characters 'evo-512' then that will appear in the modification pop-up
+box as a link. When you click it, Go will take you to the web page 'http://your-trackingtool/yourproject/512'.
 
-For example: If you use
-[Mingle](http://www.thoughtworks.com/products/mingle-agile-project-management/)
-for your task manager, the configuration would be:
+For example: If you use [Mingle](http://www.thoughtworks.com/products/mingle-agile-project-management/) for your task manager, the configuration would be:
 
 ```xml
 <pipeline name="yourproject">
@@ -1220,13 +1132,9 @@ for your task manager, the configuration would be:
 `<mingle>`
 ----------
 
-This element let's you associate a
-[Mingle](http://www.thoughtworks-studios.com/mingle) project to a
-pipeline. Once associated, you will be able to track Mingle cards from
-within Go.
+This element let's you associate a [Mingle](http://www.thoughtworks-studios.com/mingle) project to a pipeline. Once associated, you will be able to track Mingle cards from within Go.
 
-**Note:** You cannot configure a [trackingtool](#trackingtool) if mingle
-is configured for a pipeline.
+**Note:** You cannot configure a [trackingtool](#trackingtool) if mingle is configured for a pipeline.
 
 ### Attributes
 
@@ -1258,8 +1166,7 @@ is configured for a pipeline.
 `<timer>`
 ---------
 
-The `<timer>` element specifies a cron-like schedule to build the
-pipeline.
+The `<timer>` element specifies a cron-like schedule to build the pipeline.
 
 ### Attributes
 
@@ -1291,18 +1198,12 @@ For example to run a pipeline once a night at 10pm on weekdays:
 </pipeline>
 ```
 
-Go uses the
-[Quartz](http://www.quartz-scheduler.org/documentation/quartz-1.x/quick-start)
-scheduler internally. For convenience we reproduce the [Quartz cron
-documentation](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger)
-here:
+Go uses the [Quartz](http://www.quartz-scheduler.org/documentation/quartz-1.x/quick-start) scheduler internally. For convenience we reproduce the [Quartz cron documentation](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger) here:
 
 ### Format
 
-A cron expression is a string comprised of 6 or 7 fields separated by
-white space. Fields can contain any of the allowed values, along with
-various combinations of the allowed special characters for that field.
-The fields are as follows:
+A cron expression is a string comprised of 6 or 7 fields separated by white space. Fields can contain any of the allowed values, along with
+various combinations of the allowed special characters for that field. The fields are as follows:
 
 Field Name
 
@@ -1368,74 +1269,25 @@ empty, 1970-2099
 
 , - \* /
 
-So cron expressions can be as simple as this: `* * * * * ?`\
- or more complex, like this: `0 15 10 ? * 6L 2002-2005`
+So cron expressions can be as simple as this: `* * * * * ?`\ or more complex, like this: `0 15 10 ? * 6L 2002-2005`
 
 ### Special characters
 
--   `*` (*"all values"*) - used to select all values within a field. For
-    example, "\*" in the minute field means *"every minute"*.
+-   `*` (*"all values"*) - used to select all values within a field. For example, "\*" in the minute field means *"every minute"*.
 
--   `?` (*"no specific value"*) - useful when you need to specify
-    something in one of the two fields in which the character is
-    allowed, but not the other. For example, if I want my trigger to
-    fire on a particular day of the month (say, the 10th), but don't
-    care what day of the week that happens to be, I would put "10" in
-    the day-of-month field, and "?" in the day-of-week field. See the
-    examples below for clarification.
+-   `?` (*"no specific value"*) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don't care what day of the week that happens to be, I would put "10" in the day-of-month field, and "?" in the day-of-week field. See the examples below for clarification.
 
--   `-` - used to specify ranges. For example, "10-12" in the hour field
-    means *"the hours 10, 11 and 12"*.
+-   `-` - used to specify ranges. For example, "10-12" in the hour field means *"the hours 10, 11 and 12"*.
 
--   `,` - used to specify additional values. For example, "MON,WED,FRI"
-    in the day-of-week field means *"the days Monday, Wednesday, and
-    Friday"*.
+-   `,` - used to specify additional values. For example, "MON,WED,FRI" in the day-of-week field means *"the days Monday, Wednesday, and Friday"*.
 
--   `/` - used to specify increments. For example, "0/15" in the seconds
-    field means *"the seconds 0, 15, 30, and 45"*. And "5/15" in the
-    seconds field means *"the seconds 5, 20, 35, and 50"*. You can also
-    specify '/' after the '**' character - in this case '**' is
-    equivalent to having '0' before the '/'. '1/3' in the day-of-month
-    field means *"fire every 3 days starting on the first day of the
-    month"*.
+-   `/` - used to specify increments. For example, "0/15" in the seconds field means *"the seconds 0, 15, 30, and 45"*. And "5/15" in the seconds field means *"the seconds 5, 20, 35, and 50"*. You can also specify '/' after the '**' character - in this case '**' is equivalent to having '0' before the '/'. '1/3' in the day-of-month field means *"fire every 3 days starting on the first day of the month"*.
 
--   `L` (*"last"*) - has different meaning in each of the two fields in
-    which it is allowed. For example, the value "L" in the day-of-month
-    field means *"the last day of the month"* - day 31 for January, day
-    28 for February on non-leap years. If used in the day-of-week field
-    by itself, it simply means "7" or "SAT". But if used in the
-    day-of-week field after another value, it means *"the last xxx day
-    of the month"* - for example "6L" means *"the last friday of the
-    month"*. When using the 'L' option, it is important not to specify
-    lists, or ranges of values, as you'll get confusing results.
+-   `L` (*"last"*) - has different meaning in each of the two fields in which it is allowed. For example, the value "L" in the day-of-month field means *"the last day of the month"* - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means "7" or "SAT". But if used in the day-of-week field after another value, it means *"the last xxx day of the month"* - for example "6L" means *"the last friday of the month"*. When using the 'L' option, it is important not to specify lists, or ranges of values, as you'll get confusing results.
 
--   `W` (*"weekday"*) - used to specify the weekday (Monday-Friday)
-    nearest the given day. As an example, if you were to specify "15W"
-    as the value for the day-of-month field, the meaning is: *"the
-    nearest weekday to the 15th of the month"*. So if the 15th is a
-    Saturday, the trigger will fire on Friday the 14th. If the 15th is a
-    Sunday, the trigger will fire on Monday the 16th. If the 15th is a
-    Tuesday, then it will fire on Tuesday the 15th. However if you
-    specify "1W" as the value for day-of-month, and the 1st is a
-    Saturday, the trigger will fire on Monday the 3rd, as it will not
-    'jump' over the boundary of a month's days. The 'W' character can
-    only be specified when the day-of-month is a single day, not a range
-    or list of days.
+-   `W` (*"weekday"*) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify "15W" as the value for the day-of-month field, the meaning is: *"the nearest weekday to the 15th of the month"*. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify "1W" as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not 'jump' over the boundary of a month's days. The 'W' character can only be specified when the day-of-month is a single day, not a range or list of days. The 'L' and 'W' characters can also be combined in the day-of-month field to yield 'LW', which translates to *"last weekday of the month"*.
 
-    The 'L' and 'W' characters can also be combined in the day-of-month
-    field to yield 'LW', which translates to *"last weekday of the
-    month"*.
-
--   `#` - used to specify "the nth" XXX day of the month. For example,
-    the value of "6\#3" in the day-of-week field means *"the third
-    Friday of the month"* (day 6 = Friday and "\#3" = the 3rd one in the
-    month). Other examples: "2\#1" = the first Monday of the month and
-    "4\#5" = the fifth Wednesday of the month. Note that if you specify
-    "\#5" and there is not 5 of the given day-of-week in the month, then
-    no firing will occur that month.
-
-    The legal characters and the names of months and days of the week
-    are not case sensitive. `MON` is the same as `mon`.
+-   `#` - used to specify "the nth" XXX day of the month. For example, the value of "6\#3" in the day-of-week field means *"the third Friday of the month"* (day 6 = Friday and "\#3" = the 3rd one in the month). Other examples: "2\#1" = the first Monday of the month and "4\#5" = the fifth Wednesday of the month. Note that if you specify "\#5" and there is not 5 of the given day-of-week in the month, then no firing will occur that month. The legal characters and the names of months and days of the week are not case sensitive. `MON` is the same as `mon`.
 
 ### Examples
 
@@ -1475,8 +1327,7 @@ Fire every 5 minutes starting at 2pm and ending at 2:55pm, every day
 
 `0 0/5 14,18 * * ?`
 
-Fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire
-every 5 minutes starting at 6pm and ending at 6:55pm, every day
+Fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day
 
 `0 0-5 14 * * ?`
 
@@ -1508,8 +1359,7 @@ Fire at 10:15am on the last Friday of every month
 
 `0 15 10 ? * 6L 2002-2005`
 
-Fire at 10:15am on every last friday of every month during the years
-2002, 2003, 2004 and 2005
+Fire at 10:15am on every last friday of every month during the years 2002, 2003, 2004 and 2005
 
 `0 15 10 ? * 6#3`
 
@@ -1517,39 +1367,30 @@ Fire at 10:15am on the third Friday of every month
 
 `0 0 12 1/5 * ?`
 
-Fire at 12pm (noon) every 5 days every month, starting on the first day
-of the month.
+Fire at 12pm (noon) every 5 days every month, starting on the first day of the month.
 
 `0 11 11 11 11 ?`
 
 Fire every November 11th at 11:11am.
 
-Pay attention to the effects of '?' and '\*' in the day-of-week and
-day-of-month fields!
+Pay attention to the effects of '?' and '\*' in the day-of-week and day-of-month fields!
 
 ### Notes
 
--   Support for specifying both a day-of-week and a day-of-month value
-    is not complete (you must currently use the '?' character in one of
-    these fields).
--   Be careful when setting fire times between mid-night and 1:00 AM -
-    "daylight savings" can cause a skip or a repeat depending on whether
-    the time moves back or jumps forward.
+-   Support for specifying both a day-of-week and a day-of-month value is not complete (you must currently use the '?' character in one of these fields).
+-   Be careful when setting fire times between mid-night and 1:00 AM - "daylight savings" can cause a skip or a repeat depending on whether the time moves back or jumps forward.
 
 [top](#top)
 
 `<materials>`
 -------------
 
-The `<materials>` element specifies the source of the pipeline changes.
-Generally this will be your codebase in your source control repository.
+The `<materials>` element specifies the source of the pipeline changes. Generally this will be your codebase in your source control repository.
 
 **Notes:**
 
-Go supports multiple materials with the restriction that every material
-must contain a unique "dest" folder (that is not a subfolder of any
-other material). Go will check out the source code into this folder for
-each material.
+Go supports multiple materials with the restriction that every material must contain a unique "dest" folder (that is not a subfolder of any
+other material). Go will check out the source code into this folder for each material.
 
 ### Examples
 
@@ -1585,12 +1426,7 @@ Multiple materials:
 `<filter>`
 ----------
 
-The `<filter>` element specifies files in changesets that should not
-trigger a pipeline automatically. When a pipeline is triggered by files
-that are not ignored the filtered files will still be updated with other
-files. You can only define one filter under each SCM material. When you
-trigger a pipeline manually, it will update to most recent revision,
-including filtered files.
+The `<filter>` element specifies files in changesets that should not trigger a pipeline automatically. When a pipeline is triggered by files that are not ignored the filtered files will still be updated with other files. You can only define one filter under each SCM material. When you trigger a pipeline manually, it will update to most recent revision, including filtered files.
 
 ### Examples
 
@@ -1607,8 +1443,7 @@ including filtered files.
 `<ignore>`
 ----------
 
-The `<ignore>` element is used to specify a set of files that are
-ignored when Go checks for changes. Repository changesets which only
+The `<ignore>` element is used to specify a set of files that are ignored when Go checks for changes. Repository changesets which only
 contain these files will not trigger a pipeline automatically.
 
 ### Attributes
@@ -1635,8 +1470,7 @@ contain these files will not trigger a pipeline automatically.
 ### Notes
 
 -   `<ignore>` can occur multiple times under [`<filter>`](#filter).
--   The pattern is relative to the root directory of the SCM repository,
-    not the sandbox in the agent side or the materials URL.
+-   The pattern is relative to the root directory of the SCM repository, not the sandbox in the agent side or the materials URL.
 -   Ignored files are still updated when other files are updated.
 
 ### Examples:
@@ -1659,40 +1493,35 @@ Ignore files under the folder **'doc'**, excluding any subfolder.\
 <ignore pattern="framework/helper/*.doc" />
 ```
 
-Ignore files that are under the directory 'framework/helper' and the
-file extension is **.doc**.\
+Ignore files that are under the directory 'framework/helper' and the file extension is **.doc**.\
 \
 
 ```xml
 <ignore pattern="*.pdf" />
 ```
 
-Ignore files that are under the root directory of SCM repository and the
-file extension is **.pdf**.\
+Ignore files that are under the root directory of SCM repository and the file extension is **.pdf**.\
 \
 
 ```xml
 <ignore pattern="**/helper/*.pdf" />
 ```
 
-Ignore all the files that is under any **'helper'** folder and the file
-extension is **.pdf**.\
+Ignore all the files that is under any **'helper'** folder and the file extension is **.pdf**.\
 \
 
 ```xml
 <ignore pattern="helper/**/*.pdf" />
 ```
 
-Ignore all the files that are in the nested directory under folder
-**'helper'** of the repository and the file extension is **.pdf**.
+Ignore all the files that are in the nested directory under folder **'helper'** of the repository and the file extension is **.pdf**.
 
 [top](#top)
 
 `<svn>`
 -------
 
-The `<svn>` element specifies the location of your code base in
-Subversion repository.
+The `<svn>` element specifies the location of your code base in Subversion repository.
 
 ### Attributes
 
@@ -1719,10 +1548,8 @@ Subversion repository.
 
 ### Notes:
 
-Go cannot automatically accept svn SSL certificates. If you are using
-https for svn repository, you have to go to the Server and each Agent,
-and as the user 'go' do a command "svn update" to store the certificates
-in the cache permanently.
+Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server and each Agent,
+and as the user 'go' do a command "svn update" to store the certificates in the cache permanently.
 
 ### Examples:
 
@@ -1738,24 +1565,18 @@ For a Go Agent on linux with the following configuration:
 </pipeline> 
 ```
 
-Go Agent will check out source code from
-'http://svn-server.com/framework' to
-'/var/lib/go-agent/pipelines/myproduct/framwork', and from
-'http://svn-server.com/componentOne' to
-'/var/lib/go-agent/pipelines/myproduct/mycomponent'.
+Go Agent will check out source code from 'http://svn-server.com/framework' to '/var/lib/go-agent/pipelines/myproduct/framwork', and from 'http://svn-server.com/componentOne' to '/var/lib/go-agent/pipelines/myproduct/mycomponent'.
 
 [top](#top)
 
 `<hg>`
 ------
 
-The `<hg>` element specifies the location of your code base in a
-Mercural repository. Go supports the http and ssh for mercural.
+The `<hg>` element specifies the location of your code base in a Mercural repository. Go supports the http and ssh for mercural.
 
 ### Notes:
 
-You must install Mercurial 1.5 or above on the Go Server and Go Agents
-for the jobs need Mercurial. Go does not ship with Mercurial.
+You must install Mercurial 1.5 or above on the Go Server and Go Agents for the jobs need Mercurial. Go does not ship with Mercurial.
 
 ### Attributes
 
@@ -1806,21 +1627,18 @@ for the jobs need Mercurial. Go does not ship with Mercurial.
 </pipeline>
 ```
 
-Note that \# needs to be escaped with another \# - hence the \#\# in the
-url above.
+Note that \# needs to be escaped with another \# - hence the \#\# in the url above.
 
 [top](#top)
 
-\<p4\>
+`<p4\>`
 ------
 
-The \<p4\> element specifies the location of your code base in a
-Perforce repository.
+The `<p4\>` element specifies the location of your code base in a Perforce repository.
 
 ### Notes:
 
-Go will use directory under pipelines/{pipelineName} in agent side as
-Perforce root directory of perforce client workspace.
+Go will use directory under pipelines/{pipelineName} in agent side as Perforce root directory of perforce client workspace.
 
 ### Attributes
 
@@ -1834,8 +1652,7 @@ port
 
 Yes
 
-Perforce server connection to use (host:port). This is the same as you
-would pass in the p4port parameter for the p4 command line or in the
+Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the
 P4PORT environment variable.
 
 username
@@ -1854,79 +1671,50 @@ useTickets
 
 No
 
-Set to true to work with perforce tickets. Go will do a p4 login using
-the supplied password before each command. We recommend that you make
-your user a part of a p4 group, and set the ticket timeout to unlimited
-as described here:
+Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make
+your user a part of a p4 group, and set the ticket timeout to unlimited as described here:
 <http://www.perforce.com/perforce/doc.current/manuals/cmdref/login.html>
 
 dest
 
 Only for [multiple materials](#materials)
 
-The directory where the code will be checked out. This is relative to
-the sandbox of the Go Agent. Go prevents the destination folder from
+The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from
 being outside the agent's sandbox.
 
 view
 
 Yes
 
-Valid Perforce view. **The view should be a sub-element of P4.**\
-Click
-[here](http://www.perforce.com/perforce/doc.082/manuals/p4guide/02_config.html#1066090)
-to see details about VIEW of Perforce.
+Valid Perforce view. **The view should be a sub-element of P4.**\ Click [here](http://www.perforce.com/perforce/doc.082/manuals/p4guide/02_config.html#1066090) to see details about VIEW of Perforce.
 
 materialName
 
-Required if this material is referenced in [pipeline
-labeltemplate](#pipeline)
+Required if this material is referenced in [pipeline labeltemplate](#pipeline)
 
-The name to identify a material. Material name can contain the following
-characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are
-not allowed. Material name is case insensitive. It needs to be unique
-within a pipeline. The max length is 255 characters.
+The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are
+not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.
 
 autoUpdate
 
 No
 
-By default Go polls the repository for changes automatically. If
-autoUpdate is set to false then Go will not poll the repository for
-changes. Instead it will check for changes only when you trigger a
-pipeline that contains this material. If the same material is specified
-more than once in the configuration file, all of them must have the same
-value for autoUpdate.
+By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.
 
 ### Notes:
 
-You do not need to specify the above attributes if you have already
-defined them as system variables. So if you have a P4PASSWD variable
-defined then you can leave out the "password" tag defined above. If you
-already have them defined as system variables and also in Go
+You do not need to specify the above attributes if you have already defined them as system variables. So if you have a P4PASSWD variable
+defined then you can leave out the "password" tag defined above. If you already have them defined as system variables and also in Go
 configuration, Go will overwrite them before running p4.
 
 Views consist of multiple mappings. Each mapping has two parts:
 
-1.  The left-hand side specifies one or more files in the depot and has
-    the form: //depotname/file\_specification
-2.  The right-hand side specifies one or more files in the client
-    workspace and has the form: //clientname/file\_specification
+1.  The left-hand side specifies one or more files in the depot and has the form: //depotname/file\_specification
+2.  The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file\_specification
 
-Go creates a p4 client to check out files into its sandbox with the
-'clobber' option set. This means, during material update all
-writable-but-unopened files in the workspace would be overwritten on the
-agent. All other options use default values as defined by Perforce.
-Client name is generated automatically by Go. Hence, you can use
-anything as 'clientname' on the right-hand side in view mapping. The
-client name format is: cruise-[hostname]-[pipeline name]-[a random hash
-code], for example
-"cruise-myhostname-mypipelinename-wOaJ9kjpfgOLQCncki19ikXt5Q". THE
-GO\_P4\_CLIENT environment variable will have the client name used. This
-variable can be used in scripts to get the client name
+Go creates a p4 client to check out files into its sandbox with the 'clobber' option set. This means, during material update all writable-but-unopened files in the workspace would be overwritten on the agent. All other options use default values as defined by Perforce. Client name is generated automatically by Go. Hence, you can use anything as 'clientname' on the right-hand side in view mapping. The client name format is: cruise-[hostname]-[pipeline name]-[a random hash code], for example "cruise-myhostname-mypipelinename-wOaJ9kjpfgOLQCncki19ikXt5Q". THE GO\_P4\_CLIENT environment variable will have the client name used. This variable can be used in scripts to get the client name
 
-Go views are in the same format as that used by Perforce itself. In fact
-you should be able to copy a Perforce view from your existing Perforce
+Go views are in the same format as that used by Perforce itself. In fact you should be able to copy a Perforce view from your existing Perforce
 setup and paste it into the view section.
 
 For example:
@@ -1951,29 +1739,22 @@ For example:
 `<git>`
 -------
 
-The `<git>` element specifies the location of your code base in a GIT
-repository. Go only supports remote repositories.
+The `<git>` element specifies the location of your code base in a GIT repository. Go only supports remote repositories.
 
 ### Notes:
 
 git versions 1.7 and above are supported by Go.
 
-If 'branch' is defined, Go will check out the specified branch.
-Otherwise, Go will check out the master branch.
+If 'branch' is defined, Go will check out the specified branch. Otherwise, Go will check out the master branch.
 
-If there are submodules in the repository, Go will check out them as
-well.
+If there are submodules in the repository, Go will check out them as well.
 
-msysGit on Windows has a
-[defect](https://github.com/msysgit/msysgit/issues/43) which causes an
-error when using Go. Please ensure to use a build which fixes this.
+msysGit on Windows has a [defect](https://github.com/msysgit/msysgit/issues/43) which causes an error when using Go. Please ensure to use a build which fixes this.
 
-While installing msysGit On Windows machines for Go server or agents,
-please choose Option iii, namely *Run Git and included UNIX tools from
+While installing msysGit On Windows machines for Go server or agents, please choose Option iii, namely *Run Git and included UNIX tools from
 windows command prompt*
 
-If you are using git through SSH on windows, please ensure that the HOME
-user environment variable is set to the full path of the parent
+If you are using git through SSH on windows, please ensure that the HOME user environment variable is set to the full path of the parent
 directory where the .ssh/ directory is located.
 
 ### Attributes
@@ -2018,8 +1799,7 @@ directory where the .ssh/ directory is located.
 `<tfs>`
 -------
 
-The `<tfs>` element specifies the location of your code base in a TFS
-Source repository.
+The `<tfs>` element specifies the location of your code base in a TFS Source repository.
 
 ### Attributes
 
@@ -2060,8 +1840,7 @@ Source repository.
 `<package>`
 -----------
 
-The `<package>` element refers to package which is defined as part of
-repositories configuration.
+The `<package>` element refers to package which is defined as part of repositories configuration.
 
 ### Attributes
 
@@ -2122,14 +1901,11 @@ repositories configuration.
 `<pipeline>`
 ------------
 
-The `<pipeline>` element specifies that successful completion of a stage
-in another pipeline will trigger the current pipeline to start.
+The `<pipeline>` element specifies that successful completion of a stage in another pipeline will trigger the current pipeline to start.
 
-If there are multiple pipeline dependencies, then any one of them
-passing will trigger a new pipeline.
+If there are multiple pipeline dependencies, then any one of them passing will trigger a new pipeline.
 
-Note that you can not specify two (or more) dependencies for the same
-upstream pipeline.
+Note that you can not specify two (or more) dependencies for the same upstream pipeline.
 
 ### Attributes
 
@@ -2164,15 +1940,12 @@ upstream pipeline.
 
 ### Notes:
 
-The downstream pipeline wouldn't be triggered if there was no passed
-stage in the upstream pipeline.
+The downstream pipeline wouldn't be triggered if there was no passed stage in the upstream pipeline.
 
 ### Examples
 
-Suppose there are four pipelines, and they are commonLib1, commonLib2,
-Server and Client. For example, the stage 'distStage' in commonLib1
-pipeline can trigger the other two pipelines, and the stage 'pkgstage'
-in commonLib2 pipeline can trigger Server pipeline. The configuration
+Suppose there are four pipelines, and they are commonLib1, commonLib2, Server and Client. For example, the stage 'distStage' in commonLib1
+pipeline can trigger the other two pipelines, and the stage 'pkgstage' in commonLib2 pipeline can trigger Server pipeline. The configuration
 would be:
 
 ```xml
@@ -2196,12 +1969,7 @@ would be:
 `<stage>`
 ---------
 
-The `<stage>` element specifies a set of jobs. If any job in a given
-stage fails then the stage will fail. If a stage has an
-[`<approval>`](#approval) configuration with manual type it can only be
-triggered manually (i.e. a user must click on the trigger button on the
-UI). If the previous stage has failed, you can still trigger the
-following stage manually.
+The `<stage>` element specifies a set of jobs. If any job in a given stage fails then the stage will fail. If a stage has an [`<approval>`](#approval) configuration with manual type it can only be triggered manually (i.e. a user must click on the trigger button on the UI). If the previous stage has failed, you can still trigger the following stage manually.
 
 **Notes:**
 
@@ -2263,8 +2031,7 @@ The `<jobs>` element specify the set of jobs for a stage.
 
 **Note:**
 
-`<jobs>` can contain several [`<job>`](#job) elements. These jobs can
-run in parallel on different [`<agents>`](#agents).
+`<jobs>` can contain several [`<job>`](#job) elements. These jobs can run in parallel on different [`<agents>`](#agents).
 
 ### Examples
 
@@ -2288,13 +2055,10 @@ run in parallel on different [`<agents>`](#agents).
 `<job>`
 -------
 
-A job is the basic unit of work. It is executed on an agent. A job can
-fetch artifacts from Go Server, execute tasks and publish artifacts back
+A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.
 
-A job can also be associated with a set of [`<resources>`](#resources).
-Resources are used to match a Job to an Agent. An Agent can run a Job if
-it has all the resources that the Job specifies.
+A job can also be associated with a set of [`<resources>`](#resources). Resources are used to match a Job to an Agent. An Agent can run a Job if it has all the resources that the Job specifies.
 
 If a Job has no resources then it can be built by any Agent
 
@@ -2355,8 +2119,7 @@ If a Job has no resources then it can be built by any Agent
 `<resources>`
 -------------
 
-`<resources>` specifies the [resources](#resource) needed for a job. A
-job can have zero or more resources.
+`<resources>` specifies the [resources](#resource) needed for a job. A job can have zero or more resources.
 
 If a job has no resources it can be built on any agent.
 
@@ -2377,14 +2140,11 @@ If a job has no resources it can be built on any agent.
 `<resource>`
 ------------
 
-A `<resource>` is a text tag that specifies a resource which a job
-requires to build. An Agent must have all the Resources specified for a
-Job to be able to run that Job.
+A `<resource>` is a text tag that specifies a resource which a job requires to build. An Agent must have all the Resources specified for a Job to be able to run that Job.
 
 ### Validations:
 
-Resources are case-insensitive. A resource name can contain alphanumeric
-characters, hyphens (-), spaces, periods (.) and pipes (|).
+Resources are case-insensitive. A resource name can contain alphanumeric characters, hyphens (-), spaces, periods (.) and pipes (|).
 
 ### Example:
 
@@ -2401,13 +2161,9 @@ characters, hyphens (-), spaces, periods (.) and pipes (|).
 `<tasks>`
 ---------
 
-`<tasks>` specifies the tasks (like [`<ant>`](#ant), [`<rake>`](#rake)
-etc) that will run as part of a job.
+`<tasks>` specifies the tasks (like [`<ant>`](#ant), [`<rake>`](#rake) etc) that will run as part of a job.
 
-There can be zero or more tasks. These tasks are executed in the order
-specified in the configuration file. If a task fails, the subsequent
-tasks are not run unless they have [\<runif status="failed" /\>](#runif)
-defined.
+There can be zero or more tasks. These tasks are executed in the order specified in the configuration file. If a task fails, the subsequent tasks are not run unless they have [\<runif status="failed" /\>](#runif) defined.
 
 The following environment variables are set for all tasks:
 
@@ -2436,10 +2192,7 @@ The following environment variables are set for all tasks:
 `<ant>`
 -------
 
-Specifies an Ant build to run. Ant is assumed to be present from the
-command line on the agent. Go depends on and uses JDK 1.6. If JDK 1.4 or
-1.5 binaries are required by a build, it can be specified in the Ant
-[javac](http://ant.apache.org/manual/CoreTasks/javac.html) task.
+Specifies an Ant build to run. Ant is assumed to be present from the command line on the agent. Go depends on and uses JDK 1.6. If JDK 1.4 or 1.5 binaries are required by a build, it can be specified in the Ant [javac](http://ant.apache.org/manual/CoreTasks/javac.html) task.
 
 All paths specified are relative to the pipeline working directory.
 
@@ -2481,8 +2234,7 @@ All paths specified are relative to the pipeline working directory.
 `<exec>`
 --------
 
-Runs a specified command. The build fails if the command cannot be run
-or if it returns an error.
+Runs a specified command. The build fails if the command cannot be run or if it returns an error.
 
 All paths specified are relative to the pipeline working directory.
 
@@ -2508,8 +2260,7 @@ All paths specified are relative to the pipeline working directory.
 
 ### Examples
 
--   Invoke ruby, specifying the working directory as
-    **tools/my-ruby-tool** and executing the ruby script **backup.rb**.
+-   Invoke ruby, specifying the working directory as **tools/my-ruby-tool** and executing the ruby script **backup.rb**.
 
     ```xml
     <tasks>
@@ -2524,18 +2275,12 @@ All paths specified are relative to the pipeline working directory.
 
 Specify a single argument for [exec](#exec) command.
 
-This element is optional and can occur multiple times. It serves as an
-alternative to the "args" attribute of [exec](#exec), but it allows the
-use of any character required for making argument. For example, you can
-specify double quote using the xml escaped format: &quot;
+This element is optional and can occur multiple times. It serves as an alternative to the "args" attribute of [exec](#exec), but it allows the
+use of any character required for making argument. For example, you can specify double quote using the xml escaped format: &quot;
 
-**Note:**When running commands on Windows, Go won't launch your command
-with system shell (cmd.exe), so you can't use shell commands (like echo)
-directly. If you want, you can pass your shell command as arguments to
-the cmd.exe.
+**Note:**When running commands on Windows, Go won't launch your command with system shell (cmd.exe), so you can't use shell commands (like echo) directly. If you want, you can pass your shell command as arguments to the cmd.exe.
 
-On Windows you should specify the full name of your script file such as
-"mybuild.bat". (Only specifying "mybuild" won't work)
+On Windows you should specify the full name of your script file such as "mybuild.bat". (Only specifying "mybuild" won't work)
 
 ### Examples
 
@@ -2564,8 +2309,7 @@ On Windows you should specify the full name of your script file such as
 `<nant>`
 --------
 
-Specifies a NAnt build to run. NAnt is assumed to be present from the
-command line on the agent.
+Specifies a NAnt build to run. NAnt is assumed to be present from the command line on the agent.
 
 All paths specified must be relative to the pipeline working directory.
 
@@ -2603,8 +2347,7 @@ Invoke NAnt, specifying a set of targets to run:
 `<rake>`
 --------
 
-Specifies a Rake build to be run. Ruby and Rake are assumed to be
-present from the command line on the agent.
+Specifies a Rake build to be run. Ruby and Rake are assumed to be present from the command line on the agent.
 
 All paths specified must be relative to the pipeline working directory.
 
@@ -2642,13 +2385,10 @@ Invoke rake, specifying a set of targets to run:
 Fetch artifacts from:
 
 -   1\. previous stages in the same pipeline, or
--   2\. stages of pipelines that this pipeline depends on, directly or
-    indirectly (ancestor pipelines).
+-   2\. stages of pipelines that this pipeline depends on, directly or indirectly (ancestor pipelines).
 
-When pointed to parent/ancestor pipeline, fetch task can pull artifacts
-from the upstream-stage or stages before it. This restriction has been
-introduced in 12.2. Stages after the upstream stage can not be fetched
-from, because they may not be complete when the fetch call executes.
+When pointed to parent/ancestor pipeline, fetch task can pull artifacts from the upstream-stage or stages before it. This restriction has been
+introduced in 12.2. Stages after the upstream stage can not be fetched from, because they may not be complete when the fetch call executes.
 
 All file paths specified are relative to the pipeline working directory.
 
@@ -2666,16 +2406,8 @@ No
 
 This value can either be:
 
--   1\. the name of upstream pipeline on which the pipeline of the job
-    depends on. The pipeline should be added as a dependency under
-    [`<materials>`](#materials), or
--   2\. the hierarchy of an ancestor pipeline of the current pipeline.
-    Example, The value "BuildPipeline/AcceptancePipeline" denotes that the
-    fetch task attempts to fetch artifacts from its ancestor
-    'BuildPipeline'. The given hierarchy denotes that the current pipeline
-    depends on 'AcceptancePipeline' which in turn depends on 'BuildPipeline'
-    using the dependency material definition given under
-    [materials](#materials).
+-   1\. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under [`<materials>`](#materials), or
+-   2\. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value "BuildPipeline/AcceptancePipeline" denotes that the fetch task attempts to fetch artifacts from its ancestor 'BuildPipeline'. The given hierarchy denotes that the current pipeline depends on 'AcceptancePipeline' which in turn depends on 'BuildPipeline' using the dependency material definition given under [materials](#materials).
 
 Defaults to current pipeline if not specified.
 
@@ -2695,28 +2427,22 @@ srcdir
 
 One of
 
-The path of the artifact directory of a specific job, relative to the
-sandbox directory. If the directory does not exist, the job is failed
+The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed
 
 srcfile
 
-The path of the artifact file of a specific job.\
-Note: If the file does not exist, the job will fail.\
- Go will not fetch the artifact again if it has not changed. The
-directory path is relative to the pipeline working directory.
+The path of the artifact file of a specific job.\ Note: If the file does not exist, the job will fail.\ Go will not fetch the artifact again if it has not changed. The directory path is relative to the pipeline working directory.
 
 dest
 
 No
 
-The path of the directory where the artifact is fetched to. The
-directory is overwritten if it already exists. The directory path is
+The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is
 relative to the pipeline working directory.
 
 ### Example:
 
-1.  Fetch all artifacts in the directory 'pkg' from the previous stage
-    in the same pipeline and put them under the directory 'lib'
+1.  Fetch all artifacts in the directory 'pkg' from the previous stage in the same pipeline and put them under the directory 'lib'
 
     ```xml
     <pipelines>
@@ -2744,8 +2470,7 @@ relative to the pipeline working directory.
     </pipelines>
     ```
 
-2.  Fetch a single artifact from a stage in the upstream pipeline
-    'framework' and put it under the directory 'lib'
+2.  Fetch a single artifact from a stage in the upstream pipeline 'framework' and put it under the directory 'lib'
 
     ```xml
     <pipeline name="go">
@@ -2765,8 +2490,7 @@ relative to the pipeline working directory.
     </pipeline>
     ```
 
-3.  Fetch a single artifact from a stage in an ancestor pipeline 'Build'
-    and put it under the directory 'pkg'
+3.  Fetch a single artifact from a stage in an ancestor pipeline 'Build' and put it under the directory 'pkg'
 
     ```xml
     <pipeline name="deploy">
@@ -2791,15 +2515,12 @@ relative to the pipeline working directory.
 `<runif>`
 ---------
 
-Specifies when a task should be allowed to run. Multiple conditions may
-be defined for each task.
+Specifies when a task should be allowed to run. Multiple conditions may be defined for each task.
 
-A running job on an agent has two possible states: passed or failed. A
-job starts in the state “passed”. If any task fails, it transitions to
+A running job on an agent has two possible states: passed or failed. A job starts in the state “passed”. If any task fails, it transitions to
 the state “failed”.
 
-A task can specify any of three possible runif filters: 'passed',
-'failed' or 'any'. (‘passed’ is the default)
+A task can specify any of three possible runif filters: 'passed', 'failed' or 'any'. (‘passed’ is the default)
 
 ### Attributes
 
@@ -2819,8 +2540,7 @@ A task can specify any of three possible runif filters: 'passed',
 
 ### **Notes:**
 
-[`<runif>`](#runif) can also be defined under [`<exec>`](#exec) task
-even if `<exec>` has some `<arg>`s e.g.
+[`<runif>`](#runif) can also be defined under [`<exec>`](#exec) task even if `<exec>` has some `<arg>`s e.g.
 
 ```xml
     <exec command="echo">
@@ -2849,15 +2569,13 @@ Given the tasks in a job is following:
 
 If task 1 `<ant>` passed, task 2 `<fetchartifact>` would be executed.
 
-If task 2 `<fetchartifact>` passed, task 3 `<exec>` would NOT be
-executed.
+If task 2 `<fetchartifact>` passed, task 3 `<exec>` would NOT be executed.
 
 If task 2 `<fetchartifact>` failed, task 3 `<exec>` would be executed.
 
 #### Scenario two:
 
-If task 1 `<ant>` failed, task 2 `<fetchartifact>` would NOT be
-executed.
+If task 1 `<ant>` failed, task 2 `<fetchartifact>` would NOT be executed.
 
 Instead, task 3 `<exec>` would be executed.
 
@@ -2866,32 +2584,22 @@ Instead, task 3 `<exec>` would be executed.
 `<oncancel>`
 ------------
 
-Specifies a task to execute when a stage is cancelled. Only one task can
-be defined in `<oncancel>`.
+Specifies a task to execute when a stage is cancelled. Only one task can be defined in `<oncancel>`.
 
-If a job is cancelled during the assigning phase, the job will not start
-preparing
+If a job is cancelled during the assigning phase, the job will not start preparing
 
-If a job is cancelled during the preparing phase, preparing will
-complete, but no tasks will be executed
+If a job is cancelled during the preparing phase, preparing will complete, but no tasks will be executed
 
 If a job is cancelled during the building phase:
 
--   If the currently running task **does not** have `<oncancel>`
-    defined, the task will be killed
--   If the currently running task **does** have `<oncancel>` defined,
-    the task defined within `<oncancel>` will execute immediately. As
-    soon as both the original task and the `<oncancel>` task are
-    completed, no other tasks will execute
+-   If the currently running task **does not** have `<oncancel>` defined, the task will be killed
+-   If the currently running task **does** have `<oncancel>` defined, the task defined within `<oncancel>` will execute immediately. As soon as both the original task and the `<oncancel>` task are completed, no other tasks will execute
 
-If a job is cancelled during the completing phase, the agent will ignore
-the request and complete as planned
+If a job is cancelled during the completing phase, the agent will ignore the request and complete as planned
 
 ### Examples
 
-The task 'start\_server' starts a process on an agent. When the stage is
-cancelled, the agent will invoke the cancel task 'kill\_server' to kill
-the process early and clean up any extra files.
+The task 'start\_server' starts a process on an agent. When the stage is cancelled, the agent will invoke the cancel task 'kill\_server' to kill the process early and clean up any extra files.
 
 ```xml
 <tasks>
@@ -2950,10 +2658,8 @@ Publish build artifacts to the artifact repository for the job.
   or folder name.          
   --------------------------------------------------------------------------
 
-You can use wildcards to specify which files to upload. The wildcard
-syntax follows the commonly used ant/nant style. So "target/\*\*/\*.xml"
-would upload all xml files in the target directory and any of its
-subdirectories. The original directory structure is preserved on the
+You can use wildcards to specify which files to upload. The wildcard syntax follows the commonly used ant/nant style. So "target/\*\*/\*.xml"
+would upload all xml files in the target directory and any of its subdirectories. The original directory structure is preserved on the
 server.
 
 ### Examples
@@ -2974,8 +2680,7 @@ server.
 </job>
 ```
 
-The following will upload all xml files to the server's artifact
-repository.
+The following will upload all xml files to the server's artifact repository.
 
 ```xml
 <job name="unit">
@@ -2990,12 +2695,9 @@ repository.
 `<test>`
 --------
 
-The src attribute should point towards a folder that contains the test
-output files. Go will use these to generate a test report. Test
-information is placed in the Failures and Test sub-tabs. Test results
-from multiple jobs are aggregated on the stage detail pages. This allows
-you to see the results of tests from both functional and unit tests even
-if they are run in different jobs.
+The src attribute should point towards a folder that contains the test output files. Go will use these to generate a test report. Test
+information is placed in the Failures and Test sub-tabs. Test results from multiple jobs are aggregated on the stage detail pages. This allows
+you to see the results of tests from both functional and unit tests even if they are run in different jobs.
 
 ### Attributes
 
@@ -3029,11 +2731,7 @@ if they are run in different jobs.
 `<tabs>`
 --------
 
-The `<tabs>` element allows you to add tabs to the Job Details page. You
-can put any artifact that can be rendered by a web browser into a tab.
-For example, if your coverage tool produces an html report, you can
-easily place that report into a tab. Tabs are implemented as iframes
-(see W3C iframe definition ).
+The `<tabs>` element allows you to add tabs to the Job Details page. You can put any artifact that can be rendered by a web browser into a tab. For example, if your coverage tool produces an html report, you can easily place that report into a tab. Tabs are implemented as iframes (see W3C iframe definition ).
 
 ### Example:
 
@@ -3071,9 +2769,7 @@ Define a tab with specific name and artifact to show.
 
 ### Example:
 
-Given some coverage infomation in 'target/Jcoverage' folder on the agent
-side, We configure a tab to show the coverage information by specifying
-a tab with the index.html file.
+Given some coverage infomation in 'target/Jcoverage' folder on the agent side, We configure a tab to show the coverage information by specifying a tab with the index.html file.
 
 ```xml
 <job name="unit">
@@ -3089,10 +2785,8 @@ a tab with the index.html file.
 `<properties>`
 --------------
 
-The `<properties>` element allows you to create properties of the build
-from XML files or artifacts created during your build. You can export
-the values of properties over time. This allows you to track properties
-against certain builds, for example to see whether build time is
+The `<properties>` element allows you to create properties of the build from XML files or artifacts created during your build. You can export
+the values of properties over time. This allows you to track properties against certain builds, for example to see whether build time is
 improving or getting worse.
 
 ### Example:
@@ -3146,8 +2840,7 @@ Define a Property based on the contents of an XML file.
 
 ### Example:
 
-This is a simple example to parse the errors and failures count from a
-single junit file and turn them into properties.
+This is a simple example to parse the errors and failures count from a single junit file and turn them into properties.
 
 ```xml
 <job name="junit">
@@ -3161,8 +2854,7 @@ single junit file and turn them into properties.
 </job>
 ```
 
-Here's a more complex example. This will parse the class, method, block,
-and line coverage out of an [EMMA](http://emma.sourceforge.net/)
+Here's a more complex example. This will parse the class, method, block, and line coverage out of an [EMMA](http://emma.sourceforge.net/)
 coverage.xml file.
 
 ```xml
@@ -3187,10 +2879,7 @@ coverage.xml file.
 `<approval>`
 ------------
 
-Specifies how a stage should be triggered. `<approval>` of type 'manual'
-or 'success' can be used to stop a pipeline execution at the start of a
-stage and can only be resumed when it is manually approved on the
-pipeline activity page, stage details page or through RESTful url.
+Specifies how a stage should be triggered. `<approval>` of type 'manual' or 'success' can be used to stop a pipeline execution at the start of a stage and can only be resumed when it is manually approved on the pipeline activity page, stage details page or through RESTful url.
 
 ### Attributes
 
@@ -3215,9 +2904,7 @@ pipeline activity page, stage details page or through RESTful url.
 **Notes:**
 
 -   `<approval>` must be the first sub-element of [`<stage>`](#stage).
--   If an approval is not specified then the behavior is same as
-    'success' i.e. the stage will be automatically triggered when the
-    previous stage passes.
+-   If an approval is not specified then the behavior is same as 'success' i.e. the stage will be automatically triggered when the previous stage passes.
 
 ### Example:
 
@@ -3233,8 +2920,7 @@ pipeline activity page, stage details page or through RESTful url.
 `<authorization>`
 -----------------
 
-You can use `<authorization>` under an [`<approval>`](#approval) with a
-'manual' or 'success' type to specify who can approve this stage. There
+You can use `<authorization>` under an [`<approval>`](#approval) with a 'manual' or 'success' type to specify who can approve this stage. There
 are two sub-elements: [`<user>`](#user) and [`<role>`](#role).
 
 ### Examples
@@ -3262,8 +2948,7 @@ are two sub-elements: [`<user>`](#user) and [`<role>`](#role).
 `<templates>`
 -------------
 
-The `<templates>` element specifies the set of templates known by the
-server.
+The `<templates>` element specifies the set of templates known by the server.
 
 [top](#top)
 
@@ -3326,8 +3011,7 @@ Allows you to provide a template for pipeline definition
 `<environments>`
 ----------------
 
-The `<environments>` element specifies the set of environments known by
-the server.
+The `<environments>` element specifies the set of environments known by the server.
 
 [top](#top)
 
@@ -3383,34 +3067,22 @@ Allows you to group a set of agents together for exclusive use.
 `<agents>`
 ----------
 
-The `<agents>` element inside the [`<environment>`](#environment)
-element specifies the set of agents that it references.
+The `<agents>` element inside the [`<environment>`](#environment) element specifies the set of agents that it references.
 
 [top](#top)
 
 `<environmentvariables>`
 ------------------------
 
-`<environmentvariables>` specifies the [variables](#variable) to pass to
-jobs and their tasks. You can specify these on a
-[`<pipeline>`](#pipeline), [`<stage>`](#stage), [`<job>`](#job) or an
-[`<environment>`](#environment). If the same environment variable is
-definied either on the agent where the job runs or on the
-pipeline/stage/environment of the job, the precedence is in the order
-[`<job>`](#job), [`<stage>`](#stage), [`<pipeline>`](#pipeline),
-[`<environment>`](#environment) and the system environment variable. For
-example, variable "FOO" defined in a job overrides the variable definied
-in the job's stage.
+`<environmentvariables>` specifies the [variables](#variable) to pass to jobs and their tasks. You can specify these on a [`<pipeline>`](#pipeline), [`<stage>`](#stage), [`<job>`](#job) or an [`<environment>`](#environment). If the same environment variable is definied either on the agent where the job runs or on the pipeline/stage/environment of the job, the precedence is in the order [`<job>`](#job), [`<stage>`](#stage), [`<pipeline>`](#pipeline), [`<environment>`](#environment) and the system environment variable. For example, variable "FOO" defined in a job overrides the variable definied in the job's stage.
 
 [top](#top)
 
 `<variable>`
 ------------
 
-A `<variable>` defines the variable name and property value that will be
-passed to a job. It will be set on the system environment when the job
-is run. The value can be include multiple lines or CDATA. Note that the
-behaviour is operating system dependent. Your operating system may not
+A `<variable>` defines the variable name and property value that will be passed to a job. It will be set on the system environment when the job
+is run. The value can be include multiple lines or CDATA. Note that the behaviour is operating system dependent. Your operating system may not
 allow certain variable names and/or values.
 
 ### Attributes
@@ -3476,8 +3148,7 @@ References a physical agent to be associated with this environment.
 `<pipelines>`
 -------------
 
-The `<pipelines>` element inside the [`<environment>`](#environment)
-element specifies the set of pipelines that it references.
+The `<pipelines>` element inside the [`<environment>`](#environment) element specifies the set of pipelines that it references.
 
 [top](#top)
 
@@ -3526,8 +3197,7 @@ Do not change it manually. You can manage these through the Agents tab.
 `<agent>`
 ---------
 
-An approved agent. Before it is approved, the agent is displayed on the
-top of the agent tab with a grey bar.
+An approved agent. Before it is approved, the agent is displayed on the top of the agent tab with a grey bar.
 
 ### Attributes
 
@@ -3557,16 +3227,14 @@ A local agent will be approved automatically.
 
 **Note:**
 
-An agent without any resources will build any jobs that don't specify
-resources. Refer to the [`<resources>`](#resources) of [`<job>`](#job).
+An agent without any resources will build any jobs that don't specify resources. Refer to the [`<resources>`](#resources) of [`<job>`](#job).
 
 [top](#top)
 
 `<resource>`
 ------------
 
-resources names can contain the following characters: a-z, A-Z, 0-9,
-fullstop, underscore and hyphen. Spaces are not allowed.
+resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.
 
 ### Examples
 
