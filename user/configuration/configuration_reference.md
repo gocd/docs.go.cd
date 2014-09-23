@@ -7,172 +7,197 @@
         [`<security>`](#security)
             [`<ldap/>`](#ldap)
             [`<passwordFile/>`](#passwordFile)
-            [`<roles/>`](#roles)
-                [`<role/>`](#role_definition)
+            [`<roles>`](#roles)
+                [`<role>`](#role_definition)
                     [`<user/>`](#userinrole)
-                [`<admins>`](#admins)
-                    [`<role/>`](#roleinadmin)
-                    [`<user/>`](#user)
-                `</admins>`
-        `</security>`
+                [`</role>`](#role_definition)
+            [`</roles>`](#roles)
+            [`<admins>`](#admins)
+                [`<role/>`](#roleinadmin)
+                [`<user/>`](#user)
+            [`</admins>`](#admins)
+        [`</security>`](#security)
         [`<mailhost/>`](#mailhost)
-    `</server>`
-            [`<repositories>`](#repositories)
-                [`<repository>`](#repository)
-                    [`<pluginConfiguration/>`](#pluginConfiguration)
+    [`</server>`](#server)
+
+    [`<repositories>`](#repositories)
+        [`<repository>`](#repository)
+            [`<pluginConfiguration/>`](#pluginConfiguration)
+            [`<configuration>`](#package-repo-configuration)
+                [`<property>`](#package-repo-property)
+                    [`<key/>`](#package-repo-property-key)
+                    [`<value/>`](#package-repo-property-value)
+                [`</property>`](#package-repo-property)
+            [`</configuration>`](#package-repo-configuration)
+            [`<packages>`](#packages)
+                [`<package>`](#package)
                     [`<configuration>`](#package-repo-configuration)
                         [`<property>`](#package-repo-property)
-                            [`<key>`](#package-repo-property-key)
-                            [`<value>`](#package-repo-property-value)
-                        `</property>`
-                    `</configuration>`
-                    [`<packages>`](#packages)
-                        [`<package>`](#package)
-                            [`<configuration>`](#package-repo-configuration)
-                                [`<property>`](#package-repo-property)
-                                    [`<key>`](#package-repo-property-key)
-                                    [`<value>`](#package-repo-property-value)
-                                `</property>`
-                            `</configuration>`
-                        `</package>`
-                    `</packages>`
-                `</repository>`
-            `</repositories>`
-            [`<pipelines>`](#pipelines)
-                [`<authorization>`](#group_authorization)
-                    [`<admins>`](#group_admins)
-                        [`<user/>`](#user)
-                        [`<role/>`](#role)
-                    [`<view>`](#group_view)
-                        [`<user/>`](#user)
-                        [`<role/>`](#role)
-                    [`<operate>`](#group_operate)
-                        [`<user/>`](#user)
-                        [`<role/>`](#role)
-                [`<pipeline>`](#pipeline)
-                    [`<params>`](#params)
-                        [`<param/>`](#param)
-                    `</params>`
-                    [`<trackingtool/>`](#trackingtool)
-                    [`<mingle/>`](#mingle)
-                    [`<timer/>`](#timer)
-                    [`<environmentvariables>`](#environmentvariables)
-                        [`<variable>`](#variable)
-                            `<value/>`
-                        `</variable>`
-                    `</environmentvariables>`
-                    [`<materials>`](#materials)
-                        [`<svn/>`](#svn)
-                            [`<filter/>`](#filter)
-                                [`<ignore/>`](#ignore)
-                        [`<hg/>`](#hg)
-                            [`<filter/>`](#filter)
-                                [`<ignore/>`](#ignore)
-                        [`<p4/>`](#p4)
-                            `<view>`
-                            [`<filter/>`](#filter)
-                                [`<ignore/>`](#ignore)
-                        [`<git/>`](#git)
-                            [`<filter/>`](#filter)
-                                [`<ignore/>`](#ignore)
-                        [`<tfs/>`](#tfs)
-                            [`<filter/>`](#filter)
-                                [`<ignore/>`](#ignore)
-                        [`<package/>`](#package-material)
-                        [`<pipeline/>`](#pipeline-dependency)
-                    `</materials>`
-                [`<stage>`](#stage)
-                    [`<approval>`](#approval)
+                            [`<key/>`](#package-repo-property-key)
+                            [`<value/>`](#package-repo-property-value)
+                        [`</property>`](#package-repo-property)
+                    [`</configuration>`](#package-repo-configuration)
+                [`</package>`](#package)
+            [`</packages>`](#packages)
+        [`</repository>`](#repository)
+    [`</repositories>`](#repositories)
+
+    [`<pipelines>`](#pipelines)
+        [`<authorization>`](#group_authorization)
+            [`<admins>`](#group_admins)
+                [`<user/>`](#user)
+                [`<role/>`](#role)
+            [`</admins>`](#group_admins)
+            [`<view>`](#group_view)
+                [`<user/>`](#user)
+                [`<role/>`](#role)
+            [`</view>`](#group_view)
+            [`<operate>`](#group_operate)
+                [`<user/>`](#user)
+                [`<role/>`](#role)
+            [`</operate>`](#group_operate)
+        [`</authorization>`](#group_authorization)
+
+        [`<pipeline>`](#pipeline)
+            [`<params>`](#params)
+                [`<param/>`](#param)
+            [`</params>`](#params)
+            [`<trackingtool/>`](#trackingtool)
+            [`<mingle/>`](#mingle)
+            [`<timer/>`](#timer)
+            [`<environmentvariables>`](#environmentvariables)
+                [`<variable>`](#variable)
+                    `<value/>`
+                [`</variable>`](#variable)
+            [`</environmentvariables>`](#environmentvariables)
+
+            [`<materials>`](#materials)
+                [`<svn>`](#svn)
+                    [`<filter>`](#filter)
+                        [`<ignore/>`](#ignore)
+                    [`</filter>`](#filter)
+                [`</svn>`](#svn)
+                [`<hg>`](#hg)
+                    [`<filter>`](#filter)
+                        [`<ignore/>`](#ignore)
+                    [`</filter>`](#filter)
+                [`</hg>`](#hg)
+                [`<p4>`](#p4)
+                    `<view/>`
+                    [`<filter>`](#filter)
+                        [`<ignore/>`](#ignore)
+                    [`</filter>`](#filter)
+                [`</p4>`](#p4)
+                [`<git>`](#git)
+                    [`<filter>`](#filter)
+                        [`<ignore/>`](#ignore)
+                    [`</filter>`](#filter)
+                [`</git>`](#git)
+                [`<tfs>`](#tfs)
+                    [`<filter>`](#filter)
+                        [`<ignore/>`](#ignore)
+                    [`</filter>`](#filter)
+                [`</tfs>`](#tfs)
+                [`<package/>`](#package-material)
+                [`<pipeline/>`](#pipeline-dependency)
+            [`</materials>`](#materials)
+
+            [`<stage>`](#stage)
+                [`<approval>`](#approval)
                     [`<authorization>`](#authorization)
                         [`<role/>`](#role)
                         [`<user/>`](#user)
-                    `</authorization>`
-                `</approval>`
-                    [`<environmentvariables>`](#environmentvariables)
-                        [`<variable>`](#variable)
-                            `<value/>`
-                        `</variable>`
-                    `</environmentvariables>`
+                    [`</authorization>`](#authorization)
+                [`</approval>`](#approval)
+                [`<environmentvariables>`](#environmentvariables)
+                    [`<variable>`](#variable)
+                        `<value/>`
+                    [`</variable>`](#variable)
+                [`</environmentvariables>`](#environmentvariables)
+
                 [`<jobs>`](#jobs)
                     [`<job>`](#job)
                         [`<environmentvariables>`](#environmentvariables)
                             [`<variable>`](#variable)
                                 `<value/>`
-                            `</variable>`
-                        `</environmentvariables>`
+                            [`</variable>`](#variable)
+                        [`</environmentvariables>`](#environmentvariables)
                         [`<resources>`](#resources)
                             [`<resource/>`](#resource)
-                        `</resources>`
+                        [`</resources>`](#resources)
+
                         [`<tasks>`](#tasks)
                             [`<fetchartifact>`](#fetchartifact)
                                 [`<runif/>`](#runif)
                                 [`<oncancel/>`](#oncancel)
-                            `</fetchartifact>`
+                            [`</fetchartifact>`](#fetchartifact)
                             [`<ant>`](#ant)
                                 [`<runif/>`](#runif%20)
                                 [`<oncancel/>`](#oncancel)
-                            `</ant>`
+                            [`</ant>`](#ant)
                             [`<nant>`](#nant)
                                 [`<runif/>`](#runif%20)
                                 [`<oncancel/>`](#oncancel)
-                            `</nant>`
+                            [`</nant>`](#nant)
                             [`<rake>`](#rake)
                                 [`<runif/>`](#runif%20)
                                 [`<oncancel/>`](#oncancel)
-                            `</rake>`
+                            [`</rake>`](#rake)
                             [`<exec>`](#exec)
                                 [`<arg/>`](#arg)
                                 [`<runif/>`](#runif%20)
                                 [`<oncancel/>`](#oncancel)
-                            `</exec>`
-                        `</tasks>`
+                            [`</exec>`](#exec)
+                        [`</tasks>`](#tasks)
+
                         [`<artifacts>`](#artifacts)
                             [`<artifact/>`](#artifact)
                             [`<test/>`](#test)
-                        `</artifacts>`
+                        [`</artifacts>`](#artifacts)
                         [`<tabs>`](#tabs)
                             [`<tab/>`](#tab)
-                        `</tabs>`
+                        [`</tabs>`](#tabs)
                         [`<properties>`](#properties)
                             [`<property/>`](#property)
-                        `</properties>`
-                    `</job>`
-                `</jobs>`
-            `</stage>`
-        `</pipeline>`
-    `</pipelines>`
+                        [`</properties>`](#properties)
+                    [`</job>`](#job)
+                [`</jobs>`](#jobs)
+            [`</stage>`](#stage)
+        [`</pipeline>`](#pipeline)
+    [`</pipelines>`](#pipelines)
+
     [`<templates>`](#templates)
         [`<pipeline>`](#pipeline-template)
             [`<stage>`](#stage)
                 ...
-            `</stage>`
-        `</pipeline>`
-    `</templates>`
+            [`</stage>`](#stage)
+        [`</pipeline>`](#pipeline-template)
+    [`</templates>`](#templates)
+
     [`<environments>`](#environments)
         [`<environment>`](#environment)
             [`<environmentvariables>`](#environmentvariables)
                 [`<variable>`](#variable)
                     `<value/>`
-                `</variable>`
-            `</environmentvariables>`
+                [`</variable>`](#variable)
+            [`</environmentvariables>`](#environmentvariables)
             [`<agents>`](#environment-agents)
-                [`<physical>`](#environment-agents-physical)
-                `</physical>`
-            `</agents>`
+                [`<physical/>`](#environment-agents-physical)
+            [`</agents>`](#environment-agents)
             [`<pipelines>`](#environment-pipelines)
-                [`<pipeline>`](#environment-pipeline)
-                `</pipeline>`
-            `</pipelines>`
-        `</environment>`
-    `</environments>`
+                [`<pipeline/>`](#environment-pipeline)
+            [`</pipelines>`](#environment-pipelines)
+        [`</environment>`](#environment)
+    [`</environments>`](#environments)
+
     [`<agents>`](#agents)
         [`<agent>`](#agent)
             [`<resources>`](#agentresources)
                 [`<resource/>`](#agentresource)
-            `</resources>`
-        `</agent>`
-    `</agents>`
-`</cruise>`
+            [`</resources>`](#agentresources)
+        [`</agent>`](#agent)
+    [`</agents>`](#agents)
+[`</cruise>`](#cruise)
 </pre></big>
 
 [top](#go-configuration-reference)
