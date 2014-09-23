@@ -42,11 +42,77 @@ curl -u admin:badger http://goserver.com:8153/go/api/admin/config/current.xml
 
 can be invoked to fetch current/latest-version of config.
 
-## Config repository
+## Config repository Modification listing API
 
-### Modification listing API
+This API allows you to list Config repository modifications in JSON format. This API is built primarily to aid rendering of Config repository page. Hence only the information required for that is exposed.
 
-### Diff API
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/config/revisions | GET | no parameters | List Config Repo modifications. |
+
+### Examples
+
+-   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
+
+The following command produces output specified below:
+```
+curl -u admin:badger http://goserver.com:8153/go/api/config/revisions
+```
+
+```json
+[
+  {
+    "md5": "26fae11e99091996dc293651dd205221",
+    "commitSHA": "238d2081ca5fde32440c4c1da6c6f95267196162",
+    "username": "admin",
+    "goEdition": "OpenSource",
+    "time": 1411456839850,
+    "schemaVersion": 74,
+    "goVersion": "N\/A"
+  },
+  {
+    "md5": "24ab103b1f7c730709d0bfa188ce80c8",
+    "commitSHA": "59fcc29a3385b17795c7b2ac2c2f6dd7cb9421bd",
+    "username": "agent_0794793b-5c1a-443f-b860-df480986586b_192.168.1.12_unknowne4ce8f40e2ca",
+    "goEdition": "OpenSource",
+    "time": 1411456761631,
+    "schemaVersion": 74,
+    "goVersion": "N\/A"
+  }
+]
+```
+
+## Config repository Modification Diff API
+
+This API allows you to get diff between 2 modifications in Config Repo in JSON format. This API is built primarily to aid rendering of Config repository page. Hence only the information required for that is exposed.
+
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/config/diff/[from-SHA]/[to-SHA] | GET | no parameters | Diff between 2 Config Repo modifications. |
+
+### Examples
+
+-   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
+
+The following command produces output specified below:
+```
+curl -u admin:badger http://goserver.com:8153/go/config/diff/238d2081ca5fde32440c4c1da6c6f95267196162/59fcc29a3385b17795c7b2ac2c2f6dd7cb9421bd
+```
+
+```
+@@ -55,7 +55,7 @@
+   </pipelines>
+   <agents>
+     <agent hostname="blrstdcrspair02" ipaddress="10.4.7.202" uuid="f6a76eaa-96ac-43a2-8255-7c898236ba22" />
+-    <agent hostname="unknowne4ce8f40e2ca" ipaddress="127.0.0.1" uuid="0794793b-5c1a-443f-b860-df480986586b" />
++    <agent hostname="unknowne4ce8f40e2ca" ipaddress="192.168.1.12" uuid="0794793b-5c1a-443f-b860-df480986586b" />
+   </agents>
+ </cruise>
+```
 
 ## Adding a new pipeline
 

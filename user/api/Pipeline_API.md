@@ -306,12 +306,281 @@ curl -u admin:badger -d "" http://goserver.com:8153/go/api/pipelines/demo_pipeli
 
 ## Pipeline Status
 
+This API can be used to check if the APIs like "schedule pipeline", "release lock", "pause pipeline", "un-pause pipeline" etc. need to be & can be invoked.
+
 | URL format | HTTP Verb | Data | Explanation |
 |------------|-----------|------|-------------|
 | http://[server]/go/api/pipelines/[pipeline]/status | GET | no parameters | JSON containing information about paused, loacked & schedulable. |
 
+### Examples
+
+-   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
+
+Assuming the pipeline configuration looks like:
+
+```xml
+  <pipelines group="first">
+    <pipeline name="foo" labeltemplate="foo-${COUNT}" isLocked="true">
+      <materials>
+        <hg url="http://10.22.12.2:8000" materialName="hg_material" />
+      </materials>
+      <stage name="DEV">
+        <jobs>
+          <job name="UnitTest">
+            <tasks>
+              <ant target="all-UAT" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+```
+
+The following command produces output specified below:
+```
+curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/status
+```
+
+```json
+{
+  "locked": true,
+  "paused": false,
+  "schedulable": false
+}
+```
+
 ## Pipeline History
+
+This API lists Pipeline instances in JSON format. API gives 10 instances at a time, sorted in reverse order. Supports pagination using offset which tells the API how many instances to skip. This API is built primarily to aid rendering pipeline history page. Hence the information required for that is exposed.
 
 | URL format | HTTP Verb | Data | Explanation |
 |------------|-----------|------|-------------|
 | http://[server]/go/api/pipelines/[pipeline]/history/[offset] | GET | no parameters | List Pipeline history. |
+
+### Examples
+
+-   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
+
+Assuming the pipeline configuration looks like:
+
+```xml
+  <pipelines group="first">
+    <pipeline name="foo" labeltemplate="foo-${COUNT}" isLocked="true">
+      <materials>
+        <hg url="http://10.22.12.2:8000" materialName="hg_material" />
+      </materials>
+      <stage name="DEV">
+        <jobs>
+          <job name="UnitTest">
+            <tasks>
+              <ant target="all-UAT" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="UATTest">
+        <jobs>
+          <job name="UAT">
+            <tasks>
+              <exec command="sleep">
+                <arg>10000</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="target" dest="pkg/foo.war" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+```
+
+The following command produces output specified below:
+```
+curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/history/0
+```
+
+```json
+{
+  "pipelines": [
+    {
+      "build_cause": {
+        "approver": "anonymous",
+        "material_revisions": [
+          {
+            "modifications": [
+              {
+                "modified_time": 1409664999000,
+                "id": 1,
+                "user_name": "Admin <test@test.com>",
+                "comment": "comment",
+                "revision": "6f75b392941c40666ae822045c064e0887ffd007"
+              }
+            ],
+            "material": {
+              "description": "URL: http:\/\/10.22.12.2:8000",
+              "fingerprint": "64987f67c407020dfd6badf4975421428aa5d044e0b14b3086266294b969b6a8",
+              "type": "Mercurial",
+              "id": 34
+            },
+            "changed": false
+          }
+        ],
+        "trigger_forced": true,
+        "trigger_message": "Forced by anonymous"
+      },
+      "name": "foo",
+      "natural_order": 2,
+      "can_run": false,
+      "stages": [
+        {
+          "name": "DEV",
+          "approved_by": "admin",
+          "jobs": [
+            {
+              "name": "UnitTest",
+              "result": "Failed",
+              "state": "Completed",
+              "id": 3,
+              "scheduled_date": 1411456876262
+            }
+          ],
+          "can_run": false,
+          "pipeline_counter": 2,
+          "pipeline_name": "foo",
+          "approval_type": "success",
+          "result": "Failed",
+          "id": 3,
+          "counter": "1",
+          "operate_permission": true,
+          "scheduled": true
+        },
+        {
+          "name": "UATTest",
+          "approved_by": "admin",
+          "jobs": [
+            {
+              "name": "UAT",
+              "result": "Unknown",
+              "state": "Building",
+              "id": 4,
+              "scheduled_date": 1411458820384
+            }
+          ],
+          "can_run": false,
+          "pipeline_counter": 2,
+          "pipeline_name": "foo",
+          "approval_type": "success",
+          "result": "Unknown",
+          "id": 4,
+          "counter": "1",
+          "operate_permission": true,
+          "scheduled": true
+        }
+      ],
+      "currently_locked": false,
+      "counter": 2,
+      "id": 2,
+      "preparing_to_schedule": false,
+      "lockable": false,
+      "can_unlock": false,
+      "label": "foo-2"
+    },
+    {
+      "build_cause": {
+        "approver": "",
+        "material_revisions": [
+          {
+            "modifications": [
+              {
+                "modified_time": 1409664999000,
+                "id": 1,
+                "user_name": "Admin <test@test.com>",
+                "comment": "comment",
+                "revision": "6f75b392941c40666ae822045c064e0887ffd007"
+              }
+            ],
+            "material": {
+              "description": "URL: http:\/\/10.22.12.2:8000",
+              "fingerprint": "64987f67c407020dfd6badf4975421428aa5d044e0b14b3086266294b969b6a8",
+              "type": "Mercurial",
+              "id": 34
+            },
+            "changed": true
+          }
+        ],
+        "trigger_forced": false,
+        "trigger_message": "modified by Admin <test@test.com>"
+      },
+      "name": "foo",
+      "natural_order": 1,
+      "can_run": false,
+      "stages": [
+        {
+          "name": "DEV",
+          "approved_by": "changes",
+          "jobs": [
+            {
+              "name": "UnitTest",
+              "result": "Passed",
+              "state": "Completed",
+              "id": 1,
+              "scheduled_date": 1411456676119
+            }
+          ],
+          "can_run": false,
+          "pipeline_counter": 1,
+          "pipeline_name": "foo",
+          "approval_type": "success",
+          "result": "Passed",
+          "id": 1,
+          "counter": "1",
+          "operate_permission": true,
+          "scheduled": true
+        },
+        {
+          "name": "UATTest",
+          "approved_by": "changes",
+          "jobs": [
+            {
+              "name": "UAT",
+              "result": "Failed",
+              "state": "Completed",
+              "id": 2,
+              "scheduled_date": 1411456763411
+            }
+          ],
+          "can_run": false,
+          "pipeline_counter": 1,
+          "pipeline_name": "foo",
+          "approval_type": "success",
+          "result": "Failed",
+          "id": 2,
+          "counter": "1",
+          "operate_permission": true,
+          "scheduled": true
+        }
+      ],
+      "currently_locked": false,
+      "counter": 1,
+      "id": 1,
+      "preparing_to_schedule": false,
+      "lockable": false,
+      "can_unlock": false,
+      "label": "foo-1"
+    }
+  ],
+  "pagination": {
+    "offset": 0,
+    "total": 2,
+    "page_size": 10
+  }
+}
+```
