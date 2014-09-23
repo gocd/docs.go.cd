@@ -114,6 +114,159 @@ curl -u admin:badger -X POST http://goserver.com:8153/go/api/agents/31aea908-717
 
 ## Agent Job Run History
 
+This API lists Job instances run by an Agent in JSON format. API gives 10 instances at a time, sorted in reverse order. Supports pagination using offset which tells the API how many instances to skip. This API is built primarily to aid rendering Agent Job run history page. Hence the information required for that is exposed.
+
 | URL format | HTTP Verb | Data | Explanation |
 |------------|-----------|------|-------------|
 | http://[server]/go/api/agents/[agent-uuid]/job_run_history/[offset] | GET | no parameters | List Agent Job Run history. |
+
+**Note:** You can get Agent's UUID from Agent listing API or Job History API.
+
+### Examples
+
+-   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
+
+Assuming the pipeline configuration looks like:
+
+```xml
+  <pipelines group="first">
+    <pipeline name="foo" labeltemplate="foo-${COUNT}" isLocked="true">
+      <materials>
+        <hg url="http://10.22.12.2:8000" materialName="hg_material" />
+      </materials>
+      <stage name="DEV">
+        <jobs>
+          <job name="UnitTest">
+            <tasks>
+              <ant target="all-UAT" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="UATTest">
+        <jobs>
+          <job name="UAT">
+            <tasks>
+              <exec command="sleep">
+                <arg>10000</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="target" dest="pkg/foo.war" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+```
+
+The following command produces output specified below:
+```
+curl -u admin:badger http://goserver.com:8153/go/api/agents/0794793b-5c1a-443f-b860-df480986586b/job_run_history/0
+```
+
+```json
+{
+  "jobs": [
+    {
+      "agent_uuid": "0794793b-5c1a-443f-b860-df480986586b",
+      "name": "UnitTest",
+      "job_state_transitions": [
+        {
+          "state_change_time": 1411456876262,
+          "id": 13,
+          "state": "Scheduled"
+        },
+        {
+          "state_change_time": 1411456881401,
+          "id": 14,
+          "state": "Assigned"
+        },
+        {
+          "state_change_time": 1411456891415,
+          "id": 15,
+          "state": "Preparing"
+        },
+        {
+          "state_change_time": 1411456892853,
+          "id": 16,
+          "state": "Building"
+        },
+        {
+          "state_change_time": 1411456893094,
+          "id": 17,
+          "state": "Completing"
+        },
+        {
+          "state_change_time": 1411456893135,
+          "id": 18,
+          "state": "Completed"
+        }
+      ],
+      "scheduled_date": 1411456876262,
+      "pipeline_counter": 2,
+      "rerun": false,
+      "pipeline_name": "foo",
+      "result": "Failed",
+      "state": "Completed",
+      "id": 3,
+      "stage_counter": "1",
+      "stage_name": "DEV"
+    },
+    {
+      "agent_uuid": "0794793b-5c1a-443f-b860-df480986586b",
+      "name": "UnitTest",
+      "job_state_transitions": [
+        {
+          "state_change_time": 1411456676119,
+          "id": 1,
+          "state": "Scheduled"
+        },
+        {
+          "state_change_time": 1411456757905,
+          "id": 2,
+          "state": "Assigned"
+        },
+        {
+          "state_change_time": 1411456761645,
+          "id": 3,
+          "state": "Preparing"
+        },
+        {
+          "state_change_time": 1411456762696,
+          "id": 4,
+          "state": "Building"
+        },
+        {
+          "state_change_time": 1411456762889,
+          "id": 5,
+          "state": "Completing"
+        },
+        {
+          "state_change_time": 1411456762955,
+          "id": 6,
+          "state": "Completed"
+        }
+      ],
+      "scheduled_date": 1411456676119,
+      "pipeline_counter": 1,
+      "rerun": false,
+      "pipeline_name": "foo",
+      "result": "Passed",
+      "state": "Completed",
+      "id": 1,
+      "stage_counter": "1",
+      "stage_name": "DEV"
+    }
+  ],
+  "pagination": {
+    "offset": 0,
+    "total": 2,
+    "page_size": 10
+  }
+}
+```
