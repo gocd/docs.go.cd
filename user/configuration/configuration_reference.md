@@ -218,13 +218,13 @@ The `<server>` element can be used to define information and attributes of the G
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| artifactsdir | No | This directory is where Go will store its information, including artifacts published by jobs. The default value is 'artifacts' in the folder where the Go Server is installed. You can use an absolute path or a relative path which will take the server installed directory as the root. Notes: If you specify the attribute, please check whether Go has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won't take effect until Go Server is restarted. |
+| artifactsdir | No | This directory is where Go will store its information, including artifacts published by jobs. The **default value** is 'artifacts' in the folder where the Go Server is installed. You can use an absolute path or a relative path which will take the server installed directory as the root. **Notes:** If you specify the attribute, please check whether Go has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won't take effect until Go Server is restarted. |
 | siteUrl | No | This entry will be used by Go Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted Go with a reverse proxy, this value should be the base URL for the proxy and not the internal Go address. For this reason, it is necessary to specify this configuration. Format: [protocol]://[host]:[port]. You need to define the [port] in case Go uses a non-standard port. |
 | secureSiteUrl | No | Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL. Format: https://[host]:[port]. You need to define the [port] in case Go uses a non-standard port. |
 | purgeStart | No | Go can purge old artifacts when available disk space on the server is low. Go will begin to purge artifacts when disk space is lower than 'purgeStart' GB. Artifacts will never be deleted if 'purgeStart' and 'purgeUpto' are not defined. |
 | purgeUpto | No | Go can purge old artifacts when available disk space on the server is low. Go will purge artifacts till available disk space is greater than 'purgeUpto' GB. This attribute must be defined if purgeStart is defined. |
 | jobTimeout | No | This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for "jobTimeout" minutes. If the attribute is not specified jobTimeout defaults to 60 minutes. |
-| commandRepositoryLocation | Yes (auto-generated) | Specifies the location of the [command repository]() relative to go-server_install_root/db/command_repository. The bundled repository is in a directory named default. |
+| commandRepositoryLocation | Yes (auto-generated) | Specifies the location of the [command repository]() relative to `go-server_install_root/db/command_repository`. The bundled repository is in a directory named default. |
 | serverId | Yes (auto-generated) | This value uniquely identifies a Go server installation. It may be used by features that require unique names/identifiers across different Go server installations. This attribute need not be specified for a new server. In case no value is given, server auto-generates a random UUID an assigns it as serverId. This value should never be changed for an existing server. Administrator should clear this attribute before copying configuration to a different installation. |
 
 ### Notes:
@@ -719,7 +719,7 @@ The `<pipelines>` element is a container of pipelines.
   <pipelines group="studios">
     <pipeline name="yourproject" labeltemplate="foo-1.0.${COUNT}">
       <materials>
-    <svn url="http://your-svn/"/>
+        <svn url="http://your-svn/"/>
       </materials>
       <stage name="ut">
     <jobs>
@@ -870,7 +870,6 @@ There should be at least one stage in one pipeline. Go uses the pipeline name to
   <pipeline name="yourproject" labeltemplate="foo-1.0.${COUNT}-${svn}" isLocked="true">
   <environmentvariables>
      <variable name="FOO"><value>bar</value></variable>
-
    </environmentvariables>
     <materials>
       <svn url="http://your-svn/" materialName="svn" />
@@ -928,7 +927,7 @@ can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue e
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | link | Yes | a URL with a string '${ID}'. Go will replace the string '${ID}' with the first matched group value at run-time. |
-| regex | Yes | A regex to identify the IDs. Go will find the first matched group in your commit messages and use it to construct the hyper-link. |
+| regex | Yes | A [regex]() to identify the IDs. Go will find the first matched group in your commit messages and use it to construct the hyper-link. |
 
 ### Examples
 
@@ -1024,7 +1023,7 @@ various combinations of the allowed special characters for that field. The field
 | Day of week | YES | 1-7 or SUN-SAT | , - \* ? / L \# |
 | Year | NO | empty, 1970-2099 | , - \* / |
 
-So cron expressions can be as simple as this: `* * * * * ?`\ or more complex, like this: `0 15 10 ? * 6L 2002-2005`
+So cron expressions can be as simple as this: `* * * * * ?` or more complex, like this: `0 15 10 ? * 6L 2002-2005`
 
 ### Special characters
 
@@ -1273,10 +1272,10 @@ Note that \# needs to be escaped with another \# - hence the \#\# in the url abo
 
 [top](#top)
 
-`<p4\>`
+`<p4>`
 ------
 
-The `<p4\>` element specifies the location of your code base in a Perforce repository.
+The `<p4>` element specifies the location of your code base in a Perforce repository.
 
 ### Notes:
 
@@ -1291,8 +1290,7 @@ Go will use directory under pipelines/{pipelineName} in agent side as Perforce r
 | password | No | Password for the specified user. |
 | useTickets | No | Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described here: http://www.perforce.com/perforce/doc.current/manuals/cmdref/login.html |
 | dest | Only for multiple materials | The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent's sandbox. |
-| view | Yes | Valid Perforce view. The view should be a sub-element of P4.
-Click here to see details about VIEW of Perforce. |
+| view | Yes | Valid Perforce view. The view should be a sub-element of P4. Click here to see details about VIEW of Perforce. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
 
@@ -1534,7 +1532,7 @@ There must be at least one job in stage.
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| name | Yes  | The name is used to identify a stage in the pipeline, so it has to be unique (case insensitive) for that <pipeline>. The available characters in stage name are following: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. |
+| name | Yes  | The name is used to identify a stage in the pipeline, so it has to be unique (case insensitive) for that `<pipeline>`. The available characters in stage name are following: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. |
 | fetchMaterials | No (Default: true) | Perform material updates or checkouts. Set this attribute to false to skip this operation. |
 | cleanWorkingDir | No (Default: false) | Remove all files/directories in the working directory on the agent. By default this operation is skipped. |
 | artifactCleanupProhibited | No (Default: false) | Never cleanup artifacts for this stage, if purging artifacts is configured at the Server Level. |
@@ -1606,9 +1604,9 @@ If a Job has no resources then it can be built by any Agent
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| name | Yes | The name of the job. The name must be unique (ignoring case) within a <stage>. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed. |
+| name | Yes | The name of the job. The name must be unique (ignoring case) within a `<stage>`. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed. |
 | runOnAllAgents | No | If set to 'true' then the Job will run on all agents that can run the job. |
-| timeout | No | A job can be configured to time out if it does not generate any console output for a period of time. Use this attribute to define the timeout value in minutes. Define timeout as 0 if the job should never time out. If the attribute is not defined, the default <server> level timeout behaviour will apply. |
+| timeout | No | A job can be configured to time out if it does not generate any console output for a period of time. Use this attribute to define the timeout value in minutes. Define timeout as 0 if the job should never time out. If the attribute is not defined, the default `<server>` level timeout behaviour will apply. |
 
 ### Examples
 
@@ -1686,7 +1684,7 @@ Resources are case-insensitive. A resource name can contain alphanumeric charact
 
 `<tasks>` specifies the tasks (like [`<ant>`](#ant), [`<rake>`](#rake) etc) that will run as part of a job.
 
-There can be zero or more tasks. These tasks are executed in the order specified in the configuration file. If a task fails, the subsequent tasks are not run unless they have [\<runif status="failed" /\>](#runif) defined.
+There can be zero or more tasks. These tasks are executed in the order specified in the configuration file. If a task fails, the subsequent tasks are not run unless they have [`<runif status="failed" />`](#runif) defined.
 
 The following environment variables are set for all tasks:
 
@@ -1698,7 +1696,7 @@ The following environment variables are set for all tasks:
 | `GO_STAGE_NAME` | The name of the stage to which the job belongs to |
 | `GO_STAGE_COUNTER` | The re-run counter of the stage to which the job belongs to |
 | `GO_JOB_NAME` | The name of the job that is being run |
-| `GO_DEPENDENCY_LABEL_<upstream_pipeline_name>_<upstream_stage_name>` | The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: 'GO_DEPENDENCY_LABEL_FRAMEWORK_DEV' is the environment variable where the name of the upstream pipeline is 'framework' and the upstream stage is 'dev'. Hyphen ('-') is an illegal character in an environment variable. So if a pipeline name or stage name contains '-', it will be converted into an underscore. For example, ‘pipeline-foo’ with stage ‘stage-foo’ becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO. |
+| `GO_DEPENDENCY_LABEL_ <upstream_pipeline_name>_<upstream_stage_name>` | The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: 'GO_DEPENDENCY_LABEL_FRAMEWORK_DEV' is the environment variable where the name of the upstream pipeline is 'framework' and the upstream stage is 'dev'. Hyphen ('-') is an illegal character in an environment variable. So if a pipeline name or stage name contains '-', it will be converted into an underscore. For example, ‘pipeline-foo’ with stage ‘stage-foo’ becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO. |
 
 ### Examples
 
@@ -1882,10 +1880,7 @@ All file paths specified are relative to the pipeline working directory.
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| pipeline | No | This value can either be:
-1. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under `<materials>`, or
-2. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value "BuildPipeline/AcceptancePipeline" denotes that the fetch task attempts to fetch artifacts from its ancestor 'BuildPipeline'. The given hierarchy denotes that the current pipeline depends on 'AcceptancePipeline' which in turn depends on 'BuildPipeline' using the dependency material definition given under materials.
-Defaults to current pipeline if not specified. |
+| pipeline | No | This value can either be: 1. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under `<materials>`, or 2. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value "BuildPipeline/AcceptancePipeline" denotes that the fetch task attempts to fetch artifacts from its ancestor 'BuildPipeline'. The given hierarchy denotes that the current pipeline depends on 'AcceptancePipeline' which in turn depends on 'BuildPipeline' using the dependency material definition given under materials. Defaults to current pipeline if not specified. |
 | stage | Yes | The name of the stage to fetch artifacts from |
 | job | Yes | The name of the job to fetch artifacts from |
 | srcdir | One of srcdir/srcfile | The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed |
@@ -2355,7 +2350,7 @@ Allows you to provide a template for pipeline definition
   <pipelines group="studios" >
     <pipeline name="yourproject" template="project-template" >
       <materials>
-    <svn url="http://your-svn/"/>
+        <svn url="http://your-svn/"/>
       </materials>
     </pipeline>
   </pipelines>
