@@ -1606,6 +1606,7 @@ If a Job has no resources then it can be built by any Agent
 |-----------|----------|-------------|
 | name | Yes | The name of the job. The name must be unique (ignoring case) within a `<stage>`. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed. |
 | runOnAllAgents | No | If set to 'true' then the Job will run on all agents that can run the job. |
+| runInstanceCount | No | If set to 'x' (integer) then 'x' instances of Job will be spawned during scheduling. Environment variables `GO_JOB_RUN_INDEX` (with values 1-x for every Job) and `GO_JOB_RUN_COUNT` (with value x for each Job) will be exposed to each task of Job. |
 | timeout | No | A job can be configured to time out if it does not generate any console output for a period of time. Use this attribute to define the timeout value in minutes. Define timeout as 0 if the job should never time out. If the attribute is not defined, the default `<server>` level timeout behaviour will apply. |
 
 ### Examples
@@ -1613,7 +1614,7 @@ If a Job has no resources then it can be built by any Agent
 ```xml
 <job name="linux">
   <environmentvariables>
- <variable name="FOO"><value>bar</value></variable>
+    <variable name="FOO"><value>bar</value></variable>
   </environmentvariables>
   <resources>
     <resource>linux</resource>
@@ -1626,6 +1627,17 @@ If a Job has no resources then it can be built by any Agent
 
 ```xml
   <job name="run-upgrade" runOnAllAgents="true" timeout='30'>
+    <resources>
+      <resource>linux</resource>
+    </resources>
+    <tasks>
+      <ant target="upgrade" />
+    </tasks>
+  </job>
+```
+
+```xml
+  <job name="run-upgrade" runInstanceCount="5" timeout='30'>
     <resources>
       <resource>linux</resource>
     </resources>
