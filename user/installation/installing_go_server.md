@@ -48,7 +48,7 @@ On OSX 10.8.x (Mountain Lion), you may get the following error. **"Go Server" is
 - Go to System Preferences-\>Personal-\>Security & Privacy.
 - Launch the Security and Privacy applet.
 - Click on the General tab to highlight it.
-- Click ont he lock icon to allow changes.
+- Click on the lock icon to allow changes.
 - Under the heading "Allow applications downloaded from:" click on the **Anywhere** radio button.
 
 The installation will proceed as normal.
