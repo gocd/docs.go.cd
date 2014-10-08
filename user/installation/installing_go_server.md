@@ -139,6 +139,6 @@ Some logging information is also written to */var/log/system.log*
 
 ### Also see...
 
--   [Installing Go agents](../installation/installing_go_agent.html)
--   [Configuring server details](../installation/configuring_server_details.html)
--   [Configure Go to work with a proxy](../installation/configure_proxy.html)
+-   [Installing Go agents](../installation/installing_go_agent.md)
+-   [Configuring server details](../installation/configuring_server_details.md)
+-   [Configure Go to work with a proxy](../installation/configure_proxy.md)
