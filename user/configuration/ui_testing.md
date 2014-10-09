@@ -1,16 +1,8 @@
+# UI testing
 
- 
+Because Go installs itself as a service (Windows) or daemon (Linux) by default, getting Go agents to interact with your operating system's windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here's how you do it.
 
-UI testing
-==========
-
-Because Go installs itself as a service (Windows) or daemon (Linux) by
-default, getting Go agents to interact with your operating system's
-windowing environment can cause problems. Access to a windowing
-environment is usually required for testing UI applications or for
-driving browsers for web testing. Here's how you do it.
-
-#### Windows
+## Windows
 
 The first step is to disable the Go agent service. To do this:
 
@@ -24,42 +16,22 @@ The first step is to disable the Go agent service. To do this:
 The next step is to start the Go agent as an application.
 
 1.  Click on Start → All Programs → Go Agent → Run Go Agent.
-2.  To get the Go agent to start every time you log in, copy the Run Go
-    Agent shortcut to the Startup folder of your start menu.
+2.  To get the Go agent to start every time you log in, copy the Run Go Agent shortcut to the Startup folder of your start menu.
 
-#### Linux
+## Linux
 
-There are many different ways to get a Linux build agent to interact
-with a UI. The easiest is to use a VNC service to provide a dedicated
-X11 server to your agent. To do this:
+There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service to provide a dedicated X11 server to your agent. To do this:
 
-1.  Install the VNC server and fvwm packages for your distribution.
-    (aptitude install vnc4server fvwm / yum install vnc-server fvwm)
+1.  Install the VNC server and fvwm packages for your distribution. (aptitude install vnc4server fvwm / yum install vnc-server fvwm)
 2.  Sudo to the 'go' user (sudo su - go) and do the rest as that user
-3.  Set a password for remote access to your VNC server with the command
-    'vncpasswd'
-4.  Edit your VNC config to use fvwm and not twm as the window manager.
-    (replace twm with fvwm in \~/.vnc/xstartup)
+3.  Set a password for remote access to your VNC server with the command 'vncpasswd'
+4.  Edit your VNC config to use fvwm and not twm as the window manager. (replace twm with fvwm in \~/.vnc/xstartup)
 5.  Edit '/etc/default/go-agent' and change the line 'VNC=N' to 'VNC=Y'
 
-Restart your agent and it will now have access to an X11 server that you
-can also connect to with your favourite VNC client. The default DISPLAY
-that Go uses is :3
+Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client. The default DISPLAY that Go uses is :3
 
-If there are any other environmental variables that need to be set for
-your UI testing tools, they correct place to set these is in your
-/etc/default/go-agent file. Don't forget to export them!
+If there are any other environmental variables that need to be set for your UI testing tools, they correct place to set these is in your /etc/default/go-agent file. Don't forget to export them!
 
-You can connect to your session with vncviewer to see what's going on.
-Use vncviewer \<agent host name\>:3
+You can connect to your session with vncviewer to see what's going on. Use vncviewer \<agent host name\>:3
 
-If things appear to hang, chances are you forgot to replace twm with
-fvwm. twm requires you to place a window on the desktop when it starts
-up
-
-
-
-
-
-© ThoughtWorks Studios, 2010
-
+If things appear to hang, chances are you forgot to replace twm with fvwm. twm requires you to place a window on the desktop when it starts up

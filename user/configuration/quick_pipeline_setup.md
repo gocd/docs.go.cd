@@ -70,5 +70,3 @@ You can see the complete configuration reference [here](configuration_reference.
 -   [Adding a stage to an existing pipeline](admin_add_stage.md)
 -   [Adding a job to an existing pipeline](admin_add_job.md)
 -   [Role-based authorization](../configuration/dev_authorization.html)
-
-© ThoughtWorks Studios, 2010

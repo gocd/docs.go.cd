@@ -1,15 +1,8 @@
+# Delegating Group Administration
 
- 
+A Go Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section "Privileges of a Group Administrator".
 
-Delegating Group Administration
-===============================
-
-A Go Administrator can authorize users and roles to be administrators
-for Pipeline Groups. These group administrators have certain privileges
-which are explained in the section "Privileges of a Group
-Administrator".
-
-### Steps to assign Group Administrators
+## Steps to assign Group Administrators
 
 To assign a user as a group administrator:
 
@@ -20,13 +13,9 @@ To assign a user as a group administrator:
 
 ![](../resources/images/cruise/group_admin_permissions.png)
 
-In the above screenshot, the Go admin has delegated group admin
-privileges to a user "jez" and all users defined under the role
-"groupAdminRole". The privileges of a Group Administrator have been
-described in the next section.
+In the above screenshot, the Go admin has delegated group admin privileges to a user "jez" and all users defined under the role "groupAdminRole". The privileges of a Group Administrator have been described in the next section.
 
-For power users, here's how you'd assign the same permissions via Config
-XML:
+For power users, here's how you'd assign the same permissions via Config XML:
 
 ``` {.code}
 <pipelines group="studios">  
@@ -43,34 +32,17 @@ XML:
         
 ```
 
-### Privileges of a Group Administrator
+## Privileges of a Group Administrator
 
 As a group administrator of a pipeline group, a user is privileged to:
 
--   View and operate (trigger, rerun stages etc.) all the pipelines in
-    this group.
+-   View and operate (trigger, rerun stages etc.) all the pipelines in this group.
 -   Add other group admins to this group
--   Authorize users/roles with 'view' and 'operate' permissions for this
-    pipeline group.
+-   Authorize users/roles with 'view' and 'operate' permissions for this pipeline group.
 -   Add and Delete pipelines to/from the group.
--   Add a pipeline using the "Add New Pipeline" wizard, but only to the
-    groups he is allowed to administer.
--   Edit pipelines belonging to the group. Which includes renaming,
-    adding, deleting and modifying stages and jobs.
--   Restfully view and operate (trigger, rerun stages etc.) all the
-    pipelines in this group.
+-   Add a pipeline using the "Add New Pipeline" wizard, but only to the groups he is allowed to administer.
+-   Edit pipelines belonging to the group. Which includes renaming, adding, deleting and modifying stages and jobs.
+-   Restfully view and operate (trigger, rerun stages etc.) all the pipelines in this group.
 -   Restfully edit the pipelines belonging to this group.
 
-**Note:** A group administrator can access "Pipelines" and "Config XML"
-tabs on the Administration page to [view and edit his/her pipeline
-groups](pipeline_group_admin_config.md). He/She cannot access Server
-Configuration or perform user management. While a group administrator
-cannot access Pipeline Templates either, they can use existing templates
-for pipelines within their pipeline group.
-
-
-
-
-
-© ThoughtWorks Studios, 2010
-
+> **Note:** A group administrator can access "Pipelines" and "Config XML" tabs on the Administration page to [view and edit his/her pipeline groups](pipeline_group_admin_config.md). He/She cannot access Server Configuration or perform user management. While a group administrator cannot access Pipeline Templates either, they can use existing templates for pipelines within their pipeline group.
