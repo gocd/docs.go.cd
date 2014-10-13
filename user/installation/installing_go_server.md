@@ -1,6 +1,6 @@
 # Installing Go server
 
-Before you install the Go server or agent, please take a look at [System Requirements](../installation/system_requirements.html).
+Before you install the Go server or agent, please take a look at [System Requirements](../installation/system_requirements.md).
 
 ## Installation
 
