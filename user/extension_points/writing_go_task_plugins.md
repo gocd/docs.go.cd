@@ -1,36 +1,22 @@
+# Writing a task plugin
 
- 
+## Overview
 
-Writing a task plugin
-=====================
-
-### Overview
-
-Go supports configuring a few kinds of tasks (Nant, Ant and Rake),
-directly, from the configuration UI, without specifying them as a custom
-command. For instance, if you go to the configuration UI for a job,
-you'll see something like this:
+Go supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:
 
 ![](../resources/images/cruise/task_plugin/1_Without_Curl.png)
 
-A task plugin allows you to extend this so that you can have other tasks
-available here. The plugin also allows you to control the UI, as well as
-the data stored for this task.
+A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.
 
-For instance, you can find the source of a sample Curl plugin, [at this
-location](go_plugins_basics.html#building_a_plugin). Assuming you have
-the plugin installed, you'll see that the dropdown in the job
-configuration UI has changed to look like this:
+For instance, you can find the source of a sample Curl plugin, [at this location](go_plugins_basics.html#building-a-plugin). Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
 
 ![](../resources/images/cruise/task_plugin/2_With_Curl.png)
 
-When selected, the dialog box which allows you to configure details
-about the task looks like this:
+When selected, the dialog box which allows you to configure details about the task looks like this:
 
 ![](../resources/images/cruise/task_plugin/3_Curl_Form.png)
 
-In the configuration XML, the information entered for this task looks
-like this:
+In the configuration XML, the information entered for this task looks like this:
 
 ``` {.code}
 <task>
@@ -57,8 +43,7 @@ like this:
 </task>
 ```
 
-When a build which uses the plugin runs, the output of the build looks
-something like this:
+When a build which uses the plugin runs, the output of the build looks something like this:
 
 ``` {.code}
 [go] Start to execute task: Plugin with ID: curl.task.plugin.
@@ -84,34 +69,21 @@ plugin, for Go.
 
 ### Interface
 
-Creating a task plugin involves implementing a few interfaces, which are
-described below. If you need to know the basics of writing a plugin in
-Go, read [this](go_plugins_basics.md). The concepts and processes
-mentioned there apply to the task plugin end-point as well. On that
-page, you can also find the go-plugin-api.jar file which contains the
-interfaces mentioned below.
+Creating a task plugin involves implementing a few interfaces, which are described below. If you need to know the basics of writing a plugin in Go, read [this](go_plugins_basics.md). The concepts and processes mentioned there apply to the task plugin end-point as well. On that page, you can also find the go-plugin-api.jar file which contains the interfaces mentioned below.
 
 #### Task
 
-The Task interface is the starting point of the task plugin end-point.
-It is the top-level interface that needs to be implemented. However, to
-implement the methods in it, you will need to be aware of a few other
-interfaces and classes.
+The Task interface is the starting point of the task plugin end-point. It is the top-level interface that needs to be implemented. However, to implement the methods in it, you will need to be aware of a few other interfaces and classes.
 
 ![](../resources/images/cruise/task_plugin/Task.png)
 
 #### TaskConfig
 
-TaskConfig is a class, which is used by the plugin to define the set of
-configuration properties accepted and expected by it.
+TaskConfig is a class, which is used by the plugin to define the set of configuration properties accepted and expected by it.
 
 ![](../resources/images/cruise/task_plugin/TaskConfig.png)
 
-As shown above, it has an addProperty method, which is usually used to
-add information about a configuration property. You can also provide a
-default value for a property. It will be used if the user does not
-provide any value for it. It can be setup this way (inside the config()
-method of your plugin's task implementation):
+As shown above, it has an addProperty method, which is usually used to add information about a configuration property. You can also provide a default value for a property. It will be used if the user does not provide any value for it. It can be setup this way (inside the config() method of your plugin's task implementation):
 
 ``` {.code}
 config.addProperty("MyProperty).withDefault("DEFAULT VALUE");
@@ -119,58 +91,38 @@ config.addProperty("MyProperty).withDefault("DEFAULT VALUE");
 
 #### TaskView
 
-The TaskView implementation provided by the plugin defines the UI part
-of the configuration. The template() method returns a string, which is
-written in HTML with Angular.js-specific elements. Every configuration
-property specified by the TaskConfig mentioned earlier, will be
-available as a variable, which can be used in the template.
+The TaskView implementation provided by the plugin defines the UI part of the configuration. The template() method returns a string, which is written in HTML with Angular.js-specific elements. Every configuration property specified by the TaskConfig mentioned earlier, will be available as a variable, which can be used in the template.
 
 ![](../resources/images/cruise/task_plugin/TaskView.png)
 
-You can read more about Go's use of Angular.js templates
-[here](angular-js-templates-in-go-plugins.md).
+You can read more about Go's use of Angular.js templates [here](angular-js-templates-in-go-plugins.md).
 
 #### TaskExecutor
 
-The TaskExecutor implementation provided by the plugin (and its
-execute() method, actually) is the one that gets called, on an agent,
-when the plugin task needs to be executed.
+The TaskExecutor implementation provided by the plugin (and its execute() method, actually) is the one that gets called, on an agent, when the plugin task needs to be executed.
 
 ![](../resources/images/cruise/task_plugin/TaskExecutor.png)
 
 The execute() method gets called with two arguments:
 
--   TaskConfig: This TaskConfig object is related to the one specified
-    in the config() method in the Task Interface, but differs in that it
-    contains the value of the property, specified by the user, as well.
--   TaskExecutionContext: This object contains contextual information
-    related to this run of the task. It is explained in a bit more
-    detail below.
+-   TaskConfig: This TaskConfig object is related to the one specified in the config() method in the Task Interface, but differs in that it contains the value of the property, specified by the user, as well.
+-   TaskExecutionContext: This object contains contextual information related to this run of the task. It is explained in a bit more detail below.
 
 #### TaskExecutionContext
 
-The TaskExecutionContext is provided by Go, when the execute() method of
-TaskExecutor is called on the agent, when a task needs to be run.
+The TaskExecutionContext is provided by Go, when the execute() method of TaskExecutor is called on the agent, when a task needs to be run.
 
 ![](../resources/images/cruise/task_plugin/TaskExecutionContext.png)
 
 ### Writing a simple task plugin
 
-You can find the source of the sample Curl plugin mentioned earlier, [at
-this location](go_plugins_basics.html#building_a_plugin).
+You can find the source of the sample Curl plugin mentioned earlier, [at this location](go_plugins_basics.html#building_a_plugin).
 
-Let's see what it takes to implement a simple task plugin, one which
-takes a message from the user, and when executed, echoes that message
-back. We need to start with a Task interface implementation, with the
-config() method specifying the "message" field and the view() method
-specifying a UI for it. Do not forget to annotate the class with
-@Extension annotation, as specified in the [Go plugin basics
-page](go_plugins_basics.md).
+Let's see what it takes to implement a simple task plugin, one which takes a message from the user, and when executed, echoes that message back. We need to start with a Task interface implementation, with the config() method specifying the "message" field and the view() method specifying a UI for it. Do not forget to annotate the class with @Extension annotation, as specified in the [Go plugin basics page](go_plugins_basics.md).
 
 #### Version 1 - No validation
 
-For version 1 of this plugin, we will ignore the validate() method. The
-code looks like this:
+For version 1 of this plugin, we will ignore the validate() method. The code looks like this:
 
 ``` {.code}
 import com.thoughtworks.go.plugin.api.annotation.Extension;
@@ -239,10 +191,7 @@ Message is: Test
 
 #### Version 2 - With validation
 
-Let's add a validation to the save, so that only messages with length 5
-are allowed. To do this, we need to add a validation error when a
-message which is not of length 5 is entered. Also, we need to change the
-template so that it can show an error. The code looks like this:
+Let's add a validation to the save, so that only messages with length 5 are allowed. To do this, we need to add a validation error when a message which is not of length 5 is entered. Also, we need to change the template so that it can show an error. The code looks like this:
 
 ``` {.code}
 import com.thoughtworks.go.plugin.api.annotation.Extension;
@@ -306,14 +255,6 @@ public class EchoTask implements Task {
 }
 ```
 
-Now, the configuration UI looks like this, when trying to save a message
-which is not of length 5:
+Now, the configuration UI looks like this, when trying to save a message which is not of length 5:
 
 ![](../resources/images/cruise/task_plugin/EchoTaskSaveError.png)
-
-
-
-
-
-© ThoughtWorks Studios, 2010
-
