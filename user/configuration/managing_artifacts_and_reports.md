@@ -1,21 +1,10 @@
+# Managing artifacts and reports
 
- 
+Because all your work is done on remote agents, Go provides a mechanism for files to be automatically uploaded to Go server following the completion of every job. These files can then be accessed via the Go server dashboard, or via the RESTful API.
 
-Managing artifacts and reports
-==============================
+## Publishing artifacts
 
-Because all your work is done on remote agents, Go provides a mechanism
-for files to be automatically uploaded to Go server following the
-completion of every job. These files can then be accessed via the Go
-server dashboard, or via the RESTful API.
-
-### Publishing artifacts
-
-The first step in using the artifact repository is to tell Go which
-files you want to publish. To do this just specify the path to the file
-or directory relative to the root of the source control checkout. You
-also need to specify where Go will publish the artifact. You can add as
-many files and directories as you like.
+The first step in using the artifact repository is to tell Go which files you want to publish. To do this just specify the path to the file or directory relative to the root of the source control checkout. You also need to specify where Go will publish the artifact. You can add as many files and directories as you like.
 
 To configure an artifact:
 
@@ -23,8 +12,7 @@ To configure an artifact:
 -   Edit the pipeline you want to configure artifacts for
 -   Expand the left tree navigator and click on your job
 -   Click on the **Artifacts** tab
--   Enter the source (where the artifact will be found) and destination
-    (where the artifact should be saved on the Go server)
+-   Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
 
 ![](../resources/images/cruise/job_artifacts.png)
 
@@ -36,30 +24,21 @@ For power users, here's how you would configure this via Config XML:
 </artifacts>
 ```
 
-### Using tabs
+## Using tabs
 
-Once your artifacts are safely in Go server's artifact repository, you
-can have the dashboard display them in tabs.
+Once your artifacts are safely in Go server's artifact repository, you can have the dashboard display them in tabs.
 
-Go can display images, text files, or anything else that a browser will
-normally render in an IFrame. If you display an html page which
-references other resources (such as images, Flash files or whatever), so
-long as the resources are referenced with relative paths, they will
-display correctly.
+Go can display images, text files, or anything else that a browser will normally render in an IFrame. If you display an html page which references other resources (such as images, Flash files or whatever), so long as the resources are referenced with relative paths, they will display correctly.
 
-This mechanism is a simple way to include reports (for example code
-coverage) in Go.
+This mechanism is a simple way to include reports (for example code coverage) in Go.
 
 #### Example
 
-The console tab shows output information from all the phases of the job.
-This also includes information from the version control system and
-details regarding the artifacts created and published during the job.
+The console tab shows output information from all the phases of the job. This also includes information from the version control system and details regarding the artifacts created and published during the job.
 
 ![](../resources/images/cruise/console_out.png)
 
-If you produce an html page with an embedded Flash file into your
-artifact repository:
+If you produce an html page with an embedded Flash file into your artifact repository:
 
 ![](../resources/images/cruise/select_artifact.png)
 
@@ -71,8 +50,7 @@ You can use the following configuration to display it in a tab:
 </tabs>
 ```
 
-Go will create a tab called "Recording" and display the contents of the
-file in the tab when you click on it:
+Go will create a tab called "Recording" and display the contents of the file in the tab when you click on it:
 
 ![](../resources/images/cruise/recording.png)
 
@@ -86,8 +64,7 @@ To configure a test artifact:
 -   Edit the pipeline you want to configure artifacts for
 -   Expand the left tree navigator and click on your job
 -   Click on the **Artifacts** tab
--   Enter the source (where the artifact will be found) and destination
-    (where the artifact should be saved on the Go server)
+-   Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
 -   From the **Type** dropdown, select **Test Artifact**
 
 ![](../resources/images/cruise/job_test_artifacts.png)
@@ -105,22 +82,9 @@ Go will:
 
 -   add a tab called Tests that lists the tests in the project
 -   add a list of the failed tests to the Failures tab
--   set the properties associated with tests on the job. These include
-    failed-test-count, ignored-test-count, test-time and
-    total-test-count
--   copy the artifacts into the repository. In this case the test
-    reports will be copied into a new directory test-reports in the
-    artifact repository
+-   set the properties associated with tests on the job. These include failed-test-count, ignored-test-count, test-time and total-test-count
+-   copy the artifacts into the repository. In this case the test reports will be copied into a new directory test-reports in the artifact repository
 
 ### RESTful API
 
-Go publishes all of its information as resources that can be queried
-through http in the form of RESTful API. See the [Go
-integration](../integration/go_integration.html) page for more information.
-
-
-
-
-
-© ThoughtWorks Studios, 2010
-
+Go publishes all of its information as resources that can be queried through http in the form of RESTful API. See the [Go integration](../integration/go_integration.html) page for more information.

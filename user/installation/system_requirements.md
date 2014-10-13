@@ -50,7 +50,7 @@ We provide Solaris packages which have been tested with Solaris 10 U5. They shou
 
 #### Extra requirements for Go server
 
-The host that runs your Go server should have a separate disk partition to store Go artifacts. The artifact repository can fill up quickly (especially if you are storing large binaries). If you don't create a separate partition for artifacts and your system disk fills up, Go and other applications on your system will behave unexpectedly. You are also likely to end up with corrupted data. Check the section on [installing Go server](../installation/installing_go_server.html) for more information on configuring your artifact repository.
+The host that runs your Go server should have a separate disk partition to store Go artifacts. The artifact repository can fill up quickly (especially if you are storing large binaries). If you don't create a separate partition for artifacts and your system disk fills up, Go and other applications on your system will behave unexpectedly. You are also likely to end up with corrupted data. Check the section on [installing Go server](../installation/installing_go_server.md) for more information on configuring your artifact repository.
 
 Client software for your source code control tool must be installed on
 both your Go server and all Go build agents.
