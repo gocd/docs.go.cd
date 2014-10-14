@@ -67,7 +67,7 @@ Power users, if they so desire, can directly update the [server](../configuratio
 
 Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.
 
-## Also see...
+### Also see...
 
 -   [Installing Go agents](../installation/installing_go_agent.md)
 -   [Configure Go to work with a proxy](../installation/configure_proxy.md)

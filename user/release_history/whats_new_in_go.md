@@ -2,6 +2,8 @@
 
 Go has changed it's release naming convention from the previous practice of major.minor.bugfix nomenclature. The major version will now be the year of release (YY). The minor version n will indicate the nth release for the year. For ex: 13.2 will be the second release in 2013.
 
+> **Since release 14.2, the release notes for Go are available on the [go.cd website](http://www.go.cd/releases/#latest).**
+
 ## Go 14.1
 
 ### Features
