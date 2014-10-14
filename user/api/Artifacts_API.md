@@ -8,8 +8,6 @@ The Artifacts API is not as much an API as a way to list, download and upload ar
 
 | Method | URL format | HTTP Verb | Explanation |
 |--------|------------|-----------|-------------|
-| List | http://[server]/go/files/[pipeline]/[pipeline-counter]/[stage]/[stage-counter]/[job] | GET | List all files for the particular pipeline/stage/job in html format |
-| List | http://[server]/go/files/[pipeline]/[pipeline-counter]/[stage]/[stage-counter]/[job].html | GET | List all files for the particular pipeline/stage/job in html format |
 | List | http://[server]/go/files/[pipeline]/[pipeline-counter]/[stage]/[stage-counter]/[job].json | GET | List all files for the particular pipeline/stage/job in json format |
 
 ## Show
