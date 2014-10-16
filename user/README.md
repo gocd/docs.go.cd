@@ -1,29 +1,23 @@
-## Go User Documentation
+# Go User Documentation
 
-This documentation is still in its initial stage. Please refer http://www.thoughtworks.com/products/docs/go/current/help/ for user documentation.
+Welcome to Go - an Open Sourced Continuous Integration and Release Management system. Automate and streamline the build-test-release cycle for worry-free, continuous delivery of your product.
 
-### Setting up [GitBook](https://github.com/GitbookIO/gitbook)
+![Start using Go](resources/images/home-image1.png)
 
-We're using GitBook for generating our HTML Docs from markdown files. It is hosted [here](http://go.cd/documentation/user), and if you would like to contribute, you need GitBook [setup](https://github.com/GitbookIO/gitbook#how-to-use-it) for the same.
+## Licence
 
-Building and serving 
+Copyright 2014 ThoughtWorks, Inc. You may copy, distribute, print, and display, all or portions of this documentation, as long as you do so without making changes to the text. We also kindly request that you include a link to the original. All rights not granted above are reserved.
 
-`gitbook serve`
+## Contributing to this documentation
 
+We're using [GitBook](https://github.com/GitbookIO/gitbook) for generating our HTML Docs from markdown files. It is hosted [here](http://go.cd/documentation/user), and if you would like to contribute, please send a pull request for the same.
 
-### Status Legend
+## Index (from old documentation)
 
-* Not Done ![NOT DONE](./images/red.png)
-* In Progress ![IN PROGRESS](./images/yellow.png) 
-* Pending Review ![PENDING REVIEW](./images/blue.png)  
-* Done ![DONE](./images/green.png)
-
-## Index
-
-* [Introduction](./introduction/index.md) ![IN PROGRESS](./images/yellow.png)
+* [Introduction](./introduction/index.md)
     * [What's new in Go](./release_history/whats_new_in_go.md)
     * [Concepts in Go](./introduction/concepts_in_go.md)
-* Installing Go ![IN PROGRESS](./images/yellow.png)
+* Installing Go
     * [System requirements](installation/system_requirements.md)
     * [Installing Go Server](installation/installing_go_server.md)
     * [Installing Go Agent](installation/installing_go_agent.md)
@@ -32,7 +26,7 @@ Building and serving
     * [Configuring Server Details](installation/configuring_server_details.md)
     * [Configure a Proxy](installation/configure_proxy.md)
     * [Performance Tuning](installation/performance_tuning.md)
-* [Using Go]() ![IN PROGRESS](./images/yellow.png)
+* Using Go
     * [Setup a New Pipeline](configuration/quick_pipeline_setup.md)
     * [Managing Pipelines](configuration/managing_pipelines.md)
     * [Managing Agents](advanced_usage/managing_a_build_cloud.md)
@@ -57,7 +51,7 @@ Building and serving
     * [Package Material](advanced_usage/package_material.md)
     * [Plugin User Guide](extension_points/plugin_user_guide.md)
     * [Fan In](advanced_usage/fan_in.md)
-* [Go Tour]() ![IN PROGRESS](./images/yellow.png)
+* Go Tour
     * [Pipeline Dashboard](navigations/Pipelines_Dashboard_page.md)
     * [Agents](navigations/agents_page.md)
     * [Pipeline Activity](navigations/pipeline_activity_page.md)
@@ -67,7 +61,7 @@ Building and serving
     * [Server Details](navigations/server_details_page.md)
     * [Environments](navigations/environments_page.md)
     * [Value Stream Map](navigations/value_stream_map.md)
-* As a Developer, I want to... ![IN PROGRESS](./images/yellow.png)
+* As a Developer, I want to...
     * [.. watch what's currently building](navigations/Pipelines_Dashboard_page.md)
     * [.. trigger a pipeline with a different revision of material](advanced_usage/trigger_with_options.md)
     * [.. be notified when I break the build](configuration/dev_notifications.md)
@@ -77,16 +71,16 @@ Building and serving
     * [.. clean up my environment when I cancel a task](configuration/dev_clean_up_when_cancel.md)
     * [.. only run a task when the build has failed](configuration/dev_conditional_task_execution.md)
     * [.. use the current revision in my build](faq/dev_use_current_revision_in_build.md)
-* As a Tester, I want to... ![IN PROGRESS](./images/yellow.png)
+* As a Tester, I want to...
     * [.. release something into my UAT environment](faq/rm_deploy_to_environment.md)
     * [.. know what has changed in my new binary](faq/tester_what_has_changed.md)
     * [.. ensure appropriate tests are run against new builds](faq/dependency_management.md)
-* As a Release Manager, I want to... ![IN PROGRESS](./images/yellow.png)
+* As a Release Manager, I want to...
     * [.. release something into production](faq/rm_deploy_to_environment.md)
     * [.. know what's currently in production](faq/rm_what_is_deployed.md)
     * [.. deploy a specific build to production](faq/deploy_a_specific_build_to_an_environment.md)
     * [.. manage my environments](configuration/managing_environments.md)
-* As a Go Administrator, I want to... ![IN PROGRESS](./images/yellow.png)
+* As a Go Administrator, I want to...
     * [.. template my pipelines](configuration/pipeline_templates.md)
     * [.. parameterize my pipelines](configuration/admin_use_parameters_in_configuration.md)
     * [.. install a new agent](installation/installing_go_agent.md)
@@ -121,10 +115,10 @@ Building and serving
     * [.. backup Go server](advanced_usage/one_click_backup.md)
     * [.. be notified when Go server is not able to poll for changes](faq/material_update_hung.md)
     * [.. manage pipelines in my pipeline groups](configuration/pipeline_group_admin_config.md)
-* [Mingle Integration](integration/mingle_integration.md) ![IN PROGRESS](./images/yellow.png)
+* [Mingle Integration](integration/mingle_integration.md)
     * [Displaying Mingle gadgets in Go](integration/mingle_in_go.md)
     * [Mingle Card Activity Gadget](integration/mingle_card_activity_gadget.md)
-* FAQ/Troubleshooting ![IN PROGRESS](./images/yellow.png)
+* FAQ/Troubleshooting
     * [What is OAuth?](faq/what_is_oauth.md)
     * [What is OpenSocial?](faq/what_is_opensocial.md)
     * [How do I re-run jobs?](faq/job_rerun.md)
@@ -133,7 +127,7 @@ Building and serving
     * [Artifact integrity verification](faq/artifact_integrity.md)
     * [Setting up a new agent by cloning an existing agent](faq/agent_guid_issue.md)
     * [How can I customise my email notifications?](advanced_usage/notifications_page.md)
-* [Go API](api/go_api.md) ![IN PROGRESS](./images/yellow.png)
+* [Go API](api/go_api.md)
     * [Pipeline Group API](api/Pipeline_Group_API.md)
     * [Pipeline API](api/Pipeline_API.md)
     * [Stages API](api/Stages_API.md)
@@ -147,16 +141,16 @@ Building and serving
     * [Properties API](api/Properties_API.md)
     * [Feeds API](api/Feeds_API.md)
     * [Command Repo API](api/command_repo_api.md)
-* Extension Points of Go ![IN PROGRESS](./images/yellow.png)
+* Extension Points of Go
     * [Plugins in Go](extension_points/go_plugins_basics.md)
     * [Go Plugin API](resources/javadoc/index.html)
     * [Writing a package material plugin](extension_points/writing_go_package_material_plugin.md)
     * [Writing a task plugin](extension_points/writing_go_task_plugins.md)
     * [Angular JS templates in Go plugins](extension_points/angular-js-templates-in-go-plugins.md)
     * [OAuth Overview](faq/oauth_overview.md)
-* Bundled Plugins ![IN PROGRESS](./images/yellow.png)
+* Bundled Plugins
     * [Yum Repository Poller](extension_points/yum_repository_poller.md)
-* Configuration ![IN PROGRESS](./images/yellow.png)
+* Configuration
     * [Reference](configuration/configuration_reference.md)
     * [Schema](configuration/schema.md)
     * [TFS Material configuration](configuration/tfs_config.md)
