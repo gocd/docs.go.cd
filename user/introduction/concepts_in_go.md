@@ -1,6 +1,6 @@
 #Introduction
 
-Go is an advanced Continuous Integration and Release Management system from [ThoughtWorks Studios](http://www.thoughtworks.com/products). It takes an innovative approach to managing the build, test and release process. In order to find your way around Go, you'll need to understand how Go sees the world. This page explains some basic concepts in Go.
+Go is an advanced Continuous Integration and Release Management system. It takes an innovative approach to managing the build, test and release process. In order to find your way around Go, you'll need to understand how Go sees the world. This page explains some basic concepts in Go.
 
 If you want to know more about Continuous Integration and delivery, in general, refer to Martin Fowler's article on the subject: [Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html) and [Continuous Delivery](http://martinfowler.com/bliki/ContinuousDelivery.html).
 
@@ -92,7 +92,7 @@ Stages are then joined sequentially into a **pipeline** . Stages trigger in the 
 
 So what does a pipeline look like? Here's an example:
 
-![Example pipeline](../resources/images/cruise/pipeline_example.png)
+![Example pipeline](../resources/images/pipeline_example.png)
 
 The first stage has two jobs. The unit test job compiles the code and runs the unit tests. The compiled code is then uploaded to the artifact repository. This is the one and only time the code is compiled -- and of course if you're using an interpreted language you can skip this step. The second job does static analysis of the code, uploading the results as html test reports and build properties for further analysis.
 
@@ -116,7 +116,7 @@ A dependency is created when a pipeline is configured to depend on either an SCM
 
 ### SCM Dependency
 
-![](../resources/images/cruise/scm_dependency.png)
+![](../resources/images/scm_dependency.png)
 
 Pipeline 1 depends on an SCM.
 
@@ -124,7 +124,7 @@ Pipeline 1 will trigger each time it polls the SCM and detects a new revision.
 
 ### Pipeline Dependency
 
-![](../resources/images/cruise/pipeline_dependency.png)
+![](../resources/images/pipeline_dependency.png)
 
 Pipeline 2 depends on Pipeline 1.
 
@@ -132,7 +132,7 @@ Pipeline 2 will trigger each time Pipeline 1 successfully completes.
 
 ### Pipeline and SCM Dependency
 
-![](../resources/images/cruise/pipeline_scm_dependency.png)
+![](../resources/images/pipeline_scm_dependency.png)
 
 Pipeline 2 depends on Pipeline 1 and an SCM.
 
@@ -156,7 +156,7 @@ Someone commits code and tests as part of the same SCM commit.
 
 ### Fan-out
 
-![](../resources/images/cruise/fan-out.png)
+![](../resources/images/fan-out.png)
 
 Pipeline 1 and 2 depend on the same SCM.
 
@@ -168,7 +168,7 @@ Speed up the feedback loop and enable a team to fail and learn faster.
 
 ### Fan-in - Pipeline
 
-![](../resources/images/cruise/fan-in-pipeline.png)
+![](../resources/images/fan-in-pipeline.png)
 
 Pipelines 1 and 2 depend on an SCM.
 
@@ -188,7 +188,7 @@ Meaningful feedback - You won't have false-positives or false-negatives.
 
 ### Fan-in - Pipeline and SCM
 
-![](../resources/images/cruise/fan-in-pipeline-scm.png)
+![](../resources/images/fan-in-pipeline-scm.png)
 
 Pipelines 1 and 2 depend on SCM 1.
 
@@ -202,7 +202,7 @@ each time it polls SCM 2 and detects a new revision
 
 ### Fan-in - Pipeline with different originating SCM
 
-![](../resources/images/cruise/fan-in-pipeline-different-scm.png)
+![](../resources/images/fan-in-pipeline-different-scm.png)
 
 Pipelines 1 and 2 depend on SCM 1.
 
@@ -234,7 +234,7 @@ An environment in Go is essentially a collection of agents and pipelines. Agents
 
 So how would this work for me? Here's an example:
 
-![Environments example](../resources/images/cruise/environment-deploy.png)
+![Environments example](../resources/images/environment-deploy.png)
 
 In this scenario, we have three different environments -- User acceptance, Performance, and Production. At any given time, each environment may contain a different build of the deployed software.
 

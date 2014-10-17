@@ -14,7 +14,7 @@ To configure an artifact:
 -   Click on the **Artifacts** tab
 -   Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
 
-![](../resources/images/cruise/job_artifacts.png)
+![](../resources/images/job_artifacts.png)
 
 For power users, here's how you would configure this via Config XML:
 
@@ -36,11 +36,11 @@ This mechanism is a simple way to include reports (for example code coverage) in
 
 The console tab shows output information from all the phases of the job. This also includes information from the version control system and details regarding the artifacts created and published during the job.
 
-![](../resources/images/cruise/console_out.png)
+![](../resources/images/console_out.png)
 
 If you produce an html page with an embedded Flash file into your artifact repository:
 
-![](../resources/images/cruise/select_artifact.png)
+![](../resources/images/select_artifact.png)
 
 You can use the following configuration to display it in a tab:
 
@@ -52,7 +52,7 @@ You can use the following configuration to display it in a tab:
 
 Go will create a tab called "Recording" and display the contents of the file in the tab when you click on it:
 
-![](../resources/images/cruise/recording.png)
+![](../resources/images/recording.png)
 
 ### Publishing tests
 
@@ -67,7 +67,7 @@ To configure a test artifact:
 -   Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
 -   From the **Type** dropdown, select **Test Artifact**
 
-![](../resources/images/cruise/job_test_artifacts.png)
+![](../resources/images/job_test_artifacts.png)
 
 For power users, here's how you would configure this via Config XML:
 
@@ -87,4 +87,4 @@ Go will:
 
 ### RESTful API
 
-Go publishes all of its information as resources that can be queried through http in the form of RESTful API. See the [Go integration](../integration/go_integration.html) page for more information.
+Go publishes all of its information as resources that can be queried through http in the form of RESTful API. See the [Go integration](../integration/go_integration.md) page for more information.

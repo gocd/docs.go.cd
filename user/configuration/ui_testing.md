@@ -31,5 +31,5 @@ There are many different ways to get a Linux build agent to interact with a UI. 
 Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client. The default DISPLAY that Go uses is :3
 
 >- If there are any other environmental variables that need to be set for your UI testing tools, they correct place to set these is in your /etc/default/go-agent file. Don't forget to export them!
->- You can connect to your session with vncviewer to see what's going on. Use vncviewer < agent host name >:3
+>- You can connect to your session with vncviewer to see what's going on. Use vncviewer < agent-host-name >:3
 >- If things appear to hang, chances are you forgot to replace twm with fvwm. twm requires you to place a window on the desktop when it starts up

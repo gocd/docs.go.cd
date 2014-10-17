@@ -25,11 +25,11 @@ To configure Go to use a password file for authentication:
 3.  Click on the "Server Configuration" tab
 4.  Fill out the "Password File Settings" field under the "User Management" section
 
-![](../resources/images/cruise/admin/user_authentication_password_file.png)
+![](../resources/images/user_authentication_password_file.png)
 
 Go should pick up this change immediately and start authenticating new users (note that anybody already using Go will be required to re-authenticate).
 
-The file format for the password file is the [standard one for Java Properties](http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load(java.io.Reader)), which means that spaces, the equals sign, and the colon are special characters in the username and must be escaped with a backslash.
+The file format for the password file is the [standard one for Java Properties](http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load%28java.io.Reader%29), which means that spaces, the equals sign, and the colon are special characters in the username and must be escaped with a backslash.
 
 ### Generating passwords using htpasswd
 
@@ -76,7 +76,7 @@ To configure Go to use LDAP/AD for authentication:
 3.  Click on the "Server Configuration" tab
 4.  Fill out the "LDAP Settings" under the "User Management" section
 
-![](../resources/images/cruise/admin/user_authentication_ldap.png)
+![](../resources/images/user_authentication_ldap.png)
 
 The **Manager DN** is the LDAP/AD manager user's DN, used to connect to the LDAP/AD server.
 
@@ -122,7 +122,7 @@ To switch the mode in which the Go Server operates:
 3.  Click on the "Server Configuration" tab
 4.  Set the "Allow users that exist in LDAP or in the password file to log into Go, even if they haven't been explicitly added to Go" checkbox
 
-![](../resources/images/cruise/admin/user_authentication_auto_login.png)
+![](../resources/images/user_authentication_auto_login.png)
 
 ## Common errors
 

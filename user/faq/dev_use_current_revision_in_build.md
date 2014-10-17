@@ -8,13 +8,13 @@
 | GO\_ENVIRONMENT\_NAME | The name of the current environment. This is only set if the environment is specified. Otherwise the variable is not set. | `Development`
 | GO\_PIPELINE\_NAME | Name of the current pipeline being run | `main`
 | GO\_PIPELINE\_COUNTER | How many times the current pipeline has been run. | `2345`
-| GO\_PIPELINE\_LABEL | Label for the current pipeline. By default, this is set to the pipeline count (this can be set to a [custom pipeline label](../configuration/build_labelling.html)) | `1.1.2345`
+| GO\_PIPELINE\_LABEL | Label for the current pipeline. By default, this is set to the pipeline count (this can be set to a [custom pipeline label](../configuration/build_labelling.md)) | `1.1.2345`
 | GO\_STAGE\_NAME | Name of the current stage being run | `dev`
 | GO\_STAGE\_COUNTER | How many times the current stage has been run | `1`
 | GO\_JOB\_NAME | Name of the current job being run | `linux-firefox`
 | GO\_TRIGGER\_USER | Username of the user that triggered the build. This will have one of three possible values<ul><li>anonymous - if there is no security</li><li>username of the user, who triggered the build</li><li>changes, if SCM changes auto-triggered the build</li><li>timer, if the pipeline is triggered at a scheduled time</li></ul> | `changes`
-| GO\_DEPENDENCY\_LABEL\_${pipeline name} | The label of the upstream pipeline (when using [dependent pipelines](../configuration/managing_dependencies.html)) | `1.0.3456`
-| GO\_DEPENDENCY\_LOCATOR\_${pipeline name} | The locator of the upstream pipeline (when using [dependent pipelines](../configuration/managing_dependencies.html)), which can be used to create the URL for RESTful API calls | `upstream/1.0.3456/dev/1`
+| GO\_DEPENDENCY\_LABEL\_${pipeline name} | The label of the upstream pipeline (when using [dependent pipelines](../configuration/managing_dependencies.md)) | `1.0.3456`
+| GO\_DEPENDENCY\_LOCATOR\_${pipeline name} | The locator of the upstream pipeline (when using [dependent pipelines](../configuration/managing_dependencies.md)), which can be used to create the URL for RESTful API calls | `upstream/1.0.3456/dev/1`
 | GO\_REVISION | The current source control revision being run (when using only one material) | `123`
 | GO\_REVISION\_${material name or dest} | If you are using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material's "materialName" attribute. If "materialName" is not defined, then "dest" directory is used. Non alphanumeric characters are replaced with underscores ("\_"). | `123`
 | GO\_TO\_REVISION | If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the latest revision (when using only one material). This is always same as GO\_REVISION. | `123`
@@ -51,9 +51,9 @@ You can specify variables for Environments, Pipelines, Stages and Jobs. If a var
 
 You can add variables to an environment by editing the configuration of the environment. Click on the name of the environment to edit configuration.
 
-![](../resources/images/cruise/admin/env_variables_environment.png)
+![](../resources/images/env_variables_environment.png)
 
-You specify variables on an environment in the Config XML by adding an [\<environmentvariables\>](configuration_reference.html#environmentvariables) section to the environment definition.
+You specify variables on an environment in the Config XML by adding an [< environmentvariables >](../configuration/configuration_reference.md#environmentvariables) section to the environment definition.
 
 ``` {.code}
 <environment name="UAT">
@@ -79,9 +79,9 @@ You specify variables on an environment in the Config XML by adding an [\<enviro
 
 You can add variables for a job by editing the job configuration.
 
-![](../resources/images/cruise/admin/env_variables_job.png)
+![](../resources/images/env_variables_job.png)
 
-You specify variables on an job in the Config XML by adding an [\<environmentvariables\>](configuration_reference.html#environmentvariables) section to the job definition.
+You specify variables on an job in the Config XML by adding an [< environmentvariables >](../configuration/configuration_reference.md#environmentvariables) section to the job definition.
 
 ``` {.code}
 <job name="my-job">

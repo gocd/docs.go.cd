@@ -2,7 +2,7 @@
 
 It is often useful to receive an email when certain status changes occur in a stage. For example, a developer might want to know when their own check-in has broken the build. Alternatively, a manager might want an email whenever a project is deployed into production. Both of these scenarios can be covered by Notification Filters
 
-Notifications will only work if [Security](dev_authentication.html) is enabled and [mailhost information](admin_mailhost_info.html) is correct.
+Notifications will only work if [Security](dev_authentication.md) is enabled and [mailhost information](admin_mailhost_info.md) is correct.
 
 ## Example usage
 
@@ -10,19 +10,19 @@ Usage: As a developer, I want to be notified when I break the build.
 
 Click on the **Preferences** tab
 
-![](../resources/images/cruise/topnav_preferences.png)
+![](../resources/images/topnav_preferences.png)
 
 Click "Edit" and enter my email address, and make sure "Enable email notification" is checked
 
 When I check in, my source control log in will be either "ChrisT" or "CT", so enter both of those into the "My check-in aliases" box
 
-![](../resources/images/cruise/dev/notifications/3_email_and_matcher.png)
+![](../resources/images/3_email_and_matcher.png)
 
 Click "Save" to store these values
 
 Add a filter for the first "dev" stage to notify me when a check-in of mine breaks the build
 
-![](../resources/images/cruise/dev/notifications/4_add_filter.png)
+![](../resources/images/4_add_filter.png)
 
 ### Events
 
@@ -42,7 +42,7 @@ Illustration
 -   Previous build Fail, current build Pass: Event: Fixed
 -   Previous build Pass, current build Pass: Event: Pass
 
-![](../resources/images/cruise/dev/notifications/5_added_filter.png)
+![](../resources/images/5_added_filter.png)
 
 I'll be emailed whenever the "twist" stage of "acceptance" pipeline breaks due to my check-in
 

@@ -8,7 +8,7 @@ Once you have created a new disk partition, you need to tell Go where to find it
 
 Click on "Server Configuration" tab of the "Admin" tab. Go to the "Pipeline Management" section.
 
-![Specify artifact location](../resources/images/cruise/artifact_location.png)
+![Specify artifact location](../resources/images/artifact_location.png)
 
 Specify the artifacts directory location and click on "Save"
 
@@ -51,7 +51,7 @@ Even when all active jobs on the agent grid have stopped, users may still be upl
 
 Click on "Server Configuration" tab of the "Admin" tab. Go to the "Server Management" section.
 
-![Specify site url](../resources/images/cruise/site_url.png)
+![Specify site url](../resources/images/site_url.png)
 
 Go generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where Go cannot rely upon publishing URLs relative to a request. If you have fronted Go with a reverse proxy, this value should be the base URL for the proxy and not the internal Go address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.
 

@@ -2,7 +2,7 @@
 
 The Stage Details page shows the details of a specific stage.
 
-![Stage Details Page](../resources/images/cruise/stage_details.png)
+![Stage Details Page](../resources/images/stage_details.png)
 
 ### Key
 
@@ -57,7 +57,7 @@ You are viewing stage 'Dev' of pipeline label '59'. The pipeline has been failin
 -   None of the currently failing tests started failing in 59, 58. 57, 56 or 55.
 
 If there are no tests configured in the stage or Go is still computing results, this is the message that is displayed.
-![](../resources/images/cruise/no_tests_configured.png)
+![](../resources/images/no_tests_configured.png)
 
 #### Also See...
 

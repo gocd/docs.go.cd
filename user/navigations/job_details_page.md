@@ -2,7 +2,7 @@
 
 The Job Details page shows the details of a job within a specific stage.
 
-![Job Details Page](../resources/images/cruise/JobDetails.png)
+![Job Details Page](../resources/images/JobDetails.png)
 
 ### Key
 

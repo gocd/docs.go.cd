@@ -16,33 +16,33 @@ The first step of allowing Go and Mingle to use OAuth for this gadget is to conf
 
 Before configuring Mingle, a bit of information must be captured from Go: the Go OAuth Redirect URI. If the Mingle administrator and Go administrator are not the same person, the Mingle admin will need to ask the Go admin for this piece of information. In Go, logged in as an administrator, navigate to to the "Admin \> OAuth Enabled Gadget Providers" tab. On this page, in the blue info box, you'll see the OAuth Redirect URI. Copy and paste this URI to a scratch pad for use in the next step. Below is an example screenshot of Go displaying its OAuth Redirect URI. (Please do not attempt to derive your own redirect URL from this screenshot.)
 
-![Go](../resources/images/cruise/go_oauth_redirect_uri.png)
+![Go](../resources/images/go_oauth_redirect_uri.png)
 
 ### 1.2 - Create OAuth client entry in Mingle
 
 In Mingle, logged in as an administrator, go to the home page that lists all projects. In the administration menu at the top of the page, click the 'Manage OAuth clients' link. Click on the "Add Client" button at the bottom of the page to create the new entry in Mingle allowing Go as an OAuth client. In the first field, enter a description of the OAuth client, most likely something like "Go" and in the second field, OAuth Redirect URI, enter the Go URL you captured in the previous step.
 
-![Mingle](../resources/images/cruise/mingle_enter_new_oauth_client_info.png)
+![Mingle](../resources/images/mingle_enter_new_oauth_client_info.png)
 
 Click the Submit button and note that Mingle has generated "Client ID" and "Client Secret" fields. Below is a listing similar to what you will see after you have successfully created the entry for a new OAuth client to Mingle. Copy and paste these values to a scratch pad for the next section. You will also need to copy the Authorization URL (in the blue info box) on this page. If the Mingle administrator and Go administrator are not the same people, the Mingle administrator will need to securely communicate these values to the Go administrator.
 
-![Mingle](../resources/images/cruise/mingle_oauth_client_listing.png)
+![Mingle](../resources/images/mingle_oauth_client_listing.png)
 
 ## Step 2 - Configure Go to render gadgets from Mingle
 
 In Mingle, we have just created an entry for a new OAuth client. Go is that client. You must now configure the Go half of that trust relationship. In Go, logged in as an administrator, navigate to to the "Admin \> OAuth Enabled Gadget Providers" tab. Click the 'Add Provider' button to create the new entry. Enter something along the lines of "Mingle" for the Name. Be sure that whatever you enter for Name is something that your users will recognize. For the OAuth Authorize URL, OAuth Client ID, and OAuth Client Secret fields enter the exact values you captured above in step 1.2.
 
-![Go](../resources/images/cruise/go_create_new_oauth_gadget_provider.png)
+![Go](../resources/images/go_create_new_oauth_gadget_provider.png)
 
 Click submit to save the new entry. If you see the "Gadget provider was successfully created" message you can move on to Step 3.
 
 However, if you see an error message like the one below, indicating that the certificate offered by the server is not trusted, you must complete one more action in this Step.
 
-![Mingle](../resources/images/cruise/oauth_provider_cert_not_trusted_error.png)
+![Mingle](../resources/images/oauth_provider_cert_not_trusted_error.png)
 
 If you see the above message, you will also see a new section of text on the "New OAuth enabled gadget provider" page on which you have been working. This new section of text is the HTTPS certificate provided by Mingle to facilitate secure communication between Go and Mingle. You need to configure Go to trust this certificate. This piece of configuration is simply ticking the "Accept this configuration" checkbox and re-clicking "Submit." Go should not now be correctly configured to retrieve gadget content from Mingle.
 
-![Mingle](../resources/images/cruise/oauth_provider_accept_cert_partial.png)
+![Mingle](../resources/images/oauth_provider_accept_cert_partial.png)
 
 ## Step 3 - Verify
 
@@ -56,7 +56,7 @@ As you are configuring an integration, something might go wrong. Here are some o
 
 If users are seeing the error below rather than an opportunity to authorize the gadget provider to send Mingle data on your behalf there are two possible problems.
 
-![No gadget provider configured.](../resources/images/cruise/gadget_provider_not_configured.png)
+![No gadget provider configured.](../resources/images/gadget_provider_not_configured.png)
 
 The first possibility is that there simply is not a configured gadget provider. That is, a Go user attempted to use the Mingle card activity gadget without the Go administrator having properly configured the Mingle entry on the OAuth enabled gadget providers page.
 
@@ -66,7 +66,7 @@ The second possibility is that the Mingle URL or Mingle project identifier speci
 
 If, on clicking on the Authorize link, the popup opens but shows this error:
 
-![Gadget provider configuration error.](../resources/images/cruise/gadget_provider_configuration_error.png)
+![Gadget provider configuration error.](../resources/images/gadget_provider_configuration_error.png)
 
 One possible cause is that there is a mismatch between the redirect URI displayed on the Go OAuth Enabled Gadget Providers page and the redirect URI the Mingle administrator entered while creating the OAuth Client entry for Go. Double check that the values are identical.
 
@@ -78,7 +78,7 @@ When this error is showing in the authorization popup take a look at the value i
 
 If, upon clicking Yes in the authorization popup, the user sees the error below showing invalid client credentials, there is a mismatch between the OAuth Client Secret values. Double check that the OAuth Client Secret displayed on the Mingle OAuth Clients page is identical to the value that the Mingle administrator entered while creating the gadget provider entry for Go. Note that this error is not a reference to the user's credentials, but to the OAuth trust between Go and Mingle.
 
-![Mismatched OAuth client secrets.](../resources/images/cruise/mismatched_client_secret_error.png)
+![Mismatched OAuth client secrets.](../resources/images/mismatched_client_secret_error.png)
 
 #### Also see
 

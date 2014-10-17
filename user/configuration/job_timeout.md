@@ -18,7 +18,7 @@ You must be logged in as an admin user to configure this step.
 1.  Navigate to the Admin section on the Go dashboard.
 2.  Navigate to Server configuration
 3.  Navigate to the pipeline management sub-section
-![Job timeout](../resources/images/cruise/admin/pipeline_management_timeout.png)
+![Job timeout](../resources/images/pipeline_management_timeout.png)
 4.  Enter the default timeout for a job.
 
 ### Configure timeout behavior for a job
@@ -29,10 +29,10 @@ You can configure timeouts for each job if the timeout behavior needs to be diff
 
 1.  Navigate to the Admin section on the Go dashboard.
 2.  Navigate to the job settings page for the job.
-3.  ![Job timeout settings](../resources/images/cruise/admin/job_timeout_individual.png)
-4.  Choose the desired timeout behavior. You can choose to never timeout the job, provide a specific value or use the default job timeout.
+![Job timeout settings](../resources/images/job_timeout_individual.png)
+3.  Choose the desired timeout behavior. You can choose to never timeout the job, provide a specific value or use the default job timeout.
 
 ### Also see...
 
--   [Adding a job](admin_add_job.html)
--   [Clean up after cancelling a task](dev_clean_up_when_cancel.html)
+-   [Adding a job](admin_add_job.md)
+-   [Clean up after cancelling a task](../advanced_usage/dev_clean_up_when_cancel.md)

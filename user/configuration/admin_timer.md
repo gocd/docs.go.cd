@@ -10,7 +10,7 @@ The timer is similar to a manually triggered pipeline in many ways. But it does 
 
 To configure the timer in the UI, navigate to the General Options section of the pipeline. For example, a timer that is configured as shown in the screenshot would run the pipeline at 10pm on weekdays. An option called "Run only on new material" is also available in this form. Selecting this option ensures that the pipeline will get triggered on the specified schedule only if materials have changed since the last run of this pipeline. For example, if there are no new commits since the last run, future runs will be skipped until new commits or until the pipeline is forced to run (using trigger-with-options) with an older commit. This option is typically useful when "Automatic pipeline scheduling" is turned off.
 
-![](../resources/images/cruise/admin/timer_ui.png)
+![](../resources/images/timer_ui.png)
 
 ## Configure through the XML
 

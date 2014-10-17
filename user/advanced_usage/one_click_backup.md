@@ -1,19 +1,19 @@
 # Backup Go Server
 
-You can use Go's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](../api/Backup_API.md).
+You can use Go's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](../api/backup_api.md).
 
 ## Steps to initiate backup
 
 -   On the Go Administration page, click on the Backup tab.
--   ![](../resources/images/cruise/admin/backup/backup_tab.png)
+![](../resources/images/backup_tab.png)
 -   Click on "BACKUP"
--   ![](../resources/images/cruise/admin/backup/backup_button.png)
+![](../resources/images/backup_button.png)
 -   Click "PROCEED"
 -   Backup time is proportional to the database and configuration size. We suggest you backup Go when the Go Server is idle. Users who are logged into the Go Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.
 
 ### What is backed up?
 
-The backup will be performed into the **{ARTIFACT\_REPOSITORY\_LOCATION}/serverBackups** directory. {ARTIFACT\_REPOSITORY\_LOCATION} for your server can be found as mentioned [here](../installation/configuring_server_details.html#artifact-repository-configuration).
+The backup will be performed into the **{ARTIFACT\_REPOSITORY\_LOCATION}/serverBackups** directory. {ARTIFACT\_REPOSITORY\_LOCATION} for your server can be found as mentioned [here](../installation/configuring_server_details.md#artifact-repository-configuration).
 
 The backup directory will be named **backup\_{TIMESTAMP}** where the **{TIMESTAMP}** is the time when the backup was initiated.
 
@@ -24,11 +24,11 @@ The backup directory will be named **backup\_{TIMESTAMP}** where the **{TIMESTAM
 
 ### What is not backed up?
 
-> Note: Please refer to the [this](../installation/installing_go_server.html#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
+> Note: Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
 The following are not backed up as a part of the Go backup process. Please ensure that these are manually backed up regularly.
 
--   Artifacts - Please refer to [this section](admin_out_of_disk_space.html#move-the-artifact-repository-to-a-new-larger-drive) to find out how to deal with artifacts
+-   Artifacts - Please refer to [this section](../faq/admin_out_of_disk_space.md#move-the-artifact-repository-to-a-new-larger-drive) to find out how to deal with artifacts
 -   Test Reporting Data - This is found at the location **{SERVER\_INSTALLATION\_DIR}/db/shine** . This contains the data used in the Failed Test History reporting
 -   Environment Variables - On Windows the environment variables that might be set for the user and on Linux the changes made to **/etc/default/go-server** are not backed up.
 -   Log Files
@@ -47,7 +47,7 @@ This makes sure that only the files and directories that got newly added will be
 
 ### Restoring Go using backup
 
-> Note: Please refer to the [this](../installation/installing_go_server.html#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
+> Note: Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
 The restoration process is not automated and needs to be done manually. Please refer to the previous sections about the contents of the backup.
 

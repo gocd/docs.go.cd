@@ -6,7 +6,7 @@ The gadget is available at https://< your-go-server >:8154/go/gadgets/pipeline.x
 
 A sample of what the gadget will look like:
 
-![Pipeline Status Gadget](../resources/images/cruise/pipeline-status-gadget.png)
+![Pipeline Status Gadget](../resources/images/pipeline-status-gadget.png)
 
 ### Also see
 

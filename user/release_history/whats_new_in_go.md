@@ -48,7 +48,7 @@ Go has changed it's release naming convention from the previous practice of majo
 
 ### Features
 
--   [External Package Repositories:](../advanced_usage/package_material.md#package_material) Go supports external packages repositories as materials, and changes to packages in these repositories can trigger Go pipelines.
+-   [External Package Repositories:](../configuration/package_material.md#package_material) Go supports external packages repositories as materials, and changes to packages in these repositories can trigger Go pipelines.
 
 ### Enhancements
 
@@ -98,7 +98,7 @@ Go has changed it's release naming convention from the previous practice of majo
     -   Split Pane : A user-friendly interface appears in the config xml tab in case of a merge conflict. It displays the latest config as well as the user's changes, so that a Go administrator can edit config without losing any changes!
 -   [Support for named branches in Mercurial](../configuration/configuration_reference.md#hg)
 -   [**Config Diff**](../faq/stage_old_config.md): Go administrator can now view configuration changes between two stage runs.
--   [Delete disabled agents from agents tab](../advanced_usage/managing_a_build_cloud.md#delete_agents).
+-   [Delete disabled agents from agents tab](../configuration/managing_a_build_cloud.md#delete_agents).
 
 ### Enhancements
 
@@ -216,8 +216,8 @@ Go has changed it's release naming convention from the previous practice of majo
 ### Enhancements
 
 -   **[Silent (Unattended) Windows Installer](../installation/installing_go_agent.md).** You no longer need to stick (and click) around when you install a Windows agent. Thank you for your patience!
--   **Your [CCtray client](../integration/go_integration.md#cctray)** now shows you who broke the build
--   **[API to cancel a stage](../api/Stages_API.md)**
+-   Your **[CCtray client](../integration/go_integration.md#cctray)** now shows you who broke the build
+-   **[API to cancel a stage](../api/stages_api.md)**
 
 ### Go Community Edition
 
@@ -287,7 +287,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 ### New Features
 
 -   **[Filter on Agents page](../navigations/agents_page.md):** Use tag:value style syntax to easily find the agents you want to manage.
--   **[Auto registration of remote agents](../configuration/agent_auto_register.md):** You can now auto approve remote agents without having to enable them through the agents dashboard.
+-   **[Auto registration of remote agents](../advanced_usage/agent_auto_register.md):** You can now auto approve remote agents without having to enable them through the agents dashboard.
 
 ### Enhancements
 
@@ -376,9 +376,9 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 -   [Ensure only one instance of a pipeline can run at the same time](../configuration/admin_lock_pipelines.md)
 -   [Set variables on an environment](../faq/dev_use_current_revision_in_build.md#environment)
 -   [Set variables on a Job](../faq/dev_use_current_revision_in_build.md#job)
--   [Run a job on all agents that match environment and resources](../configuration/admin_run_on_all_agents.md)
+-   [Run a job on all agents that match environment and resources](../advanced_usage/admin_run_on_all_agents.md)
 -   [Schedule pipelines based on a timer (e.g. for nightly builds).](../configuration/admin_timer.md)
--   [Default to kill any running tasks when a stage is canceled](../configuration/dev_clean_up_when_cancel.md)
+-   [Default to kill any running tasks when a stage is canceled](../advanced_usage/dev_clean_up_when_cancel.md)
 -   [Pipeline templates help to remove duplication in the config file](../configuration/pipeline_templates.md)
 -   [Deploy specific revisions of materials to an environment](../faq/deploy_a_specific_build_to_an_environment.md)
 
@@ -392,8 +392,8 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 #### Agents
 
--   [Bulk edit of agent resources](../advanced_usage/managing_a_build_cloud.md#jobstoagents)
--   [Bulk enable and disable agents](../advanced_usage/managing_a_build_cloud.md#jobstoagents)
+-   [Bulk edit of agent resources](../configuration/managing_a_build_cloud.md)
+-   [Bulk enable and disable agents](../configuration/managing_a_build_cloud.md)
 
 #### Scheduling
 
@@ -408,7 +408,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 ### New features
 
--   [Go watches the disk space available for database and shows a warning message when it becomes low.](../configuration/admin_out_of_disk_space.md)
+-   [Go watches the disk space available for database and shows a warning message when it becomes low.](../faq/admin_out_of_disk_space.md)
 -   [Go shows the disk space available for pipelines folder under agent installation root.](../navigations/agents_page.md)
 -   [Pipeline label can now be customized by material revisions number.](../configuration/build_labelling.md)
 -   [Link directly from pipeline history page to the different stage histories.](../navigations/pipeline_activity_page.md)
@@ -453,9 +453,9 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 -   Go watch artifacts disk space and show warning message when it becomes low.
 -   [User tab to manage email notifications, with the ability to match check-ins to users](../configuration/dev_notifications.md)
--   [Run multiple Go agents on one machine](../configuration/admin_install_multiple_agents.md)
--   [Cancelling a stage can run a process to clean up on the agent](../configuration/dev_clean_up_when_cancel.md)
--   [Conditional task execution for jobs](../configuration/dev_conditional_task_execution.md)
+-   [Run multiple Go agents on one machine](../advanced_usage/admin_install_multiple_agents.md)
+-   [Cancelling a stage can run a process to clean up on the agent](../advanced_usage/dev_clean_up_when_cancel.md)
+-   [Conditional task execution for jobs](../advanced_usage/dev_conditional_task_execution.md)
 -   Support for [Git branches and submodules](../configuration/configuration_reference.md#git)
 -   Go server warns you when its disk space is running low
 -   [Set environment variables containing the source control revision id when running a task](../faq/dev_use_current_revision_in_build.md)
@@ -511,7 +511,7 @@ Go now supports linking to a story / bug tracking tool like Mingle from commit m
 
 **Description:** Using the regular expression above, if your commit messages contain messages of the form '\#2350', you could see the link wherever you can see the commit message.
 
-![](../resources/images/cruise/pipeline_activity_tracking_tool.png)
+![](../resources/images/pipeline_activity_tracking_tool.png)
 
 #### Set properties from artifact using XPath automatically.
 
@@ -531,7 +531,7 @@ After a job has finished on an agent, Go can parse any XML files on the agent an
 
 **Description:** When you specify this configuration, you can see the properties in the sub-tab 'properties' on job detail page, and export their history to a spreadsheet.
 
-![](../resources/images/cruise/xpath_properties.png)
+![](../resources/images/xpath_properties.png)
 
 #### Improved CCTray feed
 
@@ -548,7 +548,7 @@ Although Go has always stored results of re-run stages, you can now access previ
 -   The stage history is ordered by time rather than pipeline label in the Stage Detail Page.
 -   Access any stage details page by the Go API http://[your\_cruise\_server]:8153/cruise/pipelines/[pipeline\_name]/[pipeline\_label]/[stage\_name]/[stage\_counter]
 
-![](../resources/images/cruise/stage_counter.png)
+![](../resources/images/stage_counter.png)
 
 #### Support multiple repositories for Subversion
 
@@ -565,7 +565,7 @@ Go lets you define multiple repositories in cruise-config.xml if you are using S
 
 You can see material revisions for each pipeline in the sub-tab 'materials' on the job detail page and stage details page, and the tooltips as well. Note that this version of Go also treats upstream pipelines as materials, just like source control, which means you can see exactly which version of your upstream pipeline triggered this one (see the screenshot below). Use [this syntax](../configuration/configuration_reference.md#pipeline-dependency) to define dependencies between pipelines.
 
-![](../resources/images/cruise/multiple_materials.png)
+![](../resources/images/multiple_materials.png)
 
 #### Ability to filter materials
 
@@ -575,11 +575,11 @@ The pattern takes the root directory of the SCM repository as the root directory
 
 For example, the structrure of a subversion repository is following:
 
-![](../resources/images/cruise/repo-structure.png)
+![](../resources/images/repo-structure.png)
 
 The material and changes look like
 
-![](../resources/images/cruise/ignore-example.png)
+![](../resources/images/ignore-example.png)
 
 If we want to ignore files under /trunk/lib/tmp, the configuration is:
 
@@ -641,7 +641,7 @@ Go lets you re-run individual stages. Triggering this operation will run the sta
 
 The Pipeline Activity tab has an improved user interface.
 
-![Pipeline Activity Page](../resources/images/cruise/NewPipelineActivity.png)
+![Pipeline Activity Page](../resources/images/NewPipelineActivity.png)
 
 #### Solaris support
 
@@ -655,13 +655,13 @@ Go will display errors on its dashboard if the server has an invalid configurati
 
 Go now reports agent actions (such as checking out, or uploading artifacts) in the Go log that can be viewed through the web page. This makes it much easier to debug issues with source control systems and other Go agent actions.
 
-![](../resources/images/cruise/console_out.png)
+![](../resources/images/console_out.png)
 
 #### De-authorize agents through UI
 
 The agents can be disabled from the server through the user interface which means that the agent will no longer process any work. Click the Enable button to start builds on the agent again.
 
-![Agents Page](../resources/images/cruise/NewAgents.png)
+![Agents Page](../resources/images/NewAgents.png)
 
 #### Improved performance
 

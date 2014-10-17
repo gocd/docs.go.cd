@@ -12,7 +12,7 @@ The SCM command used by Go server can hang with no output. Invalid configuration
 
 Such a scenario is notified to the users by a warning in Server Health; when clicked shows a message similar to the one below.
 
-![](../resources/images/cruise/material_update_hung.png)
+![](../resources/images/material_update_hung.png)
 
 ## What can I do with the information
 

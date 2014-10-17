@@ -3,11 +3,11 @@
 When using Go to build your application, it is often useful to be able to include extra information in the label Go uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.
 
 -   Click on the [Administration](../navigations/administration_page.html) tab
--   ![](../resources/images/cruise/topnav_admin.png)
+![](../resources/images/topnav_admin.png)
 -   Edit the pipeline
--   ![](../resources/images/cruise/admin/2_edit_pipeline.png)
+![](../resources/images/2_edit_pipeline.png)
 -   Add the label template
--   ![](../resources/images/cruise/admin/3_add_label_ui.png)
+![](../resources/images/3_add_label_ui.png)
 -   Click save
 
 You might also want to include material revision into the pipeline label so that it's easier to find a Go pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:

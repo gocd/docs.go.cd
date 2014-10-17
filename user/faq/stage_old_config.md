@@ -12,10 +12,10 @@ Go provides a section on the stage details page to view the Go configuration xml
 
 Note: This tab is available to admin users only.
 
-![](../resources/images/cruise/admin/stage_config.png)
+![](../resources/images/stage_config.png)
 
 ## See what changed in the configuration between two stage runs
 
 As mentioned in the previous section, the stage history widget has markers to show if configuration has changed between two stage runs. For admin users, who have the permission to view the configuration xml, the markers appear as links. Clicking on these links shows the exact difference between the configurations. The changes are shown in the same format as that of "Git Diff".
 
-![](../resources/images/cruise/admin/stage_config_diff.png)
+![](../resources/images/stage_config_diff.png)

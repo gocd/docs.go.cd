@@ -6,9 +6,9 @@ The concept of pipeline counters was introduced in release 1.3.2. In order to ma
 
 ## Customising the pipeline label
 
-You can create a custom label by setting the **Label Template** field on your pipeline. This will change the value that Go shows on its webpages. It will also change the value of the **GO\_PIPELINE\_LABEL** property that is passed to your build. You can refer to ${COUNT} or material names which are defined in the configuration of [materials](configuration_reference.html#svn).
+You can create a custom label by setting the **Label Template** field on your pipeline. This will change the value that Go shows on its webpages. It will also change the value of the **GO\_PIPELINE\_LABEL** property that is passed to your build. You can refer to ${COUNT} or material names which are defined in the configuration of [materials](configuration_reference.md#svn).
 
-![](../resources/images/cruise/admin/pipeline_labelling.png)
+![](../resources/images/pipeline_labelling.png)
 
 Power users can still edit the config xml to achieve the same. The xml snippet to configure **labelTempalte** is below.
 

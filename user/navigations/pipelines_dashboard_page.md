@@ -2,7 +2,7 @@
 
 This shows the current activity in the system. You can see all the instances of a given pipeline that are currently in progress.
 
-![Pipelines Dashboard Page](../resources/images/cruise/pipelines_dashboard.png)
+![Pipelines Dashboard Page](../resources/images/pipelines_dashboard.png)
 
 ### Key
 
@@ -26,5 +26,5 @@ This shows the current activity in the system. You can see all the instances of 
 
 -   [Pipeline activity](../navigations/pipeline_activity_page.md)
 -   [Job details](../navigations/job_details_page.md)
--   [Clean up after canceling a task](../configuration/dev_clean_up_when_cancel.md)
+-   [Clean up after canceling a task](../advanced_usage/dev_clean_up_when_cancel.md)
 -   [Go overview](../introduction/index.md)

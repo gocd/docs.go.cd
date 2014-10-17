@@ -13,7 +13,7 @@ Go provides a chart on the stage details page which can be used for trend analys
 
 The following is a snapshot of a stage duration chart
 
-![](../resources/images/cruise/stage_duration_graph.png)
+![](../resources/images/stage_duration_graph.png)
 
 Selecting a part of the graph zooms into the selected area. Once zoomed, a link called 'Reset Zoom' Appears on the chart which resets the graph.
 

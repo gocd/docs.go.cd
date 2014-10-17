@@ -2,6 +2,8 @@
 
 ## Introduction
 
+<iframe width="560" height="315" src="//www.youtube.com/embed/fSQZ5hEQbgY" frameborder="0" allowfullscreen></iframe>
+
 This feature is an enhancement to [Custom Commands](http://support.thoughtworks.com/entries/22873043-go-s-custom-command) in Go. Rather than start from scratch with command name and arguments, you now have the option to look up a command from a repository of useful commands maintained by the Go team. The lookup provides a starting point, you may need to edit the arguments, specify a working directory etc. Once saved, the behaviour is the same as a manually entered custom command.
 
 ## Using the command repository
@@ -10,7 +12,7 @@ This feature can be used anywhere you need to specify a custom command.
 
 -   Add a new pipeline
 
-    ![](../resources/images/cruise/cmd_repo_wizard.png)
+    ![](../resources/images/cmd_repo_wizard.png)
 
 -   Add a new stage to a pipeline
 -   Add a new job to a stage
@@ -27,7 +29,7 @@ This feature can be used anywhere you need to specify a custom command.
 
 ### Args style commands
 
-The older [args](../configuration/configuration_reference.html#-exec-) style commands are not supported by this feature. Please convert them to the new syntax using the config xml editor ( **Admin \> Config XML** ). For example:
+The older [args](../configuration/configuration_reference.md#exec) style commands are not supported by this feature. Please convert them to the new syntax using the config xml editor ( **Admin \> Config XML** ). For example:
 
 ``` {.code}
 <exec command="touch" args="a b c"/>
@@ -45,7 +47,7 @@ becomes
 
 ## Bundled Repository
 
-The default set of commands come from [https://github.com/gocd/go-command-repo](https://github.com/gocd/go-command-repo). This repository is maintained by the Go team. The Go server installer bundles a clone of this Git repository under `<server-install-root>/db/command_repository/default`. Every upgrade of Go Server will overwrite the contents of this directory with an up to date set of commands. Hence, please do not add your commands here. Instead, set up a [private repository](../advanced_usage/command_repository.html#private-repository).
+The default set of commands come from [https://github.com/gocd/go-command-repo](https://github.com/gocd/go-command-repo). This repository is maintained by the Go team. The Go server installer bundles a clone of this Git repository under `<server-install-root>/db/command_repository/default`. Every upgrade of Go Server will overwrite the contents of this directory with an up to date set of commands. Hence, please do not add your commands here. Instead, set up a [private repository](../advanced_usage/command_repository.md#private-repository).
 
 ### Pulling Updates
 
@@ -71,7 +73,7 @@ cd "C:\Program Files (x86)\Go Server\db\command_repository\default"
 git pull >>c:\pull-log.txt 2>&1
 ```
 
-Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page or by using the [reload API](../api/command_repo_api.html).
+Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page or by using the [reload API](../api/command_repo_api.md).
 
 ### Private Repository
 
@@ -92,13 +94,13 @@ Go will not lookup from the bundled repository if you switch to your own reposit
 3.  Go Server caches the commands to improve response time. In case of changes in the command repository, new command gets into the cache in one of the following ways:
     1.  The default cache invalidation interval of 30 mins kicks in and the cache gets refreshed
     2.  Go server admin clicks on the **RELOAD CACHE** button
-    3.  Go server admin uses the [**reload API**](../api/command_repo_api.html) through a cron job or otherwise to force a cache reload.
+    3.  Go server admin uses the [**reload API**](../api/command_repo_api.md) through a cron job or otherwise to force a cache reload.
 
 > The commands in the command repository are not part of your Go Server config. They become part of your Go server config only after you (optionally edit and) save them.
 
 ## Command syntax and lookup logic
 
-![](../resources/images/cruise/cmd_repo_curl.png)
+![](../resources/images/cmd_repo_curl.png)
 
 The above screenshot resulted from the command below:
 
@@ -142,7 +144,3 @@ We welcome commands contributed by users. Simply,
 4.  Send us a [pull request](https://help.github.com/articles/using-pull-requests)
 
 Accepted commands will be bundled into the next release.
-
-## Further Reading
-
-[Use it to lookup your config scripts](http://www.thoughtworks.com/insights/blog/use-gos-new-command-repository-lookup-your-config-scripts)

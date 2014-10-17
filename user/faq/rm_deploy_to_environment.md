@@ -17,9 +17,13 @@ When you are ready to deploy something into the UAT environment...
 -   Navigate to the [pipeline activity](../navigations/pipeline_activity_page.md) page
 -   Find the check-in you want to deploy
 -   Click on the manual transition into the **UAT** stage
--   ![](../resources/images/cruise/release_manager/release_to_production/1_click_manual_to_uat.png)
+
+![](../resources/images/1_click_manual_to_uat.png)
+
 -   When the deploy is successful, the stage will be green and the UAT environment will contain the selected check-in
--   ![](../resources/images/cruise/release_manager/release_to_production/2_successful_to_uat.png)
+
+![](../resources/images/2_successful_to_uat.png)
+
 -   When the deploy fails for some reason, the stage will be red and the UAT environment will contain the original check-in
 
 ### Manually deploy to production
@@ -36,9 +40,13 @@ environment...
 -   Navigate to the [pipeline activity](../navigations/pipeline_activity_page.html) page
 -   Find the check-in you want to deploy
 -   Click on the details link of the **dist** stage
--   ![](../resources/images/cruise/release_manager/release_to_production/4_click_stage_details.png)
+
+![](../resources/images/4_click_stage_details.png)
+
 -   Download the installer binary in the artifacts tab
--   ![](../resources/images/cruise/release_manager/release_to_production/5_download_artifact.png)
+
+![](../resources/images/5_download_artifact.png)
+
 -   Manually install the binary into production
 -   If there are issues, manually rollback to the last known good installation
 -   If everything seems to be working correctly, click on the manual transition into the **production** stage

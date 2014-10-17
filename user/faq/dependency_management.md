@@ -10,7 +10,7 @@ If you have frequent material updates coupled with long running dependent pipeli
 
 Consider the following dependency chain:
 
-![](../resources/images/cruise/tester/dependency_management/revision_propagation.png)
+![](../resources/images/revision_propagation.png)
 
 #### Legend
 

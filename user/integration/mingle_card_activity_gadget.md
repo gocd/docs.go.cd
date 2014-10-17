@@ -10,7 +10,7 @@ Navigate to the Administration page for the pipeline for which you would like to
 
 Open the 'Project Management' section for the pipeline and select 'Mingle' for the 'Tracking Tool Integration'.
 
-![](../resources/images/cruise/mingle_card_activity_configuration.png)
+![](../resources/images/mingle_card_activity_configuration.png)
 
 There are three fields used by the card activity feature:
 
@@ -20,7 +20,7 @@ There are three fields used by the card activity feature:
 
 Below is an example configuration for the card activity feature:
 
-![](../resources/images/cruise/mingle_card_activity_example_configuration.png)
+![](../resources/images/mingle_card_activity_example_configuration.png)
 
 ## Accessing Mingle Card Activity in Go
 
@@ -33,7 +33,7 @@ There are several locations from where Mingle card activity can be accessed. The
 
 On each of these pages, a 'Compare' link will be displayed for each pipeline or pipeline instance. For example, the screenshot below depicts the 'Compare' link as displayed on the Pipelines Dashboard page.
 
-![](../resources/images/cruise/mingle_card_activity_compare_link.png)
+![](../resources/images/mingle_card_activity_compare_link.png)
 
 ## Card Activity information
 
@@ -45,19 +45,19 @@ When MQL Grouping Conditions are used, the cards are listed in groups according 
 
 | Icon | Meaning
 |------------------------------------|------------------------------------
-| ![](../resources/images/cruise/currently_meets_conditions.png) | Currently meets the conditions
-| ![](../resources/images/cruise/did_meet_conditions.png) | Did meet the conditions, but no longer does
-| ![](../resources/images/cruise/never_met_conditions.png) | Never met the conditions
+| ![](../resources/images/currently_meets_conditions.png) | Currently meets the conditions
+| ![](../resources/images/did_meet_conditions.png) | Did meet the conditions, but no longer does
+| ![](../resources/images/never_met_conditions.png) | Never met the conditions
 
 Below is an example of what the card activity will look like when MQL grouping conditions are supplied. Cards currently meeting the conditions will be shown at the top of the list.
 
-![](../resources/images/cruise/mingle_card_activity_with_grouping_conditions.png)
+![](../resources/images/mingle_card_activity_with_grouping_conditions.png)
 
 ### Without MQL Grouping Conditions
 
 When MQL Grouping Conditions are not provided, the cards are listed in the order in which the commits were made against them.
 
-![](../resources/images/cruise/mingle_card_activity_without_grouping_conditions.png)
+![](../resources/images/mingle_card_activity_without_grouping_conditions.png)
 
 Card activity reflects the "live" state of Mingle, at the time you are viewing this page. That is, the card activity shown is not a snapshot of Mingle data from the time of pipeline execution of deployment. As changes are made to cards in Mingle, this page will reflect the latest card activity.
 

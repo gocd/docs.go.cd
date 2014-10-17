@@ -24,10 +24,10 @@ You can disallow deletion of artifacts from a particular stage so that those art
 1.  Navigate to the admin section on the Go dashboard.
 2.  Navigate to the pipelines section and choose a pipeline to edit
 3.  Navigate to the stage settings for the stage
-4.  ![Disable artifact cleanup](../resources/images/cruise/admin/artifact_disable_stage.png)
-5.  Check the box 'Never Cleanup Aartifacts'
+![Disable artifact cleanup](../resources/images/artifact_disable_stage.png)
+4.  Check the box 'Never Cleanup Aartifacts'
 
 ### Also see...
 
--   [Managing artifacts and reports](../configuration/managing_artifacts_and_reports.html)
--   [Clean up after cancelling a task](dev_clean_up_when_cancel.md)
+-   [Managing artifacts and reports](managing_artifacts_and_reports.md)
+-   [Clean up after cancelling a task](../advanced_usage/dev_clean_up_when_cancel.md)

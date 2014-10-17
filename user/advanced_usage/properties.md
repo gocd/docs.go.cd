@@ -2,9 +2,9 @@
 
 ## Introduction
 
-Properties provide a simple way of collecting metrics over time. Go sets some standard properties for you. You can also set properties yourself using the Go REST APIs (see [Properties API](../api/Properties_API.html) for more information). Go also allows you to download the history of your job in a convenient CSV format, so that you can analyse the results in spreadsheets or scripts.
+Properties provide a simple way of collecting metrics over time. Go sets some standard properties for you. You can also set properties yourself using the Go REST APIs (see [Properties API](../api/Properties_API.md) for more information). Go also allows you to download the history of your job in a convenient CSV format, so that you can analyse the results in spreadsheets or scripts.
 
-![](../resources/images/cruise/cruise_properties.png)
+![](../resources/images/cruise_properties.png)
 
 ## Property history
 
@@ -17,9 +17,9 @@ You can of course access these resources through standard URLs:
 
 To open the property history in a spreadsheet application, you can click on the **Export property history to spreadsheet (csv)** link on the Properties tab of the job.
 
-![](../resources/images/cruise/properties_export.png)
+![](../resources/images/properties_export.png)
 
-![](../resources/images/cruise/properties-chart.png)
+![](../resources/images/properties-chart.png)
 
 ## Standard Properties
 
@@ -68,4 +68,4 @@ If you define a tests artifact that contains the test reports, then Go will add 
 -   **tests\_total\_duration** -- total time taken for the tests
 -   **tests\_total\_count** -- total number of tests
 
-![](../resources/images/cruise/properties-tests.png)
+![](../resources/images/properties-tests.png)

@@ -1,6 +1,6 @@
 # Choose when a stage runs
 
-Often there are steps in your [pipeline](../introduction/concepts_in_go.html) that you do not want to happen automatically. For example, you might want to keep binaries from being created for every pipeline (to prevent [running out of disk space](admin_out_of_disk_space.md)) or want to choose when your code is [deployed to production](../faq/rm_deploy_to_environment.md). Stages in Go can be marked as 'manual' just for this purpose.
+Often there are steps in your [pipeline](../introduction/concepts_in_go.md) that you do not want to happen automatically. For example, you might want to keep binaries from being created for every pipeline (to prevent [running out of disk space](../faq/admin_out_of_disk_space.md)) or want to choose when your code is [deployed to production](../faq/rm_deploy_to_environment.md). Stages in Go can be marked as 'manual' just for this purpose.
 
 You can create a manual pipeline by setting the first stage to manual.
 
@@ -8,7 +8,8 @@ You can create a manual pipeline by setting the first stage to manual.
 
 Usage: We need a manual 'dist' stage that will create the binaries used by later stages.
 
--   [Add a new stage](admin_add_stage.html) named 'dist' after a build stage
+-   [Add a new stage](admin_add_stage.md) named 'dist' after a build stage
 -   Set the Stage type to manual
--   ![](../resources/images/cruise/dev/choose_when_stage_runs/1_add_approval_tag.png)
--   Now, when the build stage 'build' is completed, you can manually cause Go to create the binary from the [Pipeline activity](../navigations/pipeline_activity_page.html) page
+
+![](../resources/images/1_add_approval_tag.png)
+-   Now, when the build stage 'build' is completed, you can manually cause Go to create the binary from the [Pipeline activity](../navigations/pipeline_activity_page.md) page
