@@ -12,7 +12,7 @@ Jobs are given a unique name based on the name of the job in the configuration f
 
 To enable run on all agents for a job, navigate to the Job settings page in the job configuration
 
-![](../resources/images/cruise/admin/runonall_job.png)
+![](../resources/images/runonall_job.png)
 
 ## Configure through the Config XML
 
@@ -22,7 +22,7 @@ To specify that a job should run on all agents, add the attribute
 runOnAllAgents="true"
 ```
 
-to the job's definition (see configuration reference for [< job >](configuration_reference.html#job))
+to the job's definition (see configuration reference for [< job >](../configuration/configuration_reference.md#job))
 
 ``` {.code}
 <job name="run-upgrades" runOnAllAgents="true">
@@ -30,6 +30,6 @@ to the job's definition (see configuration reference for [< job >](configuration
 </job>
 ```
 
-### Also See...
+#### Also See...
 
--   [Re-running job(s)](../faq/job_rerun.html)
+-   [Re-running job(s)](../faq/job_rerun.md)

@@ -19,18 +19,18 @@ There are several locations from where the Pipeline Compare feature can be invok
 
 The Pipeline Compare screen lets you compare any two instances of a pipeline. Every pipeline instance is associated with a set of changes; be it a source control modification or an upstream pipeline. Performing a compare lets you easily identify exactly what these changes were.
 
-![PipelineCompare_Changes](../resources/images/cruise/compare_changes.png)
+![PipelineCompare_Changes](../resources/images/compare_changes.png)
 
 1.  **To/from search box:** You can search for the appropriate pipeline instance using any of the following - pipeline label, check-in comment, person who checked in, upstream pipeline label and revision.
 2.  **Upstream dependency changes:** All the changes to upstream pipelines within the search range.
 3.  **Changes to version control systems:** All check-ins that went into dependent VCS materials within the search range.
-4.  **Tracking tool integration:** If you've configured a [tracking tool integration](../integration/go_integration.html#integration-with-bug-tracking-and-story-management-tools) for this pipeline or any upstream pipelines, check-in comments containing story/defect/ticket numbers would be hyperlinked to the appropriate tracking tool.
+4.  **Tracking tool integration:** If you've configured a [tracking tool integration](../integration/go_integration.md#integration-with-bug-tracking-and-story-management-tools) for this pipeline or any upstream pipelines, check-in comments containing story/defect/ticket numbers would be hyperlinked to the appropriate tracking tool.
 
 ## Using Pipeline History
 
 You can also select a pipeline by browsing the pipeline history.
 
-![PipelineCompare-Timeline](../resources/images/cruise/compare_timeline.png)
+![PipelineCompare-Timeline](../resources/images/compare_timeline.png)
 
 Steps to select a particular instance from the history:
 
@@ -40,4 +40,4 @@ Steps to select a particular instance from the history:
 
 ### See Also
 
--   [Mingle card activity gadget](../integration/mingle_card_activity_gadget.html)
+-   [Mingle card activity gadget](../integration/mingle_card_activity_gadget.md)

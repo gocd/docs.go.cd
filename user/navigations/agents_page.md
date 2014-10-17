@@ -8,7 +8,7 @@ Administrators can also disable agents. Go will not schedule work for a disabled
 
 Administrators can choose to delete an agent which is no longer required. The agent must be disabled before it can be deleted. An agent in a disabled(building) or disabled(cancelled) state cannot be deleted.
 
-![](../resources/images/cruise/Agents.png)
+![](../resources/images/agents.png)
 
 ### Key
 
@@ -41,7 +41,7 @@ Examples:
 
 Go support autocompletion of searches. After you specify a tag, Go suggests possible values for the tag, based on the exsting values entered. You can choose an appropriate value from the autocompletion list and then search.
 
-![](../resources/images/cruise/agents_autocomplete.png)
+![](../resources/images/agents_autocomplete.png)
 
 A maximum of 10 results is displayed for autocomplete, irrespetive of the number of actual matches. For best results, ensure sufficient text is entered to narrow down the number of matches
 
@@ -57,5 +57,5 @@ You cannot combine autocomplete and exact search. Once you specify the values in
 
 #### Also see...
 
--   [Managing Agents](../advanced_usage/managing_a_build_cloud.md)
+-   [Managing Agents](../configuration/managing_a_build_cloud.md)
 -   [Go overview](../introduction/index.md)

@@ -13,7 +13,7 @@ Say we have two pipelines - **upstream\_pipeline** and **downstream\_pipeline** 
 -   You'll be presented with an **Add Material** popup (see screenshot)
 -   Enter **upstream\_pipeline [AutoStage1]** in the **Pipeline [stage]** field (it can also auto-complete)
 
-![](../resources/images/cruise/admin/pipeline/pipeline_add_material.png)
+![](../resources/images/pipeline_add_material.png)
 
 Power users can also configure this via the **Config XML** tab on the Admin section:
 
@@ -29,11 +29,11 @@ Power users can also configure this via the **Config XML** tab on the Admin sect
 
 Now, when the stage "AutoStage1" of "upstream\_pipeline" completes, the pipeline "downstream\_pipeline" will start building. The Pipeline Dependency visualization shows you all the downstream instances that were triggered off the upstream instance (label 14) currently being viewed.
 
-![](../resources/images/cruise/dependent_build.png)
+![](../resources/images/dependent_build.png)
 
 If you want to view the materials that are associated with "downstream\_pipeline", the pipeline details page for that specific instance of the downstream pipeline will show you all this information.
 
-![](../resources/images/cruise/downstream_pipeline.png)
+![](../resources/images/downstream_pipeline.png)
 
 ### Fetching artifacts from an upstream pipeline
 
@@ -45,15 +45,15 @@ For example, in the following configuration, when the stage "AutoStage1" of pipe
 
 You can do this via the admin screens for the respective pipelines. You'll need to first define the artifact in the "upstream\_pipeline" at the job level:
 
-![](../resources/images/cruise/admin/pipeline/job_artifacts.png)
+![](../resources/images/job_artifacts.png)
 
 Then, you'll want to retrieve (fetch) that artifact from within the "downstream\_pipeline." You can do this by creating a "Fetch Artifact" task within a job in that pipeline. Since you have already defined "upstream\_pipeline" as a dependency material, artifacts from that pipeline are accessible in this pipeline.
 
-![](../resources/images/cruise/admin/pipeline/task_fetch_artifact.png)
+![](../resources/images/task_fetch_artifact.png)
 
 A fetch task can also be instructed to retrieve (fetch) an artifact from an ancestor pipeline. For example, lets assume that the "upstream\_pipeline" used in this example, depends on another pipeline "topmost\_pipeline". Then you can define a a "Fetch Artifact" task to fetch artifacts from "topmost\_pipeline" by defining the hierarchy of these pipelines as follows. You have to specify the hierarchy by separting the pipelines with a /. For example: topmost\_pipeline/upstream\_pipeline.
 
-![](../resources/images/cruise/admin/pipeline/task_fetch_artifact_ancestor.png)
+![](../resources/images/task_fetch_artifact_ancestor.png)
 
 For power users, here's how you can configure this via Config XML:
 

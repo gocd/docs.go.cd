@@ -118,7 +118,7 @@ curl -u admin:badger http://goserver.com:8153/go/config/diff/238d2081ca5fde32440
 
 To add a pipeline, you perform a POST to the URL http://[server]/go/tab/admin/pipelines/[pipeline\_name].json where pipeline\_name is the name of the pipeline that you wish to create. Creating a pipeline supports the following parameters:
 
-For example, suppose you have switched on security and the username and the password are 'my\_user' and 'my\_password'. If you want to create a new pipeline named 'mypipeline', which uses an svn repository without username and password, and the location of repository is 'http://http://yoursvnrepository/trunk'. The command should be:
+For example, suppose you have switched on security and the username and the password are 'my\_user' and 'my\_password'. If you want to create a new pipeline named 'mypipeline', which uses an svn repository without username and password, and the location of repository is 'http://yoursvnrepository/trunk'. The command should be:
 
 ```
 curl -u admin:badger -d "url=http://yoursvnrepository/trunk" http://goserver.com:8153/go/tab/admin/pipelines/mypipeline.json

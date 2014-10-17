@@ -7,7 +7,11 @@ Before [deploying something into production](rm_deploy_to_environment.md), it is
 For this example, we will assume we have a stage name "production" that will automatically deploy a binary onto a production server
 
 -   Start at the [Environments](../navigations/environments_page.md) page
--   ![](../resources/images/cruise/topnav_environments.png)
+
+![](../resources/images/topnav_environments.png)
+
 -   Click on the name of your "production" stage
--   ![](../resources/images/cruise/release_manager/whats_in_an_environment/2_click_stage_activity.png)
+
+![](../resources/images/2_click_stage_activity.png)
+
 -   The [Stage Details](../navigations/stage_details_page.md) page will show every time Go has deployed your application

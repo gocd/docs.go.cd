@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The Yum respository poller is a bundled [package material](../advanced_usage/package_material.html) plugin capable of polling yum repositories for rpm packages. Go server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d
+The Yum respository poller is a bundled [package material](../configuration/package_material.md) plugin capable of polling yum repositories for rpm packages. Go server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d
 
 ``` {.code}
 repoquery --repofrompath=uuid,$REPO_URL --repoid=uuid -q $PACKAGE_SPEC -qf "%{LOCATION}..."
@@ -49,10 +49,10 @@ The following [rpm metadata](http://www.rpm.org/max-rpm-snapshot/s1-rpm-inside-t
 
 The following information is made available as environment variables for tasks:
 
-1.  GO\_PACKAGE\_\<REPO-NAME\>\_\<PACKAGE-NAME\>\_LABEL
-2.  GO\_REPO\_\<REPO-NAME\>\_\<PACKAGE-NAME\>\_REPO\_URL
-3.  GO\_PACKAGE\_\<REPO-NAME\>\_\<PACKAGE-NAME\>\_PACKAGE\_SPEC
-4.  GO\_PACKAGE\_\<REPO-NAME\>\_\<PACKAGE-NAME\>\_LOCATION
+1.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LABEL
+2.  GO\_REPO\_< REPO-NAME >\_< PACKAGE-NAME >\_REPO\_URL
+3.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_PACKAGE\_SPEC
+4.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LOCATION
 
 Individual plugins may provide additional info via additional environment variables.
 

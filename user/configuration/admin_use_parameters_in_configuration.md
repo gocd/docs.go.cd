@@ -6,7 +6,7 @@ Go allows you to parameterize your pipelines and pipeline templates. This powerf
 
 Edit the **Parameters** tab when defining a **pipeline** .
 
-![](../resources/images/cruise/admin/use_parameters_in_configuration.png)
+![](../resources/images/use_parameters_in_configuration.png)
 
 ## Defining and using a parameter
 
@@ -40,7 +40,7 @@ Parameter values are defined in the < params > tag within a pipeline and can be 
 
 ## Using parameters in pipeline templates
 
-Parameter usage within [templates](pipeline_templates.html#pipelinetemplates) is similar to usage within pipelines. The only difference being, you cannot define parameters in a template.
+Parameter usage within [templates](pipeline_templates.md) is similar to usage within pipelines. The only difference being, you cannot define parameters in a template.
 
 ``` {.code}
 <pipeline name="trunk" template="my_template">

@@ -4,7 +4,7 @@ Go supports a Trigger with option that allows you to run the pipeline with a spe
 
 ## Trigger with options
 
-![Trigger with options](../resources/images/cruise/trigger_with_options.png)
+![Trigger with options](../resources/images/trigger_with_options.png)
 
 ## Information
 
@@ -29,16 +29,16 @@ If you want to trigger with a revision other than the 5 that is displayed, you c
 
 Go will find matches and display the same. One of the matches can be chosen and the build triggered.
 
-![Trigger with options search](../resources/images/cruise/trigger_with_options_search.png)
+![Trigger with options search](../resources/images/trigger_with_options_search.png)
 
 ### Environment and secure variables
 
 If the pipeline has environment and/or secure variables configured, additional tabs will be displayed to allow you to override these values.
 
-![Trigger with options and environment variables](../resources/images/cruise/trigger_with_options_environment.png)
+![Trigger with options and environment variables](../resources/images/trigger_with_options_environment.png)
 
 #### Also see...
 
--   [Deploy a specific build to an environment](../faq/deploy_a_specific_build_to_an_environment.html)
--   [Pipeline dashboard](../navigations/Pipelines_Dashboard_page.html)
--   [Ordering of pipelines](../faq/ordering_of_pipelines.html)
+-   [Deploy a specific build to an environment](../faq/deploy_a_specific_build_to_an_environment.md)
+-   [Pipeline dashboard](../navigations/Pipelines_Dashboard_page.md)
+-   [Ordering of pipelines](../faq/ordering_of_pipelines.md)

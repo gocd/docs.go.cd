@@ -6,16 +6,16 @@ After you've entered your license information, clicking on the **Pipelines** tab
 
 ### Step 1: Basic Settings
 
-![](../resources/images/cruise/admin/new_pipeline_1.png)
+![](../resources/images/new_pipeline_1.png)
 
 1.  Fill in the pipeline name
 2.  Fill in the pipeline group
 
 ### Step 2: Material
 
-![](../resources/images/cruise/admin/new_pipeline_2.png)
+![](../resources/images/new_pipeline_2.png)
 
-1.  Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a [package repository](http://www.thoughtworks.com/products/docs/go/current/help/package_material.html) (e.g. yum). Currently Go supports the following SCMs:
+1.  Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a [package repository](package_material.md) (e.g. [yum](../extension_points/yum_repository_poller.md)). Currently Go supports the following SCMs:
     1.  Subversion
     2.  Mercurial
     3.  Git
@@ -27,14 +27,14 @@ After you've entered your license information, clicking on the **Pipelines** tab
 
 ### Step 3: Stage and Job
 
-![](../resources/images/cruise/admin/new_pipeline_3.png)
+![](../resources/images/new_pipeline_3.png)
 
 A pipeline contains one or more stages. Define the first stage of your pipeline
 
 1.  Fill in the Stage name.
 2.  Fill in the Job name.
 3.  Fill in the task type and the command for the task.
-4.  If you use Ant, NAnt or Rake for scripting, Go provides convenience wrappers for these tools. To use any other scripting tool (e.g: Maven, msbuild, etc.), choose the "More..." option to use the [command repository](../advanced_usage/command_repository.html) or specify the command line syntax for that tool.
+4.  If you use Ant, NAnt or Rake for scripting, Go provides convenience wrappers for these tools. To use any other scripting tool (e.g: Maven, msbuild, etc.), choose the "More..." option to use the [command repository](../advanced_usage/command_repository.md) or specify the command line syntax for that tool.
 
 See the [Managing pipelines](managing_pipelines.md) documentation for editing these settings following the creation of your pipeline.
 
@@ -60,13 +60,13 @@ For this option to work, Rake needs to be installed on the Go Agent(s) and the *
 
 ### More...
 
-In addition to the above tasks, Go allows you to run anything on the command line. You can use the [command repository](../advanced_usage/command_repository.html) to help you choose the command. Alternately you can specify a command on your own.
+In addition to the above tasks, Go allows you to run anything on the command line. You can use the [command repository](../advanced_usage/command_repository.md) to help you choose the command. Alternately you can specify a command on your own.
 
 You can see the complete configuration reference [here](configuration_reference.md).
 
-## Also See
+#### Also See
 
 -   [Adding a material to an existing pipeline](admin_add_material.md)
 -   [Adding a stage to an existing pipeline](admin_add_stage.md)
 -   [Adding a job to an existing pipeline](admin_add_job.md)
--   [Role-based authorization](../configuration/dev_authorization.html)
+-   [Role-based authorization](dev_authorization.md)

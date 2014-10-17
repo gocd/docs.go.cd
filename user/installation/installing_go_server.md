@@ -1,6 +1,6 @@
 # Installing Go server
 
-Before you install the Go server or agent, please take a look at [System Requirements](../installation/system_requirements.md).
+Before you install the Go server or agent, please take a look at [System Requirements](system_requirements.md).
 
 ## Installation
 
@@ -16,7 +16,7 @@ You must be logged in as a user with Administrator privileges to install the Go 
 
 #### Override default startup arguments
 
-![](../resources/images/cruise/windows-server-startup-config-cascade.png)
+![](../resources/images/windows-server-startup-config-cascade.png)
 
 -   Create a file named *wrapper-properties.conf* inside the *config* directory
 -   With reference to the representation above, if you wish to increase the maximum java heap size from default *1024m* to *2048m*,
@@ -34,7 +34,7 @@ You must be logged in as a user with Administrator privileges to install the Go 
 4.  Double-click on the Go Server.app icon to open the launcher.
 5.  While the Go server is starting up, you'll see a progress bar in the top left of your screen.
 
-    ![Go server OSX startup](../resources/images/cruise/cruise_server_osx_startup.png)
+    ![Go server OSX startup](../resources/images/cruise_server_osx_startup.png)
 
 6.  Once the Go server has started, it will open your default browser to the Go dashboard page.
 7.  To get back to the Go dashboard page when the server is running, click on the link in the About box of the Go server
@@ -139,6 +139,6 @@ Some logging information is also written to */var/log/system.log*
 
 ### Also see...
 
--   [Installing Go agents](../installation/installing_go_agent.md)
--   [Configuring server details](../installation/configuring_server_details.md)
--   [Configure Go to work with a proxy](../installation/configure_proxy.md)
+-   [Installing Go agents](installing_go_agent.md)
+-   [Configuring server details](configuring_server_details.md)
+-   [Configure Go to work with a proxy](configure_proxy.md)

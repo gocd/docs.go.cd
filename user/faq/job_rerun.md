@@ -13,8 +13,8 @@ You may sometimes encounter situations where you want to re-run only a subset of
 
 The "Rerun" option is only available for stages that have completed. You cannot re-run jobs for stages that are still running.
 
-![](../resources/images/cruise/stage_details_pre_job_rerun.png)
+![](../resources/images/stage_details_pre_job_rerun.png)
 
 Job re-runs are denoted by a circular arrow overlay on the stages and jobs that have been re-run:
 
-![](../resources/images/cruise/stage_details_post_job_rerun.png)
+![](../resources/images/stage_details_post_job_rerun.png)

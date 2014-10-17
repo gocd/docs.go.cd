@@ -2,7 +2,7 @@
 
 The Notifications page is to customize the email notifications for the current logged in user.
 
-![Notifications Page](../resources/images/cruise/my_cruise_page.png)
+![Notifications Page](../resources/images/my_cruise_page.png)
 
 #### Key
 

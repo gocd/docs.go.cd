@@ -2,11 +2,11 @@
 
 After you've had Go running for a while, you may notice the following warning box when browsing Go:
 
-![](../resources/images/cruise/admin/out_of_disk_space/1_low_disk_space_on_artifacts.png)
+![](../resources/images/1_low_disk_space_on_artifacts.png)
 
 If you don't do anything about it, you'll end up seeing the following error:
 
-![](../resources/images/cruise/admin/out_of_disk_space/2_out_of_disk_space_on_artifacts.png)
+![](../resources/images/2_out_of_disk_space_on_artifacts.png)
 
 Go will stop scheduling new pipelines until you make more room, either by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. You could also let Go manage artifact disk space by enabling auto purge of old artifacts.
 
@@ -36,13 +36,15 @@ You can disallow deletion of artifacts from a particular stage so that those art
 1.  Navigate to the admin section on the Go dashboard.
 2.  Navigate to the pipelines section and choose a pipeline to edit
 3.  Navigate to the stage settings for the stage
-![Disable artifact cleanup](../resources/images/cruise/admin/artifact_disable_stage.png)
+
+![Disable artifact cleanup](../resources/images/artifact_disable_stage.png)
+
 4.  Check the box 'Never Cleanup Aartifacts'
 
 ### Also see...
 
 -   [Managing artifacts and reports](../configuration/managing_artifacts_and_reports.md)
--   [Clean up after cancelling a task](dev_clean_up_when_cancel.md)
+-   [Clean up after cancelling a task](../advanced_usage/dev_clean_up_when_cancel.md)
 
 ## Compress large log files
 
@@ -60,10 +62,10 @@ If compressing large artifacts is not giving you enough free space, another thin
 
 -   Find the location of the Go configuration file
 -   Navigate to the [Admin](../navigations/administration_page.md) section
-![](../resources/images/cruise/topnav_admin.png)
+![](../resources/images/topnav_admin.png)
 -   Click on the "Config XML" tab
 -   The location of the configuration file is listed here
-![](../resources/images/cruise/admin/out_of_disk_space/4_find_config_location.png)
+![](../resources/images/4_find_config_location.png)
 -   Install the new drive
 -   Shut down Go server
 -   Copy all files from the original artifact repository location to the new drive

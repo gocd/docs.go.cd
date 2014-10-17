@@ -12,31 +12,31 @@ You can create an environment in the admin UI through the following steps. This 
 
 -   Click on the Environments tab
 
-![](../resources/images/cruise/topnav_environments.png)
+![](../resources/images/topnav_environments.png)
 
 -   Click on the "Add a new environment"
 
-![](../resources/images/cruise/env_click_new.png)
+![](../resources/images/env_click_new.png)
 
 -   Provide a name for the environment
 
-![](../resources/images/cruise/env_name.png)
+![](../resources/images/env_name.png)
 
 -   Add one or more pipelines that need to run on the environment
 
-![](../resources/images/cruise/env_pipelines.png)
+![](../resources/images/env_pipelines.png)
 
 -   Add one or more agents associated with the environment
 
-![](../resources/images/cruise/env_agents.png)
+![](../resources/images/env_agents.png)
 
 -   Add one or more environment variables that need to be passed.
 
-![](../resources/images/cruise/env_env_variables.png)
+![](../resources/images/env_env_variables.png)
 
 -   Click on finish
 
-Setting up an environment through the xml can be found in the [configuration reference](configuration_reference.html#-environments-)
+Setting up an environment through the xml can be found in the [configuration reference](configuration_reference.md#environments)
 
 ## Add a new agent to an existing environment
 
@@ -46,4 +46,4 @@ You can do this very easily in the Agents tab. Just select the agents you want t
 -   An environment **with a forward slash** means some of your selected agents are associated to it. No change will occur after clicking “Apply”.
 -   An environment **without a check** will remove the environment from all selected agents.
 
-![](../resources/images/cruise/associate_agent_environment.png)
+![](../resources/images/associate_agent_environment.png)

@@ -38,5 +38,5 @@ Below is a series of movies we've made that explain how OAuth works. Part 1 cove
 
 -   [Integrating Go with Mingle - an overview](mingle_integration.md)
 -   [Reference for Mingle card activity gadget](mingle_card_activity_gadget.md)
--   [What is OAuth?](what_is_oauth.md)
--   [What is OpenSocial?](what_is_opensocial.md)
+-   [What is OAuth?](../faq/what_is_oauth.md)
+-   [What is OpenSocial?](../faq/what_is_opensocial.md)

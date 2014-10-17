@@ -22,11 +22,11 @@ Go helps solve all of the above problems.
 
 I want to push a build into a number of environments in parallel (Manual QA, UAT for business sign off and performance testing) so that all these activities happen at the same time. So we have a pipeline dependency model as shown below
 
-![](../resources/images/cruise/fanin_1_1.png)
+![](../resources/images/fanin_1_1.png)
 
 For the next step, when deploying to production, we have a pipeline that depends on all 3 of the above pipeline so that a build that has succeeded in all 3 environments is automatically pushed to production. This is shown below.
 
-![](../resources/images/cruise/fanin_1_2.png)
+![](../resources/images/fanin_1_2.png)
 
 Sequence of Events and Resolution
 
@@ -43,7 +43,7 @@ How to configure:
 
 I have three component pipelines (C1, C2, C3) and a package pipeline that fetches their artifacts and creates a deploy package. Components C2 and C3 depend on pipeline C1 and have it as a material. The pipeline for C2 builds quickly but C3 takes a while. So we have a pipeline dependency model as shown below
 
-![](../resources/images/cruise/fanin_2_1.png)
+![](../resources/images/fanin_2_1.png)
 
 The package pipeline should not trigger as soon as C2 is done. It should trigger only if both C2 and C3 go green. Additionally Package should use the same version of C1 that was used by C2 and C3.
 
@@ -65,7 +65,7 @@ How to configure:
 
 You check-in code and tests as part of the same commit. The build pipeline compiles code and creates an artifact. The Acceptance pipeline fetches the build artifact and runs the tests that were written for the compiled code. Acceptance has to use the same tests committed with the code. So we have a pipeline dependency model as shown below
 
-![](../resources/images/cruise/fanin_3_1.png)
+![](../resources/images/fanin_3_1.png)
 
 Sequence of Events and Resolution
 

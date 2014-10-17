@@ -8,7 +8,7 @@ Note: Configuration file is maintained in git version control system. Go leverag
 
 In case of a successful merge, user would see a success message as below:
 
-![](../resources/images/cruise/admin/successful_config_merge.png)
+![](../resources/images/successful_config_merge.png)
 
 ## Merge Conflicts
 
@@ -18,11 +18,11 @@ In case of a conflict, Go provides an interface with the latest version of confi
 
 User needs to re-apply their changes displayed on the left-hand pane, to the editable version on the right and save again.
 
-![](../resources/images/cruise/admin/config_xml_merge_conflict.png)
+![](../resources/images/config_xml_merge_conflict.png)
 
 ### Handling conflict while using Config XML tab (Pipeline group administrator)
 
-![](../resources/images/cruise/admin/group_admin_merge_conflict.png)
+![](../resources/images/group_admin_merge_conflict.png)
 
 ### Handling conflict while updating configuration via other Admin tabs
 
@@ -30,4 +30,4 @@ If two users make similar changes to a pipeline using the ‘Edit Pipeline’ UI
 
 User should backup the required changes from the page. Clicking on ‘RELOAD’ button, would discard user’s changes and reload the page with latest version of the pipeline configuration. User should re-apply his/her changes from backup and save again.
 
-![](../resources/images/cruise/admin/clicky_admin_merge_conflict.png)
+![](../resources/images/clicky_admin_merge_conflict.png)

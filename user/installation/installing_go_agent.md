@@ -8,9 +8,9 @@ You need to deploy at least one Go agent before you can build with Go. For the v
 
 ### Windows
 
-You must be logged in as a user with Admin privileges to install the Go agent on Windows.
+> You must be logged in as a user with Admin privileges to install the Go agent on Windows.
 
-1.  Double-click the go-agent-\${version}.exe installer file and follow the prompts to install Go.
+1.  Double-click the go-agent-${version}.exe installer file and follow the prompts to install Go.
 2.  During installation you will be asked to select a root path for your Go agent. In addition to holding your agent installation, this directory will contain the source code your agent checks out for every build.
 3.  You will next be prompted to choose the bundled Oracle JRE 7 or specify the location of JRE (or JDK) installed on your system
 4.  After installing the files, the installer will prompt you for the hostname or IP address of the Go server. If you leave this blank it will default to the local machine.
@@ -30,13 +30,13 @@ Installation-Directory is optional. Default value is C:\\Program Files(x86)\\Go 
 
 -   For example, C:\\\>go-agent-12.3.0-2000-setup.exe /S/SERVERIP=10.10.10.10 /D=C:\\go\\agent
 
-If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work
+> If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work
 
-If you are using the silent installation to upgrade an agent, you should not specify the Installation-Directory option.
+> If you are using the silent installation to upgrade an agent, you should not specify the Installation-Directory option.
 
 #### Override default startup arguments
 
-![Override_wrapper-agent](../resources/images/cruise/windows-agent-startup-config-cascade.png)
+![Override_wrapper-agent](../resources/images/windows-agent-startup-config-cascade.png)
 
 -   Create a file named *wrapper-properties.conf* inside the *config* directory
 -   With reference to the representation above, if you wish to override *wrapper.java.additional.2*,
@@ -53,7 +53,7 @@ If you are using the silent installation to upgrade an agent, you should not spe
 3.  Double-click on the Go Agent.app icon to open the launcher.
 4.  The very first time you run the Go agent on your machine you will be prompted for the hostname or IP address of your Go server. By default it will try connecting to the local machine. Click the OK button to continue.
 
-    ![Go Agent OSX Config](../resources/images/cruise/cruise_agent_osx_config.png)
+    ![Go Agent OSX Config](../resources/images/cruise_agent_osx_config.png)
 
 On OSX 10.8.x (Mountain Lion), you may get the following error. **"Go Agent" is damaged and can't be opened. You should move it to the Trash.** This is due to enanced security protections. To allow the install to proceed
 
@@ -62,26 +62,24 @@ On OSX 10.8.x (Mountain Lion), you may get the following error. **"Go Agent" is 
 - Cick on the General tab to hightlight it.
 - Click ont he lock icon to allow changes.
 - Under the heading "Allow applications downloaded from:" click on the **Anywhere** radio button.
-
-The installation will proceed as normal.
-
-When it is finished, you can change the Security & Privacy setting back to the previous setting.
+- The installation will proceed as normal.
+- When it is finished, you can change the Security & Privacy setting back to the previous setting.
 
 ### Linux
 
-You must be logged in as root, or use *sudo*, to install Go on Linux. Go agent also requires that the Oracle or Open JRE or JDK - version 6 or above - is installed.
+> You must be logged in as root, or use *sudo*, to install Go on Linux. Go agent also requires that the Oracle or Open JRE or JDK - version 6 or above - is installed.
 
-The installer will create a user called *go* if one does not exist on the machine. The home directory will be set to */var/go*. If you want to create your own *go* user, make sure you do it before you install the Go agent.
+> The installer will create a user called *go* if one does not exist on the machine. The home directory will be set to */var/go*. If you want to create your own *go* user, make sure you do it before you install the Go agent.
 
 #### RPM based distributions (ie RedHat)
 
-The Go agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
+> The Go agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
 
 - Run *rpm -i go-agent-${version}.noarch.rpm* to install Go agent.
 
 #### Debian based distributions (ie Ubuntu)
 
-The Go agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.
+> The Go agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.
 
 - Run *dpkg -i go-agent-${version}.deb* to install Go agent.
 
@@ -101,9 +99,9 @@ following:
 
 #### Solaris
 
-You must be logged in as root, or use *sudo* or *pfexec*, to install Go on Solaris. Go agent also requires that Oracle or Open JRE or JDK - version 6 or above - is installed.
+> You must be logged in as root, or use *sudo* or *pfexec*, to install Go on Solaris. Go agent also requires that Oracle or Open JRE or JDK - version 6 or above - is installed.
 
-The installer will create a user called *go* if one does not exist on the machine. The home directory will be set to */var/go*. If you want to create your own *go* user, make sure you do it before you install the Go agent.
+> The installer will create a user called *go* if one does not exist on the machine. The home directory will be set to */var/go*. If you want to create your own *go* user, make sure you do it before you install the Go agent.
 
 1.  Uncompress the package with the command *gzip -d go-agent-\${version}-solaris.gz*
 2.  Install the package with the command *pkgadd -d go-agent-\${version}-solaris*
@@ -161,4 +159,4 @@ Some logging information is also written to /var/log/system.log
 For security reasons, all newly installed Go agents need to be enabled on the Go server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed Go agent, do the following:
 
 1.  Open the Go server dashboard
-2.  Follow the instructions [here](../advanced_usage/managing_a_build_cloud.md) to find the agent you've just installed on the list and add the agent to your cloud. The Go server will now schedule work for this agent.
+2.  Follow the instructions [here](../configuration/managing_a_build_cloud.md) to find the agent you've just installed on the list and add the agent to your cloud. The Go server will now schedule work for this agent.

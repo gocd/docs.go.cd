@@ -8,7 +8,7 @@ This tab shows the configuration and runtime information of an agent. For exampl
 
 In terms of configuration, this tab shows the resources of the agent and the environment it belongs to. A sample Details tab looks as below:
 
-![](../resources/images/cruise/admin/agent_details.png)
+![](../resources/images/agent_details.png)
 
 ## Job Run History tab
 
@@ -16,7 +16,7 @@ You must be logged in as an admin user to configure this step.
 
 This tab shows a table of all the completed jobs that ran on this agent. A sample page is shown below
 
-![](../resources/images/cruise/admin/agent_job_history.png)
+![](../resources/images/agent_job_history.png)
 
 For every job, the following columns are shown:
 

@@ -2,7 +2,7 @@
 
 Go's user management features allow you to control access to Go and grant role-based permissions.
 
-All user management features depend on an [authentication mechanism](dev_authentication.html) having been configured in Go. Please ensure you have at least one [authentication mechanism](dev_authentication.html) enabled before attempting to use any of the features mentioned in this chapter.
+All user management features depend on an [authentication mechanism](dev_authentication.md) having been configured in Go. Please ensure you have at least one [authentication mechanism](dev_authentication.md) enabled before attempting to use any of the features mentioned in this chapter.
 
 ## Adding Users
 
@@ -10,13 +10,13 @@ All user management features depend on an [authentication mechanism](dev_authent
 2.  Click on the "User Summary" tab
 3.  Click the "Add User" button
 
-![](../resources/images/cruise/admin/user_summary_add_user.png)
+![](../resources/images/user_summary_add_user.png)
 
 4.  Enter a name/email to search for (minimum 2 characters) and click "Search"
 5.  This will perform a search across all authentication mechanisms configured (password file and/or LDAP)
 6.  From the list of results, select the user to add and click "Add User"
 
-![](../resources/images/cruise/admin/user_summary_search.png)
+![](../resources/images/user_summary_search.png)
 
 ## Assigning Roles
 
@@ -39,7 +39,7 @@ With this setup, your entire team has visibility into what each other is doing, 
 5.  Check/un-check the roles you want to assign/remove from the selected users and click "Apply"
 6.  Alternately, you can create a new role to apply to the selected users by typing in the name of a role in the input box and clicking "Add"
 
-![](../resources/images/cruise/admin/user_summary_roles.png)
+![](../resources/images/user_summary_roles.png)
 
 ## Managing 'Go System Administrator' privilege
 
