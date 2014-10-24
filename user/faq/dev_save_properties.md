@@ -8,12 +8,12 @@ Usage: As a developer, I want to save the average [cyclomatic complexity](http:/
 
 For this example, we're going to take the information out of "target/javancss/javancss\_metrics\_util.xml"
 
--   On the [Administration Tab](../navigations/administration_page.md), edit the job that should generate the properties
+-   On the [Administration Tab](../navigation/administration_page.md), edit the job that should generate the properties
 -   Ensure the following "properties" block is in the job configuration
 
 ![](../resources/images/2_properties_config.png)
 
--   Now, after that job has run, you should have extra properties information on the [Job Details](../navigations/job_details_page.md) page
+-   Now, after that job has run, you should have extra properties information on the [Job Details](../navigation/job_details_page.md) page
 
 ![](../resources/images/3_view_property.png)
 

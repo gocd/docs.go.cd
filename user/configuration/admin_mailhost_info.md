@@ -2,7 +2,7 @@
 
 In order to allow [email notifications](dev_notifications.md), we need to tell Go information about your mailhost.
 
--   Click on the [Administration](../navigations/administration_page.md) tab
+-   Click on the [Administration](../navigation/administration_page.md) tab
 ![](../resources/images/topnav_admin.png)
 -   Click on the 'Server Configuration' sub-tab
 -   Add your mailhost information (with username and password as required)

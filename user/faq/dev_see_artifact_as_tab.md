@@ -5,7 +5,7 @@ After [uploading html reports](../configuration/dev_upload_test_report.md), it i
 ### Example usage
 
 -   Suppose we have configured Go to [upload a flash video and html file and display it as a tab](../configuration/dev_upload_test_report.md)
--   Click on the [Pipelines](../navigations/Pipelines_Dashboard_page.md) tab
+-   Click on the [Pipelines](../navigation/Pipelines_Dashboard_page.md) tab
 
 ![](../resources/images/topnav_pipelines.png)
 
