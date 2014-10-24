@@ -88,7 +88,7 @@ Here is a XML view of an RPM package defintion. Note the relation between reposi
 Depending on whether Go is also publishing the package or just consuming it, there are two options for modeling a value stream that includes packages.
 
 1.  The first scenario is where the package is published from some pipeline in Go. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:
-    1.  Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this [tip](http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines) may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the [value stream map.](../navigations/value_stream_map.md)
+    1.  Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this [tip](http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines) may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the [value stream map.](../navigation/value_stream_map.md)
     2.  Package material: Y adds P as a package material. Y no longer has to resolve P.
     
     It isn't advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option \#1 makes sense.

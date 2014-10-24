@@ -30,7 +30,7 @@ For each job that runs JUnit:
 
 We are going to assume that the flash file, and the html file referencing it, are being created in the "target/reports" folder.
 
-Click on the [Adminstration](../navigations/administration_page.md) tab
+Click on the [Adminstration](../navigation/administration_page.md) tab
 
 ![](../resources/images/topnav_admin.png)
 

@@ -7,9 +7,9 @@ This shows the current activity in the system. You can see all the instances of 
 ### Key
 
 1.  The pipelines are listed under the pipeline group that they belong to
-2.  Click the pipeline name to see [pipeline activity](../navigations/pipeline_activity_page.md) for that pipeline.
+2.  Click the pipeline name to see [pipeline activity](../navigation/pipeline_activity_page.md) for that pipeline.
 3.  Click pipeline instance label to see details for that instance.
-4.  Click on each stage segment to see [stage details](../navigations/stage_details_page.md) for that stage instance.
+4.  Click on each stage segment to see [stage details](../navigation/stage_details_page.md) for that stage instance.
 5.  "triggered by [user name] about [how long ago]" gives you a quick look at who activated this pipeline and when this was triggered.
 6.  The "Trigger" button forces a pipeline to begin build activity
 7.  The [Trigger with Options](../advanced_usage/trigger_with_options.md) button allows the you to pick the revisions of materials that the pipelines should build with, and trigger the pipeline.
@@ -24,7 +24,7 @@ This shows the current activity in the system. You can see all the instances of 
 
 ##### Also see...
 
--   [Pipeline activity](../navigations/pipeline_activity_page.md)
--   [Job details](../navigations/job_details_page.md)
+-   [Pipeline activity](../navigation/pipeline_activity_page.md)
+-   [Job details](../navigation/job_details_page.md)
 -   [Clean up after canceling a task](../advanced_usage/dev_clean_up_when_cancel.md)
 -   [Go overview](../introduction/index.md)

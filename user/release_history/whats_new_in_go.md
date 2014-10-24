@@ -33,11 +33,11 @@ Go has changed it's release naming convention from the previous practice of majo
 ### Features
 
 -   [Template Admin:](../configuration/pipeline_templates.md#edit_template) Users in Go can now view and edit a template for which they have permissions.
--   [Pipeline Search:](../navigations/Pipelines_Dashboard_page.md) Allows a user to search for a specific pipeline on the pipeline dashboard.
+-   [Pipeline Search:](../navigation/Pipelines_Dashboard_page.md) Allows a user to search for a specific pipeline on the pipeline dashboard.
 
 ### Enhancements
 
--   [Pipeline Edit:](../navigations/Pipelines_Dashboard_page.md) Go Administrators and Pipeline Group Administrators can now navigate to edit a pipeline through a single click on the dashboard.
+-   [Pipeline Edit:](../navigation/Pipelines_Dashboard_page.md) Go Administrators and Pipeline Group Administrators can now navigate to edit a pipeline through a single click on the dashboard.
 -   Performance improvements have been made for pipeline dashboard page and preferences page of Go.
 
 ### Bug fixes
@@ -73,7 +73,7 @@ Go has changed it's release naming convention from the previous practice of majo
 
 -   [Template View:](../configuration/pipeline_templates.md#view_template) All Pipeline Group Admins and Go Administrators can now view templates while creating or editing pipelines.
 -   [User Delete API:](../api/users_api.md) A new API using which you can delete a disabled user.
--   Check-in comments in [Value Stream Map:](../navigations/value_stream_map.md) Showing more details, like the check-in comment, date and author for every Source Control Material in the Value Stream Map.
+-   Check-in comments in [Value Stream Map:](../navigation/value_stream_map.md) Showing more details, like the check-in comment, date and author for every Source Control Material in the Value Stream Map.
 -   [Improving Server Startup Time:](../installation/performance_tuning.md#server_startup_time) The database queries that run when the server starts, have been optimized. Also, additional JVM properties have been provided to delay material polling and pipeline scheduling, thereby, improving start up time.
 
 ### Bug fixes
@@ -92,7 +92,7 @@ Go has changed it's release naming convention from the previous practice of majo
 
 ### New features
 
--   [**Value Stream Map**](../navigations/value_stream_map.md): Visualize end-to-end pipeline dependency. See what revisions triggered a pipeline and which dependent pipelines were triggered by it. Track changes from check-in to deploy.
+-   [**Value Stream Map**](../navigation/value_stream_map.md): Visualize end-to-end pipeline dependency. See what revisions triggered a pipeline and which dependent pipelines were triggered by it. Track changes from check-in to deploy.
 -   [**Better support for concurrent edits to configuration**](../faq/concurrent_config_modifications.md)
     -   Config Merge : Multiple users' changes to configuration are now merged by Go.
     -   Split Pane : A user-friendly interface appears in the config xml tab in case of a merge conflict. It displays the latest config as well as the user's changes, so that a Go administrator can edit config without losing any changes!
@@ -197,7 +197,7 @@ Go has changed it's release naming convention from the previous practice of majo
 -   **Go server for Mac OSX - Lion and Mountain Lion** : Are you a Lion/Mountain Lion user and could not try out Go? Go Server app now works on the new Mac versions. Do remember that Mac Go server is primarily for evaluation.
 -   **Logging LDAP login failures** : Enterprise customers can troubleshoot LDAP errors or login failures faster, thanks to improved logging support.
 -   **UI improvements** : Console and custom tabs now extend to the height of the browser window. And we have a "Top" icon to quickly get you upto the top of the page.
--   **[Filter agents by exact search](../navigations/agents_page.md#exact_search)** : Now you can specify the values in quotes to do an exact search. The result - you get exactly what you want and nothing more.
+-   **[Filter agents by exact search](../navigation/agents_page.md#exact_search)** : Now you can specify the values in quotes to do an exact search. The result - you get exactly what you want and nothing more.
 
 ### Bug fixes
 
@@ -280,13 +280,13 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 ### Performance Enhancements
 
 -   **[Tune Go for Better Performance](../installation/performance_tuning.md):** Go has been tested with a large number of pipelines, agents and load. Performance will vary based on your server configuration and usage patterns. Use this guide to optimize performance.
--   **Faster Dashboard:** The [Pipelines Dashboard](../navigations/Pipelines_Dashboard_page.md) renders much faster even with a large number of pipelines.
+-   **Faster Dashboard:** The [Pipelines Dashboard](../navigation/Pipelines_Dashboard_page.md) renders much faster even with a large number of pipelines.
 -   **Faster Artifact Transfers:** We reduced artifact upload and download times.
 -   **Other:** We improved how Go manages memory.
 
 ### New Features
 
--   **[Filter on Agents page](../navigations/agents_page.md):** Use tag:value style syntax to easily find the agents you want to manage.
+-   **[Filter on Agents page](../navigation/agents_page.md):** Use tag:value style syntax to easily find the agents you want to manage.
 -   **[Auto registration of remote agents](../advanced_usage/agent_auto_register.md):** You can now auto approve remote agents without having to enable them through the agents dashboard.
 
 ### Enhancements
@@ -308,7 +308,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 -   **[Visualize build duration over time](../advanced_usage/stage_duration_chart.md):** Visualize trends in your build's duration with a brand new graphical chart
 -   **[Clone a pipeline](../configuration/admin_clone_pipeline.md):** Use the admin UI to clone an existing pipeline.
 -   **[3 Step Pipeline Wizard](../configuration/quick_pipeline_setup.md):** Use the new pipeline wizard to create a pipeline is 3 easy steps.
--   **[Job history on an agent](../navigations/agent_details.md):** You can view the history of all the work done by an agent. Analyze problems in your execution environment to identify flaky jobs on particular agents.
+-   **[Job history on an agent](../navigation/agent_details.md):** You can view the history of all the work done by an agent. Analyze problems in your execution environment to identify flaky jobs on particular agents.
 -   **[Trace a pipeline instance back to its configuration](../faq/stage_old_config.md):** Go now maintains a history of all changes made to its configuration allowing you to audit all configuration changes. You can view the Go configuration for each run in the Config tab for a stage.
 -   **[Job Timeout](../configuration/job_timeout.md):** Non-responsive jobs are now detected by Go and can be configured to automatically cancel after a timeout period.
 -   **[Auto purge old artifacts](../configuration/delete_artifacts.md):** Configure Go to manage server disk space by automatically purging old artifacts.
@@ -357,10 +357,10 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 -   [Authorization to trigger, cancel and re-run automatically triggered stages](../configuration/dev_authorization.md#approvals)
 -   Pipeline locking is no longer turned on by default within environments.
 -   Better handling of [cloned agent](../faq/agent_guid_issue.md) conflicts
--   Go now displays when a stage was triggered on the [stage details page](../navigations/stage_details_page.md)
+-   Go now displays when a stage was triggered on the [stage details page](../navigation/stage_details_page.md)
 -   Test failure information is now included in notification emails.
--   Access to build cause information from within the [Failed Test History](../navigations/stage_details_page.md#failed_build_history) report.
--   Access to failure message and stack trace for a failing test from within the [Failed Build History](../navigations/stage_details_page.md#failed_build_history) report.
+-   Access to build cause information from within the [Failed Test History](../navigation/stage_details_page.md#failed_build_history) report.
+-   Access to failure message and stack trace for a failing test from within the [Failed Build History](../navigation/stage_details_page.md#failed_build_history) report.
 
 ## Go 2.0
 
@@ -409,9 +409,9 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 ### New features
 
 -   [Go watches the disk space available for database and shows a warning message when it becomes low.](../faq/admin_out_of_disk_space.md)
--   [Go shows the disk space available for pipelines folder under agent installation root.](../navigations/agents_page.md)
+-   [Go shows the disk space available for pipelines folder under agent installation root.](../navigation/agents_page.md)
 -   [Pipeline label can now be customized by material revisions number.](../configuration/build_labelling.md)
--   [Link directly from pipeline history page to the different stage histories.](../navigations/pipeline_activity_page.md)
+-   [Link directly from pipeline history page to the different stage histories.](../navigation/pipeline_activity_page.md)
 
 ### Changes
 

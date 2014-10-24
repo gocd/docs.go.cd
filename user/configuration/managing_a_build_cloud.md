@@ -6,7 +6,7 @@ Go is designed to make managing a build cloud extremely simple. This page takes 
 
 The first thing you need to do is [install Go agent](../installation/installing_go_agent.md) on the machine you want to add to the cloud.
 
-Once the Go agent has been installed and pointed at your Go server, go to the [Agents](../navigations/agents_page.md) tab on the Go dashboard. You should see something like this:
+Once the Go agent has been installed and pointed at your Go server, go to the [Agents](../navigation/agents_page.md) tab on the Go dashboard. You should see something like this:
 
 ![](../resources/images/enable_agent.png)
 
@@ -26,11 +26,11 @@ Resources are just plain text tags. There are no preset tags or conventions arou
 
 > Note: Resource matching is case-insensitive.
 
-To specify the resources that a job needs, go to the **Pipelines configuration** section of the [Administration](../navigations/administration_page.md) tab and edit the job that you want to specify resources for:
+To specify the resources that a job needs, go to the **Pipelines configuration** section of the [Administration](../navigation/administration_page.md) tab and edit the job that you want to specify resources for:
 
 ![](../resources/images/edit_job_resources.png)
 
-Once you’ve specified the resources your jobs need, you’ll want to describe the resources your agents have. You can do this very easily in the [Agents](../navigations/agents_page.md) tab. Just select the agents you want to describe, and click on the **Resources** button.
+Once you’ve specified the resources your jobs need, you’ll want to describe the resources your agents have. You can do this very easily in the [Agents](../navigation/agents_page.md) tab. Just select the agents you want to describe, and click on the **Resources** button.
 
 ### Associate selected agent(s) with a newly created resource
 
@@ -50,7 +50,7 @@ All existing resources across your agents and jobs will appear in alphabetical o
 
 ## Agent states
 
-Go will tell you if it loses touch with agents. If Go server doesn't hear from an agent for two minutes, the agent will turn red in the [Agents](../navigations/agents_page.md) tab, and Go will tell you the last time it heard from the agent. Go will also transparently re-assign the build to the next available agent that can run it, if the lost agent was building a job.
+Go will tell you if it loses touch with agents. If Go server doesn't hear from an agent for two minutes, the agent will turn red in the [Agents](../navigation/agents_page.md) tab, and Go will tell you the last time it heard from the agent. Go will also transparently re-assign the build to the next available agent that can run it, if the lost agent was building a job.
 
 Go will also let you know if one of the agents it knows about has never contacted it since Go server was last started. In this case, the agent's state will be marked as "missing" and it will be gray.
 
@@ -111,7 +111,7 @@ This page is useful to figure out if there are agent issues and hence a certain 
 
 Consider a job which runs functional tests for a web application that need a browser to be available. The job was passing so far and only recently it has started to fail intermittently. Here are the steps you can follow to figure out if this is an agent issue.
 
-1.  Navigate to the [Job Details page](../navigations/job_details_page.md) of the given job that failed.
+1.  Navigate to the [Job Details page](../navigation/job_details_page.md) of the given job that failed.
 2.  Locate the "Agent" label and click on the link to the agent
 3.  Navigate to the "Job Run History" tab
 4.  Sort on the Job Name and locate the job that just navigated from

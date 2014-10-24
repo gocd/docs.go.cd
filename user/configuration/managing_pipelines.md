@@ -1,10 +1,10 @@
 # Managing pipelines
 
-Go can be configured using [Administration](../navigations/administration_page.md) Tab. You can perform operations like add/edit Pipelines, Stages, Jobs, Tasks, Templates and Pipeline group. You can also configure Go by editing the full XML file if you wish, by clicking on the **Config XML** section of the [Administration](../navigations/administration_page.md) tab. Go will check the syntax of the configuration before it saves it again
+Go can be configured using [Administration](../navigation/administration_page.md) Tab. You can perform operations like add/edit Pipelines, Stages, Jobs, Tasks, Templates and Pipeline group. You can also configure Go by editing the full XML file if you wish, by clicking on the **Config XML** section of the [Administration](../navigation/administration_page.md) tab. Go will check the syntax of the configuration before it saves it again
 
 ## Creating a new pipeline
 
-To create a new pipeline, go to the **Pipelines** sub-tab of the [Administration](../navigations/administration_page.md) tab and click on the ["Create a new pipeline within this group"](quick_pipeline_setup.md) link as shown in the screen shot below.
+To create a new pipeline, go to the **Pipelines** sub-tab of the [Administration](../navigation/administration_page.md) tab and click on the ["Create a new pipeline within this group"](quick_pipeline_setup.md) link as shown in the screen shot below.
 
 ![](../resources/images/create_new_pipeline_link.png)
 
