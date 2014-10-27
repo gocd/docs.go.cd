@@ -27,4 +27,4 @@ This shows the current activity in the system. You can see all the instances of 
 -   [Pipeline activity](../navigation/pipeline_activity_page.md)
 -   [Job details](../navigation/job_details_page.md)
 -   [Clean up after canceling a task](../advanced_usage/dev_clean_up_when_cancel.md)
--   [Go overview](../introduction/index.md)
+-   [Go overview](../index.md)

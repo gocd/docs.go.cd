@@ -15,8 +15,9 @@
     <br>
     <br>
     <br>
-       <h1>CONCEPTS</h1>
-       <h1>IN GO</h1>
+       <h1>INTEGRATING</h1>
+       <h1>GO</h1>
+       <h1>WITH OTHER TOOLS</h1>
     </div>
     </body>
 </html>

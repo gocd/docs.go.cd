@@ -4,7 +4,7 @@ This is the summary of user documentation.
 
 * [INTRODUCTION](introduction/index.md)
     * [Concepts in Go](introduction/concepts_in_go.md)
-* GO TOUR
+* [GO TOUR](navigation/index.md)
     * [Pipeline Dashboard](navigation/pipelines_dashboard_page.md)
     * [Agents](navigation/agents_page.md)
     * [Agent Details](navigation/agent_details.md)
@@ -15,7 +15,7 @@ This is the summary of user documentation.
     * [Server Details](navigation/server_details_page.md)
     * [Environments](navigation/environments_page.md)
     * [Value Stream Map](navigation/value_stream_map.md)
-* INSTALLING GO
+* [INSTALLING GO](installation/index.md)
     * [System requirements](installation/system_requirements.md)
     * [Installing Go Server](installation/installing_go_server.md)
     * [Installing Go Agent](installation/installing_go_agent.md)
@@ -24,7 +24,7 @@ This is the summary of user documentation.
     * [Configuring Server Details](installation/configuring_server_details.md)
     * [Configure a Proxy](installation/configure_proxy.md)
     * [Performance Tuning](installation/performance_tuning.md)
-* CONFIGURATION
+* [CONFIGURATION](configuration/index.md)
     * [Setup a New Pipeline](configuration/quick_pipeline_setup.md)
     * [Managing Pipelines](configuration/managing_pipelines.md)
     * [Managing Dependencies](configuration/managing_dependencies.md)
@@ -59,7 +59,7 @@ This is the summary of user documentation.
     * [Package Material](configuration/package_material.md)
     * [Reference](configuration/configuration_reference.md)
     * [Schema](configuration/schema.md)
-* ADVANCED USAGE
+* [ADVANCED USAGE](advanced_usage/index.md)
     * [Auto Register a Remote Agent](advanced_usage/agent_auto_register.md)
     * [Run a Job on Group of Agents](advanced_usage/admin_run_on_all_agents.md)
     * [Multiple Agents on One Machine](advanced_usage/admin_install_multiple_agents.md)
@@ -72,13 +72,14 @@ This is the summary of user documentation.
     * [Graphs](advanced_usage/stage_duration_chart.md)
     * [Command Repository](advanced_usage/command_repository.md)
     * [Backup Go Server](advanced_usage/one_click_backup.md)
-* INTEGRATING GO WITH OTHER TOOLS
+* [INTEGRATING GO WITH OTHER TOOLS](integration/index.md)
     * [Integration with External Tools](integration/go_integration.md)
     * [Gadgets](integration/gadgets.md)
     * [Mingle Integration](integration/mingle_integration.md)
     * [Displaying Mingle gadgets in Go](integration/mingle_in_go.md)
     * [Mingle Card Activity Gadget](integration/mingle_card_activity_gadget.md)
-* [GO API](api/go_api.md)
+* [GO API](api/index.md)
+    * [Introducing Go API](api/go_api.md)
     * [Pipeline Group API](api/pipeline_group_api.md)
     * [Pipeline API](api/pipeline_api.md)
     * [Stages API](api/stages_api.md)
@@ -92,16 +93,16 @@ This is the summary of user documentation.
     * [Properties API](api/properties_api.md)
     * [Feeds API](api/feeds_api.md)
     * [Command Repo API](api/command_repo_api.md)
-* EXTENSION POINTS OF GO
+* [EXTENSION POINTS OF GO](extension_points/index.md)
     * [Plugin User Guide](extension_points/plugin_user_guide.md)
     * [Plugins in Go](extension_points/go_plugins_basics.md)
     * [Go Plugin API](resources/javadoc/index.html)
     * [Writing a package material plugin](extension_points/writing_go_package_material_plugin.md)
     * [Writing a task plugin](extension_points/writing_go_task_plugins.md)
     * [Angular JS templates in Go plugins](extension_points/angular-js-templates-in-go-plugins.md)
-* BUNDLED PLUGIN
+* [BUNDLED PLUGIN](extension_points/bundled_plugin_index.md)
     * [Yum Repository Poller](extension_points/yum_repository_poller.md)
-* FAQ/TROUBLESHOOTING
+* [FAQ/TROUBLESHOOTING](faq/index.md)
     * [Ordering of Pipelines](faq/ordering_of_pipelines.md)
     * [Historical Configuration](faq/stage_old_config.md)
     * [Concurrent Modifications to Config](faq/concurrent_config_modifications.md)
@@ -123,4 +124,5 @@ This is the summary of user documentation.
     * [Artifact integrity verification](faq/artifact_integrity.md)
     * [Email Notifications](faq/notifications_page.md)
     * [Running out of Disk Space](faq/admin_out_of_disk_space.md)
-* [RELEASE HISTORY](release_history/whats_new_in_go.md)
+* [RELEASE HISTORY](release_history/index.md)
+    * [What's New in Go](release_history/whats_new_in_go.md)

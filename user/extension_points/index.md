@@ -15,8 +15,8 @@
     <br>
     <br>
     <br>
-       <h1>CONCEPTS</h1>
-       <h1>IN GO</h1>
+       <h1>EXTENSION POINTS</h1>
+       <h1>OF GO</h1>
     </div>
     </body>
 </html>
