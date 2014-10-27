@@ -8,4 +8,4 @@ This box lists all the server Information.
 
 #### Also see...
 
--   [Go overview](../introduction/index.md)
+-   [Go overview](../index.md)

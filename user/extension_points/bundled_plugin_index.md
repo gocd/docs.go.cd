@@ -15,8 +15,8 @@
     <br>
     <br>
     <br>
-       <h1>CONCEPTS</h1>
-       <h1>IN GO</h1>
+       <h1>BUNDLED</h1>
+       <h1>PLUGIN</h1>
     </div>
     </body>
 </html>
