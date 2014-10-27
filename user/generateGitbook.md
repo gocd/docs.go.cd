@@ -6,7 +6,9 @@ You should have [setup](https://github.com/GitbookIO/gitbook#gitbook) for genera
 
 - Test your changes in the gitbook. 
     - To see your changes in the gitbook run the following command in the user folder of the documentation repository:
+    
         `$ gitbook serve`
+    
     - Open a browser and test your gibook at `http://localhost:4000/`
 
 - If the changes look good, run the following command (in the user folder of the documentation repository) to generate the static website:
@@ -25,6 +27,8 @@ You should have [setup](https://github.com/GitbookIO/gitbook#gitbook) for genera
         $ git checkout gh-pages
     ```
     - However, if you had fetched the remote branch before, you just need to checkout that branch;
-    `$ git checkout gh-pages`
+    
+        `$ git checkout gh-pages`
+
 - Now update the content of the folder (document version) with the previously generated book content on *gh-pages* branch. The easiest way would be to replace the older content with the generated book and let git detect the changes.
 - Make a commit and then send a pull request to *gh-pages* branch.
