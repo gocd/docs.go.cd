@@ -453,8 +453,6 @@ curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/history/0
             }
           ],
           "can_run": false,
-          "pipeline_counter": 2,
-          "pipeline_name": "foo",
           "approval_type": "success",
           "result": "Failed",
           "id": 3,
@@ -475,8 +473,6 @@ curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/history/0
             }
           ],
           "can_run": false,
-          "pipeline_counter": 2,
-          "pipeline_name": "foo",
           "approval_type": "success",
           "result": "Unknown",
           "id": 4,
@@ -536,8 +532,6 @@ curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/history/0
             }
           ],
           "can_run": false,
-          "pipeline_counter": 1,
-          "pipeline_name": "foo",
           "approval_type": "success",
           "result": "Passed",
           "id": 1,
@@ -558,8 +552,6 @@ curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/history/0
             }
           ],
           "can_run": false,
-          "pipeline_counter": 1,
-          "pipeline_name": "foo",
           "approval_type": "success",
           "result": "Failed",
           "id": 2,
