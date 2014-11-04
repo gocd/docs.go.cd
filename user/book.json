@@ -12,7 +12,7 @@
 			"google": "http://go.cd",
 			"facebook": "http://go.cd",
 			"twitter": "http://go.cd",
-			"all": "http://go.cd"
+			"all": "http://go.cd",
 		},
 	},
 	"pdf": {
@@ -24,9 +24,9 @@
 			"right": 62,
 			"left": 62,
 			"top": 36,
-			"bottom": 36
+			"bottom": 36,
 		},
 		"headerTemplate": null,
-		"footerTemplate": null
-	}
+		"footerTemplate": null,
+	},
 }
