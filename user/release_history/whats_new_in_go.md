@@ -376,7 +376,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 -   [Ensure only one instance of a pipeline can run at the same time](../configuration/admin_lock_pipelines.md)
 -   [Set variables on an environment](../faq/dev_use_current_revision_in_build.md#environment)
 -   [Set variables on a Job](../faq/dev_use_current_revision_in_build.md#job)
--   [Run a job on all agents that match environment and resources](../advanced_usage/admin_run_on_all_agents.md)
+-   [Run a job on all agents that match environment and resources](../advanced_usage/admin_spawn_multiple_jobs.md)
 -   [Schedule pipelines based on a timer (e.g. for nightly builds).](../configuration/admin_timer.md)
 -   [Default to kill any running tasks when a stage is canceled](../advanced_usage/dev_clean_up_when_cancel.md)
 -   [Pipeline templates help to remove duplication in the config file](../configuration/pipeline_templates.md)

@@ -126,7 +126,7 @@ Copyright 2014 ThoughtWorks, Inc. You may copy, distribute, print, and display, 
     * [.. add a new stage to an existing pipeline](configuration/admin_add_stage.md)
     * [.. add a new job to an existing stage](configuration/admin_add_job.md)
     * [.. add a task to an existing job](configuration/admin_add_task.md)
-    * [.. run the same job on a group of agents](advanced_usage/admin_run_on_all_agents.md)
+    * [.. run the same job on a group of agents](advanced_usage/admin_spawn_multiple_jobs.md)
     * [.. pass environment variables to jobs](faq/dev_use_current_revision_in_build.md)
     * [.. ensure only one instance of a pipeline can run at the same time](configuration/admin_lock_pipelines.md)
     * [.. choose when a certain stage runs](configuration/dev_choose_when_stage_runs.md)
