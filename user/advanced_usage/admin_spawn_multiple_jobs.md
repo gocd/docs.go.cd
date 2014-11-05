@@ -24,8 +24,8 @@ runOnAllAgents="true"
 
 to the job's definition (see configuration reference for [`<job>`](../configuration/configuration_reference.md#job))
 
-``` {.code}
-<job name="run-upgrades" runOnAllAgents="true">
+```xml
+<job name="deploy" runOnAllAgents="true">
     ...
 </job>
 ```
@@ -54,8 +54,8 @@ runInstanceCount="5"
 
 to the job's definition (see configuration reference for [`<job>`](../configuration/configuration_reference.md#job))
 
-``` {.code}
-<job name="run-tests" runInstanceCount="5">
+```xml
+<job name="test" runInstanceCount="5">
     ...
 </job>
 ```

@@ -61,7 +61,7 @@ This is the summary of user documentation.
     * [Schema](configuration/schema.md)
 * [ADVANCED USAGE](advanced_usage/index.md)
     * [Auto Register a Remote Agent](advanced_usage/agent_auto_register.md)
-    * [Run a Job on Group of Agents](advanced_usage/admin_spawn_multiple_jobs.md)
+    * [Spawn multiple instances of a Job](advanced_usage/admin_spawn_multiple_jobs.md)
     * [Multiple Agents on One Machine](advanced_usage/admin_install_multiple_agents.md)
     * [Clean on Task Cancel](advanced_usage/dev_clean_up_when_cancel.md)
     * [Conditional Task Execution](advanced_usage/dev_conditional_task_execution.md)
