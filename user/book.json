@@ -1,29 +1,32 @@
 {
-    "output": "_book",
-
-    "generator": "site",
-
-    "title": "Go User Documentation",
-    "description": "Help documentation for Go.",
-
-    "github": null,
-    "githubHost": "https://github.com/",
-
-    "plugins": [],
-
-    "pluginsConfig": {},
-
-    "links": {
-        "home": "http://go.cd",
-
-        "about": "https://github.com/gocd/documentation/",
-        "issues": "https://github.com/gocd/documentation/issues",
-        "contribute": "https://github.com/gocd/documentation/",
-
-        "sharing": {
-            "google": "http://go.cd",
-            "facebook": "http://go.cd",
-            "twitter": "http://go.cd"
-        }
-    }
+	"title": "Go User Documentation",
+	"description": "Help documentation for Go.",
+	"links": {
+		"sidebar": {
+			"Home": "http://go.cd",
+			"Mail Community": "mailto:go-cd",
+			"issues": "https://github.com/gocd/documentation/issues",
+			"contribute": "https://github.com/gocd/documentation/",
+		},
+		"sharing": {
+			"google": "http://go.cd",
+			"facebook": "http://go.cd",
+			"twitter": "http://go.cd",
+			"all": "http://go.cd",
+		},
+	},
+	"pdf": {
+		"toc": true,
+		"pageNumbers": false,
+		"fontSize": 12,
+		"paperSize": "a4",
+		"margin": {
+			"right": 62,
+			"left": 62,
+			"top": 36,
+			"bottom": 36,
+		},
+		"headerTemplate": null,
+		"footerTemplate": null,
+	},
 }
