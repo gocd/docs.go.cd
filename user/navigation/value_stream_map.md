@@ -61,6 +61,11 @@ Every pipeline label in Go directs you to the value stream map of that instance 
 
 ![](../resources/images/navigation.png)
 
+You can access Value Stream Map for a commit in 2 ways:
+
+![](../resources/images/vsm_commit_1.png)
+![](../resources/images/vsm_commit_2.png)
+
 ### Permissions
 
 The permissions required to view a value stream map are as follows:

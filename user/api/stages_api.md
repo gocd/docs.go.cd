@@ -122,15 +122,12 @@ curl -u admin:badger http://goserver.com:8153/go/api/stages/foo/DEV/history/0
           "scheduled_date": 1411456876262
         }
       ],
-      "can_run": false,
       "pipeline_counter": 2,
       "pipeline_name": "foo",
       "approval_type": "success",
       "result": "Failed",
       "id": 3,
-      "counter": "1",
-      "operate_permission": false,
-      "scheduled": true
+      "counter": "1"
     },
     {
       "name": "DEV",
@@ -144,15 +141,12 @@ curl -u admin:badger http://goserver.com:8153/go/api/stages/foo/DEV/history/0
           "scheduled_date": 1411456676119
         }
       ],
-      "can_run": false,
       "pipeline_counter": 1,
       "pipeline_name": "foo",
       "approval_type": "success",
       "result": "Passed",
       "id": 1,
-      "counter": "1",
-      "operate_permission": false,
-      "scheduled": true
+      "counter": "1"
     }
   ],
   "pagination": {
