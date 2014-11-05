@@ -96,7 +96,7 @@ This is the summary of user documentation.
 * [Extension Points Of Go](extension_points/index.md)
     * [Plugin User Guide](extension_points/plugin_user_guide.md)
     * [Plugins in Go](extension_points/go_plugins_basics.md)
-    * [Go Plugin API](resources/javadoc/index.html)
+    * [Go Plugin API](extension_points/go_plugin_api.md)
     * [Writing a package material plugin](extension_points/writing_go_package_material_plugin.md)
     * [Writing a task plugin](extension_points/writing_go_task_plugins.md)
     * [Angular JS templates in Go plugins](extension_points/angular-js-templates-in-go-plugins.md)

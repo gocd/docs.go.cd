@@ -2,9 +2,7 @@
 
 ## Introduction
 
-<iframe width="560" height="315" src="//www.youtube.com/embed/fSQZ5hEQbgY" frameborder="0" allowfullscreen></iframe>
-
-This feature is an enhancement to [Custom Commands](http://support.thoughtworks.com/entries/22873043-go-s-custom-command) in Go. Rather than start from scratch with command name and arguments, you now have the option to look up a command from a repository of useful commands maintained by the Go team. The lookup provides a starting point, you may need to edit the arguments, specify a working directory etc. Once saved, the behaviour is the same as a manually entered custom command.
+This feature is an enhancement to [Custom Commands](http://support.thoughtworks.com/entries/22873043-go-s-custom-command) in Go. Rather than start from scratch with command name and arguments, you now have the option to look up a command from a repository of useful commands maintained by the Go team. The lookup provides a starting point, you may need to edit the arguments, specify a working directory etc. Once saved, the behaviour is the same as a manually entered custom command. Take a look at this [video](http://youtu.be/fSQZ5hEQbgY) to learn more.
 
 ## Using the command repository
 
