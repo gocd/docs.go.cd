@@ -6,21 +6,20 @@ Notifications will only work if [Security](dev_authentication.md) is enabled and
 
 ## Example usage
 
-Usage: As a developer, I want to be notified when I break the build.
+**Usage: As a developer, I want to be notified when I break a build on "acceptance" pipeline.**
 
-Click on the **Preferences** tab
+- Click on the **Preferences** tab
 
-![](../resources/images/topnav_preferences.png)
+    ![](../resources/images/topnav_preferences.png)
 
-Click "Edit" and enter my email address, and make sure "Enable email notification" is checked
-
-When I check in, my source control log in will be either "ChrisT" or "CT", so enter both of those into the "My check-in aliases" box
+- Click "Edit" and enter the email address, and make sure "Enable email notification" is checked
+- When I check in, my source control log in will be either "User" or "username", so enter both of those into the "My check-in aliases" box
 
 ![](../resources/images/3_email_and_matcher.png)
 
-Click "Save" to store these values
+- Click "Save" to store these values
 
-Add a filter for the first "dev" stage to notify me when a check-in of mine breaks the build
+- Add a filter for the "twist-plugins" stage of "acceptance" pipeline to notify me when a check-in of mine breaks the build
 
 ![](../resources/images/4_add_filter.png)
 
@@ -30,12 +29,12 @@ You can set up notifications for different events
 
 -   All - all the runs for the stage
 -   Passes - the passed runs for the stage
--   Fails - the stage runs that failed
+-   Fails - the stage run that failed
 -   Breaks - the stage run that broke the build
 -   Fixed - the stage run that fixed the previous failure
 -   Cancelled - the stage run that was cancelled
 
-Illustration
+**Illustrations**
 
 -   Previous build Pass, current build Fail: Event: Break
 -   Previous build Fail, current build Fail: Event: Fail
@@ -44,8 +43,16 @@ Illustration
 
 ![](../resources/images/5_added_filter.png)
 
-I'll be emailed whenever the "twist" stage of "acceptance" pipeline breaks due to my check-in
+> I'll be emailed whenever the "twist-plugins" stage of "acceptance" pipeline breaks due to my check-in
 
-I'll be emailed whenever the "auto-upgrade" stage of "auto-deploy-testing-ubuntu9.10" pipeline fails due to my check-in
+> I'll be emailed whenever the "build" stage of "plugins" pipeline fails due to my check-in
 
-I'll be emailed for all events for the "dev" stage of cruise pipeline
+> I'll be emailed whenever the "upload-installers" stage of "distributions-all" pipeline passes for any check-in
+
+> I'll be emailed on all events for any stage of "regression" pipeline for my check-in
+
+Users can also select to get notifications for a particular (or all) event on any satge of any pipeline.
+
+![](../resources/images/6_added_filter_any_pipeline.png)
+
+> I'll be emailed whenever any stage of any pipeline fails due to my check-in
