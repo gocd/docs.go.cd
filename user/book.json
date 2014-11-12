@@ -4,16 +4,15 @@
 	"links": {
 		"sidebar": {
 			"Home": "http://go.cd",
-			"Mail Community": "mailto:go-cd",
-			"issues": "https://github.com/gocd/documentation/issues",
-			"contribute": "https://github.com/gocd/documentation/",
+			"Download as PDF": "http://download.go.cd/gocd/user-documentation-14.3.0.pdf",
+			"Contribute": "https://github.com/gocd/documentation/"
 		},
 		"sharing": {
 			"google": "http://go.cd",
 			"facebook": "http://go.cd",
-			"twitter": "http://go.cd",
-			"all": "http://go.cd",
-		},
+ 			"twitter": "http://go.cd",
+			"all": "http://go.cd"
+		}
 	},
 	"pdf": {
 		"toc": true,
@@ -24,9 +23,9 @@
 			"right": 62,
 			"left": 62,
 			"top": 36,
-			"bottom": 36,
+			"bottom": 36
 		},
 		"headerTemplate": null,
-		"footerTemplate": null,
-	},
+		"footerTemplate": null
+	}
 }
