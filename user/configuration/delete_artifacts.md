@@ -14,6 +14,7 @@ You must be logged in as an admin user to configure this step.
 2.  Navigate to the Pipeline Management sub-section
 3.  Specify when Go should begin to purge artifacts in the first edit box.
 4.  Specify when Go should stop purging artifacts in the second edit box.
+![Purge artifacts](../resources/images/pipeline_management.png)
 
 ### Never delete artifacts for a stage
 
