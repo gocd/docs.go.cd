@@ -27,6 +27,8 @@ Go can be configured to automatically delete artifacts if the available disk spa
 3.  Specify when Go should begin to purge artifacts in the first edit box.
 4.  Specify when Go should stop purging artifacts in the second edit box.
 
+![Purge artifacts](../resources/images/pipeline_management.png)
+
 #### Never delete artifacts for a stage
 
 > You must be logged in as an admin user to configure this step.
