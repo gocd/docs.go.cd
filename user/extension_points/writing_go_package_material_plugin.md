@@ -1,4 +1,9 @@
-# Writing a package material plugin
+# Writing a API package material plugin
+
+## Note
+Go is moving towards [JSON message based plugin API](json_message_based_plugin_api.md), java API based plugin will be deprecated soon. Refer [Writing a JSON message package material plugin](writing_json_message_based_plugin.md) instead.
+
+
 
 ## Introduction
 
