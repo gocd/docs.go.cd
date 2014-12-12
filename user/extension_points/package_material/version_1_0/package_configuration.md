@@ -57,23 +57,23 @@ Schema
 
                     },
                     "part-of-identity": {
-                        "type": "boolean"
+                        "type": "boolean",
                         "required": false,
                         "default": true,
                     },
                     "required": {
-                        "type": "boolean"
-                        "required": false
+                        "type": "boolean",
+                        "required": false,
                         "default": true
                     },
                     "display-name": {
                         "type": "string",
-                        "required": false
+                        "required": false,
                         "pattern": "^[a-zA-Z0-9_-]+$"
                     },
                     "display-order": {
                         "type": "string",
-                        "required": false
+                        "required": false,
                         "pattern": "^[0-9]+$"
                     }
                 },

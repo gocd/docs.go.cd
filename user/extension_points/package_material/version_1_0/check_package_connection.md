@@ -28,7 +28,6 @@ Schema
                          "properties": {
                              "value": {
                                  "type": "string",
-                                 "required" true
                                  "pattern": "^[a-zA-Z0-9_-]+$"
                              }
                          },
@@ -48,7 +47,6 @@ Schema
                          "properties": {
                              "value": {
                                  "type": "string",
-                                 "required" true
                                  "pattern": "^[a-zA-Z0-9_-]+$"
                              }
                          },
