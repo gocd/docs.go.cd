@@ -108,7 +108,7 @@ Any JAR you drop into the **lib/** directory of the plugin JAR file will be avai
 
 -   Plugin API Jar: [go-plugin-api-current.jar](../resources/go-plugin-api-current.jar)
 -   Plugin API Documentation: [go-plugin-api-javadoc-current.jar](../resources/go-plugin-api-javadoc-current.jar)
--   Sample Plugins: A set of sample plugins that serves as a reference implementation [go-sample-plugins.zip](../resources/go-sample-plugins.zip) (Start with README file in the zip)
+-   Sample Plugins: A set of sample plugins that serves as a reference implementation [go-sample-plugins.zip](https://github.com/gocd/sample-plugins) (Start with README file in the zip)
 
 ## Installing a plugin
 

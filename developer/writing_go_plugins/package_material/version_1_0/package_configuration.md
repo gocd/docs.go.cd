@@ -1,6 +1,6 @@
-## Repository Configuration
+## Package Configuration
  
-***Request Name*** : repository-configuration
+***Request Name*** : package-configuration
 
 ***Request Params*** : empty
 
@@ -13,8 +13,8 @@ Schema
  ```json
 
     {
-         "title": "Repository configuration request schema",
-         "description": "Schema for repository configuration request Json",
+         "title": "Package configuration request schema",
+         "description": "Schema for package configuration request Json",
          "type": "object",
          "additionalProperties": false
     }
@@ -23,7 +23,7 @@ Schema
 Example 
  
  ```
- nill
+    nill
 
  ```
 
@@ -34,8 +34,8 @@ Schema
  ```json
 
     {
-        "title": "Repository configuration response schema",
-        "description": "Schema for repository configuration response json",
+        "title": "Package configuration response schema",
+        "description": "Schema for package configuration response json",
         "type": "object",
         "patternProperties": {
             "^[a-zA-Z0-9_-]+$": {
@@ -63,7 +63,7 @@ Schema
                     },
                     "required": {
                         "type": "boolean",
-                        "required": false
+                        "required": false,
                         "default": true
                     },
                     "display-name": {
@@ -90,22 +90,9 @@ Example
  ```{json}
 
     {
-        "REPO_URL": {
-            "display-name": "Repository URL",
+        "PACKAGE_SPEC": {
+            "display-name": "Package Spec",
             "display-order": "0"
-        },
-        "USERNAME": {
-            "part-of-identity": false,
-            "required": false,
-            "display-name": "User",
-            "display-order": "1"
-        },
-        "PASSWORD": {
-            "secure": true,
-            "part-of-identity": false,
-            "required": false,
-            "display-name": "Password",
-            "display-order": "2"
         }
     }
    

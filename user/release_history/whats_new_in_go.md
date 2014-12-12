@@ -8,7 +8,7 @@ Go has changed it's release naming convention from the previous practice of majo
 
 ### Features
 
--   Added capability to create a [Task plugin](../extension_points/writing_go_task_plugins.md).
+-   Added capability to create a [Task plugin](../extension_points/task/writing_go_task_plugins.md).
 
 ### Bug fixes
 
@@ -48,7 +48,7 @@ Go has changed it's release naming convention from the previous practice of majo
 
 ### Features
 
--   [External Package Repositories:](../configuration/package_material.md#package_material) Go supports external packages repositories as materials, and changes to packages in these repositories can trigger Go pipelines.
+-   [External Package Repositories:](../extension_points/package_repository_extension.md#package_material) Go supports external packages repositories as materials, and changes to packages in these repositories can trigger Go pipelines.
 
 ### Enhancements
 

@@ -102,7 +102,7 @@ Go plugin API provides an abstract implementation of GoPlugin called AbstractGoP
 
 ```
 
-Please refer [javadocs](http://www.go.cd/documentation/user/14.4/resources/javadoc/index.html) for more details about API classes.
+Please refer [javadocs](http://mdaliejaz.github.io/documentation/user/14.4/resources/javadoc/index.html) for more details about API classes.
 
 ## Extension points supported by Go
 

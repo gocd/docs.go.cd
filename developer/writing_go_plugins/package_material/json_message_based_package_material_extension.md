@@ -1,12 +1,12 @@
 # JSON message based package material plugin
 
-## What is package material
+## Overview
  
-Please go through this [link] (../../configuration/package_material.md)
+Please go through this [link] (../../extension_points/package_repository_extension.md)
 
 ## Extension Name
 
-package-material
+package-repository
 
 ## Request messages ***version 1.0***
 
@@ -28,5 +28,5 @@ package-material
 
 ## Writing a JSON message based package material plugin
 
-Please [download](../resources/package-material.zip) sample package material plugin. It can be extended to write any package repository plugin.
+Please [download](../../resources/package-material.zip) sample package material plugin. It can be extended to write any package repository plugin.
   

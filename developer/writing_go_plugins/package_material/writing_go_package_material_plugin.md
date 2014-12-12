@@ -9,7 +9,7 @@ Go is moving towards [JSON message based plugin API](json_message_based_plugin_a
 
 A package repository typically holds a set of packages, each of which can have multiple versions. Package repository material allows Go to trigger a pipeline(s) when a newer version of a package is published. Go bundles [yum-repo-poller plugin](yum_repository_poller.md) by default, this plugin can communicate with a yum repository. The following sections talk about how to write a plugin which can communicate with other type of repositories.
 
-The starting point for the plugin author while writing [package material](../configuration/package_material.md) plugin is to implement the PackageMaterialProvider interface. The implementation of PackageMaterialProvider interface is responsible for providing a configuration provider (say SampleRepositoryConfiguration) and a repository poller (say SampleRepositoryPoller) for the package.
+The starting point for the plugin author while writing [package material](../extension_points/package_repository_extension.md) plugin is to implement the PackageMaterialProvider interface. The implementation of PackageMaterialProvider interface is responsible for providing a configuration provider (say SampleRepositoryConfiguration) and a repository poller (say SampleRepositoryPoller) for the package.
 
 ``` {.code}
     public class SamplePackageRepoMaterial implements PackageMaterialProvider {

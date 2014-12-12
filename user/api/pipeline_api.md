@@ -22,7 +22,7 @@ URL format: http://[server]:8153/go/api/pipelines/[pipeline]/schedule
 |-----------|------|-------------|
 | POST | no parameters | Triggers a new instance of the specified pipeline with the latest revision of all materials |
 | POST | materials[svn_material]=3456 | Triggers a new instance of the specified pipeline with revision 3456 of the svn material and the latest of all other materials |
-| POST | materials[repo-name:pkg-name]=gcc-4.4.7-3.el6.x86_64 | Triggers a new instance of the specified pipeline with revision gcc-4.4.7-3.el6.x86_64 of the rpm [package material](../configuration/package_material.md) and the latest of all other materials |
+| POST | materials[repo-name:pkg-name]=gcc-4.4.7-3.el6.x86_64 | Triggers a new instance of the specified pipeline with revision gcc-4.4.7-3.el6.x86_64 of the rpm [package material](../extension_points/package_repository_extension.md) and the latest of all other materials |
 | POST | materials[svn_material]=3456&materials[upstream_foo]=upstream_foo/2/dist/1 | Triggers a new instance of the specified pipeline with revision 3456 of the svn material and instance 'upstream/2/dist/1' of the upstream pipeline |
 | POST | materials[svn_material]=3456&materials[my-upstream-pipeline-name]=upstream_bar/2/dist/1 | Triggers a new instance of the specified pipeline with revision 3456 of the svn material and instance 'upstream/2/dist/1' of the upstream pipeline. Here the upstream pipeline's materialName is set to 'my-upstream-pipeline-name'. |
 
