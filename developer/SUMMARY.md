@@ -114,17 +114,24 @@ This is the summary of my book.
 	    * [Stage Graph]()
 	* [OAuth Gadgets](5/5.10.md)
 	* [Backup](5/5.11.md)
-
 * [Writing Go Plugins](writing_go_plugins/overview.md)
     * [Go Plugin Architecture](4/4.4.1.md)
     * [Go Plugin Basics](writing_go_plugins/go_plugins_basics.md)
     * [Go Plugin API](writing_go_plugins/go_plugin_api.md)
     * [Package repository plugin using java interface/class based plugin API](writing_go_plugins/package_material/writing_go_package_material_plugin.md)
     * [Package repository plugin using JSON message based plugin API](writing_go_plugins/package_material/json_message_based_package_material_extension.md)
+        * [Repository Configuration Request](writing_go_plugins/package_material/version_1_0/repository_configuration.md)
+        * [Package Configuration Request](writing_go_plugins/package_material/version_1_0/package_configuration.md)
+        * [Validate Repository Configuration Request](writing_go_plugins/package_material/version_1_0/validate_repository_configuration.md)
+        * [Validate Package Configuration Request](writing_go_plugins/package_material/version_1_0/validate_package_configuration.md)
+        * [Check Repository Connection Request](writing_go_plugins/package_material/version_1_0/check_repository_connection.md)
+        * [Check Repository Connection Request](writing_go_plugins/package_material/version_1_0/check_package_connection.md)
+        * [Latest Revision Request](writing_go_plugins/package_material/version_1_0/latest_revision.md)
+        * [Latest Revision Since Request](writing_go_plugins/package_material/version_1_0/latest_revision_since.md)
     * [Task plugin using java interface/class based plugin API](writing_go_plugins/task/writing_go_task_plugins.md)
     * [Task plugin using JSON message based plugin API](writing_go_plugins/task/json_message_based_task_extension.md)
-
-
+    * [Angular JS templates in Go plugins](writing_go_plugins/angular-js-templates-in-go-plugins.md)
+    
 * [CD in practice](6/6.1.md)
 	* [Build Go Using Go](6/6.1.md)
 	* [Test Infrastructure](6/6.2.md)
