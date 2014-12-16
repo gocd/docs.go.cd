@@ -131,7 +131,6 @@ This is the summary of my book.
     * [Task plugin using java interface/class based plugin API](writing_go_plugins/task/writing_go_task_plugins.md)
     * [Task plugin using JSON message based plugin API](writing_go_plugins/task/json_message_based_task_extension.md)
     * [Angular JS templates in Go plugins](writing_go_plugins/angular-js-templates-in-go-plugins.md)
-    
 * [CD in practice](6/6.1.md)
 	* [Build Go Using Go](6/6.1.md)
 	* [Test Infrastructure](6/6.2.md)
