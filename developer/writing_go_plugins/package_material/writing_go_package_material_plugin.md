@@ -79,9 +79,9 @@ The configuration provider should implement PackageMaterialConfiguration interfa
     ``` {.code}
         public RepositoryConfiguration getRepositoryConfiguration() {
             RepositoryConfiguration repositoryConfiguration = new RepositoryConfiguration();
-            repositoryConfiguration.add(new PackageMaterialProperty("REPO_URL").with(Property.DISPLAY_NAME, "Repository Url").with(Property.DISPLAY_ORDER, 0));
-            repositoryConfiguration.add(new PackageMaterialProperty("USERNAME").with(Property.DISPLAY_NAME, "Username").with(Property.DISPLAY_ORDER, 1));
-            repositoryConfiguration.add(new PackageMaterialProperty("PASSWORD").with(Property.DISPLAY_NAME, "Password").with(Property.DISPLAY_ORDER, 2));
+            repositoryConfiguration.add(new Property("REPO_URL").with(Property.DISPLAY_NAME, "Repository Url").with(Property.DISPLAY_ORDER, 0));
+            repositoryConfiguration.add(new Property("USERNAME").with(Property.DISPLAY_NAME, "Username").with(Property.DISPLAY_ORDER, 1));
+            repositoryConfiguration.add(new Property("PASSWORD").with(Property.DISPLAY_NAME, "Password").with(Property.DISPLAY_ORDER, 2));
             return repositoryConfiguration;
         }
                     
@@ -92,7 +92,7 @@ The configuration provider should implement PackageMaterialConfiguration interfa
     ``` {.code}
         public PackageConfiguration getPackageConfiguration() {
             PackageConfiguration packageConfiguration = new PackageConfiguration();
-            packageConfiguration.add(new PackageMaterialProperty("PACKAGE_DETAILS"));
+            packageConfiguration.add(new Property("PACKAGE_DETAILS"));
             return packageConfiguration;
         }
                     
