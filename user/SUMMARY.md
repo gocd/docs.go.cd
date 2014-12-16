@@ -119,5 +119,7 @@ This is the summary of user documentation.
     * [Artifact integrity verification](faq/artifact_integrity.md)
     * [Email Notifications](faq/notifications_page.md)
     * [Running out of Disk Space](faq/admin_out_of_disk_space.md)
+* [Beta features](beta/index.md)
+    * [Comment on a pipeline run](beta/comment_on_pipeline_run.md)
 * [Release History](release_history/index.md)
     * [What's New in Go](release_history/whats_new_in_go.md)
