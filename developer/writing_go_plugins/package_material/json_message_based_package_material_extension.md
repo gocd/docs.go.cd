@@ -2,7 +2,7 @@
 
 ## Overview
  
-Please go through this [link] (../../extension_points/package_repository_extension.md)
+Please go through this [link] (http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
 
 ## Extension Name
 
@@ -28,5 +28,7 @@ package-repository
 
 ## Writing a JSON message based package material plugin
 
-Please [download](../../resources/package-material.zip) sample package material plugin. It can be extended to write any package repository plugin.
+Please [refer](https://github.com/gocd/sample-plugins/tree/master/package-material) sample package material plugin. It can be extended to write any package repository plugin.
+
+You can also refer [Yum Repository Poller](https://github.com/gocd/go-plugins/tree/master/yum-plugin) plugin
   

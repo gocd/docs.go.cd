@@ -1,4 +1,8 @@
-# Writing a task plugin
+# Writing task plugin using java interface/class based plugin api
+
+## Note
+Go is moving towards [JSON message based plugin API](../json_message_based_plugin_api.md), java API based plugin will be deprecated soon. Refer [Writing a JSON message package material plugin](json_message_based_task_extension.md) instead.
+
 
 The objective of this guide is to explain how to write such a task
 plugin, for Go.
@@ -52,9 +56,9 @@ The TaskExecutionContext is provided by Go, when the execute() method of TaskExe
 
 ### Writing a simple task plugin
 
-You can find the source of the sample Curl plugin mentioned earlier, [at this location](go_plugins_basics.md#building_a_plugin).
+You can find the source of the sample Curl plugin mentioned earlier, [at this location](../go_plugins_basics.md#building_a_plugin).
 
-Let's see what it takes to implement a simple task plugin, one which takes a message from the user, and when executed, echoes that message back. We need to start with a Task interface implementation, with the config() method specifying the "message" field and the view() method specifying a UI for it. Do not forget to annotate the class with @Extension annotation, as specified in the [Go plugin basics page](go_plugins_basics.md).
+Let's see what it takes to implement a simple task plugin, one which takes a message from the user, and when executed, echoes that message back. We need to start with a Task interface implementation, with the config() method specifying the "message" field and the view() method specifying a UI for it. Do not forget to annotate the class with @Extension annotation, as specified in the [Go plugin basics page](../go_plugins_basics.md).
 
 #### Version 1 - No validation
 
@@ -193,4 +197,4 @@ public class EchoTask implements Task {
 
 Now, the configuration UI looks like this, when trying to save a message which is not of length 5:
 
-![](../resources/images/EchoTaskSaveError.png)
+![](../images/EchoTaskSaveError.png)

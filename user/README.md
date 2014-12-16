@@ -173,13 +173,7 @@ Copyright 2014 ThoughtWorks, Inc. You may copy, distribute, print, and display, 
     * [Properties API](api/properties_api.md)
     * [Feeds API](api/feeds_api.md)
     * [Command Repo API](api/command_repo_api.md)
-* Extension Points of Go
-    * [Plugins in Go](extension_points/go_plugins_basics.md)
-    * [Go Plugin API](resources/javadoc/index.html)
-    * [Writing a package material plugin](extension_points/package_material/writing_go_package_material_plugin.md)
-    * [Writing a task plugin](extension_points/task/writing_go_task_plugins.md)
-    * [Angular JS templates in Go plugins](extension_points/task/angular-js-templates-in-go-plugins.md)
-    * [OAuth Overview](faq/oauth_overview.md)
+* [OAuth Overview](faq/oauth_overview.md)
 * Bundled Plugins
     * [Yum Repository Poller](extension_points/yum_repository_poller.md)
 * Configuration
