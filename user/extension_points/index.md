@@ -19,3 +19,7 @@ Please follow [link](package_repository_extension.md) for package material exten
   
 # Task Extension  
 Please follow [link](task_extension.md) for task extension point details.Go does not have 
+
+# Note
+
+Please refer [Developer Documentation] (http://www.go.cd/documentation/developer/#8-writing-go-plugins) if you are planning to write plugin

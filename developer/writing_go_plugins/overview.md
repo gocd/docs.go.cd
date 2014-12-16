@@ -19,7 +19,11 @@ In order to support existing plugins and provide enough time to the plugin autho
 
 JSON message based plugin API has been described in further details [here](json_message_based_plugin_api.md).
 
-## [Go Plugin API](go_plugin_api.md)
+## Plugin API Jar
+-[14.4.0](https://bintray.com/artifact/download/gocd/gocd/go-plugin-api-14.4.0.jar)
+
+## Plugin API Javadoc
+-[14.4.0](http://www.go.cd/documentation/developer/resources/14.4.0/javadoc/index.html)
 
 ## Package Repository Plugin
 
