@@ -15,13 +15,13 @@ Creating a task plugin involves implementing a few interfaces, which are describ
 
 The Task interface is the starting point of the task plugin end-point. It is the top-level interface that needs to be implemented. However, to implement the methods in it, you will need to be aware of a few other interfaces and classes.
 
-![](../resources/images/Task.png)
+![](../images/Task.png)
 
 #### TaskConfig
 
 TaskConfig is a class, which is used by the plugin to define the set of configuration properties accepted and expected by it.
 
-![](../resources/images/TaskConfig.png)
+![](../images/TaskConfig.png)
 
 As shown above, it has an addProperty method, which is usually used to add information about a configuration property. You can also provide a default value for a property. It will be used if the user does not provide any value for it. It can be setup this way (inside the config() method of your plugin's task implementation):
 
@@ -33,7 +33,7 @@ config.addProperty("MyProperty).withDefault("DEFAULT VALUE");
 
 The TaskView implementation provided by the plugin defines the UI part of the configuration. The template() method returns a string, which is written in HTML with Angular.js-specific elements. Every configuration property specified by the TaskConfig mentioned earlier, will be available as a variable, which can be used in the template.
 
-![](../resources/images/TaskView.png)
+![](../images/TaskView.png)
 
 You can read more about Go's use of Angular.js templates [here](angular-js-templates-in-go-plugins.md).
 
@@ -41,7 +41,7 @@ You can read more about Go's use of Angular.js templates [here](angular-js-templ
 
 The TaskExecutor implementation provided by the plugin (and its execute() method, actually) is the one that gets called, on an agent, when the plugin task needs to be executed.
 
-![](../resources/images/TaskExecutor.png)
+![](../images/TaskExecutor.png)
 
 The execute() method gets called with two arguments:
 
@@ -52,7 +52,7 @@ The execute() method gets called with two arguments:
 
 The TaskExecutionContext is provided by Go, when the execute() method of TaskExecutor is called on the agent, when a task needs to be run.
 
-![](../resources/images/TaskExecutionContext.png)
+![](../images/TaskExecutionContext.png)
 
 ### Writing a simple task plugin
 
@@ -120,7 +120,7 @@ public class EchoTask implements Task {
 
 Now, the dropdown and configuration UI look like this:
 
-![](../resources/images/EchoTask.png)
+![](../images/EchoTask.png)
 
 The output of the task, when it runs, looks like this:
 

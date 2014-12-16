@@ -1,5 +1,9 @@
 # JSON message based package material plugin
 
+## Available In Release
+
+14.4.0
+
 ## Overview
  
 Please go through this [link](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
