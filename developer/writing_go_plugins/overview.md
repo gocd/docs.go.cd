@@ -15,17 +15,17 @@ Please go through below links before writing Go plugin
 
 link to json message based plugin api here
 
-## [JSON message based plugin API] (json_message_based_plugin_api.md)
+## [JSON message based plugin API](json_message_based_plugin_api.md)
 
-## [Go Plugin API] (go_plugin_api.md)
+## [Go Plugin API](go_plugin_api.md)
 
 ## Package Repository Plugin
 
 - [Package Repository Extension](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
 
-- [Package repository plugin using java interface/class based plugin API] (package_material/writing_go_package_material_plugin.md)
+- [Package repository plugin using java interface/class based plugin API](package_material/writing_go_package_material_plugin.md)
 
-- [Package repository plugin using JSON message based plugin API] (package_material/json_message_based_package_material_extension.md)
+- [Package repository plugin using JSON message based plugin API](package_material/json_message_based_package_material_extension.md)
 
 ## Task Plugin
 

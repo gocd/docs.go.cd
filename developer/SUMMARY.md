@@ -118,9 +118,9 @@ This is the summary of my book.
 * [Writing Go Plugins](writing_go_plugins/overview.md)
     * [Go Plugin Architecture](4/4.4.1.md)
     * [Go Plugin Basics](writing_go_plugins/go_plugins_basics.md)
-    * [Go Plugin API] (writing_go_plugins/go_plugin_api.md)
-    * [Package repository plugin using java interface/class based plugin API] (writing_go_plugins/package_material/writing_go_package_material_plugin.md)
-    * [Package repository plugin using JSON message based plugin API] (writing_go_plugins/package_material/json_message_based_package_material_extension.md)
+    * [Go Plugin API](writing_go_plugins/go_plugin_api.md)
+    * [Package repository plugin using java interface/class based plugin API](writing_go_plugins/package_material/writing_go_package_material_plugin.md)
+    * [Package repository plugin using JSON message based plugin API](writing_go_plugins/package_material/json_message_based_package_material_extension.md)
     * [Task plugin using java interface/class based plugin API](writing_go_plugins/task/writing_go_task_plugins.md)
     * [Task plugin using JSON message based plugin API](writing_go_plugins/task/json_message_based_task_extension.md)
 
