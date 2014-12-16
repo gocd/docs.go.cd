@@ -18,9 +18,19 @@ This shows the current activity in the system. You can see all the instances of 
 10. "previously:[status]" tells you what the status of the currently running stage in the previous pipeline instance was. The previous instance is based on [natural ordering](../faq/ordering_of_pipelines.md). On hover, you can see the label of the 'previous' pipeline instance.
 11. This shows you the name and status of the last executed stage in that pipeline instance.
 12. View all changes between the current pipeline instance with the previous one.
-13. Lets you customize which pipelines are displayed on the dashboard. This view is saved across user sessions. If "Show newly created pipelines" is checked, new pipelines will automatically be visible on your dashboard. If unchecked, new pipelines will not be visible unless a user checks them.
+13. Lets you customize which pipelines are displayed on the dashboard. See [below](#personalize-pipelines-view) for more details.
 14. Lets you search for any pipeline configured to be visible on your pipeline dashboard.
 15. If you are a Go pipeline group administrator or a super administrator, you can now navigate to edit a pipeline by clicking this settings icon on the pipeline dashboard or the environments page.
+
+### Personalize pipelines view
+
+![Personalize pipelines view](../resources/images/pipelines_dashboard_personalize.png)
+
+You can customize and control the pipelines you see on the dashboard by using the "Personalize" button on your dashboard. You can choose which pipelines you want to see, in this list, and save your selection by clicking on the "Apply" button. From that point onwards, the pipelines dashboard will only show your selections.
+
+However, at a later point, if a new pipeline is added by someone else, that pipeline shows up on your dashboard as well. Uncheck the "Show newly created pipelines" checkbox, to prevent them from showing up on your dashboard.
+
+Pipelines created by you using the pipeline creation wizard, will always be shown on your dashboard. You can remove them from your view after they are created.
 
 ##### Also see...
 
