@@ -1,68 +1,8 @@
-# Writing a task plugin
+# Writing task plugin using java interface/class based plugin api
 
-## Overview
+## Note
+Go is moving towards [JSON message based plugin API](../json_message_based_plugin_api.md), java API based plugin will be deprecated soon. Refer [Writing a JSON message package material plugin](json_message_based_task_extension.md) instead.
 
-Go supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:
-
-![](../resources/images/1_Without_Curl.png)
-
-A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.
-
-For instance, you can find the source of a sample Curl plugin, [at this location](go_plugins_basics.md#building-a-plugin). Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
-
-![](../resources/images/2_With_Curl.png)
-
-When selected, the dialog box which allows you to configure details about the task looks like this:
-
-![](../resources/images/3_Curl_Form.png)
-
-In the configuration XML, the information entered for this task looks like this:
-
-``` {.code}
-<task>
-  <pluginConfiguration id="curl.task.plugin" version="1" />
-  <configuration>
-    <property>
-      <key>Url</key>
-      <value>http://www.google.com</value>
-    </property>
-    <property>
-      <key>SecureConnection</key>
-      <value>no</value>
-    </property>
-    <property>
-      <key>RequestType</key>
-      <value>-G</value>
-    </property>
-    <property>
-      <key>AdditionalOptions</key>
-      <value />
-    </property>
-  </configuration>
-  <runif status="passed" />
-</task>
-```
-
-When a build which uses the plugin runs, the output of the build looks something like this:
-
-``` {.code}
-[go] Start to execute task: Plugin with ID: curl.task.plugin.
-Launching command: [curl, -G, --insecure, -o, pipelines/up42/index.txt, http://www.google.com]
-Environment variables:
-Name= MAVEN_OPTS  Value= -Xms256m -Xmx512m
-Name= GO_STAGE_COUNTER  Value= 1
-Name= GO_REVISION_BLAH  Value= cde1e03a05170b991a92a136278c3464e4f35fe7
-Name= GO_JOB_NAME  Value= up42_job
-Name= EDITOR  Value= vim
-Name= SECURITYSESSIONID  Value= 186a4
-... lots more environment variables ...
-% Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
-Dload  Upload   Total   Spent    Left  Speed
-
-0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0
-0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
-100   259  100   259    0     0    122      0  0:00:02  0:00:02 --:--:--   122
-```
 
 The objective of this guide is to explain how to write such a task
 plugin, for Go.
@@ -116,9 +56,9 @@ The TaskExecutionContext is provided by Go, when the execute() method of TaskExe
 
 ### Writing a simple task plugin
 
-You can find the source of the sample Curl plugin mentioned earlier, [at this location](go_plugins_basics.md#building_a_plugin).
+You can find the source of the sample Curl plugin mentioned earlier, [at this location](../go_plugins_basics.md#building_a_plugin).
 
-Let's see what it takes to implement a simple task plugin, one which takes a message from the user, and when executed, echoes that message back. We need to start with a Task interface implementation, with the config() method specifying the "message" field and the view() method specifying a UI for it. Do not forget to annotate the class with @Extension annotation, as specified in the [Go plugin basics page](go_plugins_basics.md).
+Let's see what it takes to implement a simple task plugin, one which takes a message from the user, and when executed, echoes that message back. We need to start with a Task interface implementation, with the config() method specifying the "message" field and the view() method specifying a UI for it. Do not forget to annotate the class with @Extension annotation, as specified in the [Go plugin basics page](../go_plugins_basics.md).
 
 #### Version 1 - No validation
 
@@ -257,4 +197,4 @@ public class EchoTask implements Task {
 
 Now, the configuration UI looks like this, when trying to save a message which is not of length 5:
 
-![](../resources/images/EchoTaskSaveError.png)
+![](../images/EchoTaskSaveError.png)

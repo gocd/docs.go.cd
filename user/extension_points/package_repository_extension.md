@@ -13,7 +13,7 @@ These files (packages) are often maintained in corresponding package repositorie
 
 ### Supported Packages
 
-Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled [yum-repo-poller plugin](../extension_points/yum_repository_poller.md), it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other [external plugins](http://www.go.cd/community/plugins.html), it is possible to do the same for other types of packages.
+Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled [yum-repo-poller plugin](yum_repository_poller.md), it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other [external plugins](http://www.go.cd/community/plugins.html), it is possible to do the same for other types of packages.
 
 ### Repositories, Packages and Materials
 
@@ -21,7 +21,7 @@ A repository may contain one or more packages. A pipeline may refer to a package
 
 #### Repository Definition
 
-A package material plugin lets pipeline group admins provide details of the corresponding repository type to Go. e.g. here is how we define a yum repository using the bundled [yum-repo-poller plugin](../extension_points/yum_repository_poller.md).
+A package material plugin lets pipeline group admins provide details of the corresponding repository type to Go. e.g. here is how we define a yum repository using the bundled [yum-repo-poller plugin](yum_repository_poller.md).
 
 ##### Note:
 
@@ -100,7 +100,7 @@ Repositories and their packages are global entities not tied to a pipeline group
 
 ### Polling
 
-Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting [autoUpdate](configuration_reference.md#package) to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](pipeline_scheduling.md) is on). Also see [API scheduling](../api/pipeline_api.md#key).
+Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting [autoUpdate](../configuration/configuration_reference.md#package) to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.md) is on). Also see [API scheduling](../api/pipeline_api.md#key).
 
 ### Package information display
 
@@ -158,13 +158,13 @@ Or, to simply pass it as an argument to a deploy script on a remote server
         </exec>
 ```
 
-**Also see [Installing RPMs](../extension_points/yum_repository_poller.md#installing-rpms)**
+**Also see [Installing RPMs](yum_repository_poller.md#installing-rpms)**
 
 > **Important:** Please note that if you change repository credentials and then try to re-trigger (redeploy) an old package, the published environment variables will not reflect new credentials.
 
 ### Publishing a Package
 
-At the moment, Go does not create or publish the package for you. But it is simple enough for each type of package. e.g. [rpm](../extension_points/yum_repository_poller.md#creating-and-publishing-rpms)
+At the moment, Go does not create or publish the package for you. But it is simple enough for each type of package. e.g. [rpm](yum_repository_poller.md#creating-and-publishing-rpms)
 
 You could also explore the command repository on [GitHub](https://github.com/gocd/go-command-repo/tree/master/deploy) for helpful commands. What is command repository? Please see [this](../advanced_usage/command_repository.md).
 

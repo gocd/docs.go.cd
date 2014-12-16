@@ -65,3 +65,16 @@ Building and serving
 
 #### 7. Miscellaneous
    * 7.1 [Technical Debt](7/7.1.md) ![DONE](images/green.png)
+
+#### 8. Writing Go Plugins   
+* [Overview](writing_go_plugins/overview.md)
+* [Go Plugin Architecture](4/4.4.1.md)
+* [Go Plugin Basics](writing_go_plugins/go_plugins_basics.md)
+* [Go Plugin User Guide](http://www.go.cd/documentation/user/current/extension_points/plugin_user_guide.html)
+* [Go Plugin API](writing_go_plugins/go_plugin_api.md)
+* [Package Repository Extension](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
+* [Package repository plugin using java interface/class based plugin API](writing_go_plugins/package_material/writing_go_package_material_plugin.md)
+* [Package repository plugin using JSON message based plugin API](writing_go_plugins/package_material/json_message_based_package_material_extension.md)
+* [Task Extension](http://www.go.cd/documentation/user/current/extension_points/task_extension.html)
+* [Task plugin using java interface/class based plugin API](writing_go_plugins/task/writing_go_task_plugins.md)
+* [Task plugin using JSON message based plugin API](writing_go_plugins/task/json_message_based_task_extension.md)

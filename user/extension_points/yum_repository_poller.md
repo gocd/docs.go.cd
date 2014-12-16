@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The Yum respository poller is a bundled [package material](../configuration/package_material.md) plugin capable of polling yum repositories for rpm packages. Go server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d
+The Yum respository poller is a bundled [package material](package_repository_extension.md) plugin capable of polling yum repositories for rpm packages. Go server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d
 
 ``` {.code}
 repoquery --repofrompath=uuid,$REPO_URL --repoid=uuid -q $PACKAGE_SPEC -qf "%{LOCATION}..."
