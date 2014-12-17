@@ -23,7 +23,7 @@ JSON message based plugin API has been described in further details [here](json_
 -[14.4.0](https://bintray.com/artifact/download/gocd/gocd/go-plugin-api-14.4.0.jar)
 
 ## Plugin API Javadoc
--[14.4.0](http://www.go.cd/documentation/developer/resources/14.4.0/javadoc/index.html)
+-[14.4.0](http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html)
 
 ## Package Repository Plugin
 

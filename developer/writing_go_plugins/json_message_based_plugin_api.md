@@ -52,7 +52,7 @@ expected response from plugin.  Each extension will have
 	-  response code,  synonymous to HTTP response code 
 	-  response headers map,  synonymous to HTTP response headers
                                                          
-![](../resources/images/json_message_based_plugin_api_interaction.png)
+![](../images/json_message_based_plugin_api_interaction.png)
 
 # What are the changes at plugin side?
 
@@ -102,11 +102,11 @@ Go plugin API provides an abstract implementation of GoPlugin called AbstractGoP
 
 ```
 
-Please refer [javadocs](http://mdaliejaz.github.io/documentation/user/14.4/resources/javadoc/index.html) for more details about API classes.
+Please refer [javadocs](overview.md#plugin-api-javadoc) for more details about API classes.
 
 ## Extension points supported by Go
 
 [Package Repository As Material Extension] (package_material/json_message_based_package_material_extension.md)
 
-[Task Extension] ()
+[Task Extension] (task/json_message_based_task_extension.md)
 

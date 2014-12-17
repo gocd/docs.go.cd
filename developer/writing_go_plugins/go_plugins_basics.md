@@ -165,7 +165,7 @@ An example callback is shown below
 
 ### Logging
 
-Every plugin is provided with a [com.thoughtworks.go.plugin.api.logging.Logger](../resources/javadoc/com/thoughtworks/go/plugin/api/logging/Logger.html) that can be used by the plugins. API documentation provides more details on the functionality.
+Every plugin is provided with a [com.thoughtworks.go.plugin.api.logging.Logger](../resources/javadoc/14.4.0/com/thoughtworks/go/plugin/api/logging/Logger.html) that can be used by the plugins. API documentation provides more details on the functionality.
 
 Each plugin will have a separate log file corresponding to it. The log file name is of the format **plugin-*plugin-id*.log** The plugin log files will be in the same directory as the Go server log.
 

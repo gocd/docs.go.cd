@@ -2,7 +2,7 @@
 
 ## Available In Release
 
-14.4.0
+Go version 14.4.0  onwards
 
 ## Extension Name
 
@@ -20,4 +20,5 @@ task
 
 ## Writing a JSON message based task plugin
 
-Please [download](../../resources/package-material.zip) sample task plugin. It can be extended to write any task plugin.
+Please [refer](https://github.com/gocd/sample-plugins/tree/master/curl-plugin) sample package material plugin. It can be extended to write any package repository plugin.
+
