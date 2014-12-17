@@ -14,6 +14,7 @@
 			"all": "http://go.cd"
 		}
 	},
+	"plugins": ["anchors"],
 	"pdf": {
 		"toc": true,
 		"pageNumbers": false,
@@ -24,8 +25,6 @@
 			"left": 62,
 			"top": 36,
 			"bottom": 36
-		},
-		"headerTemplate": null,
-		"footerTemplate": null
+		}
 	}
 }
