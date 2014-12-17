@@ -2,11 +2,11 @@
 
 ## Available In Release
 
-14.4.0
+Go version 14.4.0  onwards
 
 ## Overview
  
-Please go through this [link](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
+Please go through [Package Material Extension](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
 
 ## Extension Name
 
