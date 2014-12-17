@@ -1,30 +1,38 @@
 {
-	"title": "Go User Documentation",
-	"description": "Help documentation for Go.",
-	"links": {
-		"sidebar": {
-			"Home": "http://go.cd",
-			"Download as PDF": "http://download.go.cd/gocd/user-documentation-14.4.0.pdf",
-			"Contribute": "https://github.com/gocd/documentation/"
-		},
-		"sharing": {
-			"google": "http://go.cd",
-			"facebook": "http://go.cd",
- 			"twitter": "http://go.cd",
-			"all": "http://go.cd"
-		}
-	},
-	"plugins": ["anchors"],
-	"pdf": {
-		"toc": true,
-		"pageNumbers": false,
-		"fontSize": 12,
-		"paperSize": "a4",
-		"margin": {
-			"right": 62,
-			"left": 62,
-			"top": 36,
-			"bottom": 36
-		}
-	}
+    "title": "Go User Documentation",
+    "description": "Help documentation for Go.",
+    "links": {
+        "sidebar": {
+            "Home": "http://go.cd",
+            "Download as PDF": "http://download.go.cd/gocd/user-documentation-14.4.0.pdf",
+            "Contribute": "https://github.com/gocd/documentation/"
+        },
+        "sharing": {
+            "google": "http://go.cd",
+            "facebook": "http://go.cd",
+            "twitter": "http://go.cd",
+            "all": "http://go.cd"
+        }
+    },
+    "plugins": [
+        "anchors",
+        "ga"
+    ],
+    "pluginsConfig": {
+        "ga": {
+            "token": "UA-48357651-1"
+        }
+    },
+    "pdf": {
+        "toc": true,
+        "pageNumbers": false,
+        "fontSize": 12,
+        "paperSize": "a4",
+        "margin": {
+            "right": 62,
+            "left": 62,
+            "top": 36,
+            "bottom": 36
+        }
+    }
 }
