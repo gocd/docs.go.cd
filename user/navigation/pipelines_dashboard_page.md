@@ -28,9 +28,9 @@ This shows the current activity in the system. You can see all the instances of 
 
 You can customize and control the pipelines you see on the dashboard by using the "Personalize" button on your dashboard. You can choose which pipelines you want to see, in this list, and save your selection by clicking on the "Apply" button. From that point onwards, the pipelines dashboard will only show your selections.
 
-However, at a later point, if a new pipeline is added by someone else, that pipeline shows up on your dashboard as well. Uncheck the "Show newly created pipelines" checkbox, to prevent them from showing up on your dashboard.
+However, at a later point, if a new pipeline is added by someone else, that pipeline shows up on your dashboard as well. Uncheck the "Show newly created pipelines" checkbox to prevent them from showing up on your dashboard.
 
-Pipelines created by you using the pipeline creation wizard, will always be shown on your dashboard. You can remove them from your view after they are created.
+Pipelines created by you using the pipeline creation wizard will always be shown on your dashboard. You can remove them from your view after they are created.
 
 ##### Also see...
 

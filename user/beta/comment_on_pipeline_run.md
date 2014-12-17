@@ -18,7 +18,7 @@ When this feature is turned on, the pipeline activity page looks like this:
 
 ![Pipeline activity page, with no comments yet](../resources/images/pipeline_comment_1.png)
 
-Clicking on the "Add Comment" button against a pipeline run bring up a text box for you to enter some text. It looks
+Clicking on the "Add Comment" button for a pipeline run brings up a text box for you to enter some text. It looks
 like this:
 
 ![Pipeline activity page, add comment text box](../resources/images/pipeline_comment_2.png)
