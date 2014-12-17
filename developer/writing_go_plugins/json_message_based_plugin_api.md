@@ -106,7 +106,7 @@ Please refer [javadocs](overview.md#plugin-api-javadoc) for more details about A
 
 ## Extension points supported by Go
 
-[Package Repository As Material Extension] (package_material/json_message_based_package_material_extension.md)
+[Package Repository As Material Extension](package_material/json_message_based_package_material_extension.md)
 
-[Task Extension] (task/json_message_based_task_extension.md)
+[Task Extension](task/json_message_based_task_extension.md)
 
