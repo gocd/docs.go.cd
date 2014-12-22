@@ -9,7 +9,7 @@ plugin, for Go.
 
 ### Interface
 
-Creating a task plugin involves implementing a few interfaces, which are described below. If you need to know the basics of writing a plugin in Go, read [this](go_plugins_basics.md). The concepts and processes mentioned there apply to the task plugin end-point as well. On that page, you can also find the go-plugin-api.jar file which contains the interfaces mentioned below.
+Creating a task plugin involves implementing a few interfaces, which are described below. If you need to know the basics of writing a plugin in Go, read [this](../go_plugins_basics.md). The concepts and processes mentioned there apply to the task plugin end-point as well. On that page, you can also find the go-plugin-api.jar file which contains the interfaces mentioned below.
 
 #### Task
 
@@ -35,7 +35,7 @@ The TaskView implementation provided by the plugin defines the UI part of the co
 
 ![](../../images/TaskView.png)
 
-You can read more about Go's use of Angular.js templates [here](angular-js-templates-in-go-plugins.md).
+You can read more about Go's use of Angular.js templates [here](angular_js_templates_in_go_plugins.md).
 
 #### TaskExecutor
 

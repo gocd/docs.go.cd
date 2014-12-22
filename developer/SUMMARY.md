@@ -135,7 +135,7 @@ This is the summary of my book.
         * [Validate Configuration Request](writing_go_plugins/task/version_1_0/validate.md)
         * [Execute Task Request](writing_go_plugins/task/version_1_0/execute.md)
         * [Task View Request](writing_go_plugins/task/version_1_0/view.md)
-    * [Angular JS templates in Go plugins](writing_go_plugins/angular-js-templates-in-go-plugins.md)
+    * [Angular JS templates in Go plugins](writing_go_plugins/task/angular_js_templates_in_go_plugins.md)
 * [CD in practice](6/6.1.md)
 	* [Build Go Using Go](6/6.1.md)
 	* [Test Infrastructure](6/6.2.md)

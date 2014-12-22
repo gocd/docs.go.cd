@@ -4,12 +4,11 @@
 
 If you are not already aware about Go plugin architecture and usage guide, please go through below links
 
-[Go Plugin Architecture] (../../developer/4/4.4.1.md)
+[Plugins in Go](go_plugins_basics.md)
 
-[Plugins in Go] (go_plugins_basics.md)
+[Plugin User Guide](../../user/current/extension_points/plugin_user_guide.md)
 
-[Plugin User Guide] (plugin_user_guide.md)
-
+[Go Plugin Architecture - Only if you want to extend the architecture](../4/4.4.1.md)
 
 ## Introduction
                                                                                               
