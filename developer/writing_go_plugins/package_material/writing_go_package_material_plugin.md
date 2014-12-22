@@ -1,7 +1,14 @@
-# Writing a API package material plugin
+# Writing an API package material plugin
+
+The objective of this guide is to explain how to write a [package material plugin](package_material_plugin_overview.md), for Go.
+
+Useful references:
+* [Overview of package material plugins - External link to Go's user documentation ](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
+* [Structure of a plugin and writing one](../go_plugins_basics.md)
+* [A sample package material plugin - yum](https://github.com/gocd/go-plugins/tree/api_based_yum_plugin/yum-plugin)
 
 ## Note
-Go is moving towards [JSON message based plugin API](../json_message_based_plugin_api.md), java API based plugin will be deprecated soon. Refer [Writing a JSON message package material plugin](json_message_based_package_material_extension.md.md) instead.
+Go is moving towards [JSON message based plugin API](../json_message_based_plugin_api.md), java API based plugin will be deprecated soon. Refer [Writing a JSON message package material plugin](json_message_based_package_material_extension.md) instead.
 
 
 

@@ -1,18 +1,16 @@
-# JSON message based package material plugin
+# Package material plugin - JSON API - Message based
 
-## Available In Release
+The objective of this guide is to explain how to write a [package material plugin](package_material_plugin_overview.md), for Go.
 
-Go version 14.4.0  onwards
+Useful references:
+* [Overview of package material plugins - External link to Go's user documentation ](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
+* [Structure of a plugin and writing one](../go_plugins_basics.md)
+* [A sample package material plugin - yum](https://github.com/gocd/go-plugins/tree/master/yum-plugin)
+* [Skeleton package material plugin](https://github.com/gocd/sample-plugins/tree/master/package-material) - Can be extended
 
-## Overview
- 
-Please go through [Package Material Extension](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
+A package material plugin is a Go plugin, which claims to support to extension name ```package-repository``` in its identifier, and responds to the messages mentioned below, appropriately. It's probably easiest to learn from the sample plugin mentioned above.
 
-## Extension Name
-
-package-repository
-
-## Request messages ***version 1.0***
+## Messages to be handled by the plugin - ***version 1.0***
 
 [Repository Configuration](version_1_0/repository_configuration.md)
 
@@ -30,9 +28,8 @@ package-repository
 
 [Latest Package Revision Since](version_1_0/latest_revision_since.md)
 
-## Writing a JSON message based package material plugin
+## Other information
 
-Please [refer](https://github.com/gocd/sample-plugins/tree/master/package-material) sample package material plugin. It can be extended to write any package repository plugin.
+* Availability: Go version 14.4.0 onwards
+* Extension Name: ```package-repository```
 
-You can also refer [Yum Repository Poller](https://github.com/gocd/go-plugins/tree/master/yum-plugin) plugin
-  
