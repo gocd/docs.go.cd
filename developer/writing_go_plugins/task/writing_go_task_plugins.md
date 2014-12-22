@@ -1,11 +1,14 @@
-# Writing task plugin using java interface/class based plugin api
+# Task plugin - Java API based (Deprecated)
+
+The objective of this guide is to explain how to write a [task plugin](task_plugin_overview.md), for Go.
+
+Useful references:
+* [Overview of task plugins - External link to Go's user documentation ](http://www.go.cd/documentation/user/current/extension_points/task_extension.html)
+* [Structure of a plugin and writing one](../go_plugins_basics.md)
+* [A sample task plugin - curl](https://github.com/gocd/sample-plugins/tree/master/curl-plugin-old-api-based)
 
 ## Note
 Go is moving towards [JSON message based plugin API](../json_message_based_plugin_api.md), java API based plugin will be deprecated soon. Refer [Writing a JSON message package material plugin](json_message_based_task_extension.md) instead.
-
-
-The objective of this guide is to explain how to write such a task
-plugin, for Go.
 
 ### Interface
 
