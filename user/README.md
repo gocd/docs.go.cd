@@ -61,7 +61,7 @@ Copyright 2014 ThoughtWorks, Inc. You may copy, distribute, print, and display, 
 * Using Go
     * [Setup a New Pipeline](configuration/quick_pipeline_setup.md)
     * [Managing Pipelines](configuration/managing_pipelines.md)
-    * [Managing Agents](advanced_usage/managing_a_build_cloud.md)
+    * [Managing Agents](configuration/managing_a_build_cloud.md)
     * [Managing Artifacts and Reports](configuration/managing_artifacts_and_reports.md)
     * [Managing Dependencies](configuration/managing_dependencies.md)
     * [Managing Environments](configuration/managing_environments.md)
