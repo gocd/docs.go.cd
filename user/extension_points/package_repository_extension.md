@@ -96,7 +96,7 @@ Depending on whether Go is also publishing the package or just consuming it, the
 
 ### Permissions
 
-Repositories and their packages are global entities not tied to a pipeline group or environment. Pipeline group admins may define repositories and packages for use in their pipelines. One pipeline group admin may also use packages defined by another for their pipelines. Changing a pacakge definition will cause all dependent pipelines to schedule - even those not in the same pipeline group as that of the person editing. Because of this, we don't have a UI way of changing the definition of a package. Only the Go admin can change it via Admin \> Config XML tab.
+Repositories and their packages are global entities not tied to a pipeline group or environment. Pipeline group admins may define repositories and packages for use in their pipelines. One pipeline group admin may also use packages defined by another for their pipelines. Changing a package definition will cause all dependent pipelines to schedule - even those not in the same pipeline group as that of the person editing. Because of this, we don't have a UI way of changing the definition of a package. Only the Go admin can change it via Admin \> Config XML tab.
 
 ### Polling
 
@@ -170,7 +170,7 @@ You could also explore the command repository on [GitHub](https://github.com/goc
 
 ### Package Dependencies
 
-Please note that Go does not support any sort of automatic polling or other support for package dependencies. Each pacakge dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let
+Please note that Go does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let
 
 ``` {.code}
 yum install componentA-1.2.0-b234-noarch
