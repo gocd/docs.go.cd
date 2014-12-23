@@ -3,15 +3,15 @@
     "description": "Help documentation for Go.",
     "links": {
         "sidebar": {
-            "Home": "http://go.cd",
+            "Home": "http://www.go.cd",
             "Download as PDF": "http://download.go.cd/gocd/user-documentation-14.4.0.pdf",
             "Contribute": "https://github.com/gocd/documentation/"
         },
         "sharing": {
-            "google": "http://go.cd",
-            "facebook": "http://go.cd",
-            "twitter": "http://go.cd",
-            "all": "http://go.cd"
+            "google": "http://www.go.cd",
+            "facebook": "http://www.go.cd",
+            "twitter": "http://www.go.cd",
+            "all": "http://www.go.cd"
         }
     },
     "plugins": [
