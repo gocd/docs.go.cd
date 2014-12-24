@@ -19,3 +19,7 @@ Depending on the way your email server is setup, you might need to enable TLS or
 To make Go change the protocol to use SMTPS, while connecting to the email server, just enable the "Use SMTPS" setting shown in the image above. Most often, but not always, this setting is used in conjunction with port 465.
 
 If your email server uses STARTLS, then you need to pass in the ```mail.smtp.starttls.enable``` Java system property to Go, to enable support for it. This is done by providing the command-line argument ```-Dmail.smtp.starttls.enable=true``` during startup (into the GO_SERVER_SYSTEM_PROPERTIES part of /etc/default/go-server, for instance). Most often, but not always, this setting is used in conjunction with port 587, and with the "Use SMTPS" option turned off.
+
+#### References:
+
+* External site: [SSL vs TLS vs STARTTLS](https://www.fastmail.com/help/technical/ssltlsstarttls.html)
