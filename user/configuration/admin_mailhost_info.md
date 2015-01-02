@@ -12,7 +12,7 @@ In order to allow [email notifications](dev_notifications.md), you need to tell 
 -   Click 'Save' when you're sure it's working.
 
 <a name='starttls'></a>
-# SMPTS and TLS
+# SMTPS and TLS
 
 Depending on the way your email server is setup, you might need to enable TLS or SMTPS setup in Go, to get it to send emails properly. Please ask you administrators for information about the setup of your email server.
 
