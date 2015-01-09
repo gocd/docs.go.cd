@@ -41,7 +41,7 @@ You can disallow deletion of artifacts from a particular stage so that those art
 
 ![Disable artifact cleanup](../resources/images/artifact_disable_stage.png)
 
-4.  Check the box 'Never Cleanup Aartifacts'
+4.  Check the box 'Never Cleanup Artifacts'
 
 ### Also see...
 
