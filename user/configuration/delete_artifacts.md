@@ -26,7 +26,7 @@ You can disallow deletion of artifacts from a particular stage so that those art
 2.  Navigate to the pipelines section and choose a pipeline to edit
 3.  Navigate to the stage settings for the stage
 ![Disable artifact cleanup](../resources/images/artifact_disable_stage.png)
-4.  Check the box 'Never Cleanup Aartifacts'
+4.  Check the box 'Never Cleanup Artifacts'
 
 ### Also see...
 
