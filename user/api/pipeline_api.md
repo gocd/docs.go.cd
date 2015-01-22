@@ -177,7 +177,7 @@ The pipeline configuration looks like:
 ```xml
                     <pipeline name="foo" labeltemplete="foo-1.0-${COUNT}" isLocked="true">
                        <material>
-                            <hg url="http://10.22.12.2:8000 materialName ="hg_material"/>
+                            <hg url="http://10.22.12.2:8000" materialName ="hg_material"/>
                        </material>
                        <stage name="DEV">
                          <job name="UnitTest">
