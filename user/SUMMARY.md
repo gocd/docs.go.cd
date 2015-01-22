@@ -97,6 +97,7 @@ This is the summary of user documentation.
     * [Package Repository Extension](extension_points/package_repository_extension.md)
     * [Yum Repository Poller](extension_points/yum_repository_poller.md)
     * [Task Extension](extension_points/task_extension.md)
+    * [Notification Extension](extension_points/notification_extension.md)
 * [FAQ/Troubleshooting](faq/index.md)
     * [Ordering of Pipelines](faq/ordering_of_pipelines.md)
     * [Historical Configuration](faq/stage_old_config.md)
