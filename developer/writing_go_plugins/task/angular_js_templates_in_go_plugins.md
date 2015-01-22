@@ -6,8 +6,8 @@ Go uses [Angular JS](http://docs.angularjs.org/guide/templates) as its templatin
 
 Because of how Angular is used inside Go, the full power of Angular is not yet exposed to the plugin author. Here are a couple of other relevant links from the Angular JS site, related to templates:
 
--   [Templates](http://docs.angularjs.org/tutorial/step_08)
--   [Expressions](http://docs.angularjs.org/guide/expression)
+- [Templates](http://docs.angularjs.org/tutorial/step_08)
+- [Expressions](http://docs.angularjs.org/guide/expression)
 
 ## Creating a template for a Go plugin - Configuration UI
 
@@ -17,7 +17,7 @@ When an Angular template is used in a Go plugin, to define the configuration UI,
 
 Suppose the key of the configuration property stored in the XML is "foobar", with value, "5", then Go will make sure that the value is available to the template as "foobar" when used in an Angular-specific HTML attribute like "ng-model".
 
-![](../resources/images/plugin_angular.png)
+![](../../images/plugin_angular.png)
 
 So, the name "foobar" needs to be the same across the configuration XML, the Angular template as well as in any code that the plugin has.
 
@@ -25,7 +25,7 @@ So, the name "foobar" needs to be the same across the configuration XML, the Ang
 
 To use an Angular expression (of the form "{{ expression }}") inside a template, you need to use this form:
 
-``` {.code}
+```{.code}
 {{ GOINPUTNAME[foobar] }}
 ```
 
@@ -33,7 +33,7 @@ This is needed because Go can potentially use the same form multiple times in a 
 
 So, to create a template where anything you enter in a textbox is shown in the dialog box, you can use something like this:
 
-``` {.code}
+```{.code}
 <div>
   {{ GOINPUTNAME[foobar] }}
   <input type="text" ng-model="foobar">
@@ -44,13 +44,13 @@ So, to create a template where anything you enter in a textbox is shown in the d
 
 Similar to the errors available in Angular (described [here](http://docs.angularjs.org/api/ng/directive/input) and [here](http://docs.angularjs.org/guide/forms)), the server-side validation errors populated by the plugin are available as:
 
-``` {.code}
+```{.code}
 {{ GOINPUTNAME[foobar].$error.server }}
 ```
 
 Usually, it is used like this:
 
-``` {.code}
+```{.code}
 <input type='text' ng-model='foobar'>
 <span class="form_error" ng-show="GOINPUTNAME[foobar].$error.server">{{ GOINPUTNAME[foobar].$error.server }}</span>
 ```
