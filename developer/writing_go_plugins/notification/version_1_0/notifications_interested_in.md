@@ -1,4 +1,4 @@
-## Message: Task Configuration
+## Message: Notifications Interested In
 
 This message is sent by the server, when it wants to know the notifications plugin is interested in.
 

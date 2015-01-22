@@ -1,4 +1,4 @@
-## Message: Validate Configuration
+## Message: Stage Status Change Notification
 
 This message is sent by the server, when it wants to notify the plugin about a "stage status change".
 
@@ -37,6 +37,8 @@ This message is sent by the server, when it wants to notify the plugin about a "
 ### Response - From the plugin
 
 ***Expected response body***: The plugin is expected to send a response, which contains a status ("success" or "failure"), and a list of error messages. This represents whether it could consume the notification.
+
+Note: If plugin responds with error messages Go Server shows those in "server health messages".
 
 ***Example response***:
 
