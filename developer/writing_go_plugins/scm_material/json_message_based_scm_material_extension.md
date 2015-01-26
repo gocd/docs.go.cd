@@ -14,6 +14,8 @@ A SCM material plugin is a Go plugin, which claims to support to extension name 
 
 [SCM Configuration](version_1_0/scm_configuration.md)
 
+[SCM View](version_1_0/view.md)
+
 [Validate SCM Configuration](version_1_0/validate_scm_configuration.md)
 
 [Check SCM Connection](version_1_0/check_scm_connection.md)

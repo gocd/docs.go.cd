@@ -133,6 +133,7 @@ This is the summary of my book.
     * [SCM material plugins](writing_go_plugins/scm_material/scm_material_plugin_overview.md)
       * [JSON API - Message based](writing_go_plugins/scm_material/json_message_based_scm_material_extension.md)
           * [SCM Configuration Request](writing_go_plugins/scm_material/version_1_0/scm_configuration.md)
+          * [SCM View Request](writing_go_plugins/scm_material/version_1_0/view.md)
           * [Validate SCM Configuration Request](writing_go_plugins/scm_material/version_1_0/validate_scm_configuration.md)
           * [Check SCM Connection Request](writing_go_plugins/scm_material/version_1_0/check_scm_connection.md)
           * [Latest Revision Request](writing_go_plugins/scm_material/version_1_0/latest_revision.md)
