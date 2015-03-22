@@ -22,7 +22,8 @@ You might also want to include material revision into the pipeline label so that
   
 ```
 
-You can optionally truncate a material revision. This might quite handy in case of a Git material, for example.
+You can optionally truncate a material revision.
+This can be useful when using Git materials as they have long revision numbers.
 By adding a "[:7]" you can have a short, truncated version of the Git revision hash that has exactly 7 characters.
 (Please note a subtle difference between this truncated git revision and the "official git short revision".
 The later one might be 4-7 characters long as Git tries to find a unique hash that's as short as possible. See the
