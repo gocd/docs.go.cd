@@ -22,10 +22,10 @@ You might also want to include material revision into the pipeline label so that
   
 ```
 
-You can optionally truncate the any material revision. This might quite handy in case of git materials, for example.
-By adding a "[:7]" you can have short, truncated version of the git revision hash that has exactly 7 characters.
-(Please not a subtle difference between this truncated git revision and the "official git short revision".
-The later one is might be 4-7 characters long as git tries to find a unique hash that's as short as possible. See the
+You can optionally truncate a material revision. This might quite handy in case of a Git material, for example.
+By adding a "[:7]" you can have short, truncated version of the Git revision hash that has exactly 7 characters.
+(Please note a subtle difference between this truncated git revision and the "official git short revision".
+The later one is might be 4-7 characters long as Git tries to find a unique hash that's as short as possible. See the
 [documentation of git-rev-parse](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
 under "--short" for further details.)
 
