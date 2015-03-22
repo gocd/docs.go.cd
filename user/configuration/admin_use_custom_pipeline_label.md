@@ -10,6 +10,8 @@ When using Go to build your application, it is often useful to be able to includ
 ![](../resources/images/3_add_label_ui.png)
 -   Click save
 
+## Using material revisions
+
 You might also want to include material revision into the pipeline label so that it's easier to find a Go pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:
 
 ``` {.code}
@@ -22,6 +24,8 @@ You might also want to include material revision into the pipeline label so that
   
 ```
 
+#### Using truncated material revisions
+
 You can optionally truncate a material revision.
 This can be useful when using Git materials as they have long revision numbers.
 By adding a "[:7]" you can have a short, truncated version of the Git revision hash that has exactly 7 characters.
@@ -32,30 +36,49 @@ under "--short" for further details.)
 
 ``` {.code}
 <pipeline name="main" labeltemplate="15.1.${COUNT}-${git[:7]}">
-  <materials>
-      <git url="git://github.com/foo.git"  materialName="git" />
-  <materials>
+    <materials>
+        <git url="git://github.com/foo.git"  materialName="git" />
+    <materials>
   ...
 </pipeline>
 
 ```
 
+## Using upstream pipeline labels
+
 You can also include the revision of an upstream pipeline into the pipeline label to, for example, share the same revision across different but related pipelines:
 
 ``` {.code}
 <pipeline name="upstream" labeltemplate="1.3.${COUNT}-${svn}">
-  <materials>
-      <svn url="http://server/path" materialName="svn" />
-  <materials>
+    <materials>
+        <svn url="http://server/path" materialName="svn" />
+    <materials>
   ...
 </pipeline>
 <pipeline name="downstream" labeltemplate="${upstream}">
-  <materials>
-      <pipeline pipelineName="upstream" stageName="dev" materialName="upstream" />
-  <materials>
+    <materials>
+        <pipeline pipelineName="upstream" stageName="dev" materialName="upstream" />
+    <materials>
   ...
 </pipeline>
   
 ```
 
 In this case, if the label of upstream pipeline is "1.3.0-1234", then when downstream pipeline is triggered, the label of downstream pipeline is also "1.3.0-1234".
+
+## Using parameters
+
+You can also include parameters into the pipeline label:
+``` {.code}
+<pipeline name="main" labeltemplate="15.1.${COUNT}-#{param1}">
+    <params>
+        <param name="param1">default</param>
+    </params>
+  ...
+</pipeline>
+
+```
+
+#### Also see...
+
+-   [Use parameters in configuration](admin_use_parameters_in_configuration.md)
