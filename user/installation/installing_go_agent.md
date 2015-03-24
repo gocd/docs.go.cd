@@ -55,6 +55,26 @@ Installation-Directory is optional. Default value is C:\\Program Files(x86)\\Go 
 
     ![Go Agent OSX Config](../resources/images/cruise_agent_osx_config.png)
 
+#### Override environment variables (Mac OSX installer)
+
+You can override default environment variables by:
+
+1. Overriding them during startup:
+
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin open /Applications/Go\ Agent.app
+    ```
+
+2. Overriding them using a file: The file "~/Library/Application Support/Go Agent/overrides.env" is sourced as a part of
+   the agent startup, and it can be setup to change environment variables. For instance, changing the contents of that
+   file to:
+
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin
+    ```
+
+    will set the PATH appropriately for the Go Agent.
+
 ### Linux
 
 > You must be logged in as root, or use *sudo*, to install Go on Linux. Go agent also requires that the Oracle or Open JRE or JDK - version 6 or above - is installed.

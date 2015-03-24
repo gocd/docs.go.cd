@@ -39,6 +39,26 @@ You must be logged in as a user with Administrator privileges to install the Go 
 6.  Once the Go server has started, it will open your default browser to the Go dashboard page.
 7.  To get back to the Go dashboard page when the server is running, click on the link in the About box of the Go server
 
+#### Override environment variables (Mac OSX installer)
+
+You can override default environment variables by:
+
+1. Overriding them during startup:
+
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin open /Applications/Go\ Server.app
+    ```
+
+2. Overriding them using a file: The file "~/Library/Application Support/Go Server/overrides.env" is sourced as a part of
+   the server startup, and it can be setup to change environment variables. For instance, changing the contents of that
+   file to:
+
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin
+    ```
+
+    will set the PATH appropriately for the Go Server.
+
 ### How to install Go server for Linux
 
 You must be logged in as root, or use *sudo*, to install Go on Linux. Go server also requires that Oracle or Open JRE or JDK - version 6 or above - is installed.
