@@ -45,6 +45,11 @@ sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent2\cruisewrapper.exe\" -s
   "<user-home>/Library/Application Support/Go Agent 2" and the icon in the dock
   will be called "Go Agent 2" as well.
 
+  It is also possible to edit the file /Applications/Go\ Agent\ 2.app/Contents/Info.plist
+  to change the ```CFBundleName``` property. However, that is not recommended,
+  since it invalidates the signature of the application package, and could cause
+  Apple Gatekeeper to warn you that the new agent is an invalid application.
+
 ## Linux (RPM and DEB)
 
 - [Install your first agent with the installer](../installation/installing_go_agent.md)
