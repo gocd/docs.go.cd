@@ -8,7 +8,9 @@
 
 This API provides the ability to cancel an active stage of a pipeline. The API needs the name of the pipeline and name of the stage to perform cancellation.
 
-Security Note: The user invoking the API should have sufficient permission to operate on the pipeline.
+**Note:** The ```scheduled_date``` field in the response is in UNIX timestamp format. It records the number of milliseconds since the UNIX epoch date of 01 JAN 1970. To read more about this value and see examples of how to convert it to other formats including human readable form (for various languages) see http://www.epochconverter.com/. Be aware it may be necessary to convert to seconds first.
+
+**Security Note:** The user invoking the API should have sufficient permission to operate on the pipeline.
 
 | URL format | HTTP Verb | Data | Explanation |
 |------------|-----------|------|-------------|
