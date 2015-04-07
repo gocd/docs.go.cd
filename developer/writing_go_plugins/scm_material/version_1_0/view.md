@@ -7,7 +7,7 @@ example template from a sample curl task plugin, can be seen
 
 ### Request - From the server
 
-***Request name***: `execute`
+***Request name***: `scm-view`
 
 ***Request parameters***: empty
 
@@ -27,7 +27,7 @@ view, during SCM configuration:
 
 ```json
 {
-   "displayValue": "Echo",
+   "displayValue": "JGit",
    "template": "<div class=\"form_item_block\"><label>Message:<span class=\"asterisk\">*</span><input type=\"text\" ng-model=\"message\" ng-required=\"true\"></label></div>"
 }
 ```

@@ -41,20 +41,26 @@ Almost all the fields expected in this response are explained in this [part of t
 
 ```json
 {
-    "revision": "revision-1",
-    "timestamp": "2011-07-14T19:43:37.100Z",
-    "user": "some-user",
-    "revisionComment": "comment",
-    "data": {
+    "revision": {
+        "revision": "revision-1",
+        "timestamp": "2011-07-14T19:43:37.100Z",
+        "user": "some-user",
+        "revisionComment": "comment",
+        "data": {
+            "dataKeyOne": "data-value-one",
+            "dataKeyTwo": "data-value-two"
+        },
+        "modifiedFiles": [
+            {
+                "fileName": "file-1",
+                "action": "added"
+            }
+        ]
+    },
+    "scm-data": {
         "dataKeyOne": "data-value-one",
         "dataKeyTwo": "data-value-two"
-    },
-    "modifiedFiles": [
-        {
-            "fileName": "file-1",
-            "action": "added"
-        }
-    ]
+    }
 }
 ```
 
@@ -105,7 +111,55 @@ Almost all the fields expected in this response are explained in this [part of t
     "type":"object",
     "required":true,
     "properties":{
-        "data": {
+        "revision": {
+            "data": {
+                "type":"object",
+                "required":false,
+                "patternProperties":{
+                    "^[a-zA-Z0-9_-]+$":{
+                        "type":"string",
+                        "required":false
+                    }
+                }
+            },
+            "revisionComment": {
+                "type":"string",
+                "required":false
+            },
+            "revision": {
+                "type":"string",
+                "required":false
+            },
+            "timestamp": {
+                "type":"string",
+                "required":false
+            },
+            "user": {
+                "type":"string",
+                "required":false
+            },
+            "modifiedFiles": {
+                "type": "array",
+                "items": {
+                    "type": "object",
+                    "properties": {
+                        "fileName": {
+                            "type": "string",
+                            "required": true
+                        },
+                        "action": {
+                            "type": "string",
+                            "required": true
+                        }
+                    },
+                    "additionalProperties": false
+                },
+                "minItems": 0,
+                "uniqueItems": true,
+                "additionalItems": false
+            }
+        },
+        "scm-data": {
             "type":"object",
             "required":false,
             "patternProperties":{
@@ -114,42 +168,6 @@ Almost all the fields expected in this response are explained in this [part of t
                     "required":false
                 }
             }
-        },
-        "revisionComment": {
-            "type":"string",
-            "required":false
-        },
-        "revision": {
-            "type":"string",
-            "required":false
-        },
-        "timestamp": {
-            "type":"string",
-            "required":false
-        },
-        "user": {
-            "type":"string",
-            "required":false
-        },
-        "modifiedFiles": {
-            "type": "array",
-            "items": {
-                "type": "object",
-                "properties": {
-                    "fileName": {
-                        "type": "string",
-                        "required": true
-                    },
-                    "action": {
-                        "type": "string",
-                        "required": true
-                    }
-                },
-                "additionalProperties": false
-            },
-            "minItems": 0,
-            "uniqueItems": true,
-            "additionalItems": false
         }
     },
     "additionalProperties": false

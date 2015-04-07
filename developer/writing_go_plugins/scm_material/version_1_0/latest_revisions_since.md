@@ -29,6 +29,10 @@ Note: It is prudent to validate these details before using them, because direct 
             "value": "password"
         }
     },
+    "scm-data": {
+        "dataKeyOne": "data-value-one",
+        "dataKeyTwo": "data-value-two"
+    },
     "flyweight-folder": "/var/lib/go-server/pipelines/flyweight-for-this-material",
     "previous-revision": {
         "revision": "revision-1",
@@ -68,7 +72,11 @@ Almost all the fields expected in this response are explained in this [part of t
                 }
             ]
         }
-    ]
+    ],
+    "scm-data": {
+        "dataKeyOne": "data-value-one",
+        "dataKeyTwo": "data-value-three"
+    }
 }
 ```
 
@@ -139,22 +147,22 @@ Almost all the fields expected in this response are explained in this [part of t
     "type":"object",
     "required":false,
     "properties":{
-        "data": {
-            "type":"object",
-            "required":false,
-            "patternProperties":{
-                "^[a-zA-Z0-9_-]+$":{
-                    "type":"string",
-                    "required":false
-                }
-            },
-            "additionalProperties": false
-        },
         "revisions": {
             "required": false,
             "type": "array",
             "items": {
                 "type": "object",
+                "data": {
+                    "type":"object",
+                    "required":false,
+                    "patternProperties":{
+                        "^[a-zA-Z0-9_-]+$":{
+                            "type":"string",
+                            "required":false
+                        }
+                    },
+                    "additionalProperties": false
+                },
                 "revisionComment": {
                     "type":"string",
                     "required":false
@@ -192,6 +200,16 @@ Almost all the fields expected in this response are explained in this [part of t
                     "additionalItems": false
                 }
             },
+            "scm-data": {
+                "type":"object",
+                "required":false,
+                "patternProperties":{
+                    "^[a-zA-Z0-9_-]+$":{
+                        "type":"string",
+                        "required":false
+                    }
+                }
+            }
             "minItems": 0,
             "uniqueItems": true
         }
