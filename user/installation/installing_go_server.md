@@ -30,7 +30,7 @@ You must be logged in as a user with Administrator privileges to install the Go 
 
 1.  Double-click the downloaded file to unzip the contents.
 2.  Drag the Go server Application to the Applications folder.
-3.  Go server will store its data in *Library/Application Support/Go Server* subfolder of the user's home folder
+3.  Go server will store its data in *<user-home>/Library/Application Support/Go Server* subfolder of the user's home folder
 4.  Double-click on the Go Server.app icon to open the launcher.
 5.  While the Go server is starting up, you'll see a progress bar in the top left of your screen.
 
@@ -39,21 +39,25 @@ You must be logged in as a user with Administrator privileges to install the Go 
 6.  Once the Go server has started, it will open your default browser to the Go dashboard page.
 7.  To get back to the Go dashboard page when the server is running, click on the link in the About box of the Go server
 
-Prior to 12.3.1, Go server stored its data in */Library/Application Support/Go Server*. From 12.3.1, it will be in *< user-home >/Library/Application Support/Go Server*.
+#### Override environment variables (Mac OSX installer)
 
-If you upgrade your Mac OS to Lion/Mountain Lion, Go installations prior to 12.3.1 will not continue to work. You will need to manually upgrade to 12.3.1 and copy the existing configuration from **/Library/Application Support** to **< user-home >/Library/Application Support**
+You can override default environment variables by:
 
-On OSX 10.8.x (Mountain Lion), you may get the following error. **"Go Server" is damaged and can't be opened. You should move it to the Trash.** This is due to enanced security protections. To allow the install to proceed
+1. Overriding them during startup:
 
-- Go to System Preferences-\>Personal-\>Security & Privacy.
-- Launch the Security and Privacy applet.
-- Click on the General tab to highlight it.
-- Click on the lock icon to allow changes.
-- Under the heading "Allow applications downloaded from:" click on the **Anywhere** radio button.
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin open /Applications/Go\ Server.app
+    ```
 
-The installation will proceed as normal.
+2. Overriding them using a file: The file "~/Library/Application Support/Go Server/overrides.env" is sourced as a part of
+   the server startup, and it can be setup to change environment variables. For instance, changing the contents of that
+   file to:
 
-When it is finished, you can change the Security & Privacy setting back to the previous setting.
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin
+    ```
+
+    will set the PATH appropriately for the Go Server.
 
 ### How to install Go server for Linux
 
@@ -123,7 +127,7 @@ All the files for the Go server are under the root installation path on Windows.
 ### Mac OSX
 
 ``` {.code}
-< user-home >/Library/Application Support/Go Server
+<user-home>/Library/Application Support/Go Server
 ```
 
 Some logging information is also written to */var/log/system.log*

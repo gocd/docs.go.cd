@@ -49,21 +49,31 @@ Installation-Directory is optional. Default value is C:\\Program Files(x86)\\Go 
 ### Mac OSX
 
 1.  Double-click the downloaded file to unzip the contents.
-2.  Drag the Go Agent.app icon to the Applications folder. This will also be the directory where the agent checks out and builds the code.
+2.  Drag the Go Agent.app icon to the Applications folder.
 3.  Double-click on the Go Agent.app icon to open the launcher.
 4.  The very first time you run the Go agent on your machine you will be prompted for the hostname or IP address of your Go server. By default it will try connecting to the local machine. Click the OK button to continue.
 
     ![Go Agent OSX Config](../resources/images/cruise_agent_osx_config.png)
 
-On OSX 10.8.x (Mountain Lion), you may get the following error. **"Go Agent" is damaged and can't be opened. You should move it to the Trash.** This is due to enanced security protections. To allow the install to proceed
+#### Override environment variables (Mac OSX installer)
 
-- Go to System Preferences-\>Personal-\>Security & Privacy.
-- Launch the Security and Privacy applet.
-- Cick on the General tab to hightlight it.
-- Click ont he lock icon to allow changes.
-- Under the heading "Allow applications downloaded from:" click on the **Anywhere** radio button.
-- The installation will proceed as normal.
-- When it is finished, you can change the Security & Privacy setting back to the previous setting.
+You can override default environment variables by:
+
+1. Overriding them during startup:
+
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin open /Applications/Go\ Agent.app
+    ```
+
+2. Overriding them using a file: The file "~/Library/Application Support/Go Agent/overrides.env" is sourced as a part of
+   the agent startup, and it can be setup to change environment variables. For instance, changing the contents of that
+   file to:
+
+    ``` {.code}
+    PATH=$PATH:/usr/local/bin
+    ```
+
+    will set the PATH appropriately for the Go Agent.
 
 ### Linux
 
@@ -136,12 +146,10 @@ All the files for the Go agent are under its root installation folder in Windows
 
 ### Mac OSX
 
-Some files for the Go agent are under its root installation folder in Mac OSX.
-
 ``` {.code}
 /Applications/Go Agent.app
-~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties
-                
+<user-home>/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties
+<user-home>/Library/Application Support/Go Agent
 ```
 
 Some logging information is also written to /var/log/system.log
