@@ -1,4 +1,4 @@
-# SCM Material (Beta feature)
+# SCM Material
 
 ## Introduction
 
