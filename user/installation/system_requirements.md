@@ -19,7 +19,7 @@ These requirements should meet the needs of most Go installations. You may need 
 
 Go server is supported on Windows XP SP2+, Windows Server 2003, Windows Server 2008 and Windows 7.
 
--   Java Runtime Environment (JRE) version 6 or above
+-   Java Runtime Environment (JRE) version 7
 -   RAM: 1Gb minimum, 2Gb recommended
 -   2 GHz (or higher)
 
@@ -27,7 +27,7 @@ Go server is supported on Windows XP SP2+, Windows Server 2003, Windows Server 2
 
 -   Mac OSX Leopard (10.5) and above
 -   Intel processor
--   Apple Java Runtime Environment (JRE) version 6
+-   Apple Java Runtime Environment (JRE) version 7
 -   RAM: 1Gb minimum, 2Gb recommended
 
 Go has limited support for Mountain Lion (OSX 10.8)
@@ -36,7 +36,7 @@ Go has limited support for Mountain Lion (OSX 10.8)
 
 We provide Debian packages which work on Ubuntu or Debian, and RPMs for RHEL, Fedora Core and CentOS. We support any OS based on Linux. ex: Ubuntu, Centos and RedHat Enterprise.
 
--   Java Runtime Environment (JRE) version 6 and above
+-   Java Runtime Environment (JRE) version 7
 -   RAM: 1Gb minimum, 2Gb recommended
 -   2 GHz (or higher)
 
@@ -44,7 +44,7 @@ We provide Debian packages which work on Ubuntu or Debian, and RPMs for RHEL, Fe
 
 We provide Solaris packages which have been tested with Solaris 10 U5. They should work with OpenSolaris as well.
 
--   Java Runtime Environment (JRE) version 6 and above
+-   Java Runtime Environment (JRE) version 7
 -   RAM: 1Gb minimum, 2Gb recommended
 -   2 GHz (or higher)
 
@@ -61,7 +61,7 @@ both your Go server and all Go build agents.
 
 Go agent is supported on Windows XP SP2+, Windows Server 2003, Windows Server 2008 and Windows 7.
 
--   Java Runtime Environment (JRE) version 6 and above
+-   Java Runtime Environment (JRE) version 7
 -   RAM: 128Mb minimum, 256Mb recommended
 -   2 GHz (or higher)
 
@@ -69,14 +69,14 @@ Go agent is supported on Windows XP SP2+, Windows Server 2003, Windows Server 20
 
 -   Mac OSX Leopard (10.5) or higher
 -   Intel processor
--   Apple Java Development Kit (JDK) version 6
+-   Apple Java Development Kit (JDK) version 7
 -   RAM: 128Mb minimum, 256Mb recommended
 
 #### Linux
 
 We provide Debian packages which work on Ubuntu or Debian, and RPMs for RHEL, Fedora Core and CentOS. We support Ubuntu 7.10, Ubuntu 8.04, Centos 5.1 and RedHat Enterprise 5.
 
--   Java Runtime Environment (JRE) version 6
+-   Java Runtime Environment (JRE) version 7
 -   RAM: 128Mb minimum, 256Mb recommended
 -   2 GHz (or higher)
 
@@ -84,7 +84,7 @@ We provide Debian packages which work on Ubuntu or Debian, and RPMs for RHEL, Fe
 
 We provide Solaris packages which have been tested with Solaris 10 U5. They should work with OpenSolaris as well.
 
--   Java Runtime Environment (JRE) version 6
+-   Java Runtime Environment (JRE) version 7
 -   RAM: 512Mb minimum, 1Gb recommended
 
 #### Extra requirements for Go agent
