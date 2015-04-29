@@ -24,6 +24,7 @@ This is the summary of user documentation.
     * [Configuring Server Details](installation/configuring_server_details.md)
     * [Configure a Proxy](installation/configure_proxy.md)
     * [Performance Tuning](installation/performance_tuning.md)
+    * [Troubleshoot installers](installation/troubleshoot_installer.md)
 * [Configuration](configuration/index.md)
     * [Setup a New Pipeline](configuration/quick_pipeline_setup.md)
     * [Managing Pipelines](configuration/managing_pipelines.md)
