@@ -124,6 +124,6 @@ This is the summary of user documentation.
     * [Running out of Disk Space](faq/admin_out_of_disk_space.md)
 * [Beta features](beta/index.md)
     * [Comment on a pipeline run](beta/comment_on_pipeline_run.md)
-    * [Pipeline upload from within Go](beta/plugin_upload.md)
+    * [Plugin upload from within Go](beta/plugin_upload.md)
 * [Release History](release_history/index.md)
     * [What's New in Go](release_history/whats_new_in_go.md)
