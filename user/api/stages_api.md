@@ -54,6 +54,118 @@ Run this command to cancel the stage of the pipeline:
 curl -u admin:badger -d "" http://goserver.com:8153/go/api/stages/demo_pipeline/first_stage/cancel
 ```
 
+## Stage Instance
+
+This API provides Stage instance details in JSON format.
+
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/stages/[pipeline]/[stage]/instance/[pipeline-counter]/[stage-counter] | GET | no parameters | Get Stage instance. |
+
+### Examples
+
+-   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
+
+Assuming the pipeline configuration looks like:
+
+```xml
+  <pipelines group="first">
+    <pipeline name="foo" labeltemplate="foo-${COUNT}" isLocked="true">
+      <materials>
+        <hg url="http://10.22.12.2:8000" materialName="hg_material" />
+      </materials>
+      <stage name="DEV">
+        <jobs>
+          <job name="UnitTest">
+            <tasks>
+              <ant target="all-UAT" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="UATTest">
+        <jobs>
+          <job name="UAT">
+            <tasks>
+              <exec command="sleep">
+                <arg>10000</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="target" dest="pkg/foo.war" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+```
+
+The following command produces output specified below:
+```
+curl -u admin:badger http://goserver.com:8153/go/api/stages/foo/DEV/instance/1/1
+```
+
+```json
+{
+   "name":"DEV",
+   "approved_by":"changes",
+   "jobs":[
+      {
+         "agent_uuid":"4becbbd5-e5a2-4691-acd5-62d718488b7d",
+         "name":"UnitTest",
+         "job_state_transitions":[
+            {
+               "state_change_time":1427725952315,
+               "id":416230,
+               "state":"Scheduled"
+            },
+            {
+               "state_change_time":1427726857188,
+               "id":416396,
+               "state":"Assigned"
+            },
+            {
+               "state_change_time":1427726867162,
+               "id":416397,
+               "state":"Preparing"
+            },
+            {
+               "state_change_time":1427726898164,
+               "id":416402,
+               "state":"Building"
+            },
+            {
+               "state_change_time":1427727286312,
+               "id":416454,
+               "state":"Completing"
+            },
+            {
+               "state_change_time":1427727286665,
+               "id":416455,
+               "state":"Completed"
+            }
+         ],
+         "scheduled_date":1427725952315,
+         "original_job_id":null,
+         "rerun":false,
+         "result":"Passed",
+         "state":"Completed",
+         "id":79299
+      }
+   ],
+   "pipeline_counter":1,
+   "pipeline_name":"foo",
+   "approval_type":"success",
+   "result":"Passed",
+   "id":1,
+   "counter":"1"
+}
+```
+
 ## Stage History
 
 This API lists Stage instances in JSON format. API gives 10 instances at a time, sorted in reverse order. Supports pagination using offset which tells the API how many instances to skip. This API is built primarily to aid rendering Stage history widget. Hence the information required for that is exposed.

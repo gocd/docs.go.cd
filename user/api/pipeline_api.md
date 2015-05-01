@@ -352,6 +352,143 @@ curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/status
 }
 ```
 
+## Pipeline Instance
+
+This API provides Pipeline instance details in JSON format.
+
+| URL format | HTTP Verb | Data | Explanation |
+|------------|-----------|------|-------------|
+| http://[server]/go/api/pipelines/[pipeline]/instance/[counter] | GET | no parameters | Get Pipeline instance. |
+
+### Examples
+
+-   We use curl, a command line tool to demonstrate the use of the API, in the following examples. Of course, you can use any HTTP client library.
+-   We assume that the URL of the Go server is **http://goserver.com:8153/** .
+-   We assume security has been switched on, and that there is a user named **admin** with the password **badger** .
+
+Assuming the pipeline configuration looks like:
+
+```xml
+  <pipelines group="first">
+    <pipeline name="foo" labeltemplate="foo-${COUNT}" isLocked="true">
+      <materials>
+        <hg url="http://10.22.12.2:8000" materialName="hg_material" />
+      </materials>
+      <stage name="DEV">
+        <jobs>
+          <job name="UnitTest">
+            <tasks>
+              <ant target="all-UAT" />
+            </tasks>
+          </job>
+        </jobs>
+      </stage>
+      <stage name="UATTest">
+        <jobs>
+          <job name="UAT">
+            <tasks>
+              <exec command="sleep">
+                <arg>10000</arg>
+                <runif status="passed" />
+              </exec>
+            </tasks>
+            <artifacts>
+              <artifact src="target" dest="pkg/foo.war" />
+            </artifacts>
+          </job>
+        </jobs>
+      </stage>
+    </pipeline>
+  </pipelines>
+```
+
+The following command produces output specified below:
+```
+curl -u admin:badger http://goserver.com:8153/go/api/pipelines/foo/instance/1
+```
+
+```json
+{
+   "build_cause":{
+      "approver":"",
+      "material_revisions":[
+         {
+            "modifications":[
+               {
+                  "modified_time":1409664999000,
+                  "id":1,
+                  "user_name":"Admin <test@test.com>",
+                  "comment":"comment",
+                  "revision":"6f75b392941c40666ae822045c064e0887ffd007"
+               }
+            ],
+            "material":{
+               "description":"URL: http:\/\/10.22.12.2:8000",
+               "fingerprint":"64987f67c407020dfd6badf4975421428aa5d044e0b14b3086266294b969b6a8",
+               "type":"Mercurial",
+               "id":34
+            },
+            "changed":true
+         }
+      ],
+      "trigger_forced":false,
+      "trigger_message":"modified by Admin <test@test.com>"
+   },
+   "name":"foo",
+   "natural_order":1,
+   "can_run":false,
+   "stages":[
+      {
+         "name":"DEV",
+         "approved_by":"changes",
+         "jobs":[
+            {
+               "name":"UnitTest",
+               "result":"Passed",
+               "state":"Completed",
+               "id":1,
+               "scheduled_date":1411456676119
+            }
+         ],
+         "can_run":false,
+         "approval_type":"success",
+         "result":"Passed",
+         "id":1,
+         "counter":"1",
+         "operate_permission":true,
+         "scheduled":true
+      },
+      {
+         "name":"UATTest",
+         "approved_by":"changes",
+         "jobs":[
+            {
+               "name":"UAT",
+               "result":"Failed",
+               "state":"Completed",
+               "id":2,
+               "scheduled_date":1411456763411
+            }
+         ],
+         "can_run":false,
+         "approval_type":"success",
+         "result":"Failed",
+         "id":2,
+         "counter":"1",
+         "operate_permission":true,
+         "scheduled":true
+      }
+   ],
+   "currently_locked":false,
+   "counter":1,
+   "id":1,
+   "preparing_to_schedule":false,
+   "lockable":false,
+   "can_unlock":false,
+   "label":"foo-1"
+}
+```
+
 ## Pipeline History
 
 This API lists Pipeline instances in JSON format. API gives 10 instances at a time, sorted in reverse order. Supports pagination using offset which tells the API how many instances to skip. This API is built primarily to aid rendering pipeline history page. Hence the information required for that is exposed.
