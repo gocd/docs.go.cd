@@ -9,7 +9,7 @@ If you were greeted with a message such as this, when trying to use Go on Mac OS
 X:
 
 <figure class="small_image">
-  <img src="/resources/images/troubleshoot_mac_installer.png" alt="Mac installer
+  <img src="../resources/images/troubleshoot_mac_installer.png" alt="Mac installer
   - Java 1.7+ message" title="Mac installer - Java 1.7+ message"/>
 </figure>
 
