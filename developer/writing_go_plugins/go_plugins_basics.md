@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Plugins,as the name implies,help in extending the functionality of Go. Go publishes a list of extension points for which plugins can be provided. An extension point published by the Go team - defines the interface and the lifecycle that governs the respective plugin.At present only Java based extension points and plugins are supported by Go.
+Plugins, as the name implies, help in extending the functionality of Go. Go publishes a list of extension points for which plugins can be provided. An extension point published by the Go team - defines the interface and the lifecycle that governs the respective plugin. At present only Java based extension points and plugins are supported by Go.
 
 Details about available extension points and their lifecycle can be obtained using this documentation along with the Go Plugin API reference.
 
@@ -27,7 +27,7 @@ A plugin for Go is a JAR file with the following structure:
         
 ```
 
-The plugin jar is a self contained jar containing - all the plugin implementations classes, their dependencies and metadata about the plugin.
+The plugin jar is a self-contained jar containing - all the plugin implementations classes, their dependencies and metadata about the plugin.
 
 -   Packaging of the implementation classes is same, under the main jar root, as in any Java jar file.
 -   The implementation dependency jar files should be provided inside a **lib** directory under the main jar root. *This is optional if no dependency is a jar file.*
@@ -96,7 +96,7 @@ Here is an example plugin extension class (for the one shown above):
 
 Since it is a **public** , non-abstract class, which has a **public** default constructor, annotated with **@Extension** and implements a Go-exposed plugin interface ( **PluginDescriptorAware** ), it qualifies as a valid plugin extension and will be loaded by the Go plugin infrastructure.
 
-A class can implement multiple plugin extension interfaces.In this case Go will register a \*single\* instance of the class for all the interfaces. This implies that the class be thread safe - since interface methods in the class may be invoked by multiple threads simultaneously. This is approach of single class multiple extenion interface is useful to maintain state across multiple extension points.
+A class can implement multiple plugin extension interfaces. In this case Go will register a \*single\* instance of the class for all the interfaces. This implies that the class be thread safe - since interface methods in the class may be invoked by multiple threads simultaneously. This is approach of single class multiple extension interface is useful to maintain state across multiple extension points.
 
 ### Dependency JAR directory (lib/)
 
@@ -115,7 +115,7 @@ Any JAR you drop into the **lib/** directory of the plugin JAR file will be avai
 A directory named **plugins** exist at the same level as *server.sh/cmd* and *go.jar*. This directory consists of two sub directories
 
 -   **bundled** : plugins bundled with Go. Any unbundled plugins put in this directory will be removed. The directory is meant exclusively for plugins bundled with the product.
--   **external** : all the unbundled plugins should be placed in this directory. This directory is recommended for use by plugin developers.If you have a Go plugin JAR file, you can drop it in this directory and restart the server.
+-   **external** : all the unbundled plugins should be placed in this directory. This directory is recommended for use by plugin developers. If you have a Go plugin JAR file, you can drop it in this directory and restart the server.
 
 ## Plugin Extension Point Lifecycle
 
