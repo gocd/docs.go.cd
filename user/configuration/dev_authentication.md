@@ -2,7 +2,7 @@
 
 Go was built from the bottom up with security in mind. Go server provides both an http service and an https service by default. The http service listens on port 8153 and the https service listens on port 8154.
 
-By default, Go does not require users to authenticate. However we provide two mechanisms for you to force users to authenticate if you wish to. You can create a password file (in standard Apache htpassd syntax) to authenticate log in requests. Alternatively Go can authenticate against LDAP or ActiveDirectory servers.
+By default, Go does not require users to authenticate. However we provide two mechanisms for you to force users to authenticate if you wish to. You can create a password file (in standard Apache htpasswd syntax) to authenticate log in requests. Alternatively Go can authenticate against LDAP or ActiveDirectory servers.
 
 You can use both password file and LDAP/ActiveDirectory authentication at the same time. In this case Go will first try and authenticate you against the password file. If it cannot find your username, or if it finds that your username and password do not match, it will try LDAP/AD next. This can be very useful if you need a read-only user that can be used by scripts, and you do not want to add this user to your LDAP.
 
