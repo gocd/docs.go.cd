@@ -120,6 +120,7 @@ This is the summary of my book.
     * [Go Plugin API](writing_go_plugins/go_plugin_api.md)
     * [JSON message based plugin API](writing_go_plugins/json_message_based_plugin_api.md)
         * [Writing AngularJS templates](writing_go_plugins/angular_js_templates_in_go_plugins.md)
+        * [Handling Web Requests](writing_go_plugins/handling_web_requests.md)
         * [Plugin Settings](writing_go_plugins/plugin_settings/plugin_settings_overview.md)
             * [Get Plugin Settings Configuration](writing_go_plugins/plugin_settings/version_1_0/plugin_settings_configuration.md)
             * [Get Plugin Settings View](writing_go_plugins/plugin_settings/version_1_0/plugin_settings_view.md)
