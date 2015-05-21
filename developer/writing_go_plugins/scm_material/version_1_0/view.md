@@ -1,7 +1,7 @@
 ## Message: SCM View
 
 This message is sent by the server, to get a template to show to the user, to allow information about a SCM to be
-provided. The template is an AngularJS template, as described [here](../angular_js_templates_in_go_plugins.md). An
+provided. The template is an AngularJS template, as described [here](../../angular_js_templates_in_go_plugins.md). An
 example template from a sample curl task plugin, can be seen
 [here](https://github.com/gocd/sample-plugins/blob/master/curl-plugin/resources/views/task.template.html).
 

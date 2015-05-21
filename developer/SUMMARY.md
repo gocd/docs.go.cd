@@ -119,6 +119,7 @@ This is the summary of my book.
     * [Go Plugin Basics](writing_go_plugins/go_plugins_basics.md)
     * [Go Plugin API](writing_go_plugins/go_plugin_api.md)
     * [JSON message based plugin API](writing_go_plugins/json_message_based_plugin_api.md)
+        * [Writing AngularJS templates](writing_go_plugins/angular_js_templates_in_go_plugins.md)
     * [Package material plugins](writing_go_plugins/package_material/package_material_plugin_overview.md)
       * [Java API based (Deprecated)](writing_go_plugins/package_material/writing_go_package_material_plugin.md)
       * [JSON API - Message based](writing_go_plugins/package_material/json_message_based_package_material_extension.md)

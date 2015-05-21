@@ -38,7 +38,7 @@ The TaskView implementation provided by the plugin defines the UI part of the co
 
 ![](../../images/TaskView.png)
 
-You can read more about Go's use of Angular.js templates [here](angular_js_templates_in_go_plugins.md).
+You can read more about Go's use of Angular.js templates [here](../angular_js_templates_in_go_plugins.md).
 
 #### TaskExecutor
 
