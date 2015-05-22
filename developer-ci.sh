@@ -1,15 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ $# -ne 1 ]
-then
-  echo "usage: $0 VERSION"
-  echo "    VERSION - 15.1.0 15.2.0 etc"
-  exit -1
-fi
-
-book='user'
-version=$1
+book='developer'
 
 rm -rf $HOME/.node
 mkdir -p $HOME/.node
@@ -35,10 +27,10 @@ git branch -D gh-pages || true
 git checkout -b gh-pages origin/gh-pages
 git clean -dffx
 
-rm -rf $book/$version
-mv $HOME/.gocd-$book-docs $book/$version
+rm -rf $book
+mv $HOME/.gocd-$book-docs $book
 
-git add --all $book/$version
+git add --all $book
 git commit -m "Updating site to latest commit ($git_short_sha)." --author "GoCD <go-cd-dev@googlegroups.com>"
 
 git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/gocd/documentation gh-pages:gh-pages
