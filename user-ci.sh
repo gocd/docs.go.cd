@@ -9,6 +9,7 @@ then
 fi
 
 book='user'
+version=$1
 
 rm -rf $HOME/.node
 mkdir -p $HOME/.node
