@@ -7,14 +7,14 @@ This repository contains the documentation for [Developers](/developer) and [Use
 ### Install and configure [gitbook-cli](https://github.com/GitbookIO/gitbook-cli)
 
 ```
-$ npm install gitbook-cli -g
-$ gitbook install
+$ npm install
 ```
 
 ### Serve the documentation locally
 
 ```
 $ cd [user|developer]
+$ gitbook install
 $ gitbook serve
 ```
 
