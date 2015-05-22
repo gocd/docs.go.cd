@@ -5,3 +5,4 @@
 *.iws
 user/_book/*
 developer/_book/*
+node_modules/

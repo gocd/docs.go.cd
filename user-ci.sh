@@ -20,7 +20,9 @@ if [ -n "$GO_SERVER_URL" ]; then
 fi
 
 export PATH=$HOME/.node/bin:$PATH
-npm install gitbook-cli --global
+npm install
+export PATH=$(npm bin):$PATH
+
 (
   cd $book
   gitbook install

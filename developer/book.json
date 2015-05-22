@@ -13,6 +13,7 @@
             "all": "http://www.go.cd"
         }
     },
+    "gitbook": "1.5.0",
     "plugins": [
         "anchors",
         "ga"
