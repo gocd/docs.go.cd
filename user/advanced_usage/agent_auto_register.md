@@ -21,7 +21,7 @@ As a Go administrator, you can auto approve remote agents by using a shared key 
 |`agent.auto.register.key`       |yes      |The value of the `<server/>` element's `agentAutoRegisterKey` attribute from `cruise-config.xml` |
 |`agent.auto.register.environments` |no       |A comma separated list of [environments](../navigation/environments_page.md) that this agent should be associated with. |
 |`agent.auto.register.resources` |no       |A comma separated list of resources that this agent should be tagged with.|
-|`agent.auto.register.hostname` |no       |The name of the agent when it is registered with the server.|
+|`agent.auto.register.hostname` |no       |The name of the agent when it is registered with the server. (**Version 15.2.0 onwards**)|
 
 Example
 
