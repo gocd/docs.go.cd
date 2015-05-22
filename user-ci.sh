@@ -33,7 +33,7 @@ git branch -D gh-pages || true
 git checkout -b gh-pages origin/gh-pages
 git clean -dffx
 
-rm -rf $book/15.1.0
+rm -rf $book/$version
 mv $HOME/.gocd-$book-docs $book/$version
 
 git add --all $book/$version
