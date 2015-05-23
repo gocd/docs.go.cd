@@ -29,9 +29,11 @@ This message is sent by the server, when it wants plugin to authenticate user wi
 
 ```json
 {
-    "username": "sample-username",
-    "display-name": "sample-display-name",
-    "email-id": "sample-email-id"
+    "user": {
+        "username": "sample-username",
+        "display-name": "sample-display-name",
+        "email-id": "sample-email-id"
+    }
 }
 ```
 
@@ -68,19 +70,27 @@ This message is sent by the server, when it wants plugin to authenticate user wi
   "id": "/",
   "type": "object",
   "properties": {
-    "username": {
-      "id": "username",
-      "type": "string",
-      "required": true
-    },
-    "display-name": {
-      "id": "display-name",
-      "type": "string",
-      "required": true
-    },
-    "email-id": {
-      "id": "email-id",
-      "type": "string",
+    "user": {
+      "id": "user",
+      "type": "object",
+      "properties": {
+        "username": {
+          "id": "username",
+          "type": "string",
+          "required": true
+        },
+        "display-name": {
+          "id": "display-name",
+          "type": "string",
+          "required": false
+        },
+        "email-id": {
+          "id": "email-id",
+          "type": "string",
+          "required": false
+        }
+      },
+      "additionalProperties": false,
       "required": false
     }
   },
