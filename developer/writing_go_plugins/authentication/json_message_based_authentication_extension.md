@@ -18,6 +18,8 @@ These are the messages that need to be handled by a plugin, which implements the
 
 [Authenticate User](version_1_0/authenticate_user.md)
 
+[Search User](version_1_0/search_user.md)
+
 ## Other information
 
 * Availability: Go version 15.2.0 onwards

@@ -1,6 +1,6 @@
 ## Message: Authenticate User
 
-This message is sent by the server, when it wants plugin to authenticate user with given `username` & `password`.
+This message is sent by the server, when it wants plugin to authenticate user with given `username` & `password`. This message is sent to plugin *only* if plugin sets `supports-password-based-authentication` in plugin configuration to true.
 
 ### Request - From the server
 

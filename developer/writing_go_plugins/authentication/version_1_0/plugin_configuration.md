@@ -22,7 +22,8 @@ This message is sent by the server, when it wants to know the plugin's configura
 ```json
 {
     "display-name": "LDAP",
-    "supports-password-based-authentication": true
+    "supports-password-based-authentication": true,
+    "supports-user-search": true
 }
 ```
 
@@ -43,6 +44,11 @@ This message is sent by the server, when it wants to know the plugin's configura
     },
     "supports-password-based-authentication": {
       "id": "supports-password-based-authentication",
+      "type": "boolean",
+      "required": false
+    },
+    "supports-user-search": {
+      "id": "supports-user-search",
       "type": "boolean",
       "required": false
     }
