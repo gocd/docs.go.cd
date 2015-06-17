@@ -27,9 +27,39 @@ As an example, assume that there is a pipeline group called "my-app" and it cont
 
 ## Using XML
 
+Power users can configure the above as follows:
+
+```xml
+<pipelines group="my-app">
+  <pipeline name="app-trunk" template="my-app-build">
+    <materials>
+      <svn url="http://my-svn-url/trunk" />
+    </materials>
+  </pipeline>
+  <pipeline name="app-1.0-branch" template="my-app-build">
+    <materials>
+      <svn url="http://my-svn-url/branches/1.0" />
+    </materials>
+  </pipeline>
+</pipelines>
+<templates>
+  <pipeline name="my-app-build">
+    <stage name="build">
+      <jobs>
+        <job name="compile">
+          <tasks>
+            <ant target="compile" />
+          </tasks>
+        </job>
+      </jobs>
+    </stage>
+  </pipeline>
+</templates>
+```
+
 ### Editing Pipeline Templates
 
-Go Administrators can now enable any Go user to edit a template by [making them a template administrator](dev_authorization.md#template-admin).
+Go Administrators can now enable any Go user to edit a template by [making them a template administrator](dev_authorization.html#specifying-permissions-for-templates).
 
 Template administrators can view and edit the templates to which they have permissions, on the template tab of the admin page. Template Administrators, will however not be able to add, delete or change permissions for a template. They will also be able to see the number of pipelines in which the template is being used, but not the details of those pipelines.
 
