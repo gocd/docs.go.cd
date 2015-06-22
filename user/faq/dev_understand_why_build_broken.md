@@ -26,3 +26,5 @@ Let's assume that in this case, we are on a java project using JUnit as our test
 ![](../resources/images/8_failures_tab.png)
 
 -   If you need more information, the "Console" sub-tab contains everything that was written out to the console (including extra information from Go)
+
+![](../resources/images/9_console_tab.png)
