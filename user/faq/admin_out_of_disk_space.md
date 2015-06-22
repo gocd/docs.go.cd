@@ -35,13 +35,14 @@ Go can be configured to automatically delete artifacts if the available disk spa
 
 You can disallow deletion of artifacts from a particular stage so that those artifacts are excluded during deletion. This option can be set in the stage editor for a pipeline. This option can be set for stages that are important so that artifacts for the stage are preserved.
 
-1.  Navigate to the admin section on the Go dashboard.
-2.  Navigate to the pipelines section and choose a pipeline to edit
-3.  Navigate to the stage settings for the stage
+1. Navigate to the admin section on the Go dashboard.
+2. Navigate to the pipelines section and choose a pipeline to edit
+3. Navigate to the stage settings for the stage
 
 ![Disable artifact cleanup](../resources/images/artifact_disable_stage.png)
 
-4.  Check the box 'Never Cleanup Artifacts'
+4.Check the box 'Never Cleanup Artifacts'
+
 
 ### Also see...
 
