@@ -15,3 +15,5 @@ For this example, we will assume we have a stage name "production" that will aut
 ![](../resources/images/2_click_stage_activity.png)
 
 -   The [Stage Details](../navigation/stage_details_page.md) page will show every time Go has deployed your application
+
+![](../resources/images/3_stage_activity.png)
