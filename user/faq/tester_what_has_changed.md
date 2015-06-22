@@ -6,7 +6,7 @@ When updating your testing environments to a new version, it is useful to know w
 
 For this example, we'll assume that there is a manual "UAT" stage will automatically deploy and install an executable on your user acceptance testing machine.
 
--   On the [Pipelines](../navigation/Pipelines_Dashboard_page.md) page, click on the name of your pipeline
+-   On the [Pipelines](../navigation/pipelines_dashboard_page.md) page, click on the name of your pipeline
 
 ![](../resources/images/1_click_pipeline_name.png)
 
