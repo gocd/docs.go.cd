@@ -16,3 +16,5 @@ For this example, we'll assume that there is a manual "UAT" stage will automatic
 ![](../resources/images/2_find_in_uat.png)
 
 -   For every check-in earlier than the one in UAT, click to see the comments
+
+![](../resources/images/3_click_modifications.png)
