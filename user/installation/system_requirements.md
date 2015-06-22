@@ -1,7 +1,5 @@
 # System requirements
 
-## Introduction
-
 These requirements should meet the needs of most Go installations. You may need to allocate additonal CPUs and/or memory on the machine hosting the Go Server if you intend to use a very large set of pipelines and/or agents.
 
 ### Client requirements
@@ -11,7 +9,7 @@ These requirements should meet the needs of most Go installations. You may need 
 -   Firefox
 -   Safari
 -   Chrome
--   Internet Explorer 8, 9
+-   Internet Explorer 9+
 
 ### Go server requirements
 
