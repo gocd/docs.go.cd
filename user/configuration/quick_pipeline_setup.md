@@ -16,12 +16,13 @@ After you've entered your license information, clicking on the **Pipelines** tab
 ![](../resources/images/new_pipeline_2.png)
 
 1.  Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a [package repository](../extension_points/package_repository_extension.md) (e.g. [yum](../extension_points/yum_repository_poller.md)). Currently Go supports the following SCMs:
-    1.  Subversion
-    2.  Mercurial
-    3.  Git
-    4.  Team Foundation Server.
+    1. Subversion
+    2. Mercurial
+    3. Git
+    4. Team Foundation Server.
+    5. Perforce
 
- and the package repository.
+  and the package repository and material plugins.
 
 2.  Fill in settings specific to the material type.
 

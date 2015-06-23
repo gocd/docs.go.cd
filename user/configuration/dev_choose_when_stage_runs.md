@@ -11,5 +11,8 @@ Usage: We need a manual 'dist' stage that will create the binaries used by later
 -   [Add a new stage](admin_add_stage.md) named 'dist' after a build stage
 -   Set the Stage type to manual
 
-![](../resources/images/1_add_approval_tag.png)
+![Set stage type to "Manual"](../resources/images/1_add_approval_tag.png)
+
 -   Now, when the build stage 'build' is completed, you can manually cause Go to create the binary from the [Pipeline activity](../navigation/pipeline_activity_page.md) page
+
+![Manual gate](../resources/images/2_click_manual.png)

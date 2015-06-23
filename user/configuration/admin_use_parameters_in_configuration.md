@@ -10,7 +10,7 @@ Edit the **Parameters** tab when defining a **pipeline** .
 
 ## Defining and using a parameter
 
-Parameter values are defined in the < params > tag within a pipeline and can be used anywhere within that pipeline using \#{param\_name}. The following example defines a new parameter called "myParam" and uses it in a job.
+Parameter values are defined in the ```<params>``` tag within a pipeline and can be used anywhere within that pipeline using \#{param\_name}. The following example defines a new parameter called "myParam" and uses it in a job.
 
 ``` {.code}
 <pipeline name="my_pipeline">
@@ -40,7 +40,7 @@ Parameter values are defined in the < params > tag within a pipeline and can be 
 
 ## Using parameters in pipeline templates
 
-Parameter usage within [templates](pipeline_templates.md) is similar to usage within pipelines. The only difference being, you cannot define parameters in a template.
+Parameter usage within [templates](pipeline_templates.md) is similar to usage within pipelines. The only difference is that you cannot **define** parameters in a template.
 
 ``` {.code}
 <pipeline name="trunk" template="my_template">
@@ -86,7 +86,7 @@ While parameters are generally very flexible, there are some restrictions.
 -   Stage name
 -   Job name
 -   A Job's property name
--   The \<runif\> configuration for a job's task
+-   The ```<runif>``` configuration for a job's task
 -   Another parameter (i.e. you cannot define a parameter using another paramter)
 -   Pipeline template name
 -   Material name

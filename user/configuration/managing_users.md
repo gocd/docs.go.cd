@@ -47,7 +47,7 @@ With this setup, your entire team has visibility into what each other is doing, 
 
 User management page allows you to assign admin privileges to or revoke admin privileges from selected users.
 
-This control allows you to modify admin privileges for users(not for roles). Checking 'Go System Administrator' for selected users adds them directly to \<admins/\> configuration tag. This control is disabled when one or more of the selected users have implicit admin privilege through role(s).
+This control allows you to modify admin privileges for users (not for roles). Applying the special 'Go System Administrator' role for selected users adds them directly to ```<admins>``` configuration tag. This control is disabled when one or more of the selected users have implicit admin privilege through role(s).
 
 **Assign/Revoke 'Go System Administrator' privilege:**
 

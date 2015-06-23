@@ -15,7 +15,7 @@ Say we have two pipelines - **upstream\_pipeline** and **downstream\_pipeline** 
 
 ![](../resources/images/pipeline_add_material.png)
 
-Power users can also configure this via the **Config XML** tab on the Admin section:
+Power users can also configure this via the **Config XML** tab on the Admin section (Configuration reference is [here](../configuration/configuration_reference.md)):
 
 ``` {.code}
 <pipeline name="downstream_pipeline">  
@@ -55,7 +55,7 @@ A fetch task can also be instructed to retrieve (fetch) an artifact from an ance
 
 ![](../resources/images/task_fetch_artifact_ancestor.png)
 
-For power users, here's how you can configure this via Config XML:
+For power users, here's how you can configure this via the **Config XML** tab on the Admin section (Configuration reference is [here](../configuration/configuration_reference.md)):
 
 ``` {.code}
 <pipeline name="topmost_pipeline">  
