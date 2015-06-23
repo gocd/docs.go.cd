@@ -32,7 +32,7 @@ Steps to select the revisions of materials you want to deploy
 
 There are 3 reasons this can happen
 
--   There is a deployment is progress, so another one cannot be started
+-   There is a deployment in progress, so another one cannot be started
 -   Your deployment pipeline is operating in [locked](../configuration/admin_lock_pipelines.md) mode
 -   You do not have sufficient permissions to operate on that pipeline
 
@@ -44,6 +44,8 @@ If you always want to have the latest of all materials deployed to your environm
 -   This will trigger the deployment pipeline
 -   This will pick up the latest available revision of your materials at
     the time the pipeline is scheduled
+
+![](../resources/images/deploy_latest.png)
 
 ### Using passwords while deploying
 
