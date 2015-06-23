@@ -18,3 +18,5 @@ For this example, we're going to take the information out of "target/javancss/ja
 ![](../resources/images/3_view_property.png)
 
 -   You can export the property history as a CSV file
+
+![](../resources/images/4_export_property.png)
