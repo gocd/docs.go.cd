@@ -20,7 +20,7 @@ curl -u admin:badger http://goserver.com:8153/go/api/admin/config/[digest].xml
 
 to get the version of configuration identified by *[digest]*.
 
-For instance, if configuration as on a certain day has digest value 5059cf548db9ea2d1b9192b45529ccf0, it can be retrieved on any future day by invoking:
+For instance, if configuration as on a certain day has digest value `5059cf548db9ea2d1b9192b45529ccf0`, it can be retrieved on any future day by invoking:
 
 ```
 curl -u admin:badger http://goserver.com:8153/go/api/admin/config/5059cf548db9ea2d1b9192b45529ccf0.xml
@@ -103,7 +103,7 @@ The following command produces output specified below:
 curl -u admin:badger http://goserver.com:8153/go/config/diff/238d2081ca5fde32440c4c1da6c6f95267196162/59fcc29a3385b17795c7b2ac2c2f6dd7cb9421bd
 ```
 
-```
+```patch
 @@ -55,7 +55,7 @@
    </pipelines>
    <agents>
@@ -142,39 +142,39 @@ curl -u admin:badger -d "url=http://yoursvnrepository/trunk" http://goserver.com
 |----------------|---------------|----------|-------------|
 | scm | svn | No | Default value is 'svn' |
 | url | http://xxx.xx.xx.xx/mysvn/trunk | Yes | The URL of the Subversion repository |
-| username | checkout_username | No | |
-| password | checkout_password | No | |
+| username | checkout_username | No | The SVN username |
+| password | checkout_password | No | The SVN password |
 
 #### Mercurial
 
 | parameter name | example value | required | Description |
 |----------------|---------------|----------|-------------|
-| scm | hg | Yes | |
+| scm | hg | Yes | - |
 | url | http://xxx.xx.xx.xx/hg/my_project | Yes | The URL of the repository |
 
 #### Git
 
 | parameter name | example value | required | Description |
 |----------------|---------------|----------|-------------|
-| scm | git | Yes | |
+| scm | git | Yes | - |
 | url | git://github.com/foo/bar.git | Yes | The URL of the repository |
 
 #### Perforce
 
 | parameter name | example value | required | Description |
 |----------------|---------------|----------|-------------|
-| scm | p4 | Yes | |
+| scm | p4 | Yes | - |
 | url | p4server.foo.com:1666 | Yes | The P4PORT of the repository |
 | username | checkout_username | No | The P4USER to connect to the repository |
 | password | checkout_password | No | The P4PASSWD to connect to the repository |
-| useTickets | true or false | No | |
-| view | //depot/... //something/... | Yes | |
+| useTickets | true or false | No | - |
+| view | //depot/... //something/... | Yes | - |
 
 #### Team Foundation Server
 
 | parameter name | example value | required | Description |
 |----------------|---------------|----------|-------------|
-| scm | tfs | Yes | |
+| scm | tfs | Yes | - |
 | url | http://tfs.host.com:8080/tfs/DefaultCollection | Yes | The url of your TFS collection |
 | domain | COMPANYNAME | No | Domain name that the given user belong to |
 | username | tfsuser | Yes | Username used to connect to the collection |
