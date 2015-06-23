@@ -39,11 +39,11 @@ You can change the artifacts directory location at any time using the method des
 
 If you decide to move your artifact repository, the safe way to do it is:
 
-1.  pause all pipelines and wait until all active jobs on the agent grid has completed (all agents are in the state "idle")
-2.  shut down Go server
-3.  copy the artifact repository to the new location
-4.  edit Go's configuration file manually as described above to tell Go where to find the artifacts
-5.  restart Go server
+1.  Pause all pipelines and wait until all active jobs on the agent grid has completed (all agents are in the state "idle")
+2.  Shut down Go server
+3.  Copy the artifact repository to the new location
+4.  Edit Go's configuration file manually as described above to tell Go where to find the artifacts
+5.  Restart Go server
 
 Even when all active jobs on the agent grid have stopped, users may still be uploading artifacts using the RESTful URLs. This is why we need to stop Go server completely in order to be safe.
 

@@ -8,7 +8,7 @@ Before you install the Go server or agent, please take a look at [System Require
 
 You must be logged in as a user with Administrator privileges to install the Go server on Windows.
 
-1.  Double-click the ```go-server-\${version}.exe``` installer file and follow the prompts to install Go
+1.  Double-click the ```go-server-${version}.exe``` installer file and follow the prompts to install Go
 2.  During installation you will be asked to select a directory that will serve as the root path for your Go server installation. Go server will store all of its associated data in this directory by default
 3.  You will next be prompted to choose the bundled Oracle 7 JRE or specify the location of JRE (or JDK) installed on your system
 4.  At the end of the installation, Go server will register itself as a windows service owned by 'Local System' and start running automatically
