@@ -236,8 +236,8 @@ By default, when one stage completes successfully, the next stage is automatical
 
 If you add a manual approval to the first stage in a pipeline, it will prevent the pipeline from being triggered from version control. Instead, it will only pick up changes when you trigger the pipeline manually (this is sometimes known as "forcing the build").
 
-From Cruise 1.1 (legacy version of Go), you can control who can trigger manual approvals. See the section on [Adding authorization to approvals](dev_authorization.md#adding-authorization-to-approvals) for more details.
+You can control who can trigger manual approvals. See the section on [Adding authorization to approvals](dev_authorization.md#adding-authorization-to-approvals) for more details.
 
 ## Managing pipeline groups
 
-Starting with Cruise 1.3 (legacy version of Go), there is support for collecting multiple pipelines into a single named group. See the section on [Specifying who can view and operate pipeline groups](dev_authorization.md#specifying-permissions-for-pipeline-groups) for more details.
+There is support for collecting multiple pipelines into a single named group. See the section on [Specifying who can view and operate pipeline groups](dev_authorization.md#specifying-permissions-for-pipeline-groups) for more details.
