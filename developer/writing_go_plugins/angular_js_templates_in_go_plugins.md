@@ -17,7 +17,7 @@ When an Angular template is used in a Go plugin, to define the configuration UI,
 
 Suppose the key of the configuration property stored in the XML is "foobar", with value, "5", then Go will make sure that the value is available to the template as "foobar" when used in an Angular-specific HTML attribute like "ng-model".
 
-![](../../images/plugin_angular.png)
+![](../images/plugin_angular.png)
 
 So, the name "foobar" needs to be the same across the configuration XML, the Angular template as well as in any code that the plugin has.
 
