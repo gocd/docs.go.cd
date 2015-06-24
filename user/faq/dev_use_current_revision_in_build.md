@@ -33,15 +33,68 @@ It is often useful to use the current version control revision number in your bu
 For this example, we are going to assume we are using a single [Subversion](http://subversion.tigris.org/) repository for our source control system and we have a job set up to call the ant target "dist".
 
 -   Add the following target to your ant build.xml
+
+``` {.code}
+build.xml
+
+<project name="test-build">
+  <property environment="env" />
+  <target name="dist">
+    <echo message="Building pipeline ${env.GO_PIPELINE_NAME}"
+          file="deploy-${env.GO_REVISION}.txt" />
+  </target>
+</project>
+```
+
 -   Now, when Go runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
+
+``` {.code}
+deploy-123.txt
+
+Building pipeline my-app
+```
 
 #### Multiple materials
 
 For this example we are going to assume we are using a [Subversion](http://subversion.tigris.org/) repository containing the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository containing configuration scripts.
 
 -   Ensure the pipeline materials look like this
+
+``` {.code}
+<pipeline name="multiple-materials">
+  <materials>
+    <svn url="..." dest="code" />
+    <hg url="..." dest="configuration/latest" />
+  </materials>
+  ...
+</pipeline>
+```
+
 -   Add the following target to your ant build.xml
+
+``` {.code}
+build.xml
+
+<project name="my-app">
+  <property environment="env" />
+  <target name="dist">
+    <echo message="Building pipeline ${env.GO_PIPELINE_NAME}"
+          file="deploy-${env.GO_REVISION_CODE}.txt" />
+    <echo message="Configuration version: ${env.GO_REVISION_CONFIGURATION_LATEST}"
+          file="deploy-${env.GO_REVISION_CODE}.txt"
+          append="true" />
+  </target>
+</project>
+```
+
 -   Now, when Go runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
+
+``` {.code}
+deploy-123.txt
+
+Building pipeline my-app
+Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
+```
 
 ## Pass environment variables to a job
 

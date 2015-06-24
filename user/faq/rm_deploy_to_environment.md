@@ -12,6 +12,16 @@ For this example, we'll assume that there is already an ant task defined in your
 -   [Ensure that the **UAT** stage is manual](../configuration/dev_choose_when_stage_runs.md)
 -   Ensure the following task block is in the **deploy** job configuration
 
+``` {.code}
+<tasks>
+  <fetchartifact stage="dist" job="create-installers" srcdir="pkg" dest="installers" />
+  <ant target="deploy_to_uat" />
+  <ant target="verify_uat_works_correctly" />
+  <ant target="rollback_to_previous_install_in_uat">
+    <runif status="failed" />
+  </ant>
+</tasks>
+```
 When you are ready to deploy something into the UAT environment...
 
 -   Navigate to the [pipeline activity](../navigation/pipeline_activity_page.md) page
@@ -25,6 +35,8 @@ When you are ready to deploy something into the UAT environment...
 ![](../resources/images/2_successful_to_uat.png)
 
 -   When the deploy fails for some reason, the stage will be red and the UAT environment will contain the original check-in
+
+![](../resources/images/3_failure_to_uat.png)
 
 ### Manually deploy to production
 
@@ -50,3 +62,6 @@ environment...
 -   Manually install the binary into production
 -   If there are issues, manually rollback to the last known good installation
 -   If everything seems to be working correctly, click on the manual transition into the **production** stage
+
+![](../resources/images/6_click_manual_to_prod.png)
+

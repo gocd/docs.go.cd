@@ -8,7 +8,7 @@ Go has changed it's release naming convention from the previous practice of majo
 
 ### Features
 
--   Added capability to create a [Task plugin](../extension_points/task/writing_go_task_plugins.md).
+-   Added capability to create a [Task plugin](../extension_points/task_extension.md).
 
 ### Bug fixes
 
@@ -33,11 +33,11 @@ Go has changed it's release naming convention from the previous practice of majo
 ### Features
 
 -   [Template Admin:](../configuration/pipeline_templates.md#edit_template) Users in Go can now view and edit a template for which they have permissions.
--   [Pipeline Search:](../navigation/Pipelines_Dashboard_page.md) Allows a user to search for a specific pipeline on the pipeline dashboard.
+-   [Pipeline Search:](../navigation/pipelines_dashboard_page.md) Allows a user to search for a specific pipeline on the pipeline dashboard.
 
 ### Enhancements
 
--   [Pipeline Edit:](../navigation/Pipelines_Dashboard_page.md) Go Administrators and Pipeline Group Administrators can now navigate to edit a pipeline through a single click on the dashboard.
+-   [Pipeline Edit:](../navigation/pipelines_dashboard_page.md) Go Administrators and Pipeline Group Administrators can now navigate to edit a pipeline through a single click on the dashboard.
 -   Performance improvements have been made for pipeline dashboard page and preferences page of Go.
 
 ### Bug fixes
@@ -74,7 +74,7 @@ Go has changed it's release naming convention from the previous practice of majo
 -   [Template View:](../configuration/pipeline_templates.md#view_template) All Pipeline Group Admins and Go Administrators can now view templates while creating or editing pipelines.
 -   [User Delete API:](../api/users_api.md) A new API using which you can delete a disabled user.
 -   Check-in comments in [Value Stream Map:](../navigation/value_stream_map.md) Showing more details, like the check-in comment, date and author for every Source Control Material in the Value Stream Map.
--   [Improving Server Startup Time:](../installation/performance_tuning.md#server_startup_time) The database queries that run when the server starts, have been optimized. Also, additional JVM properties have been provided to delay material polling and pipeline scheduling, thereby, improving start up time.
+-   [Improving Server Startup Time:](../installation/performance_tuning.md#improving-server-startup-time) The database queries that run when the server starts, have been optimized. Also, additional JVM properties have been provided to delay material polling and pipeline scheduling, thereby, improving start up time.
 
 ### Bug fixes
 
@@ -118,6 +118,8 @@ Go has changed it's release naming convention from the previous practice of majo
 ### New features
 
 -   **[Command Repository](../advanced_usage/command_repository.md)** : How do I run maven with Go? Is it possible to do an EC2 deploy with Go? What is the syntax if I need to execute a remote command on a linux box? The answer to these and more are now provided within Go.
+
+Check [this](https://youtu.be/fSQZ5hEQbgY) video, to see demo.
 
 ### Enhancements
 

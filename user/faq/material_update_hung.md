@@ -19,11 +19,19 @@ Such a scenario is notified to the users by a warning in Server Health; when cli
 When you see warning messages like the one above
 
 -   Identify the processes running as children of Go Server
--   Determine the process that's hung. The extra information like URL: "https://test@bitbucket.org/test/git_repo.git" in the warning information should help you with this.
+    
+    > On Windows, you can use tools like **Process Explorer** . On linux you could run 'ps waux | grep 'material-type''
+-   Determine the process that's hung. The extra information like URL:"https://test@bitbucket.org/test/git_repo.git" in the warning information should help you with this.
 -   On linux system, you should see lines like these:
+
+   ``` {.code}
+    go 31201 1  0 Feb07 ?  00:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816
+    ```
 -   Kill the process and all its children (the whole process tree).
 -   Ensure that the warning message goes away from Server Health.
 
+    >Please note the folder name (of the form .../flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the Go installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.
+    
 ## Configuring warning time
 
 -   Go server waits for 15 minutes (of no output) before it warns user about possible hung material update. User can modify this wait time using a System Property: 'material.update.inactive.timeout'.
