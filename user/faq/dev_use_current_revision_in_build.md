@@ -176,4 +176,3 @@ You can access these environment variables to construct versioned artifacts or t
 </target>
 ```
 
-CRUISE\_XXX variables are deprecated since Go 2.0. Please use GO\_XXX instead of CRUISE\_XXX (For example: GO\_SERVER\_URL instead of CRUISE\_SERVER\_URL).
