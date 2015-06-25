@@ -17,11 +17,17 @@
     "gitbook": "2.1.0",
     "plugins": [
         "anchors",
-        "ga"
+        "ga",
+        "include",
+        "toc"
     ],
     "pluginsConfig": {
         "ga": {
             "token": "UA-48357651-1"
+        },
+        "toc": {
+            "addClass": true,
+            "className": "toc"
         }
     },
     "pdf": {

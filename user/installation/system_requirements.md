@@ -13,79 +13,50 @@ These requirements should meet the needs of most Go installations. You may need 
 
 ### Go server requirements
 
-#### Windows
+#### Hardware
 
-Go server is supported on Windows XP SP2+, Windows Server 2003, Windows Server 2008 and Windows 7.
+* **RAM** - minimum 1GB, 2GB recommended
+* **CPU** - minimum 2 cores, 2GHz
+* **Disk** - minimum 1GB free space.
 
--   Java Runtime Environment (JRE) version 7
--   RAM: 1Gb minimum, 2Gb recommended
--   2 GHz (or higher)
+#### Supported Operating Systems
 
-#### Mac OSX
+* **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
+* **Mac OSX** - 10.7 (Lion) and above with Intel processor
+* **Debian**  - Debian 6.0 (squeeze) and above
+* **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
+* **Solaris** - Solaris 10 U5, OpenSolaris
 
--   Mac OSX Leopard (10.5) and above
--   Intel processor
--   Apple Java Runtime Environment (JRE) version 7
--   RAM: 1Gb minimum, 2Gb recommended
+#### Dependencies
 
-Go has limited support for Mountain Lion (OSX 10.8)
+* Java Runtime Environment (JRE) version 7
 
-#### Linux
-
-We provide Debian packages which work on Ubuntu or Debian, and RPMs for RHEL, Fedora Core and CentOS. We support any OS based on Linux. ex: Ubuntu, Centos and RedHat Enterprise.
-
--   Java Runtime Environment (JRE) version 7
--   RAM: 1Gb minimum, 2Gb recommended
--   2 GHz (or higher)
-
-#### Solaris
-
-We provide Solaris packages which have been tested with Solaris 10 U5. They should work with OpenSolaris as well.
-
--   Java Runtime Environment (JRE) version 7
--   RAM: 1Gb minimum, 2Gb recommended
--   2 GHz (or higher)
-
-#### Extra requirements for Go server
+#### Additional requirements for Go server
 
 The host that runs your Go server should have a separate disk partition to store Go artifacts. The artifact repository can fill up quickly (especially if you are storing large binaries). If you don't create a separate partition for artifacts and your system disk fills up, Go and other applications on your system will behave unexpectedly. You are also likely to end up with corrupted data. Check the section on [installing Go server](installing_go_server.md) for more information on configuring your artifact repository.
 
-Client software for your source code control tool must be installed on
-both your Go server and all Go build agents.
+Client software for your source code control tool must be installed on both your Go server and all Go build agents.
 
 ### Go agent requirements
 
-#### Windows
+#### Supported Operating Systems
 
-Go agent is supported on Windows XP SP2+, Windows Server 2003, Windows Server 2008 and Windows 7.
+* **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
+* **Mac OSX** - 10.7 (Lion) and above with Intel processor
+* **Debian**  - Debian 6.0 (squeeze) and above
+* **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
+* **Solaris** - Solaris 10 U5, OpenSolaris
 
--   Java Runtime Environment (JRE) version 7
--   RAM: 128Mb minimum, 256Mb recommended
--   2 GHz (or higher)
+#### Hardware
 
-#### Mac OSX
+* **RAM** - minimum 128MB, 256MB recommended
+* **CPU** - minimum 2GHz
 
--   Mac OSX Leopard (10.5) or higher
--   Intel processor
--   Apple Java Development Kit (JDK) version 7
--   RAM: 128Mb minimum, 256Mb recommended
+#### Dependencies
 
-#### Linux
+* Java Runtime Environment (JRE) version 7
 
-We provide Debian packages which work on Ubuntu or Debian, and RPMs for RHEL, Fedora Core and CentOS. We support Ubuntu 7.10, Ubuntu 8.04, Centos 5.1 and RedHat Enterprise 5.
-
--   Java Runtime Environment (JRE) version 7
--   RAM: 128Mb minimum, 256Mb recommended
--   2 GHz (or higher)
-
-#### Solaris
-
-We provide Solaris packages which have been tested with Solaris 10 U5. They should work with OpenSolaris as well.
-
--   Java Runtime Environment (JRE) version 7
--   RAM: 512Mb minimum, 1Gb recommended
-
-#### Extra requirements for Go agent
+#### Additional requirements for Go agent
 
 Go agent on its own does not require much memory or CPU. However, you need to ensure computers deployed as build agents have adequate resources to build your projects -- including sufficient disk space to check source code out of source control.
 
