@@ -1,6 +1,6 @@
 ## Message: Authenticate User
 
-This message is sent by the server, when it wants plugin to search for users with given `search-term`. This message is sent to plugin *only* if plugin sets `supports-user-search` in plugin configuration to true.
+This message is sent by the server, when it wants plugin to search for users with given `search-term`.
 
 ### Request - From the server
 
