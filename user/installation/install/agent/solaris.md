@@ -31,6 +31,8 @@ After installing the go-agent service, you must first configure the service with
 2.  Change the line ```GO_SERVER=127.0.0.1``` to the hostname (or IP address) of your Go server.
 3.  Save the file and exit your editor.
 
+> **Note:** You can override default environment for the go agent by editing the file ```/etc/defaults/go-agent```
+
 ## Location of go agent files
 
 The go agent installs the following files on your filesystem

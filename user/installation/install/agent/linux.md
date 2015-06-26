@@ -68,6 +68,8 @@ After installing the go-agent service, you must first configure the service with
 3.  Save the file and exit your editor.
 4.  Run ```/etc/init.d/go-agent [start|restart]``` to (re)start the agent.
 
+> **Note:** You can override default environment for the go agent by editing the file ```/etc/defaults/go-agent```
+
 ## Location of go agent files
 
 The go agent installs the following files on your filesystem

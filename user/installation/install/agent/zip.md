@@ -12,6 +12,8 @@ If you want to run Go on a platform which does not have a native installer or wa
     -   If you are on a Windows system, run ```start-agent.bat```
     -   If you are on a Unix system, run ```agent.sh```  (Ensure that ```agent.sh``` is executable)
 
+> **Note:** You can override default environment for the go agent by editing the file ```/etc/defaults/go-agent```
+
 Go agent, by default, will attempt to connect to the Go server running on the same system. If you want it to connect to a different Go server, set the environment variable ```GO_SERVER``` or edit the startup scripts suitably
 
 !INCLUDE "_register_with_server.md"
