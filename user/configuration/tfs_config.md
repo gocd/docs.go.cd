@@ -5,12 +5,14 @@ You can use TFS SCM as a material for your pipeline. Go server and agent uses [T
 You will need to configure the following to add a TFS material:
 
 -   Material Name: An optional name for the material. This name can be used to set the TFS revision in the pipeline label.
--   URL: Set the url for the TFS collection. Ex: http://41.42.43.44:8080/tfs/DefaultCollection
+-   URL: Set the url for the TFS collection. Ex: `http://41.42.43.44:8080/tfs/DefaultCollection`
 -   Domain: Domain name for TFS authentication credentials. Should be domain for the TFS account. Ex: corporate\_thoughtworks
 -   Username: The user has to be a collection administrator for the TFS collection used in URL.
 -   Password: Provide the password for the TFS account
--   Project Path: Enter the project path within the collection. You can specify paths of sub folders to create materials for each component. Ex: \$/test/component or \$/my\_application
+-   Project Path: Enter the project path within the collection. You can specify paths of sub folders to create materials for each component. Ex: $/test/component or $/my_application
 -   Check connection: You can use check connection to verify the TFS material configuration
+
+![tfs_config](../resources/images/tfs_config.png)
 
 ##### Notes:
 
