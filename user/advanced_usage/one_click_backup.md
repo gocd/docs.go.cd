@@ -9,6 +9,8 @@ You can use Go's administration interface to perform an One-Click Backup of Go. 
 -   Click on "BACKUP"
 ![](../resources/images/backup_button.png)
 -   Click "PROCEED"
+![](../resources/images/backup_proceed.png)
+>Go will be unusable during the backup process.
 -   Backup time is proportional to the database and configuration size. We suggest you backup Go when the Go Server is idle. Users who are logged into the Go Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.
 
 ### What is backed up?
@@ -24,7 +26,7 @@ The backup directory will be named **backup\_{TIMESTAMP}** where the **{TIMESTAM
 
 ### What is not backed up?
 
-> Note: Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
+> Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
 The following are not backed up as a part of the Go backup process. Please ensure that these are manually backed up regularly.
 
@@ -47,7 +49,7 @@ This makes sure that only the files and directories that got newly added will be
 
 ### Restoring Go using backup
 
-> Note: Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
+> Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
 The restoration process is not automated and needs to be done manually. Please refer to the previous sections about the contents of the backup.
 
@@ -56,7 +58,7 @@ The restoration process is not automated and needs to be done manually. Please r
 -   In order to restore the Go server from a backup, the server must first be stopped. Make sure the process is completely dead before starting the restoration.
 -   Choose the backup directory that you want to restore from.
 
-    >Note: **You cannot restore from a backup whose version is bigger than the version of the Go server being used.**<br>
+    >**You cannot restore from a backup whose version is bigger than the version of the Go server being used.**<br>
     >*For example:* If the backup is from version 12.3 and the server installation is of version 12.2, the restoration might not work. You can check the version of the backup from the **version.txt** file.
 
 -   You might want to keep a copy of all the files and directories that are involved in restoration. This will help in troubleshooting if there was a problem. Following this, make sure all the destination directories mentioned in the following steps are empty.<br>
