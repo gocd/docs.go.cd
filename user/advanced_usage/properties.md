@@ -13,7 +13,7 @@ Go allows you to download the history of properties that you have defined. This 
 You can of course access these resources through standard URLs:
 
 -   **CSV** --
-    http://[server]/go/properties/[pipelineName]/[pipelineLabel]/[stageName]/[stageCounter]/[job]/[propertyName]
+    `http://[server]/go/properties/[pipelineName]/[pipelineLabel]/[stageName]/[stageCounter]/[job]/[propertyName]`
 
 To open the property history in a spreadsheet application, you can click on the **Export property history to spreadsheet (csv)** link on the Properties tab of the job.
 
