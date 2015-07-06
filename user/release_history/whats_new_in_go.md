@@ -72,7 +72,7 @@ Go has changed it's release naming convention from the previous practice of majo
 ### Enhancements
 
 -   [Template View:](../configuration/pipeline_templates.md#view_template) All Pipeline Group Admins and Go Administrators can now view templates while creating or editing pipelines.
--   [User Delete API:](../api/users_api.md) A new API using which you can delete a disabled user.
+-   [User Delete API:](http://api.go.cd/#users) A new API using which you can delete a disabled user.
 -   Check-in comments in [Value Stream Map:](../navigation/value_stream_map.md) Showing more details, like the check-in comment, date and author for every Source Control Material in the Value Stream Map.
 -   [Improving Server Startup Time:](../installation/performance_tuning.md#improving-server-startup-time) The database queries that run when the server starts, have been optimized. Also, additional JVM properties have been provided to delay material polling and pipeline scheduling, thereby, improving start up time.
 
@@ -125,7 +125,7 @@ Check [this](https://youtu.be/fSQZ5hEQbgY) video, to see demo.
 
 -   **[Notification if material update is hung](../faq/material_update_hung.md)** : Go server becomes less responsive when some of the processes that it invokes to do material updates stop responding. Now you get to know when this happens and take suitable steps.
 -   Support for multiple organizational units (OUs) in [LDAP configuration](../configuration/dev_authentication.md#ldap_authentication). This allows finer-grained access control. If your organization has multiple OUs in your corporate LDAP, you can now to choose to specify those OUs, whose users are allowed to use Go.
--   [Additional agent APIs](../api/Agent_API.md): Go now provides an API to list details of all agents and another API to delete disabled agents.
+-   [Additional agent APIs](http://api.go.cd/#agents): Go now provides an API to list details of all agents and another API to delete disabled agents.
 -   Ability to seach community forum from help documentation. You can now look up community articles from within the help documentation by clicking the Help icon on the center right of each help page.
 
 ### UI changes
@@ -154,7 +154,7 @@ Check [this](https://youtu.be/fSQZ5hEQbgY) video, to see demo.
 ### New features
 
 -   **Support for OpenJDK** : Oracle JDK (formerly Sun JDK) is no longer a mandatory requirement for Go server and agent. Go now needs a Java Runtime Environment (JRE) with version 6 or above - either Oracle or Open JRE.
--   **[Post-commit hook for Subversion](../api/materials_api.md)** : In organizations with a large number of subversion repositories, regular polling can lead to huge network traffic. The generic post-commit hook avoids the need for regular polling. It enables appropriate Go pipelines to be triggered based on the commit to the corresponding SVN repository.
+-   **[Post-commit hook for Subversion](http://api.go.cd/#materials)** : In organizations with a large number of subversion repositories, regular polling can lead to huge network traffic. The generic post-commit hook avoids the need for regular polling. It enables appropriate Go pipelines to be triggered based on the commit to the corresponding SVN repository.
 
 ### Performance Improvements
 
@@ -261,7 +261,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 ### Bugs fixed
 
--   Fetch Artifact task can be used to fetch artifacts from a particular stage in an [upstream pipeline](../configuration/managing_dependencies.md#fetch_artifact_section) or stages before it. Stages after the upstream stage **can not** be fetched from, because they may not be complete when the fetch task executes. Prior to 12.2 Go would allow fetching artifacts from stages after the upstream stage in the pipeline. 
+-   Fetch Artifact task can be used to fetch artifacts from a particular stage in an [upstream pipeline](../configuration/managing_dependencies.md#fetch_artifact_section) or stages before it. Stages after the upstream stage **can not** be fetched from, because they may not be complete when the fetch task executes. Prior to 12.2 Go would allow fetching artifacts from stages after the upstream stage in the pipeline.
     For example: Let pipeline 'build' have 3 stages named 'compile', 'package' and 'test'. Let a downstream pipeline 'deploy' have a dependency on the 'package' stage of 'build'. With this dependency you can fetch artifacts from 'package' or any stage before that i.e 'compile'. From Go 12.2, you cannot fetch artifacts from the 'test' stage with this dependency. To fix this, you will have to change the dependency to the 'test' stage of 'build'. With this dependency you can fetch artifacts from any stage of the pipeline i.e 'test' or any stage before that.
 
     This fix is not backward compatible. Hence, configurations violating this rule need to be fixed manually before upgrading to this version.
@@ -386,7 +386,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 #### API
 
--   [Agent API - Enable and disable an agent](../api/Agent_API.md)
+-   [Agent API - Enable and disable an agent](http://api.go.cd/#agents)
 -   [Scheduling a pipeline with specific material revisions](../api/Pipeline_API.md#scheduling)
 -   [Releasing a pipeline lock](../api/Pipeline_API.md#releasing)
 
@@ -591,7 +591,7 @@ If we want to ignore files under /trunk/lib/tmp, the configuration is:
         <ignore pattern="trunk/lib/tmp/**/*.*" />
     </filter>
 </svn>
-    
+
 ```
 
 #### Fetching artifacts

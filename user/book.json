@@ -19,7 +19,9 @@
         "anchors",
         "ga",
         "include",
-        "toc"
+        "toc",
+        "redirect",
+        "edit-link@1.1.0"
     ],
     "pluginsConfig": {
         "ga": {
@@ -28,7 +30,9 @@
         "toc": {
             "addClass": true,
             "className": "toc"
-        }
+        },
+        "rtEditLinkBase": "https://github.com/gocd/documentation/edit/master/user",
+        "rtEditLinkLabel": "Edit This Page"
     },
     "pdf": {
         "toc": true,
