@@ -60,7 +60,7 @@ If an agent is working on a job, it will turn orange, and display the name of th
 
 If you want to remove an agent from Go's build cloud, go to the agents tab, locate the agent you want to remove, and click on the button marked "Disable". Go will record in its configuration that this agent should be excluded from the build cloud. If you restart Go server, the agent will continue to be disabled. Disabled agents do not count towards Go's licensed agents.
 
-To permanently remove an agent from Go's configuration, you can use the [agent api](../api/agent_api.md) or delete from the agents tab. The agent must be disabled before it can be deleted
+To permanently remove an agent from Go's configuration, you can use the [agent api](http://api.go.cd/#agents) or delete from the agents tab. The agent must be disabled before it can be deleted
 
 Following this procedure, if you restart the agent, Go server will see it as a new agent, and you can enable it again in the same way as described above.
 

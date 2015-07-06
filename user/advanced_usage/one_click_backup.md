@@ -1,6 +1,6 @@
 # Backup Go Server
 
-You can use Go's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](../api/backup_api.md).
+You can use Go's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](http://api.go.cd/#backups).
 
 ## Steps to initiate backup
 
@@ -58,7 +58,7 @@ The restoration process is not automated and needs to be done manually. Please r
 
     >Note: **You cannot restore from a backup whose version is bigger than the version of the Go server being used.**<br>
     >*For example:* If the backup is from version 12.3 and the server installation is of version 12.2, the restoration might not work. You can check the version of the backup from the **version.txt** file.
-    
+
 -   You might want to keep a copy of all the files and directories that are involved in restoration. This will help in troubleshooting if there was a problem. Following this, make sure all the destination directories mentioned in the following steps are empty.<br>
     *For example:* Before restoring the Database, make sure the **{SERVER\_INSTALLATION\_DIR}/db/h2db** is backed up and the directory is emptied.
 -   Database – Unzip the **db.zip** found in the backup directory. Unzip will create a file called **cruise.h2.db** . Copy this file to the directory **{SERVER\_INSTALLATION\_DIR}/db/h2db** .
