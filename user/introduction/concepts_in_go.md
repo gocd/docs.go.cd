@@ -1,12 +1,12 @@
 #Introduction
 
-Go is an advanced Continuous Integration and Release Management system. It takes an innovative approach to managing the build, test and release process. In order to find your way around Go, you'll need to understand how Go sees the world. This page explains some basic concepts in Go.
+Go is an advanced Continuous Integration and Release Management system. It takes an innovative approach to managing the build, test and release process. In order to find your way around Go, you need to understand how Go sees the world. This page explains some basic concepts in Go.
 
 If you want to know more about Continuous Integration and delivery, in general, refer to Martin Fowler's article on the subject: [Continuous Integration](http://martinfowler.com/articles/continuousIntegration.html) and [Continuous Delivery](http://martinfowler.com/bliki/ContinuousDelivery.html).
 
 ## Build Agents
 
-As with all modern continuous integration systems, Go lets you distribute your builds across many computers -- think 'build grid' or 'build cloud'.
+As with all modern continuous integration systems, Go lets you distribute your builds across many computers - think *build grid* or *build cloud*.
 
 And why use a build cloud? There are three main reasons:
 
@@ -14,7 +14,7 @@ And why use a build cloud? There are three main reasons:
 -   Split your tests into several parallel suites and run them at the same time to get results faster
 -   Manage all your environments centrally so you can promote builds from one environment to the next
 
-It is extremely simple to get agents up and running in Go. First, install the Go agent software on each computer that is to be a part of your cloud. Next, configure each build agent to connect to your Go server. Finally, approve every build agent in your cloud from the management dashboard in the Go administration page. You are now ready to build. Additionally, you should associate relevant **resource** tags with each of your agents to better specify the kinds of build tasks with which each agent is compatible.
+It is extremely simple to get agents up and running in Go. First, install the Go agent software on each computer that is to be a part of your cloud. Next, configure each build agent to connect to your Go server. Finally, approve every build agent in your cloud from the management dashboard in the Go administration page. You are now ready to build. Additionally, you should associate relevant *resource* tags with each of your agents to better specify the kinds of build tasks with which each agent is compatible.
 
 ### Agent lifecycle
 
@@ -22,15 +22,15 @@ Go supports a grid of Agents that can run Jobs. Agents periodically contact the 
 
 When an Agent runs a Job, it creates a sandbox directory under the agent's directory. All materials are updated into this directory. This directory may be different on different agents depending on how the agent was configured and which operating system the agent is running on.
 
-For example consider a pipeline named "pipelines/my-pipeline". On a default linux install this would be "/var/lib/go-agent/pipelines/my-pipeline". On a default Windows installation it would be "C:\\Program files\\Go Agent\\pipelines\\my-pipeline".
+For example consider a pipeline named `my-pipeline`. On a default linux install, the working directotry for this pipeline would be `/var/lib/go-agent/pipelines/my-pipeline`. On a default Windows installation, it would be `C:\Program files\Go Agent\pipelines\my-pipeline`.
 
-All materials are updated in this directory. If a material has a "dest" folder specified, then the material is updated into a folder of that name, under the base sandbox directory.
+All materials are updated in this directory. If a material has a `dest` folder specified, then the material is updated into a folder of that name, under the base sandbox directory.
 
-For example suppose the pipeline has an SVN material with a destination folder name of "tools" then the svn files will be checked out into that "tools" directory. When you have multiple materials specified, you must specify a "dest" for each material.
+For example suppose the pipeline has an SVN material with a destination folder name of `tools` then the svn files will be checked out into `tools` directory. For pipelines with multiple materials, you are required to provide distinct checkout directory for each of the materials.
 
-Once the materials have all been updated, the Agent runs each of the tasks in turn. You can specify a workingdir on a task. When the task runs it will be run relative to the pipeline sandbox.
+Once the materials have all been updated, the Agent runs each of the tasks in turn. You can specify a working directory (`workingdir`) on a task. When the task runs it will be run relative to the pipeline sandbox.
 
-For example if there is a task that runs "/usr/bin/make" with a workingdir of "tools/my-tool" then this will run in the directory "pipelines/my-pipeline/tools/my-tool".
+For example if there is a task that runs `/usr/bin/make` with a workingdir of `tools/my-tool` then this will run in the directory `pipelines/my-pipeline/tools/my-tool`.
 
 When all the tasks have been completed the agent will publish any artifacts defined in the Job. Again the artifact directories are relative to the pipeline sandbox directory.
 
@@ -38,7 +38,7 @@ When all the tasks have been completed the agent will publish any artifacts defi
 
 Consider the following configuration:
 
-``` {.code}
+```xml
           <pipeline name="my-product">
             <materials>
               <svn  url="http://my-svn-server/tools" dest="tools"/>
@@ -69,12 +69,12 @@ Consider the following configuration:
 
 The Go Agent will:
 
--   Create the directory "[install-dir]/pipelines/my-product" if it does not exist
--   Checkout or update the svn material "http://my-svn-server/tools" into "[install-dir]/pipelines/my-product/tools"
--   Checkout or update the svn material "http://my-svn-server/my-project" into "[install-dir]/pipelines/my-product/my-project"
--   run "/usr/bin/make" in the directory "[install-dir]/pipelines/my-product/tools/my-tool"
--   run ant in the directory "[install-dir]/pipelines/my-product/tools/my-project"
--   publish "[install-dir]/pipelines/my-product/my-project/target/deployable.jar" to the server
+-   Create the directory `<agent installation directory>/pipelines/my-product` if it does not exist
+-   Checkout or update the svn material `http://my-svn-server/tools` into `agent installation dir>/pipelines/my-product/tools`
+-   Checkout or update the svn material `http://my-svn-server/my-project` into `<agent install directory>/pipelines/my-product/my-project`
+-   run `/usr/bin/make` in the directory `<agent installation directory>/pipelines/my-product/tools/my-tool`
+-   run ant in the directory `<agent installation directory>/pipelines/my-product/tools/my-project`
+-   publish `<agent installation directory>/pipelines/my-product/my-project/target/deployable.jar` to the server
 
 ## Pipelines
 
@@ -82,28 +82,28 @@ A pipeline allows you to break down a complex build into a sequence of simple st
 
 ### How Go models distributed work
 
-The unit of work in Go is called a **job** . A job is a set of build tasks that can be performed on a single agent in your cloud. You can associate specific build **resources** with each build agent -- a specific operating system or compiler version, for example. Go makes sure build jobs that require specific build resources are directed to build agents with the appropriate resources. By default, build jobs can be picked up by any agent. Resources are simple text tags which you associate with each agent. You can specify as many of them as you want. This flexibility is important as the agent process itself does not automatically determine anything about its environment.
+The unit of work in Go is called a *job* . A job is a set of build tasks that can be performed on a single agent in your cloud. You can associate specific build *resources* with each build agent - a specific operating system or compiler version, for example. Go makes sure build jobs that require specific build resources are directed to build agents with the appropriate resources. By default, build jobs can be picked up by any agent. Resources are simple text tags which you associate with each agent. You can specify as many of them as you want. This flexibility is important as the agent process itself does not automatically determine anything about its environment.
 
-Jobs are grouped into stages. A **stage** is a collection of build jobs that can be executed in parallel. This is the mechanism that allows you to, for example, split test suites into multiple parallel streams or run the same build on multiple platforms simultaneously. A stage passes only when all the jobs in the stage pass.
+Jobs are grouped into stages. A *stage* is a collection of build jobs that can be executed in parallel. This is the mechanism that allows you to, for example, split test suites into multiple parallel streams or run the same build on multiple platforms simultaneously. A stage passes only when all the jobs in the stage pass.
 
-Stages are then joined sequentially into a **pipeline** . Stages trigger in the order they appear in the pipeline's raw configuration. They can be triggered by: a change in your version control system, manually forcing the pipeline to become active or by a dependency on a given stage of another pipeline. When a stage completes successfully, it triggers the next stage in the pipeline automatically, by default. Alternatively, you can require a manual **approval** to trigger the next stage. This manual approval requires user intervention. You can delegate the permissions for approval of stages to individuals or groups of users.
+Stages are then joined sequentially into a *pipeline* . Stages trigger in the order they appear in the pipeline's raw configuration. They can be triggered by: a change in your version control system, manually forcing the pipeline to become active or by a dependency on a given stage of another pipeline. When a stage completes successfully, it triggers the next stage in the pipeline automatically, by default. Alternatively, you can require a manual *approval* to trigger the next stage. This manual approval requires user intervention. You can delegate the permissions for approval of stages to individuals or groups of users.
 
 ### An example pipeline
 
-So what does a pipeline look like? Here's an example:
+So what does a pipeline look like? Here is an example:
 
 ![Example pipeline](../resources/images/pipeline_example.png)
 
-The first stage has two jobs. The unit test job compiles the code and runs the unit tests. The compiled code is then uploaded to the artifact repository. This is the one and only time the code is compiled -- and of course if you're using an interpreted language you can skip this step. The second job does static analysis of the code, uploading the results as html test reports and build properties for further analysis.
+The first stage has two jobs. The unit test job compiles the code and runs the unit tests. The compiled code is then uploaded to the artifact repository. This is the one and only time the code is compiled and of course if you are using an interpreted language you can skip this step. The second job does static analysis of the code, uploading the results as html test reports and build properties for further analysis.
 
 When the first stage passes, it automatically triggers the functional test stage. The jobs in this stage download that binaries from the artifact repository, and run a series of functional tests. One job runs on a Linux box, the other on Windows. If your tests take a long time to run, you could split them into suites and run these as multiple jobs in parallel.
 
-Finally there is a stage which deploys your software into your UAT environment for manual testing. This stage has a manual approval in front of it, meaning that somebody has to click a button in order to deploy the application into UAT. Running this stage proves out your automated deployment process -- and it should include some smoke tests that make the job fail if the deployment doesn't work.
+Finally there is a stage which deploys your software into your UAT environment for manual testing. This stage has a manual approval in front of it, meaning that somebody has to click a button in order to deploy the application into UAT. Running this stage proves out your automated deployment process - and it should include some smoke tests that make the job fail if the deployment doesnot work.
 
 The pipeline metaphor gives you several important benefits:
 
 -   Because of the way pipelines are modeled and presented, it is trivially easy to match up an acceptance test failure, or a flaw in the UAT environment, with the version of the code that caused it.
--   Because you only compile once, you ensure that the thing you are testing is the same thing you will release, and you don't waste resources compiling repeatedly.
+-   Because you only compile once, you ensure that the thing you are testing is the same thing you will release, and you do not waste resources compiling repeatedly.
 -   Finally, Go allows you to build manual steps into your testing process so that your QAs and users can manually test your software.
 
 ### Pipeline groups
@@ -182,9 +182,9 @@ Why fan-in?
 
 Faster feedback - You can fan-out to get significantly faster feedback now that Go handles the fan-in.
 
-Eliminates spurious builds - Test software only when it's necessary and don’t waste resources.
+Eliminates spurious builds - Test software only when it is necessary and do not waste resources.
 
-Meaningful feedback - You won't have false-positives or false-negatives.
+Meaningful feedback - No false-positives or false-negatives.
 
 ### Fan-in - Pipeline and SCM
 
@@ -232,17 +232,17 @@ An environment in Go is essentially a collection of agents and pipelines. Agents
 
 ### An example
 
-So how would this work for me? Here's an example:
+So how would this work for me? Here is an example:
 
 ![Environments example](../resources/images/environment-deploy.png)
 
-In this scenario, we have three different environments -- User acceptance, Performance, and Production. At any given time, each environment may contain a different build of the deployed software.
+In this scenario, we have three different environments - User acceptance, Performance, and Production. At any given time, each environment may contain a different build of the deployed software.
 
 Each environment has a pipeline (represented by the downward arrow) that performs a set of tasks specific to each environment.
 
--   **User Acceptance:** The pipeline performs a **deploy** task on a single machine.
--   **Performance:** The pipeline first performs a **deploy** on a cluster of performance machines and then triggers a suite of **performance tests** .
--   **Production:** The pipeline first performs a **deploy** on a load balanced cluster of machines and then triggers a suite of **smoke tests** to validate the deployment.
+-   **User Acceptance:** The pipeline performs a *deploy* task on a single machine.
+-   **Performance:** The pipeline first performs a *deploy* on a cluster of performance machines and then triggers a suite of *performance tests* .
+-   **Production:** The pipeline first performs a *deploy* on a load balanced cluster of machines and then triggers a suite of *smoke tests* to validate the deployment.
 
 Each of these environment pipelines deploys using the same build thereby mitigating any unforeseen issues due to inconsistent versions.
 

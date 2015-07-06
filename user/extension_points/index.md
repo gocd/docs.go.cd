@@ -16,7 +16,7 @@ Go bundles a Yum repository poller extension, along with the server. You can fin
 
 # Task Extension
 
-See [this](task_extension.md) for details about the task extension point. Go does not have a bundled task extension. You can see [Curl task extension](https://github.com/gocd/sample-plugins) for reference.
+See [this](task_extension.md) for details about the task extension point. Go does not have a bundled task extension. You can see [Curl task extension](https://github.com/gocd/sample-plugins/tree/master/curl-plugin) for reference.
 
 # Notification Extension
 
