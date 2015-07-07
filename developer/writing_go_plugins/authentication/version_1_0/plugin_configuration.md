@@ -2,11 +2,6 @@
 
 This message is sent by the server, when it wants to know the plugin's configuration.
 
-- `display-name` - display name for plugin
-- `display-image-url` - provides url for image to be displayed on Go Server's login page.
-- `supports-web-based-authentication` - true if the plugin handles `<go-server>/go/plugin/interact/<plugin-id>/index` web request
-- `supports-password-based-authentication` - true if the plugin can authenticate an user given "username" & "password".
-
 ### Request - From the server
 
 ***Request name***: `go.authentication.plugin-configuration`
@@ -27,9 +22,8 @@ This message is sent by the server, when it wants to know the plugin's configura
 ```json
 {
     "display-name": "LDAP",
-    "supports-web-based-authentication": "http://www.somedomain.com/images/someimage.png",
-    "supports-web-based-authentication": false,
-    "supports-password-based-authentication": true
+    "supports-password-based-authentication": true,
+    "supports-user-search": true
 }
 ```
 
@@ -48,18 +42,13 @@ This message is sent by the server, when it wants to know the plugin's configura
       "type": "string",
       "required": true
     },
-    "display-image-url": {
-      "id": "display-image-url",
-      "type": "string",
-      "required": false
-    },
-    "supports-web-based-authentication": {
-      "id": "supports-web-based-authentication",
+    "supports-password-based-authentication": {
+      "id": "supports-password-based-authentication",
       "type": "boolean",
       "required": false
     },
-    "supports-password-based-authentication": {
-      "id": "supports-password-based-authentication",
+    "supports-user-search": {
+      "id": "supports-user-search",
       "type": "boolean",
       "required": false
     }
