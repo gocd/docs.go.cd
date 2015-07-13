@@ -12,7 +12,7 @@ An example of how to configure Go with Apache is shown below.
 -   The Apache server sits on the same machine as the Go server (localhost)
 -   You want to enforce SSL connections
 
-``` {.code}
+```apache
 Listen nnn.nnn.nnn.nnn:80
 NameVirtualHost nnn.nnn.nnn.nnn:80
 
@@ -30,7 +30,7 @@ NameVirtualHost nnn.nnn.nnn.nnn:80
 
 If you have set up Go to use [OAuth 2.0 gadgets](../integration/mingle_in_go.md) and Go is fronted with an Apache server, then you have to set X\_FORWARDED\_PROTO to "https" in the https virtual host configuration section.
 
-``` {.code}
+```apache
 RequestHeader set X_FORWARDED_PROTO 'https'
 ```
 

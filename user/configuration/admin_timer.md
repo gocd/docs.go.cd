@@ -16,18 +16,19 @@ To configure the timer in the UI, navigate to the General Options section of the
 
 The following xml config corresponds to the UI example above.
 
-``` {.code}
-    <pipeline name="nightly">
-    <timer onlyOnChanges="true">0 0 22 ? * MON-FRI</timer>
-    <materials>
-        ...
-    </materials>
-    <stages>
-        <stage name="compile">
-            <approval type="manual"/>
+```xml
+<pipeline name="nightly">
+  <timer onlyOnChanges="true">0 0 22 ? * MON-FRI</timer>
+  <materials>
+      ...
+  </materials>
+  <stages>
+    <stage name="compile">
+      <approval type="manual"/>
     ...
-    </pipeline>
-    
+    </stage>
+  </stages>
+</pipeline>
 ```
 
 For more information see [< timer >](configuration_reference.html#timer)

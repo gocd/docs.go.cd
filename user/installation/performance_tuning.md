@@ -82,7 +82,7 @@ JConsole is a graphical monitoring tool to monitor Java Virtual Machine (JVM) wh
 
 Since jconsole is a graphical tool, make sure you have an access to display, when running the following command. That is, use ```ssh -X``` or VNC if Go is on linux. Use remote desktop if the Go server is on windows.
 
-``` {.code}
+```shell
 $ jconsole
 ```
 
@@ -102,13 +102,13 @@ For Linux
 
 1.  Create a symlink for ```libyjpagent.so``` file to ```/usr/lib/yourkit``` folder. When the Go server starts up, it looks at this folder to see if it needs to start with profiling enabled or not. If you want to change the default path of the yourkit agent, you can edit ```server.sh``` at ```/usr/share/go-server/server.sh```
 
-    ``` {.code}
+    ```shell
     $ sudo ln -s [yourkit_profiler_directory]/bin/linux-x86-32/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
     ```
 
     For 64-bit JVM, the command is:
 
-    ``` {.code}
+    ```shell
     $ sudo ln -s [yourkit_profiler_directory]/bin/linux-x86-64/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
     ```
 
@@ -120,13 +120,13 @@ For Windows
 2.  To change the above mentioned default location: define environment variable ```YOURKIT_PATH``` with value equal to location of ```yjpagent.dll```.
 3.  If you are running the Go server as a service, you will need to perform an additional step. In the config folder of the Go server installation, edit the *[wrapper-properties.conf](installing_go_server.md)* file, and add an additional property with the following value
 
-    ``` {.code}
+    ```
     "-agentpath: [Path to yjpagent.dll]=port=6133,builtinprobes=none"
     ```
 
     For example, if there are 16 properties already defined, add this 17th property as shown below
 
-    ``` {.code}
+    ```
     wrapper.java.additional.17="-agentpath:C:\yjpagent.dll=port=6133,builtinprobes=none"
     ```
 
@@ -134,46 +134,46 @@ Use the following steps to take profile the application and take snapshots. The 
 
 1.  To start profiling, run:
 
-    ``` {.code}
+    ```shell
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port  start-cpu-sampling
     ```
 
-    ``` {.code}
+    ```shell
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port start-monitor-profiling
     ```
 
     If memory allocation profiling is also required:
 
-    ``` {.code}
+    ```shell
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port start-alloc-recording-adaptive
     ```
 
 2.  Let the server run for some time till you start seeing performance problems. 30 mins of snapshot should give us enough data.
 3.  To capture the snapshot - Run:
 
-    ``` {.code}
+    ```shell
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port capture-performance-snapshot
     ```
 
     To capture memory snapshot
 
-    ``` {.code}
+    ```
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port capture-memory-snapshot
     ```
 
 4.  To stop profiling, run:
 
-    ``` {.code}
+    ```
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port stop-cpu-profiling`
     ```
 
-    ``` {.code}
+    ```
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port stop-monitor-profiling
     ```
 
     If memory profiling was turned on,s top it using the following command
 
-    ``` {.code}
+    ```
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port stop-alloc-recording
     ```
 
@@ -181,7 +181,7 @@ Use the following steps to take profile the application and take snapshots. The 
 
     In case of linux, run the following command:
 
-    ``` {.code}
+    ```
     $ sudo rm /usr/lib/yourkit/libyjpagent.so
     ```
 

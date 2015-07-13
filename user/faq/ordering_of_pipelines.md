@@ -9,7 +9,7 @@ In most cases the schedule order and natural order match. The user checks in and
 
 ## Example
 
-``` {.code}
+```
 Order of check-ins retrieved from Hg log:
 
 changeset:   10689:6dbb27e86dc9

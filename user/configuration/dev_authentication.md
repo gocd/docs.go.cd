@@ -10,7 +10,7 @@ You can use both password file and LDAP/ActiveDirectory authentication at the sa
 
 The simplest way to authenticate people is to create a password file for Go to use. This is just a plain text file with the following format:
 
-``` {.code}
+```
 [username]:[password hashed with SHA1 and encoded with base 64]
 ```
 
@@ -35,7 +35,7 @@ The file format for the password file is the [standard one for Java Properties](
 
 You can use the [htpasswd program from Apache](http://httpd.apache.org/docs/2.0/programs/htpasswd.html) to manage your password file. **You must use the -s option with htpasswd to force it to use SHA1 encoding for the password.** So for example, you can use the following command to create a password file called "passwd" and put the password for the user "user" in it:
 
-``` {.code}
+```shell
 htpasswd -c -s passwd user
 ```
 
@@ -51,7 +51,7 @@ htpasswd is already installed by default on Mac OSX.
 
 Debian based distributions (e.g. Ubuntu) htpasswd can be installed from the apache2-utils
 
-``` {.code}
+```shell
 $ apt-get install apache2-utils
 ```
 
@@ -59,7 +59,7 @@ $ apt-get install apache2-utils
 
 Another option is to use the following command (assumes python is installed on your system)
 
-``` {.code}
+```shell
 $ python -c "import sha;from base64 import b64encode;print b64encode(sha.new('my-password').digest())"
 ```
 
@@ -86,13 +86,13 @@ The **Search Base** is the name of the context or object to search in for the us
 
 The **Search Filter** is the expression used in the user search. It is an LDAP search filter as defined in [RFC 2254](http://www.ietf.org/rfc/rfc2254.txt) with optional parameters -- in this case, the username is the only parameter. An example might be:
 
-``` {.code}
+```
 (uid={0})
 ```
 
 which would search for a username match on the uid attribute, or
 
-``` {.code}
+```
 (sAMAccountName={0})
 ```
 

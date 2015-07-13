@@ -12,9 +12,9 @@ The pattern has an extra "\#" because it is an escape character for a parameter.
 
 For power users, here's how you'd do it from Config XML:
 
-``` {.code}
-<pipeline name="mypipeline">  
-  <trackingtool link="http://mingle.thoughtworks.com/go/${ID}" regex="##(\d+)"/>  
+```xml
+<pipeline name="mypipeline">
+  <trackingtool link="http://mingle.thoughtworks.com/go/${ID}" regex="##(\d+)"/>
   ...
 </pipeline>
 ```
@@ -31,7 +31,7 @@ If you have switched on security in your configuration you can use BASIC authent
 
 For example:
 
-``` {.code}
+```
 http://[username]:[password]@[your_go_server]:8153/go/cctray.xml
 ```
 

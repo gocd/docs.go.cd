@@ -39,28 +39,28 @@ Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
 Here is a XML view of an SCM. Note the relation between SCM and pipeline material. Loosely typed property, key and value tags are used for SCM configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn't necessary to provide SCM IDs, Go server wil auto-generate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.
 
 ```xml
-  <scms>
-    <scm id="3bfc282e-43a6-4795-ba9c-6c50665220dd" name="git-repo">
-      <pluginConfiguration id="jgit" version="1.0" />
-      <configuration>
-        <property>
-          <key>url</key>
-          <value>https://github.com/gocd/gocd.git</value>
-        </property>
-      </configuration>
-    </scm>
-  </scms>
+<scms>
+  <scm id="3bfc282e-43a6-4795-ba9c-6c50665220dd" name="git-repo">
+    <pluginConfiguration id="jgit" version="1.0" />
+    <configuration>
+      <property>
+        <key>url</key>
+        <value>https://github.com/gocd/gocd.git</value>
+      </property>
+    </configuration>
+  </scm>
+</scms>
+...
+<pipelines group="sample-group">
+  <pipeline name="upstream-pipeline">
+    <materials>
+      <scm ref="3bfc282e-43a6-4795-ba9c-6c50665220dd" dest="dest">
+        <filter>
+          <ignore pattern="*.log" />
+        </filter>
+      </scm>
+    </materials>
   ...
-   <pipelines group="sample-group">
-    <pipeline name="upstream-pipeline">
-      <materials>
-        <scm ref="3bfc282e-43a6-4795-ba9c-6c50665220dd" dest="dest">
-          <filter>
-            <ignore pattern="*.log" />
-          </filter>
-        </scm>
-      </materials>
-    ...
 ```
 
 ### Permissions

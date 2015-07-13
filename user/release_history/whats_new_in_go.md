@@ -504,7 +504,7 @@ Cruise 1.2 offers many new features and enhancements in terms of usability and p
 
 Go now supports linking to a story / bug tracking tool like Mingle from commit messages in Go. Use the folloing syntax:
 
-``` {.code}
+```xml
 <pipeline name="cruise">
     <trackingtool link="http://mingle/projects/cruise/cards/${ID}" regex="#(\d+)"/>
     ...
@@ -519,7 +519,7 @@ Go now supports linking to a story / bug tracking tool like Mingle from commit m
 
 After a job has finished on an agent, Go can parse any XML files on the agent and set properties on the server. You can use this to harvest metrics like code coverage or cyclomatic complexity from your reports into Go, and then export the complete history of your properties from the job detail page to a spreadsheet for custom reporting and analysis. Use the following syntax to tell Go the XML files to parse, the XPath to get the property value, and the property name. The following example extracts useful coverage metrics from EMMA reports..
 
-``` {.code}
+```xml
 <job name="test_analysis">
     <properties>
   <property name="coverage.class" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'class')]/@value, '%')" />
@@ -556,7 +556,7 @@ Although Go has always stored results of re-run stages, you can now access previ
 
 Go lets you define multiple repositories in cruise-config.xml if you are using Subversion as you VCS. This means you can easily create pipelines for applications that rely on multiple repositories.
 
-``` {.code}
+```xml
 <pipeline name="main">
     <materials>
   <svn url="http://xxx.xxx.xxx/trunk" username="yyyy" password="xxx" dest="client" />
@@ -585,13 +585,12 @@ The material and changes look like
 
 If we want to ignore files under /trunk/lib/tmp, the configuration is:
 
-``` {.code}
+```xml
 <svn url="http://10.18.3.171:8080/svn/connect4/trunk/lib" username="cce" password="password" dest="lib">
     <filter>
         <ignore pattern="trunk/lib/tmp/**/*.*" />
     </filter>
 </svn>
-
 ```
 
 #### Fetching artifacts

@@ -268,7 +268,7 @@ The `<license>` element contains your Go license. Go works in the community edit
   <license user="${the user name in your license}">
     ${license key}
   </license>
-</server> 
+</server>
 ```
 
 [top](#top)
@@ -298,7 +298,7 @@ The `<security>` element can be used to enable authentication. If the element is
        searchBase="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
        searchFilter="(sAMAccountName={0})" />
   </security>
-</server>     
+</server>
 ```
 
 [top](#top)
@@ -321,7 +321,7 @@ The `<mailhost>` element is used to configure mail notifications. Mail notificat
 ### Examples
 
 ```xml
-<mailhost hostname="mailhost.yourcompany.com" port="25" username="go-user" password="crs123" tls="false" from="go@yourcompany.com" admin="goadministrator@yourcompany.com" />    
+<mailhost hostname="mailhost.yourcompany.com" port="25" username="go-user" password="crs123" tls="false" from="go@yourcompany.com" admin="goadministrator@yourcompany.com" />
 ```
 
 [top](#top)
@@ -394,7 +394,7 @@ The username and password could be set in admins.properties as follows:
 
 ```
 Jez=ThmbShxAtJepX80c2JY1FzOEmUk
-lqiao=TfkgShslgJepX80c2JY1trwEskT      
+lqiao=TfkgShslgJepX80c2JY1trwEskT
 ```
 
 [top](#top)
@@ -415,7 +415,7 @@ The `<roles>` element is a container for roles that users defined. It can't be d
       <user>lqiao</user>
     </role>
   </roles>
-</security>    
+</security>
 ```
 
 [top](#top)
@@ -466,7 +466,7 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
 <role name="pipeline-operators">
   <user>Jez</user>
   <user>lqiao</user>
-</role> 
+</role>
 ```
 
 [top](#top)
@@ -489,7 +489,7 @@ The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
     <role>go-admin</role>
     <user>lqiao</user>
   </admins>
-</security>    
+</security>
 ```
 
 [top](#top)
@@ -511,7 +511,7 @@ The users in role '**go-admin**' would be administrators.
 <admins>
   <role>go-admin</role>
   <user>lqiao</user>
-</admins>  
+</admins>
 ```
 
 [top](#top)
@@ -531,7 +531,7 @@ Two users would be administrators, they are **Jez** and **lqiao**.
 <admins>
   <user>Jez</user>
   <user>lqiao</user>
-</admins>    
+</admins>
 ```
 
 [top](#top)
@@ -888,7 +888,7 @@ There should be at least one stage in one pipeline. Go uses the pipeline name to
       </jobs>
     </stage>
   </pipeline>
-</pipelines>   
+</pipelines>
 ```
 
 [top](#top)
@@ -909,10 +909,10 @@ template.
 ### Example:
 
 ```xml
-  <params>
+<params>
     <param name="COMMAND">echo</param>
     <param name="WORKING_DIR">/repo/branch</param>
-  </params>
+</params>
 ```
 
 [top](#top)
@@ -951,7 +951,7 @@ For example: If you use [Mingle](http://www.thoughtworks.com/products/mingle-agi
 <pipeline name="yourproject">
   <trackingtool link="http://your-mingle-server/projects/yourproject/cards/${ID}" regex="##(\d+)"/>
   ...
-</pipeline>  
+</pipeline>
 ```
 
 **Notes:** You can not define multiple tracking tools in one pipeline.
@@ -1222,7 +1222,7 @@ For a Go Agent on linux with the following configuration:
     <svn  url="http://svn-server.com/componentOne" dest="mycomponent"/>
   </materials>
   ...
-</pipeline> 
+</pipeline>
 ```
 
 Go Agent will check out source code from 'http://svn-server.com/framework' to '/var/lib/go-agent/pipelines/myproduct/framwork', and from 'http://svn-server.com/componentOne' to '/var/lib/go-agent/pipelines/myproduct/mycomponent'.
@@ -1255,7 +1255,7 @@ You must install Mercurial 1.5 or above on the Go Server and Go Agents for the j
     <hg url="http://username:password@your-hg/"/>
   </materials>
   ...
-</pipeline> 
+</pipeline>
 ```
 
 #### Specifying a mercurial branch.
@@ -1325,7 +1325,7 @@ For example:
     </p4>
   </materials>
   ...
-</pipeline>   
+</pipeline>
 ```
 
 [top](#top)
@@ -1378,7 +1378,7 @@ directory where the .ssh/ directory is located.
     <git url="http://ccegit:pst@goserver.yourcompany.com/httpgit.git" />
   </materials>
   ...
-</pipeline> 
+</pipeline>
 ```
 
 [top](#top)
@@ -1416,7 +1416,7 @@ The `<tfs>` element specifies the location of your code base in a TFS Source rep
     <tfs url="http://tfshost.tw.com:8080/tfs/DefaultCollection" domain="DOMAIN" username="jim" password="as802nsk9==" projectPath="$/webapp/component/branch" />
   </materials>
   ...
-</pipeline>    
+</pipeline>
 ```
 
 [top](#top)
@@ -1558,7 +1558,7 @@ There must be at least one job in stage.
       </job>
     </jobs>
   </stage>
-</pipeline>  
+</pipeline>
 ```
 
 [top](#top)
@@ -1586,7 +1586,7 @@ The `<jobs>` element specify the set of jobs for a stage.
       </tasks>
     </job>
   </jobs>
-</stage>   
+</stage>
 ```
 
 [top](#top)
@@ -1623,29 +1623,29 @@ If a Job has no resources then it can be built by any Agent
   <tasks>
     <ant target="unit-test" />
   </tasks>
-</job>     
+</job>
 ```
 
 ```xml
-  <job name="run-upgrade" runOnAllAgents="true" timeout='30'>
-    <resources>
-      <resource>linux</resource>
-    </resources>
-    <tasks>
-      <ant target="upgrade" />
-    </tasks>
-  </job>
+<job name="run-upgrade" runOnAllAgents="true" timeout='30'>
+  <resources>
+    <resource>linux</resource>
+  </resources>
+  <tasks>
+    <ant target="upgrade" />
+  </tasks>
+</job>
 ```
 
 ```xml
-  <job name="run-upgrade" runInstanceCount="5" timeout='30'>
-    <resources>
-      <resource>linux</resource>
-    </resources>
-    <tasks>
-      <ant target="upgrade" />
-    </tasks>
-  </job>
+<job name="run-upgrade" runInstanceCount="5" timeout='30'>
+  <resources>
+    <resource>linux</resource>
+  </resources>
+  <tasks>
+    <ant target="upgrade" />
+  </tasks>
+</job>
 ```
 
 [top](#top)
@@ -1718,7 +1718,7 @@ The following environment variables are set for all tasks:
   <tasks>
     <ant target="unit-test" />
   </tasks>
-</job>   
+</job>
 ```
 
 [top](#top)
@@ -1897,7 +1897,7 @@ All file paths specified are relative to the pipeline working directory.
 | stage | Yes | The name of the stage to fetch artifacts from |
 | job | Yes | The name of the job to fetch artifacts from |
 | srcdir | One of srcdir/srcfile | The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed |
-| srcfile | One of srcdir/srcfile | The path of the artifact file of a specific job. 
+| srcfile | One of srcdir/srcfile | The path of the artifact file of a specific job.
 Note: If the file does not exist, the job will fail.
 Go will not fetch the artifact again if it has not changed. The directory path is relative to the pipeline working directory. |
 | dest | No | The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. |
@@ -2166,10 +2166,10 @@ The `<tabs>` element allows you to add tabs to the Job Details page. You can put
 <job name="unit">
   <artifacts>
     <artifact src="target/jcoverage" dest="Jcoverage"/>
-  </artifacts> 
+  </artifacts>
   <tabs>
     <tab name="coverage" path="Jcoverage/index.html"/>
-  </tabs> 
+  </tabs>
 </job>
 ```
 
@@ -2195,10 +2195,10 @@ Given some coverage infomation in 'target/Jcoverage' folder on the agent side, W
 <job name="unit">
   <artifacts>
     <artifact src="target/jcoverage" dest="Jcoverage"/>
-  </artifacts> 
+  </artifacts>
   <tabs>
     <tab name="coverage" path="Jcoverage/index.html"/>
-  </tabs> 
+  </tabs>
 </job>
 ```
 
@@ -2215,7 +2215,7 @@ improving or getting worse.
 <job name="emma">
   <artifacts>
     <artifact src="target/emma" dest="analysis" />
-  </artifacts> 
+  </artifacts>
   <tasks>
     <ant target="emma">
   </tasks>
@@ -2224,7 +2224,7 @@ improving or getting worse.
     <property name="coverage.method" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'method')]/@value, '%')" />
     <property name="coverage.block" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'block')]/@value, '%')" />
     <property name="coverage.line" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'line')]/@value, '%')" />
-  </properties> 
+  </properties>
 </job>
 ```
 
@@ -2256,7 +2256,7 @@ This is a simple example to parse the errors and failures count from a single ju
   <properties>
     <property name="junit.errors" src="target/junit-reports/TEST-MainAppTest.xml" xpath="string(/testsuite/@errors)" />
     <property name="junit.failures" src="target/junit-reports/TEST-MainAppTest.xml" xpath="string(/testsuite/@failures)" />
-  </properties> 
+  </properties>
 </job>
 ```
 
@@ -2267,7 +2267,7 @@ coverage.xml file.
 <job name="emma">
   <artifacts>
     <artifact src="target/emma" dest="analysis" />
-  </artifacts> 
+  </artifacts>
   <tasks>
     <ant target="emma">
   </tasks>
@@ -2276,7 +2276,7 @@ coverage.xml file.
     <property name="coverage.method" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'method')]/@value, '%')" />
     <property name="coverage.block" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'block')]/@value, '%')" />
     <property name="coverage.line" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'line')]/@value, '%')" />
-  </properties> 
+  </properties>
 </job>
 ```
 
@@ -2592,5 +2592,5 @@ resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, u
       <resource>linux</resource>
     </resources>
   </agent>
-</agents>   
+</agents>
 ```

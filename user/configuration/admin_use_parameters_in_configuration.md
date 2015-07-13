@@ -12,7 +12,7 @@ Edit the **Parameters** tab when defining a **pipeline** .
 
 Parameter values are defined in the ```<params>``` tag within a pipeline and can be used anywhere within that pipeline using \#{param\_name}. The following example defines a new parameter called "myParam" and uses it in a job.
 
-``` {.code}
+```xml
 <pipeline name="my_pipeline">
   <params>
     <param name="myParam">hello world</param>
@@ -27,7 +27,7 @@ Parameter values are defined in the ```<params>``` tag within a pipeline and can
     </jobs>
   </stage>
 </pipeline>
-            
+
 ```
 
 > **NOTE:** If you want to use the **\#** literal, you can escape it using another **\#** literal. For example, if the parameter "foo" has the value "one", then:
@@ -42,7 +42,7 @@ Parameter values are defined in the ```<params>``` tag within a pipeline and can
 
 Parameter usage within [templates](pipeline_templates.md) is similar to usage within pipelines. The only difference is that you cannot **define** parameters in a template.
 
-``` {.code}
+```xml
 <pipeline name="trunk" template="my_template">
   <params>
     <param name="WORKING_DIR">trunk</param>
@@ -56,12 +56,12 @@ Parameter usage within [templates](pipeline_templates.md) is similar to usage wi
   </params>
   ...
 </pipeline>
-            
+
 ```
 
 The parameter defined above is used the template below.
 
-``` {.code}
+```xml
 <pipeline name="my_template">
   <stage name="my_stage">
     <jobs>
@@ -73,7 +73,7 @@ The parameter defined above is used the template below.
     </jobs>
   </stage>
 </pipeline>
-            
+
 ```
 
 ## Rules around usage of parameters

@@ -15,22 +15,22 @@ Specify the artifacts directory location and click on "Save"
 Power users can also configure this via the **Config XML** tab on the
 Admin section:
 
-``` {.code}
-  <cruise>
-    <server artifactsdir="/path/to/artifacts/directory">
-    ...
-    </server>
-  </cruise>
+```xml
+<cruise>
+  <server artifactsdir="/path/to/artifacts/directory">
+  ...
+  </server>
+</cruise>
 ```
 
 In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:
 
-``` {.code}
-  <cruise>
-    <server artifactsdir="E:\go-artifacts">
-    ...
-    </server>
-  </cruise>
+```xml
+<cruise>
+  <server artifactsdir="E:\go-artifacts">
+  ...
+  </server>
+</cruise>
 ```
 
 When you have entered this information, click "Save" to save the configuration file.
@@ -57,12 +57,12 @@ Go generates URLs that are relative to the base URL of the request. However, the
 
 Power users, if they so desire, can directly update the [server](../configuration/configuration_reference.md#server) section.
 
-``` {.code}
-    <cruise>
-          <server siteUrl="http://<host>:<port>" secureSiteUrl="https://<host>:<securePort>">
-            ...
-          </server>
-    </cruise>
+```xml
+<cruise>
+      <server siteUrl="http://<host>:<port>" secureSiteUrl="https://<host>:<securePort>">
+        ...
+      </server>
+</cruise>
 ```
 
 Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.

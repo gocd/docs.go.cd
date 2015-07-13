@@ -18,7 +18,7 @@ When selected, the dialog box which allows you to configure details about the ta
 
 In the configuration XML, the information entered for this task looks like this:
 
-``` {.code}
+```xml
 <task>
   <pluginConfiguration id="curl.task.plugin" version="1" />
   <configuration>
@@ -45,7 +45,7 @@ In the configuration XML, the information entered for this task looks like this:
 
 When a build which uses the plugin runs, the output of the build looks something like this:
 
-``` {.code}
+```
 [go] Start to execute task: Plugin with ID: curl.task.plugin.
 Launching command: [curl, -G, --insecure, -o, pipelines/up42/index.txt, http://www.google.com]
 Environment variables:

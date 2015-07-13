@@ -12,7 +12,7 @@ For this example, we'll assume that there is already an ant task defined in your
 -   [Ensure that the **UAT** stage is manual](../configuration/dev_choose_when_stage_runs.md)
 -   Ensure the following task block is in the **deploy** job configuration
 
-``` {.code}
+```xml
 <tasks>
   <fetchartifact stage="dist" job="create-installers" srcdir="pkg" dest="installers" />
   <ant target="deploy_to_uat" />

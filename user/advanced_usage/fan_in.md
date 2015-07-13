@@ -95,13 +95,13 @@ How to configure:
 
 -   Fan-in as a feature is enabled by default. In case you need pipelines to trigger with every version regardless of ancestor versions you can disable fan-in. To disable fan-in you will need to add a system property and restart the Go server. On linux add the following line to /etc/default/go-server
 
-    ``` {.code}
+    ```shell
     export GO_SERVER_SYSTEM_PROPERTIES='-Dresolve.fanin.revisions=N'
     ```
 
     On windows, in the config folder of the Go server installation, edit the wrapper-server.conf file, and add an additional property with the value '-Dresolve.fanin.revisions=N'. For example:
 
-    ``` {.code}
+    ```
     wrapper.java.additional.17='-Dresolve.fanin.revisions=N'
     ```
 

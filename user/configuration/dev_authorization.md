@@ -27,7 +27,7 @@ You can define roles that can be used anywhere that authorization is required. A
 
 For power users, here's how you would configure roles via "Config XML":
 
-``` {.code}
+```xml
 <cruise>
   <server>
     <license ... />
@@ -52,7 +52,7 @@ For power users, here's how you would configure roles via "Config XML":
     </security>
   </server>
 </cruise>
-      
+
 ```
 
 In this example, the "qa" role has two users: dyang and pavan. The "go\_admin" role also has two users: jhumble and qiao.
@@ -81,7 +81,7 @@ If no authorization is defined for a pipeline group, all Go users will have view
 
 For power users, here's how you would configure permissions via "Config XML":
 
-``` {.code}
+```xml
 <pipelines group="Shine">
   <authorization>
     <view>
@@ -111,7 +111,7 @@ The authorization can be inherited from the pipeline group this pipeline belongs
 
 For power users, here's how you would configure authorization for approvals for a stage via "Config XML":
 
-``` {.code}
+```xml
 <stage name="defaultStage">
 
   <approval type="manual">
@@ -132,7 +132,7 @@ For power users, here's how you would configure authorization for approvals for 
     </job>
   </jobs>
 </stage>
-  
+
 ```
 
 ## Specifying permissions for templates
@@ -149,7 +149,7 @@ Then, click the "Permissions" link for the template you want to manage permissio
 
 For power users, here's how you would configure permissions via "Config XML":
 
-``` {.code}
+```xml
 <templates>
     <pipeline name="app-1-template">
       <authorization>
