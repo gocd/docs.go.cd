@@ -73,6 +73,15 @@ git pull >>c:\pull-log.txt 2>&1
 
 Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page or by using the [reload API](../api/command_repo_api.md).
 
+
+#### Via API
+
+You may make a `POST` request to the path `/go/api/admin/command-repo-cache/reload` in order to update the command repository with the latest.
+
+```shell
+$ curl -u username:password -X POST http://goserver.com:8153/go/api/admin/command-repo-cache/reload
+```
+
 ### Private Repository
 
 If you want to add your own commands for look up, you should set up your own Git/Mercurial/Subversion/Perforce/TFS repository that your command authors can commit/check-in into.
@@ -125,7 +134,7 @@ This is an example of valid command syntax. The command attribute is mandatory. 
 >**Please refer the [README](https://github.com/gocd/go-command-repo/blob/master/README.md) for full command and documentation syntax.**
 
 When you lookup a command, the following logic is used to sort the resulting suggestions:
-    
+
 1.  Exact matches of name in command documentation (or filename if name missing)
 2.  Partial starts-with matches of name in command documentation (or filename if name missing)
 3.  Exact matches of keywords in command documentation

@@ -20,7 +20,7 @@
         "ga",
         "include",
         "toc",
-        "redirect",
+        "redirect@0.0.7",
         "edit-link@1.1.0"
     ],
     "pluginsConfig": {
