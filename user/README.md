@@ -53,7 +53,6 @@ Copyright 2014 ThoughtWorks, Inc. You may copy, distribute, print, and display, 
     * [System requirements](installation/system_requirements.md)
     * [Installing Go Server](installation/installing_go_server.md)
     * [Installing Go Agent](installation/installing_go_agent.md)
-    * [Running Go without Installation](installation/run_go_without_install.md)
     * [Upgrading Go](installation/upgrading_go.md)
     * [Configuring Server Details](installation/configuring_server_details.md)
     * [Configure a Proxy](installation/configure_proxy.md)
