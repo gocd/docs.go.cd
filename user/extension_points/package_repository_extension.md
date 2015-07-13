@@ -2,6 +2,7 @@
 
 ## Introduction
 
+[Poll from Go packages and more from Go 13.3 onwards](https://youtu.be/Pk52CFBYWIw)
 Pipelines in Go can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
 
 1.  jar, war or ear file in case of Java
@@ -53,8 +54,8 @@ Cannot save package or repo, found duplicate packages. [Repo Name: 'orchard', Pa
 
 Here is a XML view of an RPM package defintion. Note the relation between repository, package and pipeline material. Loosely typed property, key and value tags are used for repository and package configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn't necessary to provide repository and package IDs, Go server wil autogenerate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.
 
-``` {.code}
-  < repository id="1ce5c205-977f-4c0e-ada4-882030580eed" name="ora" >
+```xml
+  <repository id="1ce5c205-977f-4c0e-ada4-882030580eed" name="ora">
       <pluginConfiguration id="yum" version="1" />
       <configuration>
         <property>
@@ -74,7 +75,7 @@ Here is a XML view of an RPM package defintion. Note the relation between reposi
       </packages>
     </repository>
   ...
-  < pipelines group="showcase">
+  <pipelines group="showcase">
     <pipeline name="dependsOnGcc">
       <materials>
         <package ref="840b0b60-bd29-489d-b5ea-ccff5f6459a9" />

@@ -79,11 +79,11 @@ If you want to add your own commands for look up, you should set up your own Git
 
 Make a clone/working copy available under `<go-server-install-root>/db/command_repository/<your-repo-name>`. Symbolic links are not supported. Then switch Go Server to this location. To do this, go to **Command Repository Management** section of **Server Configuration** in **Admin** tab and change the **default** value
 
-![](../resources/images/cruise/cmd_repo_mgmt.png)
+![](../resources/images/cmd_repo_mgmt.png)
 
 From the Go server's point of view, the command repository is just a directory under which it recursively looks for valid command.xml files. Note that directory names starting with a dot will be ignored.
 
-Go will not lookup from the bundled repository if you switch to your own repository. You could choose to manually seed your private command repository with Go's bundled set of commands if you want to have them in addition to your own commands.
+>Go will not lookup from the bundled repository if you switch to your own repository. You could choose to manually seed your private command repository with Go's bundled set of commands if you want to have them in addition to your own commands.
 
 ### Recommended process
 
