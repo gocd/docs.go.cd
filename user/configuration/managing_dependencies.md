@@ -17,14 +17,14 @@ Say we have two pipelines - **upstream\_pipeline** and **downstream\_pipeline** 
 
 Power users can also configure this via the **Config XML** tab on the Admin section (Configuration reference is [here](../configuration/configuration_reference.md)):
 
-``` {.code}
-<pipeline name="downstream_pipeline">  
-  <materials>  
-    <pipeline pipelineName="upstream_pipeline" stageName="AutoStage1"/>  
+```xml
+<pipeline name="downstream_pipeline">
+  <materials>
+    <pipeline pipelineName="upstream_pipeline" stageName="AutoStage1"/>
   </materials>
   ...
 </pipeline>
-      
+
 ```
 
 Now, when the stage "AutoStage1" of "upstream\_pipeline" completes, the pipeline "downstream\_pipeline" will start building. The Pipeline Dependency visualization shows you all the downstream instances that were triggered off the upstream instance (label 14) currently being viewed.
@@ -57,63 +57,63 @@ A fetch task can also be instructed to retrieve (fetch) an artifact from an ance
 
 For power users, here's how you can configure this via the **Config XML** tab on the Admin section (Configuration reference is [here](../configuration/configuration_reference.md)):
 
-``` {.code}
-<pipeline name="topmost_pipeline">  
-  <materials>  
-    <svn url="...."/>  
+```xml
+<pipeline name="topmost_pipeline">
+  <materials>
+    <svn url="...."/>
   </materials>
   ...
-  <stage name="TopStage1">  
+  <stage name="TopStage1">
     <jobs>
-    <job name="topJob">  
-      <tasks>  
-        <nant />  
+    <job name="topJob">
+      <tasks>
+        <nant />
       </tasks>
-      <artifacts>  
-        <artifact src="target/mylib.dll" dest="lib"/>  
+      <artifacts>
+        <artifact src="target/mylib.dll" dest="lib"/>
       </artifacts>
     </job>
    </jobs>
   </stage>
 </pipeline>
-<pipeline name="upstream_pipeline">  
-  <materials>  
-    <svn url="...."/>  
-    <pipeline pipelineName="topmost_pipeline" stageName="TopStage1"/>  
+<pipeline name="upstream_pipeline">
+  <materials>
+    <svn url="...."/>
+    <pipeline pipelineName="topmost_pipeline" stageName="TopStage1"/>
   </materials>
   ...
-  <stage name="AutoStage1">  
+  <stage name="AutoStage1">
     <jobs>
-    <job name="firstJob">  
-      <tasks>  
-        <nant />  
+    <job name="firstJob">
+      <tasks>
+        <nant />
       </tasks>
-      <artifacts>  
-        <artifact src="target/commonlib.dll" dest="pkg"/>  
+      <artifacts>
+        <artifact src="target/commonlib.dll" dest="pkg"/>
       </artifacts>
     </job>
    </jobs>
   </stage>
 </pipeline>
-<pipeline name="downstream_pipeline">  
-  <materials>  
-    <pipeline pipelineName="upstream_pipeline" stageName="AutoStage1"/>  
+<pipeline name="downstream_pipeline">
+  <materials>
+    <pipeline pipelineName="upstream_pipeline" stageName="AutoStage1"/>
   </materials>
-  <stage name="Stage">  
+  <stage name="Stage">
     <jobs>
-    <job name="fetchFromParentJob">  
-      <tasks>  
-        <fetchartifact pipeline="upstream_pipeline" stage="AutoStage1" job="firstJob" srcfile="pkg/commonlib.dll" dest="libs"/>  
+    <job name="fetchFromParentJob">
+      <tasks>
+        <fetchartifact pipeline="upstream_pipeline" stage="AutoStage1" job="firstJob" srcfile="pkg/commonlib.dll" dest="libs"/>
       </tasks>
     </job>
-    <job name="fetchFromAncestorJob">  
-      <tasks>  
-        <fetchartifact pipeline="topmost_pipeline/upstream_pipeline" stage="TopStage1" job="topJob" srcfile="lib/mylib.dll" dest="libs"/>  
+    <job name="fetchFromAncestorJob">
+      <tasks>
+        <fetchartifact pipeline="topmost_pipeline/upstream_pipeline" stage="TopStage1" job="topJob" srcfile="lib/mylib.dll" dest="libs"/>
       </tasks>
     </job>
    <jobs>
   </stage>
   ...
 </pipeline>
-  
+
 ```

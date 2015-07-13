@@ -65,7 +65,7 @@ Send a request to: https://your-go-server.com:8154/oauth/authorize with the foll
 
 **Example Request:**
 
-``` {.code}
+```
 https://www.your-go-server.com:8154/oauth/authorize?redirect_uri=http://www.my_redirect_uri.com&client_id=ac212ddea07c6ac009d26de8090f5918f73ae648dc3676b1f00aeeae4fca67e1&response_type=code
 ```
 
@@ -75,7 +75,7 @@ Your browser is redirected to your redirect URI and you should now see your auth
 
 **Example Response:**
 
-``` {.code}
+```
 http://www.my_redirect_uri.com?code=26a7dea5e7e121be5ad5832a4a5b09d505c234c7625de3f375971264688bdb51
 ```
 
@@ -93,17 +93,17 @@ For this step you’ll need to send a POST request to /oauth/token with the foll
 
 **Example Request (in curl)** :
 
-``` {.code}
-curl  https://www.your-go-server:8154/go/oauth/token -d  "code=26a7dea5e7e121be5ad5832a4a5b09d505c234c7625de3f375971264688bdb51&grant_type=authorization-code&client_id=ac212ddea07c6ac009d26de8090f5918f73ae648dc3676b1f00aeeae4fca67e1&client_secret=d1b54df502f162108a6136ec584dc637a7ad5578832a5db364e0d7b47657c718&redirect_uri=www.my_redirect_uri.com" -v 
+```shell
+curl  https://www.your-go-server:8154/go/oauth/token -d  "code=26a7dea5e7e121be5ad5832a4a5b09d505c234c7625de3f375971264688bdb51&grant_type=authorization-code&client_id=ac212ddea07c6ac009d26de8090f5918f73ae648dc3676b1f00aeeae4fca67e1&client_secret=d1b54df502f162108a6136ec584dc637a7ad5578832a5db364e0d7b47657c718&redirect_uri=www.my_redirect_uri.com" -v
 ```
 
 The response to the above POST request will be a JSON containing your access token, and its expiration time in seconds
 
 **Example Response:**
 
-``` {.code}
+```
 {:access_token => f180f7bb68d38531aac2f49e5b0cac0c5ed5ced9b72842a429e783747e819664, :expires_in => 3529, :refresh_token => e1n54df802f162108a6336ec584dc637a7ad5578832a5db364e0d7b47657c875}
-  
+
 ```
 
 ### Use the access token
@@ -112,6 +112,6 @@ Now you are ready to query data from the Go server.
 
 **Example Request:**
 
-``` {.code}
- curl -H 'Authorization: Token token="f180f7bb68d38531aac2f49e5b0cac0c5ed5ced9b72842a429e783747e819664"' https://www.your-go-server.com:8154/go/gadgets
+```shell
+curl -H 'Authorization: Token token="f180f7bb68d38531aac2f49e5b0cac0c5ed5ced9b72842a429e783747e819664"' https://www.your-go-server.com:8154/go/gadgets
 ```

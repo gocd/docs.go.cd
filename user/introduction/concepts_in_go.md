@@ -39,32 +39,31 @@ When all the tasks have been completed the agent will publish any artifacts defi
 Consider the following configuration:
 
 ```xml
-          <pipeline name="my-product">
-            <materials>
-              <svn  url="http://my-svn-server/tools" dest="tools"/>
-              <svn  url="http://my-svn-server/my-project" dest="my-project"/>
-            </materials>
-            <stage name="compile">
-              <job name="linux">
-                <environmentvariables>
-                  <variable name="FOO">
-                     <value>bar</value>
-                  </variable>
-                </environmentvariables>
-                <resources>
-                  <resource>linux</resource>
-                </resources>
-                <tasks>
-                  <exec command="/usr/bin/make" args="-f Makefile" workingdir="tools/my-tool"/>
-                  <ant target="unit-test" workingdir="my-project"/>
-                </tasks>
-                <artifacts>
-                  <artifact src="my-project/target/deployable.jar" dest="pkg"/>
-                </artifacts>
-              </job>
-            </stage>
-          </pipeline>
-          
+<pipeline name="my-product">
+  <materials>
+    <svn  url="http://my-svn-server/tools" dest="tools"/>
+    <svn  url="http://my-svn-server/my-project" dest="my-project"/>
+  </materials>
+  <stage name="compile">
+    <job name="linux">
+      <environmentvariables>
+        <variable name="FOO">
+           <value>bar</value>
+        </variable>
+      </environmentvariables>
+      <resources>
+        <resource>linux</resource>
+      </resources>
+      <tasks>
+        <exec command="/usr/bin/make" args="-f Makefile" workingdir="tools/my-tool"/>
+        <ant target="unit-test" workingdir="my-project"/>
+      </tasks>
+      <artifacts>
+        <artifact src="my-project/target/deployable.jar" dest="pkg"/>
+      </artifacts>
+    </job>
+  </stage>
+</pipeline>
 ```
 
 The Go Agent will:

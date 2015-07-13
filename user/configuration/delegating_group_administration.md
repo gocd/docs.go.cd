@@ -17,19 +17,19 @@ In the above screenshot, the Go admin has delegated group admin privileges to a 
 
 For power users, here's how you'd assign the same permissions via Config XML:
 
-``` {.code}
-<pipelines group="studios">  
+```xml
+<pipelines group="studios">
      <authorization> 
          <admins> 
             <user> jez </user> 
             <role> groupAdminRole </role> 
          </admins>
      </authorization>
-     <pipeline name="go_pipeline">  
+     <pipeline name="go_pipeline">
      ...
      </pipeline>
 </pipelines>
-        
+
 ```
 
 ## Privileges of a Group Administrator

@@ -12,35 +12,32 @@ You can create a custom label by setting the **Label Template** field on your pi
 
 Power users can still edit the config xml to achieve the same. The xml snippet to configure **labelTempalte** is below.
 
-``` {.code}
-    <pipeline name="my-pipeline" labeltemplate="1.2.${COUNT}">
-        ...
-    </pipeline>
-        
+```xml
+<pipeline name="my-pipeline" labeltemplate="1.2.${COUNT}">
+  ...
+</pipeline>
 ```
 
 Using a **pipeline** in the labeltemplate:
 
-``` {.code}
-    <pipeline name="my-dependent-pipeline" labeltemplate="${MY_PIPELINE}">
-        <materials>
-            <pipeline pipelineName="my-pipeline" stageName="my-stage"/>
-        </materials>
-        ...
-    </pipeline>
-        
+```xml
+<pipeline name="my-dependent-pipeline" labeltemplate="${MY_PIPELINE}">
+  <materials>
+    <pipeline pipelineName="my-pipeline" stageName="my-stage"/>
+  </materials>
+  ...
+</pipeline>
 ```
 
 Using a **VCS material** in the labeltemplate. In this example, the Subversion revision number will be used as the labeltemplate:
 
-``` {.code}
-    <pipeline name="my-material-pipeline" labeltemplate="1.2.${SVN_MATERIAL}">
-        <materials>
-            <svn url="http://svn.example.com/" dest="svn" materialName="SVN_MATERIAL" />
-        </materials>
-        ...
-    </pipeline>
-        
+```xml
+<pipeline name="my-material-pipeline" labeltemplate="1.2.${SVN_MATERIAL}">
+  <materials>
+    <svn url="http://svn.example.com/" dest="svn" materialName="SVN_MATERIAL" />
+  </materials>
+    ...
+</pipeline>
 ```
 
 In some instances - for example when using Git - the revision number can be long. In this case the revision number [can be truncated](../configuration/admin_use_custom_pipeline_label.md#using-truncated-material-revisions).

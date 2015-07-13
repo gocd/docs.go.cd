@@ -32,11 +32,9 @@ It is often useful to use the current version control revision number in your bu
 
 For this example, we are going to assume we are using a single [Subversion](http://subversion.tigris.org/) repository for our source control system and we have a job set up to call the ant target "dist".
 
--   Add the following target to your ant build.xml
+-   Add the following target to your ant `build.xml`
 
-``` {.code}
-build.xml
-
+```xml
 <project name="test-build">
   <property environment="env" />
   <target name="dist">
@@ -48,7 +46,7 @@ build.xml
 
 -   Now, when Go runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
 
-``` {.code}
+```
 deploy-123.txt
 
 Building pipeline my-app
@@ -60,7 +58,7 @@ For this example we are going to assume we are using a [Subversion](http://subve
 
 -   Ensure the pipeline materials look like this
 
-``` {.code}
+```xml
 <pipeline name="multiple-materials">
   <materials>
     <svn url="..." dest="code" />
@@ -70,11 +68,9 @@ For this example we are going to assume we are using a [Subversion](http://subve
 </pipeline>
 ```
 
--   Add the following target to your ant build.xml
+-   Add the following target to your ant `build.xml`
 
-``` {.code}
-build.xml
-
+```xml
 <project name="my-app">
   <property environment="env" />
   <target name="dist">
@@ -89,7 +85,7 @@ build.xml
 
 -   Now, when Go runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
 
-``` {.code}
+```
 deploy-123.txt
 
 Building pipeline my-app
@@ -108,7 +104,7 @@ You can add variables to an environment by editing the configuration of the envi
 
 You specify variables on an environment in the Config XML by adding an [< environmentvariables >](../configuration/configuration_reference.md#environmentvariables) section to the environment definition.
 
-``` {.code}
+```xml
 <environment name="UAT">
     <environmentvariables>
         <variable name="FOO">
@@ -136,7 +132,7 @@ You can add variables for a job by editing the job configuration.
 
 You specify variables on an job in the Config XML by adding an [< environmentvariables >](../configuration/configuration_reference.md#environmentvariables) section to the job definition.
 
-``` {.code}
+```xml
 <job name="my-job">
     <environmentvariables>
        <variable name="FOO">
@@ -161,7 +157,7 @@ You specify variables on an job in the Config XML by adding an [< environmentvar
 
 You can access these environment variables to construct versioned artifacts or to store properties on the current build. For example the following snippet of an ant file shows how to access Go variables:
 
-``` {.code}
+```xml
 <property environment="go" />
 <target name="all">
     <echo message="Building all!" />

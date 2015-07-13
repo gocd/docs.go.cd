@@ -18,7 +18,7 @@ To enable run on all agents for a job, navigate to the Job settings page in the 
 
 To specify that a job should run on all agents, add the attribute
 
-``` {.code}
+```
 runOnAllAgents="true"
 ```
 
@@ -48,7 +48,7 @@ To run 'x' instances of a job, navigate to the Job settings page in the job conf
 
 To specify that 'x' instances of a job should run, add the attribute
 
-``` {.code}
+```
 runInstanceCount="5"
 ```
 

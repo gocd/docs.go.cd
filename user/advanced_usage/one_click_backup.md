@@ -41,7 +41,7 @@ Artifacts and the Test Reporting Data keep getting new files and directories add
 
 *For Instance:* Lets say you have a copy of all the files till 12-02-2012 in a location. On 20-02-2012, you can do something like:
 
-``` {.code}
+```shell
 rsync -avzP {ARTIFACT_LOCATION} {BACKUP_LOCATION}
 ```
 

@@ -18,9 +18,9 @@ To configure an artifact:
 
 For power users, here's how you would configure this via Config XML:
 
-``` {.code}
-<artifacts>  
-  <artifact src="target/commonlib.dll" dest="pkg" />  
+```xml
+<artifacts>
+  <artifact src="target/commonlib.dll" dest="pkg" />
 </artifacts>
 ```
 
@@ -44,9 +44,9 @@ If you produce an html page with an embedded Flash file into your artifact repos
 
 You can use the following configuration to display it in a tab:
 
-``` {.code}
-<tabs>  
-  <tab name="Recording" path="deployment/drop/smoke/smoke-recording.html" />  
+```xml
+<tabs>
+  <tab name="Recording" path="deployment/drop/smoke/smoke-recording.html" />
 </tabs>
 ```
 
@@ -71,11 +71,10 @@ To configure a test artifact:
 
 For power users, here's how you would configure this via Config XML:
 
-``` {.code}
-<artifacts>  
-  <test src="xstream/target/test-reports" />  
+```xml
+<artifacts>
+  <test src="xstream/target/test-reports" />
 </artifacts>
-    
 ```
 
 Go will:

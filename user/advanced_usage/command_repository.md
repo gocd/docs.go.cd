@@ -29,13 +29,13 @@ This feature can be used anywhere you need to specify a custom command.
 
 The older [args](../configuration/configuration_reference.md#exec) style commands are not supported by this feature. Please convert them to the new syntax using the config xml editor ( **Admin \> Config XML** ). For example:
 
-``` {.code}
+```xml
 <exec command="touch" args="a b c"/>
 ```
 
 becomes
 
-``` {.code}
+```xml
 <exec command="touch">
   <arg>a</arg>
   <arg>b</arg>
@@ -111,7 +111,7 @@ From the Go server's point of view, the command repository is just a directory u
 
 The above screenshot resulted from the command below:
 
-``` {.code}
+```xml
 <!--
 name: curl
 description: Download from a protected Url and saveToFile

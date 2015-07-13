@@ -55,33 +55,33 @@ Cannot save package or repo, found duplicate packages. [Repo Name: 'orchard', Pa
 Here is a XML view of an RPM package defintion. Note the relation between repository, package and pipeline material. Loosely typed property, key and value tags are used for repository and package configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn't necessary to provide repository and package IDs, Go server wil autogenerate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.
 
 ```xml
-  <repository id="1ce5c205-977f-4c0e-ada4-882030580eed" name="ora">
-      <pluginConfiguration id="yum" version="1" />
+<repository id="1ce5c205-977f-4c0e-ada4-882030580eed" name="ora">
+  <pluginConfiguration id="yum" version="1" />
+  <configuration>
+    <property>
+      <key>REPO_URL</key>
+      <value>http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</value>
+    </property>
+  </configuration>
+  <packages>
+    <package id="840b0b60-bd29-489d-b5ea-ccff5f6459a9" name="gcc" autoUpdate="false">
       <configuration>
         <property>
-          <key>REPO_URL</key>
-          <value>http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</value>
+          <key>PACKAGE_SPEC</key>
+          <value>gcc-4.*</value>
         </property>
       </configuration>
-      <packages>
-        <package id="840b0b60-bd29-489d-b5ea-ccff5f6459a9" name="gcc" autoUpdate="false">
-          <configuration>
-            <property>
-              <key>PACKAGE_SPEC</key>
-              <value>gcc-4.*</value>
-            </property>
-          </configuration>
-        </package>
-      </packages>
-    </repository>
+    </package>
+  </packages>
+</repository>
+...
+<pipelines group="showcase">
+  <pipeline name="dependsOnGcc">
+    <materials>
+      <package ref="840b0b60-bd29-489d-b5ea-ccff5f6459a9" />
+    </materials>
   ...
-  <pipelines group="showcase">
-    <pipeline name="dependsOnGcc">
-      <materials>
-        <package ref="840b0b60-bd29-489d-b5ea-ccff5f6459a9" />
-      </materials>
-    ...
-    
+
 ```
 
 ### Value stream modeling tip
@@ -91,7 +91,7 @@ Depending on whether Go is also publishing the package or just consuming it, the
 1.  The first scenario is where the package is published from some pipeline in Go. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:
     1.  Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this [tip](http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines) may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the [value stream map.](../navigation/value_stream_map.md)
     2.  Package material: Y adds P as a package material. Y no longer has to resolve P.
-    
+
     It isn't advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option \#1 makes sense.
 2.  The second scenario is where Go does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. Go helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.
 
@@ -128,35 +128,35 @@ The package isn't automatically downloaded on the agent and made available to th
 
 Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let's say we set up a repository named ORA pointing to http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64 and define a package gcc with a spec of gcc-4.\* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:
 
-``` {.code}
-                [go] Start to execute task: <exec command="/bin/bash" >
-                <arg>-c</arg>
-                <arg>curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION</arg>
-                </exec>
+```
+[go] Start to execute task: <exec command="/bin/bash" >
+<arg>-c</arg>
+<arg>curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION</arg>
+</exec>
 ```
 
 When the task executes on the agent, the environment variables get subsituted as below:
 
-``` {.code}
-            [go] Start to execute task: <exec command="/bin/bash" >
-            <arg>-c</arg>
-            <arg>curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION</arg>
-            </exec>.
-            ...
-            [go] setting environment variable 'GO_PACKAGE_ORA_GCC_LABEL' to value 'gcc-4.4.7-3.el6.x86_64'
-            [go] setting environment variable 'GO_REPO_ORA_GCC_REPO_URL' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64'
-            [go] setting environment variable 'GO_PACKAGE_ORA_GCC_PACKAGE_SPEC' to value 'gcc-4.*'
-            [go] setting environment variable 'GO_PACKAGE_ORA_GCC_LOCATION' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm'
-            ...
+```
+[go] Start to execute task: <exec command="/bin/bash" >
+<arg>-c</arg>
+<arg>curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION</arg>
+</exec>.
+...
+[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LABEL' to value 'gcc-4.4.7-3.el6.x86_64'
+[go] setting environment variable 'GO_REPO_ORA_GCC_REPO_URL' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64'
+[go] setting environment variable 'GO_PACKAGE_ORA_GCC_PACKAGE_SPEC' to value 'gcc-4.*'
+[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LOCATION' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm'
+...
 ```
 
 Or, to simply pass it as an argument to a deploy script on a remote server
 
-``` {.code}
-        <exec command="/bin/bash">
-            <arg>-c</arg>
-            <arg>ssh server "cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION"</arg>
-        </exec>
+```xml
+<exec command="/bin/bash">
+    <arg>-c</arg>
+    <arg>ssh server "cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION"</arg>
+</exec>
 ```
 
 **Also see [Installing RPMs](yum_repository_poller.md#installing-rpms)**
@@ -173,7 +173,7 @@ You could also explore the command repository on [GitHub](https://github.com/goc
 
 Please note that Go does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let
 
-``` {.code}
+```shell
 yum install componentA-1.2.0-b234-noarch
 ```
 

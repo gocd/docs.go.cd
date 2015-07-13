@@ -14,14 +14,14 @@ When using Go to build your application, it is often useful to be able to includ
 
 You might also want to include material revision into the pipeline label so that it's easier to find a Go pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:
 
-``` {.code}
+```xml
 <pipeline name="main" labeltemplate="1.3.${COUNT}-${svn}">
   <materials>
       <svn url="http://server/path" materialName="svn" />
   <materials>
   ...
 </pipeline>
-  
+
 ```
 
 #### Using truncated material revisions
@@ -34,7 +34,7 @@ The later one might be 4-7 characters long as Git tries to find a unique hash th
 [documentation of git-rev-parse](https://www.kernel.org/pub/software/scm/git/docs/git-rev-parse.html)
 under "--short" for further details.)
 
-``` {.code}
+```xml
 <pipeline name="main" labeltemplate="15.1.${COUNT}-${git[:7]}">
     <materials>
         <git url="git://github.com/foo.git"  materialName="git" />
@@ -48,7 +48,7 @@ under "--short" for further details.)
 
 You can also include the revision of an upstream pipeline into the pipeline label to, for example, share the same revision across different but related pipelines:
 
-``` {.code}
+```xml
 <pipeline name="upstream" labeltemplate="1.3.${COUNT}-${svn}">
     <materials>
         <svn url="http://server/path" materialName="svn" />
@@ -61,7 +61,7 @@ You can also include the revision of an upstream pipeline into the pipeline labe
     <materials>
   ...
 </pipeline>
-  
+
 ```
 
 In this case, if the label of upstream pipeline is "1.3.0-1234", then when downstream pipeline is triggered, the label of downstream pipeline is also "1.3.0-1234".
@@ -69,7 +69,7 @@ In this case, if the label of upstream pipeline is "1.3.0-1234", then when downs
 ## Using parameters
 
 You can also include parameters into the pipeline label:
-``` {.code}
+```xml
 <pipeline name="main" labeltemplate="15.1.${COUNT}-#{param1}">
     <params>
         <param name="param1">default</param>
