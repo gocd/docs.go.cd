@@ -26,7 +26,7 @@ sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent2\cruisewrapper.exe\" -s
 
 ### Running as Windows command
 
-- Follow the instructions to [run Go without installation on Windows](../installation/run_go_without_install.md)
+- Follow the instructions to [run Go without installation on Windows](../installation/install/agent/zip.md)
 - Do the same steps on a different folder to set up another agent
 
 > You should use a VNC application (such as [TightVNC](http://www.tightvnc.com)) to keep windows user logged in. If the user logs out or the computer restarts, the agents will shutdown.
