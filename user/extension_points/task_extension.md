@@ -65,5 +65,5 @@ Dload  Upload   Total   Spent    Left  Speed
 ```
 
 Go provides two ways of writing a task plugin:
-* [JSON API - Message based](json_message_based_task_extension.md)
-* [Java API based (Deprecated)](writing_go_task_plugins.md)
+* [JSON API - Message based](http://www.go.cd/documentation/developer/writing_go_plugins/task/json_message_based_task_extension.html)
+* [Java API based (Deprecated)](http://www.go.cd/documentation/developer/writing_go_plugins/task/writing_go_task_plugins.html)
