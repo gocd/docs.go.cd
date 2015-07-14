@@ -32,6 +32,7 @@ This is the summary of user documentation.
     * [Upgrading Go](installation/upgrading_go.md)
     * [Configuring Server Details](installation/configuring_server_details.md)
     * [Configure a Proxy](installation/configure_proxy.md)
+    * [Configuring SSL/TLS](installation/ssl_tls_config.md)
     * [Performance Tuning](installation/performance_tuning.md)
     * [Troubleshoot installers](installation/troubleshoot_installer.md)
 * [Configuration](configuration/index.md)
