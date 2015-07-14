@@ -1,6 +1,6 @@
 # Configuring SSL/TLS
 
-You can choose which ciphers Go will use for communication with agents and users (and their browsers)
+You can choose which ciphers and SSL/TLS protocols Go will use for communication with agents and users (and their browsers)
 
 ## Configuring Go server
 
