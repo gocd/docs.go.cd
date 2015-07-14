@@ -7,7 +7,7 @@ example template from a sample curl task plugin, can be seen
 
 ### Request - From the server
 
-***Request name***: ```execute```
+***Request name***: ```view```
 
 ***Request parameters***: empty
 
