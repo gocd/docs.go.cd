@@ -8,7 +8,7 @@ To do this Administrator should copy ```cruise-config.xml``` from the config dir
 
 **Also see...**
 
-- [Installing Go agents](installing_go_agent.md)
+- [Installing Go agents](../../installing_go_agent.md)
 - [Configuring server details](configuring_server_details.md)
 - [Configure Go to work with a proxy](configure_proxy.md)
 - [Backing up a go server](../../../advanced_usage/one_click_backup.md)
