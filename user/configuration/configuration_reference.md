@@ -2241,8 +2241,7 @@ Define a Property based on the contents of an XML file.
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | name | Yes | The name of the property. It has to be unique within a `<job>`. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed. Name is case-sensitive. |
-| src | Yes | The xml file containing the data that you want to use to create the property, and it isn't allowed to start from '.'
-Properties are set on the Agent at the end of the build and does not need to be an artifact that will be uploaded to the server. |
+| src | Yes | The xml file containing the data that you want to use to create the property, and it isn't allowed to start from '.' Properties are set on the Agent at the end of the build and does not need to be an artifact that will be uploaded to the server. |
 | xpath | Yes | The XPath that will be used to create the property. |
 
 ### Example:
