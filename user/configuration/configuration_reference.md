@@ -1,5 +1,6 @@
-# Go Configuration Reference
 <a id="top"></a>
+
+# Go Configuration Reference
 
 <big><pre>
 [`<cruise>`](#cruise)
