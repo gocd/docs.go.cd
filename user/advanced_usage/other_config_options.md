@@ -37,7 +37,7 @@ Java system property to be used will be ```-Dmy.new.property=true```. Notice the
 lack of a space between the ```-D``` and the property name.
 
 On Windows, the procedure to set an extra system property is [detailed
-here](../installation/installing_go_server.html#override-default-startup-arguments).
+here](../installation/install/server/windows.html#overriding-default-startup-arguments-and-environment).
 
 On Linux and while using the ZIP package, extra system properties are specified
 through the special environment variable, GO_SERVER_SYSTEM_PROPERTIES, which can
