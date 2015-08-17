@@ -46,7 +46,7 @@ Copyright 2014 ThoughtWorks, Inc. You may copy, distribute, print, and display, 
 
 ## Index (from old documentation)
 
-* [Introduction](index.md)
+* [Introduction](#)
     * [What's new in Go](release_history/whats_new_in_go.md)
     * [Concepts in Go](introduction/concepts_in_go.md)
 * Installing Go
