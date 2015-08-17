@@ -42,7 +42,7 @@ nvm_get_arch() {
 
 
 if [ -n "$GO_SERVER_URL" ]; then
-  curl --fail --silent http://nodejs.org/dist/v0.12.3/node-v0.12.3-$(nvm_get_os)-$(nvm_get_arch).tar.gz | tar --strip-components=1 -zx -C $HOME/.node
+  curl --fail --silent http://nodejs.org/dist/v0.12.7/node-v0.12.7-$(nvm_get_os)-$(nvm_get_arch).tar.gz | tar --strip-components=1 -zx -C $HOME/.node
 fi
 
 export PATH=$HOME/.node/bin:$PATH
