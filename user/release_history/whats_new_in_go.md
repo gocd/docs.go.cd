@@ -282,7 +282,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 ### Performance Enhancements
 
 -   **[Tune Go for Better Performance](../installation/performance_tuning.md):** Go has been tested with a large number of pipelines, agents and load. Performance will vary based on your server configuration and usage patterns. Use this guide to optimize performance.
--   **Faster Dashboard:** The [Pipelines Dashboard](../navigation/Pipelines_Dashboard_page.md) renders much faster even with a large number of pipelines.
+-   **Faster Dashboard:** The [Pipelines Dashboard](../navigation/pipelines_dashboard_page.md) renders much faster even with a large number of pipelines.
 -   **Faster Artifact Transfers:** We reduced artifact upload and download times.
 -   **Other:** We improved how Go manages memory.
 
@@ -295,7 +295,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 -   **Personalize the Pipelines Dashboard:** This is now a user preference in Go.
 -   The online [documentation](http://www.thoughtworks.com/products/docs/go/current/help/) now has search so you can quickly get help.
--   Get the list of [scheduled jobs](../api/Pipeline_API.md) using API.
+-   Get the list of [scheduled jobs](http://api.go.cd/current/#pipelines) using API.
 -   Configure site urls using the server configuration UI.
 -   Users will get a warning if the Go license is about to expire
 
@@ -417,7 +417,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 ### Changes
 
--   Go uses pipeline counter instead of label in [artifacts](../api/Artifacts_API.md) and [properties](../api/Properties_API.md) Restful urls.
+-   Go uses pipeline counter instead of label in [artifacts](http://api.go.cd/current/#artifacts) and [properties](http://api.go.cd/current/#properties) Restful urls.
 -   Mercurial material no longer updates the working copy on the server when checking for modifications.
 -   Go now schedules pipelines concurrently.
 -   Go will use the first changed material as build cause.
@@ -475,7 +475,7 @@ In the professional edition:
 
 -   Changes with multiple materials highlights what has actually changed since the previous revision. If you used multiple materials (e.g. more than one source control) in the same pipeline, Go shows the latest revision for each of the materials, even if that is the same as the previous pipeline instance. Go now highlights the changes since the previous pipeline instance.
 -   You can now define groups of pipelines. This makes it easier to configure and define security on pipelines based on logical grouping for your organization. See [change permissions for different actions](../configuration/dev_authorization.md) for more information.
--   Go server can now be downloaded as a single jar. For more information see [running Go without an install](../installation/run_go_without_install.md).
+-   Go server can now be downloaded as a single jar. For more information see [running Go without an install](../installation/install/server/zip.md).
 -   The "Pipelines" tab has been removed. The Pipeline Activity page provides a much better visualizatiion.
 -   Manual pipelines no longer poll source control. A pipeline with a manual first stage will not check source control until it is manually triggered. This helps reduce the number of requests to source control systems.
 -   Artifacts to be uploaded can now be specified with wildcards. For more information see [uploading test reports](../configuration/dev_upload_test_report.md).
@@ -595,11 +595,11 @@ If we want to ignore files under /trunk/lib/tmp, the configuration is:
 
 #### Fetching artifacts
 
-Go supports fetching artifacts from previous stage or upstream pipeline in a job by defination of \<fetchartifact\> in cruise-config.xml. Using this feature it's easy to have one job store artifacts like binaries, jars or installers, and then re-use them in a later stage. This supports best practices like only compiling your application once.[Here is an example](../configuration/configuration_reference.md#fetchartifact).
+Go supports fetching artifacts from previous stage or upstream pipeline in a job by defination of &lt;fetchartifact&gt; in cruise-config.xml. Using this feature it's easy to have one job store artifacts like binaries, jars or installers, and then re-use them in a later stage. This supports best practices like only compiling your application once.[Here is an example](../configuration/configuration_reference.md#fetchartifact).
 
 ### Changes
 
--   Refactored Go API and remove some calls. See the [Go API topic](../api/go_api.md) for more details.
+-   Refactored Go API and remove some calls. See the [Go API topic](http://api.go.cd/) for more details.
 -   Treate the dependency of pipelines as the materials of the pipelines. This means you can see which version of your upstream pipeline triggered the current pipeline anywhere on the UI you see modifications. Your configuration will be upgraded automatically.
 -   Limit the number of materials of pipelines. Go Free Edition supports only one material, and Enterprise Edition support unlimited materials. The other versions support three materials.
 -   Go agent no longer bundles Ant as of version 1.2.

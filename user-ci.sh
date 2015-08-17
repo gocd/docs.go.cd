@@ -42,31 +42,37 @@ nvm_get_arch() {
 
 
 if [ -n "$GO_SERVER_URL" ]; then
-    curl --fail --silent http://nodejs.org/dist/v0.12.3/node-v0.12.3-$(nvm_get_os)-$(nvm_get_arch).tar.gz | tar --strip-components=1 -zx -C $HOME/.node
+  curl --fail --silent http://nodejs.org/dist/v0.12.7/node-v0.12.7-$(nvm_get_os)-$(nvm_get_arch).tar.gz | tar --strip-components=1 -zx -C $HOME/.node
 fi
 
 export PATH=$HOME/.node/bin:$PATH
+npm prune
 npm install
 export PATH=$(npm bin):$PATH
 
 (
   cd $book
+  rm -rf _book 
   gitbook install
   gitbook build .
+  grunt --build=user
   rm -rf $HOME/.gocd-$book-docs
   mv _book $HOME/.gocd-$book-docs
 )
 
-git clean -dffx
-git fetch --all
-git branch -D gh-pages || true
-git checkout -b gh-pages origin/gh-pages
-git clean -dffx
 
-rm -rf $book/$version
-mv $HOME/.gocd-$book-docs $book/$version
+if [ -n "$PUSH_CHANGES" ]; then
+  git clean -dffx
+  git fetch --all
+  git branch -D gh-pages || true
+  git checkout -b gh-pages origin/gh-pages
+  git clean -dffx
 
-git add --all $book/$version
-git commit -m "Updating site to latest commit ($git_short_sha)." --author "GoCD <go-cd-dev@googlegroups.com>"
+  rm -rf $book/$version
+  mv $HOME/.gocd-$book-docs $book/$version
 
-git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/gocd/documentation gh-pages:gh-pages
+  git add --all $book/$version
+  git commit -m "Updating site to latest commit ($git_short_sha)." --author "GoCD <go-cd-dev@googlegroups.com>"
+
+  git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/gocd/documentation gh-pages:gh-pages
+fi
