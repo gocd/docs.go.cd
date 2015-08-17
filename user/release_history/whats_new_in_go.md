@@ -595,7 +595,7 @@ If we want to ignore files under /trunk/lib/tmp, the configuration is:
 
 #### Fetching artifacts
 
-Go supports fetching artifacts from previous stage or upstream pipeline in a job by defination of \<fetchartifact\> in cruise-config.xml. Using this feature it's easy to have one job store artifacts like binaries, jars or installers, and then re-use them in a later stage. This supports best practices like only compiling your application once.[Here is an example](../configuration/configuration_reference.md#fetchartifact).
+Go supports fetching artifacts from previous stage or upstream pipeline in a job by defination of &lt;fetchartifact&gt; in cruise-config.xml. Using this feature it's easy to have one job store artifacts like binaries, jars or installers, and then re-use them in a later stage. This supports best practices like only compiling your application once.[Here is an example](../configuration/configuration_reference.md#fetchartifact).
 
 ### Changes
 

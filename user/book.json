@@ -14,7 +14,7 @@
             "all": "http://www.go.cd"
         }
     },
-    "gitbook": "2.1.0",
+    "gitbook": "2.2.0",
     "plugins": [
         "anchors",
         "ga",
