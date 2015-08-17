@@ -96,7 +96,7 @@ public class EchoTask implements Task {
       public String template() {
         return "<div class=\"form_item_block\">\n" +
                 "  <label>Message:<span class=\"asterisk\">*</span>\n" +
-                "      <input type=\"text\" ng-model=\"" + MESSAGE_KEY + "\" ng-required=\"true\">\n" +
+                "      <input type=\"text\" ng-model='" + MESSAGE_KEY + "' ng-required=\"true\">\n" +
                 "  </label>\n" +
                 "</div>\n";
       }
@@ -167,7 +167,7 @@ public class EchoTask implements Task {
         return "<div class='form_item_block'>\n" +
             "  <label>Message:<span class='asterisk'>*</span></label>\n" +
             "    <input type='text' ng-model='" + MESSAGE_KEY + "' />\n" +
-            "    <span class=\"form_error\" ng-show=\"GOINPUTNAME[" + MESSAGE_KEY + "].$error.server\">{{ GOINPUTNAME[" + MESSAGE_KEY + "].$error.server }}</span>\n" +
+            "    <span class='form_error' ng-show='GOINPUTNAME[" + MESSAGE_KEY + "].$error.server'>{{ GOINPUTNAME[" + MESSAGE_KEY + "].$error.server }}</span>\n" +
             "</div>\n";
       }
     };
