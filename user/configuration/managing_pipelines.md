@@ -142,6 +142,18 @@ If the user is a pipeline group admin, she can clone the new pipeline into a gro
 
 -   Click "Save"
 
+## Delete an existing pipeline
+
+Deleting a pipeline removes an existing pipeline from the config. 
+
+**Warning**: Pipeline history is not removed from the database and artifacts are not removed from artifact storage, which may cause conflicts if a pipeline with the same name is later re-created.
+
+-   Navigate to the Admin tab
+
+-   Locate the pipeline that needs to be deleted
+
+-   In that row, click on the "Delete" icon.
+
 ## Pipeline Templates
 
 Templating helps to create reusable workflows in order to make tasks like creating and maintaining branches, and managing large number of pipelines easier.
