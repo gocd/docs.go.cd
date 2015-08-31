@@ -39,5 +39,8 @@
         "pageNumbers": false,
         "fontSize": 12,
         "paperSize": "a4"
+    },
+    "styles": {
+        "website": "resources/stylesheets/website.css"
     }
 }
