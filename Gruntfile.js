@@ -46,25 +46,13 @@ var path = require("path");
           ext: '.css'
         }]
       }
-    },        
-    imagemin: {               
-        dist: {
-          files: [{
-            expand: true,                
-            cwd: '<%= docs.source %>',
-            src: ['**/*.{ico,png,jpg,gif,svg}'], 
-            dest: '<%= docs.destination %>'
-          }]
-        }
-      }      
     }
-  );
+  });
 
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  grunt.registerTask('default', ['htmlmin', 'uglify', 'cssmin', 'imagemin']);
+  grunt.registerTask('default', ['htmlmin', 'uglify', 'cssmin']);
 
 };
