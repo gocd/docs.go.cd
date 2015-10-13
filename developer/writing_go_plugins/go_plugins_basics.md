@@ -24,7 +24,7 @@ A plugin for Go is a JAR file with the following structure:
                 |   \-- dependency.jar
                 |
                 \-- plugin.xml
-        
+
 ```
 
 The plugin jar is a self-contained jar containing - all the plugin implementations classes, their dependencies and metadata about the plugin.
@@ -79,18 +79,18 @@ For a Java class to be a valid plugin extension, it:
 
 Here is an example plugin extension class (for the one shown above):
 
-``` {.code}
-                package com.plugin.go.testplugin;
+```java
+package com.plugin.go.testplugin;
 
-                import com.thoughtworks.go.plugin.api.annotation.Extension;
-                import com.thoughtworks.go.plugin.api.info.PluginDescriptor;
-                import com.thoughtworks.go.plugin.api.info.PluginDescriptorAware;
+import com.thoughtworks.go.plugin.api.annotation.Extension;
+import com.thoughtworks.go.plugin.api.info.PluginDescriptor;
+import com.thoughtworks.go.plugin.api.info.PluginDescriptorAware;
 
-                @Extension
-                public class SomePlugin implements PluginDescriptorAware {
-                    public void setPluginDescriptor(PluginDescriptor descriptor) {
-                    }
-                }
+@Extension
+public class SomePlugin implements PluginDescriptorAware {
+    public void setPluginDescriptor(PluginDescriptor descriptor) {
+    }
+}
             
 ```
 
@@ -132,12 +132,12 @@ A method in an extension point implementation marked with **@Load** annotation w
 
 An example callback is shown below
 
-``` {.code}
-                @Load
-                public void onLoad(PluginContext context) {
-                    System.out.println("Plugin loaded");
-                }
-            
+```java
+@Load
+public void onLoad(PluginContext context) {
+    System.out.println("Plugin loaded");
+}
+
 ```
 
 ### @UnLoad
@@ -151,12 +151,12 @@ A method in an extension point implementation marked with **@UnLoad** annotation
 
 An example callback is shown below
 
-``` {.code}
-                @UnLoad
-                public void onUnload(PluginContext context) {
-                    System.out.println("Plugin unloaded");
-                }
-            
+```java
+@UnLoad
+public void onUnload(PluginContext context) {
+    System.out.println("Plugin unloaded");
+}
+
 ```
 
 @Unload annotation will be validated for the above expectations at the load time of plugin but will be invoked only at the unload time. The rationale behind this validation is that load callback will not be invoked if the unload callback is bound to fail.
