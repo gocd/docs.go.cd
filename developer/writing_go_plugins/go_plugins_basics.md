@@ -41,24 +41,24 @@ Plugin metadata is a file that should be at the top level of the plugin JAR file
 
 Following is a sample plugin.xml file:
 
-``` {.code}
-                <?xml version="1.0" encoding="utf-8" ?>
-                <go-plugin id="testplugin.somePlugin" version="1">
-                    <about>
-                        <name>Some plugin name</name>
-                        <version>1.0.1</version>
-                        <target-go-version>12.4</target-go-version>
-                        <description>Some description goes here</description>
-                        <vendor>
-                            <name>ThoughtWorks Go Team</name>
-                            <url>www.thoughtworks.com</url>
-                        </vendor>
-                        <target-os>
-                            <value>Linux</value>
-                            <value>Windows</value>
-                        </target-os>
-                    </about>
-                </go-plugin>
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<go-plugin id="testplugin.somePlugin" version="1">
+    <about>
+        <name>Some plugin name</name>
+        <version>1.0.1</version>
+        <target-go-version>12.4</target-go-version>
+        <description>Some description goes here</description>
+        <vendor>
+            <name>ThoughtWorks Go Team</name>
+            <url>www.thoughtworks.com</url>
+        </vendor>
+        <target-os>
+            <value>Linux</value>
+            <value>Windows</value>
+        </target-os>
+    </about>
+</go-plugin>
             
 ```
 
