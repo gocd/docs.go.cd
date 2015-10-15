@@ -15,7 +15,7 @@ On Windows, multiple Go agents can be run in two ways - as Windows service or as
 - Delete the file C:\\Program Files\\Go Agent 2\\config\\guid.txt
 - Delete the file C:\\Program Files\\Go Agent 2\\.agent-bootstrapper.running
 - Edit **wrapper-agent.conf** file to customise information related to **Go Agent 2**
-Just after the line \#include ../conf/wrapper-licenses.conf, add
+Just after the line \#include ../conf/wrapper-license.conf, add
     - set.GO\_AGENT\_DIR=C:\\Program Files\\Go Agent 2
     - set.GO\_AGENT\_JAVA\_HOME=%GO\_AGENT\_DIR%\\jre
 - Run the following command
