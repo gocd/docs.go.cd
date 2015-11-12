@@ -82,6 +82,7 @@ This is the summary of user documentation.
     * [Graphs](advanced_usage/stage_duration_chart.md)
     * [Command Repository](advanced_usage/command_repository.md)
     * [Backup Go Server](advanced_usage/one_click_backup.md)
+    * [Config Repository](advanced_usage/config_repo.md)
     * [Other Config Options](advanced_usage/other_config_options.md)
 * [Integrating Go With Other Tools](integration/index.md)
     * [Integration with External Tools](integration/go_integration.md)
