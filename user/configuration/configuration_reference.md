@@ -3,216 +3,216 @@
 # Go Configuration Reference
 
 <big><pre>
-[`<cruise>`](#cruise)
-    [`<server>`](#server)
-        [`<license/>`](#license)
-        [`<security>`](#security)
-            [`<ldap/>`](#ldap)
-            [`<passwordFile/>`](#passwordFile)
-            [`<roles>`](#roles)
-                [`<role>`](#role_definition)
-                    [`<user/>`](#userinrole)
-                [`</role>`](#role_definition)
-            [`</roles>`](#roles)
-            [`<admins>`](#admins)
-                [`<role/>`](#roleinadmin)
-                [`<user/>`](#user)
-            [`</admins>`](#admins)
-        [`</security>`](#security)
-        [`<mailhost/>`](#mailhost)
-    [`</server>`](#server)
+<a href="#cruise">&lt;cruise&gt;</a>
+    <a href="#server">&lt;server&gt;</a>
+        <a href="#license">&lt;license/&gt;</a>
+        <a href="#security">&lt;security&gt;</a>
+            <a href="#ldap">&lt;ldap/&gt;</a>
+            <a href="#passwordFile">&lt;passwordFile/&gt;</a>
+            <a href="#roles">&lt;roles&gt;</a>
+                <a href="#role_definition">&lt;role&gt;</a>
+                    <a href="#userinrole">&lt;user/&gt;</a>
+                <a href="#role_definition">&lt;/role&gt;</a>
+            <a href="#roles">&lt;/roles&gt;</a>
+            <a href="#admins">&lt;admins&gt;</a>
+                <a href="#roleinadmin">&lt;role/&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+            <a href="#admins">&lt;/admins&gt;</a>
+        <a href="#security">&lt;/security&gt;</a>
+        <a href="#mailhost">&lt;mailhost/&gt;</a>
+    <a href="#server">&lt;/server&gt;</a>
 
-    [`<repositories>`](#repositories)
-        [`<repository>`](#repository)
-            [`<pluginConfiguration/>`](#pluginConfiguration)
-            [`<configuration>`](#package-repo-configuration)
-                [`<property>`](#package-repo-property)
-                    [`<key/>`](#package-repo-property-key)
-                    [`<value/>`](#package-repo-property-value)
-                [`</property>`](#package-repo-property)
-            [`</configuration>`](#package-repo-configuration)
-            [`<packages>`](#packages)
-                [`<package>`](#package)
-                    [`<configuration>`](#package-repo-configuration)
-                        [`<property>`](#package-repo-property)
-                            [`<key/>`](#package-repo-property-key)
-                            [`<value/>`](#package-repo-property-value)
-                        [`</property>`](#package-repo-property)
-                    [`</configuration>`](#package-repo-configuration)
-                [`</package>`](#package)
-            [`</packages>`](#packages)
-        [`</repository>`](#repository)
-    [`</repositories>`](#repositories)
+    <a href="#repositories">&lt;repositories&gt;</a>
+        <a href="#repository">&lt;repository&gt;</a>
+            <a href="#pluginConfiguration">&lt;pluginConfiguration/&gt;</a>
+            <a href="#package-repo-configuration">&lt;configuration&gt;</a>
+                <a href="#package-repo-property">&lt;property&gt;</a>
+                    <a href="#package-repo-property-key">&lt;key/&gt;</a>
+                    <a href="#package-repo-property-value">&lt;value/&gt;</a>
+                <a href="#package-repo-property">&lt;/property&gt;</a>
+            <a href="#package-repo-configuration">&lt;/configuration&gt;</a>
+            <a href="#packages">&lt;packages&gt;</a>
+                <a href="#package">&lt;package&gt;</a>
+                    <a href="#package-repo-configuration">&lt;configuration&gt;</a>
+                        <a href="#package-repo-property">&lt;property&gt;</a>
+                            <a href="#package-repo-property-key">&lt;key/&gt;</a>
+                            <a href="#package-repo-property-value">&lt;value/&gt;</a>
+                        <a href="#package-repo-property">&lt;/property&gt;</a>
+                    <a href="#package-repo-configuration">&lt;/configuration&gt;</a>
+                <a href="#package">&lt;/package&gt;</a>
+            <a href="#packages">&lt;/packages&gt;</a>
+        <a href="#repository">&lt;/repository&gt;</a>
+    <a href="#repositories">&lt;/repositories&gt;</a>
 
-    [`<pipelines>`](#pipelines)
-        [`<authorization>`](#group_authorization)
-            [`<admins>`](#group_admins)
-                [`<user/>`](#user)
-                [`<role/>`](#role)
-            [`</admins>`](#group_admins)
-            [`<view>`](#group_view)
-                [`<user/>`](#user)
-                [`<role/>`](#role)
-            [`</view>`](#group_view)
-            [`<operate>`](#group_operate)
-                [`<user/>`](#user)
-                [`<role/>`](#role)
-            [`</operate>`](#group_operate)
-        [`</authorization>`](#group_authorization)
+    <a href="#pipelines">&lt;pipelines&gt;</a>
+        <a href="#group_authorization">&lt;authorization&gt;</a>
+            <a href="#group_admins">&lt;admins&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+                <a href="#role">&lt;role/&gt;</a>
+            <a href="#group_admins">&lt;/admins&gt;</a>
+            <a href="#group_view">&lt;view&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+                <a href="#role">&lt;role/&gt;</a>
+            <a href="#group_view">&lt;/view&gt;</a>
+            <a href="#group_operate">&lt;operate&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+                <a href="#role">&lt;role/&gt;</a>
+            <a href="#group_operate">&lt;/operate&gt;</a>
+        <a href="#group_authorization">&lt;/authorization&gt;</a>
 
-        [`<pipeline>`](#pipeline)
-            [`<params>`](#params)
-                [`<param/>`](#param)
-            [`</params>`](#params)
-            [`<trackingtool/>`](#trackingtool)
-            [`<mingle/>`](#mingle)
-            [`<timer/>`](#timer)
-            [`<environmentvariables>`](#environmentvariables)
-                [`<variable>`](#variable)
-                    `<value/>`
-                [`</variable>`](#variable)
-            [`</environmentvariables>`](#environmentvariables)
+        <a href="#pipeline">&lt;pipeline&gt;</a>
+            <a href="#params">&lt;params&gt;</a>
+                <a href="#param">&lt;param/&gt;</a>
+            <a href="#params">&lt;/params&gt;</a>
+            <a href="#trackingtool">&lt;trackingtool/&gt;</a>
+            <a href="#mingle">&lt;mingle/&gt;</a>
+            <a href="#timer">&lt;timer/&gt;</a>
+            <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                <a href="#variable">&lt;variable&gt;</a>
+                    &lt;value/&gt;
+                <a href="#variable">&lt;/variable&gt;</a>
+            <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
 
-            [`<materials>`](#materials)
-                [`<svn>`](#svn)
-                    [`<filter>`](#filter)
-                        [`<ignore/>`](#ignore)
-                    [`</filter>`](#filter)
-                [`</svn>`](#svn)
-                [`<hg>`](#hg)
-                    [`<filter>`](#filter)
-                        [`<ignore/>`](#ignore)
-                    [`</filter>`](#filter)
-                [`</hg>`](#hg)
-                [`<p4>`](#p4)
-                    `<view/>`
-                    [`<filter>`](#filter)
-                        [`<ignore/>`](#ignore)
-                    [`</filter>`](#filter)
-                [`</p4>`](#p4)
-                [`<git>`](#git)
-                    [`<filter>`](#filter)
-                        [`<ignore/>`](#ignore)
-                    [`</filter>`](#filter)
-                [`</git>`](#git)
-                [`<tfs>`](#tfs)
-                    [`<filter>`](#filter)
-                        [`<ignore/>`](#ignore)
-                    [`</filter>`](#filter)
-                [`</tfs>`](#tfs)
-                [`<package/>`](#package-material)
-                [`<pipeline/>`](#pipeline-dependency)
-            [`</materials>`](#materials)
+            <a href="#materials">&lt;materials&gt;</a>
+                <a href="#svn">&lt;svn&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#svn">&lt;/svn&gt;</a>
+                <a href="#hg">&lt;hg&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#hg">&lt;/hg&gt;</a>
+                <a href="#p4">&lt;p4&gt;</a>
+                    &lt;view/&gt;
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#p4">&lt;/p4&gt;</a>
+                <a href="#git">&lt;git&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#git">&lt;/git&gt;</a>
+                <a href="#tfs">&lt;tfs&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#tfs">&lt;/tfs&gt;</a>
+                <a href="#package-material">&lt;package/&gt;</a>
+                <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
+            <a href="#materials">&lt;/materials&gt;</a>
 
-            [`<stage>`](#stage)
-                [`<approval>`](#approval)
-                    [`<authorization>`](#authorization)
-                        [`<role/>`](#role)
-                        [`<user/>`](#user)
-                    [`</authorization>`](#authorization)
-                [`</approval>`](#approval)
-                [`<environmentvariables>`](#environmentvariables)
-                    [`<variable>`](#variable)
-                        `<value/>`
-                    [`</variable>`](#variable)
-                [`</environmentvariables>`](#environmentvariables)
+            <a href="#stage">&lt;stage&gt;</a>
+                <a href="#approval">&lt;approval&gt;</a>
+                    <a href="#authorization">&lt;authorization&gt;</a>
+                        <a href="#role">&lt;role/&gt;</a>
+                        <a href="#user">&lt;user/&gt;</a>
+                    <a href="#authorization">&lt;/authorization&gt;</a>
+                <a href="#approval">&lt;/approval&gt;</a>
+                <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                    <a href="#variable">&lt;variable&gt;</a>
+                        &lt;value/&gt;
+                    <a href="#variable">&lt;/variable&gt;</a>
+                <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
 
-                [`<jobs>`](#jobs)
-                    [`<job>`](#job)
-                        [`<environmentvariables>`](#environmentvariables)
-                            [`<variable>`](#variable)
-                                `<value/>`
-                            [`</variable>`](#variable)
-                        [`</environmentvariables>`](#environmentvariables)
-                        [`<resources>`](#resources)
-                            [`<resource/>`](#resource)
-                        [`</resources>`](#resources)
+                <a href="#jobs">&lt;jobs&gt;</a>
+                    <a href="#job">&lt;job&gt;</a>
+                        <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                            <a href="#variable">&lt;variable&gt;</a>
+                                &lt;value/&gt;
+                            <a href="#variable">&lt;/variable&gt;</a>
+                        <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
+                        <a href="#resources">&lt;resources&gt;</a>
+                            <a href="#resource">&lt;resource/&gt;</a>
+                        <a href="#resources">&lt;/resources&gt;</a>
 
-                        [`<tasks>`](#tasks)
-                            [`<fetchartifact>`](#fetchartifact)
-                                [`<runif/>`](#runif)
-                                [`<oncancel/>`](#oncancel)
-                            [`</fetchartifact>`](#fetchartifact)
-                            [`<ant>`](#ant)
-                                [`<runif/>`](#runif%20)
-                                [`<oncancel/>`](#oncancel)
-                            [`</ant>`](#ant)
-                            [`<nant>`](#nant)
-                                [`<runif/>`](#runif%20)
-                                [`<oncancel/>`](#oncancel)
-                            [`</nant>`](#nant)
-                            [`<rake>`](#rake)
-                                [`<runif/>`](#runif%20)
-                                [`<oncancel/>`](#oncancel)
-                            [`</rake>`](#rake)
-                            [`<exec>`](#exec)
-                                [`<arg/>`](#arg)
-                                [`<runif/>`](#runif%20)
-                                [`<oncancel/>`](#oncancel)
-                            [`</exec>`](#exec)
-                        [`</tasks>`](#tasks)
+                        <a href="#tasks">&lt;tasks&gt;</a>
+                            <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
+                                <a href="#runif">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#fetchartifact">&lt;/fetchartifact&gt;</a>
+                            <a href="#ant">&lt;ant&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#ant">&lt;/ant&gt;</a>
+                            <a href="#nant">&lt;nant&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#nant">&lt;/nant&gt;</a>
+                            <a href="#rake">&lt;rake&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#rake">&lt;/rake&gt;</a>
+                            <a href="#exec">&lt;exec&gt;</a>
+                                <a href="#arg">&lt;arg/&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#exec">&lt;/exec&gt;</a>
+                        <a href="#tasks">&lt;/tasks&gt;</a>
 
-                        [`<artifacts>`](#artifacts)
-                            [`<artifact/>`](#artifact)
-                            [`<test/>`](#test)
-                        [`</artifacts>`](#artifacts)
-                        [`<tabs>`](#tabs)
-                            [`<tab/>`](#tab)
-                        [`</tabs>`](#tabs)
-                        [`<properties>`](#properties)
-                            [`<property/>`](#property)
-                        [`</properties>`](#properties)
-                    [`</job>`](#job)
-                [`</jobs>`](#jobs)
-            [`</stage>`](#stage)
-        [`</pipeline>`](#pipeline)
-    [`</pipelines>`](#pipelines)
+                        <a href="#artifacts">&lt;artifacts&gt;</a>
+                            <a href="#artifact">&lt;artifact/&gt;</a>
+                            <a href="#test">&lt;test/&gt;</a>
+                        <a href="#artifacts">&lt;/artifacts&gt;</a>
+                        <a href="#tabs">&lt;tabs&gt;</a>
+                            <a href="#tab">&lt;tab/&gt;</a>
+                        <a href="#tabs">&lt;/tabs&gt;</a>
+                        <a href="#properties">&lt;properties&gt;</a>
+                            <a href="#property">&lt;property/&gt;</a>
+                        <a href="#properties">&lt;/properties&gt;</a>
+                    <a href="#job">&lt;/job&gt;</a>
+                <a href="#jobs">&lt;/jobs&gt;</a>
+            <a href="#stage">&lt;/stage&gt;</a>
+        <a href="#pipeline">&lt;/pipeline&gt;</a>
+    <a href="#pipelines">&lt;/pipelines&gt;</a>
 
-    [`<templates>`](#templates)
-        [`<pipeline>`](#pipeline-template)
-            [`<stage>`](#stage)
+    <a href="#templates">&lt;templates&gt;</a>
+        <a href="#pipeline-template">&lt;pipeline&gt;</a>
+            <a href="#stage">&lt;stage&gt;</a>
                 ...
-            [`</stage>`](#stage)
-        [`</pipeline>`](#pipeline-template)
-    [`</templates>`](#templates)
+            <a href="#stage">&lt;/stage&gt;</a>
+        <a href="#pipeline-template">&lt;/pipeline&gt;</a>
+    <a href="#templates">&lt;/templates&gt;</a>
 
-    [`<environments>`](#environments)
-        [`<environment>`](#environment)
-            [`<environmentvariables>`](#environmentvariables)
-                [`<variable>`](#variable)
-                    `<value/>`
-                [`</variable>`](#variable)
-            [`</environmentvariables>`](#environmentvariables)
-            [`<agents>`](#environment-agents)
-                [`<physical/>`](#environment-agents-physical)
-            [`</agents>`](#environment-agents)
-            [`<pipelines>`](#environment-pipelines)
-                [`<pipeline/>`](#environment-pipeline)
-            [`</pipelines>`](#environment-pipelines)
-        [`</environment>`](#environment)
-    [`</environments>`](#environments)
+    <a href="#environments">&lt;environments&gt;</a>
+        <a href="#environment">&lt;environment&gt;</a>
+            <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                <a href="#variable">&lt;variable&gt;</a>
+                    &lt;value/&gt;
+                <a href="#variable">&lt;/variable&gt;</a>
+            <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
+            <a href="#environment-agents">&lt;agents&gt;</a>
+                <a href="#environment-agents-physical">&lt;physical/&gt;</a>
+            <a href="#environment-agents">&lt;/agents&gt;</a>
+            <a href="#environment-pipelines">&lt;pipelines&gt;</a>
+                <a href="#environment-pipeline">&lt;pipeline/&gt;</a>
+            <a href="#environment-pipelines">&lt;/pipelines&gt;</a>
+        <a href="#environment">&lt;/environment&gt;</a>
+    <a href="#environments">&lt;/environments&gt;</a>
 
-    [`<agents>`](#agents)
-        [`<agent>`](#agent)
-            [`<resources>`](#agentresources)
-                [`<resource/>`](#agentresource)
-            [`</resources>`](#agentresources)
-        [`</agent>`](#agent)
-    [`</agents>`](#agents)
-[`</cruise>`](#cruise)
+    <a href="#agents">&lt;agents&gt;</a>
+        <a href="#agent">&lt;agent&gt;</a>
+            <a href="#agentresources">&lt;resources&gt;</a>
+                <a href="#resource">&lt;resource/&gt;</a>
+            <a href="#resources">&lt;/resources&gt;</a>
+        <a href="#agent">&lt;/agent&gt;</a>
+    <a href="#agents">&lt;/agents&gt;</a>
+<a href="#cruise">&lt;/cruise&gt;</a>
 </pre></big>
 
 [top](#go-configuration-reference)
 
 # Configuration reference
 
-## `<cruise>`
+## &lt;cruise&gt; {#cruise}
 
 The `<cruise>` element is the root element of the configuration.
 
 [top](#go-configuration-reference)
 
-## `<server>`
+## &lt;server&gt; {#server}
 
 The `<server>` element can be used to define information and attributes of the Go Server.
 
@@ -252,8 +252,7 @@ The `<server>` element can be used to define information and attributes of the G
 
 [top](#top)
 
-`<license>`
------------
+## &lt;license&gt; {#license}
 
 The `<license>` element contains your Go license. Go works in the community edition if this element is not present. To obtain a Go license, please visit the [Go Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
 
@@ -275,8 +274,7 @@ The `<license>` element contains your Go license. Go works in the community edit
 
 [top](#top)
 
-`<security>`
-------------
+## &lt;security&gt; {#security}
 
 The `<security>` element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support [LDAP](#ldap) and a simple [password file](#passwordFile) format. You can use both methods if you want. This can be useful if you want to allow access from scripts without having to add a lot of users to your corporate LDAP. In this case you could add a 'script' user to the password file.
 
@@ -305,8 +303,7 @@ The `<security>` element can be used to enable authentication. If the element is
 
 [top](#top)
 
-`<mailhost>`
-------------
+## &lt;mailhost&gt; {#mailhost}
 
 The `<mailhost>` element is used to configure mail notifications. Mail notifications require [security](#security) to be enabled.
 
@@ -328,8 +325,7 @@ The `<mailhost>` element is used to configure mail notifications. Mail notificat
 
 [top](#top)
 
-`<ldap>`
---------
+## &lt;ldap&gt; {#ldap}
 
 The `<ldap>` element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.
 
@@ -368,8 +364,7 @@ The `<ldap>` element is used to specify the ldap server. Users can access Go wit
 
 [top](#top)
 
-`<passwordFile>`
-----------------
+## &lt;passwordFile&gt; {#passwordFile}
 
 The `<passwordFile>` element is used to specify a file which has a set of username and password pairs. The format of username and password in this file is \${username}=\${password which has been encrypted with SHA1}, with one line per user.
 
@@ -401,8 +396,7 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 
 [top](#top)
 
-`<roles>`
----------
+## &lt;roles&gt; {#roles}
 
 The `<roles>` element is a container for roles that users defined. It can't be defined without `<role>`.
 
@@ -422,8 +416,7 @@ The `<roles>` element is a container for roles that users defined. It can't be d
 
 [top](#top)
 
-`<role>`
---------
+## &lt;role&gt; {#role_definition}
 
 The `<role>` element is used to define a group of users who perform similar tasks. Each user is added by adding the sub-tag [`<user>`](#userinrole).
 
@@ -451,10 +444,9 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
 
 [top](#top)
 
-`<user>`
---------
+## &lt;user&gt; {#userinrole}
 
-One `<user>` element defines a particular user in a rolw. You can add as many as you like.
+One `<user>` element defines a particular user in a role. You can add as many as you like.
 
 **Notes:**
 
@@ -473,8 +465,7 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
 
 [top](#top)
 
-`<admins>`
-----------
+## &lt;admins&gt; {#admins}
 
 The `<admins>` element specifies which users are administrators. Only administrators can open the Administration tab to maintain Go Configuration. Administrators can perform all functions in Go (including triggering pipelines, deploying to environments etc.)
 
@@ -496,8 +487,7 @@ The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 
 [top](#top)
 
-`<role>`
---------
+## &lt;role&gt; {#roleinadmin}
 
 One `<role>` element in [`<admins>`](#admins) is used to specify a group as administrators. You can add as many as you like.
 
@@ -518,8 +508,7 @@ The users in role '**go-admin**' would be administrators.
 
 [top](#top)
 
-`<user>`
---------
+## &lt;user&gt; {#user}
 
 **Notes:**
 
@@ -538,8 +527,7 @@ Two users would be administrators, they are **Jez** and **lqiao**.
 
 [top](#top)
 
-`<role>`
---------
+## &lt;role&gt; {#role}
 
 **Notes:**
 
@@ -556,8 +544,7 @@ Two users would be administrators, they are **Jez** and **lqiao**.
 
 [top](#top)
 
-`<repositories>`
-----------------
+## &lt;repositories&gt; {#repositories}
 
 The `<repositories>` element is a container of package repositories.
 
@@ -594,8 +581,7 @@ The `<repositories>` element is a container of package repositories.
 
 [top](#top)
 
-`<repository>`
---------------
+## &lt;repository&gt; {#repository}
 
 The `<repository>` element specifies a single repository. Repository must be be unique by id and name (name is case-insensitive) across repositories configuration.
 
@@ -639,8 +625,7 @@ The `<repository>` element specifies a single repository. Repository must be be 
 
 [top](#top)
 
-`<pluginConfiguration>`
------------------------
+## &lt;pluginConfiguration&gt; {#pluginConfiguration}
 
 The `<pluginConfiguration>` element specifies configuration related to plugin.
 
@@ -653,43 +638,37 @@ The `<pluginConfiguration>` element specifies configuration related to plugin.
 
 [top](#top)
 
-`<configuration>`
------------------
+## &lt;configuration&gt; {#configuration}
 
 The `<configuration>` element specifies configuration related repository or package as one or more properties.
 
 [top](#top)
 
-`<property>`
-------------
+## &lt;property&gt; {#property}
 
 The `<property>` element holds key and value.
 
 [top](#top)
 
-`<key>`
--------
+## &lt;key&gt; {#key}
 
 The `<key>` element specifies name of property.
 
 [top](#top)
 
-`<value>`
----------
+## &lt;value&gt; {#value}
 
 The `<value>` element specifies value of property.
 
 [top](#top)
 
-`<packages>`
-------------
+## &lt;packages&gt; {#packages}
 
 The `<packages>` element specifies list of packages under a repository.
 
 [top](#top)
 
-`<package>`
------------
+## &lt;package&gt; {#package}
 
 The `<package>` element specifies single package under a repository. This tag holds configuration related to package
 
@@ -703,8 +682,7 @@ The `<package>` element specifies single package under a repository. This tag ho
 
 [top](#top)
 
-`<pipelines>`
--------------
+## &lt;pipelines&gt; {#pipelines}
 
 The `<pipelines>` element is a container of pipelines.
 
@@ -743,15 +721,13 @@ The `<pipelines>` element is a container of pipelines.
 
 [top](#top)
 
-`<authorization>`
------------------
+## &lt;authorization&gt; {#authorization}
 
 The `<authorization>` tag allows you to specify the what users and roles are able to administer, view or operate any particular group of pipelines.
 
 [top](#top)
 
-`<admins>`
-----------
+## &lt;admins&gt; {#admins}
 
 The `<admins>` element is a permission section to specify who can administer the pipeline group. Go administrators can define roles and users in the tag.
 
@@ -782,8 +758,7 @@ Given the following configuration only [admins](#admins), lqiao and any users ha
 
 [top](#top)
 
-`<view>`
---------
+## &lt;view&gt; {#view}
 
 The `<view>` element is a permission section to specify who can see the pipelines under the pipeline group. You can define roles and users in the tag.
 
@@ -812,8 +787,7 @@ Given the following configuration only administrators can operate the pipeline g
 
 [top](#top)
 
-`<operate>`
------------
+## &lt;operate&gt; {#operate}
 
 The `<operate>` element specifies who can operate the pipelines under the pipeline group. You can define roles and users.
 
@@ -847,8 +821,7 @@ Given the following configuration, only [admins](#admins), lqiao, jez and the us
 
 [top](#top)
 
-`<pipeline>`
-------------
+## &lt;pipeline&gt; {#pipeline}
 
 The `<pipeline>` element specifies a single pipeline. It must be unique (including case) across the entire configuration (not only in the
 pipeline group).
@@ -895,15 +868,13 @@ There should be at least one stage in one pipeline. Go uses the pipeline name to
 
 [top](#top)
 
-`<params>`
-----------
+## &lt;params&gt; {#params}
 
 The element `<params>` specifies the list of parameters (Element [param](#param)) elements to be used in a pipeline or a pipeline template. You can specify these under a [`<pipeline>`](#pipeline) and can be used anywhere inside pipeline/stage/job definition.
 
 [top](#top)
 
-`<param>`
----------
+## &lt;param&gt; {#param}
 
 A `<param>` defines the parameter name that will be substituted with the paramerter value that will be substituted in a pipeline or a pipeline
 template.
@@ -919,8 +890,7 @@ template.
 
 [top](#top)
 
-`<trackingtool>`
-----------------
+## &lt;trackingtool&gt; {#trackingtool}
 
 The `<trackingtool>` element can be used to specify links to an issue tracker. Go will construct a link based on the commit message that you
 can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue etc).
@@ -960,8 +930,7 @@ For example: If you use [Mingle](http://www.thoughtworks.com/products/mingle-agi
 
 [top](#top)
 
-`<mingle>`
-----------
+## &lt;mingle&gt; {#mingle}
 
 This element let's you associate a [Mingle](http://www.thoughtworks-studios.com/mingle) project to a pipeline. Once associated, you will be able to track Mingle cards from within Go.
 
@@ -987,8 +956,7 @@ This element let's you associate a [Mingle](http://www.thoughtworks-studios.com/
 
 [top](#top)
 
-`<timer>`
----------
+## &lt;timer&gt; {#timer}
 
 The `<timer>` element specifies a cron-like schedule to build the pipeline.
 
@@ -1081,8 +1049,7 @@ Pay attention to the effects of '?' and '\*' in the day-of-week and day-of-month
 
 [top](#top)
 
-`<materials>`
--------------
+## &lt;materials&gt; {#materials}
 
 The `<materials>` element specifies the source of the pipeline changes. Generally this will be your codebase in your source control repository.
 
@@ -1122,8 +1089,7 @@ Multiple materials:
 
 [top](#top)
 
-`<filter>`
-----------
+## &lt;filter&gt; {#filter}
 
 The `<filter>` element specifies files in changesets that should not trigger a pipeline automatically. When a pipeline is triggered by files that are not ignored the filtered files will still be updated with other files. You can only define one filter under each SCM material. When you trigger a pipeline manually, it will update to most recent revision, including filtered files.
 
@@ -1139,8 +1105,7 @@ The `<filter>` element specifies files in changesets that should not trigger a p
 
 [top](#top)
 
-`<ignore>`
-----------
+## &lt;ignore&gt; {#ignore}
 
 The `<ignore>` element is used to specify a set of files that are ignored when Go checks for changes. Repository changesets which only
 contain these files will not trigger a pipeline automatically.
@@ -1191,8 +1156,7 @@ Ignore all the files that are in the nested directory under folder **'helper'** 
 
 [top](#top)
 
-`<svn>`
--------
+## &lt;svn&gt; {#svn}
 
 The `<svn>` element specifies the location of your code base in Subversion repository.
 
@@ -1231,8 +1195,8 @@ Go Agent will check out source code from 'http://svn-server.com/framework' to '/
 
 [top](#top)
 
-`<hg>`
-------
+## &lt;hg&gt; {#hg}
+
 
 The `<hg>` element specifies the location of your code base in a Mercural repository. Go supports the http and ssh for mercural.
 
@@ -1275,8 +1239,7 @@ Note that \# needs to be escaped with another \# - hence the \#\# in the url abo
 
 [top](#top)
 
-`<p4>`
-------
+## &lt;p4&gt; {#p4}
 
 The `<p4>` element specifies the location of your code base in a Perforce repository.
 
@@ -1291,9 +1254,9 @@ Go will use directory under pipelines/{pipelineName} in agent side as Perforce r
 | port | Yes | Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the P4PORT environment variable. |
 | username | No | Perforce username to use. |
 | password | No | Password for the specified user. |
-| useTickets | No | Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described here: http://www.perforce.com/perforce/doc.current/manuals/cmdref/login.html |
+| useTickets | No | Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described [here](http://www.perforce.com/perforce/doc.current/manuals/cmdref/login.html). |
 | dest | Only for multiple materials | The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent's sandbox. |
-| view | Yes | Valid Perforce view. The view should be a sub-element of P4. Click here to see details about VIEW of Perforce. |
+| view | Yes | Valid Perforce view. The view should be a sub-element of P4. Click [here](http://www.perforce.com/perforce/doc.082/manuals/p4guide/02_config.html#1066090) to see details about VIEW of Perforce. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
 
@@ -1332,8 +1295,7 @@ For example:
 
 [top](#top)
 
-`<git>`
--------
+## &lt;git&gt; {#git}
 
 The `<git>` element specifies the location of your code base in a GIT repository. Go only supports remote repositories.
 
@@ -1385,8 +1347,7 @@ directory where the .ssh/ directory is located.
 
 [top](#top)
 
-`<tfs>`
--------
+## &lt;tfs&gt; {#tfs}
 
 The `<tfs>` element specifies the location of your code base in a TFS Source repository.
 
@@ -1423,8 +1384,7 @@ The `<tfs>` element specifies the location of your code base in a TFS Source rep
 
 [top](#top)
 
-`<package>`
------------
+## &lt;package&gt; {#package}
 
 The `<package>` element refers to package which is defined as part of repositories configuration.
 
@@ -1477,8 +1437,7 @@ The `<package>` element refers to package which is defined as part of repositori
 
 [top](#top)
 
-`<pipeline>`
-------------
+## &lt;pipeline&gt; {#pipeline}
 
 The `<pipeline>` element specifies that successful completion of a stage in another pipeline will trigger the current pipeline to start.
 
@@ -1522,8 +1481,7 @@ would be:
 
 [top](#top)
 
-`<stage>`
----------
+## &lt;stage&gt; {#stage}
 
 The `<stage>` element specifies a set of jobs. If any job in a given stage fails then the stage will fail. If a stage has an [`<approval>`](#approval) configuration with manual type it can only be triggered manually (i.e. a user must click on the trigger button on the UI). If the previous stage has failed, you can still trigger the following stage manually.
 
@@ -1565,8 +1523,7 @@ There must be at least one job in stage.
 
 [top](#top)
 
-`<jobs>`
---------
+## &lt;jobs&gt; {#jobs}
 
 The `<jobs>` element specify the set of jobs for a stage.
 
@@ -1593,8 +1550,7 @@ The `<jobs>` element specify the set of jobs for a stage.
 
 [top](#top)
 
-`<job>`
--------
+## &lt;job&gt; {#job}
 
 A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.
@@ -1652,8 +1608,7 @@ If a Job has no resources then it can be built by any Agent
 
 [top](#top)
 
-`<resources>`
--------------
+## &lt;resources&gt; {#resources}
 
 `<resources>` specifies the [resources](#resource) needed for a job. A job can have zero or more resources.
 
@@ -1673,8 +1628,7 @@ If a job has no resources it can be built on any agent.
 
 [top](#top)
 
-`<resource>`
-------------
+## &lt;resource&gt; {#resource}
 
 A `<resource>` is a text tag that specifies a resource which a job requires to build. An Agent must have all the Resources specified for a Job to be able to run that Job.
 
@@ -1694,8 +1648,7 @@ Resources are case-insensitive. A resource name can contain alphanumeric charact
 
 [top](#top)
 
-`<tasks>`
----------
+## &lt;tasks&gt; {#tasks}
 
 `<tasks>` specifies the tasks (like [`<ant>`](#ant), [`<rake>`](#rake) etc) that will run as part of a job.
 
@@ -1725,8 +1678,7 @@ The following environment variables are set for all tasks:
 
 [top](#top)
 
-`<ant>`
--------
+## &lt;ant&gt; {#ant}
 
 Specifies an Ant build to run. Ant is assumed to be present from the command line on the agent. Go depends on and uses JDK 1.6. If JDK 1.4 or 1.5 binaries are required by a build, it can be specified in the Ant [javac](http://ant.apache.org/manual/CoreTasks/javac.html) task.
 
@@ -1760,8 +1712,7 @@ All paths specified are relative to the pipeline working directory.
 
 [top](#top)
 
-`<exec>`
---------
+## &lt;exec&gt; {#exec}
 
 Runs a specified command. The build fails if the command cannot be run or if it returns an error.
 
@@ -1787,8 +1738,7 @@ All paths specified are relative to the pipeline working directory.
 
 [top](#top)
 
-`<arg>`
--------
+## &lt;arg&gt; {#arg}
 
 Specify a single argument for [exec](#exec) command.
 
@@ -1823,8 +1773,7 @@ On Windows you should specify the full name of your script file such as "mybuild
 
 [top](#top)
 
-`<nant>`
---------
+## &lt;nant&gt; {#nant}
 
 Specifies a NAnt build to run. NAnt is assumed to be present from the command line on the agent.
 
@@ -1851,8 +1800,7 @@ Invoke NAnt, specifying a set of targets to run:
 
 [top](#top)
 
-`<rake>`
---------
+## &lt;rake&gt; {#rake}
 
 Specifies a Rake build to be run. Ruby and Rake are assumed to be present from the command line on the agent.
 
@@ -1878,8 +1826,7 @@ Invoke rake, specifying a set of targets to run:
 
 [top](#top)
 
-`<fetchartifact>`
------------------
+## &lt;fetchartifact&gt; {#fetchartifact}
 
 Fetch artifacts from:
 
@@ -1976,8 +1923,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 
 [top](#top)
 
-`<runif>`
----------
+## &lt;runif&gt; {#runif}
 
 Specifies when a task should be allowed to run. Multiple conditions may be defined for each task.
 
@@ -2035,8 +1981,7 @@ Instead, task 3 `<exec>` would be executed.
 
 [top](#top)
 
-`<oncancel>`
-------------
+## &lt;oncancel&gt; {#oncancel}
 
 Specifies a task to execute when a stage is cancelled. Only one task can be defined in `<oncancel>`.
 
@@ -2067,8 +2012,7 @@ The task 'start\_server' starts a process on an agent. When the stage is cancell
 
 [top](#top)
 
-`<artifacts>`
--------------
+## &lt;artifacts&gt; {#artifacts}
 
 `<artifacts>` specifies what files the agent will publish to the server.
 
@@ -2085,8 +2029,7 @@ The task 'start\_server' starts a process on an agent. When the stage is cancell
 
 [top](#top)
 
-`<artifact>`
-------------
+## &lt;artifact&gt; {#artifact}
 
 Publish build artifacts to the artifact repository for the job.
 
@@ -2131,8 +2074,7 @@ The following will upload all xml files to the server's artifact repository.
 
 [top](#top)
 
-`<test>`
---------
+## &lt;test&gt; {#test}
 
 The src attribute should point towards a folder that contains the test output files. Go will use these to generate a test report. Test
 information is placed in the Failures and Test sub-tabs. Test results from multiple jobs are aggregated on the stage detail pages. This allows
@@ -2157,8 +2099,7 @@ you to see the results of tests from both functional and unit tests even if they
 
 [top](#top)
 
-`<tabs>`
---------
+## &lt;tabs&gt; {#tabs}
 
 The `<tabs>` element allows you to add tabs to the Job Details page. You can put any artifact that can be rendered by a web browser into a tab. For example, if your coverage tool produces an html report, you can easily place that report into a tab. Tabs are implemented as iframes (see W3C iframe definition ).
 
@@ -2177,8 +2118,7 @@ The `<tabs>` element allows you to add tabs to the Job Details page. You can put
 
 [top](#top)
 
-`<tab>`
--------
+## &lt;tab&gt; {#tab}
 
 Define a tab with specific name and artifact to show.
 
@@ -2204,8 +2144,7 @@ Given some coverage infomation in 'target/Jcoverage' folder on the agent side, W
 </job>
 ```
 
-`<properties>`
---------------
+## &lt;properties&gt; {#properties}
 
 The `<properties>` element allows you to create properties of the build from XML files or artifacts created during your build. You can export
 the values of properties over time. This allows you to track properties against certain builds, for example to see whether build time is
@@ -2232,8 +2171,7 @@ improving or getting worse.
 
 [top](#top)
 
-`<property>`
-------------
+## &lt;property&gt; {#property}
 
 Define a Property based on the contents of an XML file.
 
@@ -2283,8 +2221,7 @@ coverage.xml file.
 
 [top](#top)
 
-`<approval>`
-------------
+## &lt;approval&gt; {#approval}
 
 Specifies how a stage should be triggered. `<approval>` of type 'manual' or 'success' can be used to stop a pipeline execution at the start of a stage and can only be resumed when it is manually approved on the pipeline activity page, stage details page or through RESTful url.
 
@@ -2310,8 +2247,7 @@ Specifies how a stage should be triggered. `<approval>` of type 'manual' or 'suc
 
 [top](#top)
 
-`<authorization>`
------------------
+## &lt;authorization&gt; {#authorization}
 
 You can use `<authorization>` under an [`<approval>`](#approval) with a 'manual' or 'success' type to specify who can approve this stage. There
 are two sub-elements: [`<user>`](#user) and [`<role>`](#role).
@@ -2338,15 +2274,13 @@ are two sub-elements: [`<user>`](#user) and [`<role>`](#role).
 
 [top](#top)
 
-`<templates>`
--------------
+## &lt;templates&gt; {#templates}
 
 The `<templates>` element specifies the set of templates known by the server.
 
 [top](#top)
 
-`<pipeline>`
-------------
+## &lt;pipeline&gt; {#pipeline}
 
 Allows you to provide a template for pipeline definition
 
@@ -2394,15 +2328,13 @@ Allows you to provide a template for pipeline definition
 
 [top](#top)
 
-`<environments>`
-----------------
+## &lt;environments&gt; {#environments}
 
 The `<environments>` element specifies the set of environments known by the server.
 
 [top](#top)
 
-`<environment>`
----------------
+## &lt;environment&gt; {#environment}
 
 Allows you to group a set of agents together for exclusive use.
 
@@ -2443,22 +2375,19 @@ Allows you to group a set of agents together for exclusive use.
 
 [top](#top)
 
-`<agents>`
-----------
+## &lt;agents&gt; {#agents}
 
 The `<agents>` element inside the [`<environment>`](#environment) element specifies the set of agents that it references.
 
 [top](#top)
 
-`<environmentvariables>`
-------------------------
+## &lt;environmentvariables&gt; {#environmentvariables}
 
 `<environmentvariables>` specifies the [variables](#variable) to pass to jobs and their tasks. You can specify these on a [`<pipeline>`](#pipeline), [`<stage>`](#stage), [`<job>`](#job) or an [`<environment>`](#environment). If the same environment variable is definied either on the agent where the job runs or on the pipeline/stage/environment of the job, the precedence is in the order [`<job>`](#job), [`<stage>`](#stage), [`<pipeline>`](#pipeline), [`<environment>`](#environment) and the system environment variable. For example, variable "FOO" defined in a job overrides the variable definied in the job's stage.
 
 [top](#top)
 
-`<variable>`
-------------
+## &lt;variable&gt; {#variable}
 
 A `<variable>` defines the variable name and property value that will be passed to a job. It will be set on the system environment when the job
 is run. The value can be include multiple lines or CDATA. Note that the behaviour is operating system dependent. Your operating system may not
@@ -2483,8 +2412,7 @@ allow certain variable names and/or values.
 
 [top](#top)
 
-`<physical>`
-------------
+## &lt;physical&gt; {#physical}
 
 References a physical agent to be associated with this environment.
 
@@ -2506,15 +2434,13 @@ References a physical agent to be associated with this environment.
 
 [top](#top)
 
-`<pipelines>`
--------------
+## &lt;pipelines&gt; {#pipelines}
 
 The `<pipelines>` element inside the [`<environment>`](#environment) element specifies the set of pipelines that it references.
 
 [top](#top)
 
-`<pipeline>`
-------------
+## &lt;pipeline&gt; {#pipeline}
 
 References a pipeline to be associated with this environment.
 
@@ -2536,8 +2462,7 @@ References a pipeline to be associated with this environment.
 
 [top](#top)
 
-`<agents>`
-----------
+## &lt;agents&gt; {#agents}
 
 The `<agents>` element specifies the set of agents known by the server.
 
@@ -2547,8 +2472,7 @@ Do not change it manually. You can manage these through the Agents tab.
 
 [top](#top)
 
-`<agent>`
----------
+## &lt;agent&gt; {#agent}
 
 An approved agent. Before it is approved, the agent is displayed on the top of the agent tab with a grey bar.
 
@@ -2567,8 +2491,7 @@ A local agent will be approved automatically.
 
 [top](#top)
 
-`<resources>`
--------------
+## &lt;resources&gt; {#resources}
 
 `<resources>` describes the resources available on a particular agent.
 
@@ -2578,8 +2501,7 @@ An agent without any resources will build any jobs that don't specify resources.
 
 [top](#top)
 
-`<resource>`
-------------
+## &lt;resource&gt; {#resource}
 
 resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.
 
