@@ -5,7 +5,6 @@
 <big><pre>
 <a href="#cruise">&lt;cruise&gt;</a>
     <a href="#server">&lt;server&gt;</a>
-        <a href="#license">&lt;license/&gt;</a>
         <a href="#security">&lt;security&gt;</a>
             <a href="#ldap">&lt;ldap/&gt;</a>
             <a href="#passwordFile">&lt;passwordFile/&gt;</a>
@@ -243,33 +242,8 @@ The `<server>` element can be used to define information and attributes of the G
 ```xml
 <cruise>
   <server artifactsdir="/var/lib/go/big-artifacts-folder" siteUrl="http://go.example.com" secureSiteUrl="https://go.example.com" purgeStart='5' purgeUpto='10' jobTimeout='30'>
-    <license user="${the user name in your license}">
-      ${your license key}
-    </license>
   </server>
 </cruise>
-```
-
-[top](#top)
-
-## &lt;license&gt; {#license}
-
-The `<license>` element contains your Go license. Go works in the community edition if this element is not present. To obtain a Go license, please visit the [Go Website](http://www.thoughtworks.com/products/go-continuous-delivery/compare).
-
-### Attributes
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| user | Yes | the user name in your |
-
-### Examples
-
-```xml
-<server artifactsdir="/var/lib/go/big-artifacts-folder">
-  <license user="${the user name in your license}">
-    ${license key}
-  </license>
-</server>
 ```
 
 [top](#top)
@@ -288,9 +262,6 @@ The `<security>` element can be used to enable authentication. If the element is
 
 ```xml
 <server artifactsdir="/var/lib/go/big-artifacts-folder">
-  <license user="${the user name in your license}">
-    ${license key}
-  </license>
   <security allowOnlyKnownUsersToLogin="false">
     <ldap uri="ldap://xxx.yourcompany.com"
        managerDn="cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
