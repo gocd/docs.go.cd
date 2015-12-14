@@ -29,17 +29,21 @@ You can set up notifications for different events
 
 -   All - all the runs for the stage
 -   Passes - the passed runs for the stage
--   Fails - the stage run that failed
+-   Fails - the stage run that continues to fail
 -   Breaks - the stage run that broke the build
 -   Fixed - the stage run that fixed the previous failure
 -   Cancelled - the stage run that was cancelled
 
-**Illustrations**
+**Previous state influences Event type**
 
--   Previous build Pass, current build Fail: Event: Break
--   Previous build Fail, current build Fail: Event: Fail
--   Previous build Fail, current build Pass: Event: Fixed
--   Previous build Pass, current build Pass: Event: Pass
+The table below shows how the previous state can influence the triggered event:
+
+| **Previous state** | **Current state** | **Event** |
+|-----------------|----------------|-------|
+| Pass            | Fail           | Breaks |
+| Fail            | Fail           | Fails  |
+| Fail            | Pass           | Fixed |
+| Pass            | Pass           | Passes  |
 
 ![](../resources/images/5_added_filter.png)
 
