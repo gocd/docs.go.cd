@@ -194,7 +194,7 @@
     <a href="#agents">&lt;agents&gt;</a>
         <a href="#agent">&lt;agent&gt;</a>
             <a href="#agentresources">&lt;resources&gt;</a>
-                <a href="#resource">&lt;resource/&gt;</a>
+                <a href="#agentresource">&lt;resource/&gt;</a>
             <a href="#resources">&lt;/resources&gt;</a>
         <a href="#agent">&lt;/agent&gt;</a>
     <a href="#agents">&lt;/agents&gt;</a>
@@ -2346,7 +2346,7 @@ Allows you to group a set of agents together for exclusive use.
 
 [top](#top)
 
-## &lt;agents&gt; {#agents}
+## &lt;agents&gt; {#environment-agents}
 
 The `<agents>` element inside the [`<environment>`](#environment) element specifies the set of agents that it references.
 
@@ -2383,7 +2383,7 @@ allow certain variable names and/or values.
 
 [top](#top)
 
-## &lt;physical&gt; {#physical}
+## &lt;physical&gt; {#environment-agents-physical}
 
 References a physical agent to be associated with this environment.
 
@@ -2405,13 +2405,13 @@ References a physical agent to be associated with this environment.
 
 [top](#top)
 
-## &lt;pipelines&gt; {#pipelines}
+## &lt;pipelines&gt; {#environment-pipelines}
 
 The `<pipelines>` element inside the [`<environment>`](#environment) element specifies the set of pipelines that it references.
 
 [top](#top)
 
-## &lt;pipeline&gt; {#pipeline}
+## &lt;pipeline&gt; {#environment-pipeline}
 
 References a pipeline to be associated with this environment.
 
@@ -2462,7 +2462,7 @@ A local agent will be approved automatically.
 
 [top](#top)
 
-## &lt;resources&gt; {#resources}
+## &lt;resources&gt; {#agentresources}
 
 `<resources>` describes the resources available on a particular agent.
 
@@ -2472,7 +2472,7 @@ An agent without any resources will build any jobs that don't specify resources.
 
 [top](#top)
 
-## &lt;resource&gt; {#resource}
+## &lt;resource&gt; {#agentresource}
 
 resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.
 
