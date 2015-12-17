@@ -4,7 +4,6 @@
     "links": {
         "sidebar": {
             "Home": "http://www.go.cd",
-            "Download as PDF": "http://download.go.cd/gocd/user-documentation-15.2.0.pdf",
             "Contribute": "https://github.com/gocd/documentation/"
         },
         "sharing": {
