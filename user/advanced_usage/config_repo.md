@@ -2,11 +2,11 @@
 
 Go's configuration is version controlled in a local git repository - *config.git* hosted on the same machine as Go server. The repo is available at `<Go server installation directory>/db/config.git`. Any changes to the config, either through file-system, API or Go dashboard is saved as a new commit on this repo. This allows auditing of all changes made to the configuration.
 
-NOTE: This repo should not be altered externally as this could lead to errors in Go.
+NOTE: This repo must not be altered externally as this will lead to errors in Go.
 
 ## Garbage collection
 
-With time, the size of this repo grows in size which could considerably slow down the config save operations. One way to tackle this would be to run `git gc` manually on this repo([read more](https://git-scm.com/docs/git-gc)). Go has in-built garbage collection for this git repo that could be configured to run on a periodic basis. However, since this activity could potentially take a long time to run when GC happens for the first time around, the feature is turned off by default. Go server peridically checks if the loose-object count exceeds a preset threshold and displays a warning message. This is a cue for users to enable periodic GC on their servers. Before enabling this feature, it is recommended that you stop Go server first, take a backup of the `config.git` repo and then run GC (`git gc`) manually against it. 
+With time, the size of this repo grows in size which could considerably slow down the config save operations. One way to tackle this is to run `git gc`manually on the repo([read more](https://git-scm.com/docs/git-gc)). Go has in-built garbage collection for this git repo that can be configured to run on a periodic basis. However, since this activity could potentially take a long time to run when GC happens for the first time around, the feature is turned off by default. Go server periodically checks if the loose-object count exceeds a preset threshold and displays a warning message. This is a cue for users to enable periodic GC on their servers. Before enabling this feature, it is recommended that you stop Go server, take a backup of the `config.git` repo and then run GC (`git gc`) manually against it. 
 
 The following properties can be altered to change the default behavior associated with `config.git` repo:
 
