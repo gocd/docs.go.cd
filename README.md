@@ -36,3 +36,6 @@ $ gitbook [pdf|epub|mobi] build [output]
 
 The contents of the `_book` directory needs to be pushed out to the *[gh-pages](https://github.com/gocd/documentation/tree/gh-pages/user)* branch of the repository.
 
+### Licence
+
+Copyright 2015 ThoughtWorks, Inc. You may copy, distribute, print, and display, all or portions of this documentation, as long as you do so without making changes to the text. We also kindly request that you include a link to the original. All rights not granted above are reserved.
