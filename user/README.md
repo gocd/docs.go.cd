@@ -42,4 +42,4 @@ We're using [GitBook](https://github.com/GitbookIO/gitbook) for generating our H
 
 ## Licence
 
-Copyright 2014 ThoughtWorks, Inc. You may copy, distribute, print, and display, all or portions of this documentation, as long as you do so without making changes to the text. We also kindly request that you include a link to the original. All rights not granted above are reserved.
+Copyright 2015 ThoughtWorks, Inc. You may copy, distribute, print, and display, all or portions of this documentation, as long as you do so without making changes to the text. We also kindly request that you include a link to the original. All rights not granted above are reserved.
