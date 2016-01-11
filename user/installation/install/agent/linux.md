@@ -39,16 +39,16 @@ The Go agent .deb installer has been tested on Ubuntu. However it should work on
 If you prefer to use the apt repository and install via `apt-get` -
 
 ```bash
-$ echo "deb http://dl.bintray.com/gocd/gocd-deb/ /" > /etc/apt/sources.list.d/gocd.list
+$ echo "deb http://dl.bintray.com/gocd/gocd-deb/ /" | sudo tee -a /etc/apt/sources.list.d/gocd.list
 $ wget --quiet -O - "https://bintray.com/user/downloadSubjectPublicKey?username=gocd" | sudo apt-key add -
-$ apt-get update
-$ apt-get install go-agent
+$ sudo apt-get update
+$ sudo apt-get install go-agent
 ```
 
 Alternatively, if you have the agent DEB downloaded -
 
 ```bash
-$ dpkg -i go-agent-${version}.deb
+$ sudo dpkg -i go-agent-${version}.deb
 ```
 
 ## Managing the go-agent service on linux
