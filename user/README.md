@@ -39,7 +39,3 @@ Installation done but need help setting up Go?
 The code for this help documentation is hosted [here](https://github.com/gocd/documentation/tree/master/user). If you think something can be improvised and/or added to the documentation, please send a [pull request](https://help.github.com/articles/creating-a-pull-request/) for the same. You can read more about pull requests [here](https://help.github.com/articles/using-pull-requests/).
 
 We're using [GitBook](https://github.com/GitbookIO/gitbook) for generating our HTML Docs from markdown files. You can read more about it [here](https://github.com/gocd/documentation/blob/master/user/generateGitbook.md#steps-to-generate-gitbook).
-
-## Licence
-
-Copyright 2015 ThoughtWorks, Inc. You may copy, distribute, print, and display, all or portions of this documentation, as long as you do so without making changes to the text. We also kindly request that you include a link to the original. All rights not granted above are reserved.
