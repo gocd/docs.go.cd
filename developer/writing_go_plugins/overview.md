@@ -1,14 +1,13 @@
 
-# Guide to write Go plugin
+# Guide to writing a GoCD plugin
 
 Please go through below links before writing Go plugin
-
-* [Go Plugin Architecture](../4/4.4.1.md)
 
 * [Go Plugin Basics](go_plugins_basics.md)
 
 * [Go Plugin User Guide](http://www.go.cd/documentation/user/current/extension_points/plugin_user_guide.html)
 
+* [Go Plugin Architecture - Only if you want to extend the architecture](../4/4.4.1.md)
 
 ## Writing plugins for Go
 
@@ -19,24 +18,8 @@ In order to support existing plugins and provide enough time to the plugin autho
 
 JSON message based plugin API has been described in further details [here](json_message_based_plugin_api.md).
 
-## Plugin API Jar
--[14.4.0](https://bintray.com/artifact/download/gocd/gocd/go-plugin-api-14.4.0.jar)
+<a name="plugin-api-jar"></a>
+<a name="plugin-api-javadocs"></a>
+## Plugin API jar and javadocs
 
-## Plugin API Javadoc
--[14.4.0](http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html)
-
-## Package Repository Plugin
-
-- [Package Repository Extension](http://www.go.cd/documentation/user/current/extension_points/package_repository_extension.html)
-
-- [Package repository plugin using java interface/class based plugin API](package_material/writing_go_package_material_plugin.md)
-
-- [Package repository plugin using JSON message based plugin API](package_material/json_message_based_package_material_extension.md)
-
-## Task Plugin
-
-- [Task Extension](http://www.go.cd/documentation/user/current/extension_points/task_extension.html)
-
-- [Task plugin using java interface/class based plugin API](task/writing_go_task_plugins.md)
-
-- [Task plugin using JSON message based plugin API](task/json_message_based_task_extension.md)
+You can find the latest API jar file with its associated sources and javadocs on [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cgo-plugin-api).

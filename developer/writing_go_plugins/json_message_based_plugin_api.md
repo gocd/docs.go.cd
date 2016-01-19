@@ -105,7 +105,8 @@ Please refer [javadocs](overview.md#plugin-api-javadoc) for more details about A
 
 ## Extension points supported by Go
 
-[Package Repository As Material Extension](package_material/json_message_based_package_material_extension.md)
-
-[Task Extension](task/json_message_based_task_extension.md)
-
+* [Package material plugins](./package_material/package_material_plugin_overview.md)
+* [SCM material plugins](./scm_material/scm_material_plugin_overview.md)
+* [Task plugins](./task/task_plugin_overview.md)
+* [Notification plugins](./notification/notification_plugin_overview.md)
+* [Authentication plugins](./authentication/authentication_plugin_overview.md)

@@ -1,5 +1,3 @@
 # Go Plugin API
 
-- [JAR file - 14.4.0](https://bintray.com/artifact/download/gocd/gocd/go-plugin-api-14.4.0.jar).
-
-- [Javadoc - 14.4.0](http://www.go.cd/documentation/developer/resources/javadoc/14.4.0/index.html).
+You can find the latest API jar file with its associated sources and javadocs on [Maven Central](http://search.maven.org/#search%7Cga%7C1%7Cgo-plugin-api).
