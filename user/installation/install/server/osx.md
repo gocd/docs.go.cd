@@ -32,8 +32,8 @@ You can override default environment variables by:
 ## Location of go server files
 
 ```bash
-/Applications/Go Server.app             # The go agent application
-~/Library/Application Support/Go Server # The agent directory
+/Applications/Go Server.app             # The GoCD server application
+~/Library/Application Support/Go Server # The server directory
 ```
 
 Some logging information is also written to ```/var/log/system.log```
