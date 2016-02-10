@@ -1,12 +1,12 @@
-# Installing Go agent on Solaris
+# Installing GoCD agent on Solaris
 
 <!-- toc -->
 
 ## Installation
 
-You must be logged in as root, or use ```sudo``` or ```pfexec```, to install Go on Solaris. Go agent also requires that Oracle or Open JRE or JDK - version 7 or above - is installed.
+You must be logged in as root, or use ```sudo``` or ```pfexec```, to install GoCD on Solaris. GoCD agent also requires that Oracle or Open JRE or JDK - version 7 or above - is installed.
 
-The installer will create a user called ```go``` if one does not exist on the machine. The home directory will be set to ```/var/go```. If you want to create your own ```go``` user, make sure you do it before you install the Go agent.
+The installer will create a user called ```go``` if one does not exist on the machine. The home directory will be set to ```/var/go```. If you want to create your own ```go``` user, make sure you do it before you install the GoCD agent.
 
 After you have downloaded the go-agent package, run the following commands -
 
@@ -19,23 +19,23 @@ $ pkgadd -d go-agent-${version}-solaris
 
 To manage the go-agent service, you may use the following commands -
 
--   Check Go agents': ```svcs go/agent```
--   Start Go agents : ```svcadm enable -s go/agent```
--   Stop Go agents : ```svcadm disable -s go/agent```
+-   Check GoCD agents': ```svcs go/agent```
+-   Start GoCD agents : ```svcadm enable -s go/agent```
+-   Stop GoCD agents : ```svcadm disable -s go/agent```
 
 ## Configuring the go-agent
 
-After installing the go-agent service, you must first configure the service with the hostname (or IP address) of your Go server, in order to do this -
+After installing the go-agent service, you must first configure the service with the hostname (or IP address) of your GoCD server, in order to do this -
 
 1.  Open ```/etc/default/go-agent``` in your favourite text editor.
-2.  Change the line ```GO_SERVER=127.0.0.1``` to the hostname (or IP address) of your Go server.
+2.  Change the line ```GO_SERVER=127.0.0.1``` to the hostname (or IP address) of your GoCD server.
 3.  Save the file and exit your editor.
 
-> **Note:** You can override default environment for the go agent by editing the file ```/etc/defaults/go-agent```
+> **Note:** You can override default environment for the GoCD agent by editing the file ```/etc/defaults/go-agent```
 
-## Location of go agent files
+## Location of GoCD agent files
 
-The go agent installs the following files on your filesystem
+The GoCD agent installs its files in the following locations on your filesystem:
 
 ``` bash
 /var/lib/go-agent    #contains the binaries
