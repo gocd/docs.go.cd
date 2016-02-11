@@ -26,16 +26,6 @@ var path = require("path");
         }]
       }
     },
-    uglify: {
-      dist: {
-        files: [{
-            expand: true,
-            cwd: '<%= docs.source %>',
-            src: '**/*.js',
-            dest: '<%= docs.destination %>'
-        }]
-      }
-    },
     cssmin: {
       dist: {
         files: [{
@@ -49,10 +39,9 @@ var path = require("path");
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('default', ['htmlmin', 'uglify', 'cssmin']);
+  grunt.registerTask('default', ['htmlmin', 'cssmin']);
 
 };
