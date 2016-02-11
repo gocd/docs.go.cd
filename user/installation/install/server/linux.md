@@ -15,14 +15,14 @@ The Go server RPM installer has been tested on RedHat Enterprise Linux and CentO
 Once you have the repository setup, execute
 
 ``` bash
-$ yum install -y go-server
+$ [sudo] yum install -y go-server
 ```
 
 Alternatively, if you have the server RPM downloaded -
 
 ``` bash
-$ yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
-$ rpm -i go-server-${version}.noarch.rpm
+$ [sudo] yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
+$ [sudo] rpm -i go-server-${version}.noarch.rpm
 ```
 
 ## Debian based distributions (ie Ubuntu)
@@ -48,7 +48,7 @@ $ [sudo] dpkg -i go-server-${version}.deb
 To manage the go-server service, you may use the following commands -
 
 ```bash
-$ /etc/init.d/go-server [start|stop|status|restart]
+$ [sudo] /etc/init.d/go-server [start|stop|status|restart]
 ```
 
 Once the installation is complete the Go server will be started and it will print out the URL for the Dashboard page. This will be ```http://localhost:8153/go```

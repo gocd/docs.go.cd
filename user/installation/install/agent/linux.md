@@ -40,7 +40,7 @@ $ sudo apt-get install go-agent
 Alternatively, if you have the agent DEB downloaded -
 
 ```bash
-$ sudo dpkg -i go-agent-${version}.deb
+$ [sudo] dpkg -i go-agent-${version}.deb
 ```
 
 ## Managing the go-agent service on linux
@@ -48,7 +48,7 @@ $ sudo dpkg -i go-agent-${version}.deb
 To manage the go-agent service, you may use the following commands -
 
 ```bash
-$ /etc/init.d/go-agent [start|stop|status|restart]
+$ [sudo] /etc/init.d/go-agent [start|stop|status|restart]
 ```
 
 ## Configuring the go-agent
