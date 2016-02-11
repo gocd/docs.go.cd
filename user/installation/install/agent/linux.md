@@ -10,45 +10,37 @@ The installer will create a user called ```go``` if one does not exist on the ma
 
 The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
 
-If you prefer to use the YUM repository and install via YUM -
+!INCLUDE "../_yum_repo.md"
+
+Once you have the repository setup, execute
 
 ``` bash
-$ echo "
-[gocd]
-name            = GoCD YUM Repository
-baseurl         = http://dl.bintray.com/gocd/gocd-rpm
-enabled         = 1
-gpgcheck        = 0
-" > /etc/yum.repos.d/thoughtworks-go.repo
-
-$ yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
-$ yum install -y go-agent
+sudo yum install -y go-agent
 ```
 
 Alternatively, if you have the agent RPM [downloaded](https://www.go.cd/download):
 
 ``` bash
-$ yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
-$ rpm -i go-agent-${version}.noarch.rpm
+sudo yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
+sudo rpm -i go-agent-${version}.noarch.rpm
 ```
 
 ## Debian based distributions (ie Ubuntu)
 
 The GoCD agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.
 
-If you prefer to use the apt repository and install via `apt-get` -
+!INCLUDE "../_apt_repo.md"
 
-```bash
-$ echo "deb http://dl.bintray.com/gocd/gocd-deb/ /" | sudo tee -a /etc/apt/sources.list.d/gocd.list
-$ wget --quiet -O - "https://bintray.com/user/downloadSubjectPublicKey?username=gocd" | sudo apt-key add -
-$ sudo apt-get update
-$ sudo apt-get install go-agent
+Once you have the repository setup, execute
+
+``` bash
+sudo apt-get install go-agent
 ```
 
 Alternatively, if you have the agent DEB [downloaded](https://www.go.cd/download):
 
 ```bash
-$ sudo dpkg -i go-agent-${version}.deb
+sudo dpkg -i go-agent-${version}.deb
 ```
 
 ## Managing the go-agent service on linux
@@ -56,7 +48,7 @@ $ sudo dpkg -i go-agent-${version}.deb
 To manage the go-agent service, you may use the following commands -
 
 ```bash
-$ /etc/init.d/go-agent [start|stop|status|restart]
+sudo /etc/init.d/go-agent [start|stop|status|restart]
 ```
 
 ## Configuring the go-agent
