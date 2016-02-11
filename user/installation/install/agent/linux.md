@@ -15,14 +15,14 @@ The Go agent RPM installer has been tested on RedHat Enterprise Linux and CentOS
 Once you have the repository setup, execute
 
 ``` bash
-$ [sudo] yum install -y go-agent
+sudo yum install -y go-agent
 ```
 
 Alternatively, if you have the agent RPM downloaded -
 
 ``` bash
-$ [sudo] yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
-$ [sudo] rpm -i go-agent-${version}.noarch.rpm
+sudo yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
+sudo rpm -i go-agent-${version}.noarch.rpm
 ```
 
 ## Debian based distributions (ie Ubuntu)
@@ -34,13 +34,13 @@ The Go agent .deb installer has been tested on Ubuntu. However it should work on
 Once you have the repository setup, execute
 
 ``` bash
-$ sudo apt-get install go-agent
+sudo apt-get install go-agent
 ```
 
 Alternatively, if you have the agent DEB downloaded -
 
 ```bash
-$ [sudo] dpkg -i go-agent-${version}.deb
+sudo dpkg -i go-agent-${version}.deb
 ```
 
 ## Managing the go-agent service on linux
@@ -48,7 +48,7 @@ $ [sudo] dpkg -i go-agent-${version}.deb
 To manage the go-agent service, you may use the following commands -
 
 ```bash
-$ [sudo] /etc/init.d/go-agent [start|stop|status|restart]
+sudo /etc/init.d/go-agent [start|stop|status|restart]
 ```
 
 ## Configuring the go-agent
