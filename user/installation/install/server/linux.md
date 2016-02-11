@@ -10,45 +10,37 @@ The installer will create a user called ```go``` if one does not exist on the ma
 
 The Go server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
 
-If you prefer to use the YUM repository and install via YUM -
+!INCLUDE "../_yum_repo.md"
+
+Once you have the repository setup, execute
 
 ``` bash
-$ echo "
-[gocd]
-name            = GoCD YUM Repository
-baseurl         = http://dl.bintray.com/gocd/gocd-rpm
-enabled         = 1
-gpgcheck        = 0
-" > /etc/yum.repos.d/thoughtworks-go.repo
-
-$ yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
-$ yum install -y go-server
+sudo yum install -y go-server
 ```
 
 Alternatively, if you have the server RPM downloaded -
 
 ``` bash
-$ yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
-$ rpm -i go-server-${version}.noarch.rpm
+sudo yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
+sudo rpm -i go-server-${version}.noarch.rpm
 ```
 
 ## Debian based distributions (ie Ubuntu)
 
 The Go server .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.
 
-If you prefer to use the apt repository and install via `apt-get` -
+!INCLUDE "../_apt_repo.md"
+
+Once you have the repository setup, execute
 
 ```bash
-$ echo "deb http://dl.bintray.com/gocd/gocd-deb/ /" > /etc/apt/sources.list.d/gocd.list
-$ wget --quiet -O - "https://bintray.com/user/downloadSubjectPublicKey?username=gocd" | sudo apt-key add -
-$ apt-get update
-$ apt-get install go-server
+sudo apt-get install go-server
 ```
 
 Alternatively, if you have the server DEB downloaded -
 
 ```bash
-$ dpkg -i go-server-${version}.deb
+sudo dpkg -i go-server-${version}.deb
 ```
 
 ## Managing the go-server service on linux
@@ -56,7 +48,7 @@ $ dpkg -i go-server-${version}.deb
 To manage the go-server service, you may use the following commands -
 
 ```bash
-$ /etc/init.d/go-server [start|stop|status|restart]
+sudo /etc/init.d/go-server [start|stop|status|restart]
 ```
 
 Once the installation is complete the Go server will be started and it will print out the URL for the Dashboard page. This will be ```http://localhost:8153/go```
