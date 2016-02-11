@@ -1,7 +1,7 @@
-# Installing Go server
+# Installing GoCD server
 
-Before you install the Go server or agent, please ensure that you meet the [System Requirements](system_requirements.md).
-
+Before you install the GoCD server or agent, please ensure that you meet the
+[System Requirements](system_requirements.md).
 
 # Choose your operating system
 

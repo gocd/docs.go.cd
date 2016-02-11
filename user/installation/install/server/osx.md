@@ -1,19 +1,18 @@
-# Installing Go server on Mac OS X
+# Installing GoCD server on Mac OS X
 
 <!-- toc -->
 
 ## Installation
 
-1.  Double-click the downloaded file to unzip the contents.
-2.  Drag the Go server Application to the Applications folder.
-3.  Go server will store its data in ```~/Library/Application Support/Go Server``` subfolder of the user's home folder
-4.  Double-click on the ```Go Server.app``` icon to open the launcher
-5.  While the Go server is starting up, you'll see a progress bar in the top left of your screen
+1.  Double-click the file downloaded from the [downloads page](https://www.go.cd/download/) to unzip the contents.
+2.  Drag the GoCD server application to the Applications folder.
+3.  Double-click on the ```Go Server.app``` icon to open the launcher.
+4.  While the GoCD server is starting up, you'll see a progress bar in the top left of your screen.
 
-    ![Go server OSX startup](../../../resources/images/cruise_server_osx_startup.png)
+    ![GoCD server OSX startup](../../../resources/images/cruise_server_osx_startup.png)
 
-6.  Once the Go server has started, it will open your default browser to the Go dashboard page.
-7.  To get back to the Go dashboard page when the server is running, click on the link in the About box of the Go server
+5.  Once the GoCD server has started, it will open your default browser to the GoCD dashboard page (defaults to: <a href="http://localhost:8153">http://localhost:8153</a>).
+6.  To get back to the GoCD dashboard page when the server is running, click on the link in the About box of the GoCD server.
 
 ## Override environment variables (Mac OSX installer)
 
@@ -29,7 +28,9 @@ You can override default environment variables by:
     PATH=$PATH:/usr/local/bin
     ```
 
-## Location of go server files
+## Location of GoCD server files
+
+The GoCD server installs its files in the following locations on your filesystem:
 
 ```bash
 /Applications/Go Server.app             # The GoCD server application

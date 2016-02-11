@@ -1,23 +1,24 @@
 # System requirements
 
-These requirements should meet the needs of most Go installations. You may need to allocate additonal CPUs and/or memory on the machine hosting the Go Server if you intend to use a very large set of pipelines and/or agents.
+These requirements should meet the needs of most GoCD installations. You may need to allocate additonal CPUs and/or
+memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
 
-### Client requirements
+### Client (browser) requirements
 
-#### Go works on the following browsers:
+#### GoCD works on the following browsers:
 
--   Firefox
--   Safari
--   Chrome
--   Internet Explorer 9+
+- Google Chrome
+- Mozilla Firefox
+- Apple Safari
+- Microsoft Internet Explorer 9+
 
-### Go server requirements
+### GoCD Server requirements
 
 #### Hardware
 
 * **RAM** - minimum 1GB, 2GB recommended
 * **CPU** - minimum 2 cores, 2GHz
-* **Disk** - minimum 1GB free space.
+* **Disk** - minimum 1GB free space
 
 #### Supported Operating Systems
 
@@ -31,13 +32,19 @@ These requirements should meet the needs of most Go installations. You may need 
 
 * Java Runtime Environment (JRE) version 7
 
-#### Additional requirements for Go server
+#### Additional requirements for GoCD server
 
-The host that runs your Go server should have a separate disk partition to store Go artifacts. The artifact repository can fill up quickly (especially if you are storing large binaries). If you don't create a separate partition for artifacts and your system disk fills up, Go and other applications on your system will behave unexpectedly. You are also likely to end up with corrupted data. Check the section on [installing Go server](installing_go_server.md) for more information on configuring your artifact repository.
+The host that runs your GoCD server should have a separate disk partition to store GoCD artifacts. The artifact repository
+can fill up quickly (especially if you are storing large binaries). If you don't create a separate partition for
+artifacts and your system disk fills up, GoCD and other applications on your system will behave unexpectedly. You are
+also likely to end up with corrupted data. Check the section on
+[configuring the GoCD server](configuring_server_details.md) for more information on configuring your artifact
+repository.
 
-Client software for your source code control tool must be installed on both your Go server and all Go build agents.
+Client software for your source code control tool (Git, SVN, etc) must be installed on both the GoCD server and all GoCD
+build agents.
 
-### Go agent requirements
+### GoCD Agent requirements
 
 #### Supported Operating Systems
 
@@ -56,8 +63,12 @@ Client software for your source code control tool must be installed on both your
 
 * Java Runtime Environment (JRE) version 7
 
-#### Additional requirements for Go agent
+#### Additional requirements for GoCD Agent
 
-Go agent on its own does not require much memory or CPU. However, you need to ensure computers deployed as build agents have adequate resources to build your projects -- including sufficient disk space to check source code out of source control.
+GoCD agent, on its own, does not require much memory or CPU. However, you need to ensure that the nodes deployed as
+build agents have adequate resources to build your projects -- including sufficient disk space to check source code out
+of source control.
 
-Client software for your source code control tool needs to be installed on all build agents. As well as, any other software required to build your application (if not accessed directly from the project source checked out from source control).
+Client software for your source code control tool (Git, SVN, etc) needs to be installed on all build agents. Also, any
+other software required to build your application (if not accessed directly from the project source checked out from
+source control) needs to be installed (for instance, Maven or Rake).
