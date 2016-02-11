@@ -1,12 +1,12 @@
 module.exports = function(grunt) {
 
-var build_directory = grunt.option('build') || 'user'; 
+var build_directory = grunt.option('build') || 'user';
 var path = require("path");
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
     docs: {
-      source: build_directory+'/_book/',
-      destination: build_directory+'/_book/',
+      source: build_directory + '/_book/',
+      destination: build_directory + '/_book/',
     },
     htmlmin: {
       dist: {
@@ -16,7 +16,7 @@ var path = require("path");
           removeRedundantAttributes: true,
           keepClosingSlash: true,
           minifyCSS: true,
-          minifyJS: true 
+          minifyJS: true
         },
         files: [{
           expand: true,
