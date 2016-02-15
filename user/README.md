@@ -32,7 +32,7 @@ Installation done but need help setting up Go?
 
 ### See Go in use
 
-[Watch tutorials on some common Go concepts and tasks](http://www.thoughtworks.com/products/go-continuous-delivery/resources)
+[Watch tutorials on some common Go concepts and tasks](https://www.go.cd/videos/)
 
 ## Contributing to this documentation
 
