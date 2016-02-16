@@ -125,8 +125,35 @@ is correct.
 <a name="agent_assignment"></a>
 ### Agent is not being assigned or "Nothing gets built"
 
-This writeup is in progress.
+This shows up as a pipeline which stays in the "Building" (yellow) state for a
+long time:
+<figure>
+  <img src="../resources/images/troubleshooting/error_6_pipeline_building_not_assigned.png">
+</figure>
 
+Click on the stage bar and then the job, to reach the console log, and
+you might see a build whose status is "Scheduled" with the agent status being "Not yet
+assigned", like this:
+<figure>
+  <img src="../resources/images/troubleshooting/error_7_agent_not_assigned.png">
+</figure>
+
+Resolution: If this is happening, it means that a suitable agent has not been
+found for this job. The reasons for this can be:
+
+1. No agent is available (free and not building). Check the "Agents" page to see
+   if all agents are busy. If so, once one of them becomes free, then this build
+   will start.
+
+2. If you do see available agents, then check whether the job has resources
+   defined in its config. If so, it means that the job is looking for an agent
+   with those resources. Check the "Agents" page to see whether there are agents
+   which have the resources needed by the job and are available (not building).
+
+3. If the previous two options don't solve the problem, check whether the
+   pipeline is a part of an environment (in the "Environments" page or in the
+   config). If it is, then any agent that can pick up a job from that pipeline
+   needs to be a part of that environment as well.
 
 <a name="mac_java"></a>
 ### Mac OS X - Message related to Java 1.7
@@ -134,8 +161,8 @@ This writeup is in progress.
 If you were greeted with a message such as this, when trying to use GoCD on Mac OSX:
 
 <figure class="small_image">
-  <img src="../resources/images/troubleshooting/troubleshoot_mac_installer.png" alt="Mac installer
-  - Java 1.7+ message" title="Mac installer - Java 1.7+ message"/>
+  <img src="../resources/images/troubleshooting/troubleshoot_mac_installer.png"
+    alt="Mac installer - Java 1.7+ message" title="Mac installer - Java 1.7+ message"/>
 </figure>
 
 you might have a Java installation in either a non-standard location or older
