@@ -34,7 +34,7 @@ This is the summary of user documentation.
     * [Configure a Proxy](installation/configure_proxy.md)
     * [Configuring SSL/TLS](installation/ssl_tls_config.md)
     * [Performance Tuning](installation/performance_tuning.md)
-    * [Troubleshoot installers](installation/troubleshoot_installer.md)
+    * [Troubleshooting](installation/troubleshooting.md)
 * [Configuration](configuration/index.md)
     * [Setup a New Pipeline](configuration/quick_pipeline_setup.md)
     * [Managing Pipelines](configuration/managing_pipelines.md)
@@ -139,3 +139,5 @@ This is the summary of user documentation.
     * [Plugin upload from within Go](beta/plugin_upload.md)
 * [Release History](release_history/index.md)
     * [What's New in Go](release_history/whats_new_in_go.md)
+* Gitbook - Internal <!-- Ignore, but keep so that old page links work. -->
+    * [Ignore this](installation/troubleshoot_installer.md)

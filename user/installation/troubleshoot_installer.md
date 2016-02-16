@@ -3,7 +3,7 @@
 This page is mainly for newer users of GoCD, to help with troubleshooting issues.
 
 - [GoCD Agent not registering with the GoCD Server](#agent_registration)
-- [Command not found (git or others)](#path_issues)
+- [Command not found (git, svn, mvn, ant or others)](#path_issues)
 - [Agent is not being assigned or "Nothing gets built"](#agent_assignment)
 - [Mac OS X - Message related to Java 1.7](#mac_java)
 
@@ -54,14 +54,76 @@ at the end of these files might be interesting. Some common errors are:
    this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
    needs Java 7.
 
+<a name="path_issues"></a>
+### Command not found (git, svn, mvn, ant or others)
+
+This issue shows up in one of three ways as you can see below. The resolution
+for all three issues is the same -- to ensure that the `PATH` environment variable
+is correct.
+
+1. **During "Check Connection"**
+
+   <figure>
+     <img src="../resources/images/troubleshooting/error_4_check_connection_git_not_found.png">
+   </figure>
+
+   This can also happen with other version control systems such as SVN, TFS, etc.
+
+   **Resolution**: Check the `PATH` environment variable of the GoCD **Server**'s java
+   process. Ensure that the directory that the command is available is in the
+   list. On Windows, the
+   [procexp](https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx)
+   tool from Microsoft's Windows SysInternals might be useful to check this. It
+   shows per-process environment variables in an easy way.
+
+2. **During material polling**
+
+   Look for an error message at the bottom-right of any page, which looks like this:
+   <figure>
+     <img src="../resources/images/troubleshooting/error_1.png">
+   </figure>
+
+   Clicking on that shows an error like this:
+   <figure>
+     <img src="../resources/images/troubleshooting/error_2_git_not_found.png">
+   </figure>
+
+   The GoCD server log, go-server.log (location can be found at the bottom of
+   [the installation documentation page](installing_go_server.html) for your
+   operating system) will have a message like this:
+   <figure>
+     <img src="../resources/images/troubleshooting/error_3_git_not_found_log.png">
+   </figure>
+
+   This can also happen with other version control systems such as SVN, TFS, etc.
+
+   **Resolution**: Check the `PATH` environment variable of the GoCD **Server**'s java
+   process. Ensure that the directory that the command is available is in the
+   list. On Windows, the
+   [procexp](https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx)
+   tool from Microsoft's Windows SysInternals might be useful to check this. It
+   shows per-process environment variables in an easy way.
+
+3. **During the running of a task, in the console output**
+
+   This shows up as a message in the console output, like this:
+   <figure>
+     <img src="../resources/images/troubleshooting/error_5_command_not_found_console_log.png">
+   </figure>
+
+   This can also happen with other version control systems such as SVN, TFS, etc. It
+   can also happen with any other command used in a task, such as Maven, Ant,
+   Rake or even any other shell-script where it cannot be found in `PATH`.
+
+   **Resolution**: Check the `PATH` environment variable of the GoCD **Agent's**
+   java process. Ensure that the directory that the command is available is in
+   the list. On Windows, the
+   [procexp](https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx)
+   tool from Microsoft's Windows SysInternals might be useful to check this. It
+   shows per-process environment variables in an easy way.
+
 <a name="agent_assignment"></a>
 ### Agent is not being assigned or "Nothing gets built"
-
-This writeup is in progress.
-
-
-<a name="path_issues"></a>
-### Command not found (git or others)
 
 This writeup is in progress.
 
@@ -72,7 +134,7 @@ This writeup is in progress.
 If you were greeted with a message such as this, when trying to use GoCD on Mac OSX:
 
 <figure class="small_image">
-  <img src="../resources/images/troubleshoot_mac_installer.png" alt="Mac installer
+  <img src="../resources/images/troubleshooting/troubleshoot_mac_installer.png" alt="Mac installer
   - Java 1.7+ message" title="Mac installer - Java 1.7+ message"/>
 </figure>
 
