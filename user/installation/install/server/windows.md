@@ -6,12 +6,33 @@
 
 You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.
 
-1.  Download a version of go-server from the [downloads page](http://www.go.cd/download/).
-2.  Double-click the ```go-server-${version}.exe``` installer file and follow the prompts to install Go.
+1.  Download a version of go-server from the [downloads page](https://www.go.cd/download/).
+2.  Double-click the `go-server-${version}.exe` installer file and follow the prompts to install Go.
 3.  During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default
 4.  You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.
 5.  At the end of the installation, GoCD server will register itself as a windows service owned by 'Local System' and start running automatically
 6.  Shortcuts to GoCD will be placed on your Desktop and in your Start Menu for convenience - double-click the shortcut to GoCD to the GoCD dashboard
+
+# Silent (Headless) Installation
+
+You may use this method if you would like to script the installation of the GoCD server.
+
+```
+go-server-${version}-setup.exe /S /GO_SERVER_JAVA_HOME=<PATH_TO_JAVA_HOME> /D=<PATH_TO_SERVER_DIRECTORY>
+```
+
+|Argument                       |Required|Description                                                                                                                         |
+|-------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
+|`GO_SERVER_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the server should run with. Defaults to the jre packaged with the server. Needs to be at-least Java 7.|
+|`PATH_TO_SERVER_DIRECTORY`  | No     | The path where the server should be installed. Defaults to `C:\Program Files(x86)\Go Server`.                                    |
+
+For example:
+```
+C:\> go-server-16.1.0-1234-setup.exe /S /D=C:\go\server
+```
+
+!INCLUDE "../_install_windows_headless_message.md"
+
 
 ## Overriding default startup arguments and environment
 

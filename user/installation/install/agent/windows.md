@@ -24,17 +24,15 @@ go-agent-${version}-setup.exe /S /SERVERIP=<SERVERIP> /GO_AGENT_JAVA_HOME=<PATH_
 |Argument                       |Required|Description                                                                                                                         |
 |-------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
 |`SERVERIP`                 | No     | The hostname of the GoCD server. Defaults to `127.0.0.1`.                                                                        |
-|`GO_AGENT_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the agent should run with. Defaults to the jre packaged with the agent. Needs to be atleast Java 7.|
+|`GO_AGENT_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the agent should run with. Defaults to the jre packaged with the agent. Needs to be at-least Java 7.|
 |`PATH_TO_AGENT_DIRECTORY`  | No     | The path where the agent should be installed. Defaults to `C:\Program Files(x86)\Go Agent`.                                    |
 
 For example:
 ```
-C:\> go-agent-12.3.0-2000-setup.exe /S /SERVERIP=10.12.20.47 /D=C:\go\agent
+C:\> go-agent-16.1.0-1234-setup.exe /S /SERVERIP=10.12.20.47 /D=C:\go\agent
 ```
 
-If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work
-
-If you are using the silent installation to upgrade an agent, you should not specify the Installation-Directory option.
+!INCLUDE "../_install_windows_headless_message.md"
 
 ## Overriding default startup arguments and environment
 
