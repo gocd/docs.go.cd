@@ -1,0 +1,1 @@
+require(["gitbook"],function(a){a.events.bind("start",function(a,b){b.ga=b.ga||{}}),a.events.bind("page.change",function(){ga("send","pageview",window.location.pathname+window.location.search)}),a.events.bind("exercise.submit",function(a,b){})});

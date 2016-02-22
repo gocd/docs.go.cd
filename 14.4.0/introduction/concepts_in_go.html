@@ -1,0 +1,2378 @@
+<!DOCTYPE HTML>
+<html lang="en-US" >
+    
+    <head>
+        
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=11; IE=10; IE=9; IE=8; IE=7; IE=EDGE" />
+        <title>Concepts in Go | Go User Documentation</title>
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <meta name="description" content="">
+        <meta name="generator" content="GitBook 1.3.4">
+        <meta name="HandheldFriendly" content="true"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black">
+        <link rel="apple-touch-icon-precomposed" sizes="152x152" href="../gitbook/images/apple-touch-icon-precomposed-152.png">
+        <link rel="shortcut icon" href="../gitbook/images/favicon.ico" type="image/x-icon">
+        
+    
+    
+    <link rel="next" href="../navigation/index.html" />
+    
+    
+    <link rel="prev" href="../introduction/index.html" />
+    
+
+        
+    </head>
+    <body>
+        
+        
+<link rel="stylesheet" href="../gitbook/style.css">
+
+    
+    <link rel="stylesheet" href="../gitbook/plugins/gitbook-plugin-anchors/plugin.css">
+    
+
+
+        
+    <div class="book" data-level="1.1" data-basepath=".." data-revision="1418812627122">
+    
+
+<div class="book-summary">
+    <div class="book-search">
+        <input type="text" placeholder="Type to search" class="form-control" />
+    </div>
+    <ul class="summary">
+        
+    	
+    	
+    	    
+            <li>
+                <a href="http://go.cd" target="blank" class="custom-link">Home</a>
+            </li>
+    	
+    	    
+            <li>
+                <a href="http://download.go.cd/gocd/user-documentation-14.4.0.pdf" target="blank" class="custom-link">Download as PDF</a>
+            </li>
+    	
+    	    
+            <li>
+                <a href="https://github.com/gocd/documentation/" target="blank" class="custom-link">Contribute</a>
+            </li>
+    	
+    	
+
+        
+        <li class="divider"></li>
+        
+
+        
+    
+        
+        <li class="chapter " data-level="0" data-path="index.html">
+            
+                
+                    <a href="../index.html">
+                        <i class="fa fa-check"></i>
+                        
+                         Introduction
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="1" data-path="introduction/index.html">
+            
+                
+                    <a href="../introduction/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.</b>
+                        
+                         Concepts In Go
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter active" data-level="1.1" data-path="introduction/concepts_in_go.html">
+            
+                
+                    <a href="../introduction/concepts_in_go.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>1.1.</b>
+                        
+                         Concepts in Go
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2" data-path="navigation/index.html">
+            
+                
+                    <a href="../navigation/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.</b>
+                        
+                         Go Tour
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="2.1" data-path="navigation/pipelines_dashboard_page.html">
+            
+                
+                    <a href="../navigation/pipelines_dashboard_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.1.</b>
+                        
+                         Pipeline Dashboard
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.2" data-path="navigation/agents_page.html">
+            
+                
+                    <a href="../navigation/agents_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.2.</b>
+                        
+                         Agents
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.3" data-path="navigation/agent_details.html">
+            
+                
+                    <a href="../navigation/agent_details.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.3.</b>
+                        
+                         Agent Details
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.4" data-path="navigation/pipeline_activity_page.html">
+            
+                
+                    <a href="../navigation/pipeline_activity_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.4.</b>
+                        
+                         Pipeline Activity
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.5" data-path="navigation/stage_details_page.html">
+            
+                
+                    <a href="../navigation/stage_details_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.5.</b>
+                        
+                         Stage Details
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.6" data-path="navigation/job_details_page.html">
+            
+                
+                    <a href="../navigation/job_details_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.6.</b>
+                        
+                         Job Details
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.7" data-path="navigation/administration_page.html">
+            
+                
+                    <a href="../navigation/administration_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.7.</b>
+                        
+                         Administration
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.8" data-path="navigation/server_details_page.html">
+            
+                
+                    <a href="../navigation/server_details_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.8.</b>
+                        
+                         Server Details
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.9" data-path="navigation/environments_page.html">
+            
+                
+                    <a href="../navigation/environments_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.9.</b>
+                        
+                         Environments
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="2.10" data-path="navigation/value_stream_map.html">
+            
+                
+                    <a href="../navigation/value_stream_map.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>2.10.</b>
+                        
+                         Value Stream Map
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3" data-path="installation/index.html">
+            
+                
+                    <a href="../installation/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.</b>
+                        
+                         Installing Go
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="3.1" data-path="installation/system_requirements.html">
+            
+                
+                    <a href="../installation/system_requirements.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.1.</b>
+                        
+                         System requirements
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.2" data-path="installation/installing_go_server.html">
+            
+                
+                    <a href="../installation/installing_go_server.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.2.</b>
+                        
+                         Installing Go Server
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.3" data-path="installation/installing_go_agent.html">
+            
+                
+                    <a href="../installation/installing_go_agent.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.3.</b>
+                        
+                         Installing Go Agent
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.4" data-path="installation/run_go_without_install.html">
+            
+                
+                    <a href="../installation/run_go_without_install.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.4.</b>
+                        
+                         Running Go without Installation
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.5" data-path="installation/upgrading_go.html">
+            
+                
+                    <a href="../installation/upgrading_go.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.5.</b>
+                        
+                         Upgrading Go
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.6" data-path="installation/configuring_server_details.html">
+            
+                
+                    <a href="../installation/configuring_server_details.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.6.</b>
+                        
+                         Configuring Server Details
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.7" data-path="installation/configure_proxy.html">
+            
+                
+                    <a href="../installation/configure_proxy.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.7.</b>
+                        
+                         Configure a Proxy
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="3.8" data-path="installation/performance_tuning.html">
+            
+                
+                    <a href="../installation/performance_tuning.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>3.8.</b>
+                        
+                         Performance Tuning
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4" data-path="configuration/index.html">
+            
+                
+                    <a href="../configuration/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.</b>
+                        
+                         Configuration
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="4.1" data-path="configuration/quick_pipeline_setup.html">
+            
+                
+                    <a href="../configuration/quick_pipeline_setup.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.1.</b>
+                        
+                         Setup a New Pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.2" data-path="configuration/managing_pipelines.html">
+            
+                
+                    <a href="../configuration/managing_pipelines.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.2.</b>
+                        
+                         Managing Pipelines
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.3" data-path="configuration/managing_dependencies.html">
+            
+                
+                    <a href="../configuration/managing_dependencies.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.3.</b>
+                        
+                         Managing Dependencies
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.4" data-path="configuration/managing_a_build_cloud.html">
+            
+                
+                    <a href="../configuration/managing_a_build_cloud.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.4.</b>
+                        
+                         Managing Agents
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.5" data-path="configuration/managing_environments.html">
+            
+                
+                    <a href="../configuration/managing_environments.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.5.</b>
+                        
+                         Managing Environments
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.6" data-path="configuration/build_labelling.html">
+            
+                
+                    <a href="../configuration/build_labelling.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.6.</b>
+                        
+                         Pipeline Labelling
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.7" data-path="configuration/pipeline_scheduling.html">
+            
+                
+                    <a href="../configuration/pipeline_scheduling.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.7.</b>
+                        
+                         Pipeline Scheduling
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.8" data-path="configuration/admin_use_parameters_in_configuration.html">
+            
+                
+                    <a href="../configuration/admin_use_parameters_in_configuration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.8.</b>
+                        
+                         Parameterize a Pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.9" data-path="configuration/admin_use_custom_pipeline_label.html">
+            
+                
+                    <a href="../configuration/admin_use_custom_pipeline_label.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.9.</b>
+                        
+                         Customize a Pipeline Label
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.10" data-path="configuration/admin_clone_pipeline.html">
+            
+                
+                    <a href="../configuration/admin_clone_pipeline.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.10.</b>
+                        
+                         Clone a Pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.11" data-path="configuration/admin_lock_pipelines.html">
+            
+                
+                    <a href="../configuration/admin_lock_pipelines.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.11.</b>
+                        
+                         Lock a Pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.12" data-path="configuration/admin_add_material.html">
+            
+                
+                    <a href="../configuration/admin_add_material.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.12.</b>
+                        
+                         Add Material to Existing Pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.13" data-path="configuration/admin_add_stage.html">
+            
+                
+                    <a href="../configuration/admin_add_stage.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.13.</b>
+                        
+                         Add Stage to Existing Pipeline
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.14" data-path="configuration/admin_add_job.html">
+            
+                
+                    <a href="../configuration/admin_add_job.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.14.</b>
+                        
+                         Add job to Existing Stage
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.15" data-path="configuration/admin_add_task.html">
+            
+                
+                    <a href="../configuration/admin_add_task.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.15.</b>
+                        
+                         Add task to Existing Job
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.16" data-path="configuration/pipeline_templates.html">
+            
+                
+                    <a href="../configuration/pipeline_templates.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.16.</b>
+                        
+                         Pipeline Templates
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.17" data-path="configuration/dev_choose_when_stage_runs.html">
+            
+                
+                    <a href="../configuration/dev_choose_when_stage_runs.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.17.</b>
+                        
+                         Choose When a Stage Runs
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.18" data-path="configuration/admin_timer.html">
+            
+                
+                    <a href="../configuration/admin_timer.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.18.</b>
+                        
+                         Timer Trigger
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.19" data-path="configuration/job_timeout.html">
+            
+                
+                    <a href="../configuration/job_timeout.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.19.</b>
+                        
+                         Job Timeout
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.20" data-path="configuration/managing_users.html">
+            
+                
+                    <a href="../configuration/managing_users.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.20.</b>
+                        
+                         Managing Users
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.21" data-path="configuration/dev_authentication.html">
+            
+                
+                    <a href="../configuration/dev_authentication.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.21.</b>
+                        
+                         Authentication
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.22" data-path="configuration/dev_authorization.html">
+            
+                
+                    <a href="../configuration/dev_authorization.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.22.</b>
+                        
+                         Authorizing Users
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.23" data-path="configuration/delegating_group_administration.html">
+            
+                
+                    <a href="../configuration/delegating_group_administration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.23.</b>
+                        
+                         Delegating Group Administration
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.24" data-path="configuration/pipeline_group_admin_config.html">
+            
+                
+                    <a href="../configuration/pipeline_group_admin_config.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.24.</b>
+                        
+                         Pipeline Group Administration
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.25" data-path="configuration/dev_upload_test_report.html">
+            
+                
+                    <a href="../configuration/dev_upload_test_report.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.25.</b>
+                        
+                         Publish Reports and Artifacts
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.26" data-path="configuration/managing_artifacts_and_reports.html">
+            
+                
+                    <a href="../configuration/managing_artifacts_and_reports.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.26.</b>
+                        
+                         Managing Artifacts and Reports
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.27" data-path="configuration/delete_artifacts.html">
+            
+                
+                    <a href="../configuration/delete_artifacts.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.27.</b>
+                        
+                         Auto Delete Artifacts
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.28" data-path="configuration/ui_testing.html">
+            
+                
+                    <a href="../configuration/ui_testing.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.28.</b>
+                        
+                         UI Testing
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.29" data-path="configuration/admin_mailhost_info.html">
+            
+                
+                    <a href="../configuration/admin_mailhost_info.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.29.</b>
+                        
+                         Mailhost Information
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.30" data-path="configuration/dev_notifications.html">
+            
+                
+                    <a href="../configuration/dev_notifications.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.30.</b>
+                        
+                         Notifications
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.31" data-path="configuration/tfs_config.html">
+            
+                
+                    <a href="../configuration/tfs_config.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.31.</b>
+                        
+                         TFS Material configuration
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.32" data-path="configuration/configuration_reference.html">
+            
+                
+                    <a href="../configuration/configuration_reference.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.32.</b>
+                        
+                         Reference
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="4.33" data-path="configuration/schema.html">
+            
+                
+                    <a href="../configuration/schema.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>4.33.</b>
+                        
+                         Schema
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5" data-path="advanced_usage/index.html">
+            
+                
+                    <a href="../advanced_usage/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.</b>
+                        
+                         Advanced Usage
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="5.1" data-path="advanced_usage/agent_auto_register.html">
+            
+                
+                    <a href="../advanced_usage/agent_auto_register.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.1.</b>
+                        
+                         Auto Register a Remote Agent
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.2" data-path="advanced_usage/admin_spawn_multiple_jobs.html">
+            
+                
+                    <a href="../advanced_usage/admin_spawn_multiple_jobs.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.2.</b>
+                        
+                         Spawn multiple instances of a Job
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.3" data-path="advanced_usage/admin_install_multiple_agents.html">
+            
+                
+                    <a href="../advanced_usage/admin_install_multiple_agents.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.3.</b>
+                        
+                         Multiple Agents on One Machine
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.4" data-path="advanced_usage/dev_clean_up_when_cancel.html">
+            
+                
+                    <a href="../advanced_usage/dev_clean_up_when_cancel.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.4.</b>
+                        
+                         Clean on Task Cancel
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.5" data-path="advanced_usage/dev_conditional_task_execution.html">
+            
+                
+                    <a href="../advanced_usage/dev_conditional_task_execution.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.5.</b>
+                        
+                         Conditional Task Execution
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.6" data-path="advanced_usage/trigger_with_options.html">
+            
+                
+                    <a href="../advanced_usage/trigger_with_options.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.6.</b>
+                        
+                         Trigger With Options
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.7" data-path="advanced_usage/fan_in.html">
+            
+                
+                    <a href="../advanced_usage/fan_in.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.7.</b>
+                        
+                         Fan In
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.8" data-path="advanced_usage/properties.html">
+            
+                
+                    <a href="../advanced_usage/properties.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.8.</b>
+                        
+                         Properties
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.9" data-path="advanced_usage/compare_pipelines.html">
+            
+                
+                    <a href="../advanced_usage/compare_pipelines.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.9.</b>
+                        
+                         Compare Builds
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.10" data-path="advanced_usage/stage_duration_chart.html">
+            
+                
+                    <a href="../advanced_usage/stage_duration_chart.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.10.</b>
+                        
+                         Graphs
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.11" data-path="advanced_usage/command_repository.html">
+            
+                
+                    <a href="../advanced_usage/command_repository.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.11.</b>
+                        
+                         Command Repository
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="5.12" data-path="advanced_usage/one_click_backup.html">
+            
+                
+                    <a href="../advanced_usage/one_click_backup.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>5.12.</b>
+                        
+                         Backup Go Server
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6" data-path="integration/index.html">
+            
+                
+                    <a href="../integration/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.</b>
+                        
+                         Integrating Go With Other Tools
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="6.1" data-path="integration/go_integration.html">
+            
+                
+                    <a href="../integration/go_integration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.1.</b>
+                        
+                         Integration with External Tools
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.2" data-path="integration/gadgets.html">
+            
+                
+                    <a href="../integration/gadgets.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.2.</b>
+                        
+                         Gadgets
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.3" data-path="integration/mingle_integration.html">
+            
+                
+                    <a href="../integration/mingle_integration.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.3.</b>
+                        
+                         Mingle Integration
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.4" data-path="integration/mingle_in_go.html">
+            
+                
+                    <a href="../integration/mingle_in_go.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.4.</b>
+                        
+                         Displaying Mingle gadgets in Go
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="6.5" data-path="integration/mingle_card_activity_gadget.html">
+            
+                
+                    <a href="../integration/mingle_card_activity_gadget.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>6.5.</b>
+                        
+                         Mingle Card Activity Gadget
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7" data-path="api/index.html">
+            
+                
+                    <a href="../api/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.</b>
+                        
+                         Go Api
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="7.1" data-path="api/go_api.html">
+            
+                
+                    <a href="../api/go_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.1.</b>
+                        
+                         Introducing Go API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.2" data-path="api/pipeline_group_api.html">
+            
+                
+                    <a href="../api/pipeline_group_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.2.</b>
+                        
+                         Pipeline Group API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.3" data-path="api/pipeline_api.html">
+            
+                
+                    <a href="../api/pipeline_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.3.</b>
+                        
+                         Pipeline API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.4" data-path="api/stages_api.html">
+            
+                
+                    <a href="../api/stages_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.4.</b>
+                        
+                         Stages API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.5" data-path="api/job_api.html">
+            
+                
+                    <a href="../api/job_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.5.</b>
+                        
+                         Job API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.6" data-path="api/agent_api.html">
+            
+                
+                    <a href="../api/agent_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.6.</b>
+                        
+                         Agent API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.7" data-path="api/materials_api.html">
+            
+                
+                    <a href="../api/materials_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.7.</b>
+                        
+                         Materials API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.8" data-path="api/configuration_api.html">
+            
+                
+                    <a href="../api/configuration_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.8.</b>
+                        
+                         Configuration API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.9" data-path="api/artifacts_api.html">
+            
+                
+                    <a href="../api/artifacts_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.9.</b>
+                        
+                         Artifacts API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.10" data-path="api/users_api.html">
+            
+                
+                    <a href="../api/users_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.10.</b>
+                        
+                         Users API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.11" data-path="api/backup_api.html">
+            
+                
+                    <a href="../api/backup_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.11.</b>
+                        
+                         Backup API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.12" data-path="api/properties_api.html">
+            
+                
+                    <a href="../api/properties_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.12.</b>
+                        
+                         Properties API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.13" data-path="api/feeds_api.html">
+            
+                
+                    <a href="../api/feeds_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.13.</b>
+                        
+                         Feeds API
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="7.14" data-path="api/command_repo_api.html">
+            
+                
+                    <a href="../api/command_repo_api.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>7.14.</b>
+                        
+                         Command Repo API
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8" data-path="extension_points/index.html">
+            
+                
+                    <a href="../extension_points/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.</b>
+                        
+                         Extension Points Of Go
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="8.1" data-path="extension_points/plugin_user_guide.html">
+            
+                
+                    <a href="../extension_points/plugin_user_guide.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.1.</b>
+                        
+                         Plugin User Guide
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.2" data-path="extension_points/package_repository_extension.html">
+            
+                
+                    <a href="../extension_points/package_repository_extension.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.2.</b>
+                        
+                         Package Repository Extension
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.3" data-path="extension_points/yum_repository_poller.html">
+            
+                
+                    <a href="../extension_points/yum_repository_poller.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.3.</b>
+                        
+                         Yum Repository Poller
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="8.4" data-path="extension_points/task_extension.html">
+            
+                
+                    <a href="../extension_points/task_extension.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.4.</b>
+                        
+                         Task Extension
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9" data-path="faq/index.html">
+            
+                
+                    <a href="../faq/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.</b>
+                        
+                         FAQ/Troubleshooting
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="9.1" data-path="faq/ordering_of_pipelines.html">
+            
+                
+                    <a href="../faq/ordering_of_pipelines.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.1.</b>
+                        
+                         Ordering of Pipelines
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.2" data-path="faq/stage_old_config.html">
+            
+                
+                    <a href="../faq/stage_old_config.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.2.</b>
+                        
+                         Historical Configuration
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.3" data-path="faq/concurrent_config_modifications.html">
+            
+                
+                    <a href="../faq/concurrent_config_modifications.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.3.</b>
+                        
+                         Concurrent Modifications to Config
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.4" data-path="faq/dev_understand_why_build_broken.html">
+            
+                
+                    <a href="../faq/dev_understand_why_build_broken.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.4.</b>
+                        
+                         Why the Build is Broken?
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.5" data-path="faq/dev_see_artifact_as_tab.html">
+            
+                
+                    <a href="../faq/dev_see_artifact_as_tab.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.5.</b>
+                        
+                         See artifacts as sub-tabs
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.6" data-path="faq/dev_save_properties.html">
+            
+                
+                    <a href="../faq/dev_save_properties.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.6.</b>
+                        
+                         Save Properties for a Build
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.7" data-path="faq/dev_use_current_revision_in_build.html">
+            
+                
+                    <a href="../faq/dev_use_current_revision_in_build.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.7.</b>
+                        
+                         Using Environment variables
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.8" data-path="faq/rm_deploy_to_environment.html">
+            
+                
+                    <a href="../faq/rm_deploy_to_environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.8.</b>
+                        
+                         Deploy to an environment
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.9" data-path="faq/tester_what_has_changed.html">
+            
+                
+                    <a href="../faq/tester_what_has_changed.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.9.</b>
+                        
+                         See changes in new binary
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.10" data-path="faq/dependency_management.html">
+            
+                
+                    <a href="../faq/dependency_management.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.10.</b>
+                        
+                         Run Tests against new Builds
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.11" data-path="faq/rm_what_is_deployed.html">
+            
+                
+                    <a href="../faq/rm_what_is_deployed.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.11.</b>
+                        
+                         Check What&#39;s Deployed
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.12" data-path="faq/deploy_a_specific_build_to_an_environment.html">
+            
+                
+                    <a href="../faq/deploy_a_specific_build_to_an_environment.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.12.</b>
+                        
+                         Deploy a Specific Build
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.13" data-path="faq/agent_guid_issue.html">
+            
+                
+                    <a href="../faq/agent_guid_issue.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.13.</b>
+                        
+                         Clone/Copy an Existing Agents
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.14" data-path="faq/oauth_overview.html">
+            
+                
+                    <a href="../faq/oauth_overview.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.14.</b>
+                        
+                         OAuth Overview
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.15" data-path="faq/what_is_oauth.html">
+            
+                
+                    <a href="../faq/what_is_oauth.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.15.</b>
+                        
+                         What is OAuth?
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.16" data-path="faq/what_is_opensocial.html">
+            
+                
+                    <a href="../faq/what_is_opensocial.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.16.</b>
+                        
+                         What is OpenSocial?
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.17" data-path="faq/job_rerun.html">
+            
+                
+                    <a href="../faq/job_rerun.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.17.</b>
+                        
+                         How do I re-run jobs?
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.18" data-path="faq/material_update_hung.html">
+            
+                
+                    <a href="../faq/material_update_hung.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.18.</b>
+                        
+                         Go unable to poll for changes
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.19" data-path="faq/artifact_integrity.html">
+            
+                
+                    <a href="../faq/artifact_integrity.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.19.</b>
+                        
+                         Artifact integrity verification
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.20" data-path="faq/notifications_page.html">
+            
+                
+                    <a href="../faq/notifications_page.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.20.</b>
+                        
+                         Email Notifications
+                    </a>
+                
+            
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="9.21" data-path="faq/admin_out_of_disk_space.html">
+            
+                
+                    <a href="../faq/admin_out_of_disk_space.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>9.21.</b>
+                        
+                         Running out of Disk Space
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="10" data-path="beta/index.html">
+            
+                
+                    <a href="../beta/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.</b>
+                        
+                         Beta features
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="10.1" data-path="beta/comment_on_pipeline_run.html">
+            
+                
+                    <a href="../beta/comment_on_pipeline_run.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>10.1.</b>
+                        
+                         Comment on a pipeline run
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        
+        <li class="chapter " data-level="11" data-path="release_history/index.html">
+            
+                
+                    <a href="../release_history/index.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.</b>
+                        
+                         Release History
+                    </a>
+                
+            
+            
+            <ul class="articles">
+                
+    
+        
+        <li class="chapter " data-level="11.1" data-path="release_history/whats_new_in_go.html">
+            
+                
+                    <a href="../release_history/whats_new_in_go.html">
+                        <i class="fa fa-check"></i>
+                        
+                            <b>11.1.</b>
+                        
+                         What&#39;s New in Go
+                    </a>
+                
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+
+        
+        <li class="divider"></li>
+        <li>
+            <a href="http://www.gitbook.io/" target="blank" class="gitbook-link">Published using GitBook</a>
+        </li>
+        
+    </ul>
+</div>
+
+    <div class="book-body">
+        <div class="body-inner">
+            <div class="book-header">
+    <!-- Actions Left -->
+    <a href="#" class="btn pull-left toggle-summary" aria-label="Toggle summary"><i class="fa fa-align-justify"></i></a>
+    <a href="#" class="btn pull-left toggle-search" aria-label="Toggle search"><i class="fa fa-search"></i></a>
+    
+    <div id="font-settings-wrapper" class="dropdown pull-left">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle font settings"><i class="fa fa-font"></i>
+        </a>
+        <div class="dropdown-menu font-settings">
+    <div class="dropdown-caret">
+        <span class="caret-outer"></span>
+        <span class="caret-inner"></span>
+    </div>
+
+    <div class="buttons">
+        <button type="button" id="reduce-font-size" class="button size-2">A</button>
+        <button type="button" id="enlarge-font-size" class="button size-2">A</button>
+    </div>
+
+    <div class="buttons font-family-list">
+        <button type="button" data-font="0" class="button">Serif</button>
+        <button type="button" data-font="1" class="button">Sans</button>
+    </div>
+
+    <div class="buttons color-theme-list">
+        <button type="button" id="color-theme-preview-0" class="button size-3" data-theme="0">White</button>
+        <button type="button" id="color-theme-preview-1" class="button size-3" data-theme="1">Sepia</button>
+        <button type="button" id="color-theme-preview-2" class="button size-3" data-theme="2">Night</button>
+    </div>
+</div>
+
+    </div>
+
+    <!-- Actions Right -->
+    
+    <div class="dropdown pull-right">
+        <a href="#" class="btn toggle-dropdown" aria-label="Toggle share dropdown"><i class="fa fa-share-alt"></i>
+        </a>
+        <div class="dropdown-menu font-settings dropdown-left">
+            <div class="dropdown-caret">
+                <span class="caret-outer"></span>
+                <span class="caret-inner"></span>
+            </div>
+            <div class="buttons">
+                <button type="button" data-sharing="twitter" class="button">Twitter</button>
+                <button type="button" data-sharing="google-plus" class="button">Google</button>
+                <button type="button" data-sharing="facebook" class="button">Facebook</button>
+                <button type="button" data-sharing="weibo" class="button">Weibo</button>
+                <button type="button" data-sharing="instapaper" class="button">Instapaper</button>
+            </div>
+        </div>
+    </div>
+    
+
+    
+    <a href="#" target="_blank" class="btn pull-right google-plus-sharing-link sharing-link" data-sharing="google-plus" aria-label="Share on Google Plus"><i class="fa fa-google-plus"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right facebook-sharing-link sharing-link" data-sharing="facebook" aria-label="Share on Facebook"><i class="fa fa-facebook"></i></a>
+    
+    
+    <a href="#" target="_blank" class="btn pull-right twitter-sharing-link sharing-link" data-sharing="twitter" aria-label="Share on Twitter"><i class="fa fa-twitter"></i></a>
+    
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href="../" >Go User Documentation</a>
+    </h1>
+</div>
+
+            <div class="page-wrapper" tabindex="-1">
+                <div class="page-inner">
+                
+                
+                    <section class="normal" id="section-gitbook_108">
+                    
+                        <h1 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><span class="fa fa-link"></span></a>Introduction</h1>
+<p>Go is an advanced Continuous Integration and Release Management system. It takes an innovative approach to managing the build, test and release process. In order to find your way around Go, you&apos;ll need to understand how Go sees the world. This page explains some basic concepts in Go.</p>
+<p>If you want to know more about Continuous Integration and delivery, in general, refer to Martin Fowler&apos;s article on the subject: <a href="http://martinfowler.com/articles/continuousIntegration.html" target="_blank">Continuous Integration</a> and <a href="http://martinfowler.com/bliki/ContinuousDelivery.html" target="_blank">Continuous Delivery</a>.</p>
+<h2 id="build-agents"><a name="build-agents" class="plugin-anchor" href="#build-agents"><span class="fa fa-link"></span></a>Build Agents</h2>
+<p>As with all modern continuous integration systems, Go lets you distribute your builds across many computers -- think &apos;build grid&apos; or &apos;build cloud&apos;.</p>
+<p>And why use a build cloud? There are three main reasons:</p>
+<ul>
+<li>Run your tests on several different platforms to make sure your software works on all of them</li>
+<li>Split your tests into several parallel suites and run them at the same time to get results faster</li>
+<li>Manage all your environments centrally so you can promote builds from one environment to the next</li>
+</ul>
+<p>It is extremely simple to get agents up and running in Go. First, install the Go agent software on each computer that is to be a part of your cloud. Next, configure each build agent to connect to your Go server. Finally, approve every build agent in your cloud from the management dashboard in the Go administration page. You are now ready to build. Additionally, you should associate relevant <strong>resource</strong> tags with each of your agents to better specify the kinds of build tasks with which each agent is compatible.</p>
+<h3 id="agent-lifecycle"><a name="agent-lifecycle" class="plugin-anchor" href="#agent-lifecycle"><span class="fa fa-link"></span></a>Agent lifecycle</h3>
+<p>Go supports a grid of Agents that can run Jobs. Agents periodically contact the Go server to ask if there is any work. The server checks to see what resources the Agent has, and assigns any available Jobs that match those resources.</p>
+<p>When an Agent runs a Job, it creates a sandbox directory under the agent&apos;s directory. All materials are updated into this directory. This directory may be different on different agents depending on how the agent was configured and which operating system the agent is running on.</p>
+<p>For example consider a pipeline named &quot;pipelines/my-pipeline&quot;. On a default linux install this would be &quot;/var/lib/go-agent/pipelines/my-pipeline&quot;. On a default Windows installation it would be &quot;C:\Program files\Go Agent\pipelines\my-pipeline&quot;.</p>
+<p>All materials are updated in this directory. If a material has a &quot;dest&quot; folder specified, then the material is updated into a folder of that name, under the base sandbox directory.</p>
+<p>For example suppose the pipeline has an SVN material with a destination folder name of &quot;tools&quot; then the svn files will be checked out into that &quot;tools&quot; directory. When you have multiple materials specified, you must specify a &quot;dest&quot; for each material.</p>
+<p>Once the materials have all been updated, the Agent runs each of the tasks in turn. You can specify a workingdir on a task. When the task runs it will be run relative to the pipeline sandbox.</p>
+<p>For example if there is a task that runs &quot;/usr/bin/make&quot; with a workingdir of &quot;tools/my-tool&quot; then this will run in the directory &quot;pipelines/my-pipeline/tools/my-tool&quot;.</p>
+<p>When all the tasks have been completed the agent will publish any artifacts defined in the Job. Again the artifact directories are relative to the pipeline sandbox directory.</p>
+<h3 id="full-example"><a name="full-example" class="plugin-anchor" href="#full-example"><span class="fa fa-link"></span></a>Full example</h3>
+<p>Consider the following configuration:</p>
+<pre><code class="lang-{.code}">          &lt;pipeline name=&quot;my-product&quot;&gt;
+            &lt;materials&gt;
+              &lt;svn  url=&quot;http://my-svn-server/tools&quot; dest=&quot;tools&quot;/&gt;
+              &lt;svn  url=&quot;http://my-svn-server/my-project&quot; dest=&quot;my-project&quot;/&gt;
+            &lt;/materials&gt;
+            &lt;stage name=&quot;compile&quot;&gt;
+              &lt;job name=&quot;linux&quot;&gt;
+                &lt;environmentvariables&gt;
+                  &lt;variable name=&quot;FOO&quot;&gt;
+                     &lt;value&gt;bar&lt;/value&gt;
+                  &lt;/variable&gt;
+                &lt;/environmentvariables&gt;
+                &lt;resources&gt;
+                  &lt;resource&gt;linux&lt;/resource&gt;
+                &lt;/resources&gt;
+                &lt;tasks&gt;
+                  &lt;exec command=&quot;/usr/bin/make&quot; args=&quot;-f Makefile&quot; workingdir=&quot;tools/my-tool&quot;/&gt;
+                  &lt;ant target=&quot;unit-test&quot; workingdir=&quot;my-project&quot;/&gt;
+                &lt;/tasks&gt;
+                &lt;artifacts&gt;
+                  &lt;artifact src=&quot;my-project/target/deployable.jar&quot; dest=&quot;pkg&quot;/&gt;
+                &lt;/artifacts&gt;
+              &lt;/job&gt;
+            &lt;/stage&gt;
+          &lt;/pipeline&gt;
+</code></pre>
+<p>The Go Agent will:</p>
+<ul>
+<li>Create the directory &quot;[install-dir]/pipelines/my-product&quot; if it does not exist</li>
+<li>Checkout or update the svn material &quot;<a href="http://my-svn-server/tools" target="_blank">http://my-svn-server/tools</a>&quot; into &quot;[install-dir]/pipelines/my-product/tools&quot;</li>
+<li>Checkout or update the svn material &quot;<a href="http://my-svn-server/my-project" target="_blank">http://my-svn-server/my-project</a>&quot; into &quot;[install-dir]/pipelines/my-product/my-project&quot;</li>
+<li>run &quot;/usr/bin/make&quot; in the directory &quot;[install-dir]/pipelines/my-product/tools/my-tool&quot;</li>
+<li>run ant in the directory &quot;[install-dir]/pipelines/my-product/tools/my-project&quot;</li>
+<li>publish &quot;[install-dir]/pipelines/my-product/my-project/target/deployable.jar&quot; to the server</li>
+</ul>
+<h2 id="pipelines"><a name="pipelines" class="plugin-anchor" href="#pipelines"><span class="fa fa-link"></span></a>Pipelines</h2>
+<p>A pipeline allows you to break down a complex build into a sequence of simple stages for fast feedback, exhaustive validation and continuous deployment.</p>
+<h3 id="how-go-models-distributed-work"><a name="how-go-models-distributed-work" class="plugin-anchor" href="#how-go-models-distributed-work"><span class="fa fa-link"></span></a>How Go models distributed work</h3>
+<p>The unit of work in Go is called a <strong>job</strong> . A job is a set of build tasks that can be performed on a single agent in your cloud. You can associate specific build <strong>resources</strong> with each build agent -- a specific operating system or compiler version, for example. Go makes sure build jobs that require specific build resources are directed to build agents with the appropriate resources. By default, build jobs can be picked up by any agent. Resources are simple text tags which you associate with each agent. You can specify as many of them as you want. This flexibility is important as the agent process itself does not automatically determine anything about its environment.</p>
+<p>Jobs are grouped into stages. A <strong>stage</strong> is a collection of build jobs that can be executed in parallel. This is the mechanism that allows you to, for example, split test suites into multiple parallel streams or run the same build on multiple platforms simultaneously. A stage passes only when all the jobs in the stage pass.</p>
+<p>Stages are then joined sequentially into a <strong>pipeline</strong> . Stages trigger in the order they appear in the pipeline&apos;s raw configuration. They can be triggered by: a change in your version control system, manually forcing the pipeline to become active or by a dependency on a given stage of another pipeline. When a stage completes successfully, it triggers the next stage in the pipeline automatically, by default. Alternatively, you can require a manual <strong>approval</strong> to trigger the next stage. This manual approval requires user intervention. You can delegate the permissions for approval of stages to individuals or groups of users.</p>
+<h3 id="an-example-pipeline"><a name="an-example-pipeline" class="plugin-anchor" href="#an-example-pipeline"><span class="fa fa-link"></span></a>An example pipeline</h3>
+<p>So what does a pipeline look like? Here&apos;s an example:</p>
+<p><img src="../resources/images/pipeline_example.png" alt="Example pipeline"></p>
+<p>The first stage has two jobs. The unit test job compiles the code and runs the unit tests. The compiled code is then uploaded to the artifact repository. This is the one and only time the code is compiled -- and of course if you&apos;re using an interpreted language you can skip this step. The second job does static analysis of the code, uploading the results as html test reports and build properties for further analysis.</p>
+<p>When the first stage passes, it automatically triggers the functional test stage. The jobs in this stage download that binaries from the artifact repository, and run a series of functional tests. One job runs on a Linux box, the other on Windows. If your tests take a long time to run, you could split them into suites and run these as multiple jobs in parallel.</p>
+<p>Finally there is a stage which deploys your software into your UAT environment for manual testing. This stage has a manual approval in front of it, meaning that somebody has to click a button in order to deploy the application into UAT. Running this stage proves out your automated deployment process -- and it should include some smoke tests that make the job fail if the deployment doesn&apos;t work.</p>
+<p>The pipeline metaphor gives you several important benefits:</p>
+<ul>
+<li>Because of the way pipelines are modeled and presented, it is trivially easy to match up an acceptance test failure, or a flaw in the UAT environment, with the version of the code that caused it.</li>
+<li>Because you only compile once, you ensure that the thing you are testing is the same thing you will release, and you don&apos;t waste resources compiling repeatedly.</li>
+<li>Finally, Go allows you to build manual steps into your testing process so that your QAs and users can manually test your software.</li>
+</ul>
+<h3 id="pipeline-groups"><a name="pipeline-groups" class="plugin-anchor" href="#pipeline-groups"><span class="fa fa-link"></span></a>Pipeline groups</h3>
+<p>The Go dashboard allows you to visualize pipelines at a glance. You can then group pipelines together into pipeline groups. Beyond the visual convenience of grouping related pipelines, there are access and security features that allow you to control the set of users that can view a particular pipeline group. This can be a powerful way to carve out more secluded build areas for your users. Consult the Security section for more information</p>
+<h2 id="pipeline-dependencies"><a name="pipeline-dependencies" class="plugin-anchor" href="#pipeline-dependencies"><span class="fa fa-link"></span></a>Pipeline dependencies</h2>
+<p>A dependency is created when a pipeline is configured to depend on either an SCM or another pipeline. The domain concept for this is called a material. If a pipeline has a dependency it has been configured to have either an <em>SCM material</em> or a <em>pipeline material</em>.</p>
+<h3 id="scm-dependency"><a name="scm-dependency" class="plugin-anchor" href="#scm-dependency"><span class="fa fa-link"></span></a>SCM Dependency</h3>
+<p><img src="../resources/images/scm_dependency.png" alt=""></p>
+<p>Pipeline 1 depends on an SCM.</p>
+<p>Pipeline 1 will trigger each time it polls the SCM and detects a new revision.</p>
+<h3 id="pipeline-dependency"><a name="pipeline-dependency" class="plugin-anchor" href="#pipeline-dependency"><span class="fa fa-link"></span></a>Pipeline Dependency</h3>
+<p><img src="../resources/images/pipeline_dependency.png" alt=""></p>
+<p>Pipeline 2 depends on Pipeline 1.</p>
+<p>Pipeline 2 will trigger each time Pipeline 1 successfully completes.</p>
+<h3 id="pipeline-and-scm-dependency"><a name="pipeline-and-scm-dependency" class="plugin-anchor" href="#pipeline-and-scm-dependency"><span class="fa fa-link"></span></a>Pipeline and SCM Dependency</h3>
+<p><img src="../resources/images/pipeline_scm_dependency.png" alt=""></p>
+<p>Pipeline 2 depends on Pipeline 1 and an SCM.</p>
+<p>The expectation may be that a new revision will trigger both Pipeline 1 and 2. That&#x2019;s not the case.</p>
+<p>Instead, Pipeline 2 will only trigger if a new revision has successfully passed through Pipeline 1.</p>
+<p>Real world example:</p>
+<p>SCM contains application code and acceptance tests</p>
+<p>Both pipelines depend on the SCM</p>
+<p>Pipeline 1 compiles code and creates an artifact</p>
+<p>Pipeline 2 fetches the build artifact and runs the tests that were written for the compiled code</p>
+<p>Pipeline 2 has to use the same acceptance tests committed with the code</p>
+<p>Someone commits code and tests as part of the same SCM commit.</p>
+<h3 id="fan-out"><a name="fan-out" class="plugin-anchor" href="#fan-out"><span class="fa fa-link"></span></a>Fan-out</h3>
+<p><img src="../resources/images/fan-out.png" alt=""></p>
+<p>Pipeline 1 and 2 depend on the same SCM.</p>
+<p>A new revision will trigger both Pipeline 1 and 2.</p>
+<p>Why fan-out?</p>
+<p>Speed up the feedback loop and enable a team to fail and learn faster.</p>
+<h3 id="fan-in---pipeline"><a name="fan-in---pipeline" class="plugin-anchor" href="#fan-in---pipeline"><span class="fa fa-link"></span></a>Fan-in - Pipeline</h3>
+<p><img src="../resources/images/fan-in-pipeline.png" alt=""></p>
+<p>Pipelines 1 and 2 depend on an SCM.</p>
+<p>Pipeline 3 depends on Pipelines 1 and 2.</p>
+<p>The expectation may be that any successful run of Pipeline 1 or Pipeline 2 will trigger Pipeline 3. That&#x2019;s not the case.</p>
+<p>Instead, Pipeline 3 will only trigger if a new revision (SCM) has successfully passed through both Pipeline 1 and Pipeline 2.</p>
+<p>Why fan-in?</p>
+<p>Faster feedback - You can fan-out to get significantly faster feedback now that Go handles the fan-in.</p>
+<p>Eliminates spurious builds - Test software only when it&apos;s necessary and don&#x2019;t waste resources.</p>
+<p>Meaningful feedback - You won&apos;t have false-positives or false-negatives.</p>
+<h3 id="fan-in---pipeline-and-scm"><a name="fan-in---pipeline-and-scm" class="plugin-anchor" href="#fan-in---pipeline-and-scm"><span class="fa fa-link"></span></a>Fan-in - Pipeline and SCM</h3>
+<p><img src="../resources/images/fan-in-pipeline-scm.png" alt=""></p>
+<p>Pipelines 1 and 2 depend on SCM 1.</p>
+<p>Pipeline 3 depends on Pipelines 1 and 2, and SCM 2.</p>
+<p>Pipeline 3 will trigger:</p>
+<p>if a new revision (SCM 1) has successfully passed through both Pipeline 1 and Pipeline 2</p>
+<p>each time it polls SCM 2 and detects a new revision</p>
+<h3 id="fan-in---pipeline-with-different-originating-scm"><a name="fan-in---pipeline-with-different-originating-scm" class="plugin-anchor" href="#fan-in---pipeline-with-different-originating-scm"><span class="fa fa-link"></span></a>Fan-in - Pipeline with different originating SCM</h3>
+<p><img src="../resources/images/fan-in-pipeline-different-scm.png" alt=""></p>
+<p>Pipelines 1 and 2 depend on SCM 1.</p>
+<p>Pipeline 3 depends on SCM 2.</p>
+<p>Pipeline 4 depends on Pipelines 1, 2 and 3.</p>
+<p>Pipeline 4 will trigger:</p>
+<p>if a new revision (SCM 1) has successfully passed through Pipelines 1
+and 2.</p>
+<p>each time Pipeline 3 successfully completes (SCM 2)</p>
+<h2 id="deployment-and-environments"><a name="deployment-and-environments" class="plugin-anchor" href="#deployment-and-environments"><span class="fa fa-link"></span></a>Deployment and Environments</h2>
+<p>Any moderately complex piece of software typically goes through a series of environments prior to release. A typical set of environments may look like this:</p>
+<ul>
+<li>Development</li>
+<li>User Acceptance Testing</li>
+<li>Performance</li>
+<li>Production</li>
+</ul>
+<p>Deployment of software into an environment is often a non-trivial process that involves several steps, potentially required to be repeated on several machines. With Go, you have an easy to manage environment dashboard that simplifies the deployment process down to a single click.</p>
+<p>An environment in Go is essentially a collection of agents and pipelines. Agents can be shared across environments, however, pipelines cannot. An environment pipeline is used to perform tasks specific to an environment.</p>
+<h3 id="an-example"><a name="an-example" class="plugin-anchor" href="#an-example"><span class="fa fa-link"></span></a>An example</h3>
+<p>So how would this work for me? Here&apos;s an example:</p>
+<p><img src="../resources/images/environment-deploy.png" alt="Environments example"></p>
+<p>In this scenario, we have three different environments -- User acceptance, Performance, and Production. At any given time, each environment may contain a different build of the deployed software.</p>
+<p>Each environment has a pipeline (represented by the downward arrow) that performs a set of tasks specific to each environment.</p>
+<ul>
+<li><strong>User Acceptance:</strong> The pipeline performs a <strong>deploy</strong> task on a single machine.</li>
+<li><strong>Performance:</strong> The pipeline first performs a <strong>deploy</strong> on a cluster of performance machines and then triggers a suite of <strong>performance tests</strong> .</li>
+<li><strong>Production:</strong> The pipeline first performs a <strong>deploy</strong> on a load balanced cluster of machines and then triggers a suite of <strong>smoke tests</strong> to validate the deployment.</li>
+</ul>
+<p>Each of these environment pipelines deploys using the same build thereby mitigating any unforeseen issues due to inconsistent versions.</p>
+<p>The environments dashboard also give you a bird&apos;s eye view of which versions are deployed in which environment giving you a configuration management console as well.</p>
+
+                    
+                    </section>
+                
+                
+                </div>
+            </div>
+        </div>
+
+        
+        <a href="../introduction/index.html" class="navigation navigation-prev " aria-label="Previous page: Concepts In Go"><i class="fa fa-angle-left"></i></a>
+        
+        
+        <a href="../navigation/index.html" class="navigation navigation-next " aria-label="Next page: Go Tour"><i class="fa fa-angle-right"></i></a>
+        
+    </div>
+</div>
+
+        
+<script src="../gitbook/app.js"></script>
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-ga/plugin.js"></script>
+    
+
+    
+    <script src="https://cdn.mathjax.org/mathjax/2.4-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+
+    
+    <script src="../gitbook/plugins/gitbook-plugin-mathjax/plugin.js"></script>
+    
+
+<script>
+require(["gitbook"], function(gitbook) {
+    var config = {"fontSettings":{"theme":null,"family":"sans","size":2},"ga":{"token":"UA-48357651-1","configuration":"auto"}};
+    gitbook.start(config);
+});
+</script>
+
+        <script>(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)})(window,document,'script','//www.google-analytics.com/analytics.js','ga');ga('create', 'UA-48357651-1', 'auto');ga('send', 'pageview');</script>
+    </body>
+    
+</html>
