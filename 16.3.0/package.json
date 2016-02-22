@@ -1,0 +1,19 @@
+{
+  "name": "gocd-docs",
+  "repository": "https://github.com/gocd/docs.go.cd",
+  "version": "1.0.0",
+  "description": "Welcome to Go - an Open Sourced Continuous Integration and Release Management system. Please take a minute to understand [the basic concepts in Go](introduction/concepts_in_go.md) before you go any further.",
+  "main": "index.js",
+  "scripts": {
+    "build-user": "./user-ci.sh"
+  },
+  "author": "ThoughtWorks, Inc.",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "gitbook-cli": "^0.3.4",
+    "grunt-cli": "^0.1.13",
+    "grunt": "^0.4.5",
+    "grunt-contrib-cssmin": "^0.13.0",
+    "grunt-contrib-htmlmin": "^0.4.0"
+  }  
+}
