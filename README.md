@@ -1,6 +1,6 @@
 # Documentation for Go OSS
 
-This repository contains the documentation for [Developers](/developer) and [Users](/user).
+This repository contains the documentation for Users.
 
 ## Contributing
 
@@ -13,7 +13,6 @@ $ npm install
 ### Serve the documentation locally
 
 ```
-$ cd [user|developer]
 $ gitbook install
 $ gitbook serve
 ```
@@ -34,7 +33,7 @@ $ gitbook [pdf|epub|mobi] build [output]
 
 ### Publishing changes
 
-The contents of the `_book` directory needs to be pushed out to the *[gh-pages](https://github.com/gocd/documentation/tree/gh-pages/user)* branch of the repository.
+The contents of the `_book` directory needs to be pushed out to the *[gh-pages](https://github.com/gocd/docs.go.cd/tree/gh-pages)* branch of the repository.
 
 ## Contributing
 
@@ -44,7 +43,7 @@ A lot of useful information like links to user documentation, design documentati
 ## License
 
 ```plain
-Copyright 2015 ThoughtWorks, Inc.
+Copyright 2016 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

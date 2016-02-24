@@ -3,6 +3,5 @@
 *.iml
 *.ipr
 *.iws
-user/_book/*
-developer/_book/*
+_book/*
 node_modules/
