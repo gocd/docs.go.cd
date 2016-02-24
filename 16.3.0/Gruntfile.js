@@ -7,24 +7,6 @@ var path = require("path");
       source: '_book/',
       destination: '_book/',
     },
-    htmlmin: {
-      dist: {
-        options: {
-          removeComments: true,
-          collapseWhitespace: true,
-          removeRedundantAttributes: true,
-          keepClosingSlash: true,
-          minifyCSS: true,
-          minifyJS: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= docs.source %>',
-          src: ['**/*.html'],
-          dest: '<%= docs.destination %>'
-        }]
-      }
-    },
     cssmin: {
       dist: {
         files: [{
@@ -38,9 +20,8 @@ var path = require("path");
     }
   });
 
-  grunt.loadNpmTasks('grunt-contrib-htmlmin');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
 
-  grunt.registerTask('default', ['htmlmin', 'cssmin']);
+  grunt.registerTask('default', ['cssmin']);
 
 };

@@ -1,14 +1,7 @@
 #!/bin/bash
 set -e
 
-if [ $# -ne 1 ]
-then
-  echo "usage: $0 VERSION"
-  echo "    VERSION - 15.1.0 15.2.0 etc"
-  exit -1
-fi
-
-version=$1
+version="16.3.0"
 
 rm -rf $HOME/.node
 mkdir -p $HOME/.node
