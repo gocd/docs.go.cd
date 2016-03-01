@@ -40,6 +40,31 @@ The contents of the `_book` directory needs to be pushed out to the *[gh-pages](
 We encourage you to contribute to Go. For information on contributing to this project, please see our [contributor's guide](http://www.go.cd/contribute).
 A lot of useful information like links to user documentation, design documentation, mailing lists etc. can be found in the [resources](http://www.go.cd/community/resources.html) section.
 
+### Releasing a new version of the documentation
+
+Bump the version in `user-ci.sh` on the master branch.
+
+```
+$ git checkout master
+$ vim user-ci.sh                  # Bump version in `version` to new version e.g.`version=16.3.0`.
+$ git add user-ci.sh
+$ git commit -m 'Bump version'
+$ git push upstream master
+```
+[build.go.cd](http://build.go.cd) will create 16.3.0 folder under gh-pages branch and site will be updated. 
+
+Once the version is published link the current to new version.
+
+```
+$ git fetch --all
+$ git checkout gh-pages
+$ git merge upstream/gh-pages
+$ ln -sf 16.3.0 current        # current is now a symlink to 16.3.0
+$ git add current
+$ git commit -m 'Link new version to current'
+$ git push
+```
+
 ## License
 
 ```plain
