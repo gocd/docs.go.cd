@@ -1292,7 +1292,7 @@ directory where the .ssh/ directory is located.
 |-----------|----------|-------------|
 | url | Yes | GIT URL for the repository. |
 | branch | No | a branch name in the repository. |
-| shallowClone | No | Add a `--depth=N` option to git cloning command on Go agent. Shallow clone truncates history to latest revisions, thus helps accelerating clone operation for repositories with long history. Cloning depth is dynamic calculated to ensure revisions from [GO_FROM_REVISION](#GO_FROM_REVISION) to [GO_TO_REVISION](#GO_TO_REVISION) are included in the cloned repository. |
+| shallowClone | No | Add a `--depth=N` option to git cloning command on Go agent. Shallow clone truncates history to latest revisions, thus helps accelerating clone operation for repositories with long history. Cloning depth is dynamically calculated to ensure revisions from [GO_FROM_REVISION](#env-var-GO_FROM_REVISION) to [GO_TO_REVISION](#env-var-GO_TO_REVISION) are included in the cloned repository. |
 | dest | Only for multiple materials | The directory under the sandbox of Go Agent. Go will check out the source code into this directory. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
@@ -1637,8 +1637,8 @@ The following environment variables are set for all tasks:
 | `GO_STAGE_COUNTER` | The re-run counter of the stage to which the job belongs to |
 | `GO_JOB_NAME` | The name of the job that is being run |
 | `GO_DEPENDENCY_LABEL_ <upstream_pipeline_name>_<upstream_stage_name>` | The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: 'GO_DEPENDENCY_LABEL_FRAMEWORK_DEV' is the environment variable where the name of the upstream pipeline is 'framework' and the upstream stage is 'dev'. Hyphen ('-') is an illegal character in an environment variable. So if a pipeline name or stage name contains '-', it will be converted into an underscore. For example, ‘pipeline-foo’ with stage ‘stage-foo’ becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO. |
-| <span name="GO_TO_REVISION">`GO_TO_REVISION_<material_name>`</span> | The lastest revision in modifications that the build running against for each configured SCM material. |
-| <span name="GO_FROM_REVISION">`GO_FROM_REVISION_<material_name>`</span> | The earlist revision in modifications that the build running against for each configured SCM material. |
+| <span id="env-var-GO_TO_REVISION">`GO_TO_REVISION_<material_name>`</span> | The lastest revision in modifications that the build running against for each configured SCM material. |
+| <span id="env-var-GO_FROM_REVISION">`GO_FROM_REVISION_<material_name>`</span> | The earlist revision in modifications that the build running against for each configured SCM material. |
 
 ### Examples
 
