@@ -1,10 +1,126 @@
-# Using Environment Variables in Go
+# Using Environment Variables in GoCD
 
-## Standard Go environment variables
+## Accessing environment variables in tasks
+
+Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending
+on the kind of process used in the task, environment variables are accessed differently. Presented below are some common
+usage scenarios, with the assumption that a job has been configured with an environment variable called `ENV_VAR_1`,
+with the value `VALUE_1`.
+
+### 1. Using an environment variable in a custom command on Unix/Linux
+
+A very common use case for environment variables is to use them as arguments for a custom command
+(["exec task" in GoCD](../configuration/managing_pipelines.html#add-a-new-task-to-an-existing-job)). Assuming
+that you want to pass the environment variable `ENV_VAR_1` to the `ls` command, you might be tempted to try something
+like this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/1_wrong_env_var_usage.png" alt="Figure 1: Wrong usage of environment variable" id="wrong_env_var_usage">
+  <figcaption>Figure 1: Wrong usage of environment variable in custom command task (Will not work)</figcaption>
+</figure>
+
+When run, it will end with a message like this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/2_wrong_env_var_usage_result.png" alt="Figure 2: Result of wrong usage of environment variable" id="wrong_env_var_usage_result">
+  <figcaption>Figure 2: Result of wrong usage of environment variable in custom command task</figcaption>
+</figure>
+
+As you can see, the environment variable, `$ENV_VAR_1` was passed in literally to the command `ls` and was not
+interpolated. What is happening here is that GoCD is directly executing the command and passing in the parameters,
+without involving a shell like bash or sh in the middle. When a command such as `ls $ENV_VAR_1` is executed from the
+command-line, the shell process is the one that interpolates the environment variable and replaces it with its value, so
+that the `ls` command does not see it.
+
+So, we need to do the same here. The correct way to invoke this, so that the interpolation of the environment variable
+works is like this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/3_right_env_var_usage.png" alt="Figure 3: Correct usage of environment variable" id="right_env_var_usage">
+  <figcaption>Figure 3: Correct usage of environment variable in custom command task</figcaption>
+</figure>
+
+When run, it will end with a message like this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/4_right_env_var_usage_result.png" alt="Figure 4: Result of correct usage of environment variable" id="right_env_var_usage_result">
+  <figcaption>Figure 4: Result of correct usage of environment variable in custom command task</figcaption>
+</figure>
+
+Even though the command failed in this example, the value of the environment variable was interpolated. You can replace
+`ls` with some other command, but the concept remains the same.
+
+### 2. Using an environment variable in a custom command on Windows
+
+This is easier than using it in a shell script because, on Windows GoCD agents, commands are executed by wrapping them
+in `cmd /c`. So, environment variables get interpolated automatically. So, with a configuration such as this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/7_env_var_windows_command.png" alt="Figure 5: Usage of environment variable on Windows" id="env_var_usage_windows">
+  <figcaption>Figure 5: Usage of environment variable on Windows</figcaption>
+</figure>
+
+When run, it will end with a message like this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/8_env_var_windows_command_result.png" alt="Figure 6: Result of usage of environment variable on Windows" id="env_var_usage_windows_result">
+  <figcaption>Figure 8: Result of usage of environment variable on Windows</figcaption>
+</figure>
+
+Similarly, it works when used in a batch file (say, "env_var.cmd"), with content such as this:
+
+```
+echo Environment variable ENV_VAR_1 is: %ENV_VAR_1%
+```
+
+Notice that, unlike on Unix/Linux, the way to access an environment variable on Windows is to use %, instead of $.
+
+### 3. Using an environment variable in a shell-script - On Unix/Linux
+
+Using an environment variable inside a shell-script is not special at all. You can directly use it, as you would any
+environment variable. For instance, a shell-script with this content, will work when executed normally:
+
+```
+#!/bin/sh
+
+echo "Value of environment variable ENV_VAR_1 is: $ENV_VAR_1"
+```
+
+This works when executed directly, with a config such as this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/5_env_var_in_script.png" alt="Figure 9: Usage of environment variable in a shell-script" id="env_var_usage_script">
+  <figcaption>Figure 9: Usage of environment variable in a shell-script</figcaption>
+</figure>
+
+When run, it will end with a message like this:
+
+<figure class="concept_image">
+  <img src="../resources/images/faq/6_env_var_in_script_result.png" alt="Figure 10: Result of usage of environment variable in a shell-script" id="env_var_usage_script_result">
+  <figcaption>Figure 10: Result of usage of environment variable in a shell-script</figcaption>
+</figure>
+
+
+### 4. Using an environment variable in a ruby script
+
+Again, using an environment variable inside a ruby script is not special at all. This has been mentioned here, just to
+show that scripts written in different languages have to use different mechanisms to access environment variables. A
+ruby script such as this works as expected:
+
+```
+#!/usr/bin/env ruby
+
+puts "Environment variable ENV_VAR_1 has the value: #{ENV['ENV_VAR_1']}"
+```
+
+## Standard GoCD environment variables
+
+The examples above mention a custom environment variable set at the job level. However, there are some standard
+environment variables available during every job run, set by GoCD. They are:
 
 | Environment Variable | Description | Example contents
 |------------|-----------|------|-------------
-| GO\_SERVER\_URL | Base URL for the Go server (including the context root)|`https://127.0.0.1:8154/go`
+| GO\_SERVER\_URL | Base URL for the GoCD server (including the context root)|`https://127.0.0.1:8154/go`
 | GO\_ENVIRONMENT\_NAME | The name of the current environment. This is only set if the environment is specified. Otherwise the variable is not set. | `Development`
 | GO\_PIPELINE\_NAME | Name of the current pipeline being run | `main`
 | GO\_PIPELINE\_COUNTER | How many times the current pipeline has been run. | `2345`
@@ -24,7 +140,7 @@
 
 ## Use current revision in a build
 
-It is often useful to use the current version control revision number in your build. For example, you might want to use the svn version number in the name of your binary for tracing purposes. Go makes much of this information available to your build scripts as environment variables.
+It is often useful to use the current version control revision number in your build. For example, you might want to use the svn version number in the name of your binary for tracing purposes. GoCD makes much of this information available to your build scripts as environment variables.
 
 ### Example usages
 
@@ -44,7 +160,7 @@ For this example, we are going to assume we are using a single [Subversion](http
 </project>
 ```
 
--   Now, when Go runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
+-   Now, when GoCD runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
 
 ```
 deploy-123.txt
@@ -54,9 +170,10 @@ Building pipeline my-app
 
 #### Multiple materials
 
-For this example we are going to assume we are using a [Subversion](http://subversion.tigris.org/) repository containing the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository containing configuration scripts.
+For this example we are going to assume we are using a [Subversion](http://subversion.tigris.org/) repository containing
+the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository containing configuration scripts.
 
--   Ensure the pipeline materials look like this
+- Ensure the pipeline materials look like this
 
 ```xml
 <pipeline name="multiple-materials">
@@ -83,7 +200,7 @@ For this example we are going to assume we are using a [Subversion](http://subve
 </project>
 ```
 
--   Now, when Go runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
+-   Now, when GoCD runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
 
 ```
 deploy-123.txt
@@ -94,7 +211,9 @@ Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
 
 ## Pass environment variables to a job
 
-You can specify variables for Environments, Pipelines, Stages and Jobs. If a variable is specified more than once, the most specific scope is used. For example if you specify variable FOO='foo' for an environment, and FOO='bar' for a Job, then the variable will have the value 'bar' when the job runs.
+You can specify variables for Environments, Pipelines, Stages and Jobs. If a variable is specified more than once, the
+most specific scope is used. For example if you specify variable FOO='foo' for an environment, and FOO='bar' for a Job,
+then the variable will have the value 'bar' when the job runs.
 
 ## Setting variables on an environment
 
@@ -152,23 +271,3 @@ You specify variables on an job in the Config XML by adding an [< environmentvar
     ...
 </job>
 ```
-
-## Using environment variables in task
-
-You can access these environment variables to construct versioned artifacts or to store properties on the current build. For example the following snippet of an ant file shows how to access Go variables:
-
-```xml
-<property environment="go" />
-<target name="all">
-    <echo message="Building all!" />
-    <echo message="GO_SERVER_URL: ${go.GO_SERVER_URL}" />
-    <echo message="GO_PIPELINE_NAME: ${go.GO_PIPELINE_NAME}" />
-    <echo message="GO_PIPELINE_COUNTER: ${go.GO_PIPELINE_COUNTER}" />
-    <echo message="GO_PIPELINE_LABEL: ${go.GO_PIPELINE_LABEL}" />
-    <echo message="GO_STAGE_NAME: ${go.GO_STAGE_NAME}" />
-    <echo message="GO_STAGE_COUNTER: ${go.GO_STAGE_COUNTER}" />
-    <echo message="GO_JOB_NAME: ${go.GO_JOB_NAME}" />
-    <echo message="GO_REVISION: ${go.GO_REVISION}" />
-</target>
-```
-
