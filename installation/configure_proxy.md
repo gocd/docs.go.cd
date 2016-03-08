@@ -36,6 +36,7 @@ RequestHeader set X_FORWARDED_PROTO 'https'
 
 This directive can replace HTTP request headers. The header is modified just before the content handler is run, allowing incoming headers to be changed to 'https'.
 
+<a name="agents-and-custom-ssl-ports"></a>
 ## Agents and custom SSL ports
 
 Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The Go server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the Go server SSL port, not just on the proxy server SSL port.
