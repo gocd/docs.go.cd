@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.32" data-basepath=".." data-revision="Wed Mar 02 2016 09:24:50 GMT+0530 (IST)">
+    <div class="book" data-level="4.32" data-basepath=".." data-revision="Tue Mar 08 2016 13:07:33 GMT+0530 (IST)">
     
 
 <div class="book-summary">
@@ -3835,6 +3835,11 @@ directory where the .ssh/ directory is located.</p>
 <td>a branch name in the repository.</td>
 </tr>
 <tr>
+<td>shallowClone</td>
+<td>No</td>
+<td>Add a <code>--depth=N</code> option to git cloning command on Go agent. Shallow clone truncates history to latest revisions, thus helps accelerating clone operation for repositories with long history. Cloning depth is dynamically calculated to ensure revisions from <a href="#env-var-GO_FROM_REVISION">GO_FROM_REVISION</a> to <a href="#env-var-GO_TO_REVISION">GO_TO_REVISION</a> are included in the cloned repository.</td>
+</tr>
+<tr>
 <td>dest</td>
 <td>Only for multiple materials</td>
 <td>The directory under the sandbox of Go Agent. Go will check out the source code into this directory.</td>
@@ -4246,6 +4251,14 @@ to Go Server.</p>
 <tr>
 <td><code>GO_DEPENDENCY_LABEL_ &lt;upstream_pipeline_name&gt;_&lt;upstream_stage_name&gt;</code></td>
 <td>The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: &apos;GO_DEPENDENCY_LABEL_FRAMEWORK_DEV&apos; is the environment variable where the name of the upstream pipeline is &apos;framework&apos; and the upstream stage is &apos;dev&apos;. Hyphen (&apos;-&apos;) is an illegal character in an environment variable. So if a pipeline name or stage name contains &apos;-&apos;, it will be converted into an underscore. For example, &#x2018;pipeline-foo&#x2019; with stage &#x2018;stage-foo&#x2019; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO.</td>
+</tr>
+<tr>
+<td><span id="env-var-GO_TO_REVISION"><code>GO_TO_REVISION_&lt;material_name&gt;</code></span></td>
+<td>The lastest revision in modifications that the build running against for each configured SCM material.</td>
+</tr>
+<tr>
+<td><span id="env-var-GO_FROM_REVISION"><code>GO_FROM_REVISION_&lt;material_name&gt;</code></span></td>
+<td>The earlist revision in modifications that the build running against for each configured SCM material.</td>
 </tr>
 </tbody>
 </table>
