@@ -32,10 +32,10 @@ The GoCD agent installs its files in the following locations on your filesystem:
 
 ```bash
 /Applications/Go Agent.app                                                  # The go agent application
-~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties      # The agent properties
+~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties      # The agent properties (host and port are saved here)
 ~/Library/Application Support/Go Agent                                      # The agent directory
 ```
 
-Some logging information is also written to ```/var/log/system.log```
+You can find logs in `~/Library/Application Support/Go Agent`. The `osx-app.log` file contains the info used to bootstrap the agent jar.
 
 !INCLUDE "_register_with_server.md"
