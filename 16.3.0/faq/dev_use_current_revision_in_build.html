@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Using Environment variables | Go User Documentation</title>
+        <title>Ignore this | Go User Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -31,10 +31,8 @@
         
     
     
-    <link rel="next" href="../faq/rm_deploy_to_environment.html" />
     
-    
-    <link rel="prev" href="../faq/dev_save_properties.html" />
+    <link rel="prev" href="../installation/troubleshoot_installer.html" />
     
 
         
@@ -42,7 +40,7 @@
     <body>
         
         
-    <div class="book" data-level="9.7" data-basepath=".." data-revision="Tue Mar 08 2016 13:07:33 GMT+0530 (IST)">
+    <div class="book" data-level="12.2" data-basepath=".." data-revision="Wed Mar 09 2016 08:00:17 GMT+0530 (IST)">
     
 
 <div class="book-summary">
@@ -589,16 +587,16 @@
             
         </li>
     
-        <li class="chapter " data-level="3.9" data-path="installation/troubleshoot_installer.html">
+        <li class="chapter " data-level="3.9" data-path="installation/troubleshooting.html">
             
                 
-                    <a href="../installation/troubleshoot_installer.html">
+                    <a href="../installation/troubleshooting.html">
                 
                         <i class="fa fa-check"></i>
                         
                             <b>3.9.</b>
                         
-                        Troubleshoot installers
+                        Troubleshooting
                     </a>
             
             
@@ -1900,10 +1898,10 @@
             
         </li>
     
-        <li class="chapter active" data-level="9.7" data-path="faq/dev_use_current_revision_in_build.html">
+        <li class="chapter " data-level="9.7" data-path="faq/environment_variables.html">
             
                 
-                    <a href="../faq/dev_use_current_revision_in_build.html">
+                    <a href="../faq/environment_variables.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -2217,6 +2215,49 @@
             
         </li>
     
+        <li class="chapter " data-level="12" >
+            
+            <span><b>12.</b> Gitbook - Internal &lt;!-- Ignore, but keep so that old page links work. --&gt;</span>
+            
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="12.1" data-path="installation/troubleshoot_installer.html">
+            
+                
+                    <a href="../installation/troubleshoot_installer.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.1.</b>
+                        
+                        Ignore this
+                    </a>
+            
+            
+        </li>
+    
+        <li class="chapter active" data-level="12.2" data-path="faq/dev_use_current_revision_in_build.html">
+            
+                
+                    <a href="../faq/dev_use_current_revision_in_build.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>12.2.</b>
+                        
+                        Ignore this
+                    </a>
+            
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
 
 
         
@@ -2322,8 +2363,94 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="using-environment-variables-in-go"><a name="using-environment-variables-in-go" class="plugin-anchor" href="#using-environment-variables-in-go"><span class="fa fa-link"></span></a>Using Environment Variables in Go</h1>
-<h2 id="standard-go-environment-variables"><a name="standard-go-environment-variables" class="plugin-anchor" href="#standard-go-environment-variables"><span class="fa fa-link"></span></a>Standard Go environment variables</h2>
+                        <h1 id="using-environment-variables-in-gocd"><a name="using-environment-variables-in-gocd" class="plugin-anchor" href="#using-environment-variables-in-gocd"><span class="fa fa-link"></span></a>Using Environment Variables in GoCD</h1>
+<h2 id="accessing-environment-variables-in-tasks"><a name="accessing-environment-variables-in-tasks" class="plugin-anchor" href="#accessing-environment-variables-in-tasks"><span class="fa fa-link"></span></a>Accessing environment variables in tasks</h2>
+<p>Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending
+on the kind of process used in the task, environment variables are accessed differently. Presented below are some common
+usage scenarios, with the assumption that a job has been configured with an environment variable called <code>ENV_VAR_1</code>,
+with the value <code>VALUE_1</code>.</p>
+<h3 id="1-using-an-environment-variable-in-a-custom-command-on-unix-linux"><a name="1-using-an-environment-variable-in-a-custom-command-on-unix-linux" class="plugin-anchor" href="#1-using-an-environment-variable-in-a-custom-command-on-unix-linux"><span class="fa fa-link"></span></a>1. Using an environment variable in a custom command on Unix/Linux</h3>
+<p>A very common use case for environment variables is to use them as arguments for a custom command
+(<a href="../configuration/managing_pipelines.html#add-a-new-task-to-an-existing-job">&quot;exec task&quot; in GoCD</a>). Assuming
+that you want to pass the environment variable <code>ENV_VAR_1</code> to the <code>ls</code> command, you might be tempted to try something
+like this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/1_wrong_env_var_usage.png" alt="Figure 1: Wrong usage of environment variable" id="wrong_env_var_usage">
+  <figcaption>Figure 1: Wrong usage of environment variable in custom command task (Will not work)</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/2_wrong_env_var_usage_result.png" alt="Figure 2: Result of wrong usage of environment variable" id="wrong_env_var_usage_result">
+  <figcaption>Figure 2: Result of wrong usage of environment variable in custom command task</figcaption>
+</figure>
+
+<p>As you can see, the environment variable, <code>$ENV_VAR_1</code> was passed in literally to the command <code>ls</code> and was not
+interpolated. What is happening here is that GoCD is directly executing the command and passing in the parameters,
+without involving a shell like bash or sh in the middle. When a command such as <code>ls $ENV_VAR_1</code> is executed from the
+command-line, the shell process is the one that interpolates the environment variable and replaces it with its value, so
+that the <code>ls</code> command does not see it.</p>
+<p>So, we need to do the same here. The correct way to invoke this, so that the interpolation of the environment variable
+works is like this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/3_right_env_var_usage.png" alt="Figure 3: Correct usage of environment variable" id="right_env_var_usage">
+  <figcaption>Figure 3: Correct usage of environment variable in custom command task</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/4_right_env_var_usage_result.png" alt="Figure 4: Result of correct usage of environment variable" id="right_env_var_usage_result">
+  <figcaption>Figure 4: Result of correct usage of environment variable in custom command task</figcaption>
+</figure>
+
+<p>Even though the command failed in this example, the value of the environment variable was interpolated. You can replace
+<code>ls</code> with some other command, but the concept remains the same.</p>
+<h3 id="2-using-an-environment-variable-in-a-custom-command-on-windows"><a name="2-using-an-environment-variable-in-a-custom-command-on-windows" class="plugin-anchor" href="#2-using-an-environment-variable-in-a-custom-command-on-windows"><span class="fa fa-link"></span></a>2. Using an environment variable in a custom command on Windows</h3>
+<p>This is easier than using it in a shell script because, on Windows GoCD agents, commands are executed by wrapping them
+in <code>cmd /c</code>. So, environment variables get interpolated automatically. So, with a configuration such as this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/7_env_var_windows_command.png" alt="Figure 5: Usage of environment variable on Windows" id="env_var_usage_windows">
+  <figcaption>Figure 5: Usage of environment variable on Windows</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/8_env_var_windows_command_result.png" alt="Figure 6: Result of usage of environment variable on Windows" id="env_var_usage_windows_result">
+  <figcaption>Figure 8: Result of usage of environment variable on Windows</figcaption>
+</figure>
+
+<p>Similarly, it works when used in a batch file (say, &quot;env_var.cmd&quot;), with content such as this:</p>
+<pre><code>echo Environment variable ENV_VAR_1 is: %ENV_VAR_1%
+</code></pre><p>Notice that, unlike on Unix/Linux, the way to access an environment variable on Windows is to use %, instead of $.</p>
+<h3 id="3-using-an-environment-variable-in-a-shell-script-on-unix-linux"><a name="3-using-an-environment-variable-in-a-shell-script-on-unix-linux" class="plugin-anchor" href="#3-using-an-environment-variable-in-a-shell-script-on-unix-linux"><span class="fa fa-link"></span></a>3. Using an environment variable in a shell-script - On Unix/Linux</h3>
+<p>Using an environment variable inside a shell-script is not special at all. You can directly use it, as you would any
+environment variable. For instance, a shell-script with this content, will work when executed normally:</p>
+<pre><code>#!/bin/sh
+
+echo &quot;Value of environment variable ENV_VAR_1 is: $ENV_VAR_1&quot;
+</code></pre><p>This works when executed directly, with a config such as this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/5_env_var_in_script.png" alt="Figure 9: Usage of environment variable in a shell-script" id="env_var_usage_script">
+  <figcaption>Figure 9: Usage of environment variable in a shell-script</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+<figure class="concept_image">
+  <img src="../resources/images/faq/6_env_var_in_script_result.png" alt="Figure 10: Result of usage of environment variable in a shell-script" id="env_var_usage_script_result">
+  <figcaption>Figure 10: Result of usage of environment variable in a shell-script</figcaption>
+</figure>
+
+
+<h3 id="4-using-an-environment-variable-in-a-ruby-script"><a name="4-using-an-environment-variable-in-a-ruby-script" class="plugin-anchor" href="#4-using-an-environment-variable-in-a-ruby-script"><span class="fa fa-link"></span></a>4. Using an environment variable in a ruby script</h3>
+<p>Again, using an environment variable inside a ruby script is not special at all. This has been mentioned here, just to
+show that scripts written in different languages have to use different mechanisms to access environment variables. A
+ruby script such as this works as expected:</p>
+<pre><code>#!/usr/bin/env ruby
+
+puts &quot;Environment variable ENV_VAR_1 has the value: #{ENV[&apos;ENV_VAR_1&apos;]}&quot;
+</code></pre><h2 id="standard-gocd-environment-variables"><a name="standard-gocd-environment-variables" class="plugin-anchor" href="#standard-gocd-environment-variables"><span class="fa fa-link"></span></a>Standard GoCD environment variables</h2>
+<p>The examples above mention a custom environment variable set at the job level. However, there are some standard
+environment variables available during every job run, set by GoCD. They are:</p>
 <table>
 <thead>
 <tr>
@@ -2335,7 +2462,7 @@
 <tbody>
 <tr>
 <td>GO_SERVER_URL</td>
-<td>Base URL for the Go server (including the context root)</td>
+<td>Base URL for the GoCD server (including the context root)</td>
 <td><code>https://127.0.0.1:8154/go</code></td>
 </tr>
 <tr>
@@ -2421,7 +2548,7 @@
 </tbody>
 </table>
 <h2 id="use-current-revision-in-a-build"><a name="use-current-revision-in-a-build" class="plugin-anchor" href="#use-current-revision-in-a-build"><span class="fa fa-link"></span></a>Use current revision in a build</h2>
-<p>It is often useful to use the current version control revision number in your build. For example, you might want to use the svn version number in the name of your binary for tracing purposes. Go makes much of this information available to your build scripts as environment variables.</p>
+<p>It is often useful to use the current version control revision number in your build. For example, you might want to use the svn version number in the name of your binary for tracing purposes. GoCD makes much of this information available to your build scripts as environment variables.</p>
 <h3 id="example-usages"><a name="example-usages" class="plugin-anchor" href="#example-usages"><span class="fa fa-link"></span></a>Example usages</h3>
 <h3 id="one-material"><a name="one-material" class="plugin-anchor" href="#one-material"><span class="fa fa-link"></span></a>One material</h3>
 <p>For this example, we are going to assume we are using a single <a href="http://subversion.tigris.org/" target="_blank">Subversion</a> repository for our source control system and we have a job set up to call the ant target &quot;dist&quot;.</p>
@@ -2437,13 +2564,14 @@
 <span class="hljs-tag">&lt;/<span class="hljs-title">project</span>&gt;</span>
 </code></pre>
 <ul>
-<li>Now, when Go runs the &apos;my-app&apos; pipeline on revision 123, the file deploy-123.txt will be created, with the following content:</li>
+<li>Now, when GoCD runs the &apos;my-app&apos; pipeline on revision 123, the file deploy-123.txt will be created, with the following content:</li>
 </ul>
 <pre><code>deploy-123.txt
 
 Building pipeline my-app
 </code></pre><h4 id="multiple-materials"><a name="multiple-materials" class="plugin-anchor" href="#multiple-materials"><span class="fa fa-link"></span></a>Multiple materials</h4>
-<p>For this example we are going to assume we are using a <a href="http://subversion.tigris.org/" target="_blank">Subversion</a> repository containing the code and a <a href="http://www.selenic.com/mercurial/wiki/" target="_blank">Mercurial</a> repository containing configuration scripts.</p>
+<p>For this example we are going to assume we are using a <a href="http://subversion.tigris.org/" target="_blank">Subversion</a> repository containing
+the code and a <a href="http://www.selenic.com/mercurial/wiki/" target="_blank">Mercurial</a> repository containing configuration scripts.</p>
 <ul>
 <li>Ensure the pipeline materials look like this</li>
 </ul>
@@ -2470,14 +2598,16 @@ Building pipeline my-app
 <span class="hljs-tag">&lt;/<span class="hljs-title">project</span>&gt;</span>
 </code></pre>
 <ul>
-<li>Now, when Go runs the &apos;my-app&apos; pipeline with the code at revision &apos;123&apos; and the configuration at revision &apos;59cab75ccf231b9e338c96cff0f4adad5cb7d335&apos;, the file deploy-123.txt will be created with the following content:</li>
+<li>Now, when GoCD runs the &apos;my-app&apos; pipeline with the code at revision &apos;123&apos; and the configuration at revision &apos;59cab75ccf231b9e338c96cff0f4adad5cb7d335&apos;, the file deploy-123.txt will be created with the following content:</li>
 </ul>
 <pre><code>deploy-123.txt
 
 Building pipeline my-app
 Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
 </code></pre><h2 id="pass-environment-variables-to-a-job"><a name="pass-environment-variables-to-a-job" class="plugin-anchor" href="#pass-environment-variables-to-a-job"><span class="fa fa-link"></span></a>Pass environment variables to a job</h2>
-<p>You can specify variables for Environments, Pipelines, Stages and Jobs. If a variable is specified more than once, the most specific scope is used. For example if you specify variable FOO=&apos;foo&apos; for an environment, and FOO=&apos;bar&apos; for a Job, then the variable will have the value &apos;bar&apos; when the job runs.</p>
+<p>You can specify variables for Environments, Pipelines, Stages and Jobs. If a variable is specified more than once, the
+most specific scope is used. For example if you specify variable FOO=&apos;foo&apos; for an environment, and FOO=&apos;bar&apos; for a Job,
+then the variable will have the value &apos;bar&apos; when the job runs.</p>
 <h2 id="setting-variables-on-an-environment"><a name="setting-variables-on-an-environment" class="plugin-anchor" href="#setting-variables-on-an-environment"><span class="fa fa-link"></span></a>Setting variables on an environment</h2>
 <p>You can add variables to an environment by editing the configuration of the environment. Click on the name of the environment to edit configuration.</p>
 <p><img src="../resources/images/env_variables_environment.png" alt=""></p>
@@ -2524,21 +2654,6 @@ Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
     ...
 <span class="hljs-tag">&lt;/<span class="hljs-title">job</span>&gt;</span>
 </code></pre>
-<h2 id="using-environment-variables-in-task"><a name="using-environment-variables-in-task" class="plugin-anchor" href="#using-environment-variables-in-task"><span class="fa fa-link"></span></a>Using environment variables in task</h2>
-<p>You can access these environment variables to construct versioned artifacts or to store properties on the current build. For example the following snippet of an ant file shows how to access Go variables:</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">property</span> <span class="hljs-attribute">environment</span>=<span class="hljs-value">&quot;go&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;<span class="hljs-title">target</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;all&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;Building all!&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_SERVER_URL: ${go.GO_SERVER_URL}&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_PIPELINE_NAME: ${go.GO_PIPELINE_NAME}&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_PIPELINE_COUNTER: ${go.GO_PIPELINE_COUNTER}&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_PIPELINE_LABEL: ${go.GO_PIPELINE_LABEL}&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_STAGE_NAME: ${go.GO_STAGE_NAME}&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_STAGE_COUNTER: ${go.GO_STAGE_COUNTER}&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_JOB_NAME: ${go.GO_JOB_NAME}&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">echo</span> <span class="hljs-attribute">message</span>=<span class="hljs-value">&quot;GO_REVISION: ${go.GO_REVISION}&quot;</span> /&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">target</span>&gt;</span>
-</code></pre>
 
                     
                     </section>
@@ -2549,10 +2664,8 @@ Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
         </div>
 
         
-        <a href="../faq/dev_save_properties.html" class="navigation navigation-prev " aria-label="Previous page: Save Properties for a Build"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/troubleshoot_installer.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: Ignore this"><i class="fa fa-angle-left"></i></a>
         
-        
-        <a href="../faq/rm_deploy_to_environment.html" class="navigation navigation-next " aria-label="Next page: Deploy to an environment"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
