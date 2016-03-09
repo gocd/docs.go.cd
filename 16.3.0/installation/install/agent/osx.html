@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3.3" data-basepath="../../.." data-revision="Wed Mar 09 2016 08:00:17 GMT+0530 (IST)">
+    <div class="book" data-level="3.3.3" data-basepath="../../.." data-revision="Wed Mar 09 2016 09:19:38 GMT+0530 (IST)">
     
 
 <div class="book-summary">
@@ -2371,6 +2371,7 @@
 <li><a href="#installation">Installation</a></li>
 <li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
 <li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
+<li><a href="#setting-the-server-location-without-the-gui">Setting the server location without the GUI</a></li>
 <li><a href="#registering-your-agent-with-the-server">Registering your agent with the server</a></li>
 </ul>
 <!-- toc stop -->
@@ -2403,6 +2404,8 @@ GoCD server. By default it will try connecting to the local machine. Click the O
 ~/Library/Application Support/Go Agent                                      <span class="hljs-comment"># The agent directory</span>
 </code></pre>
 <p>Some logging information is also written to <code>/var/log/system.log</code></p>
+<h2 id="setting-the-server-location-without-the-gui"><a name="setting-the-server-location-without-the-gui" class="plugin-anchor" href="#setting-the-server-location-without-the-gui"><span class="fa fa-link"></span></a>Setting the server location without the GUI</h2>
+<p>You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI (<a href="../../configure_proxy.html#agents-and-custom-ssl-ports">be aware that this might not always work as you expect</a>). The properties file is located in <code>~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties</code>, and has a <code>port</code> and a <code>server</code> property.</p>
 <h2 id="registering-your-agent-with-the-server"><a name="registering-your-agent-with-the-server" class="plugin-anchor" href="#registering-your-agent-with-the-server"><span class="fa fa-link"></span></a>Registering your agent with the server</h2>
 <p>For security reasons, all newly installed Go agents need to be enabled on the Go server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed Go agent, do the following:</p>
 <ol>
