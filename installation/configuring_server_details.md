@@ -71,4 +71,3 @@ Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoi
 
 -   [Installing Go agents](../installation/installing_go_agent.md)
 -   [Configure Go to work with a proxy](../installation/configure_proxy.md)
--   [Displaying mingle gadgets in Go](../integration/mingle_in_go.md)
