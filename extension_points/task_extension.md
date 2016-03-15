@@ -8,7 +8,7 @@ Go supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, fro
 
 A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.
 
-For instance, you can find the source of a sample Curl plugin, [at this location](http://www.go.cd/documentation/developer/writing_go_plugins/go_plugins_basics.html#building-a-plugin). Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
+For instance, you can find the source of a sample Curl plugin, [at this location](https://developer.go.cd/current/writing_go_plugins/go_plugins_basics.html#building-a-plugin). Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
 
 ![](../resources/images/2_With_Curl.png)
 
@@ -65,5 +65,5 @@ Dload  Upload   Total   Spent    Left  Speed
 ```
 
 Go provides two ways of writing a task plugin:
-* [JSON API - Message based](http://www.go.cd/documentation/developer/writing_go_plugins/task/json_message_based_task_extension.html)
-* [Java API based (Deprecated)](http://www.go.cd/documentation/developer/writing_go_plugins/task/writing_go_task_plugins.html)
+* [JSON API - Message based](https://developer.go.cd/current/writing_go_plugins/task/json_message_based_task_extension.html)
+* [Java API based (Deprecated)](https://developer.go.cd/current/writing_go_plugins/task/writing_go_task_plugins.html)

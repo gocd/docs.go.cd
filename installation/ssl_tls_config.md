@@ -29,7 +29,7 @@ export GO_SERVER_SYSTEM_PROPERTIES="-Dgo.ssl.ciphers.include='TLS_ECDHE.*' -Dgo.
 
 * Windows
     
-    Follow the [instructions](http://www.go.cd/documentation/user/current/installation/install/server/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for Go server setup on windows, such as:
+    Follow the [instructions](./install/server/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for Go server setup on windows, such as:
 
     ``` shell
 wrapper.java.additional.17="-Dgo.ssl.ciphers.include='TLS_ECDHE.*' -Dgo.ssl.ciphers.exclude='.*NULL.*,.*RC4.*' -Dgo.ssl.protocols.include='TLSv1.2' -Dgo.ssl.protocols.exclude='SSLv3' -Dgo.ssl.renegotiation.allowed='N'"
@@ -50,7 +50,7 @@ export GO_AGENT_SYSTEM_PROPERTIES="-Dgo.ssl.agent.protocol='SSL'"
 
 * Windows
     
-    Follow the [instructions](http://www.go.cd/documentation/user/current/installation/install/agent/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for Go agents setup on windows, such as:
+    Follow the [instructions](./install/agent/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for Go agents setup on windows, such as:
 
     ``` shell
 wrapper.java.additional.17="-Dgo.ssl.agent.protocol='SSL'"

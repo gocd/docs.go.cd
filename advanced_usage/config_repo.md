@@ -14,10 +14,10 @@ The following properties can be altered to change the default behavior associate
 |-----------|-------------|-------------|
 | go.config.repo.gc.periodic | N | This enables the periodic garbage collection of `config.git` repo. To enable this feature - set the value to `Y`|
 | go.config.repo.gc.aggressive | Y | This option will cause GC to more aggressively optimize the repository at the expense of taking much more time. It can be made non-aggressive by setting this value to `N`|
-| go.config.repo.gc.cron | `0 0 7 ? * SUN` | Cron expression to specify garbage collector execution time with default set to *7:00 am on sundays*. Check [documentation](https://www.go.cd/documentation/user/current/configuration/configuration_reference.html#format) for help on cron syntax. For linux users, while overriding `go.config.repo.gc.cron` you need to escape special shell characters such `*` using a backward-slash eg.: `GO_SERVER_SYSTEM_PROPERTIES="$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron='0 0/1 \* 1/1 \* \?'"`|
+| go.config.repo.gc.cron | `0 0 7 ? * SUN` | Cron expression to specify garbage collector execution time with default set to *7:00 am on sundays*. Check [documentation](../configuration/configuration_reference.html#format) for help on cron syntax. For linux users, while overriding `go.config.repo.gc.cron` you need to escape special shell characters such `*` using a backward-slash eg.: `GO_SERVER_SYSTEM_PROPERTIES="$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron='0 0/1 \* 1/1 \* \?'"`|
 | go.config.repo.gc.warning.looseobject.threshold| 10000 |If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup|
 | go.config.repo.gc.check.interval | `28800000` | Frequency of checking for loose object count, specified in milliseconds with default set to *8 hours*|
 
-Refer documentation to know how to set these arguments for your [Windows](http://www.go.cd/documentation/user/current/installation/install/server/windows.html#overriding-default-startup-arguments-and-environment) and [Linux](http://www.go.cd/documentation/user/current/advanced_usage/other_config_options.html#environment-variables) servers.
+Refer documentation to know how to set these arguments for your [Windows](../installation/install/server/windows.html#overriding-default-startup-arguments-and-environment) and [Linux](../advanced_usage/other_config_options.html#environment-variables) servers.
 
 
