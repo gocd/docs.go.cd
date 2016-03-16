@@ -14,6 +14,6 @@ The plugins interested in Stage status change Notifications will be notified on 
 
 ## References:
 
-* [Developer docs](http://www.go.cd/documentation/developer/writing_go_plugins/notification/json_message_based_notification_extension.html)
+* [Developer docs](https://developer.go.cd/current/writing_go_plugins/notification/json_message_based_notification_extension.html)
 * [Notification Plugins](http://www.go.cd/community/plugins.html#notification-plugins-count)
 * [Github issue](https://github.com/gocd/gocd/issues/867)

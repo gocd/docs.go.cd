@@ -25,4 +25,4 @@ See [this](notification_extension.md) for details about the notification extensi
 # Note
 
 - You can find more extensions in the community [plugins listing page](http://www.go.cd/community/plugins.html).
-- Please refer [Developer Documentation](http://www.go.cd/documentation/developer/writing_go_plugins/overview.html) if you are planning to write a plugin.
+- Please refer [Developer Documentation](https://developer.go.cd/current/writing_go_plugins/overview.html) if you are planning to write a plugin.

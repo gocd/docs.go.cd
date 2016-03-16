@@ -97,6 +97,6 @@ VCS/SCM plugin will by default checkout code into `destination` directory on Age
 
 ## References:
 
-* [Developer docs](http://www.go.cd/documentation/developer/writing_go_plugins/scm_material/json_message_based_scm_material_extension.html)
+* [Developer docs](https://developer.go.cd/current/writing_go_plugins/scm_material/json_message_based_scm_material_extension.html)
 * [SCM Plugins](http://www.go.cd/community/plugins.html#scm-plugins-count)
 * [Github issue](https://github.com/gocd/gocd/issues/818)
