@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.2.1" data-basepath="../../.." data-revision="Wed Mar 16 2016 10:27:22 GMT+0530 (IST)">
+    <div class="book" data-level="3.2.1" data-basepath="../../.." data-revision="Wed Mar 23 2016 00:14:15 GMT+0530 (IST)">
     
 
 <div class="book-summary">
@@ -2377,6 +2377,8 @@
 <!-- toc stop -->
 <p>Installation of the GoCD server using the package manager will require root access on the machine. You are also required to have a java version 7 for the server to run.</p>
 <p>The installer will create a user called <code>go</code> if one does not exist on the machine. The home directory will be set to <code>/var/go</code>. If you want to create your own <code>go</code> user, make sure you do it before you install the GoCD server.</p>
+<p><a name="rpm-based-distributions-ie-redhatcentosfedora"></a>
+<a name="rpm-based-distributions"></a></p>
 <h2 id="rpm-based-distributions-ie-redhat-centos-fedora"><a name="rpm-based-distributions-ie-redhat-centos-fedora" class="plugin-anchor" href="#rpm-based-distributions-ie-redhat-centos-fedora"><span class="fa fa-link"></span></a>RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 <p>The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
 <p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell &#x2014;</p>
@@ -2398,6 +2400,8 @@ sudo yum install -y java-<span class="hljs-number">1.7</span>.<span class="hljs-
 <pre><code class="lang-bash">sudo yum install -y java-<span class="hljs-number">1.7</span>.<span class="hljs-number">0</span>-openjdk <span class="hljs-comment">#optional, you may use other jre/jdk if you prefer</span>
 sudo rpm -i go-server-<span class="hljs-variable">${version}</span>.noarch.rpm
 </code></pre>
+<p><a name="debian-based-distributions-ie-ubuntu"></a>
+<a name="debian-based-distributions"></a></p>
 <h2 id="debian-based-distributions-ie-ubuntu"><a name="debian-based-distributions-ie-ubuntu" class="plugin-anchor" href="#debian-based-distributions-ie-ubuntu"><span class="fa fa-link"></span></a>Debian based distributions (ie Ubuntu)</h2>
 <p>The GoCD server .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell &#x2014;</p>
