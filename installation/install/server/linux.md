@@ -6,6 +6,8 @@ Installation of the GoCD server using the package manager will require root acce
 
 The installer will create a user called ```go``` if one does not exist on the machine. The home directory will be set to ```/var/go```. If you want to create your own ```go``` user, make sure you do it before you install the GoCD server.
 
+<a name="rpm-based-distributions-ie-redhatcentosfedora"></a>
+<a name="rpm-based-distributions"></a>
 ## RPM based distributions (ie RedHat/CentOS/Fedora)
 
 The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
@@ -25,6 +27,8 @@ sudo yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if y
 sudo rpm -i go-server-${version}.noarch.rpm
 ```
 
+<a name="debian-based-distributions-ie-ubuntu"></a>
+<a name="debian-based-distributions"></a>
 ## Debian based distributions (ie Ubuntu)
 
 The GoCD server .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.
