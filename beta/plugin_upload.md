@@ -1,14 +1,13 @@
 # Beta feature: Upload plugins, from within Go, without restarting the server
 
 <div style="background-color: rgba(0, 192, 0, 0.25); padding: 5px; margin-bottom: 1em">
-  Note: This is a beta feature, which is turned off by default in Go 15.1.0. It can be turned on by using the feature
-  toggle API, for this feature. If you are using curl, this is what you will need to do:
+  Note: This is a beta feature, which is turned off by default. It can be turned on using the system environment property <strong>go.plugin.upload.enabled</strong>.
+  The property can be updated in the following ways,
 
-  <div style="font-family: monospace; font-size: 70%; padding-top: 1em; padding-bottom: 1em">curl -d 'toggle_value=on' 'http://go_server/go/api/admin/feature_toggles/plugin_upload_feature_toggle_key'</div>
-
-  When authentication is turned on in your Go Server setup, add the --user option to the curl command, like this:
-
-  <div style="font-family: monospace; font-size: 70%; margin-top: -1em">curl --user username:password -d 'toggle_value=on' ...</div>
+  On linux add the following line to /etc/default/go-server
+  <div style="font-family: monospace; font-size: 90%; padding-top: 1em; padding-bottom: 1em">export GO_SERVER_SYSTEM_PROPERTIES='-Dgo.plugin.upload.enabled=true'</div>
+  On windows, in the config folder of the Go server installation, edit/create the wrapper-properties.conf file, and add an additional property with the value '-Dgo.plugin.upload.enabled=true'. For example:
+  <div style="font-family: monospace; font-size: 90%; padding-top: 1em; padding-bottom: 1em">wrapper.java.additional.17='-Dgo.plugin.upload.enabled=true'</div>
 </div>
 
 Without this feature turned on, the plugins list page looks like this:
