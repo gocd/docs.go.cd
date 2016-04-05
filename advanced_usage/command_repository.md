@@ -79,7 +79,7 @@ Go caches these commands with a refresh interval of 30 minutes so you may not se
 You may make a `POST` request to the path `/go/api/admin/command-repo-cache/reload` in order to update the command repository with the latest.
 
 ```shell
-$ curl -u username:password -X POST http://goserver.com:8153/go/api/admin/command-repo-cache/reload
+$ curl -u username:password -X POST -H 'Confirm: true' http://goserver.com:8153/go/api/admin/command-repo-cache/reload
 ```
 
 ### Private Repository
