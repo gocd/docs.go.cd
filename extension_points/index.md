@@ -20,7 +20,7 @@ See [this](task_extension.md) for details about the task extension point. Go doe
 
 # Notification Extension
 
-See [this](notification_extension.md) for details about the notification extension point. Go does not have a bundled notification extension. You can see [Email notification extension](https://github.com/srinivasupadhya/email-notifier) for reference.
+See [this](https://plugin-api.go.cd/current/notifications) for details about the notification extension point. Go does not have a bundled notification extension. You can see [Email notification extension](https://github.com/srinivasupadhya/email-notifier) for reference.
 
 # Note
 
