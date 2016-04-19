@@ -7,10 +7,13 @@
     <a href="#server">&lt;server&gt;</a>
         <a href="#security">&lt;security&gt;</a>
             <a href="#ldap">&lt;ldap/&gt;</a>
+                <a href="#bases">&lt;bases/&gt;</a>
+                    <a href="#base">&lt;base/&gt;</a>
             <a href="#passwordFile">&lt;passwordFile/&gt;</a>
             <a href="#roles">&lt;roles&gt;</a>
                 <a href="#role_definition">&lt;role&gt;</a>
-                    <a href="#userinrole">&lt;user/&gt;</a>
+                    <a href="#usersinrole">&lt;users/&gt;</a>
+                        <a href="#userinrole">&lt;user/&gt;</a>
                 <a href="#role_definition">&lt;/role&gt;</a>
             <a href="#roles">&lt;/roles&gt;</a>
             <a href="#admins">&lt;admins&gt;</a>
@@ -266,8 +269,10 @@ The `<security>` element can be used to enable authentication. If the element is
     <ldap uri="ldap://xxx.yourcompany.com"
        managerDn="cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
        managerPassword="password"
-       searchBase="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
        searchFilter="(sAMAccountName={0})" />
+        <bases>
+          <base value="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"/>
+        </bases>
   </security>
 </server>
 ```
@@ -307,7 +312,6 @@ The `<ldap>` element is used to specify the ldap server. Users can access Go wit
 | uri | Yes  | uri for the ldap server. For example, uri="ldap://ldap.yourcompany.com" |
 | managerDn | Yes  | For example, managerDn="cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxxx,dc=yyyy,dc=com" |
 | managerPassword | Yes  | Go will connect to the LDAP server with this password |
-| searchBase | Yes  | e.g. searchBase="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com" |
 | searchFilter | No | e.g. searchFilter="(sAMAccountName={0})" |
 
 ### Examples
@@ -317,8 +321,10 @@ The `<ldap>` element is used to specify the ldap server. Users can access Go wit
   <ldap uri="ldap://xxx.yourcompany.com"
      managerDn="cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
      managerPassword="password"
-     searchBase="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
      searchFilter="(sAMAccountName={0})" />
+     <bases>
+      <base value="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"/>
+    </bases>
   <passwordFile path="/home/go/admins.properties"/>
   <roles>
     <role name="go-admin">
@@ -334,6 +340,36 @@ The `<ldap>` element is used to specify the ldap server. Users can access Go wit
 ```
 
 [top](#top)
+
+## &lt;bases&gt; {#bases}
+
+The `<bases>` element is used to specify a list of search bases (the distinguished name of the search base object) which defines 
+the location in the directory from which the LDAP search begins.
+
+[top](#top)
+
+
+## &lt;base&gt; {#base}
+
+The `<base>` element is used to specify a search base (the distinguished name of the search base object) defines the location in 
+the directory from which the LDAP search begins.
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| value | Yes | The search base. |
+
+```xml
+  <ldap uri="ldap://xxx.yourcompany.com"
+     managerDn="cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
+     managerPassword="password"
+     searchFilter="(sAMAccountName={0})" />
+     <bases>
+      <base value="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"/>
+    </bases>
+  </ldap>
+```
+[top](#top)
+
 
 ## &lt;passwordFile&gt; {#passwordFile}
 
@@ -389,7 +425,7 @@ The `<roles>` element is a container for roles that users defined. It can't be d
 
 ## &lt;role&gt; {#role_definition}
 
-The `<role>` element is used to define a group of users who perform similar tasks. Each user is added by adding the sub-tag [`<user>`](#userinrole).
+The `<role>` element is used to define a group of users who perform similar tasks. Users are added by adding the sub-tag [`<users>`](#usersinrole).
 
 **Notes:**
 
@@ -407,13 +443,24 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
 ```xml
 <roles>
   <role name="pipeline-operators">
-    <user>Jez</user>
-    <user>lqiao</user>
+    <users>
+      <user>Jez</user>
+      <user>lqiao</user>
+    </users>
   </role>
 </roles>
 ```
 
 [top](#top)
+
+## &lt;users&gt; {#usersinrole}
+
+List of users in a role.
+
+[top](#top)
+
+
+One `<user>` element defines a particular user in a role. You can add as many as you like.
 
 ## &lt;user&gt; {#userinrole}
 
@@ -429,8 +476,10 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
 
 ```xml
 <role name="pipeline-operators">
-  <user>Jez</user>
-  <user>lqiao</user>
+  <users>
+    <user>Jez</user>
+    <user>lqiao</user>
+  </users>
 </role>
 ```
 
