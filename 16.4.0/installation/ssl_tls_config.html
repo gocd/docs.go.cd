@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.7" data-basepath=".." data-revision="Wed Apr 20 2016 00:31:56 GMT+0530 (IST)">
+    <div class="book" data-level="3.7" data-basepath=".." data-revision="Wed Apr 20 2016 01:21:12 GMT+0530 (IST)">
     
 
 <div class="book-summary">
@@ -2448,7 +2448,10 @@
 </li>
 <li><p>Add the certificate to the go-agent&apos;s keystore, located at <code>var/lib/go-agent/config/trust.jks</code>. For example:</p>
 <pre><code class="lang-shell">$ cd /var/libe/go-agent/config
-$ keytool -import -alias your-certificate-name -file /home/your-username/tmp -keystore trust.jks
+$ keytool -import \
+ -alias your-certificate-name \
+ -file /home/your-username/tmp/your-certificate.crt \
+ -keystore trust.jks
 </code></pre>
 </li>
 <li><p>You will be prompted for the password for the go-agent keystore, which is:</p>
