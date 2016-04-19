@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.7" data-basepath=".." data-revision="Sat Apr 09 2016 19:30:01 GMT+0530 (IST)">
+    <div class="book" data-level="3.7" data-basepath=".." data-revision="Wed Apr 20 2016 00:31:56 GMT+0530 (IST)">
     
 
 <div class="book-summary">
@@ -2369,7 +2369,7 @@
 <p>You can choose which ciphers and SSL/TLS protocols Go will use for communication with agents and users (and their browsers)</p>
 <h2 id="configuring-go-server"><a name="configuring-go-server" class="plugin-anchor" href="#configuring-go-server"><span class="fa fa-link"></span></a>Configuring Go server</h2>
 <p><strong>NOTE:</strong> These settings will not apply if you are running Go with Jetty 6.</p>
-<p>Following system properties are exposed to override the default SSL/TLS configuration for Go server: </p>
+<p>Following system properties are exposed to override the default SSL/TLS configuration for Go server:</p>
 <table>
 <thead>
 <tr>
@@ -2436,6 +2436,28 @@
 </li>
 </ul>
 <p>Read <a href="http://www.eclipse.org/jetty/documentation/current/configuring-ssl.html" target="_blank">jetty&apos;s documentation</a> to know more about SSL/TLS configuration.</p>
+<h2 id="using-custom-certificates"><a name="using-custom-certificates" class="plugin-anchor" href="#using-custom-certificates"><span class="fa fa-link"></span></a>Using Custom Certificates</h2>
+<p>To use your own custom x509 certificates for SSL/TLS connections between the Go Server and Go Agent instead of gocd&apos;s default self-signed certificates, do the following:</p>
+<h3 id="configure-go-server"><a name="configure-go-server" class="plugin-anchor" href="#configure-go-server"><span class="fa fa-link"></span></a>Configure Go Server:</h3>
+<p>Add your private key and x509 certificate to the go-server&apos;s keystore <a href="https://www.go.cd/2014/06/05/using-go-cd-with-custom-certificates.html" target="_blank">following this guide</a>.</p>
+<h3 id="configure-go-agent"><a name="configure-go-agent" class="plugin-anchor" href="#configure-go-agent"><span class="fa fa-link"></span></a>Configure Go Agent:</h3>
+<ol>
+<li><p>Use <a href="http://www.hypexr.org/linux_scp_help.php" target="_blank">scp</a> (or your preferred transport layer) to upload your x509 certificate to your home directory. For example:</p>
+<pre><code class="lang-shell">$ scp your-certificate.crt your-username@your-go-agent-hostname.net:/home/your-username/tmp/
+</code></pre>
+</li>
+<li><p>Add the certificate to the go-agent&apos;s keystore, located at <code>var/lib/go-agent/config/trust.jks</code>. For example:</p>
+<pre><code class="lang-shell">$ cd /var/libe/go-agent/config
+$ keytool -import -alias your-certificate-name -file /home/your-username/tmp -keystore trust.jks
+</code></pre>
+</li>
+<li><p>You will be prompted for the password for the go-agent keystore, which is:</p>
+<pre><code class="lang-shell">agent5s0repa55w0rd
+</code></pre>
+</li>
+<li><p>Restart the Go Agent with <code>sudo service go-agent restart</code> to establish a fresh connection to the Go Server.</p>
+</li>
+</ol>
 
                     
                     </section>
