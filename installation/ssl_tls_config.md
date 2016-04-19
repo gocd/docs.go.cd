@@ -79,7 +79,10 @@ Add your private key and x509 certificate to the go-server's keystore [following
 
   ```shell
   $ cd /var/libe/go-agent/config
-  $ keytool -import -alias your-certificate-name -file /home/your-username/tmp -keystore trust.jks
+  $ keytool -import \
+    -alias your-certificate-name \
+    -file /home/your-username/tmp/your-certificate.crt \
+    -keystore trust.jks
   ```
 
 3. You will be prompted for the password for the go-agent keystore, which is:
