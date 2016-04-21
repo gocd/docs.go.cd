@@ -51,6 +51,16 @@ C:\> go-agent-16.1.0-1234-setup.exe /S /SERVERIP=10.12.20.47 /D=C:\go\agent
     # since the last "wrapper.java.additional" index is 2, we use the next available index.
     wrapper.java.additional.3=-Xmx512mb
     ```
+-   Each property must be configured separately
+
+    ```
+    # Having a single property for multiple configurations is invalid, e.g
+    wrapper.java.additional.16="-Dcruise.config.foo='bar' -Dcruise.config.other='baz'"
+
+    Valid properties,
+    wrapper.java.additional.16=-Dcruise.config.foo=bar
+    wrapper.java.additional.17=-Dcruise.config.other=baz
+    ```
 
 ## Location of GoCD agent files
 
