@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.7" data-basepath=".." data-revision="Thu Apr 21 2016 07:14:56 GMT+0000 (UTC)">
+    <div class="book" data-level="3.7" data-basepath=".." data-revision="Thu Apr 21 2016 14:04:55 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2368,7 +2368,6 @@
                         <h1 id="configuring-ssl-tls"><a name="configuring-ssl-tls" class="plugin-anchor" href="#configuring-ssl-tls"><span class="fa fa-link"></span></a>Configuring SSL/TLS</h1>
 <p>You can choose which ciphers and SSL/TLS protocols Go will use for communication with agents and users (and their browsers)</p>
 <h2 id="configuring-go-server"><a name="configuring-go-server" class="plugin-anchor" href="#configuring-go-server"><span class="fa fa-link"></span></a>Configuring Go server</h2>
-<p><strong>NOTE:</strong> These settings will not apply if you are running Go with Jetty 6.</p>
 <p>Following system properties are exposed to override the default SSL/TLS configuration for Go server:</p>
 <table>
 <thead>
@@ -2415,7 +2414,11 @@
 </li>
 <li><p>Windows</p>
 <p>  Follow the <a href="install/server/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for Go server setup on windows, such as:</p>
-<pre><code class="lang-shell">wrapper.java.additional.17=&quot;-Dgo.ssl.ciphers.include=&apos;TLS_ECDHE.*&apos; -Dgo.ssl.ciphers.exclude=&apos;.*NULL.*,.*RC4.*&apos; -Dgo.ssl.protocols.include=&apos;TLSv1.2&apos; -Dgo.ssl.protocols.exclude=&apos;SSLv3&apos; -Dgo.ssl.renegotiation.allowed=&apos;N&apos;&quot;
+<pre><code class="lang-shell">wrapper.java.additional.17=&quot;-Dgo.ssl.ciphers.include=&apos;TLS_ECDHE.*&apos;&quot;
+wrapper.java.additional.18=&quot;-Dgo.ssl.ciphers.exclude=&apos;.*NULL.*,.*RC4.*&apos;&quot;
+wrapper.java.additional.19=&quot;-Dgo.ssl.protocols.include=&apos;TLSv1.2&apos;&quot;
+wrapper.java.additional.20=&quot;-Dgo.ssl.protocols.excludE=&apos;SSLv3&apos;&quot;
+wrapper.java.additional.21=&quot;-Dgo.ssl.renegotiation.allowed=&apos;N&apos;&quot;
 </code></pre>
 <p>  Restart server for the changes to take effect.</p>
 </li>

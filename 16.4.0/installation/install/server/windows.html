@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.2.2" data-basepath="../../.." data-revision="Thu Apr 21 2016 07:14:56 GMT+0000 (UTC)">
+    <div class="book" data-level="3.2.2" data-basepath="../../.." data-revision="Thu Apr 21 2016 14:04:55 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2425,6 +2425,14 @@ wrapper.java.additional.2=-Xmx12g
 <li>To append additional JVM args to the server<pre><code># config/wrapper-properties.conf
 # since the last &quot;wrapper.java.additional&quot; index is 15, we use the next available index.
 wrapper.java.additional.16=-Dcruise.config.foo=bar
+</code></pre></li>
+<li><p>Each property must be configured separately</p>
+<pre><code># Having a single property for multiple configurations is invalid, e.g
+wrapper.java.additional.16=&quot;-Dcruise.config.foo=&apos;bar&apos; -Dcruise.config.other=&apos;baz&apos;&quot;
+
+Valid properties,
+wrapper.java.additional.16=-Dcruise.config.foo=bar
+wrapper.java.additional.17=-Dcruise.config.other=baz
 </code></pre></li>
 </ul>
 <h2 id="location-of-gocd-server-files"><a name="location-of-gocd-server-files" class="plugin-anchor" href="#location-of-gocd-server-files"><span class="fa fa-link"></span></a>Location of GoCD server files</h2>
