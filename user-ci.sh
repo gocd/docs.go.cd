@@ -43,7 +43,7 @@ npm install
 export PATH=$(npm bin):$PATH
 
 (
-  rm -rf _book 
+  rm -rf _book
   gitbook install
   gitbook build .
   grunt
@@ -65,5 +65,5 @@ if [ -n "$PUSH_CHANGES" ]; then
   git add --all $version
   git commit -m "Updating site to latest commit ($git_short_sha)." --author "GoCD <go-cd-dev@googlegroups.com>"
 
-  git push https://${GITHUB_USERNAME}:${GITHUB_PASSWORD}@github.com/gocd/docs.go.cd gh-pages:gh-pages
+  git push
 fi
