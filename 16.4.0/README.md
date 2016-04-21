@@ -35,6 +35,21 @@ $ gitbook [pdf|epub|mobi] build [output]
 
 The contents of the `_book` directory needs to be pushed out to the *[gh-pages](https://github.com/gocd/docs.go.cd/tree/gh-pages)* branch of the repository.
 
+### Releasing a new version of the documentation
+
+In this example we'll be releasing version 15.3.0 and setting up master so any new changes from this point go to 16.1.0.
+
+Create a branch for your existing version that you will be releasing
+
+```bash
+git checkout -b 15.3.0
+git push upstream 15.3.0
+```
+
+Create (clone) a new pipeline for this branch on snap-ci.com so any new changes to the 15.3.0 branch are pushed to the correct directory on `gh-pages` branch.
+
+Now bump the version in `user-ci.sh` on the master branch.
+
 ## Contributing
 
 We encourage you to contribute to Go. For information on contributing to this project, please see our [contributor's guide](http://www.go.cd/contribute).
@@ -51,7 +66,7 @@ $ git add user-ci.sh
 $ git commit -m 'Bump version'
 $ git push upstream master
 ```
-[build.go.cd](http://build.go.cd) will create 16.3.0 folder under gh-pages branch and site will be updated. 
+[build.go.cd](http://build.go.cd) will create 16.3.0 folder under gh-pages branch and site will be updated.
 
 Once the version is published link the current to new version.
 
