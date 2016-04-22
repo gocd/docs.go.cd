@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-version="16.4.0"
+version="16.5.0"
 
 rm -rf $HOME/.node
 mkdir -p $HOME/.node
