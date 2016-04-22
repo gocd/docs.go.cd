@@ -5,7 +5,9 @@
   "description": "Welcome to Go - an Open Sourced Continuous Integration and Release Management system. Please take a minute to understand [the basic concepts in Go](introduction/concepts_in_go.md) before you go any further.",
   "main": "index.js",
   "scripts": {
-    "build-user": "./user-ci.sh"
+    "init-gitbook": "gitbook install",
+    "build": "gitbook build .",
+    "minify": "grunt"
   },
   "author": "ThoughtWorks, Inc.",
   "license": "Apache-2.0",
@@ -14,5 +16,5 @@
     "grunt-cli": "^0.1.13",
     "grunt": "^0.4.5",
     "grunt-contrib-cssmin": "^0.13.0"
-  }  
+  }
 }
