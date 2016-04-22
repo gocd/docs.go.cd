@@ -37,4 +37,19 @@ task :bump_version do
     sh("git push")
   end
 
+  $stderr.puts("*** Creating branch for - #{version_to_release}")
+  sh("git checkout master")
+  sh("git checkout -b release-#{version_to_release}")
+  sh("git push #{remote_name} release-#{version_to_release}")
+  sh("git checkout master")
+
+  $stderr.puts "Bumping version in lib/version.rb"
+  open('rakelib/version.rake', 'w') do |f|
+    f.puts("# this file is updated automatically using a rake task, any changes will be lost")
+    f.puts("GOCD_VERSION = '#{next_version}'")
+  end
+
+  sh('git add rakelib/version.rake')
+  sh("git commit -m 'bump version to #{next_version}'")
+  sh("git push #{remote_name} master")
 end
