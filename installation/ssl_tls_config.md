@@ -30,11 +30,11 @@ export GO_SERVER_SYSTEM_PROPERTIES="-Dgo.ssl.ciphers.include='TLS_ECDHE.*' -Dgo.
     Follow the [instructions](./install/server/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for Go server setup on windows, such as:
 
     ``` shell
-wrapper.java.additional.17="-Dgo.ssl.ciphers.include='TLS_ECDHE.*'"
-wrapper.java.additional.18="-Dgo.ssl.ciphers.exclude='.*NULL.*,.*RC4.*'"
-wrapper.java.additional.19="-Dgo.ssl.protocols.include='TLSv1.2'"
-wrapper.java.additional.20="-Dgo.ssl.protocols.excludE='SSLv3'"
-wrapper.java.additional.21="-Dgo.ssl.renegotiation.allowed='N'"
+wrapper.java.additional.17="-Dgo.ssl.ciphers.include=TLS_ECDHE.*"
+wrapper.java.additional.18="-Dgo.ssl.ciphers.exclude=.*NULL.*,.*RC4.*"
+wrapper.java.additional.19="-Dgo.ssl.protocols.include=TLSv1.2"
+wrapper.java.additional.20="-Dgo.ssl.protocols.exclude=SSLv3"
+wrapper.java.additional.21="-Dgo.ssl.renegotiation.allowed=N"
 ```
 	Restart server for the changes to take effect.
 
