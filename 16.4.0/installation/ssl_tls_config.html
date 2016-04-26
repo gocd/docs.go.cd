@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.7" data-basepath=".." data-revision="Fri Apr 22 2016 12:50:53 GMT+0000 (UTC)">
+    <div class="book" data-level="3.7" data-basepath=".." data-revision="Tue Apr 26 2016 11:36:15 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2414,11 +2414,11 @@
 </li>
 <li><p>Windows</p>
 <p>  Follow the <a href="install/server/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for Go server setup on windows, such as:</p>
-<pre><code class="lang-shell">wrapper.java.additional.17=&quot;-Dgo.ssl.ciphers.include=&apos;TLS_ECDHE.*&apos;&quot;
-wrapper.java.additional.18=&quot;-Dgo.ssl.ciphers.exclude=&apos;.*NULL.*,.*RC4.*&apos;&quot;
-wrapper.java.additional.19=&quot;-Dgo.ssl.protocols.include=&apos;TLSv1.2&apos;&quot;
-wrapper.java.additional.20=&quot;-Dgo.ssl.protocols.excludE=&apos;SSLv3&apos;&quot;
-wrapper.java.additional.21=&quot;-Dgo.ssl.renegotiation.allowed=&apos;N&apos;&quot;
+<pre><code class="lang-shell">wrapper.java.additional.17=&quot;-Dgo.ssl.ciphers.include=TLS_ECDHE.*&quot;
+wrapper.java.additional.18=&quot;-Dgo.ssl.ciphers.exclude=.*NULL.*,.*RC4.*&quot;
+wrapper.java.additional.19=&quot;-Dgo.ssl.protocols.include=TLSv1.2&quot;
+wrapper.java.additional.20=&quot;-Dgo.ssl.protocols.exclude=SSLv3&quot;
+wrapper.java.additional.21=&quot;-Dgo.ssl.renegotiation.allowed=N&quot;
 </code></pre>
 <p>  Restart server for the changes to take effect.</p>
 </li>
