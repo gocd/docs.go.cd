@@ -30,7 +30,7 @@ You can create an environment in the admin UI through the following steps. This 
 
 ![](../resources/images/env_agents.png)
 
--   Add one or more environment variables that need to be passed.
+-   Add one or more environment variables or secure environment variables that need to be passed.
 
 ![](../resources/images/env_env_variables.png)
 
