@@ -111,7 +111,7 @@ This is the summary of user documentation.
     * [Yum Repository Poller](extension_points/yum_repository_poller.md)
     * [SCM Extension](extension_points/scm_extension.md)
     * [Task Extension](extension_points/task_extension.md)
-    * [Notification Extension](https://plugin-api.go.cd/current/notifications)
+    * [Notification Extension](extension_points/notification_extension.html)
 * [FAQ/Troubleshooting](faq/index.md)
     * [Ordering of Pipelines](faq/ordering_of_pipelines.md)
     * [Historical Configuration](faq/stage_old_config.md)
