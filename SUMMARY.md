@@ -33,6 +33,8 @@ This is the summary of user documentation.
     * [Configuring Server Details](installation/configuring_server_details.md)
     * [Configure a Proxy](installation/configure_proxy.md)
     * [Configuring SSL/TLS](installation/ssl_tls_config.md)
+      * [Customizing Ciphers](installation/ssl_tls/setting_up_ciphers.md)
+      * [Change SSL Certificates](installation/ssl_tls/custom_certificate.md)
     * [Performance Tuning](installation/performance_tuning.md)
     * [Troubleshooting](installation/troubleshooting.md)
 * [Configuration](configuration/index.md)
