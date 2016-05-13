@@ -4,7 +4,7 @@
   Note: This is a beta feature, which is turned off by default in Go 14.4.0. It can be turned on by using the feature
   toggle API, for this feature. If you are using curl, this is what you will need to do:
 
-  <div style="font-family: monospace; font-size: 70%; padding-top: 1em; padding-bottom: 1em">curl -d 'toggle_value=on' 'http://go_server/go/api/admin/feature_toggles/pipeline_comment_feature_toggle_key'</div>
+  <div style="font-family: monospace; font-size: 70%; padding-top: 1em; padding-bottom: 1em">curl -d toggle_value=on' 'http://go_server/go/api/admin/feature_toggles/pipeline_comment_feature_toggle_key' -H 'Confirm:true'</div>
 
   When authentication is turned on in your Go Server setup, add the --user option to the curl command, like this:
 
