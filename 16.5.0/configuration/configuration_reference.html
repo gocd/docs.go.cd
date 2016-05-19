@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.32" data-basepath=".." data-revision="Thu May 19 2016 06:04:05 GMT+0000 (UTC)">
+    <div class="book" data-level="4.32" data-basepath=".." data-revision="Thu May 19 2016 06:16:56 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2408,10 +2408,13 @@
     <a href="#server">&lt;server&gt;</a>
         <a href="#security">&lt;security&gt;</a>
             <a href="#ldap">&lt;ldap/&gt;</a>
+                <a href="#bases">&lt;bases/&gt;</a>
+                    <a href="#base">&lt;base/&gt;</a>
             <a href="#passwordFile">&lt;passwordFile/&gt;</a>
             <a href="#roles">&lt;roles&gt;</a>
                 <a href="#role_definition">&lt;role&gt;</a>
-                    <a href="#userinrole">&lt;user/&gt;</a>
+                    <a href="#usersinrole">&lt;users/&gt;</a>
+                        <a href="#userinrole">&lt;user/&gt;</a>
                 <a href="#role_definition">&lt;/role&gt;</a>
             <a href="#roles">&lt;/roles&gt;</a>
             <a href="#admins">&lt;admins&gt;</a>
@@ -2706,8 +2709,10 @@
     <span class="hljs-tag">&lt;<span class="hljs-title">ldap</span> <span class="hljs-attribute">uri</span>=<span class="hljs-value">&quot;ldap://xxx.yourcompany.com&quot;</span>
        <span class="hljs-attribute">managerDn</span>=<span class="hljs-value">&quot;cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>
        <span class="hljs-attribute">managerPassword</span>=<span class="hljs-value">&quot;password&quot;</span>
-       <span class="hljs-attribute">searchBase</span>=<span class="hljs-value">&quot;ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>
        <span class="hljs-attribute">searchFilter</span>=<span class="hljs-value">&quot;(sAMAccountName={0})&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">bases</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">base</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">bases</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">security</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">server</span>&gt;</span>
 </code></pre>
@@ -2792,11 +2797,6 @@
 <td>Go will connect to the LDAP server with this password</td>
 </tr>
 <tr>
-<td>searchBase</td>
-<td>Yes</td>
-<td>e.g. searchBase=&quot;ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</td>
-</tr>
-<tr>
 <td>searchFilter</td>
 <td>No</td>
 <td>e.g. searchFilter=&quot;(sAMAccountName={0})&quot;</td>
@@ -2808,8 +2808,10 @@
   <span class="hljs-tag">&lt;<span class="hljs-title">ldap</span> <span class="hljs-attribute">uri</span>=<span class="hljs-value">&quot;ldap://xxx.yourcompany.com&quot;</span>
      <span class="hljs-attribute">managerDn</span>=<span class="hljs-value">&quot;cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>
      <span class="hljs-attribute">managerPassword</span>=<span class="hljs-value">&quot;password&quot;</span>
-     <span class="hljs-attribute">searchBase</span>=<span class="hljs-value">&quot;ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>
      <span class="hljs-attribute">searchFilter</span>=<span class="hljs-value">&quot;(sAMAccountName={0})&quot;</span> /&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">bases</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">base</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">bases</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">passwordFile</span> <span class="hljs-attribute">path</span>=<span class="hljs-value">&quot;/home/go/admins.properties&quot;</span>/&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">roles</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">role</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;go-admin&quot;</span>&gt;</span>
@@ -2822,6 +2824,39 @@
     <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>lqiao<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">admins</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">security</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="bases"><a name="bases" class="plugin-anchor" href="#bases"><span class="fa fa-link"></span></a>&lt;bases&gt; </h2>
+<p>The <code>&lt;bases&gt;</code> element is used to specify a list of search bases (the distinguished name of the search base object) which defines 
+the location in the directory from which the LDAP search begins.</p>
+<p><a href="#top">top</a></p>
+<h2 id="base"><a name="base" class="plugin-anchor" href="#base"><span class="fa fa-link"></span></a>&lt;base&gt; </h2>
+<p>The <code>&lt;base&gt;</code> element is used to specify a search base (the distinguished name of the search base object) defines the location in 
+the directory from which the LDAP search begins.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>value</td>
+<td>Yes</td>
+<td>The search base.</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="lang-xml">  <span class="hljs-tag">&lt;<span class="hljs-title">ldap</span> <span class="hljs-attribute">uri</span>=<span class="hljs-value">&quot;ldap://xxx.yourcompany.com&quot;</span>
+     <span class="hljs-attribute">managerDn</span>=<span class="hljs-value">&quot;cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>
+     <span class="hljs-attribute">managerPassword</span>=<span class="hljs-value">&quot;password&quot;</span>
+     <span class="hljs-attribute">searchFilter</span>=<span class="hljs-value">&quot;(sAMAccountName={0})&quot;</span> /&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">bases</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">base</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">bases</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">ldap</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="passwordFile"><a name="passwordFile" class="plugin-anchor" href="#passwordFile"><span class="fa fa-link"></span></a>&lt;passwordFile&gt; </h2>
@@ -2872,7 +2907,7 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="role_definition"><a name="role_definition" class="plugin-anchor" href="#role_definition"><span class="fa fa-link"></span></a>&lt;role&gt; </h2>
-<p>The <code>&lt;role&gt;</code> element is used to define a group of users who perform similar tasks. Each user is added by adding the sub-tag <a href="#userinrole"><code>&lt;user&gt;</code></a>.</p>
+<p>The <code>&lt;role&gt;</code> element is used to define a group of users who perform similar tasks. Users are added by adding the sub-tag <a href="#usersinrole"><code>&lt;users&gt;</code></a>.</p>
 <p><strong>Notes:</strong></p>
 <ul>
 <li>If you want to define roles, you must define an authentication method, either <a href="#ldap"><code>&lt;ldap&gt;</code></a> or <a href="#passwordFile"><code>&lt;passwordFile&gt;</code></a>.</li>
@@ -2898,12 +2933,18 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 <p>Two users would be in the role &apos;pipeline-operators&apos;, they are <strong>Jez</strong> and <strong>lqiao</strong>.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">roles</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">role</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;pipeline-operators&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>Jez<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>lqiao<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">users</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>Jez<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>lqiao<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">users</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">role</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">roles</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
+<h2 id="usersinrole"><a name="usersinrole" class="plugin-anchor" href="#usersinrole"><span class="fa fa-link"></span></a>&lt;users&gt; </h2>
+<p>List of users in a role.</p>
+<p><a href="#top">top</a></p>
+<p>One <code>&lt;user&gt;</code> element defines a particular user in a role. You can add as many as you like.</p>
 <h2 id="userinrole"><a name="userinrole" class="plugin-anchor" href="#userinrole"><span class="fa fa-link"></span></a>&lt;user&gt; </h2>
 <p>One <code>&lt;user&gt;</code> element defines a particular user in a role. You can add as many as you like.</p>
 <p><strong>Notes:</strong></p>
@@ -2913,8 +2954,10 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><span class="fa fa-link"></span></a>Examples</h3>
 <p>Two users would be in the role &apos;pipeline-operators&apos;, they are <strong>Jez</strong> and <strong>lqiao</strong>.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">role</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;pipeline-operators&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>Jez<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>lqiao<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">users</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>Jez<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>lqiao<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">users</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">role</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
