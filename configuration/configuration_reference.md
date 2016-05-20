@@ -167,6 +167,13 @@
                             <a href="#resource">&lt;resource/&gt;</a>
                         <a href="#resources">&lt;/resources&gt;</a>
 
+                        <a href="#agentConfig">&lt;agentConfig&gt;</a>
+                            <a href="#property">&lt;property&gt;</a>
+                                <a href="#key">&lt;key/&gt;</a>
+                                <a href="#value">&lt;value/&gt;</a>
+                            <a href="#property">&lt;/property&gt;</a>
+                        <a href="#agentConfig">&lt;/agentConfig&gt;</a>
+
                         <a href="#tasks">&lt;tasks&gt;</a>
                             <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
                                 <a href="#runif">&lt;runif/&gt;</a>
@@ -1680,10 +1687,10 @@ The `<jobs>` element specify the set of jobs for a stage.
   <jobs>
     <job name="linux">
       <resources>
-    <resource>linux</resource>
+        <resource>linux</resource>
       </resources>
       <tasks>
-    <ant target="unit-test" />
+        <ant target="unit-test" />
       </tasks>
     </job>
   </jobs>
@@ -1697,9 +1704,11 @@ The `<jobs>` element specify the set of jobs for a stage.
 A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.
 
-A job can also be associated with a set of [`<resources>`](#resources). Resources are used to match a Job to an Agent. An Agent can run a Job if it has all the resources that the Job specifies.
+A job can also be associated with a set of [`<resources>`](#resources) or [`<agentConfig>`](#agentConfig).
+Resources are used to match a Job to an Agent. AgentConfigs are used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or agentConfigs that the Job specifies.
 
-If a Job has no resources then it can be built by any Agent
+A job can not have both [resources](#resources) as well as [agentConfig](#agentConfig).
+If a Job has no resources then it can be built by any Agent (But not by an elastic agent)
 
 ### Attributes
 
@@ -1715,7 +1724,9 @@ If a Job has no resources then it can be built by any Agent
 ```xml
 <job name="linux">
   <environmentvariables>
-    <variable name="FOO"><value>bar</value></variable>
+    <variable name="FOO">
+      <value>bar</value>
+    </variable>
   </environmentvariables>
   <resources>
     <resource>linux</resource>
@@ -1728,9 +1739,16 @@ If a Job has no resources then it can be built by any Agent
 
 ```xml
 <job name="run-upgrade" runOnAllAgents="true" timeout='30'>
-  <resources>
-    <resource>linux</resource>
-  </resources>
+  <agentConfig pluginId="com.example.ec2">
+    <property>
+      <key>ami-id</key>
+      <value>ami-6ac7408f</value>
+    </property>
+    <property>
+      <key>region</key>
+      <value>us-east-1</value>
+    </property>
+  </agentConfig>
   <tasks>
     <ant target="upgrade" />
   </tasks>
@@ -1786,6 +1804,37 @@ Resources are case-insensitive. A resource name can contain alphanumeric charact
   <resource>tomcat5</resource>
   <resource>mercurial</resource>
 </resources>
+```
+
+[top](#top)
+
+## &lt;agentConfig&gt; {#agentConfig}
+
+`<agentConfig>` specifies the [agentConfig properties](#property) needed for a job. A job can have zero or more agentConfig properties.
+
+If a job has no agentConfig properties it can be built on any elastic agent.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| pluginId | Yes | The Id of elastic-agent plugin. |
+
+### Example:
+
+```xml
+<job name="run-upgrade" runOnAllAgents="true" timeout='30'>
+  <agentConfig pluginId="com.example.ec2">
+    <property>
+      <key>ami-id</key>
+      <value>ami-6ac7408f</value>
+    </property>
+    <property>
+      <key>region</key>
+      <value>us-east-1</value>
+    </property>
+  </agentConfig>
+</job>
 ```
 
 [top](#top)
@@ -2628,6 +2677,8 @@ An approved agent. Before it is approved, the agent is displayed on the top of t
 | ipaddress | Yes | IP for the agent. |
 | uuid | Yes | Identifier for the agent. It is created by Go automatically. |
 | isDisabled | No | The values should be one of 'true' or 'false' (or 1 / 0). 'true' or '1' means that the agent is denied. Go doesn't assign jobs to a denied agent. |
+| elasticAgentId | No | Id of your elastic agent. **This attribute is only required for elastic agents.** |
+| elasticPluginId | No | Elastic-agent plugin Id. **This attribute is only required for elastic agents.** |
 
 ### Notes:
 
@@ -2647,7 +2698,7 @@ An agent without any resources will build any jobs that don't specify resources.
 
 ## &lt;resource&gt; {#agentresource}
 
-resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.
+Resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.
 
 ### Examples
 
