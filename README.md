@@ -58,27 +58,8 @@ A lot of useful information like links to user documentation, design documentati
 
 ### Releasing a new version of the documentation
 
-Bump the version in `user-ci.sh` on the master branch.
-
 ```
-$ git checkout master
-$ vim user-ci.sh                  # Bump version in `version` to new version e.g.`version=16.3.0`.
-$ git add user-ci.sh
-$ git commit -m 'Bump version'
-$ git push upstream master
-```
-[build.go.cd](http://build.go.cd) will create 16.3.0 folder under gh-pages branch and site will be updated.
-
-Once the version is published link the current to new version.
-
-```
-$ git fetch --all
-$ git checkout gh-pages
-$ git merge upstream/gh-pages
-$ ln -sf 16.3.0 current        # current is now a symlink to 16.3.0
-$ git add current
-$ git commit -m 'Link new version to current'
-$ git push
+CURRENT_VERSION=16.4.0 VERSION_TO_RELEASE=16.5.0  NEXT_VERSION=16.6.0 REMOTE_NAME=upstream rake bump_version
 ```
 
 ## License
