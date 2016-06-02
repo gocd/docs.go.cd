@@ -47,20 +47,20 @@
     <a href="#repositories">&lt;/repositories&gt;</a>
 
     <a href="#pipelines">&lt;pipelines&gt;</a>
-        <a href="#group_authorization">&lt;authorization&gt;</a>
-            <a href="#group_admins">&lt;admins&gt;</a>
+        <a href="#authorization">&lt;authorization&gt;</a>
+            <a href="#admins">&lt;admins&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#group_admins">&lt;/admins&gt;</a>
-            <a href="#group_view">&lt;view&gt;</a>
+            <a href="#admins">&lt;/admins&gt;</a>
+            <a href="#view">&lt;view&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#group_view">&lt;/view&gt;</a>
-            <a href="#group_operate">&lt;operate&gt;</a>
+            <a href="#view">&lt;/view&gt;</a>
+            <a href="#operate">&lt;operate&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#group_operate">&lt;/operate&gt;</a>
-        <a href="#group_authorization">&lt;/authorization&gt;</a>
+            <a href="#operate">&lt;/operate&gt;</a>
+        <a href="#authorization">&lt;/authorization&gt;</a>
 
         <a href="#pipeline">&lt;pipeline&gt;</a>
             <a href="#params">&lt;params&gt;</a>
@@ -102,8 +102,8 @@
                         <a href="#ignore">&lt;ignore/&gt;</a>
                     <a href="#filter">&lt;/filter&gt;</a>
                 <a href="#tfs">&lt;/tfs&gt;</a>
-                <a href="#package-material">&lt;package/&gt;</a>
-                <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
+                <a href="#package">&lt;package/&gt;</a>
+                <a href="#pipeline">&lt;pipeline/&gt;</a>
             <a href="#materials">&lt;/materials&gt;</a>
 
             <a href="#stage">&lt;stage&gt;</a>
@@ -136,20 +136,20 @@
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#fetchartifact">&lt;/fetchartifact&gt;</a>
                             <a href="#ant">&lt;ant&gt;</a>
-                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#runif">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#ant">&lt;/ant&gt;</a>
                             <a href="#nant">&lt;nant&gt;</a>
-                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#runif">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#nant">&lt;/nant&gt;</a>
                             <a href="#rake">&lt;rake&gt;</a>
-                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#runif">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#rake">&lt;/rake&gt;</a>
                             <a href="#exec">&lt;exec&gt;</a>
                                 <a href="#arg">&lt;arg/&gt;</a>
-                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#runif">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#exec">&lt;/exec&gt;</a>
                         <a href="#tasks">&lt;/tasks&gt;</a>
@@ -811,7 +811,7 @@ Given the following configuration only administrators can operate the pipeline g
 
 The `<operate>` element specifies who can operate the pipelines under the pipeline group. You can define roles and users.
 
-**Note:**Any users/roles that are not listed under the [`<view>`](#group_view) tag will be unable to see this pipeline group (even if they are listed as being allowed to `<operate>` that pipeline group)
+**Note:**Any users/roles that are not listed under the [`<view>`](#view) tag will be unable to see this pipeline group (even if they are listed as being allowed to `<operate>` that pipeline group)
 
 ### Examples
 
@@ -2303,7 +2303,7 @@ The `<templates>` element specifies the set of templates known by the server.
 
 [top](#top)
 
-## &lt;pipeline&gt; {#pipeline}
+## &lt;pipeline&gt; {#pipeline-template}
 
 Allows you to provide a template for pipeline definition
 
