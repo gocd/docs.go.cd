@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.32" data-basepath=".." data-revision="Thu Jun 02 2016 04:13:36 GMT+0000 (UTC)">
+    <div class="book" data-level="4.32" data-basepath=".." data-revision="Thu Jun 02 2016 04:19:31 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2448,20 +2448,20 @@
     <a href="#repositories">&lt;/repositories&gt;</a>
 
     <a href="#pipelines">&lt;pipelines&gt;</a>
-        <a href="#authorization">&lt;authorization&gt;</a>
-            <a href="#admins">&lt;admins&gt;</a>
+        <a href="#group_authorization">&lt;authorization&gt;</a>
+            <a href="#group_admins">&lt;admins&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#admins">&lt;/admins&gt;</a>
-            <a href="#view">&lt;view&gt;</a>
+            <a href="#group_admins">&lt;/admins&gt;</a>
+            <a href="#group_view">&lt;view&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#view">&lt;/view&gt;</a>
-            <a href="#operate">&lt;operate&gt;</a>
+            <a href="#group_view">&lt;/view&gt;</a>
+            <a href="#group_operate">&lt;operate&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#operate">&lt;/operate&gt;</a>
-        <a href="#authorization">&lt;/authorization&gt;</a>
+            <a href="#group_operate">&lt;/operate&gt;</a>
+        <a href="#group_authorization">&lt;/authorization&gt;</a>
 
         <a href="#pipeline">&lt;pipeline&gt;</a>
             <a href="#params">&lt;params&gt;</a>
@@ -2503,8 +2503,8 @@
                         <a href="#ignore">&lt;ignore/&gt;</a>
                     <a href="#filter">&lt;/filter&gt;</a>
                 <a href="#tfs">&lt;/tfs&gt;</a>
-                <a href="#package">&lt;package/&gt;</a>
-                <a href="#pipeline">&lt;pipeline/&gt;</a>
+                <a href="#package-material">&lt;package/&gt;</a>
+                <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
             <a href="#materials">&lt;/materials&gt;</a>
 
             <a href="#stage">&lt;stage&gt;</a>
@@ -2537,20 +2537,20 @@
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#fetchartifact">&lt;/fetchartifact&gt;</a>
                             <a href="#ant">&lt;ant&gt;</a>
-                                <a href="#runif">&lt;runif/&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#ant">&lt;/ant&gt;</a>
                             <a href="#nant">&lt;nant&gt;</a>
-                                <a href="#runif">&lt;runif/&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#nant">&lt;/nant&gt;</a>
                             <a href="#rake">&lt;rake&gt;</a>
-                                <a href="#runif">&lt;runif/&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#rake">&lt;/rake&gt;</a>
                             <a href="#exec">&lt;exec&gt;</a>
                                 <a href="#arg">&lt;arg/&gt;</a>
-                                <a href="#runif">&lt;runif/&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#exec">&lt;/exec&gt;</a>
                         <a href="#tasks">&lt;/tasks&gt;</a>
@@ -3260,7 +3260,7 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 <p><a href="#top">top</a></p>
 <h2 id="operate"><a name="operate" class="plugin-anchor" href="#operate"><span class="fa fa-link"></span></a>&lt;operate&gt; </h2>
 <p>The <code>&lt;operate&gt;</code> element specifies who can operate the pipelines under the pipeline group. You can define roles and users.</p>
-<p><strong>Note:</strong>Any users/roles that are not listed under the <a href="#view"><code>&lt;view&gt;</code></a> tag will be unable to see this pipeline group (even if they are listed as being allowed to <code>&lt;operate&gt;</code> that pipeline group)</p>
+<p><strong>Note:</strong>Any users/roles that are not listed under the <a href="#group_view"><code>&lt;view&gt;</code></a> tag will be unable to see this pipeline group (even if they are listed as being allowed to <code>&lt;operate&gt;</code> that pipeline group)</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><span class="fa fa-link"></span></a>Examples</h3>
 <p>Given the following configuration, only <a href="#admins">admins</a>, lqiao, jez and the users having the role &apos;go_core_member&apos; can operate the pipeline group. Only <a href="#admins">admins</a>, lqiao and the users having the role &apos;go_readonly_member&apos; can see the pipeline (jez and go_core_member cannot).</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">cruise</span>&gt;</span>
@@ -5042,7 +5042,7 @@ are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href=
 <h2 id="templates"><a name="templates" class="plugin-anchor" href="#templates"><span class="fa fa-link"></span></a>&lt;templates&gt; </h2>
 <p>The <code>&lt;templates&gt;</code> element specifies the set of templates known by the server.</p>
 <p><a href="#top">top</a></p>
-<h2 id="pipeline-template"><a name="pipeline-template" class="plugin-anchor" href="#pipeline-template"><span class="fa fa-link"></span></a>&lt;pipeline&gt; </h2>
+<h2 id="pipeline"><a name="pipeline" class="plugin-anchor" href="#pipeline"><span class="fa fa-link"></span></a>&lt;pipeline&gt; </h2>
 <p>Allows you to provide a template for pipeline definition</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><span class="fa fa-link"></span></a>Attributes</h3>
 <table>
