@@ -1,34 +1,22 @@
 # GoCD User Documentation
 
-Welcome to GoCD - an Open Sourced Continuous Integration and Release Management system. Please take a minute to understand [the basic concepts in GoCD](introduction/concepts_in_go.md) before you go any further.
+Welcome to GoCD - an open-source Continuous Integration and Continuous Delivery system.
 
 ![Start using GoCD](resources/images/home-image1.png)
 
 ## Quick help
 
-Need help fast? Try out the topics below to get building in no time.
+Need a quick start? Setup your first GoCD pipeline, while learning all the concepts, by following the
+["Getting Started" guide](https://www.go.cd/help/). Make sure you've
+[installed](https://docs.go.cd/current/installation/) the GoCD Server and at least one GoCD Agent.
 
-![Start using GoCD](resources/images/welcome.png)
+### More information and guides
 
-### Installation
-
--   [System requirements](installation/system_requirements.md) - Find out system requirements before you install GoCD.
--   [Installing GoCD](installation/installing_go_server.md) - Learn how to install GoCD.
--   [Upgrading GoCD](installation/upgrading_go.md) - Upgrade GoCD from an older version.
-
-### Getting started
-
-Installation done but need help setting up GoCD?
-
--   [Set up your first pipeline](configuration/quick_pipeline_setup.md) - GoCD captures the build plan for your project in a pipeline. Find out how to set up your first pipeline.
--   [Install agents](installation/installing_go_agent.md) - You need a build agent in order to start building. Learn to deploy one or more agents here.
-
-### Using GoCD
-
--   [Concepts in GoCD](introduction/concepts_in_go.md) - Review basic concepts in GoCD. Understand how GoCD sees the world.
--   [Managing pipelines](configuration/managing_pipelines.md) - Release Management with GoCD.
--   [Managing a build cloud](configuration/managing_a_build_cloud.md) - How to set up and scale your build cloud.
--   [Managing artifacts and reports](configuration/managing_artifacts_and_reports.md) - Keep your test reports, binaries and other artifacts in GoCD's central repository.
+- [Basic concepts in GoCD](introduction/concepts_in_go.md) - Review basic concepts in GoCD. Understand how GoCD sees the world.
+- [System requirements](installation/system_requirements.md) - Find out system requirements for installing GoCD.
+- [Managing pipelines](configuration/managing_pipelines.md) - Release Management with GoCD.
+- [Managing a build cloud](configuration/managing_a_build_cloud.md) - How to set up and scale your build cloud.
+- [Managing artifacts and reports](configuration/managing_artifacts_and_reports.md) - Keep your test reports, binaries and other artifacts in GoCD's central repository.
 
 ### See GoCD in use
 
