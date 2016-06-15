@@ -87,7 +87,7 @@ While parameters are generally very flexible, there are some restrictions.
 -   Job name
 -   A Job's property name
 -   The ```<runif>``` configuration for a job's task
--   Another parameter (i.e. you cannot define a parameter using another paramter)
+-   Another parameter (i.e. you cannot define a parameter using another parameter)
 -   Pipeline template name
 -   Material name
 -   Material passwords (however, for Git and Mercurial, passwords are not captured as separate attribute, hence can be parameterized)
