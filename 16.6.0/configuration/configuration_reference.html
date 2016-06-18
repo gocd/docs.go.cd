@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.32" data-basepath=".." data-revision="Wed Jun 15 2016 14:11:01 GMT+0000 (UTC)">
+    <div class="book" data-level="4.32" data-basepath=".." data-revision="Sat Jun 18 2016 05:05:23 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -3771,6 +3771,11 @@ contain these files will not trigger a pipeline automatically.</p>
 <td>No</td>
 <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material or it receives a notification through a post-commit hook. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
 </tr>
+<tr>
+<td>invertFilter</td>
+<td>No</td>
+<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><span class="fa fa-link"></span></a>Notes:</h3>
@@ -3821,6 +3826,11 @@ and as the user &apos;go&apos; do a command &quot;svn update&quot; to store the 
 <td>autoUpdate</td>
 <td>No</td>
 <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
+</tr>
+<tr>
+<td>invertFilter</td>
+<td>No</td>
+<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
@@ -3895,6 +3905,11 @@ and as the user &apos;go&apos; do a command &quot;svn update&quot; to store the 
 <td>autoUpdate</td>
 <td>No</td>
 <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
+</tr>
+<tr>
+<td>invertFilter</td>
+<td>No</td>
+<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
@@ -3976,6 +3991,11 @@ directory where the .ssh/ directory is located.</p>
 <td>No</td>
 <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
 </tr>
+<tr>
+<td>invertFilter</td>
+<td>No</td>
+<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
+</tr>
 </tbody>
 </table>
 <h3 id="examples-are"><a name="examples-are" class="plugin-anchor" href="#examples-are"><span class="fa fa-link"></span></a>Examples are:</h3>
@@ -4035,6 +4055,11 @@ directory where the .ssh/ directory is located.</p>
 <td>dest</td>
 <td>Only for multiple materials</td>
 <td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&apos;s sandbox.</td>
+</tr>
+<tr>
+<td>invertFilter</td>
+<td>No</td>
+<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
