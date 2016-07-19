@@ -41,26 +41,3 @@ Assuming that you have the certificate key (`example.com.key`) and X509 certific
   ```bash
   $ sudo /etc/init.d/go-server restart
   ```
-
-# Configure Go Agent:
-
-1. Use [scp](http://www.hypexr.org/linux_scp_help.php) (or your preferred transport layer) to upload your x509 certificate to your home directory.
-
-  ```shell
-  $ scp your-certificate.crt your-username@your-go-agent-hostname.net:/home/your-username/tmp/
-  ```
-
-2. Add the certificate to the go-agent's truststore, located at `/var/lib/go-agent/config/trust.jks`.
-
-  **Note:** The truststore password is `agent5s0repa55w0rd`
-
-  ```shell
-  $ cd /var/lib/go-agent/config
-  $ keytool -import -alias your-certificate-name -file /home/your-username/tmp/your-certificate.crt -keystore trust.jks
-  ```
-
-3. Restart the Go Agent with
-
-  ```bash
-  $ sudo service go-agent restart
-  ```
