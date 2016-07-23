@@ -46,6 +46,43 @@
         <a href="#repository">&lt;/repository&gt;</a>
     <a href="#repositories">&lt;/repositories&gt;</a>
 
+    <a href="#config-repos">&lt;config-repos&gt;</a>
+      <a href="#config-repo">&lt;config-repo&gt;</a>
+        <a href="#svn">&lt;svn&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#svn">&lt;/svn&gt;</a>
+        <a href="#hg">&lt;hg&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#hg">&lt;/hg&gt;</a>
+        <a href="#p4">&lt;p4&gt;</a>
+            &lt;view/&gt;
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#p4">&lt;/p4&gt;</a>
+        <a href="#git">&lt;git&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#git">&lt;/git&gt;</a>
+        <a href="#tfs">&lt;tfs&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#tfs">&lt;/tfs&gt;</a>
+        <a href="#config-repo-configuration">&lt;configuration&gt;</a>
+            <a href="#config-repo-property">&lt;property&gt;</a>
+                <a href="#config-repo-property-key">&lt;key/&gt;</a>
+                <a href="#config-repo-property-value">&lt;value/&gt;</a>
+            <a href="#config-repo-property">&lt;/property&gt;</a>
+        <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
+      <a href="#config-repo">&lt;/config-repo&gt;</a>
+    <a href="#config-repos">&lt;/config-repos&gt;</a>
+
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -343,7 +380,7 @@ The `<ldap>` element is used to specify the ldap server. Users can access Go wit
 
 ## &lt;bases&gt; {#bases}
 
-The `<bases>` element is used to specify a list of search bases (the distinguished name of the search base object) which defines 
+The `<bases>` element is used to specify a list of search bases (the distinguished name of the search base object) which defines
 the location in the directory from which the LDAP search begins.
 
 [top](#top)
@@ -351,7 +388,7 @@ the location in the directory from which the LDAP search begins.
 
 ## &lt;base&gt; {#base}
 
-The `<base>` element is used to specify a search base (the distinguished name of the search base object) defines the location in 
+The `<base>` element is used to specify a search base (the distinguished name of the search base object) defines the location in
 the directory from which the LDAP search begins.
 
 | Attribute | Required | Description |
@@ -560,6 +597,85 @@ Two users would be administrators, they are **Jez** and **lqiao**.
    <user>lqiao<user>
    <role>_readonly_member<role>
 </view>
+```
+
+
+## &lt;config-repos&gt; {#config-repos}
+
+The `<config-repos>` element is a container of many `<config-repo>`.
+
+### Example
+
+```xml
+<cruise>
+  ...
+  <config-repos>
+    <config-repo plugin="json.config.plugin">
+      <git url="https://github.com/tomzo/gocd-json-config-example.git" />
+    </config-repo>
+    <config-repo plugin="yaml.config.plugin">
+      <git url="https://github.com/tomzo/gocd-yaml-config-example.git" />
+      <configuration>
+        <property>
+          <key>file_pattern</key>
+          <value>**/*.gocd.yaml</value>
+        </property>
+      </configuration>
+    </config-repo>
+  </config-repos>
+</cruise>
+```
+
+[top](#top)
+
+## &lt;config-repo&gt; {#config-repo}
+
+The `<config-repo>` element specifies a single configuration repository. It must contain exactly one SCM material and may contain additional configuration section.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| plugin | Yes | The ID of configuration repository plugin. E.g. `json.config.plugin`. |
+
+### Example
+
+```xml
+<cruise>
+    ...
+    <config-repos>
+      <config-repo plugin="yaml.config.plugin">
+        <git url="https://github.com/tomzo/gocd-yaml-config-example.git" />
+        <configuration>
+          <property>
+            <key>file_pattern</key>
+            <value>**/*.gocd.yaml</value>
+          </property>
+        </configuration>
+      </config-repo>
+  </config-repos>
+</cruise>
+```
+
+### &lt;configuration&gt; {#config-repo-configuration}
+
+The `<configuration>` element is optional part of config repo definition.
+Keys and values are specified and handled by particular plugin. This section
+can be used to **customize how config repo plugin works when parsing this specific repository**.
+
+#### Example
+
+```xml
+<configuration>
+  <property>
+    <key>file_pattern</key>
+    <value>*.go.yaml</value>
+  </property>
+  <property>
+    <key>allowed_pipelines_regex</key>
+    <value>project-X-.*</value>
+  </property>
+</configuration>
 ```
 
 [top](#top)

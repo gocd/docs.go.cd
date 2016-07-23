@@ -14,8 +14,8 @@ $ npm install
 ### Serve the documentation locally
 
 ```
-$ gitbook install
-$ gitbook serve
+$ npm run init-gitbook
+$ npm run serve
 ```
 
 Point your browser to [http://localhost:4000/](http://localhost:4000/)
@@ -23,7 +23,7 @@ Point your browser to [http://localhost:4000/](http://localhost:4000/)
 ### Generating the static website
 
 ```
-$ gitbook build [path_to_repository]
+$ npm run build
 ```
 
 ### Generating the documentation in other formats
