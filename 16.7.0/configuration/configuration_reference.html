@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.32" data-basepath=".." data-revision="Tue Jul 19 2016 10:49:03 GMT+0000 (UTC)">
+    <div class="book" data-level="4.32" data-basepath=".." data-revision="Mon Jul 25 2016 14:19:37 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -1840,6 +1840,21 @@
             
         </li>
     
+        <li class="chapter " data-level="8.7" data-path="extension_points/configrepo_extension.html">
+            
+                
+                    <a href="../extension_points/configrepo_extension.html">
+                
+                        <i class="fa fa-check"></i>
+                        
+                            <b>8.7.</b>
+                        
+                        Configuration repository Extension
+                    </a>
+            
+            
+        </li>
+    
 
             </ul>
             
@@ -2462,6 +2477,43 @@
         <a href="#repository">&lt;/repository&gt;</a>
     <a href="#repositories">&lt;/repositories&gt;</a>
 
+    <a href="#config-repos">&lt;config-repos&gt;</a>
+      <a href="#config-repo">&lt;config-repo&gt;</a>
+        <a href="#svn">&lt;svn&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#svn">&lt;/svn&gt;</a>
+        <a href="#hg">&lt;hg&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#hg">&lt;/hg&gt;</a>
+        <a href="#p4">&lt;p4&gt;</a>
+            &lt;view/&gt;
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#p4">&lt;/p4&gt;</a>
+        <a href="#git">&lt;git&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#git">&lt;/git&gt;</a>
+        <a href="#tfs">&lt;tfs&gt;</a>
+            <a href="#filter">&lt;filter&gt;</a>
+                <a href="#ignore">&lt;ignore/&gt;</a>
+            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#tfs">&lt;/tfs&gt;</a>
+        <a href="#config-repo-configuration">&lt;configuration&gt;</a>
+            <a href="#config-repo-property">&lt;property&gt;</a>
+                <a href="#config-repo-property-key">&lt;key/&gt;</a>
+                <a href="#config-repo-property-value">&lt;value/&gt;</a>
+            <a href="#config-repo-property">&lt;/property&gt;</a>
+        <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
+      <a href="#config-repo">&lt;/config-repo&gt;</a>
+    <a href="#config-repos">&lt;/config-repos&gt;</a>
+
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -2842,11 +2894,11 @@
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="bases"><a name="bases" class="plugin-anchor" href="#bases"><span class="fa fa-link"></span></a>&lt;bases&gt; </h2>
-<p>The <code>&lt;bases&gt;</code> element is used to specify a list of search bases (the distinguished name of the search base object) which defines 
+<p>The <code>&lt;bases&gt;</code> element is used to specify a list of search bases (the distinguished name of the search base object) which defines
 the location in the directory from which the LDAP search begins.</p>
 <p><a href="#top">top</a></p>
 <h2 id="base"><a name="base" class="plugin-anchor" href="#base"><span class="fa fa-link"></span></a>&lt;base&gt; </h2>
-<p>The <code>&lt;base&gt;</code> element is used to specify a search base (the distinguished name of the search base object) defines the location in 
+<p>The <code>&lt;base&gt;</code> element is used to specify a search base (the distinguished name of the search base object) defines the location in
 the directory from which the LDAP search begins.</p>
 <table>
 <thead>
@@ -3027,6 +3079,79 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
    <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>lqiao<span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>
    <span class="hljs-tag">&lt;<span class="hljs-title">role</span>&gt;</span>_readonly_member<span class="hljs-tag">&lt;<span class="hljs-title">role</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">view</span>&gt;</span>
+</code></pre>
+<h2 id="config-repos"><a name="config-repos" class="plugin-anchor" href="#config-repos"><span class="fa fa-link"></span></a>&lt;config-repos&gt; </h2>
+<p>The <code>&lt;config-repos&gt;</code> element is a container of many <code>&lt;config-repo&gt;</code>.</p>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">cruise</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-title">config-repos</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">config-repo</span> <span class="hljs-attribute">plugin</span>=<span class="hljs-value">&quot;json.config.plugin&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">git</span> <span class="hljs-attribute">url</span>=<span class="hljs-value">&quot;https://github.com/tomzo/gocd-json-config-example.git&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">config-repo</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">config-repo</span> <span class="hljs-attribute">plugin</span>=<span class="hljs-value">&quot;yaml.config.plugin&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">git</span> <span class="hljs-attribute">url</span>=<span class="hljs-value">&quot;https://github.com/tomzo/gocd-yaml-config-example.git&quot;</span> /&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>file_pattern<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>**/*.gocd.yaml<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">config-repo</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">config-repos</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">cruise</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="config-repo"><a name="config-repo" class="plugin-anchor" href="#config-repo"><span class="fa fa-link"></span></a>&lt;config-repo&gt; </h2>
+<p>The <code>&lt;config-repo&gt;</code> element specifies a single configuration repository. It must contain exactly one SCM material and may contain additional configuration section.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><span class="fa fa-link"></span></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>plugin</td>
+<td>Yes</td>
+<td>The ID of configuration repository plugin. E.g. <code>json.config.plugin</code>.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">cruise</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;<span class="hljs-title">config-repos</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">config-repo</span> <span class="hljs-attribute">plugin</span>=<span class="hljs-value">&quot;yaml.config.plugin&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">git</span> <span class="hljs-attribute">url</span>=<span class="hljs-value">&quot;https://github.com/tomzo/gocd-yaml-config-example.git&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">configuration</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>file_pattern<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>**/*.gocd.yaml<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-title">configuration</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-title">config-repo</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">config-repos</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">cruise</span>&gt;</span>
+</code></pre>
+<h3 id="config-repo-configuration"><a name="config-repo-configuration" class="plugin-anchor" href="#config-repo-configuration"><span class="fa fa-link"></span></a>&lt;configuration&gt; </h3>
+<p>The <code>&lt;configuration&gt;</code> element is optional part of config repo definition.
+Keys and values are specified and handled by particular plugin. This section
+can be used to <strong>customize how config repo plugin works when parsing this specific repository</strong>.</p>
+<h4 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">configuration</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>file_pattern<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>*.go.yaml<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>allowed_pipelines_regex<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>project-X-.*<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">configuration</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="repositories"><a name="repositories" class="plugin-anchor" href="#repositories"><span class="fa fa-link"></span></a>&lt;repositories&gt; </h2>
