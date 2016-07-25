@@ -115,6 +115,7 @@ This is the summary of user documentation.
     * [SCM Extension](extension_points/scm_extension.md)
     * [Task Extension](extension_points/task_extension.md)
     * [Notification Extension](extension_points/notification_extension.html)
+    * [Configuration repository Extension](extension_points/configrepo_extension.md)
 * [FAQ/Troubleshooting](faq/index.md)
     * [Ordering of Pipelines](faq/ordering_of_pipelines.md)
     * [Historical Configuration](faq/stage_old_config.md)
