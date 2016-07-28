@@ -14,7 +14,17 @@ The agent by default trusts any and all certificates offered to it, which may po
 
 ## The `-rootCertFile` option
 
-The `-rootCertFile` option must point to the root certificate from the GoCD server (If you're using a certificate signed by a known CA, you may not need to pass the rootCertFile if the root certificate is present in the default JVM trust store). You can export it from firefox using the [page info window](https://support.mozilla.org/en-US/kb/page-info-window-view-technical-details-about-page#w_security) by clicking "export" from the certificate details page. See attached screenshot. If you have the openssl binary available then you may also run `openssl s_client -showcerts -connect HOSTNAME:PORT </dev/null 2>/dev/null|openssl x509 -outform PEM` to export the root certificate from your webserver.
+The `-rootCertFile` option must point to the root certificate from the GoCD server (If you're using a certificate signed by a known CA, you may not need to pass the rootCertFile if the root certificate is present in the default JVM trust store). You can export it from firefox using the [page info window](https://support.mozilla.org/en-US/kb/page-info-window-view-technical-details-about-page#w_security) by clicking "export" from the certificate details page as shown below: 
+
+![Download TLS certificate from GoCD server using Firefox](../../resources/images/agent_tls_cert_export_from_firefox.png)
+
+If you have the openssl binary available then you can also run the command below to export the root certificate from the GoCD server:
+
+```
+openssl s_client -showcerts -connect HOSTNAME:PORT </dev/null 2>/dev/null|openssl x509 -outform PEM
+```
+
+
 
 ## The `-sslVerificationMode` option
 
