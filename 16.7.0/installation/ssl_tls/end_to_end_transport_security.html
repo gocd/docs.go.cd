@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.7.3" data-basepath="../.." data-revision="Mon Jul 25 2016 14:19:37 GMT+0000 (UTC)">
+    <div class="book" data-level="3.7.3" data-basepath="../.." data-revision="Fri Jul 29 2016 01:12:53 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2460,8 +2460,11 @@
 <p>The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you&apos;d like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.</p>
 <p><code>java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST]</code></p>
 <h2 id="the-rootcertfile-option"><a name="the-rootcertfile-option" class="plugin-anchor" href="#the-rootcertfile-option"><span class="fa fa-link"></span></a>The <code>-rootCertFile</code> option</h2>
-<p>The <code>-rootCertFile</code> option must point to the root certificate from the GoCD server (If you&apos;re using a certificate signed by a known CA, you may not need to pass the rootCertFile if the root certificate is present in the default JVM trust store). You can export it from firefox using the <a href="https://support.mozilla.org/en-US/kb/page-info-window-view-technical-details-about-page#w_security" target="_blank">page info window</a> by clicking &quot;export&quot; from the certificate details page. See attached screenshot. If you have the openssl binary available then you may also run <code>openssl s_client -showcerts -connect HOSTNAME:PORT &lt;/dev/null 2&gt;/dev/null|openssl x509 -outform PEM</code> to export the root certificate from your webserver.</p>
-<h2 id="the-sslverificationmode-option"><a name="the-sslverificationmode-option" class="plugin-anchor" href="#the-sslverificationmode-option"><span class="fa fa-link"></span></a>The <code>-sslVerificationMode</code> option</h2>
+<p>The <code>-rootCertFile</code> option must point to the root certificate from the GoCD server (If you&apos;re using a certificate signed by a known CA, you may not need to pass the rootCertFile if the root certificate is present in the default JVM trust store). You can export it from firefox using the <a href="https://support.mozilla.org/en-US/kb/page-info-window-view-technical-details-about-page#w_security" target="_blank">page info window</a> by clicking &quot;export&quot; from the certificate details page as shown below: </p>
+<p><img src="../../resources/images/agent_tls_cert_export_from_firefox.png" alt="Download TLS certificate from GoCD server using Firefox"></p>
+<p>If you have the openssl binary available then you can also run the command below to export the root certificate from the GoCD server:</p>
+<pre><code>openssl s_client -showcerts -connect HOSTNAME:PORT &lt;/dev/null 2&gt;/dev/null|openssl x509 -outform PEM
+</code></pre><h2 id="the-sslverificationmode-option"><a name="the-sslverificationmode-option" class="plugin-anchor" href="#the-sslverificationmode-option"><span class="fa fa-link"></span></a>The <code>-sslVerificationMode</code> option</h2>
 <p>The <code>-sslVerificationMode</code> option allows you to choose the level of verification you&apos;d want.</p>
 <ul>
 <li><code>NONE</code> (the default) will disable all SSL/TLS verification.</li>
