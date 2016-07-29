@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.3" data-basepath=".." data-revision="Fri Jul 29 2016 06:33:37 GMT+0000 (UTC)">
+    <div class="book" data-level="5.3" data-basepath=".." data-revision="Fri Jul 29 2016 16:26:47 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2481,7 +2481,7 @@ Apple Gatekeeper to warn you that the new agent is an invalid application.</p>
 <li>To create a second agent on the same host, run this as root:<pre><code>  cp /etc/init.d/go-agent /etc/init.d/go-agent-1
   sed -i &apos;s/# Provides: go-agent$/# Provides: go-agent-1/g&apos; /etc/init.d/go-agent-1
   ln -s /usr/share/go-agent /usr/share/go-agent-1
-  cp /etc/default/go-agent /etc/default/go-agent-1
+  cp -p /etc/default/go-agent /etc/default/go-agent-1
   mkdir /var/{lib,log}/go-agent-1
   chown go:go /var/{lib,log}/go-agent-1
 </code></pre></li>
