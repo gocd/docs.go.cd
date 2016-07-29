@@ -58,7 +58,7 @@ sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent2\cruisewrapper.exe\" -s
     cp /etc/init.d/go-agent /etc/init.d/go-agent-1
     sed -i 's/# Provides: go-agent$/# Provides: go-agent-1/g' /etc/init.d/go-agent-1
     ln -s /usr/share/go-agent /usr/share/go-agent-1
-    cp /etc/default/go-agent /etc/default/go-agent-1
+    cp -p /etc/default/go-agent /etc/default/go-agent-1
     mkdir /var/{lib,log}/go-agent-1
     chown go:go /var/{lib,log}/go-agent-1
     ```
