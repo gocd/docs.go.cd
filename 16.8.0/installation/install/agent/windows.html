@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Fri Jul 29 2016 16:26:47 GMT+0000 (UTC)">
+    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Tue Aug 02 2016 03:33:16 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2455,7 +2455,7 @@
 </ol>
 <h1 id="silent-headless-installation"><a name="silent-headless-installation" class="plugin-anchor" href="#silent-headless-installation"><span class="fa fa-link"></span></a>Silent (Headless) Installation</h1>
 <p>You may use this method if you would like to script the installation of the GoCD agent.</p>
-<pre><code>go-agent-${version}-setup.exe /S /SERVERIP=&lt;SERVERIP&gt; /GO_AGENT_JAVA_HOME=&lt;PATH_TO_JAVA_HOME&gt; /D=&lt;PATH_TO_AGENT_DIRECTORY&gt;
+<pre><code>go-agent-${version}-setup.exe /S /SERVERURL=&quot;&lt;SERVERURL&gt;&quot; /GO_AGENT_JAVA_HOME=&lt;PATH_TO_JAVA_HOME&gt; /D=&lt;PATH_TO_AGENT_DIRECTORY&gt;
 </code></pre><table>
 <thead>
 <tr>
@@ -2466,9 +2466,9 @@
 </thead>
 <tbody>
 <tr>
-<td><code>SERVERIP</code></td>
+<td><code>SERVERURL</code></td>
 <td>No</td>
-<td>The hostname of the GoCD server. Defaults to <code>127.0.0.1</code>.</td>
+<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>. The value must be surrounded by <code>&quot;</code> quotes.</td>
 </tr>
 <tr>
 <td><code>GO_AGENT_JAVA_HOME</code></td>
@@ -2483,7 +2483,7 @@
 </tbody>
 </table>
 <p>For example:</p>
-<pre><code>C:\&gt; go-agent-16.1.0-1234-setup.exe /S /SERVERIP=10.12.20.47 /D=C:\go\agent
+<pre><code>C:\&gt; go-agent-16.1.0-1234-setup.exe /S /SERVERURL=&quot;https://10.12.20.47:8154/go&quot; /D=C:\go\agent
 </code></pre><p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 <h2 id="overriding-default-startup-arguments-and-environment"><a name="overriding-default-startup-arguments-and-environment" class="plugin-anchor" href="#overriding-default-startup-arguments-and-environment"><span class="fa fa-link"></span></a>Overriding default startup arguments and environment</h2>
