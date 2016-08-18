@@ -89,5 +89,5 @@ sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent2\cruisewrapper.exe\" -s
 -   Make an empty folder called /var/lib/go-agent-2
 -   In this folder, run
 ```
-java -jar /usr/share/go-agent/agent-bootstrapper.jar 127.0.0.1 &
+java -jar /usr/share/go-agent/agent-bootstrapper.jar -serverUrl https://127.0.0.1/go &
 ```
