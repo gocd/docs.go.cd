@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.13" data-basepath=".." data-revision="Thu May 19 2016 13:27:06 GMT+0000 (UTC)">
+    <div class="book" data-level="5.13" data-basepath=".." data-revision="Tue Aug 23 2016 04:18:31 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2429,7 +2429,7 @@
 <tr>
 <td>go.config.repo.gc.cron</td>
 <td><code>0 0 7 ? * SUN</code></td>
-<td>Cron expression to specify garbage collector execution time with default set to <em>7:00 am on sundays</em>. Check <a href="../configuration/configuration_reference.html#format">documentation</a> for help on cron syntax. For linux users, while overriding <code>go.config.repo.gc.cron</code> you need to escape special shell characters such <code>*</code> using a backward-slash eg.: <code>GO_SERVER_SYSTEM_PROPERTIES=&quot;$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron=&apos;0 0/1 \* 1/1 \* \?&apos;&quot;</code></td>
+<td>Cron expression to specify garbage collector execution time with default set to <em>7:00 am on sundays</em>. Check <a href="../configuration/configuration_reference.html#format">documentation</a> for help on cron syntax. For linux users, while overriding <code>go.config.repo.gc.cron</code> you need to escape special shell characters such <code>*</code> using a backward-slash eg.: <code>GO_SERVER_SYSTEM_PROPERTIES=&quot;$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron=&apos;0 0 7 1/1 \* \?&apos;&quot;</code> This cron will set to run git gc at 7 am every day for every month.</td>
 </tr>
 <tr>
 <td>go.config.repo.gc.warning.looseobject.threshold</td>
