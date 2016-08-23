@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.13" data-basepath=".." data-revision="Thu Aug 18 2016 12:31:53 GMT+0000 (UTC)">
+    <div class="book" data-level="5.13" data-basepath=".." data-revision="Tue Aug 23 2016 04:25:08 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2485,8 +2485,9 @@ be made non-aggressive by setting this value to <code>N</code></p>
 <a href="../configuration/configuration_reference.html#format">documentation</a> for help on cron syntax. For linux users, while
 overriding <code>go.config.repo.gc.cron</code> you need to escape special shell characters such <code>*</code> using a backward-slash. For
 example:</p>
-<pre><code>GO_SERVER_SYSTEM_PROPERTIES=&quot;$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron=&apos;0 0/1 \* 1/1 \* \?&apos;&quot;
-</code></pre><h3 id="property-go-config-repo-gc-warning-looseobject-threshold"><a name="property-go-config-repo-gc-warning-looseobject-threshold" class="plugin-anchor" href="#property-go-config-repo-gc-warning-looseobject-threshold"><span class="fa fa-link"></span></a>Property: go.config.repo.gc.warning.looseobject.threshold</h3>
+<pre><code>GO_SERVER_SYSTEM_PROPERTIES=&quot;$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron=&apos;0 0 7 1/1 \* \?&apos;&quot;
+</code></pre><p>The above cron will set to run git gc at 7 am every day for every month.</p>
+<h3 id="property-go-config-repo-gc-warning-looseobject-threshold"><a name="property-go-config-repo-gc-warning-looseobject-threshold" class="plugin-anchor" href="#property-go-config-repo-gc-warning-looseobject-threshold"><span class="fa fa-link"></span></a>Property: go.config.repo.gc.warning.looseobject.threshold</h3>
 <ul>
 <li>Default value: <code>10000</code></li>
 </ul>
