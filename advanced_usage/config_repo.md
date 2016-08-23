@@ -64,9 +64,9 @@ overriding `go.config.repo.gc.cron` you need to escape special shell characters 
 example:
 
 ```
-GO_SERVER_SYSTEM_PROPERTIES="$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron='0 0/1 \* 1/1 \* \?'"
+GO_SERVER_SYSTEM_PROPERTIES="$GO_SERVER_SYSTEM_PROPERTIES -Dgo.config.repo.gc.cron='0 0 7 1/1 \* \?'"
 ```
-
+The above cron will set to run git gc at 7 am every day for every month.
 
 ### Property: go.config.repo.gc.warning.looseobject.threshold
 
