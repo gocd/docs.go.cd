@@ -32,7 +32,7 @@ The GoCD agent installs its files in the following locations on your filesystem:
 
 ```bash
 /Applications/Go Agent.app                                                  # The go agent application
-~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties      # The agent properties (host and port are saved here)
+~/Library/Preferences/com.thoughtworks.go.agent.properties                  # The agent properties (host and port are saved here)
 ~/Library/Application Support/Go Agent                                      # The agent directory
 ```
 
@@ -40,6 +40,6 @@ You can find logs in `~/Library/Application Support/Go Agent`. The `osx-app.log`
 
 ## Setting the server location without the GUI
 
-You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI ([be aware that this might not always work as you expect](../../configure_proxy.md#agents-and-custom-ssl-ports)). The properties file is located in `~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties`, and has a `port` and a `server` property.
+You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI ([be aware that this might not always work as you expect](../../configure_proxy.md#agents-and-custom-ssl-ports)). The properties file is located in `~/Library/Preferences/com.thoughtworks.go.agent.properties`, and has a `serverUrl` and a `sslVerificationMode` property.
 
 !INCLUDE "_register_with_server.md"
