@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3.3" data-basepath="../../.." data-revision="Tue Aug 23 2016 03:55:46 GMT+0000 (UTC)">
+    <div class="book" data-level="3.3.3" data-basepath="../../.." data-revision="Thu Aug 25 2016 15:44:30 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2466,12 +2466,12 @@ GoCD server. By default it will try connecting to the local machine. Click the O
 <h2 id="location-of-gocd-agent-files"><a name="location-of-gocd-agent-files" class="plugin-anchor" href="#location-of-gocd-agent-files"><span class="fa fa-link"></span></a>Location of GoCD agent files</h2>
 <p>The GoCD agent installs its files in the following locations on your filesystem:</p>
 <pre><code class="lang-bash">/Applications/Go Agent.app                                                  <span class="hljs-comment"># The go agent application</span>
-~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties      <span class="hljs-comment"># The agent properties (host and port are saved here)</span>
+~/Library/Preferences/com.thoughtworks.go.agent.properties                  <span class="hljs-comment"># The agent properties (host and port are saved here)</span>
 ~/Library/Application Support/Go Agent                                      <span class="hljs-comment"># The agent directory</span>
 </code></pre>
 <p>You can find logs in <code>~/Library/Application Support/Go Agent</code>. The <code>osx-app.log</code> file contains the info used to bootstrap the agent jar.</p>
 <h2 id="setting-the-server-location-without-the-gui"><a name="setting-the-server-location-without-the-gui" class="plugin-anchor" href="#setting-the-server-location-without-the-gui"><span class="fa fa-link"></span></a>Setting the server location without the GUI</h2>
-<p>You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI (<a href="../../configure_proxy.html#agents-and-custom-ssl-ports">be aware that this might not always work as you expect</a>). The properties file is located in <code>~/Library/Preferences/com.thoughtworks.studios.cruise.agent.properties</code>, and has a <code>port</code> and a <code>server</code> property.</p>
+<p>You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI (<a href="../../configure_proxy.html#agents-and-custom-ssl-ports">be aware that this might not always work as you expect</a>). The properties file is located in <code>~/Library/Preferences/com.thoughtworks.go.agent.properties</code>, and has a <code>serverUrl</code> and a <code>sslVerificationMode</code> property.</p>
 <h2 id="registering-your-agent-with-the-server"><a name="registering-your-agent-with-the-server" class="plugin-anchor" href="#registering-your-agent-with-the-server"><span class="fa fa-link"></span></a>Registering your agent with the server</h2>
 <p>For security reasons, all newly installed Go agents need to be enabled on the Go server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed Go agent, do the following:</p>
 <ol>
