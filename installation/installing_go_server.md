@@ -8,5 +8,4 @@ Before you install the GoCD server or agent, please ensure that you meet the
 - [Linux](install/server/linux.md)
 - [Windows](install/server/windows.md)
 - [Mac OS X](install/server/osx.md)
-- [Solaris](install/server/solaris.md)
 - [Generic Zip](install/server/zip.md)

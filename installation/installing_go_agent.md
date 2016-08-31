@@ -9,5 +9,4 @@ Before you install the Go server or agent, please ensure that you meet the [Syst
 - [Linux](install/agent/linux.md)
 - [Windows](install/agent/windows.md)
 - [Mac OS X](install/agent/osx.md)
-- [Solaris](install/agent/solaris.md)
 - [Generic Zip](install/agent/zip.md)
