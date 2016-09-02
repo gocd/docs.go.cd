@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"><meta http-equiv="refresh" content="5; current/">
+  </head>
+<body>
+
+<h1>Welcome to Go Continuous Delivery User Documentation</h1>
+<style>
+  .paragraph {
+    font-size: 20px;
+  }
+</style>
+
+<p class="paragraph">
+  You will be redirected to the <a href="current/">latest stable</a> version of the user documentation.
+  <br>
+  If you are looking to access a specific version of the documentation please click one of the links below:
+  <br>
+</p>
+
+<p class="paragraph">
+  <%- Dir['*'].sort.reverse.each do |f| -%>
+    <%- next if File.basename(f) == 'current' -%>
+    <%- if File.directory?(f) -%>
+      <a href="<%= (f == version_to_release) ? 'current' : f %>/"><%= f %><%= (f == version_to_release) ? ' (current)' : (f == next_version) ? ' (under development: early access)' : '' %></a><br>
+    <%- end -%>
+  <% end -%>
+</p>
+
+</body>
+</html>
