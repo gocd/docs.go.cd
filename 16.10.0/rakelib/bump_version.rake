@@ -12,7 +12,7 @@ task :bump_version do
   version_to_release = env('VERSION_TO_RELEASE')
   next_version = env('NEXT_VERSION')
 
-  if [current_version, version_to_release, next_version].sort != [current_version, version_to_release, next_version]
+  if [Gem::Version.new(current_version), Gem::Version.new(version_to_release), Gem::Version.new(next_version)].sort.collect(&:to_s) != [current_version, version_to_release, next_version]
     fail "CURRENT_VERSION VERSION_TO_RELEASE and NEXT_VERSION don't seem right"
   end
 
