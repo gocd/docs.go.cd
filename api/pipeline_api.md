@@ -1,1 +1,0 @@
-!REDIRECT "http://api.go.cd/#pipelines"
