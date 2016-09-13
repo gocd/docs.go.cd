@@ -24,6 +24,6 @@ Need a quick start? Setup your first GoCD pipeline, while learning all the conce
 
 ## Contributing to this documentation
 
-The code for this help documentation is hosted [here](https://github.com/gocd/docs.go.cd/tree/master). If you think something can be improvised and/or added to the documentation, please send a [pull request](https://help.github.com/articles/creating-a-pull-request/) for the same. You can read more about pull requests [here](https://help.github.com/articles/using-pull-requests/).
+The code for this help documentation is hosted [here](https://github.com/gocd/docs.go.cd/tree/master). If you think something can be improved and/or added to the documentation, please send a [pull request](https://help.github.com/articles/creating-a-pull-request/) for the same. You can read more about pull requests [here](https://help.github.com/articles/using-pull-requests/).
 
 We're using [GitBook](https://github.com/GitbookIO/gitbook) for generating our HTML Docs from markdown files. You can read more about it [here](https://github.com/gocd/documentation/blob/master/user/generateGitbook.md#steps-to-generate-gitbook).
