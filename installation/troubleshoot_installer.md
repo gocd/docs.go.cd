@@ -33,7 +33,70 @@ at the end of these files might be interesting. Some common errors are:
    accessible due to firewall restrictions. The GoCD server uses two ports, 8153
    and 8154 (by default). These two ports need to be accessible by the agents.
 
-2. **Incompatible Java version**
+2. **Unable to connect - SSL handshake error or connection reset**
+
+   This manifests itself as logs in go-agent-bootstrapper.out.log with lines similar to this:
+
+        180679 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+        java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+                at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
+                at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.headers(ServerBinaryDownloader.java:130)
+                at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.downloadIfNecessary(ServerBinaryDownloader.java:106)
+                at com.thoughtworks.go.agent.launcher.AgentLauncherImpl.launch(AgentLauncherImpl.java:78)
+                at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.go(AgentBootstrapper.java:72)
+                at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.main(AgentBootstrapper.java:54)
+                at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+                at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+                at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+                at java.lang.reflect.Method.invoke(Unknown Source)
+                at com.simontuffs.onejar.Boot.run(Boot.java:306)
+                at com.simontuffs.onejar.Boot.main(Boot.java:159)
+        Caused by: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+                at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+                at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+                at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+                at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+                at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:394)
+                at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:353)
+                at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
+                at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+                at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+                at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+                at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+                at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+                at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+                at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+                at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+                at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+                at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:55)
+                ... 11 more
+        Caused by: java.io.EOFException: SSL peer shut down incorrectly
+                at sun.security.ssl.InputRecord.read(Unknown Source)
+                ... 28 more
+
+   or this:
+
+        2986 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+        java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+                at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
+                ...
+
+   The problem here is that the agent is not able to connect securely to the
+   server, which points to an invalid certificate. This can happen if an agent
+   has connected to one GoCD server and is then pointed to another GoCD
+   server. It will try to connect to the new server using the certificate that
+   was for the older server and it will fail.
+
+   The resolution is to move or rename the agent.jks file found the in the
+   config/ directory of the agent and restarting the agent. That should make it
+   connect using the correct certificate.
+
+   If you're using full
+   [end-to-end transport security](ssl_tls/end_to_end_transport_security.html),
+   this error might mean that the server's certificate has changed and you need
+   to provide the update certificate.
+
+3. **Incompatible Java version**
 
    This manifests itself as logs in go-agent-bootstrapper.log with lines similar to this:
 
