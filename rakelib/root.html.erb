@@ -20,11 +20,11 @@
 </p>
 
 <p class="paragraph">
-  <%- Dir['*'].sort.reverse.each do |f| -%>
-    <%- next if File.basename(f) == 'current' -%>
-    <%- if File.directory?(f) -%>
-      <a href="<%= (f == version_to_release) ? 'current' : f %>/"><%= f %><%= (f == version_to_release) ? ' (current)' : (f == next_version) ? ' (under development: early access)' : '' %></a><br>
-    <%- end -%>
+  <a href="current/"><%= version_to_release %> (current)</a><br>
+  <a href="<%= next_version %>/"><%= next_version %> (under development: early access)</a><br>
+  <%- Dir['*'].reject {|f| !File.directory?(f)}.collect {|f| Gem::Version.new(f) rescue nil}.compact.sort.reverse.collect(&:to_s).each do |f| -%>
+    <%- next if f == version_to_release || f == next_version -%>
+    <a href="<%= f %>/"><%= f %></a><br>
   <% end -%>
 </p>
 
