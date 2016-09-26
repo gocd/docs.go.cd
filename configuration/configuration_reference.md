@@ -22,6 +22,16 @@
             <a href="#admins">&lt;/admins&gt;</a>
         <a href="#security">&lt;/security&gt;</a>
         <a href="#mailhost">&lt;mailhost/&gt;</a>
+        <a href="#elastic">&lt;elastic&gt;</a>
+            <a href="#profiles">&lt;profiles&gt;</a>
+              <a href="#profile">&lt;profile&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                  <a href="#key">&lt;key/&gt;</a>
+                  <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+              <a href="#profile">&lt;/profile&gt;</a>
+            <a href="#profiles">&lt;/profiles&gt;</a>
+        <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
 
     <a href="#repositories">&lt;repositories&gt;</a>
@@ -166,13 +176,6 @@
                         <a href="#resources">&lt;resources&gt;</a>
                             <a href="#resource">&lt;resource/&gt;</a>
                         <a href="#resources">&lt;/resources&gt;</a>
-
-                        <a href="#agentConfig">&lt;agentConfig&gt;</a>
-                            <a href="#property">&lt;property&gt;</a>
-                                <a href="#key">&lt;key/&gt;</a>
-                                <a href="#value">&lt;value/&gt;</a>
-                            <a href="#property">&lt;/property&gt;</a>
-                        <a href="#agentConfig">&lt;/agentConfig&gt;</a>
 
                         <a href="#tasks">&lt;tasks&gt;</a>
                             <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
@@ -341,6 +344,75 @@ The `<mailhost>` element is used to configure mail notifications. Mail notificat
 
 ```xml
 <mailhost hostname="mailhost.yourcompany.com" port="25" username="go-user" password="crs123" tls="false" from="go@yourcompany.com" admin="goadministrator@yourcompany.com" />
+```
+
+
+[top](#top)
+
+## &lt;elastic&gt; {#elastic}
+
+The `<elastic>` element is used to provide configurations for the elastic agents.
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| jobStarvationTimeout | No | Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be [notified](https://plugin-api.go.cd/current/elastic-agents/#create-agent) to create a new elastic agent. |
+
+### Examples
+
+```xml
+<elastic jobStarvationTimeout="10">
+  <profiles>
+    <profile id="aws.small" pluginId="aws">
+      ...
+    </profile>
+  </profiles>
+</elastic>
+```
+
+
+## &lt;profiles&gt; {#profiles}
+
+`<profiles>` element specifies the profiles to configure elastic agents.
+
+There can be zero or more profiles.
+
+### Examples
+
+```xml
+<profiles>
+  <profile id="aws.small" pluginId="aws">
+    ...
+  </profile>
+</profiles>
+```
+
+[top](#top)
+
+## &lt;profile&gt; {#profile}
+
+`<profile>` specifies the [configuration](#property) to be used to to create an elastic-agent instance.
+A profile should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| id       | Yes | Unique Id of profile.           |
+| pluginId | Yes | The Id of elastic-agent plugin. |
+
+### Example:
+
+```xml
+<profile id="ec2.small-us-east" pluginId="com.example.ec2">
+  <property>
+    <key>ami-id</key>
+    <value>ami-6ac7408f</value>
+  </property>
+  <property>
+    <key>region</key>
+    <value>us-east-1</value>
+  </property>
+</profile>
 ```
 
 [top](#top)
@@ -1704,10 +1776,10 @@ The `<jobs>` element specify the set of jobs for a stage.
 A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.
 
-A job can also be associated with a set of [`<resources>`](#resources) or [`<agentConfig>`](#agentConfig).
-Resources are used to match a Job to an Agent. AgentConfigs are used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or agentConfigs that the Job specifies.
+A job can also be associated with a set of [`<resources>`](#resources) or an [`elastic profile`](#profile) through the elasticProfileId attribute.
+Resources are used to match a Job to an Agent. ElasticProfileId is used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or elasticProfileId that the Job specifies.
 
-A job can not have both [resources](#resources) as well as [agentConfig](#agentConfig).
+A job cannot have both [resources](#resources) as well as [elasticProfileId](#profile).
 If a Job has no resources then it can be built by any Agent (But not by an elastic agent)
 
 ### Attributes
@@ -1718,6 +1790,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 | runOnAllAgents | No | If set to 'true' then the Job will run on all agents that can run the job. |
 | runInstanceCount | No | If set to 'x' (integer) then 'x' instances of Job will be spawned during scheduling. Environment variables `GO_JOB_RUN_INDEX` (with values 1-x for every Job) and `GO_JOB_RUN_COUNT` (with value x for each Job) will be exposed to each task of Job. |
 | timeout | No | A job can be configured to time out if it does not generate any console output for a period of time. Use this attribute to define the timeout value in minutes. Define timeout as 0 if the job should never time out. If the attribute is not defined, the default `<server>` level timeout behaviour will apply. |
+| elasticProfileId | No | A job can be configured to run on an elastic agent by specifying this attribute, which maps to the id of an existing [`<profile>`](#profile). MUST NOT be specified along with `resources`.|
 
 ### Examples
 
@@ -1738,17 +1811,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 ```
 
 ```xml
-<job name="run-upgrade" runOnAllAgents="true" timeout='30'>
-  <agentConfig pluginId="com.example.ec2">
-    <property>
-      <key>ami-id</key>
-      <value>ami-6ac7408f</value>
-    </property>
-    <property>
-      <key>region</key>
-      <value>us-east-1</value>
-    </property>
-  </agentConfig>
+<job name="run-upgrade" runOnAllAgents="true" timeout='30' elasticProfileId="aws.small">
   <tasks>
     <ant target="upgrade" />
   </tasks>
@@ -1804,37 +1867,6 @@ Resources are case-insensitive. A resource name can contain alphanumeric charact
   <resource>tomcat5</resource>
   <resource>mercurial</resource>
 </resources>
-```
-
-[top](#top)
-
-## &lt;agentConfig&gt; {#agentConfig}
-
-`<agentConfig>` specifies the [agentConfig properties](#property) needed for a job. A job can have zero or more agentConfig properties.
-
-If a job has no agentConfig properties it can be built on any elastic agent.
-
-### Attributes
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| pluginId | Yes | The Id of elastic-agent plugin. |
-
-### Example:
-
-```xml
-<job name="run-upgrade" runOnAllAgents="true" timeout='30'>
-  <agentConfig pluginId="com.example.ec2">
-    <property>
-      <key>ami-id</key>
-      <value>ami-6ac7408f</value>
-    </property>
-    <property>
-      <key>region</key>
-      <value>us-east-1</value>
-    </property>
-  </agentConfig>
-</job>
 ```
 
 [top](#top)
