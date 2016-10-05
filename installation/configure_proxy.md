@@ -2,7 +2,7 @@
 
 It is sometimes useful to front Go with a proxy server. In this section, we give you some tips and examples on how to achieve this.
 
-## Go with Apache
+## GoCD with Apache
 
 An example of how to configure Go with Apache is shown below.
 
@@ -10,31 +10,85 @@ An example of how to configure Go with Apache is shown below.
 
 -   You have Apache with mod\_proxy installed
 -   The Apache server sits on the same machine as the Go server (localhost)
--   You want to enforce SSL connections
 
 ```apache
 Listen nnn.nnn.nnn.nnn:80
 NameVirtualHost nnn.nnn.nnn.nnn:80
 
 <VirtualHost nnn.nnn.nnn.nnn:80>
-    ServerName go.yourdomain.com
-    DocumentRoot /var/www/html
-    SSLProxyEngine on
-    SSLEngine on
-    ProxyPass / https://localhost:8154/
-    ProxyPassReverse / https://localhost:8154/
+  ServerName go.yourdomain.com
+  DocumentRoot /var/www/html
+
+  ProxyPass         /  http://localhost:8081/
+  ProxyPassReverse  /  http://localhost:8081/
+  ProxyPreserveHost On
 </VirtualHost>
 ```
 
-## OAuth 2.0 with Apache
-
-If you have set up Go to use [OAuth 2.0 gadgets](../integration/mingle_in_go.md) and Go is fronted with an Apache server, then you have to set X\_FORWARDED\_PROTO to "https" in the https virtual host configuration section.
+If you're additionally using SSL (highly recommended), you may use the following snippet -
 
 ```apache
-RequestHeader set X_FORWARDED_PROTO 'https'
+Listen nnn.nnn.nnn.nnn:80
+NameVirtualHost nnn.nnn.nnn.nnn:80
+
+
+<VirtualHost nnn.nnn.nnn.nnn:80>
+  ServerName gocd.example.com
+
+  # Redirect any http requests to https
+  RewriteEngine On
+  RewriteRule ^/(.*)$ https://%{SERVER_NAME}/$1 [R=permanent,L]
+</VirtualHost>
+
+<VirtualHost nnn.nnn.nnn.nnn:443>
+  ServerName gocd.example.com
+
+  # Proxy everything over to the GoCD server
+  ProxyPass         /  http://localhost:8153/
+  ProxyPassReverse  /  http://localhost:8153/
+  ProxyPreserveHost On
+  RequestHeader set X-Forwarded-Proto "https"
+  
+  <Location />
+    Order allow,deny
+    Allow from all
+  </Location>
+
+  # SSL configuration
+  SSLEngine on
+
+  SSLCertificateFile /etc/pki/tls/certs/gocd.example.com.pem
+  SSLCertificateKeyFile /etc/pki/tls/private/gocd.example.com.key
+  SSLCertificateChainFile /etc/pki/tls/certs/gocd.example.com.pem.chained.pem
+</VirtualHost>
 ```
 
-This directive can replace HTTP request headers. The header is modified just before the content handler is run, allowing incoming headers to be changed to 'https'.
+## GoCD with NGINX
+
+```nginx
+server {
+  # Redirect any http requests to https
+  listen         80;
+  server_name    gocd.example.com;
+  return 301     https://gocd.example.com$request_uri;
+}
+
+server {
+  listen                    443 ssl;
+  server_name               gocd.example.com;
+
+  ssl_certificate           /etc/pki/tls/certs/gocd.example.com.chained.pem;
+  ssl_certificate_key       /etc/pki/tls/private/gocd.example.com.key;
+
+  # Proxy everything over to the GoCD server
+  location / {
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+  }
+}
+```
 
 <a name="agents-and-custom-ssl-ports"></a>
 ## Agents and custom SSL ports
