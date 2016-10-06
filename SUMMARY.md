@@ -71,6 +71,7 @@ This is the summary of user documentation.
     * [Reference](configuration/configuration_reference.md)
     * [Schema](configuration/schema.md)
 * [Advanced Usage](advanced_usage/index.md)
+    * [Pipelines as code](advanced_usage/pipelines_as_code.md)
     * [Auto Register a Remote Agent](advanced_usage/agent_auto_register.md)
     * [Spawn multiple instances of a Job](advanced_usage/admin_spawn_multiple_jobs.md)
     * [Multiple Agents on One Machine](advanced_usage/admin_install_multiple_agents.md)
