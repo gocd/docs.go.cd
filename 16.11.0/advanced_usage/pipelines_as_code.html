@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Managing Environments | Go User Documentation</title>
+        <title>Pipelines as code | Go User Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -31,10 +31,10 @@
         
     
     
-    <link rel="next" href="../configuration/build_labelling.html" />
+    <link rel="next" href="../advanced_usage/agent_auto_register.html" />
     
     
-    <link rel="prev" href="../configuration/managing_a_build_cloud.html" />
+    <link rel="prev" href="../advanced_usage/index.html" />
     
 
         
@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.5" data-basepath=".." data-revision="Fri Oct 07 2016 14:10:24 GMT+0000 (UTC)">
+    <div class="book" data-level="5.1" data-basepath=".." data-revision="Fri Oct 07 2016 14:10:24 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -706,7 +706,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.5" data-path="configuration/managing_environments.html">
+        <li class="chapter " data-level="4.5" data-path="configuration/managing_environments.html">
             
                 
                     <a href="../configuration/managing_environments.html">
@@ -1162,7 +1162,7 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="5.1" data-path="advanced_usage/pipelines_as_code.html">
+        <li class="chapter active" data-level="5.1" data-path="advanced_usage/pipelines_as_code.html">
             
                 
                     <a href="../advanced_usage/pipelines_as_code.html">
@@ -2185,48 +2185,77 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="managing-environments"><a name="managing-environments" class="plugin-anchor" href="#managing-environments"><span class="fa fa-link"></span></a>Managing environments</h1>
-<p>Go is configured using an XML configuration file. This file can be edited through the Go server dashboard. Go allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.</p>
-<h2 id="creating-a-new-environment"><a name="creating-a-new-environment" class="plugin-anchor" href="#creating-a-new-environment"><span class="fa fa-link"></span></a>Creating a new environment</h2>
-<p>An Environment is a grouping of pipelines and agents. By assigning an agent to an environment, it will be used to run only those jobs that belong to the pipelines of that environment. An agent can belong to more than one environment. This means, for instance, the same agent can be used to deploy something into an UAT or a Performance testing environment. A pipeline can, however, only be assigned to a single environment. Generally, these pipelines represent the tasks that need to happen in a given environment. For example deploying a 3-tier application into an UAT environment with 6 machines and running smoke tests on the setup.</p>
-<p>However, once an agent is associated with one or more environments, it is no longer capable of picking up jobs on pipelines that do not belong to environments. Pipelines outside of environments will only be assigned to agents in the default pool (not associated with any environment).</p>
-<p>You can create an environment in the admin UI through the following steps. This example creates a production environment, adding the deployment pipeline and the agent installed on the production server.</p>
-<ul>
-<li>Click on the Environments tab</li>
-</ul>
-<p><img src="../resources/images/topnav_environments.png" alt=""></p>
-<ul>
-<li>Click on the &quot;Add a new environment&quot;</li>
-</ul>
-<p><img src="../resources/images/env_click_new.png" alt=""></p>
-<ul>
-<li>Provide a name for the environment</li>
-</ul>
-<p><img src="../resources/images/env_name.png" alt=""></p>
-<ul>
-<li>Add one or more pipelines that need to run on the environment</li>
-</ul>
-<p><img src="../resources/images/env_pipelines.png" alt=""></p>
-<ul>
-<li>Add one or more agents associated with the environment</li>
-</ul>
-<p><img src="../resources/images/env_agents.png" alt=""></p>
-<ul>
-<li>Add one or more environment variables or secure environment variables that need to be passed.</li>
-</ul>
-<p><img src="../resources/images/env_env_variables.png" alt=""></p>
-<ul>
-<li>Click on finish</li>
-</ul>
-<p>Setting up an environment through the xml can be found in the <a href="configuration_reference.html#environments">configuration reference</a></p>
-<h2 id="add-a-new-agent-to-an-existing-environment"><a name="add-a-new-agent-to-an-existing-environment" class="plugin-anchor" href="#add-a-new-agent-to-an-existing-environment"><span class="fa fa-link"></span></a>Add a new agent to an existing environment</h2>
-<p>You can do this very easily in the Agents tab. Just select the agents you want to add to your environment and click on the Environments button. All existing environments will appear in alphabetical order. Select one of three states for all environments you want to add and then click the &#x201C;Apply&#x201D; button.</p>
-<ul>
-<li>An environment <strong>with a check</strong> will add the environment to all selected agents.</li>
-<li>An environment <strong>with a forward slash</strong> means some of your selected agents are associated to it. No change will occur after clicking &#x201C;Apply&#x201D;.</li>
-<li>An environment <strong>without a check</strong> will remove the environment from all selected agents.</li>
-</ul>
-<p><img src="../resources/images/associate_agent_environment.png" alt=""></p>
+                        <h1 id="pipelines-as-code"><a name="pipelines-as-code" class="plugin-anchor" href="#pipelines-as-code"><span class="fa fa-link"></span></a>Pipelines as code</h1>
+<p>GoCD supports storing pipeline configuration in a source code repository, either with your application code or in a
+separate repository all on its own. It allows you to move it out of GoCD so that you can modify, control and version it
+externally. Such modifications will be seen by a periodic poller in the GoCD server and it will merge those pipeline
+configurations into the pipelines it finds in the main configuration XML file. You can see a quick preview video of this
+feature <a href="https://www.youtube.com/watch?v=1AfBxCWRqD8&amp;feature=youtu.be" target="_blank">here</a>.</p>
+<p>It is important to note that not all pipelines need to be external to the config (any existing config, in any existing
+GoCD server will be valid). It is also important to note that this feature includes the ability for GoCD to monitor and
+merge external pipelines defined in multiple &quot;config repositories&quot;. It is also possible for a pipeline defined in a
+config repository to be dependent on a pipeline defined in the main config XML of the GoCD server.</p>
+<p>This ability is exposed as a plugin endpoint and so, anyone can write a plugin for a config repository, to store the configuration in any manner you choose.</p>
+<p>Here&apos;s an image which shows the relationship between the different pieces of a setup such as this:</p>
+<p><img src="../resources/images/advanced_usage/pipelines_as_code.png" alt="Pipelines as code"></p>
+<p>A quick note about &quot;Infrastructure as code&quot;: Many people seem to associate only being able to check in configuration to
+a repository as a part of &quot;Infrastructure as code&quot;. However, the ability to configure the GoCD server through code has
+existed in various forms. For instance, <a href="https://github.com/SpringerSBM/gomatic" target="_blank">gomatic</a>, using
+<a href="https://api.go.cd/current/" target="_blank">GoCD APIs</a>, <a href="https://github.com/grundic/yagocd" target="_blank">yagocd</a>,
+<a href="https://github.com/gaqzi/py-gocd" target="_blank">gocd-cli</a>, etc. This is another way of doing the same. In this case, it&apos;s possible to
+make it more declarative, depending on the plugin and possibly give more control to others.</p>
+<h2 id="currently-available-plugins-for-storing-pipelines-as-code"><a name="currently-available-plugins-for-storing-pipelines-as-code" class="plugin-anchor" href="#currently-available-plugins-for-storing-pipelines-as-code"><span class="fa fa-link"></span></a>Currently available plugins for storing pipelines as code</h2>
+<p>Pipelines can currently be stored using JSON or YAML.</p>
+<h3 id="storing-pipeline-configuration-in-json"><a name="storing-pipeline-configuration-in-json" class="plugin-anchor" href="#storing-pipeline-configuration-in-json"><span class="fa fa-link"></span></a>Storing pipeline configuration in JSON</h3>
+<p>The setup needed to allow this is:</p>
+<ol>
+<li><p>Install the <a href="https://github.com/tomzo/gocd-json-config-plugin/releases" target="_blank">JSON config plugin</a> as mentioned in the
+<a href="https://docs.go.cd/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins" target="_blank">Plugin User Guide</a>.</p>
+</li>
+<li><p>After starting the server, open the config XML (&quot;Admin -&gt; Config XML&quot;) and add a config repository for the server to poll. This tag should be added just after the &quot;<code>&lt;server&gt;</code>&quot; tag, at the top level, as a child of &quot;<code>&lt;cruise&gt;</code>&quot;:</p>
+<p>   <config-repos></config-repos></p>
+<pre><code>&lt;config-repo plugin=&quot;json.config.plugin&quot;&gt;
+  &lt;git url=&quot;https://github.com/arvindsv/gocd-demo-config-repo-json.git&quot; /&gt;
+&lt;/config-repo&gt;
+</code></pre><p>   </p>
+<p> You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
+ to see what happens. Any file ending in &quot;.gopipeline.json&quot; is picked up by the plugin. Documentation of what is
+ possible in the JSON is <a href="https://github.com/tomzo/gocd-json-config-plugin" target="_blank">here</a>.</p>
+</li>
+<li><p>Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
+dashboard, as a part of the &quot;demo&quot; pipeline group. You can make some changes to the JSON (change a group, add a
+stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
+config. Remember that, if you make any changes and make a mistake, you&apos;ll see an error at the bottom right corner (a
+red box).</p>
+</li>
+<li><p>You can even have multiple repositories. Just repeat the <code>&lt;config-repo&gt;</code> tag and make sure that there are no duplicate pipelines.</p>
+</li>
+</ol>
+<h3 id="storing-pipeline-configuration-in-yaml"><a name="storing-pipeline-configuration-in-yaml" class="plugin-anchor" href="#storing-pipeline-configuration-in-yaml"><span class="fa fa-link"></span></a>Storing pipeline configuration in YAML</h3>
+<p>Tomasz <a href="https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion" target="_blank">announced</a> a Yaml plugin. The setup needed to allow this is:</p>
+<ol>
+<li><p>Install the <a href="https://github.com/tomzo/gocd-yaml-config-plugin/releases" target="_blank">YAML config plugin</a> as mentioned in the
+<a href="https://docs.go.cd/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins" target="_blank">Plugin User Guide</a>.</p>
+</li>
+<li><p>After starting the server, open the config XML (&quot;Admin -&gt; Config XML&quot;) and add a config repository for the server to poll. This tag should be added just after the &quot;<code>&lt;server&gt;</code>&quot; tag, at the top level, as a child of &quot;<code>&lt;cruise&gt;</code>&quot;:</p>
+<p>   <config-repos></config-repos></p>
+<pre><code>&lt;config-repo plugin=&quot;yaml.config.plugin&quot;&gt;
+  &lt;git url=&quot;https://github.com/tomzo/gocd-yaml-config-example.git&quot; /&gt;
+&lt;/config-repo&gt;
+</code></pre><p>   </p>
+<p> You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
+ to see what happens. Any file ending in &quot;.gocd.yaml&quot; is picked up by the plugin. Documentation of what is
+ possible in the YAML file is <a href="https://github.com/tomzo/gocd-yaml-config-plugin" target="_blank">here</a>.</p>
+</li>
+<li><p>Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
+dashboard, as a part of the &quot;demo&quot; pipeline group. You can make some changes to the YAML (change a group, add a
+stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
+config. Remember that, if you make any changes and make a mistake, you&apos;ll see an error at the bottom right corner (a
+red box).</p>
+</li>
+<li><p>You can even have multiple repositories. Just repeat the <code>&lt;config-repo&gt;</code> tag and make sure that there are no duplicate pipelines.</p>
+</li>
+</ol>
 
                     
                     </section>
@@ -2237,10 +2266,10 @@
         </div>
 
         
-        <a href="../configuration/managing_a_build_cloud.html" class="navigation navigation-prev " aria-label="Previous page: Managing Agents"><i class="fa fa-angle-left"></i></a>
+        <a href="../advanced_usage/index.html" class="navigation navigation-prev " aria-label="Previous page: Advanced Usage"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../configuration/build_labelling.html" class="navigation navigation-next " aria-label="Next page: Pipeline Labelling"><i class="fa fa-angle-right"></i></a>
+        <a href="../advanced_usage/agent_auto_register.html" class="navigation navigation-next " aria-label="Next page: Auto Register a Remote Agent"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
