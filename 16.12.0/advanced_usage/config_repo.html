@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.14" data-basepath=".." data-revision="Mon Oct 24 2016 08:48:46 GMT+0000 (UTC)">
+    <div class="book" data-level="5.14" data-basepath=".." data-revision="Tue Oct 25 2016 14:44:45 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2246,6 +2246,13 @@ example:</p>
 <li>Default value: <code>10000</code></li>
 </ul>
 <p>If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup</p>
+<h3 id="property-go-config-repo-gc-expire"><a name="property-go-config-repo-gc-expire" class="plugin-anchor" href="#property-go-config-repo-gc-expire"><span class="fa fa-link"></span></a>Property: go.config.repo.gc.expire</h3>
+<ul>
+<li>Default value <code>24 hours</code></li>
+</ul>
+<p>This option will specify the expiration time for git gc so that each unreferenced, loose object which has been
+created or modified after or at the time specified will not be pruned. Only older objects may be pruned.
+Specify this propery in hours. </p>
 <h3 id="property-go-config-repo-gc-check-interval"><a name="property-go-config-repo-gc-check-interval" class="plugin-anchor" href="#property-go-config-repo-gc-check-interval"><span class="fa fa-link"></span></a>Property: go.config.repo.gc.check.interval</h3>
 <ul>
 <li>Default value: <code>28800000</code></li>
