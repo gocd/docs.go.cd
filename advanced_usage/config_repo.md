@@ -74,6 +74,13 @@ The above cron will set to run git gc at 7 am every day for every month.
 
 If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup
 
+### Property: go.config.repo.gc.expire
+
+* Default value `24 hours`
+
+This option will specify the expiration time for git gc so that each unreferenced, loose object which has been
+created or modified after or at the time specified will not be pruned. Only older objects may be pruned.
+Specify this propery in hours. 
 
 ### Property: go.config.repo.gc.check.interval
 
