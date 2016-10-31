@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.32" data-basepath=".." data-revision="Mon Oct 31 2016 12:34:43 GMT+0000 (UTC)">
+    <div class="book" data-level="4.32" data-basepath=".." data-revision="Mon Oct 31 2016 13:28:55 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2337,6 +2337,13 @@
                             <a href="#resource">&lt;resource/&gt;</a>
                         <a href="#resources">&lt;/resources&gt;</a>
 
+                        <a href="#agentConfig">&lt;agentConfig&gt;</a>
+                            <a href="#property">&lt;property&gt;</a>
+                                <a href="#key">&lt;key/&gt;</a>
+                                <a href="#value">&lt;value/&gt;</a>
+                            <a href="#property">&lt;/property&gt;</a>
+                        <a href="#agentConfig">&lt;/agentConfig&gt;</a>
+
                         <a href="#tasks">&lt;tasks&gt;</a>
                             <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
                                 <a href="#runif">&lt;runif/&gt;</a>
@@ -4134,10 +4141,10 @@ would be:</p>
   <span class="hljs-tag">&lt;<span class="hljs-title">jobs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">job</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;linux&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-title">resources</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-title">resource</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-title">resource</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">resources</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-title">tasks</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">ant</span> <span class="hljs-attribute">target</span>=<span class="hljs-value">&quot;unit-test&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-title">ant</span> <span class="hljs-attribute">target</span>=<span class="hljs-value">&quot;unit-test&quot;</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-title">tasks</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-title">job</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">jobs</span>&gt;</span>
@@ -4147,8 +4154,10 @@ would be:</p>
 <h2 id="job"><a name="job" class="plugin-anchor" href="#job"><span class="fa fa-link"></span></a>&lt;job&gt; </h2>
 <p>A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.</p>
-<p>A job can also be associated with a set of <a href="#resources"><code>&lt;resources&gt;</code></a>. Resources are used to match a Job to an Agent. An Agent can run a Job if it has all the resources that the Job specifies.</p>
-<p>If a Job has no resources then it can be built by any Agent</p>
+<p>A job can also be associated with a set of <a href="#resources"><code>&lt;resources&gt;</code></a> or <a href="#agentConfig"><code>&lt;agentConfig&gt;</code></a>.
+Resources are used to match a Job to an Agent. AgentConfigs are used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or agentConfigs that the Job specifies.</p>
+<p>A job can not have both <a href="#resources">resources</a> as well as <a href="#agentConfig">agentConfig</a>.
+If a Job has no resources then it can be built by any Agent (But not by an elastic agent)</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><span class="fa fa-link"></span></a>Attributes</h3>
 <table>
 <thead>
@@ -4184,7 +4193,9 @@ to Go Server.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><span class="fa fa-link"></span></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">job</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;linux&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">environmentvariables</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">variable</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;FOO&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-title">variable</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">variable</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;FOO&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">variable</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">environmentvariables</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">resources</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-title">resource</span>&gt;</span>
@@ -4195,9 +4206,16 @@ to Go Server.</p>
 <span class="hljs-tag">&lt;/<span class="hljs-title">job</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">job</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;run-upgrade&quot;</span> <span class="hljs-attribute">runOnAllAgents</span>=<span class="hljs-value">&quot;true&quot;</span> <span class="hljs-attribute">timeout</span>=<span class="hljs-value">&apos;30&apos;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">resources</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-title">resource</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">resources</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">agentConfig</span> <span class="hljs-attribute">pluginId</span>=<span class="hljs-value">&quot;com.example.ec2&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>ami-id<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>ami-6ac7408f<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>region<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>us-east-1<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">agentConfig</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">tasks</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-title">ant</span> <span class="hljs-attribute">target</span>=<span class="hljs-value">&quot;upgrade&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">tasks</span>&gt;</span>
@@ -4236,6 +4254,41 @@ to Go Server.</p>
   <span class="hljs-tag">&lt;<span class="hljs-title">resource</span>&gt;</span>tomcat5<span class="hljs-tag">&lt;/<span class="hljs-title">resource</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">resource</span>&gt;</span>mercurial<span class="hljs-tag">&lt;/<span class="hljs-title">resource</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">resources</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="agentConfig"><a name="agentConfig" class="plugin-anchor" href="#agentConfig"><span class="fa fa-link"></span></a>&lt;agentConfig&gt; </h2>
+<p><code>&lt;agentConfig&gt;</code> specifies the <a href="#property">agentConfig properties</a> needed for a job. A job can have zero or more agentConfig properties.</p>
+<p>If a job has no agentConfig properties it can be built on any elastic agent.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><span class="fa fa-link"></span></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pluginId</td>
+<td>Yes</td>
+<td>The Id of elastic-agent plugin.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">job</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;run-upgrade&quot;</span> <span class="hljs-attribute">runOnAllAgents</span>=<span class="hljs-value">&quot;true&quot;</span> <span class="hljs-attribute">timeout</span>=<span class="hljs-value">&apos;30&apos;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">agentConfig</span> <span class="hljs-attribute">pluginId</span>=<span class="hljs-value">&quot;com.example.ec2&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>ami-id<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>ami-6ac7408f<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>region<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>us-east-1<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">agentConfig</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">job</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="tasks"><a name="tasks" class="plugin-anchor" href="#tasks"><span class="fa fa-link"></span></a>&lt;tasks&gt; </h2>
@@ -5182,6 +5235,16 @@ allow certain variable names and/or values.</p>
 <td>No</td>
 <td>The values should be one of &apos;true&apos; or &apos;false&apos; (or 1 / 0). &apos;true&apos; or &apos;1&apos; means that the agent is denied. Go doesn&apos;t assign jobs to a denied agent.</td>
 </tr>
+<tr>
+<td>elasticAgentId</td>
+<td>No</td>
+<td>Id of your elastic agent. <strong>This attribute is only required for elastic agents.</strong></td>
+</tr>
+<tr>
+<td>elasticPluginId</td>
+<td>No</td>
+<td>Elastic-agent plugin Id. <strong>This attribute is only required for elastic agents.</strong></td>
+</tr>
 </tbody>
 </table>
 <h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><span class="fa fa-link"></span></a>Notes:</h3>
@@ -5193,7 +5256,7 @@ allow certain variable names and/or values.</p>
 <p>An agent without any resources will build any jobs that don&apos;t specify resources. Refer to the <a href="#resources"><code>&lt;resources&gt;</code></a> of <a href="#job"><code>&lt;job&gt;</code></a>.</p>
 <p><a href="#top">top</a></p>
 <h2 id="agentresource"><a name="agentresource" class="plugin-anchor" href="#agentresource"><span class="fa fa-link"></span></a>&lt;resource&gt; </h2>
-<p>resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.</p>
+<p>Resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><span class="fa fa-link"></span></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">agents</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">agent</span> <span class="hljs-attribute">hostname</span>=<span class="hljs-value">&quot;agent01&quot;</span> <span class="hljs-attribute">ipaddress</span>=<span class="hljs-value">&quot;192.168.0.1&quot;</span> <span class="hljs-attribute">uuid</span>=<span class="hljs-value">&quot;94fcb7ad-8b97-4078-b5f6-3c7436d6a390&quot;</span>&gt;</span>
