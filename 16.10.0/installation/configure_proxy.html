@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.6" data-basepath=".." data-revision="Mon Oct 24 2016 08:32:22 GMT+0000 (UTC)">
+    <div class="book" data-level="3.6" data-basepath=".." data-revision="Mon Oct 31 2016 12:42:41 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2172,31 +2172,84 @@
                     
                         <h1 id="configure-a-proxy"><a name="configure-a-proxy" class="plugin-anchor" href="#configure-a-proxy"><span class="fa fa-link"></span></a>Configure a Proxy</h1>
 <p>It is sometimes useful to front Go with a proxy server. In this section, we give you some tips and examples on how to achieve this.</p>
-<h2 id="go-with-apache"><a name="go-with-apache" class="plugin-anchor" href="#go-with-apache"><span class="fa fa-link"></span></a>Go with Apache</h2>
+<h2 id="gocd-with-apache"><a name="gocd-with-apache" class="plugin-anchor" href="#gocd-with-apache"><span class="fa fa-link"></span></a>GoCD with Apache</h2>
 <p>An example of how to configure Go with Apache is shown below.</p>
 <p><strong>Assumptions:</strong></p>
 <ul>
 <li>You have Apache with mod_proxy installed</li>
 <li>The Apache server sits on the same machine as the Go server (localhost)</li>
-<li>You want to enforce SSL connections</li>
 </ul>
 <pre><code class="lang-apache"><span class="hljs-keyword"><span class="hljs-common">Listen</span></span> nnn.nnn.nnn.nnn:80
 <span class="hljs-keyword">NameVirtualHost</span> nnn.nnn.nnn.nnn:80
 
 <span class="hljs-tag">&lt;VirtualHost nnn.nnn.nnn.nnn:80&gt;</span>
-    <span class="hljs-keyword"><span class="hljs-common">ServerName</span></span> go.yourdomain.com
-    <span class="hljs-keyword"><span class="hljs-common">DocumentRoot</span></span> /var/www/html
-    <span class="hljs-keyword">SSLProxyEngine</span> <span class="hljs-literal">on</span>
-    <span class="hljs-keyword">SSLEngine</span> <span class="hljs-literal">on</span>
-    <span class="hljs-keyword">ProxyPass</span> / https://localhost:8154/
-    <span class="hljs-keyword">ProxyPassReverse</span> / https://localhost:8154/
+  <span class="hljs-keyword"><span class="hljs-common">ServerName</span></span> go.yourdomain.com
+  <span class="hljs-keyword"><span class="hljs-common">DocumentRoot</span></span> /var/www/html
+
+  <span class="hljs-keyword">ProxyPass</span>         /  http://localhost:8081/
+  <span class="hljs-keyword">ProxyPassReverse</span>  /  http://localhost:8081/
+  <span class="hljs-keyword">ProxyPreserveHost</span> <span class="hljs-literal">On</span>
 <span class="hljs-tag">&lt;/VirtualHost&gt;</span>
 </code></pre>
-<h2 id="oauth-2-0-with-apache"><a name="oauth-2-0-with-apache" class="plugin-anchor" href="#oauth-2-0-with-apache"><span class="fa fa-link"></span></a>OAuth 2.0 with Apache</h2>
-<p>If you have set up Go to use <a href="../integration/mingle_in_go.html">OAuth 2.0 gadgets</a> and Go is fronted with an Apache server, then you have to set X_FORWARDED_PROTO to &quot;https&quot; in the https virtual host configuration section.</p>
-<pre><code class="lang-apache"><span class="hljs-keyword">RequestHeader</span> set X_FORWARDED_PROTO &apos;https&apos;
+<p>If you&apos;re additionally using SSL (highly recommended), you may use the following snippet -</p>
+<pre><code class="lang-apache"><span class="hljs-keyword"><span class="hljs-common">Listen</span></span> nnn.nnn.nnn.nnn:80
+<span class="hljs-keyword">NameVirtualHost</span> nnn.nnn.nnn.nnn:80
+
+
+<span class="hljs-tag">&lt;VirtualHost nnn.nnn.nnn.nnn:80&gt;</span>
+  <span class="hljs-keyword"><span class="hljs-common">ServerName</span></span> gocd.example.com
+
+  <span class="hljs-comment"># Redirect any http requests to https</span>
+  <span class="hljs-keyword"><span class="hljs-common">RewriteEngine</span></span> <span class="hljs-literal">On</span>
+  <span class="hljs-keyword"><span class="hljs-common">RewriteRule</span></span> ^/(.*)$ https://<span class="hljs-cbracket">%{SERVER_NAME}</span>/<span class="hljs-number">$1</span><span class="hljs-sqbracket"> [R=permanent,L]</span>
+<span class="hljs-tag">&lt;/VirtualHost&gt;</span>
+
+<span class="hljs-tag">&lt;VirtualHost nnn.nnn.nnn.nnn:443&gt;</span>
+  <span class="hljs-keyword"><span class="hljs-common">ServerName</span></span> gocd.example.com
+
+  <span class="hljs-comment"># Proxy everything over to the GoCD server</span>
+  <span class="hljs-keyword">ProxyPass</span>         /  http://localhost:8153/
+  <span class="hljs-keyword">ProxyPassReverse</span>  /  http://localhost:8153/
+  <span class="hljs-keyword">ProxyPreserveHost</span> <span class="hljs-literal">On</span>
+  <span class="hljs-keyword">RequestHeader</span> set X-Forwarded-Proto <span class="hljs-string">&quot;https&quot;</span>
+
+  <span class="hljs-tag">&lt;Location /&gt;</span>
+    <span class="hljs-keyword"><span class="hljs-common">Order</span></span> allow,deny
+    <span class="hljs-keyword"><span class="hljs-common">Allow</span></span> from <span class="hljs-literal">all</span>
+  <span class="hljs-tag">&lt;/Location&gt;</span>
+
+  <span class="hljs-comment"># SSL configuration</span>
+  <span class="hljs-keyword">SSLEngine</span> <span class="hljs-literal">on</span>
+
+  <span class="hljs-keyword">SSLCertificateFile</span> /etc/pki/tls/certs/gocd.example.com.pem
+  <span class="hljs-keyword">SSLCertificateKeyFile</span> /etc/pki/tls/private/gocd.example.com.key
+  <span class="hljs-keyword">SSLCertificateChainFile</span> /etc/pki/tls/certs/gocd.example.com.pem.chained.pem
+<span class="hljs-tag">&lt;/VirtualHost&gt;</span>
 </code></pre>
-<p>This directive can replace HTTP request headers. The header is modified just before the content handler is run, allowing incoming headers to be changed to &apos;https&apos;.</p>
+<h2 id="gocd-with-nginx"><a name="gocd-with-nginx" class="plugin-anchor" href="#gocd-with-nginx"><span class="fa fa-link"></span></a>GoCD with NGINX</h2>
+<pre><code class="lang-nginx"><span class="hljs-title">server</span> {
+  <span class="hljs-comment"># Redirect any http requests to https</span>
+  <span class="hljs-title">listen</span>         <span class="hljs-number">80</span>;
+  <span class="hljs-title">server_name</span>    gocd.example.com;
+  <span class="hljs-title">return</span> <span class="hljs-number">301</span>     <span class="hljs-url">https://gocd.example.com<span class="hljs-variable">$request_uri</span></span>;
+}
+
+<span class="hljs-title">server</span> {
+  <span class="hljs-title">listen</span>                    <span class="hljs-number">443</span> ssl;
+  <span class="hljs-title">server_name</span>               gocd.example.com;
+
+  <span class="hljs-title">ssl_certificate</span>           /etc/pki/tls/certs/gocd.example.com.chained.pem;
+  <span class="hljs-title">ssl_certificate_key</span>       /etc/pki/tls/private/gocd.example.com.key;
+
+  <span class="hljs-comment"># Proxy everything over to the GoCD server</span>
+  <span class="hljs-title">location</span> / {
+    <span class="hljs-title">proxy_set_header</span>        Host            <span class="hljs-variable">$host</span>;
+    <span class="hljs-title">proxy_set_header</span>        X-Real-IP       <span class="hljs-variable">$remote_addr</span>;
+    <span class="hljs-title">proxy_set_header</span>        X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;
+    <span class="hljs-title">proxy_set_header</span>        X-Forwarded-Proto <span class="hljs-variable">$scheme</span>;
+  }
+}
+</code></pre>
 <p><a name="agents-and-custom-ssl-ports"></a></p>
 <h2 id="agents-and-custom-ssl-ports"><a name="agents-and-custom-ssl-ports" class="plugin-anchor" href="#agents-and-custom-ssl-ports"><span class="fa fa-link"></span></a>Agents and custom SSL ports</h2>
 <p>Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The Go server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the Go server SSL port, not just on the proxy server SSL port.</p>
