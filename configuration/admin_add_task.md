@@ -1,6 +1,6 @@
 #Add a new task to an existing Job
 
-Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a a job under a stage.
+Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a job under a stage.
 
 -   Click on the job name that you want to edit on the tree as shown below. The "defaultJob" is being edited.
 ![](../resources/images/edit_job_link_on_tree.png)
