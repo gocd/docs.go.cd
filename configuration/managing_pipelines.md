@@ -100,7 +100,7 @@ Now that we have a pipeline with stage(s), we can add more jobs to any of the ex
 
 ## Add a new task to an existing Job
 
-Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a a job under a stage.
+Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a job under a stage.
 
 -   Click on the job name that you want to edit on the tree as shown below. The "defaultJob" is being edited.
 
@@ -144,7 +144,7 @@ If the user is a pipeline group admin, she can clone the new pipeline into a gro
 
 ## Delete an existing pipeline
 
-Deleting a pipeline removes an existing pipeline from the config. 
+Deleting a pipeline removes an existing pipeline from the config.
 
 **Warning**: Pipeline history is not removed from the database and artifacts are not removed from artifact storage, which may cause conflicts if a pipeline with the same name is later re-created.
 
