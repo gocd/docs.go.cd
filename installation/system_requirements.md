@@ -10,7 +10,7 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 - Google Chrome
 - Mozilla Firefox
 - Apple Safari
-- Microsoft Internet Explorer 9+
+- Microsoft Internet Explorer 11+
 
 ### GoCD Server requirements
 
