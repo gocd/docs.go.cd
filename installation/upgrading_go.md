@@ -86,10 +86,6 @@ sudo rpm -U [go-server-package-name]
 
 The Macintosh OSX edition of Go does not support upgrades. You should follow the steps above to backup your data, uninstall Go/Cruise (by dragging the application into trash), and then perform a fresh installation.
 
-#### Solaris
-
-The Solaris edition of Go does not support upgrades. You should follow the steps above to backup your data, uninstall Go/Cruise, and then perform a fresh installation.
-
 ### Notes
 
 Use the notes from this section when upgrading to a particular version of Go.
