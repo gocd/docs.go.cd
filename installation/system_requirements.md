@@ -26,7 +26,6 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
 * **Debian**  - Debian 6.0 (squeeze) and above
 * **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
-* **Solaris** - Solaris 10 U5, OpenSolaris
 
 #### Dependencies
 
@@ -52,7 +51,6 @@ build agents.
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
 * **Debian**  - Debian 6.0 (squeeze) and above
 * **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
-* **Solaris** - Solaris 10 U5, OpenSolaris
 
 #### Hardware
 
