@@ -51,7 +51,8 @@ This enables the periodic garbage collection of `config.git` repo. To enable thi
 * Default value: `Y`
 
 This option will cause GC to more aggressively optimize the repository at the expense of taking much more time. It can
-be made non-aggressive by setting this value to `N`
+be made non-aggressive by setting this value to `N`. It is recommended to set this option to `N` if the system property 
+`go.config.repo.gc.cron` is set up to run `git gc` frequently. 
 
 
 ### Property: go.config.repo.gc.cron
