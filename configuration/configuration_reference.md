@@ -1192,7 +1192,7 @@ For example to run a pipeline once a night at 10pm on weekdays:
 </pipeline>
 ```
 
-Go uses the [Quartz](http://www.quartz-scheduler.org/documentation/quartz-1.x/quick-start) scheduler internally. For convenience we reproduce the [Quartz cron documentation](http://www.quartz-scheduler.org/documentation/quartz-1.x/tutorials/crontrigger) here:
+Go uses the [Quartz](http://www.quartz-scheduler.org/documentation/quartz-2.x/quick-start) scheduler internally. For convenience we reproduce the [Quartz cron documentation](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger) here:
 
 ### Format
 
