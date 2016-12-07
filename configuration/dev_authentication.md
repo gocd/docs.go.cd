@@ -31,6 +31,9 @@ Go should pick up this change immediately and start authenticating new users (no
 
 The file format for the password file is the [standard one for Java Properties](http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load%28java.io.Reader%29), which means that spaces, the equals sign, and the colon are special characters in the username and must be escaped with a backslash.
 
+Please note: The password stored in the password file, might not be insecure. 
+
+
 ### Generating passwords using htpasswd
 
 You can use the [htpasswd program from Apache](http://httpd.apache.org/docs/2.0/programs/htpasswd.html) to manage your password file. **You must use the -s option with htpasswd to force it to use SHA1 encoding for the password.** So for example, you can use the following command to create a password file called "passwd" and put the password for the user "user" in it:
