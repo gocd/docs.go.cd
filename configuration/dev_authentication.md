@@ -31,7 +31,7 @@ Go should pick up this change immediately and start authenticating new users (no
 
 The file format for the password file is the [standard one for Java Properties](http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load%28java.io.Reader%29), which means that spaces, the equals sign, and the colon are special characters in the username and must be escaped with a backslash.
 
-Please note: The password stored in the password file, might not be insecure. 
+Please note: The password stored in the password file, might not be secured. 
 
 
 ### Generating passwords using htpasswd
