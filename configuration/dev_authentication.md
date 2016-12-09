@@ -8,6 +8,8 @@ You can use both password file and LDAP/ActiveDirectory authentication at the sa
 
 ## File Based Authentication
 
+_**Please note**_: The [SHA-1](https://en.wikipedia.org/wiki/SHA-1) algorithm is outdated. For increased security use LDAP or one of the 'Authentication Plugins' at https://www.go.cd/plugins.
+
 The simplest way to authenticate people is to create a password file for Go to use. This is just a plain text file with the following format:
 
 ```
@@ -30,6 +32,7 @@ To configure Go to use a password file for authentication:
 Go should pick up this change immediately and start authenticating new users (note that anybody already using Go will be required to re-authenticate).
 
 The file format for the password file is the [standard one for Java Properties](http://docs.oracle.com/javase/7/docs/api/java/util/Properties.html#load%28java.io.Reader%29), which means that spaces, the equals sign, and the colon are special characters in the username and must be escaped with a backslash.
+
 
 ### Generating passwords using htpasswd
 
