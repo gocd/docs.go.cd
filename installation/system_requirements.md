@@ -29,7 +29,7 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 
 #### Dependencies
 
-* Java Runtime Environment (JRE) version 7
+* Java Runtime Environment (JRE) version 8
 
 #### Additional requirements for GoCD server
 
@@ -59,7 +59,7 @@ build agents.
 
 #### Dependencies
 
-* Java Runtime Environment (JRE) version 7
+* Java Runtime Environment (JRE) version 8
 
 #### Additional requirements for GoCD Agent
 
