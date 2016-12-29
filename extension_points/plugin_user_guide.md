@@ -8,7 +8,7 @@ Plugins allow users to extend the functionality of Go. Each plugin is assigned a
 
 -   **Bundled Plugins:** As the name suggests, bundled plugins are bundled/packaged along with Go server. These are developed and supported by Thoughtworks Go development team. Bundled plugins are located under `<server installation directory>/plugins/bundled` directory. After an upgrade, when Go server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.
 
--   **External Plugins:** All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a Go server upgrade. External plugins are loaded from `<server installation directory>/plugins/external` directory. [Listing of external plugins](http://www.go.cd/community/plugins.html)
+-   **External Plugins:** All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a Go server upgrade. External plugins are loaded from `<server installation directory>/plugins/external` directory. [Listing of external plugins](https://www.gocd.io/community/plugins.html)
 
 ## Installing and Uninstalling of plugins
 

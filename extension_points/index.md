@@ -28,5 +28,5 @@ See [this](configrepo_extension.md) for details about the configuration reposito
 
 # Note
 
-- You can find more extensions in the community [plugins listing page](http://www.go.cd/community/plugins.html).
+- You can find more extensions in the community [plugins listing page](https://www.gocd.io/community/plugins.html).
 - Please refer [Developer Documentation](https://developer.go.cd/current/writing_go_plugins/overview.html) if you are planning to write a plugin.
