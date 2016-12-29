@@ -1,6 +1,6 @@
 {
   "name": "gocd-docs",
-  "repository": "https://github.com/gocd/docs.go.cd",
+  "repository": "https://github.com/gocd/docs.gocd.io",
   "version": "1.0.0",
   "description": "Welcome to Go - an Open Sourced Continuous Integration and Release Management system. Please take a minute to understand [the basic concepts in Go](introduction/concepts_in_go.md) before you go any further.",
   "main": "index.js",

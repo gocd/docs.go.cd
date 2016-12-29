@@ -3,14 +3,14 @@
     "description": "Help documentation for Go.",
     "links": {
         "sidebar": {
-            "Home": "http://www.go.cd",
-            "Contribute": "https://github.com/gocd/docs.go.cd/"
+            "Home": "http://www.gocd.io",
+            "Contribute": "https://github.com/gocd/docs.gocd.io/"
         },
         "sharing": {
-            "google": "http://www.go.cd",
-            "facebook": "http://www.go.cd",
-            "twitter": "http://www.go.cd",
-            "all": "http://www.go.cd"
+            "google": "http://www.gocd.io",
+            "facebook": "http://www.gocd.io",
+            "twitter": "http://www.gocd.io",
+            "all": "http://www.gocd.io"
         }
     },
     "gitbook": "2.2.0",
@@ -30,7 +30,7 @@
             "addClass": true,
             "className": "toc"
         },
-        "rtEditLinkBase": "https://github.com/gocd/docs.go.cd/edit/master",
+        "rtEditLinkBase": "https://github.com/gocd/docs.gocd.io/edit/master",
         "rtEditLinkLabel": "Edit This Page"
     },
     "pdf": {
