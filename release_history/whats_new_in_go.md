@@ -2,7 +2,7 @@
 
 Go has changed it's release naming convention from the previous practice of major.minor.bugfix nomenclature. The major version will now be the year of release (YY). The minor version n will indicate the nth release for the year. For ex: 13.2 will be the second release in 2013.
 
-> **Since release 14.2, the release notes for Go are available on the [go.cd website](http://www.go.cd/releases/#latest).**
+> **Since release 14.2, the release notes for Go are available on the [go.cd website](http://www.gocd.io/releases/#latest).**
 
 ## Go 14.1
 
@@ -72,7 +72,7 @@ Go has changed it's release naming convention from the previous practice of majo
 ### Enhancements
 
 -   [Template View:](../configuration/pipeline_templates.md#view_template) All Pipeline Group Admins and Go Administrators can now view templates while creating or editing pipelines.
--   [User Delete API:](http://api.go.cd/#users) A new API using which you can delete a disabled user.
+-   [User Delete API:](http://api.gocd.io/#users) A new API using which you can delete a disabled user.
 -   Check-in comments in [Value Stream Map:](../navigation/value_stream_map.md) Showing more details, like the check-in comment, date and author for every Source Control Material in the Value Stream Map.
 -   [Improving Server Startup Time:](../installation/performance_tuning.md#improving-server-startup-time) The database queries that run when the server starts, have been optimized. Also, additional JVM properties have been provided to delay material polling and pipeline scheduling, thereby, improving start up time.
 
@@ -125,7 +125,7 @@ Check [this](https://youtu.be/fSQZ5hEQbgY) video, to see demo.
 
 -   **[Notification if material update is hung](../faq/material_update_hung.md)** : Go server becomes less responsive when some of the processes that it invokes to do material updates stop responding. Now you get to know when this happens and take suitable steps.
 -   Support for multiple organizational units (OUs) in [LDAP configuration](../configuration/dev_authentication.md#ldap_authentication). This allows finer-grained access control. If your organization has multiple OUs in your corporate LDAP, you can now to choose to specify those OUs, whose users are allowed to use Go.
--   [Additional agent APIs](http://api.go.cd/#agents): Go now provides an API to list details of all agents and another API to delete disabled agents.
+-   [Additional agent APIs](http://api.gocd.io/#agents): Go now provides an API to list details of all agents and another API to delete disabled agents.
 -   Ability to seach community forum from help documentation. You can now look up community articles from within the help documentation by clicking the Help icon on the center right of each help page.
 
 ### UI changes
@@ -154,7 +154,7 @@ Check [this](https://youtu.be/fSQZ5hEQbgY) video, to see demo.
 ### New features
 
 -   **Support for OpenJDK** : Oracle JDK (formerly Sun JDK) is no longer a mandatory requirement for Go server and agent. Go now needs a Java Runtime Environment (JRE) with version 6 or above - either Oracle or Open JRE.
--   **[Post-commit hook for Subversion](http://api.go.cd/#materials)** : In organizations with a large number of subversion repositories, regular polling can lead to huge network traffic. The generic post-commit hook avoids the need for regular polling. It enables appropriate Go pipelines to be triggered based on the commit to the corresponding SVN repository.
+-   **[Post-commit hook for Subversion](http://api.gocd.io/#materials)** : In organizations with a large number of subversion repositories, regular polling can lead to huge network traffic. The generic post-commit hook avoids the need for regular polling. It enables appropriate Go pipelines to be triggered based on the commit to the corresponding SVN repository.
 
 ### Performance Improvements
 
@@ -295,7 +295,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 -   **Personalize the Pipelines Dashboard:** This is now a user preference in Go.
 -   The online [documentation](http://www.thoughtworks.com/products/docs/go/current/help/) now has search so you can quickly get help.
--   Get the list of [scheduled jobs](http://api.go.cd/current/#pipelines) using API.
+-   Get the list of [scheduled jobs](http://api.gocd.io/current/#pipelines) using API.
 -   Configure site urls using the server configuration UI.
 -   Users will get a warning if the Go license is about to expire
 
@@ -386,7 +386,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 #### API
 
--   [Agent API - Enable and disable an agent](http://api.go.cd/#agents)
+-   [Agent API - Enable and disable an agent](http://api.gocd.io/#agents)
 -   [Scheduling a pipeline with specific material revisions](../api/Pipeline_API.md#scheduling)
 -   [Releasing a pipeline lock](../api/Pipeline_API.md#releasing)
 
@@ -417,7 +417,7 @@ Performance fixes encompassing - memory usage optimization and concurrency.
 
 ### Changes
 
--   Go uses pipeline counter instead of label in [artifacts](http://api.go.cd/current/#artifacts) and [properties](http://api.go.cd/current/#properties) Restful urls.
+-   Go uses pipeline counter instead of label in [artifacts](http://api.gocd.io/current/#artifacts) and [properties](http://api.gocd.io/current/#properties) Restful urls.
 -   Mercurial material no longer updates the working copy on the server when checking for modifications.
 -   Go now schedules pipelines concurrently.
 -   Go will use the first changed material as build cause.
@@ -599,7 +599,7 @@ Go supports fetching artifacts from previous stage or upstream pipeline in a job
 
 ### Changes
 
--   Refactored Go API and remove some calls. See the [Go API topic](http://api.go.cd/) for more details.
+-   Refactored Go API and remove some calls. See the [Go API topic](http://api.gocd.io/) for more details.
 -   Treate the dependency of pipelines as the materials of the pipelines. This means you can see which version of your upstream pipeline triggered the current pipeline anywhere on the UI you see modifications. Your configuration will be upgraded automatically.
 -   Limit the number of materials of pipelines. Go Free Edition supports only one material, and Enterprise Edition support unlimited materials. The other versions support three materials.
 -   Go agent no longer bundles Ant as of version 1.2.
