@@ -32,7 +32,7 @@ Installation done but need help setting up GoCD?
 
 ### See GoCD in use
 
-[Watch tutorials on some common GoCD concepts and tasks](https://www.go.cd/videos/)
+[Watch tutorials on some common GoCD concepts and tasks](https://www.gocd.io/videos/)
 
 ## Contributing to this documentation
 
