@@ -55,7 +55,7 @@
         
             
             <li>
-                <a href="http://www.go.cd" target="blank" class="custom-link">Home</a>
+                <a href="https://www.gocd.io" target="blank" class="custom-link">Home</a>
             </li>
         
             
@@ -2201,7 +2201,7 @@ config repository to be dependent on a pipeline defined in the main config XML o
 <p>A quick note about &quot;Infrastructure as code&quot;: Many people seem to associate only being able to check in configuration to
 a repository as a part of &quot;Infrastructure as code&quot;. However, the ability to configure the GoCD server through code has
 existed in various forms. For instance, <a href="https://github.com/SpringerSBM/gomatic" target="_blank">gomatic</a>, using
-<a href="https://api.go.cd/current/" target="_blank">GoCD APIs</a>, <a href="https://github.com/grundic/yagocd" target="_blank">yagocd</a>,
+<a href="https://api.gocd.io/current/" target="_blank">GoCD APIs</a>, <a href="https://github.com/grundic/yagocd" target="_blank">yagocd</a>,
 <a href="https://github.com/gaqzi/py-gocd" target="_blank">gocd-cli</a>, etc. This is another way of doing the same. In this case, it&apos;s possible to
 make it more declarative, depending on the plugin and possibly give more control to others.</p>
 <h2 id="currently-available-plugins-for-storing-pipelines-as-code"><a name="currently-available-plugins-for-storing-pipelines-as-code" class="plugin-anchor" href="#currently-available-plugins-for-storing-pipelines-as-code"><span class="fa fa-link"></span></a>Currently available plugins for storing pipelines as code</h2>
@@ -2210,7 +2210,7 @@ make it more declarative, depending on the plugin and possibly give more control
 <p>The setup needed to allow this is:</p>
 <ol>
 <li><p>Install the <a href="https://github.com/tomzo/gocd-json-config-plugin/releases" target="_blank">JSON config plugin</a> as mentioned in the
-<a href="https://docs.go.cd/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins" target="_blank">Plugin User Guide</a>.</p>
+<a href="https://docs.gocd.io/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins" target="_blank">Plugin User Guide</a>.</p>
 </li>
 <li><p>After starting the server, open the config XML (&quot;Admin -&gt; Config XML&quot;) and add a config repository for the server to poll. This tag should be added just after the &quot;<code>&lt;server&gt;</code>&quot; tag, at the top level, as a child of &quot;<code>&lt;cruise&gt;</code>&quot;:</p>
 <p>   <config-repos></config-repos></p>
@@ -2235,7 +2235,7 @@ red box).</p>
 <p>Tomasz <a href="https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion" target="_blank">announced</a> a Yaml plugin. The setup needed to allow this is:</p>
 <ol>
 <li><p>Install the <a href="https://github.com/tomzo/gocd-yaml-config-plugin/releases" target="_blank">YAML config plugin</a> as mentioned in the
-<a href="https://docs.go.cd/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins" target="_blank">Plugin User Guide</a>.</p>
+<a href="https://docs.gocd.io/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins" target="_blank">Plugin User Guide</a>.</p>
 </li>
 <li><p>After starting the server, open the config XML (&quot;Admin -&gt; Config XML&quot;) and add a config repository for the server to poll. This tag should be added just after the &quot;<code>&lt;server&gt;</code>&quot; tag, at the top level, as a child of &quot;<code>&lt;cruise&gt;</code>&quot;:</p>
 <p>   <config-repos></config-repos></p>
