@@ -18,7 +18,7 @@ Once you have the repository setup, execute
 sudo yum install -y go-server
 ```
 
-Alternatively, if you have the server RPM [downloaded](https://www.go.cd/download):
+Alternatively, if you have the server RPM [downloaded](https://www.gocd.io/download):
 
 ``` bash
 sudo yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
@@ -37,7 +37,7 @@ Once you have the repository setup, execute
 sudo apt-get install go-server
 ```
 
-Alternatively, if you have the server DEB [downloaded](https://www.go.cd/download):
+Alternatively, if you have the server DEB [downloaded](https://www.gocd.io/download):
 
 ```bash
 sudo dpkg -i go-server-${version}.deb
