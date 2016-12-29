@@ -8,7 +8,7 @@ You can use both password file and LDAP/ActiveDirectory authentication at the sa
 
 ## File Based Authentication
 
-_**Please note**_: The [SHA-1](https://en.wikipedia.org/wiki/SHA-1) algorithm is outdated. For increased security use LDAP or one of the 'Authentication Plugins' at https://www.go.cd/plugins.
+_**Please note**_: The [SHA-1](https://en.wikipedia.org/wiki/SHA-1) algorithm is outdated. For increased security use LDAP or one of the 'Authentication Plugins' at https://www.gocd.io/plugins.
 
 The simplest way to authenticate people is to create a password file for Go to use. This is just a plain text file with the following format:
 

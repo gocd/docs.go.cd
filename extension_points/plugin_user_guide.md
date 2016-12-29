@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Plugins allow users to extend the functionality of Go. Each plugin is assigned an identifier which is determined by the **id** attribute provided in plugin metadata file packaged along with the plugin jar. If the [metadata](https://developer.go.cd/current/writing_go_plugins/go_plugins_basics.html#plugin-metadata) file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, Go server would try to load all the plugins. On successful load, the plugin will be converted into an OSGi bundle and extracted into `<server installation directory>/plugins_work` directory. **Plugins** tab, under Go server Administration, would list all the loaded plugins.
+Plugins allow users to extend the functionality of Go. Each plugin is assigned an identifier which is determined by the **id** attribute provided in plugin metadata file packaged along with the plugin jar. If the [metadata](https://developer.gocd.io/current/writing_go_plugins/go_plugins_basics.html#plugin-metadata) file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, Go server would try to load all the plugins. On successful load, the plugin will be converted into an OSGi bundle and extracted into `<server installation directory>/plugins_work` directory. **Plugins** tab, under Go server Administration, would list all the loaded plugins.
 
 ## Bundled versus External
 

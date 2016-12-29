@@ -6,7 +6,7 @@
 
 You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.
 
-1.  Download a version of go-agent from the [downloads page](https://www.go.cd/download/).
+1.  Download a version of go-agent from the [downloads page](https://www.gocd.io/download/).
 2.  Double-click the `go-agent-${version}-setup.exe` installer file and follow the prompts to install Go.
 3.  During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.
 4.  You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.
