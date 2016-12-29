@@ -3,14 +3,14 @@
     "description": "Help documentation for Go.",
     "links": {
         "sidebar": {
-            "Home": "http://www.go.cd",
+            "Home": "https://www.gocd.io",
             "Contribute": "https://github.com/gocd/docs.go.cd/"
         },
         "sharing": {
-            "google": "http://www.go.cd",
-            "facebook": "http://www.go.cd",
-            "twitter": "http://www.go.cd",
-            "all": "http://www.go.cd"
+            "google": "https://www.gocd.io",
+            "facebook": "https://www.gocd.io",
+            "twitter": "https://www.gocd.io",
+            "all": "https://www.gocd.io"
         }
     },
     "gitbook": "2.2.0",
