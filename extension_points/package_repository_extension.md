@@ -14,7 +14,7 @@ These files (packages) are often maintained in corresponding package repositorie
 
 ### Supported Packages
 
-Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled [yum-repo-poller plugin](yum_repository_poller.md), it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other [external plugins](http://www.go.cd/community/plugins.html), it is possible to do the same for other types of packages.
+Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled [yum-repo-poller plugin](yum_repository_poller.md), it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other [external plugins](http://www.gocd.io/community/plugins.html), it is possible to do the same for other types of packages.
 
 ### Repositories, Packages and Materials
 

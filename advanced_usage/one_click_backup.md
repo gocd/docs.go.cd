@@ -1,6 +1,6 @@
 # Backup Go Server
 
-You can use Go's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](http://api.go.cd/#backups).
+You can use Go's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](http://api.gocd.io/#backups).
 
 ## Steps to initiate backup
 
