@@ -3,22 +3,22 @@ $ [32mgit clone git@localhost:gocd/docs.go.cd .[0m
 Cloning into '.'...
 Warning: Permanently added 'localhost' (RSA) to the list of known hosts.
 Command [32mgit clone git@localhost:gocd/docs.go.cd .[0m exited successfully with status 0.
-Took 5.05 seconds.
+Took 7.4 seconds.
 
 $ [32mgit checkout master[0m
 Already on 'master'
 Your branch is up-to-date with 'origin/master'.
 Command [32mgit checkout master[0m exited successfully with status 0.
-Took 0.06236 seconds.
+Took 0.06071 seconds.
 
 $ [32mgit reset --hard 5595e182783dd0b34ac17920d69c38461328c8cf[0m
 HEAD is now at 5595e18 Remove wrong link
 Command [32mgit reset --hard 5595e182783dd0b34ac17920d69c38461328c8cf[0m exited successfully with status 0.
-Took 0.09131 seconds.
+Took 0.09141 seconds.
 
 $ [32mgit submodule update --init --recursive[0m
 Command [32mgit submodule update --init --recursive[0m exited successfully with status 0.
-Took 0.04577 seconds.
+Took 0.04518 seconds.
 
 $ export SNAP_CI=true
 $ export CI=true
@@ -26,7 +26,7 @@ $ export SNAP_CACHE_DIR=/var/go
 $ export LANG=en_US.UTF-8
 $ export LC_ALL=en_US.UTF-8
 $ export SNAP_WORKING_DIR=/var/snap-ci/repo
-$ export SNAP_PIPELINE_COUNTER=67
+$ export SNAP_PIPELINE_COUNTER=68
 $ export SNAP_STAGE_NAME=Build
 $ export SNAP_BRANCH=master
 $ export SNAP_COMMIT=5595e182783dd0b34ac17920d69c38461328c8cf
@@ -36,16 +36,16 @@ $ export SNAP_INTEGRATION_PIPELINE=false
 
 $ [32mif [ -f $HOME/.npmrc ]; then sed -e '/^prefix=/d' -i ~/.npmrc; fi[0m
 Command [32mif [ -f $HOME/.npmrc ]; then sed -e '/^prefix=/d' -i ~/.npmrc; fi[0m exited successfully with status 0.
-Took 0.00148 seconds.
+Took 0.00171 seconds.
 
 $ [32mnvm install v4.4.3 2>/dev/null[0m
 Now using node v4.4.3 (npm v2.15.1)
 Command [32mnvm install v4.4.3 2>/dev/null[0m exited successfully with status 0.
-Took 3.67 seconds.
+Took 3.36 seconds.
 
 $ [32mif [ -d ${SNAP_CACHE_DIR}/node_modules ]; then sudo mv -f ${SNAP_CACHE_DIR}/node_modules .; sudo chown -R --no-dereference go:go node_modules; fi[0m
 Command [32mif [ -d ${SNAP_CACHE_DIR}/node_modules ]; then sudo mv -f ${SNAP_CACHE_DIR}/node_modules .; sudo chown -R --no-dereference go:go node_modules; fi[0m exited successfully with status 0.
-Took 0.04879 seconds.
+Took 0.04677 seconds.
 
 $ [32mrake build[0m
 npm prune
@@ -53,8 +53,8 @@ unbuild gitbook-plugin-edit-link@1.1.0
 unbuild gitbook-plugin-ga@0.2.1
 unbuild gitbook-plugin-include@0.1.0
 unbuild gitbook-plugin-redirect@0.0.7
-unbuild gitbook-plugin-toc@0.0.1
 unbuild gitbook-plugin-anchors@0.4.0
+unbuild gitbook-plugin-toc@0.0.1
 npm install
 npm run-script init-gitbook
 
@@ -66,7 +66,7 @@ npm run-script init-gitbook
 [0;36minfo:[0m install plugin anchors from npm (gitbook-plugin-anchors) with version 0.4.0 
 gitbook-plugin-anchors@0.4.0 node_modules/gitbook-plugin-anchors
 ├── underscore@1.8.3
-└── cheerio@0.22.0 (lodash.pick@4.4.0, lodash.foreach@4.5.0, lodash.flatten@4.4.0, lodash.assignin@4.2.0, lodash.defaults@4.2.0, lodash.bind@4.2.1, lodash.merge@4.6.0, lodash.reduce@4.6.0, lodash.some@4.6.0, lodash.map@4.6.0, lodash.reject@4.6.0, lodash.filter@4.6.0, dom-serializer@0.1.0, entities@1.1.1, css-select@1.2.0, htmlparser2@3.9.2)
+└── cheerio@0.22.0 (lodash.assignin@4.2.0, lodash.flatten@4.4.0, lodash.pick@4.4.0, lodash.foreach@4.5.0, lodash.defaults@4.2.0, lodash.bind@4.2.1, lodash.reduce@4.6.0, lodash.merge@4.6.0, lodash.reject@4.6.0, lodash.some@4.6.0, lodash.map@4.6.0, lodash.filter@4.6.0, dom-serializer@0.1.0, entities@1.1.1, css-select@1.2.0, htmlparser2@3.9.2)
 [0;36minfo:[0m [0;32m>> [0mplugin anchors installed with success 
 [0;36minfo:[0m No version specified, resolve plugin ga 
 [0;36minfo:[0m install plugin ga from npm (gitbook-plugin-ga) with version 0.2.1 
@@ -637,10 +637,10 @@ npm run-script minify
 
 [32mDone, without errors.[39m
 Command [32mrake build[0m exited successfully with status 0.
-Took 26.05 seconds.
+Took 27.29 seconds.
 
 $ [32mif [ -d node_modules ]; then sudo mv -f node_modules ${SNAP_CACHE_DIR}/; sudo chown -R --no-dereference go:go ${SNAP_CACHE_DIR}/node_modules; fi[0m
 Command [32mif [ -d node_modules ]; then sudo mv -f node_modules ${SNAP_CACHE_DIR}/; sudo chown -R --no-dereference go:go ${SNAP_CACHE_DIR}/node_modules; fi[0m exited successfully with status 0.
-Took 0.04578 seconds.
+Took 0.04777 seconds.
 
 Saving console log for later
