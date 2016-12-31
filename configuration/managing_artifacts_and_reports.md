@@ -86,4 +86,4 @@ Go will:
 
 ### RESTful API
 
-Go publishes all of its information as resources that can be queried through http in the form of RESTful API. See the [Go integration](../integration/go_integration.md) page for more information.
+Go publishes all of its information as resources that can be queried through http in the form of RESTful API. See the [Go integration](../integration/index.md) page for more information.

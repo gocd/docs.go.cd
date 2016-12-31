@@ -48,7 +48,7 @@ NameVirtualHost nnn.nnn.nnn.nnn:80
   ProxyPassReverse  /  http://localhost:8153/
   ProxyPreserveHost On
   RequestHeader set X-Forwarded-Proto "https"
-  
+
   <Location />
     Order allow,deny
     Allow from all

@@ -24,7 +24,7 @@ The Pipeline Compare screen lets you compare any two instances of a pipeline. Ev
 1.  **To/from search box:** You can search for the appropriate pipeline instance using any of the following - pipeline label, check-in comment, person who checked in, upstream pipeline label and revision.
 2.  **Upstream dependency changes:** All the changes to upstream pipelines within the search range.
 3.  **Changes to version control systems:** All check-ins that went into dependent VCS materials within the search range.
-4.  **Tracking tool integration:** If you've configured a [tracking tool integration](../integration/go_integration.md#integration-with-bug-tracking-and-story-management-tools) for this pipeline or any upstream pipelines, check-in comments containing story/defect/ticket numbers would be hyperlinked to the appropriate tracking tool.
+4.  **Tracking tool integration:** If you've configured a [tracking tool integration](../integration/index.md#integration-with-bug-tracking-and-story-management-tools) for this pipeline or any upstream pipelines, check-in comments containing story/defect/ticket numbers would be hyperlinked to the appropriate tracking tool.
 
 ## Using Pipeline History
 
@@ -37,7 +37,3 @@ Steps to select a particular instance from the history:
 1.  Click on the search box
 2.  Click on "Browse the timeline"
 3.  Browse the history and select a pipeline
-
-### See Also
-
--   [Mingle card activity gadget](../integration/mingle_card_activity_gadget.md)
