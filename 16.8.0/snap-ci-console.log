@@ -3,22 +3,22 @@ $ [32mgit clone git@localhost:gocd/docs.go.cd .[0m
 Cloning into '.'...
 Warning: Permanently added 'localhost' (RSA) to the list of known hosts.
 Command [32mgit clone git@localhost:gocd/docs.go.cd .[0m exited successfully with status 0.
-Took 4.61 seconds.
+Took 5.87 seconds.
 
-$ [32mgit checkout release-16.7.0[0m
-Switched to a new branch 'release-16.7.0'
-Branch release-16.7.0 set up to track remote branch release-16.7.0 from origin.
-Command [32mgit checkout release-16.7.0[0m exited successfully with status 0.
-Took 0.06603 seconds.
+$ [32mgit checkout release-16.8.0[0m
+Switched to a new branch 'release-16.8.0'
+Branch release-16.8.0 set up to track remote branch release-16.8.0 from origin.
+Command [32mgit checkout release-16.8.0[0m exited successfully with status 0.
+Took 0.08199 seconds.
 
-$ [32mgit reset --hard 4bc1a585929b416a6bc7da2d3a0be3f23600eff2[0m
-HEAD is now at 4bc1a58 Revert "Use aws cli to sync built files to s3."
-Command [32mgit reset --hard 4bc1a585929b416a6bc7da2d3a0be3f23600eff2[0m exited successfully with status 0.
-Took 0.11606 seconds.
+$ [32mgit reset --hard a08aa90cb64eee321a2773b2732cc75f35e1f5dc[0m
+HEAD is now at a08aa90 Revert "Use aws cli to sync built files to s3."
+Command [32mgit reset --hard a08aa90cb64eee321a2773b2732cc75f35e1f5dc[0m exited successfully with status 0.
+Took 0.09788 seconds.
 
 $ [32mgit submodule update --init --recursive[0m
 Command [32mgit submodule update --init --recursive[0m exited successfully with status 0.
-Took 0.04968 seconds.
+Took 0.04837 seconds.
 
 $ export SNAP_CI=true
 $ export CI=true
@@ -28,24 +28,24 @@ $ export LC_ALL=en_US.UTF-8
 $ export SNAP_WORKING_DIR=/var/snap-ci/repo
 $ export SNAP_PIPELINE_COUNTER=1
 $ export SNAP_STAGE_NAME=Build
-$ export SNAP_BRANCH=release-16.7.0
-$ export SNAP_COMMIT=4bc1a585929b416a6bc7da2d3a0be3f23600eff2
-$ export SNAP_COMMIT_SHORT=4bc1a58
+$ export SNAP_BRANCH=release-16.8.0
+$ export SNAP_COMMIT=a08aa90cb64eee321a2773b2732cc75f35e1f5dc
+$ export SNAP_COMMIT_SHORT=a08aa90
 $ export SNAP_TRACKING_PIPELINE=true
 $ export SNAP_INTEGRATION_PIPELINE=false
 
 $ [32mif [ -f $HOME/.npmrc ]; then sed -e '/^prefix=/d' -i ~/.npmrc; fi[0m
 Command [32mif [ -f $HOME/.npmrc ]; then sed -e '/^prefix=/d' -i ~/.npmrc; fi[0m exited successfully with status 0.
-Took 0.00187 seconds.
+Took 0.00191 seconds.
 
 $ [32mnvm install v4.4.3 2>/dev/null[0m
 Now using node v4.4.3 (npm v2.15.1)
 Command [32mnvm install v4.4.3 2>/dev/null[0m exited successfully with status 0.
-Took 3.16 seconds.
+Took 3.52 seconds.
 
 $ [32mif [ -d ${SNAP_CACHE_DIR}/node_modules ]; then sudo mv -f ${SNAP_CACHE_DIR}/node_modules .; sudo chown -R --no-dereference go:go node_modules; fi[0m
 Command [32mif [ -d ${SNAP_CACHE_DIR}/node_modules ]; then sudo mv -f ${SNAP_CACHE_DIR}/node_modules .; sudo chown -R --no-dereference go:go node_modules; fi[0m exited successfully with status 0.
-Took 0.00362 seconds.
+Took 0.00199 seconds.
 
 $ [32mrake build[0m
 npm prune
@@ -81,7 +81,7 @@ grunt@0.4.5 node_modules/grunt
 └── js-yaml@2.0.5 (esprima@1.0.4, argparse@0.1.16)
 
 grunt-contrib-cssmin@0.13.0 node_modules/grunt-contrib-cssmin
-├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, strip-ansi@3.0.1, has-ansi@2.0.0)
+├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, has-ansi@2.0.0, strip-ansi@3.0.1)
 ├── clean-css@3.3.10 (commander@2.8.1, source-map@0.4.4)
 └── maxmin@1.1.0 (figures@1.7.0, gzip-size@1.0.0, pretty-bytes@1.0.4)
 
@@ -103,7 +103,7 @@ npm run-script init-gitbook
 > gitbook install
 
 Installing GitBook 2.2.0
-gitbook@2.2.0 ../../../tmp/tmp-33507e1asDbRTvFa/node_modules/gitbook
+gitbook@2.2.0 ../../../tmp/tmp-3350ZjNr8SReoclF/node_modules/gitbook
 ├── bash-color@0.0.3
 ├── escape-string-regexp@1.0.3
 ├── nunjucks-filter@1.0.0
@@ -122,12 +122,12 @@ gitbook@2.2.0 ../../../tmp/tmp-33507e1asDbRTvFa/node_modules/gitbook
 ├── send@0.2.0 (fresh@0.2.4, range-parser@1.0.3, mime@1.2.11, debug@2.6.0)
 ├── i18n@0.5.0 (sprintf@0.1.5, mustache@2.3.0, debug@2.6.0)
 ├── fs-extra@0.16.5 (jsonfile@2.4.0, rimraf@2.5.4)
-├── request@2.51.0 (forever-agent@0.5.2, tunnel-agent@0.4.3, aws-sign2@0.5.0, caseless@0.8.0, oauth-sign@0.5.0, stringstream@0.0.5, json-stringify-safe@5.0.1, mime-types@1.0.2, qs@2.3.3, node-uuid@1.4.7, tough-cookie@2.3.2, combined-stream@0.0.7, http-signature@0.10.1, form-data@0.2.0, bl@0.9.5, hawk@1.1.1)
+├── request@2.51.0 (aws-sign2@0.5.0, tunnel-agent@0.4.3, forever-agent@0.5.2, caseless@0.8.0, oauth-sign@0.5.0, stringstream@0.0.5, json-stringify-safe@5.0.1, mime-types@1.0.2, qs@2.3.3, node-uuid@1.4.7, tough-cookie@2.3.2, combined-stream@0.0.7, http-signature@0.10.1, form-data@0.2.0, bl@0.9.5, hawk@1.1.1)
 ├── nunjucks@1.3.5-unreleased (asap@2.0.5, optimist@0.6.1)
 ├── tiny-lr@0.1.5 (parseurl@1.3.1, livereload-js@2.2.2, qs@2.2.5, debug@2.0.0, body-parser@1.8.4, faye-websocket@0.7.3)
-├── fstream-ignore@1.0.2 (inherits@2.0.3, minimatch@2.0.10, fstream@1.0.10)
 ├── lunr@0.5.7
-├── chokidar@1.0.6 (path-is-absolute@1.0.1, arrify@1.0.1, is-glob@1.1.3, async-each@0.1.6, is-binary-path@1.0.1, glob-parent@1.3.0, readdirp@1.4.0, anymatch@1.3.0)
+├── fstream-ignore@1.0.2 (inherits@2.0.3, minimatch@2.0.10, fstream@1.0.10)
+├── chokidar@1.0.6 (path-is-absolute@1.0.1, is-glob@1.1.3, arrify@1.0.1, async-each@0.1.6, is-binary-path@1.0.1, glob-parent@1.3.0, readdirp@1.4.0, anymatch@1.3.0)
 ├── cheerio@0.19.0 (entities@1.1.1, css-select@1.0.0, htmlparser2@3.8.3)
 ├── highlight.js@8.6.0
 ├── lodash@3.5.0
@@ -138,7 +138,7 @@ gitbook@2.2.0 ../../../tmp/tmp-33507e1asDbRTvFa/node_modules/gitbook
 [0;36minfo:[0m install plugin anchors from npm (gitbook-plugin-anchors) with version 0.4.0 
 gitbook-plugin-anchors@0.4.0 node_modules/gitbook-plugin-anchors
 ├── underscore@1.8.3
-└── cheerio@0.22.0 (lodash.assignin@4.2.0, lodash.pick@4.4.0, lodash.foreach@4.5.0, lodash.flatten@4.4.0, lodash.defaults@4.2.0, lodash.bind@4.2.1, lodash.map@4.6.0, lodash.filter@4.6.0, lodash.some@4.6.0, lodash.reject@4.6.0, lodash.merge@4.6.0, lodash.reduce@4.6.0, dom-serializer@0.1.0, entities@1.1.1, css-select@1.2.0, htmlparser2@3.9.2)
+└── cheerio@0.22.0 (lodash.assignin@4.2.0, lodash.flatten@4.4.0, lodash.foreach@4.5.0, lodash.pick@4.4.0, lodash.defaults@4.2.0, lodash.bind@4.2.1, lodash.filter@4.6.0, lodash.reduce@4.6.0, lodash.map@4.6.0, lodash.some@4.6.0, lodash.reject@4.6.0, lodash.merge@4.6.0, dom-serializer@0.1.0, entities@1.1.1, css-select@1.2.0, htmlparser2@3.9.2)
 [0;36minfo:[0m [0;32m>> [0mplugin anchors installed with success 
 [0;36minfo:[0m No version specified, resolve plugin ga 
 [0;36minfo:[0m install plugin ga from npm (gitbook-plugin-ga) with version 0.2.1 
@@ -705,10 +705,10 @@ npm run-script minify
 
 [32mDone, without errors.[39m
 Command [32mrake build[0m exited successfully with status 0.
-Took 1 minute 3.22 seconds.
+Took 1 minute 6.69 seconds.
 
 $ [32mif [ -d node_modules ]; then sudo mv -f node_modules ${SNAP_CACHE_DIR}/; sudo chown -R --no-dereference go:go ${SNAP_CACHE_DIR}/node_modules; fi[0m
 Command [32mif [ -d node_modules ]; then sudo mv -f node_modules ${SNAP_CACHE_DIR}/; sudo chown -R --no-dereference go:go ${SNAP_CACHE_DIR}/node_modules; fi[0m exited successfully with status 0.
-Took 0.0488 seconds.
+Took 0.06628 seconds.
 
 Saving console log for later
