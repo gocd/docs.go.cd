@@ -3,22 +3,22 @@ $ [32mgit clone git@localhost:gocd/docs.go.cd .[0m
 Cloning into '.'...
 Warning: Permanently added 'localhost' (RSA) to the list of known hosts.
 Command [32mgit clone git@localhost:gocd/docs.go.cd .[0m exited successfully with status 0.
-Took 7.04 seconds.
+Took 7.08 seconds.
 
 $ [32mgit checkout master[0m
 Already on 'master'
 Your branch is up-to-date with 'origin/master'.
 Command [32mgit checkout master[0m exited successfully with status 0.
-Took 0.06031 seconds.
+Took 0.04322 seconds.
 
-$ [32mgit reset --hard 2e50352a6276594b90f2954a443a96b5911cc97b[0m
-HEAD is now at 2e50352 Merge pull request #7 from gocd/remove-gadget-docs
-Command [32mgit reset --hard 2e50352a6276594b90f2954a443a96b5911cc97b[0m exited successfully with status 0.
-Took 0.09225 seconds.
+$ [32mgit reset --hard 19d8471f04de01998d9ab2143ada6b8bf94079e0[0m
+HEAD is now at 19d8471 Merge pull request #63 from ketan/robots-txt
+Command [32mgit reset --hard 19d8471f04de01998d9ab2143ada6b8bf94079e0[0m exited successfully with status 0.
+Took 0.05585 seconds.
 
 $ [32mgit submodule update --init --recursive[0m
 Command [32mgit submodule update --init --recursive[0m exited successfully with status 0.
-Took 0.04883 seconds.
+Took 0.04702 seconds.
 
 $ export SNAP_CI=true
 $ export CI=true
@@ -26,26 +26,26 @@ $ export SNAP_CACHE_DIR=/var/go
 $ export LANG=en_US.UTF-8
 $ export LC_ALL=en_US.UTF-8
 $ export SNAP_WORKING_DIR=/var/snap-ci/repo
-$ export SNAP_PIPELINE_COUNTER=70
+$ export SNAP_PIPELINE_COUNTER=71
 $ export SNAP_STAGE_NAME=Build
 $ export SNAP_BRANCH=master
-$ export SNAP_COMMIT=2e50352a6276594b90f2954a443a96b5911cc97b
-$ export SNAP_COMMIT_SHORT=2e50352
+$ export SNAP_COMMIT=19d8471f04de01998d9ab2143ada6b8bf94079e0
+$ export SNAP_COMMIT_SHORT=19d8471
 $ export SNAP_TRACKING_PIPELINE=true
 $ export SNAP_INTEGRATION_PIPELINE=false
 
 $ [32mif [ -f $HOME/.npmrc ]; then sed -e '/^prefix=/d' -i ~/.npmrc; fi[0m
 Command [32mif [ -f $HOME/.npmrc ]; then sed -e '/^prefix=/d' -i ~/.npmrc; fi[0m exited successfully with status 0.
-Took 0.00215 seconds.
+Took 0.00179 seconds.
 
 $ [32mnvm install v4.4.3 2>/dev/null[0m
 Now using node v4.4.3 (npm v2.15.1)
 Command [32mnvm install v4.4.3 2>/dev/null[0m exited successfully with status 0.
-Took 4.07 seconds.
+Took 3.38 seconds.
 
 $ [32mif [ -d ${SNAP_CACHE_DIR}/node_modules ]; then sudo mv -f ${SNAP_CACHE_DIR}/node_modules .; sudo chown -R --no-dereference go:go node_modules; fi[0m
 Command [32mif [ -d ${SNAP_CACHE_DIR}/node_modules ]; then sudo mv -f ${SNAP_CACHE_DIR}/node_modules .; sudo chown -R --no-dereference go:go node_modules; fi[0m exited successfully with status 0.
-Took 0.00189 seconds.
+Took 0.00181 seconds.
 
 $ [32mrake build[0m
 npm prune
@@ -81,7 +81,7 @@ grunt@0.4.5 node_modules/grunt
 └── js-yaml@2.0.5 (esprima@1.0.4, argparse@0.1.16)
 
 grunt-contrib-cssmin@0.13.0 node_modules/grunt-contrib-cssmin
-├── chalk@1.1.3 (escape-string-regexp@1.0.5, ansi-styles@2.2.1, supports-color@2.0.0, strip-ansi@3.0.1, has-ansi@2.0.0)
+├── chalk@1.1.3 (escape-string-regexp@1.0.5, supports-color@2.0.0, ansi-styles@2.2.1, has-ansi@2.0.0, strip-ansi@3.0.1)
 ├── clean-css@3.3.10 (commander@2.8.1, source-map@0.4.4)
 └── maxmin@1.1.0 (figures@1.7.0, gzip-size@1.0.0, pretty-bytes@1.0.4)
 
@@ -107,7 +107,7 @@ npm run-script init-gitbook
 [0;36minfo:[0m install plugin anchors from npm (gitbook-plugin-anchors) with version 0.4.0 
 gitbook-plugin-anchors@0.4.0 node_modules/gitbook-plugin-anchors
 ├── underscore@1.8.3
-└── cheerio@0.22.0 (lodash.foreach@4.5.0, lodash.flatten@4.4.0, lodash.assignin@4.2.0, lodash.pick@4.4.0, lodash.defaults@4.2.0, lodash.bind@4.2.1, lodash.map@4.6.0, lodash.merge@4.6.0, lodash.reject@4.6.0, lodash.reduce@4.6.0, lodash.filter@4.6.0, lodash.some@4.6.0, dom-serializer@0.1.0, entities@1.1.1, css-select@1.2.0, htmlparser2@3.9.2)
+└── cheerio@0.22.0 (lodash.foreach@4.5.0, lodash.flatten@4.4.0, lodash.pick@4.4.0, lodash.assignin@4.2.0, lodash.defaults@4.2.0, lodash.bind@4.2.1, lodash.some@4.6.0, lodash.reject@4.6.0, lodash.reduce@4.6.0, lodash.map@4.6.0, lodash.filter@4.6.0, lodash.merge@4.6.0, dom-serializer@0.1.0, entities@1.1.1, css-select@1.2.0, htmlparser2@3.9.2)
 [0;36minfo:[0m [0;32m>> [0mplugin anchors installed with success 
 [0;36minfo:[0m No version specified, resolve plugin ga 
 [0;36minfo:[0m install plugin ga from npm (gitbook-plugin-ga) with version 0.2.1 
@@ -654,10 +654,10 @@ npm run-script minify
 
 [32mDone, without errors.[39m
 Command [32mrake build[0m exited successfully with status 0.
-Took 33.15 seconds.
+Took 34.16 seconds.
 
 $ [32mif [ -d node_modules ]; then sudo mv -f node_modules ${SNAP_CACHE_DIR}/; sudo chown -R --no-dereference go:go ${SNAP_CACHE_DIR}/node_modules; fi[0m
 Command [32mif [ -d node_modules ]; then sudo mv -f node_modules ${SNAP_CACHE_DIR}/; sudo chown -R --no-dereference go:go ${SNAP_CACHE_DIR}/node_modules; fi[0m exited successfully with status 0.
-Took 0.04789 seconds.
+Took 0.05057 seconds.
 
 Saving console log for later
