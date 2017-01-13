@@ -2,7 +2,7 @@
 
 As a Go administrator, you can auto approve remote agents by using a shared key between the Go Agent and Go Server.
 
--   Add an attribute named "agentAutoRegisterKey", for e.g., agentAutoRegisterKey="388b633a88de126531afa41eff9aa69e", in the server configuration fragment.
+-   Add an attribute named "agentAutoRegisterKey", for e.g., agentAutoRegisterKey="388b633a88de126531afa41eff9aa69e", in the server configuration fragment, in case it is not present.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -16,12 +16,14 @@ As a Go administrator, you can auto approve remote agents by using a shared key 
 
     This file supports the following properties
 
-|*Key*                          |*Required*|*Description*                |
-|-------------------------------|:--------:|-----------------------------|
-|`agent.auto.register.key`       |yes      |The value of the `<server/>` element's `agentAutoRegisterKey` attribute from `cruise-config.xml` |
-|`agent.auto.register.environments` |no       |A comma separated list of [environments](../navigation/environments_page.md) that this agent should be associated with. |
-|`agent.auto.register.resources` |no       |A comma separated list of resources that this agent should be tagged with.|
-|`agent.auto.register.hostname` |no       |The name of the agent when it is registered with the server. (**Version 15.2.0 onwards**)|
+| *Key*                                       | *Required* | *Description*                                                                                                                                                                                                                         |
+|---------------------------------------------|:----------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `agent.auto.register.key`                   |    yes     | The value of the `<server/>` element's `agentAutoRegisterKey` attribute from `cruise-config.xml`                                                                                                                                      |
+| `agent.auto.register.environments`          |     no     | A comma separated list of [environments](../navigation/environments_page.md) that this agent should be associated with.                                                                                                               |
+| `agent.auto.register.resources`             |     no     | This MUST not be set by agents that register as elastic-agents. A comma separated list of resources that this agent should be tagged with.                                                                                            |
+| `agent.auto.register.hostname`              |     no     | The name of the agent when it is registered with the server. (**Version 15.2.0 onwards**)                                                                                                                                             |
+| `agent.auto.register.elasticAgent.agentId`  |     no     | This MUST be set by agents that register as elastic-agents. This may contain an identifier of the agent, that the plugin can identify. Can be something like a docker container ID, or AWS instance ID. (**Version 16.12.0 onwards**) |
+| `agent.auto.register.elasticAgent.pluginId` |     no     | This MUST be set by agents that to register as elastic-agents. This should contain the plugin id of elastic-agent plugin that spins up the agent. (**Version 16.12.0 onwards**)                                                       |
 
 Example
 
@@ -30,6 +32,10 @@ agent.auto.register.key=388b633a88de126531afa41eff9aa69e
 agent.auto.register.resources=ant,java
 agent.auto.register.environments=QA,Performance
 agent.auto.register.hostname=Agent01
+
+# if you're using elastic agents, these would be needed as well
+agent.auto.register.elasticAgent.agentId=i-123456
+agent.auto.register.elasticAgent.pluginId=com.example.aws
 ```
 
 -   Now, bringing up the remote agent should automatically register with the Go Server without the administrator having to 'Enable' the newly added agent and configure its resources and assign it to environments.
