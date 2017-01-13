@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.2" data-basepath=".." data-revision="Fri Dec 30 2016 07:17:37 GMT+0000 (UTC)">
+    <div class="book" data-level="5.2" data-basepath=".." data-revision="Fri Jan 13 2017 11:54:20 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2188,7 +2188,7 @@
                         <h1 id="auto-registration-of-remote-agents"><a name="auto-registration-of-remote-agents" class="plugin-anchor" href="#auto-registration-of-remote-agents"><span class="fa fa-link"></span></a>Auto registration of remote agents</h1>
 <p>As a Go administrator, you can auto approve remote agents by using a shared key between the Go Agent and Go Server.</p>
 <ul>
-<li>Add an attribute named &quot;agentAutoRegisterKey&quot;, for e.g., agentAutoRegisterKey=&quot;388b633a88de126531afa41eff9aa69e&quot;, in the server configuration fragment.</li>
+<li>Add an attribute named &quot;agentAutoRegisterKey&quot;, for e.g., agentAutoRegisterKey=&quot;388b633a88de126531afa41eff9aa69e&quot;, in the server configuration fragment, in case it is not present.</li>
 </ul>
 <pre><code class="lang-xml"><span class="hljs-pi">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-title">cruise</span> <span class="hljs-attribute">xmlns:xsi</span>=<span class="hljs-value">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> <span class="hljs-attribute">xsi:noNamespaceSchemaLocation</span>=<span class="hljs-value">&quot;cruise-config.xsd&quot;</span> <span class="hljs-attribute">schemaVersion</span>=<span class="hljs-value">&quot;75&quot;</span>&gt;</span>
@@ -2223,12 +2223,22 @@
 <tr>
 <td><code>agent.auto.register.resources</code></td>
 <td style="text-align:center">no</td>
-<td>A comma separated list of resources that this agent should be tagged with.</td>
+<td>This MUST not be set by agents that register as elastic-agents. A comma separated list of resources that this agent should be tagged with.</td>
 </tr>
 <tr>
 <td><code>agent.auto.register.hostname</code></td>
 <td style="text-align:center">no</td>
 <td>The name of the agent when it is registered with the server. (<strong>Version 15.2.0 onwards</strong>)</td>
+</tr>
+<tr>
+<td><code>agent.auto.register.elasticAgent.agentId</code></td>
+<td style="text-align:center">no</td>
+<td>This MUST be set by agents that register as elastic-agents. This may contain an identifier of the agent, that the plugin can identify. Can be something like a docker container ID, or AWS instance ID. (<strong>Version 16.12.0 onwards</strong>)</td>
+</tr>
+<tr>
+<td><code>agent.auto.register.elasticAgent.pluginId</code></td>
+<td style="text-align:center">no</td>
+<td>This MUST be set by agents that to register as elastic-agents. This should contain the plugin id of elastic-agent plugin that spins up the agent. (<strong>Version 16.12.0 onwards</strong>)</td>
 </tr>
 </tbody>
 </table>
@@ -2237,6 +2247,10 @@
 agent.auto.register.resources=ant,java
 agent.auto.register.environments=QA,Performance
 agent.auto.register.hostname=Agent01
+
+# if you&apos;re using elastic agents, these would be needed as well
+agent.auto.register.elasticAgent.agentId=i-123456
+agent.auto.register.elasticAgent.pluginId=com.example.aws
 </code></pre><ul>
 <li>Now, bringing up the remote agent should automatically register with the Go Server without the administrator having to &apos;Enable&apos; the newly added agent and configure its resources and assign it to environments.</li>
 </ul>
