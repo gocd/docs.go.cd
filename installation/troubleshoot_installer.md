@@ -6,7 +6,8 @@ This page is mainly for newer users of GoCD, to help with troubleshooting issues
 - [Command not found (git, svn, mvn, ant or others)](#path_issues)
 - [Agent is not being assigned or "Nothing gets built"](#agent_assignment)
 - [Mac OS X - Message related to Java 1.7](#mac_java)
-- [Incompatible java version while upgrading to 17.x version](#upgrade-issues)
+- [Unrecognized VM option "MaxMetaSpaceSize"](#upgrade-issues)
+- [Unsupported major.minor version 52.0](#upgrade-issues)
 
 <a name="agent_registration"></a>
 ### GoCD Agent not registering with the GoCD Server
@@ -274,21 +275,21 @@ Unrecognized VM option "MaxMetaSpaceSize=256m"
 or
 
 ```
-UnSupported major.minor version 52.0
+Unsupported major.minor version 52.0
 ```
 
 On Windows:
 
 This error will be logged, in `<GO_INSTALLATION_DIR>/go-server-wrapper.log` on server and
-`<GO_INSTALLATION_DIR>/go-agent-bootstrapper-wrapper.log` on agent, if startup failed due to incompatible version of java.
+`<GO_INSTALLATION_DIR>/go-agent-bootstrapper-wrapper.log` on agent, if startup failed due to incompatible version of Java.
 
 Resolution: Update the environment variable `GO_SERVER_JAVA_HOME`, `GO_AGENT_JAVA_HOME`
-to the java 8 path and restart the Go server/agent.
+to the Java 8 path and restart the Go server/agent.
 
 On Linux:
 
 This error will be logged, in `<GO_LOG_DIR>/go-server.out.log` on server and
-`<GO_LOG_DIR>/go-agent-bootstrapper.log` on agent, if startup failed due to incompatible version of java.
+`<GO_LOG_DIR>/go-agent-bootstrapper.log` on agent, if startup failed due to incompatible version of Java.
 
 Resolution: Update the environment variable JAVA_HOME set in `/etc/default/go-server`, `/etc/default/go-agent`
-to java 8 path, and restart the Go server/agent.
+to Java 8 path, and restart the Go server/agent.
