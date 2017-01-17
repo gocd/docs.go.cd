@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="11.1" data-basepath=".." data-revision="Fri Jan 13 2017 11:48:27 GMT+0000 (UTC)">
+    <div class="book" data-level="11.1" data-basepath=".." data-revision="Tue Jan 17 2017 10:31:11 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2096,6 +2096,8 @@
 <li><a href="#path_issues">Command not found (git, svn, mvn, ant or others)</a></li>
 <li><a href="#agent_assignment">Agent is not being assigned or &quot;Nothing gets built&quot;</a></li>
 <li><a href="#mac_java">Mac OS X - Message related to Java 1.7</a></li>
+<li><a href="#upgrade-issues">Unrecognized VM option &quot;MaxMetaSpaceSize&quot;</a></li>
+<li><a href="#upgrade-issues">Unsupported major.minor version 52.0</a></li>
 </ul>
 <p><a name="agent_registration"></a></p>
 <h3 id="gocd-agent-not-registering-with-the-gocd-server"><a name="gocd-agent-not-registering-with-the-gocd-server" class="plugin-anchor" href="#gocd-agent-not-registering-with-the-gocd-server"><span class="fa fa-link"></span></a>GoCD Agent not registering with the GoCD Server</h3>
@@ -2314,6 +2316,27 @@ Java 1.7+ executable.</p>
 <style type="text/css">
   figure.small_image img { width: 50%; margin-left: 25%; }
 </style>
+
+<p><a name="upgrade-issues"></a></p>
+<h3 id="incompatible-java-version-while-upgrading-to-17-x-version"><a name="incompatible-java-version-while-upgrading-to-17-x-version" class="plugin-anchor" href="#incompatible-java-version-while-upgrading-to-17-x-version"><span class="fa fa-link"></span></a>Incompatible java version while upgrading to 17.x version</h3>
+<p>Java 7 support is removed as part of 17.1 release.
+This implies an existing installation of Go will stop working after an upgrade
+if it is configured to run with Java 7.</p>
+<p>In such cases, one of the following error messages would be seen in the logs:</p>
+<pre><code>Unrecognized VM option &quot;MaxMetaSpaceSize=256m&quot;
+</code></pre><p>or</p>
+<pre><code>Unsupported major.minor version 52.0
+</code></pre><p>On Windows:</p>
+<p>This error will be logged, in <code>&lt;GO_INSTALLATION_DIR&gt;/go-server-wrapper.log</code> on server and
+<code>&lt;GO_INSTALLATION_DIR&gt;/go-agent-bootstrapper-wrapper.log</code> on agent, if startup failed due to incompatible version of Java.</p>
+<p>Resolution: Update the environment variable <code>GO_SERVER_JAVA_HOME</code>, <code>GO_AGENT_JAVA_HOME</code>
+to the Java 8 path and restart the Go server/agent.</p>
+<p>On Linux:</p>
+<p>This error will be logged, in <code>&lt;GO_LOG_DIR&gt;/go-server.out.log</code> on server and
+<code>&lt;GO_LOG_DIR&gt;/go-agent-bootstrapper.log</code> on agent, if startup failed due to incompatible version of Java.</p>
+<p>Resolution: Update the environment variable JAVA_HOME set in <code>/etc/default/go-server</code>, <code>/etc/default/go-agent</code>
+to Java 8 path, and restart the Go server/agent.</p>
+
                     
                     </section>
                 
