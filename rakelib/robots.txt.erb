@@ -6,6 +6,7 @@ Allow: /current
 Allow: /current/
 
 # Disallow versioned directories
+Disallow: /<%= current_version %>
 <%- Dir['*'].reject {|f| !File.directory?(f)}.collect {|f| Gem::Version.new(f) rescue nil}.compact.sort.reverse.collect(&:to_s).each do |f| -%>
 Disallow: /<%= f %>
 <% end -%>
