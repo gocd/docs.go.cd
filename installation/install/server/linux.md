@@ -21,7 +21,7 @@ sudo yum install -y go-server
 Alternatively, if you have the server RPM [downloaded](https://www.gocd.io/download):
 
 ``` bash
-sudo yum install -y java-1.7.0-openjdk #optional, you may use other jre/jdk if you prefer
+sudo yum install -y java-1.8.0-openjdk #atleast Java 8 is required, you may use other jre/jdk if you prefer
 sudo rpm -i go-server-${version}.noarch.rpm
 ```
 
