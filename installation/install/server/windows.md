@@ -23,7 +23,7 @@ go-server-${version}-setup.exe /S /GO_SERVER_JAVA_HOME=<PATH_TO_JAVA_HOME> /D=<P
 
 |Argument                       |Required|Description                                                                                                                         |
 |-------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
-|`GO_SERVER_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the server should run with. Defaults to the jre packaged with the server. Needs to be at-least Java 7.|
+|`GO_SERVER_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the server should run with. Defaults to the jre packaged with the server. Needs to be at-least Java 8.|
 |`PATH_TO_SERVER_DIRECTORY`  | No     | The path where the server should be installed. Defaults to `C:\Program Files(x86)\Go Server`.                                    |
 
 For example:

@@ -24,7 +24,7 @@ go-agent-${version}-setup.exe /S /SERVERURL="<SERVERURL>" /GO_AGENT_JAVA_HOME=<P
 |Argument                       |Required|Description                                                                                                                         |
 |-------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
 |`SERVERURL`                | No     | The URL of the GoCD server. Defaults to `https://127.0.0.1:8154/go`. The value must be surrounded by `"` quotes.                       |
-|`GO_AGENT_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the agent should run with. Defaults to the jre packaged with the agent. Needs to be at-least Java 7.|
+|`GO_AGENT_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the agent should run with. Defaults to the jre packaged with the agent. Needs to be at-least Java 8 (same version as the GoCD server).|
 |`PATH_TO_AGENT_DIRECTORY`  | No     | The path where the agent should be installed. Defaults to `C:\Program Files(x86)\Go Agent`.                                    |
 
 For example:

@@ -2,7 +2,7 @@
 
 <!-- toc -->
 
-Installation of the GoCD agent using the package manager will require root access on the machine. You are also required to have a java version 7 for the agent to run.
+Installation of the GoCD agent using the package manager will require root access on the machine. You are also required to have a java version 8 (same version as the GoCD server) for the agent to run.
 
 The installer will create a user called ```go``` if one does not exist on the machine. The home directory will be set to ```/var/go```. If you want to create your own ```go``` user, make sure you do it before you install the GoCD agent.
 
