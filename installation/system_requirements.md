@@ -59,7 +59,7 @@ build agents.
 
 #### Dependencies
 
-* Java Runtime Environment (JRE) version 8
+* The agent needs to be on the same Java version as the GoCD server. In this case, `Java Runtime Environment (JRE) version 8` 
 
 #### Additional requirements for GoCD Agent
 
