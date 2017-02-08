@@ -322,7 +322,7 @@ This issue shows up an error when starting GoCD Server:
     Port 8153 could not be opened. Please Check if it is available
     Port 8154 could not be opened. Please Check if it is available
 
-In order to change default ports, edit `go-server.default` file, which is located in GoCD Server root directory:
+This could be happening if port 8153 or 8154 are already used. In order to change default ports, edit `/etc/default/go-server` if you installed GoCD Server, or `go-server.default` located in root directory if you run it via zip:
 
 ```
 GO_SERVER_PORT=8153
