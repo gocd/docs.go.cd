@@ -1,2 +1,2 @@
 # this file is updated automatically using a rake task, any changes will be lost
-GOCD_VERSION = '17.2.0'
+GOCD_VERSION = '17.3.0'
