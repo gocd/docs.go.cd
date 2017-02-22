@@ -17,5 +17,8 @@
     "grunt-cli": "^0.1.13",
     "grunt": "^0.4.5",
     "grunt-contrib-cssmin": "^0.13.0"
+  },
+  "devDependencies": {
+    "grunt-aws-s3": "^0.14.5",
   }
 }
