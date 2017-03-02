@@ -1,3 +1,13 @@
 TODO.md
 generateGitbook.md
-
+CODE_OF_CONDUCT.md
+CONTRIBUTING.md
+README.md
+rakelib/
+vendor/
+.bundle/
+Gemfile
+Gemfile.lock
+Gruntfile.js
+Rakefile
+snap-ci-console.log
