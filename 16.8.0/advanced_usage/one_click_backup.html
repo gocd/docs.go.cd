@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.12" data-basepath=".." data-revision="Thu Jan 05 2017 06:41:17 GMT+0000 (UTC)">
+    <div class="book" data-level="5.12" data-basepath=".." data-revision="Fri Mar 03 2017 05:35:13 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2229,7 +2229,7 @@
 <em>For example:</em> Before restoring the Database, make sure the <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> is backed up and the directory is emptied.</p>
 </li>
 <li>Database &#x2013; Unzip the <strong>db.zip</strong> found in the backup directory. Unzip will create a file called <strong>cruise.h2.db</strong> . Copy this file to the directory <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> .</li>
-<li>Configuration - Unzip the <strong>config-dir.zip</strong> into a temp directory. Copy all the files from this directory to <strong>{SERVER_INSTALLATION_DIR}/config</strong> directory on Windows and Mac or <strong>/etc/go</strong> on Linux.</li>
+<li>Configuration - Unzip the <strong>config-dir.zip</strong> into a temp directory. Copy all the files from this directory to <strong>{SERVER_INSTALLATION_DIR}/config</strong> directory on Windows and Mac or <strong>/etc/go</strong> on Linux and Solaris.</li>
 <li>Configuration History - Unzip the <strong>config-repo.zip</strong> into temp directory. Recursively copy all the contents from this directory to <strong>{SERVER_INSTALLATION_DIR}/db/config.git</strong> .</li>
 <li>Make sure the ownership of all the files that are restored are the same as the user running the Go server.<br>
 <em>For example:</em> Make sure you run a &quot;chown -R go:go {SERVER_INSTALLATION_DIR}/db/h2db&quot; after Database restoration.</li>
