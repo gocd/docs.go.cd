@@ -8,20 +8,20 @@ task :bump_version do
     value
   end
 
-  current_version = env('CURRENT_VERSION')
-  version_to_release = env('VERSION_TO_RELEASE')
-  next_version = env('NEXT_VERSION')
-
-  if [Gem::Version.new(current_version), Gem::Version.new(version_to_release), Gem::Version.new(next_version)].sort.collect(&:to_s) != [current_version, version_to_release, next_version]
-    fail "CURRENT_VERSION VERSION_TO_RELEASE and NEXT_VERSION don't seem right"
-  end
-
   remote_name = env('REMOTE_NAME')
   repo_url = `git config --get remote.#{remote_name}.url`.strip
 
   $stderr.puts "*** Setting up gh-pages branch for next release"
   rm_rf "build"
   sh("git clone #{repo_url} build --branch gh-pages --depth 1 --quiet")
+
+  current_version = File.readlink('build/current')
+  version_to_release = env('VERSION_TO_RELEASE')
+  next_version = env('NEXT_VERSION')
+
+  if [Gem::Version.new(current_version), Gem::Version.new(version_to_release), Gem::Version.new(next_version)].sort.collect(&:to_s) != [current_version, version_to_release, next_version]
+    fail "CURRENT_VERSION VERSION_TO_RELEASE and NEXT_VERSION don't seem right"
+  end
 
   cd "build" do
     rm_rf 'current'
