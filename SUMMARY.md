@@ -35,7 +35,7 @@ This is the summary of user documentation.
       * [Change SSL Certificates](installation/ssl_tls/custom_server_certificate.md)
       * [End to end transport security](installation/ssl_tls/end_to_end_transport_security.md)
     * [Performance Tuning](installation/performance_tuning.md)
-    * [Hardware Specifications](installation/hardware_specifictions.md)
+    * [Hardware Specifications](installation/hardware_specifications.md)
     * [Troubleshooting](installation/troubleshooting.md)
 * [Configuration](configuration/index.md)
     * [Setup a New Pipeline](configuration/quick_pipeline_setup.md)
