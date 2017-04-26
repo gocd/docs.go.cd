@@ -37,9 +37,12 @@ task :bump_version do
       html = erb.result(binding)
       f.puts(html)
     end
-    sh("git add current index.html robots.txt")
-    sh("git commit -m 'Point current to new version'")
-    sh("git push")
+    response = %x[git status]
+    unless response.include?('nothing to commit')
+      sh("git add current versions.json index.html robots.txt")
+      sh("git commit -m 'Add new version to dropdown'")
+      sh("git push")
+    end
   end
 
   $stderr.puts("*** Creating branch for - #{version_to_release}")
