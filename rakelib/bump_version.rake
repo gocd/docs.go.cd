@@ -39,8 +39,8 @@ task :bump_version do
     end
     response = %x[git status]
     unless response.include?('nothing to commit')
-      sh("git add current versions.json index.html robots.txt")
-      sh("git commit -m 'Add new version to dropdown'")
+      sh("git add current index.html robots.txt")
+      sh("git commit -m 'Point current to new version'")
       sh("git push")
     end
   end
