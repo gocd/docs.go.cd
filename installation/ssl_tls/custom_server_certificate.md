@@ -24,7 +24,7 @@ Assuming that you have the certificate key (`example.com.key`) and X509 certific
   **Note:** The destination keystore password must be set to `serverKeystorepa55w0rd`
 
   ```bash
-  $ keytool -importkeystore -srckeystore example.com.crt.pkcs12 -srcstoretype PKCS12 -destkeystore keystore -srcalias 1 -destalias cruise
+  $ keytool -importkeystore -srckeystore example.com.crt.pkcs12 -srcstoretype PKCS12 -destkeystore keystore -srcalias 1 -destalias cruise -deststorepass 'serverKeystorepa55w0rd' -destkeypass 'serverKeystorepa55w0rd'
   ```
 
 4. Replace GoCD server's keystore with the one from above
