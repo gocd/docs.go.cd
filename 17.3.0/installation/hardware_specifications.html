@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Package Repository Extension | Go User Documentation</title>
+        <title>Hardware Specifications | Go User Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -31,10 +31,10 @@
         
     
     
-    <link rel="next" href="../extension_points/yum_repository_poller.html" />
+    <link rel="next" href="../installation/troubleshooting.html" />
     
     
-    <link rel="prev" href="../extension_points/plugin_user_guide.html" />
+    <link rel="prev" href="../installation/performance_tuning.html" />
     
 
         
@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="7.2" data-basepath=".." data-revision="Thu Apr 27 2017 20:15:29 GMT-0700 (PDT)">
+    <div class="book" data-level="3.9" data-basepath=".." data-revision="Thu Apr 27 2017 20:15:29 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -610,7 +610,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.9" data-path="installation/hardware_specifications.html">
+        <li class="chapter active" data-level="3.9" data-path="installation/hardware_specifications.html">
             
                 
                     <a href="../installation/hardware_specifications.html">
@@ -1453,7 +1453,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="7.2" data-path="extension_points/package_repository_extension.html">
+        <li class="chapter " data-level="7.2" data-path="extension_points/package_repository_extension.html">
             
                 
                     <a href="../extension_points/package_repository_extension.html">
@@ -2104,138 +2104,121 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="package-material"><a name="package-material" class="plugin-anchor" href="#package-material"><span class="fa fa-link"></span></a>Package Material</h1>
-<h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><span class="fa fa-link"></span></a>Introduction</h2>
-<p><a href="https://youtu.be/Pk52CFBYWIw" target="_blank">Poll from Go packages and more from Go 13.3 onwards</a>
-Pipelines in Go can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:</p>
-<ol>
-<li>jar, war or ear file in case of Java</li>
-<li><a href="http://nuget.org/" target="_blank">nuget</a>/ <a href="http://chocolatey.org/" target="_blank">chocolatey</a> package in case of .NET</li>
-<li><a href="http://en.wikipedia.org/wiki/Package_management_system#Package_formats" target="_blank">Linux system package</a> (e.g rpm, deb) in case of any application platform</li>
-<li>Other <a href="http://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers" target="_blank">application level package formats</a> like gem, npm, <a href="http://php.net/manual/en/book.phar.php" target="_blank">phar</a>, <a href="http://www.python.org/dev/peps/pep-0427/" target="_blank">wheel</a> etc.</li>
-</ol>
-<p>These files (packages) are often maintained in corresponding package repositories. <strong>Such packages may be specified as materials for Go pipelines.</strong></p>
-<h3 id="supported-packages"><a name="supported-packages" class="plugin-anchor" href="#supported-packages"><span class="fa fa-link"></span></a>Supported Packages</h3>
-<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other <a href="https://www.gocd.io/community/plugins.html" target="_blank">external plugins</a>, it is possible to do the same for other types of packages.</p>
-<h3 id="repositories-packages-and-materials"><a name="repositories-packages-and-materials" class="plugin-anchor" href="#repositories-packages-and-materials"><span class="fa fa-link"></span></a>Repositories, Packages and Materials</h3>
-<p>A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the respository, interested pipelines will get scheduled.</p>
-<h4 id="repository-definition"><a name="repository-definition" class="plugin-anchor" href="#repository-definition"><span class="fa fa-link"></span></a>Repository Definition</h4>
-<p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to Go. e.g. here is how we define a yum repository using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
-<h5 id="note"><a name="note" class="plugin-anchor" href="#note"><span class="fa fa-link"></span></a>Note:</h5>
-<ol>
-<li>The repository name is not used by the package material plugin - it is used by Go to construct the material name.</li>
-<li>Two package repositories cannot have the same name.</li>
-<li>Use the check connection button to ensure that Go can work with this repository.</li>
-</ol>
-<p><img src="../resources/images/yum-repo.png" alt=""></p>
-<h4 id="package-definition"><a name="package-definition" class="plugin-anchor" href="#package-definition"><span class="fa fa-link"></span></a>Package Definition</h4>
-<p>A package material plugin also lets you define packages at the time of pipeline material configuration (Admin &gt; Material &gt;Add Material &gt; Package). Here is what it looks like for defining RPM packages with the bundled yum plugin. The package name is not used by the package material plugin - it is used by Go to construct the material name. Two packages in a repository cannot have the same name. Use the check package button to ensure that the package definition does indeed resolve to the package you are looking for.</p>
-<p><img src="../resources/images/yum-pkg.png" alt=""></p>
-<p>Unlike other VCS/SCM materials, <em>the material definition in case of packages is not contained within the pipeline definition</em>. Many pipelines may have material definitions refering to the same package. Here is how we associate an existing package as material for a pipeline.</p>
-<p><img src="../resources/images/yum-pkg-exist.png" alt=""></p>
-<h5 id="note"><a name="note" class="plugin-anchor" href="#note"><span class="fa fa-link"></span></a>Note:</h5>
-<p>Each package definition must resolve to exactly one package on the respository, else the pipeline will not run. In order to set up a pipeline that polls for multiple packages, configure each package as a separate material.</p>
-<p>Each package material plugin defines a subset of its properties as a <em>package fingerprint</em>. e.g. in case of the bundled yum plugin this subset consists of Repository URL and Package Spec (it excludes repository username and password). Repository and Package names are <strong>not</strong> part of package fingerprint. It is not permitted to multiple packages having the same package fingerprint. An attempt to do so will result in an error message like this:</p>
-<p>The following error(s) need to be resolved in order to perform this action:<br>
-Cannot save package or repo, found duplicate packages. [Repo Name: &apos;orchard&apos;, Package Name: &apos;apple&apos;], [Repo Name: &apos;orchard&apos;, Package Name: &apos;orange&apos;]</p>
-<h4 id="sample-xml-configuration"><a name="sample-xml-configuration" class="plugin-anchor" href="#sample-xml-configuration"><span class="fa fa-link"></span></a>Sample XML Configuration</h4>
-<p>Here is a XML view of an RPM package defintion. Note the relation between repository, package and pipeline material. Loosely typed property, key and value tags are used for repository and package configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn&apos;t necessary to provide repository and package IDs, Go server wil autogenerate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">repository</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;1ce5c205-977f-4c0e-ada4-882030580eed&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;ora&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">pluginConfiguration</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;yum&quot;</span> <span class="hljs-attribute">version</span>=<span class="hljs-value">&quot;1&quot;</span> /&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">configuration</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>REPO_URL<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">configuration</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">packages</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">package</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;840b0b60-bd29-489d-b5ea-ccff5f6459a9&quot;</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;gcc&quot;</span> <span class="hljs-attribute">autoUpdate</span>=<span class="hljs-value">&quot;false&quot;</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">configuration</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>PACKAGE_SPEC<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>gcc-4.*<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
-      <span class="hljs-tag">&lt;/<span class="hljs-title">configuration</span>&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-title">package</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-title">packages</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">repository</span>&gt;</span>
-...
-<span class="hljs-tag">&lt;<span class="hljs-title">pipelines</span> <span class="hljs-attribute">group</span>=<span class="hljs-value">&quot;showcase&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-title">pipeline</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;dependsOnGcc&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">materials</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-title">package</span> <span class="hljs-attribute">ref</span>=<span class="hljs-value">&quot;840b0b60-bd29-489d-b5ea-ccff5f6459a9&quot;</span> /&gt;</span>
-    <span class="hljs-tag">&lt;/<span class="hljs-title">materials</span>&gt;</span>
-  ...
-</code></pre>
-<h3 id="value-stream-modeling-tip"><a name="value-stream-modeling-tip" class="plugin-anchor" href="#value-stream-modeling-tip"><span class="fa fa-link"></span></a>Value stream modeling tip</h3>
-<p>Depending on whether Go is also publishing the package or just consuming it, there are two options for modeling a value stream that includes packages.</p>
-<ol>
-<li><p>The first scenario is where the package is published from some pipeline in Go. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:</p>
-<ol>
-<li>Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this <a href="http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines" target="_blank">tip</a> may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the <a href="../navigation/value_stream_map.html">value stream map.</a></li>
-<li>Package material: Y adds P as a package material. Y no longer has to resolve P.</li>
-</ol>
-<p>It isn&apos;t advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option #1 makes sense.</p>
+                        <h1 id="gocd-hardware-specifications"><a name="gocd-hardware-specifications" class="plugin-anchor" href="#gocd-hardware-specifications"><span class="fa fa-link"></span></a>GoCD hardware specifications</h1>
+<!-- toc -->
+<ul>
+<li><a href="#agent-hardware-requirements">Agent hardware requirements</a></li>
+<li><a href="#server-hardware-requirements">Server hardware requirements</a><ul>
+<li><a href="#number-of-web-requests-to-the-server">Number of web-requests to the server</a><ul>
+<li><a href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build">Number of agents connected to a GoCD server, and how often they build</a></li>
+<li><a href="#number-of-source-control-materials">Number of source control materials</a></li>
+<li><a href="#type-of-source-control-materials-some-types-perform-better-than-others">Type of source control materials, some types perform better than others</a></li>
+<li><a href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history">Number of times each of the pipeline has run (pipeline history)</a></li>
+<li><a href="#number-and-types-of-plugins-that-may-be-installed">Number and types of plugins that may be installed</a></li>
+</ul>
 </li>
-<li>The second scenario is where Go does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. Go helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.</li>
-</ol>
-<h3 id="permissions"><a name="permissions" class="plugin-anchor" href="#permissions"><span class="fa fa-link"></span></a>Permissions</h3>
-<p>Repositories and their packages are global entities not tied to a pipeline group or environment. Pipeline group admins may define repositories and packages for use in their pipelines. One pipeline group admin may also use packages defined by another for their pipelines. Changing a package definition will cause all dependent pipelines to schedule - even those not in the same pipeline group as that of the person editing. Because of this, we don&apos;t have a UI way of changing the definition of a package. Only the Go admin can change it via Admin &gt; Config XML tab.</p>
-<h3 id="polling"><a name="polling" class="plugin-anchor" href="#polling"><span class="fa fa-link"></span></a>Polling</h3>
-<p>Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting <a href="../configuration/configuration_reference.html#package">autoUpdate</a> to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming <a href="../configuration/pipeline_scheduling.html">auto scheduling of pipelines</a> is on). Also see <a href="../api/pipeline_api.md#key">API scheduling</a>.</p>
-<h3 id="package-information-display"><a name="package-information-display" class="plugin-anchor" href="#package-information-display"><span class="fa fa-link"></span></a>Package information display</h3>
-<p>The following information is expected from the package material plugin (which in turn obtains it from the package metadata if available)</p>
-<ol>
-<li>Package revision (e.g. gcc-4.4.7-3.el6.x86_64)</li>
-<li>Package build time</li>
-<li>Name of package creator (if available)</li>
-<li>Package comment</li>
-<li>Trackback URL - Typically an absolute URL that indicates what job (in Go or otherwise) created the package.</li>
-<li>Package - material name (i.e. repo-name:package-name)</li>
-</ol>
-<p>At the time of building the package, it is recommended to include as much of the above information as possible so that it is available for Go to display as below.</p>
-<p><img src="../resources/images/package-changes.png" alt=""></p>
-<h3 id="downloading-the-package"><a name="downloading-the-package" class="plugin-anchor" href="#downloading-the-package"><span class="fa fa-link"></span></a>Downloading the package</h3>
-<p>The package isn&apos;t automatically downloaded on the agent and made available to the jobs. This is unlike VCS/SCM materials where a checkout is made by default. In case of packages, the Go Agent is typically not the target node for deployment, it is only orchestrating deployment to a remote node. So, instead of an automatic download, the following environment variables are made available:</p>
-<ol>
-<li>GO_PACKAGE_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_LABEL</li>
-<li>GO_REPO_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_REPO_URL</li>
-<li>GO_PACKAGE_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_LOCATION</li>
-</ol>
-<p>Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let&apos;s say we set up a repository named ORA pointing to <a href="http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64" target="_blank">http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</a> and define a package gcc with a spec of gcc-4.* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:</p>
-<pre><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
-&lt;arg&gt;-c&lt;/arg&gt;
-&lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
-&lt;/exec&gt;
-</code></pre><p>When the task executes on the agent, the environment variables get subsituted as below:</p>
-<pre><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
-&lt;arg&gt;-c&lt;/arg&gt;
-&lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
-&lt;/exec&gt;.
-...
-[go] setting environment variable &apos;GO_PACKAGE_ORA_GCC_LABEL&apos; to value &apos;gcc-4.4.7-3.el6.x86_64&apos;
-[go] setting environment variable &apos;GO_REPO_ORA_GCC_REPO_URL&apos; to value &apos;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64&apos;
-[go] setting environment variable &apos;GO_PACKAGE_ORA_GCC_PACKAGE_SPEC&apos; to value &apos;gcc-4.*&apos;
-[go] setting environment variable &apos;GO_PACKAGE_ORA_GCC_LOCATION&apos; to value &apos;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm&apos;
-...
-</code></pre><p>Or, to simply pass it as an argument to a deploy script on a remote server</p>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">exec</span> <span class="hljs-attribute">command</span>=<span class="hljs-value">&quot;/bin/bash&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">arg</span>&gt;</span>-c<span class="hljs-tag">&lt;/<span class="hljs-title">arg</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">arg</span>&gt;</span>ssh server &quot;cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION&quot;<span class="hljs-tag">&lt;/<span class="hljs-title">arg</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-title">exec</span>&gt;</span>
-</code></pre>
-<p><strong>Also see <a href="yum_repository_poller.html#installing-rpms">Installing RPMs</a></strong></p>
+</ul>
+</li>
+<li><a href="#definitions">Definitions</a><ul>
+<li><a href="#cores">Cores</a></li>
+<li><a href="#memory">Memory</a></li>
+<li><a href="#iops">IOPS</a></li>
+<li><a href="#io-throughput">IO throughput</a></li>
+</ul>
+</li>
+</ul>
+<!-- toc stop -->
 <blockquote>
-<p><strong>Important:</strong> Please note that if you change repository credentials and then try to re-trigger (redeploy) an old package, the published environment variables will not reflect new credentials.</p>
+<p><strong>Note</strong>: This page is still a work in progress. Please report issues and provide feedback at <a href="https://github.com/gocd/docs.go.cd/issues/76" target="_blank">https://github.com/gocd/docs.go.cd/issues/76</a></p>
 </blockquote>
-<h3 id="publishing-a-package"><a name="publishing-a-package" class="plugin-anchor" href="#publishing-a-package"><span class="fa fa-link"></span></a>Publishing a Package</h3>
-<p>At the moment, Go does not create or publish the package for you. But it is simple enough for each type of package. e.g. <a href="yum_repository_poller.html#creating-and-publishing-rpms">rpm</a></p>
-<p>You could also explore the command repository on <a href="https://github.com/gocd/go-command-repo/tree/master/deploy" target="_blank">GitHub</a> for helpful commands. What is command repository? Please see <a href="../advanced_usage/command_repository.html">this</a>.</p>
-<h3 id="package-dependencies"><a name="package-dependencies" class="plugin-anchor" href="#package-dependencies"><span class="fa fa-link"></span></a>Package Dependencies</h3>
-<p>Please note that Go does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let</p>
-<pre><code class="lang-shell">yum install componentA-1.2.0-b234-noarch
-</code></pre>
-<p>do the resolution of componentB for you.</p>
+<p>The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.</p>
+<h2 id="agent-hardware-requirements"><a name="agent-hardware-requirements" class="plugin-anchor" href="#agent-hardware-requirements"><span class="fa fa-link"></span></a>Agent hardware requirements</h2>
+<p>The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements). The agent will require an additional memory of about 500Mb. Although, you may run the agent on the same machine as the server, it is recommended that you use a separate machine (though, it may be virtual) for each build agent. If you chose to install several agents on the same machine, please consider possible CPU, disk, memory or network bottlenecks that might occur.</p>
+<h2 id="server-hardware-requirements"><a name="server-hardware-requirements" class="plugin-anchor" href="#server-hardware-requirements"><span class="fa fa-link"></span></a>Server hardware requirements</h2>
+<p>The GoCD Server is responsible for performing a number of tasks and we describe how each of these tasks affects the specifications:</p>
+<ul>
+<li><a href="#number-of-web-requests-to-the-server">Number of web-requests to the server</a></li>
+<li><a href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build">Number of agents connected to a GoCD server, and how often they build</a></li>
+<li><a href="#number-of-source-control-materials">Number of source control materials</a></li>
+<li><a href="#type-of-source-control-materials-some-types-perform-better-than-others">Type of source control materials, some types perform better than others</a></li>
+<li><a href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history">Number of times each of the pipeline has run (pipeline history)</a></li>
+<li><a href="#number-and-types-of-plugins-that-may-be-installed">Number and types of plugins that may be installed</a></li>
+</ul>
+<h4 id="number-of-web-requests-to-the-server"><a name="number-of-web-requests-to-the-server" class="plugin-anchor" href="#number-of-web-requests-to-the-server"><span class="fa fa-link"></span></a>Number of web-requests to the server</h4>
+<p>Web-requests to the server come from different kinds of sources</p>
+<ul>
+<li>browsers requests from end users (most pages in GoCD continuously poll the server every few seconds to check if the page has updates on it)</li>
+<li>API calls from programs</li>
+<li>CCTray which is popularly used by dashboard apps and other desktop apps to notify devs about failing builds usually poll every few seconds and are fairly expensive calls on the server</li>
+</ul>
+<p>GoCD uses a shared thread-pool to manage a lot of web requests from several users, if you have a lot of users, consider adding more cores based on the number and type of request you serve per minute.</p>
+<p>You can find out the number of requests that your server is handling by turning on web-request logging.</p>
+<h3 id="number-of-agents-connected-to-a-gocd-server-and-how-often-they-build"><a name="number-of-agents-connected-to-a-gocd-server-and-how-often-they-build" class="plugin-anchor" href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build"><span class="fa fa-link"></span></a>Number of agents connected to a GoCD server, and how often they build</h3>
+<p>Each gocd agent that is connected to the server will poll the gocd server every few seconds and to update its status on the server and check if there are any jobs that it should build.</p>
+<p>When a build starts off on an agent, it will first perform an SCM checkout operation to update to the correct revision that must be built. If the job requires that artifacts from other dependent jobs be downloaded, the agent will download the artifacts from the server. During a job run, the agent will send the console logs every few seconds and at the end of the build, an agent may upload artifacts to the server if it is configured to do so.</p>
+<p>To cope up with the number of agents, artifact uploads and downloads, ensure that the server has &#x2014;</p>
+<ul>
+<li>enough disk space to store the artifacts</li>
+<li>enough consistent IO baseline throughput to be able to handle simultaneous uploads and downloads from several agents at the same time</li>
+<li>enough cores to be able to handle web requests from agents</li>
+</ul>
+<blockquote>
+<p><strong>Note</strong>: it is perfectly allright to host the GoCD artifacts on a network file share. However ensure that your network file share can provide a consistent IO throughput. A high load on the network file share may also cause your web-requests to slow down, if they use the same network port.</p>
+</blockquote>
+<p>It helps with quicker artifact upload and download if the server and agents are geographically co-located. This will help reduce the latency between the agent and server.</p>
+<h3 id="number-of-source-control-materials"><a name="number-of-source-control-materials" class="plugin-anchor" href="#number-of-source-control-materials"><span class="fa fa-link"></span></a>Number of source control materials</h3>
+<p>GoCD uses up-to 10 processes (configurable) to check if updates are available for source control materials(SCM). Only materials that have polling turned on will be polled. Each material is checked approximately every minute for to see if there are updates available so that GoCD can trigger a build.</p>
+<p>If you have hundreds of SCMs, depending on the performance of your source control updates, the update checks for SCMs may queue up and negatively affect the performance.</p>
+<p>Ensure that &#x2014;</p>
+<ul>
+<li>your SCM server(s) can handle the load of several SCM checkout and update operations (both from the server and the agent)</li>
+<li>there is enough IOPS, IO throughput, memory and cores available to ensure that you can poll all your SCMs without the update checks queueing up, or eating away too many resources that would otherwise be used by the GoCD server process.</li>
+</ul>
+<p>You can find out the amount of time it takes to perform an SCM update check by turning on performance logging on your GoCD server.</p>
+<p>If you find that material updates are taking too much of your CPU time, you may try one or more of these options &#x2014;</p>
+<ul>
+<li>turn off polling for materials that don&apos;t update frequently</li>
+<li>reduce the interval between polls</li>
+<li>notify the GoCD server of material updates, instead of polling it</li>
+<li>investigate if upgrading the SCM software version resolves the issue</li>
+</ul>
+<h3 id="type-of-source-control-materials-some-types-perform-better-than-others"><a name="type-of-source-control-materials-some-types-perform-better-than-others" class="plugin-anchor" href="#type-of-source-control-materials-some-types-perform-better-than-others"><span class="fa fa-link"></span></a>Type of source control materials, some types perform better than others</h3>
+<p>All SCMs need to connect to a remote SCM repository to check if updates are available. Some of them are more efficient at update checks than others.</p>
+<p>SCMs like git and mercurial require a local clone to be able to check if there are new commits and the contents of those commits, as such they will have additional overhead in terms of IO and disk space usage.</p>
+<p>On the other hand, SCMs like SVN and TFS don&apos;t require a local checkout to check for updates, so they may not have a disk IO overhead on the gocd server. However the number and frequency of since a material update check may cause a bottleneck on the network.</p>
+<h3 id="number-of-times-each-of-the-pipeline-has-run-pipeline-history"><a name="number-of-times-each-of-the-pipeline-has-run-pipeline-history" class="plugin-anchor" href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history"><span class="fa fa-link"></span></a>Number of times each of the pipeline has run (pipeline history)</h3>
+<p>Each pipeline run (along with the stages and jobs in it) is recorded in the database for purpose of audits. To ensure optimal performance of your GoCD server we recommend that you run your database server on a separate instance</p>
+<h3 id="number-and-types-of-plugins-that-may-be-installed"><a name="number-and-types-of-plugins-that-may-be-installed" class="plugin-anchor" href="#number-and-types-of-plugins-that-may-be-installed"><span class="fa fa-link"></span></a>Number and types of plugins that may be installed</h3>
+<p>Each plugin that is installed on the server will consume additional memory on the memory and may have an impact on the CPU utilization of the server. Task plugins, will consume additional on the memory usage of the gocd agent process and may affect the CPU usage of the gocd agent process.</p>
+<p>This may require that users change the heap(<code>-Xmx</code>) and/or metaspace(<code>-XX:MaxMetaspaceSize</code>).</p>
+<h2 id="definitions"><a name="definitions" class="plugin-anchor" href="#definitions"><span class="fa fa-link"></span></a>Definitions</h2>
+<p>For the purpose of the rest of this document, we would like to use the following definitions:</p>
+<h4 id="cores"><a name="cores" class="plugin-anchor" href="#cores"><span class="fa fa-link"></span></a>Cores</h4>
+<p>The number of physical compute units available to the server machine.</p>
+<blockquote>
+<p><strong>A note about hyper-threading</strong>: While hyper-threading makes a single physical core to look like 2 logical cores, the performance improvement, in most cases, the performance is somewhere around 15% of a single core.</p>
+</blockquote>
+<h4 id="memory"><a name="memory" class="plugin-anchor" href="#memory"><span class="fa fa-link"></span></a>Memory</h4>
+<h5 id="jvm-memory"><a name="jvm-memory" class="plugin-anchor" href="#jvm-memory"><span class="fa fa-link"></span></a>JVM Memory</h5>
+<p>The amount of memory available to the JVM running the GoCD server process (roughly the <code>-Xmx</code> JVM argument)</p>
+<h5 id="ram"><a name="ram" class="plugin-anchor" href="#ram"><span class="fa fa-link"></span></a>RAM</h5>
+<p>The amount of memory available to the server machine. Generally speaking, the amount of RAM should be atleast 2-3GB more than the JVM memory to allow some headroom for the operating system.</p>
+<blockquote>
+<p><strong>A note about swap</strong>: Ensure that swap is turned off, because it negatively affects performance when the machine runs out of memory and begins swapping</p>
+</blockquote>
+<h5 id="buffer-cache"><a name="buffer-cache" class="plugin-anchor" href="#buffer-cache"><span class="fa fa-link"></span></a>Buffer Cache</h5>
+<p>Reading from a disk is very slow as compared to reading from memory. Additionally, it is common to read the same part of a disk several times during relatively short periods of time. For example, consider how often the command <code>git</code> might be run on a GoCD server. By reading the information from disk only once and then keeping it in memory until no longer needed, one can speed up all but the first read. This is called disk buffering, and the memory used for the purpose is called the buffer cache.</p>
+<p>Generally speaking, you should ensure that there is sufficient free memory for buffer cache to ensure optimal performance and reduced disk IO.</p>
+<pre><code>[root@fmtgocdgo01 ~]# free -m
+             total       used       free     shared    buffers     cached
+Mem:         11912      11633        278          0         20       2128
+-/+ buffers/cache:       9484       2427
+Swap:            0          0          0
+</code></pre><p>In the example above, the first line says that the amount of free memory is &quot;278&quot; mb, this makes it look like the system is running short of memory. However the second line(<code>-/+ buffers/cache</code>) shows that in reality <code>2427</code> mb is actually free. This is because about 20+2128 megs of memory is buffers + cache, which the OS can purge if it is programs request for more memory.</p>
+<h4 id="iops"><a name="iops" class="plugin-anchor" href="#iops"><span class="fa fa-link"></span></a>IOPS</h4>
+<p>The amount of input/output operations per seconds of your storage device.</p>
+<h4 id="io-throughput"><a name="io-throughput" class="plugin-anchor" href="#io-throughput"><span class="fa fa-link"></span></a>IO throughput</h4>
+<p>Usually expressed as <strong>Megabytes / Second (MB/s)</strong>, indicates the amount of data that a server can read and/or write in a given amount of time. Usually, higher the <em>IOPS</em>, the higher the throughput.</p>
 
                     
                     </section>
@@ -2246,10 +2229,10 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &apos;orchard
         </div>
 
         
-        <a href="../extension_points/plugin_user_guide.html" class="navigation navigation-prev " aria-label="Previous page: Plugin User Guide"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/performance_tuning.html" class="navigation navigation-prev " aria-label="Previous page: Performance Tuning"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../extension_points/yum_repository_poller.html" class="navigation navigation-next " aria-label="Next page: Yum Repository Poller"><i class="fa fa-angle-right"></i></a>
+        <a href="../installation/troubleshooting.html" class="navigation navigation-next " aria-label="Next page: Troubleshooting"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>
