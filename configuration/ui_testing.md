@@ -18,6 +18,9 @@ The next step is to start the Go agent as an application.
 1.  Click on Start → All Programs → Go Agent → Run Go Agent.
 2.  To get the Go agent to start every time you log in, copy the Run Go Agent shortcut to the Startup folder of your start menu.
 
+
+_**Please note**_ : If the go-agent as an application is run by a non-administrative user, then the non-administrative user needs to have these required permissions to the go-agent folder, i.e. modify, read and execute, list folder contents and read permissions.
+
 ## Linux
 
 There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service to provide a dedicated X11 server to your agent. To do this:
