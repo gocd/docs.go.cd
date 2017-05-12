@@ -5,7 +5,7 @@
         
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <title>Notifications | Go User Documentation</title>
+        <title>Hardware Specifications | Go User Documentation</title>
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <meta name="description" content="">
         <meta name="generator" content="GitBook 2.2.0">
@@ -31,10 +31,10 @@
         
     
     
-    <link rel="next" href="../configuration/tfs_config.html" />
+    <link rel="next" href="../installation/troubleshooting.html" />
     
     
-    <link rel="prev" href="../configuration/admin_mailhost_info.html" />
+    <link rel="prev" href="../installation/performance_tuning.html" />
     
 
         
@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.30" data-basepath=".." data-revision="Thu May 11 2017 23:02:27 GMT-0700 (PDT)">
+    <div class="book" data-level="3.9" data-basepath=".." data-revision="Thu May 11 2017 23:02:27 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -610,7 +610,7 @@
             
         </li>
     
-        <li class="chapter " data-level="3.9" data-path="installation/hardware_specifications.html">
+        <li class="chapter active" data-level="3.9" data-path="installation/hardware_specifications.html">
             
                 
                     <a href="../installation/hardware_specifications.html">
@@ -1096,7 +1096,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="4.30" data-path="configuration/dev_notifications.html">
+        <li class="chapter " data-level="4.30" data-path="configuration/dev_notifications.html">
             
                 
                     <a href="../configuration/dev_notifications.html">
@@ -2104,82 +2104,121 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="notifications"><a name="notifications" class="plugin-anchor" href="#notifications"><span class="fa fa-link"></span></a>Notifications</h1>
-<p>It is often useful to receive an email when certain status changes occur in a stage. For example, a developer might want to know when their own check-in has broken the build. Alternatively, a manager might want an email whenever a project is deployed into production. Both of these scenarios can be covered by Notification Filters</p>
-<p>Notifications will only work if <a href="dev_authentication.html">Security</a> is enabled and <a href="admin_mailhost_info.html">mailhost information</a> is correct.</p>
-<h2 id="example-usage"><a name="example-usage" class="plugin-anchor" href="#example-usage"><span class="fa fa-link"></span></a>Example usage</h2>
-<p><strong>Usage: As a developer, I want to be notified when I break a build on &quot;acceptance&quot; pipeline.</strong></p>
+                        <h1 id="gocd-hardware-specifications"><a name="gocd-hardware-specifications" class="plugin-anchor" href="#gocd-hardware-specifications"><span class="fa fa-link"></span></a>GoCD hardware specifications</h1>
+<!-- toc -->
 <ul>
-<li><p>Click on the <strong>Preferences</strong> tab</p>
-<p>  <img src="../resources/images/topnav_preferences.png" alt=""></p>
-</li>
-<li><p>Click &quot;Edit&quot; and enter the email address, and make sure &quot;Enable email notification&quot; is checked</p>
-</li>
-<li>When I check in, my source control log in will be either &quot;User&quot; or &quot;username&quot;, so enter both of those into the &quot;My check-in aliases&quot; box</li>
+<li><a href="#agent-hardware-requirements">Agent hardware requirements</a></li>
+<li><a href="#server-hardware-requirements">Server hardware requirements</a><ul>
+<li><a href="#number-of-web-requests-to-the-server">Number of web-requests to the server</a><ul>
+<li><a href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build">Number of agents connected to a GoCD server, and how often they build</a></li>
+<li><a href="#number-of-source-control-materials">Number of source control materials</a></li>
+<li><a href="#type-of-source-control-materials-some-types-perform-better-than-others">Type of source control materials, some types perform better than others</a></li>
+<li><a href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history">Number of times each of the pipeline has run (pipeline history)</a></li>
+<li><a href="#number-and-types-of-plugins-that-may-be-installed">Number and types of plugins that may be installed</a></li>
 </ul>
-<p><img src="../resources/images/3_email_and_matcher.png" alt=""></p>
-<ul>
-<li><p>Click &quot;Save&quot; to store these values</p>
-</li>
-<li><p>Add a filter for the &quot;twist-plugins&quot; stage of &quot;acceptance&quot; pipeline to notify me when a check-in of mine breaks the build</p>
 </li>
 </ul>
-<p><img src="../resources/images/4_add_filter.png" alt=""></p>
-<h3 id="events"><a name="events" class="plugin-anchor" href="#events"><span class="fa fa-link"></span></a>Events</h3>
-<p>You can set up notifications for different events</p>
-<ul>
-<li>All - all the runs for the stage</li>
-<li>Passes - the passed runs for the stage</li>
-<li>Fails - the stage run that continues to fail</li>
-<li>Breaks - the stage run that broke the build</li>
-<li>Fixed - the stage run that fixed the previous failure</li>
-<li>Cancelled - the stage run that was cancelled</li>
+</li>
+<li><a href="#definitions">Definitions</a><ul>
+<li><a href="#cores">Cores</a></li>
+<li><a href="#memory">Memory</a></li>
+<li><a href="#iops">IOPS</a></li>
+<li><a href="#io-throughput">IO throughput</a></li>
 </ul>
-<p><strong>Previous state influences Event type</strong></p>
-<p>The table below shows how the previous state can influence the triggered event:</p>
-<table>
-<thead>
-<tr>
-<th><strong>Previous state</strong></th>
-<th><strong>Current state</strong></th>
-<th><strong>Event</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pass</td>
-<td>Fail</td>
-<td>Breaks</td>
-</tr>
-<tr>
-<td>Fail</td>
-<td>Fail</td>
-<td>Fails</td>
-</tr>
-<tr>
-<td>Fail</td>
-<td>Pass</td>
-<td>Fixed</td>
-</tr>
-<tr>
-<td>Pass</td>
-<td>Pass</td>
-<td>Passes</td>
-</tr>
-</tbody>
-</table>
-<p><img src="../resources/images/5_added_filter.png" alt=""></p>
+</li>
+</ul>
+<!-- toc stop -->
 <blockquote>
-<p>I&apos;ll be emailed whenever the &quot;twist-plugins&quot; stage of &quot;acceptance&quot; pipeline breaks due to my check-in</p>
-<p>I&apos;ll be emailed whenever the &quot;build&quot; stage of &quot;plugins&quot; pipeline fails due to my check-in</p>
-<p>I&apos;ll be emailed whenever the &quot;upload-installers&quot; stage of &quot;distributions-all&quot; pipeline passes for any check-in</p>
-<p>I&apos;ll be emailed on all events for any stage of &quot;regression&quot; pipeline for my check-in</p>
+<p><strong>Note</strong>: This page is still a work in progress. Please report issues and provide feedback at <a href="https://github.com/gocd/docs.go.cd/issues/76" target="_blank">https://github.com/gocd/docs.go.cd/issues/76</a></p>
 </blockquote>
-<p>Users can also select to get notifications for a particular (or all) event on any satge of any pipeline.</p>
-<p><img src="../resources/images/6_added_filter_any_pipeline.png" alt=""></p>
+<p>The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.</p>
+<h2 id="agent-hardware-requirements"><a name="agent-hardware-requirements" class="plugin-anchor" href="#agent-hardware-requirements"><span class="fa fa-link"></span></a>Agent hardware requirements</h2>
+<p>The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements). The agent will require an additional memory of about 500Mb. Although, you may run the agent on the same machine as the server, it is recommended that you use a separate machine (though, it may be virtual) for each build agent. If you chose to install several agents on the same machine, please consider possible CPU, disk, memory or network bottlenecks that might occur.</p>
+<h2 id="server-hardware-requirements"><a name="server-hardware-requirements" class="plugin-anchor" href="#server-hardware-requirements"><span class="fa fa-link"></span></a>Server hardware requirements</h2>
+<p>The GoCD Server is responsible for performing a number of tasks and we describe how each of these tasks affects the specifications:</p>
+<ul>
+<li><a href="#number-of-web-requests-to-the-server">Number of web-requests to the server</a></li>
+<li><a href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build">Number of agents connected to a GoCD server, and how often they build</a></li>
+<li><a href="#number-of-source-control-materials">Number of source control materials</a></li>
+<li><a href="#type-of-source-control-materials-some-types-perform-better-than-others">Type of source control materials, some types perform better than others</a></li>
+<li><a href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history">Number of times each of the pipeline has run (pipeline history)</a></li>
+<li><a href="#number-and-types-of-plugins-that-may-be-installed">Number and types of plugins that may be installed</a></li>
+</ul>
+<h4 id="number-of-web-requests-to-the-server"><a name="number-of-web-requests-to-the-server" class="plugin-anchor" href="#number-of-web-requests-to-the-server"><span class="fa fa-link"></span></a>Number of web-requests to the server</h4>
+<p>Web-requests to the server come from different kinds of sources</p>
+<ul>
+<li>browsers requests from end users (most pages in GoCD continuously poll the server every few seconds to check if the page has updates on it)</li>
+<li>API calls from programs</li>
+<li>CCTray which is popularly used by dashboard apps and other desktop apps to notify devs about failing builds usually poll every few seconds and are fairly expensive calls on the server</li>
+</ul>
+<p>GoCD uses a shared thread-pool to manage a lot of web requests from several users, if you have a lot of users, consider adding more cores based on the number and type of request you serve per minute.</p>
+<p>You can find out the number of requests that your server is handling by turning on web-request logging.</p>
+<h3 id="number-of-agents-connected-to-a-gocd-server-and-how-often-they-build"><a name="number-of-agents-connected-to-a-gocd-server-and-how-often-they-build" class="plugin-anchor" href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build"><span class="fa fa-link"></span></a>Number of agents connected to a GoCD server, and how often they build</h3>
+<p>Each gocd agent that is connected to the server will poll the gocd server every few seconds and to update its status on the server and check if there are any jobs that it should build.</p>
+<p>When a build starts off on an agent, it will first perform an SCM checkout operation to update to the correct revision that must be built. If the job requires that artifacts from other dependent jobs be downloaded, the agent will download the artifacts from the server. During a job run, the agent will send the console logs every few seconds and at the end of the build, an agent may upload artifacts to the server if it is configured to do so.</p>
+<p>To cope up with the number of agents, artifact uploads and downloads, ensure that the server has &#x2014;</p>
+<ul>
+<li>enough disk space to store the artifacts</li>
+<li>enough consistent IO baseline throughput to be able to handle simultaneous uploads and downloads from several agents at the same time</li>
+<li>enough cores to be able to handle web requests from agents</li>
+</ul>
 <blockquote>
-<p>I&apos;ll be emailed whenever any stage of any pipeline fails due to my check-in</p>
+<p><strong>Note</strong>: it is perfectly allright to host the GoCD artifacts on a network file share. However ensure that your network file share can provide a consistent IO throughput. A high load on the network file share may also cause your web-requests to slow down, if they use the same network port.</p>
 </blockquote>
+<p>It helps with quicker artifact upload and download if the server and agents are geographically co-located. This will help reduce the latency between the agent and server.</p>
+<h3 id="number-of-source-control-materials"><a name="number-of-source-control-materials" class="plugin-anchor" href="#number-of-source-control-materials"><span class="fa fa-link"></span></a>Number of source control materials</h3>
+<p>GoCD uses up-to 10 processes (configurable) to check if updates are available for source control materials(SCM). Only materials that have polling turned on will be polled. Each material is checked approximately every minute for to see if there are updates available so that GoCD can trigger a build.</p>
+<p>If you have hundreds of SCMs, depending on the performance of your source control updates, the update checks for SCMs may queue up and negatively affect the performance.</p>
+<p>Ensure that &#x2014;</p>
+<ul>
+<li>your SCM server(s) can handle the load of several SCM checkout and update operations (both from the server and the agent)</li>
+<li>there is enough IOPS, IO throughput, memory and cores available to ensure that you can poll all your SCMs without the update checks queueing up, or eating away too many resources that would otherwise be used by the GoCD server process.</li>
+</ul>
+<p>You can find out the amount of time it takes to perform an SCM update check by turning on performance logging on your GoCD server.</p>
+<p>If you find that material updates are taking too much of your CPU time, you may try one or more of these options &#x2014;</p>
+<ul>
+<li>turn off polling for materials that don&apos;t update frequently</li>
+<li>reduce the interval between polls</li>
+<li>notify the GoCD server of material updates, instead of polling it</li>
+<li>investigate if upgrading the SCM software version resolves the issue</li>
+</ul>
+<h3 id="type-of-source-control-materials-some-types-perform-better-than-others"><a name="type-of-source-control-materials-some-types-perform-better-than-others" class="plugin-anchor" href="#type-of-source-control-materials-some-types-perform-better-than-others"><span class="fa fa-link"></span></a>Type of source control materials, some types perform better than others</h3>
+<p>All SCMs need to connect to a remote SCM repository to check if updates are available. Some of them are more efficient at update checks than others.</p>
+<p>SCMs like git and mercurial require a local clone to be able to check if there are new commits and the contents of those commits, as such they will have additional overhead in terms of IO and disk space usage.</p>
+<p>On the other hand, SCMs like SVN and TFS don&apos;t require a local checkout to check for updates, so they may not have a disk IO overhead on the gocd server. However the number and frequency of since a material update check may cause a bottleneck on the network.</p>
+<h3 id="number-of-times-each-of-the-pipeline-has-run-pipeline-history"><a name="number-of-times-each-of-the-pipeline-has-run-pipeline-history" class="plugin-anchor" href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history"><span class="fa fa-link"></span></a>Number of times each of the pipeline has run (pipeline history)</h3>
+<p>Each pipeline run (along with the stages and jobs in it) is recorded in the database for purpose of audits. To ensure optimal performance of your GoCD server we recommend that you run your database server on a separate instance</p>
+<h3 id="number-and-types-of-plugins-that-may-be-installed"><a name="number-and-types-of-plugins-that-may-be-installed" class="plugin-anchor" href="#number-and-types-of-plugins-that-may-be-installed"><span class="fa fa-link"></span></a>Number and types of plugins that may be installed</h3>
+<p>Each plugin that is installed on the server will consume additional memory on the memory and may have an impact on the CPU utilization of the server. Task plugins, will consume additional on the memory usage of the gocd agent process and may affect the CPU usage of the gocd agent process.</p>
+<p>This may require that users change the heap(<code>-Xmx</code>) and/or metaspace(<code>-XX:MaxMetaspaceSize</code>).</p>
+<h2 id="definitions"><a name="definitions" class="plugin-anchor" href="#definitions"><span class="fa fa-link"></span></a>Definitions</h2>
+<p>For the purpose of the rest of this document, we would like to use the following definitions:</p>
+<h4 id="cores"><a name="cores" class="plugin-anchor" href="#cores"><span class="fa fa-link"></span></a>Cores</h4>
+<p>The number of physical compute units available to the server machine.</p>
+<blockquote>
+<p><strong>A note about hyper-threading</strong>: While hyper-threading makes a single physical core to look like 2 logical cores, the performance improvement, in most cases, the performance is somewhere around 15% of a single core.</p>
+</blockquote>
+<h4 id="memory"><a name="memory" class="plugin-anchor" href="#memory"><span class="fa fa-link"></span></a>Memory</h4>
+<h5 id="jvm-memory"><a name="jvm-memory" class="plugin-anchor" href="#jvm-memory"><span class="fa fa-link"></span></a>JVM Memory</h5>
+<p>The amount of memory available to the JVM running the GoCD server process (roughly the <code>-Xmx</code> JVM argument)</p>
+<h5 id="ram"><a name="ram" class="plugin-anchor" href="#ram"><span class="fa fa-link"></span></a>RAM</h5>
+<p>The amount of memory available to the server machine. Generally speaking, the amount of RAM should be atleast 2-3GB more than the JVM memory to allow some headroom for the operating system.</p>
+<blockquote>
+<p><strong>A note about swap</strong>: Ensure that swap is turned off, because it negatively affects performance when the machine runs out of memory and begins swapping</p>
+</blockquote>
+<h5 id="buffer-cache"><a name="buffer-cache" class="plugin-anchor" href="#buffer-cache"><span class="fa fa-link"></span></a>Buffer Cache</h5>
+<p>Reading from a disk is very slow as compared to reading from memory. Additionally, it is common to read the same part of a disk several times during relatively short periods of time. For example, consider how often the command <code>git</code> might be run on a GoCD server. By reading the information from disk only once and then keeping it in memory until no longer needed, one can speed up all but the first read. This is called disk buffering, and the memory used for the purpose is called the buffer cache.</p>
+<p>Generally speaking, you should ensure that there is sufficient free memory for buffer cache to ensure optimal performance and reduced disk IO.</p>
+<pre><code>[root@fmtgocdgo01 ~]# free -m
+             total       used       free     shared    buffers     cached
+Mem:         11912      11633        278          0         20       2128
+-/+ buffers/cache:       9484       2427
+Swap:            0          0          0
+</code></pre><p>In the example above, the first line says that the amount of free memory is &quot;278&quot; mb, this makes it look like the system is running short of memory. However the second line(<code>-/+ buffers/cache</code>) shows that in reality <code>2427</code> mb is actually free. This is because about 20+2128 megs of memory is buffers + cache, which the OS can purge if it is programs request for more memory.</p>
+<h4 id="iops"><a name="iops" class="plugin-anchor" href="#iops"><span class="fa fa-link"></span></a>IOPS</h4>
+<p>The amount of input/output operations per seconds of your storage device.</p>
+<h4 id="io-throughput"><a name="io-throughput" class="plugin-anchor" href="#io-throughput"><span class="fa fa-link"></span></a>IO throughput</h4>
+<p>Usually expressed as <strong>Megabytes / Second (MB/s)</strong>, indicates the amount of data that a server can read and/or write in a given amount of time. Usually, higher the <em>IOPS</em>, the higher the throughput.</p>
 
                     
                     </section>
@@ -2190,10 +2229,10 @@
         </div>
 
         
-        <a href="../configuration/admin_mailhost_info.html" class="navigation navigation-prev " aria-label="Previous page: Mailhost Information"><i class="fa fa-angle-left"></i></a>
+        <a href="../installation/performance_tuning.html" class="navigation navigation-prev " aria-label="Previous page: Performance Tuning"><i class="fa fa-angle-left"></i></a>
         
         
-        <a href="../configuration/tfs_config.html" class="navigation navigation-next " aria-label="Next page: TFS Material configuration"><i class="fa fa-angle-right"></i></a>
+        <a href="../installation/troubleshooting.html" class="navigation navigation-next " aria-label="Next page: Troubleshooting"><i class="fa fa-angle-right"></i></a>
         
     </div>
 </div>

@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.7.2" data-basepath="../.." data-revision="Wed Apr 26 2017 07:00:00 GMT-0700 (PDT)">
+    <div class="book" data-level="3.7.2" data-basepath="../.." data-revision="Thu May 11 2017 23:02:27 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -610,10 +610,10 @@
             
         </li>
     
-        <li class="chapter " data-level="3.9" data-path="installation/hardware_specifictions.html">
+        <li class="chapter " data-level="3.9" data-path="installation/hardware_specifications.html">
             
                 
-                    <a href="../../installation/hardware_specifictions.html">
+                    <a href="../../installation/hardware_specifications.html">
                 
                         <i class="fa fa-check"></i>
                         
@@ -2120,7 +2120,7 @@ $ openssl rsa -des3 -in example.com.key.orig -out example.com.key
 </li>
 <li><p>Import the PKCS12 key into the keystore</p>
 <p><strong>Note:</strong> The destination keystore password must be set to <code>serverKeystorepa55w0rd</code></p>
-<pre><code class="lang-bash">$ keytool -importkeystore -srckeystore example.com.crt.pkcs12 -srcstoretype PKCS12 -destkeystore keystore -srcalias <span class="hljs-number">1</span> -destalias cruise
+<pre><code class="lang-bash">$ keytool -importkeystore -srckeystore example.com.crt.pkcs12 -srcstoretype PKCS12 -destkeystore keystore -srcalias <span class="hljs-number">1</span> -destalias cruise -deststorepass <span class="hljs-string">&apos;serverKeystorepa55w0rd&apos;</span> -destkeypass <span class="hljs-string">&apos;serverKeystorepa55w0rd&apos;</span>
 </code></pre>
 </li>
 <li><p>Replace GoCD server&apos;s keystore with the one from above</p>
