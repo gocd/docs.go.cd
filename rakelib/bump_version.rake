@@ -8,8 +8,7 @@ task :bump_version do
     value
   end
 
-  remote_name = env('REMOTE_NAME')
-  repo_url = `git config --get remote.#{remote_name}.url`.strip
+  repo_url = env('REPO_URL')
 
   $stderr.puts "*** Setting up gh-pages branch for next release"
   rm_rf "build"
@@ -48,7 +47,7 @@ task :bump_version do
   $stderr.puts("*** Creating branch for - #{version_to_release}")
   sh("git checkout master")
   sh("git checkout -b release-#{version_to_release}")
-  sh("git push #{remote_name} release-#{version_to_release}")
+  sh("git push #{repo_url} release-#{version_to_release}")
   sh("git checkout master")
 
   $stderr.puts "Bumping version in lib/version.rb"
@@ -59,5 +58,5 @@ task :bump_version do
 
   sh('git add rakelib/version.rake')
   sh("git commit -m 'bump version to #{next_version}'")
-  sh("git push #{remote_name} master")
+  sh("git push #{repo_url} master")
 end
