@@ -44,5 +44,6 @@
     "tarball": "https://maven-mirrors.gocd.io/repository/npmjs.org-proxy/gitbook-plugin-anchors/-/gitbook-plugin-anchors-0.4.0.tgz"
   },
   "directories": {},
-  "_resolved": "https://maven-mirrors.gocd.io/repository/npmjs.org-proxy/gitbook-plugin-anchors/-/gitbook-plugin-anchors-0.4.0.tgz"
+  "_resolved": "https://maven-mirrors.gocd.io/repository/npmjs.org-proxy/gitbook-plugin-anchors/-/gitbook-plugin-anchors-0.4.0.tgz",
+  "readme": "ERROR: No README data found!"
 }
