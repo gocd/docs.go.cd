@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Mon May 22 2017 01:39:58 GMT-0700 (PDT)">
+    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Mon May 22 2017 06:59:32 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2141,7 +2141,7 @@
 <tr>
 <td><code>SERVERURL</code></td>
 <td>No</td>
-<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>. The value must be surrounded by <code>&quot;</code> quotes.</td>
+<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>. The value must be surrounded by <code>&quot;</code> quotes. In case of <code>powershell.exe</code>, the quotes must be escaped with backticks <code>` </code></td>
 </tr>
 <tr>
 <td><code>GO_AGENT_JAVA_HOME</code></td>
@@ -2157,6 +2157,8 @@
 </table>
 <p>For example:</p>
 <pre><code>C:\&gt; go-agent-16.1.0-1234-setup.exe /S /SERVERURL=&quot;https://10.12.20.47:8154/go&quot; /D=C:\go\agent
+</code></pre><p>In case you are using <code>powershell.exe</code> for the silent installation, the <code>SERVERURL</code> argument needs to be passed with quotes being escaped with backticks:</p>
+<pre><code>C:\&gt; go-agent-16.1.0-1234-setup.exe /S /SERVERURL=`&quot;https://10.12.20.47:8154/go`&quot; /D=C:\go\agent
 </code></pre><p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 <h2 id="overriding-default-startup-arguments-and-environment"><a name="overriding-default-startup-arguments-and-environment" class="plugin-anchor" href="#overriding-default-startup-arguments-and-environment"><span class="fa fa-link"></span></a>Overriding default startup arguments and environment</h2>
