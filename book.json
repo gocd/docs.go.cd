@@ -24,7 +24,10 @@
     ],
     "pluginsConfig": {
         "ga": {
-            "token": "UA-48357651-1"
+            "token": "UA-48357651-1",
+            "configuration": {
+              "allowLinker": true
+            }
         },
         "toc": {
             "addClass": true,
