@@ -10,11 +10,20 @@
                 <a href="#bases">&lt;bases/&gt;</a>
                     <a href="#base">&lt;base/&gt;</a>
             <a href="#passwordFile">&lt;passwordFile/&gt;</a>
+            <a href="#authConfigs">&lt;authConfigs&gt;</a>
+              <a href="#authConfig">&lt;authConfig&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                  <a href="#key">&lt;key/&gt;</a>
+                  <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+              <a href="#authConfig">&lt;/authConfig&gt;</a>
+            <a href="#authConfigs">&lt;/authConfigs&gt;</a>
             <a href="#roles">&lt;roles&gt;</a>
                 <a href="#role_definition">&lt;role&gt;</a>
                     <a href="#usersinrole">&lt;users/&gt;</a>
                         <a href="#userinrole">&lt;user/&gt;</a>
                 <a href="#role_definition">&lt;/role&gt;</a>
+                <a href="#plugin_role_definition">&lt;pluginRole/&gt;</a>
             <a href="#roles">&lt;/roles&gt;</a>
             <a href="#admins">&lt;admins&gt;</a>
                 <a href="#roleinadmin">&lt;role/&gt;</a>
@@ -33,7 +42,6 @@
             <a href="#profiles">&lt;/profiles&gt;</a>
         <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
-
     <a href="#repositories">&lt;repositories&gt;</a>
         <a href="#repository">&lt;repository&gt;</a>
             <a href="#pluginConfiguration">&lt;pluginConfiguration/&gt;</a>
@@ -55,7 +63,6 @@
             <a href="#packages">&lt;/packages&gt;</a>
         <a href="#repository">&lt;/repository&gt;</a>
     <a href="#repositories">&lt;/repositories&gt;</a>
-
     <a href="#config-repos">&lt;config-repos&gt;</a>
       <a href="#config-repo">&lt;config-repo&gt;</a>
         <a href="#svn">&lt;svn&gt;</a>
@@ -92,7 +99,6 @@
         <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
       <a href="#config-repo">&lt;/config-repo&gt;</a>
     <a href="#config-repos">&lt;/config-repos&gt;</a>
-
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -108,7 +114,6 @@
                 <a href="#role">&lt;role/&gt;</a>
             <a href="#group_operate">&lt;/operate&gt;</a>
         <a href="#group_authorization">&lt;/authorization&gt;</a>
-
         <a href="#pipeline">&lt;pipeline&gt;</a>
             <a href="#params">&lt;params&gt;</a>
                 <a href="#param">&lt;param/&gt;</a>
@@ -121,7 +126,6 @@
                     &lt;value/&gt;
                 <a href="#variable">&lt;/variable&gt;</a>
             <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-
             <a href="#materials">&lt;materials&gt;</a>
                 <a href="#svn">&lt;svn&gt;</a>
                     <a href="#filter">&lt;filter&gt;</a>
@@ -152,7 +156,6 @@
                 <a href="#package-material">&lt;package/&gt;</a>
                 <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
             <a href="#materials">&lt;/materials&gt;</a>
-
             <a href="#stage">&lt;stage&gt;</a>
                 <a href="#approval">&lt;approval&gt;</a>
                     <a href="#authorization">&lt;authorization&gt;</a>
@@ -165,7 +168,6 @@
                         &lt;value/&gt;
                     <a href="#variable">&lt;/variable&gt;</a>
                 <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-
                 <a href="#jobs">&lt;jobs&gt;</a>
                     <a href="#job">&lt;job&gt;</a>
                         <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
@@ -176,7 +178,6 @@
                         <a href="#resources">&lt;resources&gt;</a>
                             <a href="#resource">&lt;resource/&gt;</a>
                         <a href="#resources">&lt;/resources&gt;</a>
-
                         <a href="#tasks">&lt;tasks&gt;</a>
                             <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
                                 <a href="#runif">&lt;runif/&gt;</a>
@@ -200,7 +201,6 @@
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#exec">&lt;/exec&gt;</a>
                         <a href="#tasks">&lt;/tasks&gt;</a>
-
                         <a href="#artifacts">&lt;artifacts&gt;</a>
                             <a href="#artifact">&lt;artifact/&gt;</a>
                             <a href="#test">&lt;test/&gt;</a>
@@ -216,7 +216,6 @@
             <a href="#stage">&lt;/stage&gt;</a>
         <a href="#pipeline">&lt;/pipeline&gt;</a>
     <a href="#pipelines">&lt;/pipelines&gt;</a>
-
     <a href="#templates">&lt;templates&gt;</a>
         <a href="#pipeline-template">&lt;pipeline&gt;</a>
             <a href="#stage">&lt;stage&gt;</a>
@@ -224,7 +223,6 @@
             <a href="#stage">&lt;/stage&gt;</a>
         <a href="#pipeline-template">&lt;/pipeline&gt;</a>
     <a href="#templates">&lt;/templates&gt;</a>
-
     <a href="#environments">&lt;environments&gt;</a>
         <a href="#environment">&lt;environment&gt;</a>
             <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
@@ -240,7 +238,6 @@
             <a href="#environment-pipelines">&lt;/pipelines&gt;</a>
         <a href="#environment">&lt;/environment&gt;</a>
     <a href="#environments">&lt;/environments&gt;</a>
-
     <a href="#agents">&lt;agents&gt;</a>
         <a href="#agent">&lt;agent&gt;</a>
             <a href="#agentresources">&lt;resources&gt;</a>
@@ -300,7 +297,7 @@ The `<server>` element can be used to define information and attributes of the G
 
 ## &lt;security&gt; {#security}
 
-The `<security>` element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support [LDAP](#ldap) and a simple [password file](#passwordFile) format. You can use both methods if you want. This can be useful if you want to allow access from scripts without having to add a lot of users to your corporate LDAP. In this case you could add a 'script' user to the password file.
+The `<security>` element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support enabling authentication using Authorization plugin endpoint. Support for LDAP and simple password-file authentication is available out of box via the bundled plugins for the same. You can use more than one authentication mechanism if you want. Support for inbuilt [LDAP](#ldap) and [password file](#passwordFile) tags in configuration has been deprecated.
 
 ### Attributes
 
@@ -313,13 +310,42 @@ The `<security>` element can be used to enable authentication. If the element is
 ```xml
 <server artifactsdir="/var/lib/go/big-artifacts-folder">
   <security allowOnlyKnownUsersToLogin="false">
-    <ldap uri="ldap://xxx.yourcompany.com"
-       managerDn="cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com"
-       managerPassword="password"
-       searchFilter="(sAMAccountName={0})" />
-        <bases>
-          <base value="ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com"/>
-        </bases>
+    <authConfigs>
+     <authConfig id="profile-id" pluginId="cd.go.authentication.ldap">
+       <property>
+         <key>Url</key>
+         <value>ldap://xxx.yourcompany.com</value>
+       </property>
+       <property>
+         <key>ManagerDN</key>
+         <value>cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com</value>
+       </property>
+       <property>
+         <key>Password</key>
+         <value>secret</value>
+       </property>
+       <property>
+         <key>SearchBases</key>
+         <value>ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com</value>
+       </property>
+       <property>
+         <key>UserLoginFilter</key>
+         <value>(sAMAccountName={0})</value>
+       </property>
+       <property>
+         <key>UserSearchFilter</key>
+         <value>(sAMAccountName={0})</value>
+       </property>
+       <property>
+         <key>DisplayNameAttribute</key>
+         <value>displayName</value>
+       </property>
+       <property>
+         <key>EmailAttribute</key>
+         <value>mail</value>
+       </property>
+     </authConfig>
+   </authConfigs>  
   </security>
 </server>
 ```
@@ -369,6 +395,8 @@ The `<elastic>` element is used to provide configurations for the elastic agents
 </elastic>
 ```
 
+[top](#top)
+
 
 ## &lt;profiles&gt; {#profiles}
 
@@ -417,7 +445,8 @@ A profile should have a unique `id` attribute and should be associated to plugin
 
 [top](#top)
 
-## &lt;ldap&gt; {#ldap}
+## &lt;ldap&gt; {#ldap} [*Deprecated*]
+
 
 The `<ldap>` element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.
 
@@ -487,7 +516,7 @@ the directory from which the LDAP search begins.
 [top](#top)
 
 
-## &lt;passwordFile&gt; {#passwordFile}
+## &lt;passwordFile&gt; {#passwordFile} [*Deprecated*]
 
 The `<passwordFile>` element is used to specify a file which has a set of username and password pairs. The format of username and password in this file is \${username}=\${password which has been encrypted with SHA1}, with one line per user.
 
@@ -515,6 +544,54 @@ The username and password could be set in admins.properties as follows:
 ```
 Jez=ThmbShxAtJepX80c2JY1FzOEmUk
 lqiao=TfkgShslgJepX80c2JY1trwEskT
+```
+
+[top](#top)
+
+## &lt;authConfigs&gt; {#authConfigs}
+
+Using `<authConfigs>` element GoCD administrators can provide one or more authorization configurations to connect with the authorization server(s).
+
+### Example
+
+```xml
+<authConfigs>
+    <authConfig id="file-auth-config" pluginId="cd.go.authentication.passwordfile">
+    ...
+    </authConfig>
+    <authConfig id="ldap" pluginId="cd.go.authentication.ldap">
+    ...
+    </authConfig>
+</authConfigs>
+```
+
+[top](#top)
+
+## &lt;authConfig&gt; {#authConfig}
+
+`<authConfig>` specifies the [configuration](#property) to be used by the authorization plugin. This will usually allow administrators to configure the connection settings for your authorization plugin, and may include configuration like URLs and credentials, among others.
+
+An `authConfig` should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute. 
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| id       | Yes | Unique Id of authConfig.           |
+| pluginId | Yes | The Id of authorization plugin. |
+
+Refer to your plugin's documentation to know the `property` keys to be configured.
+
+### Example:
+
+
+```xml
+<authConfig id="file-auth-config" pluginId="cd.go.authentication.passwordfile">
+  <property>
+    <key>PasswordFilePath</key>
+    <value>/etc/go/password.properties</value>
+  </property>
+</authConfig>
 ```
 
 [top](#top)
@@ -598,6 +675,39 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
   </users>
 </role>
 ```
+
+[top](#top)
+
+## &lt;pluginRole&gt; {#plugin_role_definition}
+
+The `<pluginRole>` element is used to define roles in GoCD. Unlike `role` which contains a list of `users`, `pluginRole` provides configuration to map a GoCD role to a role defined in an external authorization server managed by an Authorization plugin. e.g pluginRole can be used to define mappings between LDAP group and GoCD roles.
+
+**Notes:**
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| name | Yes | The name of the role. |
+| authConfigId | Yes | Plugin-id of an authorization plugin. |
+
+Refer to your plugin's documentation to know the `property` keys to be configured for the `pluginRole`.
+
+### Examples
+
+```xml
+<roles>
+<pluginRole name="SuperAdmin" authConfigId="my.custom.plugin">
+  <property>
+    <key>MemberOfAttribute</key>
+    <value>memberOf</value>
+  </property>
+  <property>
+    <key>MatchingGroups</key>
+    <value>CN=Dev,OU=Groups,DC=some,DC=enterprise,DC=com</value>
+  </property>
+</pluginRole>
+</roles>
+```
+
 
 [top](#top)
 
