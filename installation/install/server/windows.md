@@ -61,6 +61,8 @@ C:\> go-server-16.1.0-1234-setup.exe /S /D=C:\go\server
     ```
      **Please note** : If the go-server as an application is run by any user, then this user needs to have these required permissions to the go-server folder, i.e. modify, read and execute, list folder contents and read permissions.
 
+    **Please note** : If the go-server as an application is run by any user, then this user needs to have these required permissions to the go-server folder, i.e. modify, read and execute, list folder contents and read permissions.
+
 ## Location of GoCD server files
 
 All the files for the GoCD server are under the root installation path on Windows. The default location is ```C:\Program Files\Go Server```.

@@ -66,6 +66,7 @@ C:\> go-agent-16.1.0-1234-setup.exe /S /SERVERURL=`"https://10.12.20.47:8154/go`
     wrapper.java.additional.16=-Dcruise.config.foo=bar
     wrapper.java.additional.17=-Dcruise.config.other=baz
     ```
+    **Please note** : If the go-agent as an application is run by any user, then this user needs to have these required permissions to the go-agent folder, i.e. modify, read and execute, list folder contents and read permissions.
 
     **Please note** : If the go-agent as an application is run by any user, then this user needs to have these required permissions to the go-agent folder, i.e. modify, read and execute, list folder contents and read permissions.
 
