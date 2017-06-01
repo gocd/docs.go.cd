@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.32" data-basepath=".." data-revision="Tue May 23 2017 03:26:34 GMT-0700 (PDT)">
+    <div class="book" data-level="4.32" data-basepath=".." data-revision="Thu Jun 01 2017 05:41:33 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2104,21 +2104,31 @@
                 
                     <section class="normal" id="section-">
                     
-                        <p><a id="top"></a></p>
+                        <html><head></head><body><p><a id="top"></a></p>
 <h1 id="go-configuration-reference"><a name="go-configuration-reference" class="plugin-anchor" href="#go-configuration-reference"><span class="fa fa-link"></span></a>Go Configuration Reference</h1>
-<big><pre>
-<a href="#cruise">&lt;cruise&gt;</a>
+<big><pre><a href="#cruise">&lt;cruise&gt;</a>
     <a href="#server">&lt;server&gt;</a>
         <a href="#security">&lt;security&gt;</a>
-            <a href="#ldap">&lt;ldap/&gt;</a>
-                <a href="#bases">&lt;bases/&gt;</a>
+            <a href="#ldap">&lt;ldap&gt;</a>
+                <a href="#bases">&lt;bases&gt;</a>
                     <a href="#base">&lt;base/&gt;</a>
+                <a href="#bases">&lt;/bases&gt;</a>
+            <a href="#ldap">&lt;/ldap&gt;</a>
             <a href="#passwordFile">&lt;passwordFile/&gt;</a>
+            <a href="#authConfigs">&lt;authConfigs&gt;</a>
+              <a href="#authConfig">&lt;authConfig&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                  <a href="#key">&lt;key/&gt;</a>
+                  <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+              <a href="#authConfig">&lt;/authConfig&gt;</a>
+            <a href="#authConfigs">&lt;/authConfigs&gt;</a>
             <a href="#roles">&lt;roles&gt;</a>
                 <a href="#role_definition">&lt;role&gt;</a>
                     <a href="#usersinrole">&lt;users/&gt;</a>
                         <a href="#userinrole">&lt;user/&gt;</a>
                 <a href="#role_definition">&lt;/role&gt;</a>
+                <a href="#plugin_role_definition">&lt;pluginRole/&gt;</a>
             <a href="#roles">&lt;/roles&gt;</a>
             <a href="#admins">&lt;admins&gt;</a>
                 <a href="#roleinadmin">&lt;role/&gt;</a>
@@ -2137,7 +2147,6 @@
             <a href="#profiles">&lt;/profiles&gt;</a>
         <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
-
     <a href="#repositories">&lt;repositories&gt;</a>
         <a href="#repository">&lt;repository&gt;</a>
             <a href="#pluginConfiguration">&lt;pluginConfiguration/&gt;</a>
@@ -2159,7 +2168,6 @@
             <a href="#packages">&lt;/packages&gt;</a>
         <a href="#repository">&lt;/repository&gt;</a>
     <a href="#repositories">&lt;/repositories&gt;</a>
-
     <a href="#config-repos">&lt;config-repos&gt;</a>
       <a href="#config-repo">&lt;config-repo&gt;</a>
         <a href="#svn">&lt;svn&gt;</a>
@@ -2196,7 +2204,6 @@
         <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
       <a href="#config-repo">&lt;/config-repo&gt;</a>
     <a href="#config-repos">&lt;/config-repos&gt;</a>
-
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -2212,7 +2219,6 @@
                 <a href="#role">&lt;role/&gt;</a>
             <a href="#group_operate">&lt;/operate&gt;</a>
         <a href="#group_authorization">&lt;/authorization&gt;</a>
-
         <a href="#pipeline">&lt;pipeline&gt;</a>
             <a href="#params">&lt;params&gt;</a>
                 <a href="#param">&lt;param/&gt;</a>
@@ -2225,7 +2231,6 @@
                     &lt;value/&gt;
                 <a href="#variable">&lt;/variable&gt;</a>
             <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-
             <a href="#materials">&lt;materials&gt;</a>
                 <a href="#svn">&lt;svn&gt;</a>
                     <a href="#filter">&lt;filter&gt;</a>
@@ -2256,7 +2261,6 @@
                 <a href="#package-material">&lt;package/&gt;</a>
                 <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
             <a href="#materials">&lt;/materials&gt;</a>
-
             <a href="#stage">&lt;stage&gt;</a>
                 <a href="#approval">&lt;approval&gt;</a>
                     <a href="#authorization">&lt;authorization&gt;</a>
@@ -2269,7 +2273,6 @@
                         &lt;value/&gt;
                     <a href="#variable">&lt;/variable&gt;</a>
                 <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-
                 <a href="#jobs">&lt;jobs&gt;</a>
                     <a href="#job">&lt;job&gt;</a>
                         <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
@@ -2280,7 +2283,6 @@
                         <a href="#resources">&lt;resources&gt;</a>
                             <a href="#resource">&lt;resource/&gt;</a>
                         <a href="#resources">&lt;/resources&gt;</a>
-
                         <a href="#tasks">&lt;tasks&gt;</a>
                             <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
                                 <a href="#runif">&lt;runif/&gt;</a>
@@ -2304,7 +2306,6 @@
                                 <a href="#oncancel">&lt;oncancel/&gt;</a>
                             <a href="#exec">&lt;/exec&gt;</a>
                         <a href="#tasks">&lt;/tasks&gt;</a>
-
                         <a href="#artifacts">&lt;artifacts&gt;</a>
                             <a href="#artifact">&lt;artifact/&gt;</a>
                             <a href="#test">&lt;test/&gt;</a>
@@ -2320,7 +2321,6 @@
             <a href="#stage">&lt;/stage&gt;</a>
         <a href="#pipeline">&lt;/pipeline&gt;</a>
     <a href="#pipelines">&lt;/pipelines&gt;</a>
-
     <a href="#templates">&lt;templates&gt;</a>
         <a href="#pipeline-template">&lt;pipeline&gt;</a>
             <a href="#stage">&lt;stage&gt;</a>
@@ -2328,7 +2328,6 @@
             <a href="#stage">&lt;/stage&gt;</a>
         <a href="#pipeline-template">&lt;/pipeline&gt;</a>
     <a href="#templates">&lt;/templates&gt;</a>
-
     <a href="#environments">&lt;environments&gt;</a>
         <a href="#environment">&lt;environment&gt;</a>
             <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
@@ -2344,7 +2343,6 @@
             <a href="#environment-pipelines">&lt;/pipelines&gt;</a>
         <a href="#environment">&lt;/environment&gt;</a>
     <a href="#environments">&lt;/environments&gt;</a>
-
     <a href="#agents">&lt;agents&gt;</a>
         <a href="#agent">&lt;agent&gt;</a>
             <a href="#agentresources">&lt;resources&gt;</a>
@@ -2435,7 +2433,7 @@
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="security"><a name="security" class="plugin-anchor" href="#security"><span class="fa fa-link"></span></a>&lt;security&gt; </h2>
-<p>The <code>&lt;security&gt;</code> element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support <a href="#ldap">LDAP</a> and a simple <a href="#passwordFile">password file</a> format. You can use both methods if you want. This can be useful if you want to allow access from scripts without having to add a lot of users to your corporate LDAP. In this case you could add a &apos;script&apos; user to the password file.</p>
+<p>The <code>&lt;security&gt;</code> element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support enabling authentication using Authorization plugin endpoint. Support for LDAP and simple password-file authentication is available out of box via the bundled plugins for the same. You can use more than one authentication mechanism if you want. Support for inbuilt <a href="#ldap">LDAP</a> and <a href="#passwordFile">password file</a> tags in configuration has been deprecated.</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><span class="fa fa-link"></span></a>Attributes</h3>
 <table>
 <thead>
@@ -2456,13 +2454,42 @@
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><span class="fa fa-link"></span></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">server</span> <span class="hljs-attribute">artifactsdir</span>=<span class="hljs-value">&quot;/var/lib/go/big-artifacts-folder&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-title">security</span> <span class="hljs-attribute">allowOnlyKnownUsersToLogin</span>=<span class="hljs-value">&quot;false&quot;</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-title">ldap</span> <span class="hljs-attribute">uri</span>=<span class="hljs-value">&quot;ldap://xxx.yourcompany.com&quot;</span>
-       <span class="hljs-attribute">managerDn</span>=<span class="hljs-value">&quot;cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>
-       <span class="hljs-attribute">managerPassword</span>=<span class="hljs-value">&quot;password&quot;</span>
-       <span class="hljs-attribute">searchFilter</span>=<span class="hljs-value">&quot;(sAMAccountName={0})&quot;</span> /&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-title">bases</span>&gt;</span>
-          <span class="hljs-tag">&lt;<span class="hljs-title">base</span> <span class="hljs-attribute">value</span>=<span class="hljs-value">&quot;ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com&quot;</span>/&gt;</span>
-        <span class="hljs-tag">&lt;/<span class="hljs-title">bases</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">authConfigs</span>&gt;</span>
+     <span class="hljs-tag">&lt;<span class="hljs-title">authConfig</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;profile-id&quot;</span> <span class="hljs-attribute">pluginId</span>=<span class="hljs-value">&quot;cd.go.authentication.ldap&quot;</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>Url<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>ldap://xxx.yourcompany.com<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>ManagerDN<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>Password<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>secret<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>SearchBases<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>ou=Employees,ou=Enterprise,ou=Principal,dc=xxxx,dc=yyyy,dc=com<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>UserLoginFilter<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>(sAMAccountName={0})<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>UserSearchFilter<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>(sAMAccountName={0})<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>DisplayNameAttribute<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>displayName<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+       <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>EmailAttribute<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+         <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>mail<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+       <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+     <span class="hljs-tag">&lt;/<span class="hljs-title">authConfig</span>&gt;</span>
+   <span class="hljs-tag">&lt;/<span class="hljs-title">authConfigs</span>&gt;</span>  
   <span class="hljs-tag">&lt;/<span class="hljs-title">security</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">server</span>&gt;</span>
 </code></pre>
@@ -2546,6 +2573,7 @@
   <span class="hljs-tag">&lt;/<span class="hljs-title">profiles</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">elastic</span>&gt;</span>
 </code></pre>
+<p><a href="#top">top</a></p>
 <h2 id="profiles"><a name="profiles" class="plugin-anchor" href="#profiles"><span class="fa fa-link"></span></a>&lt;profiles&gt; </h2>
 <p><code>&lt;profiles&gt;</code> element specifies the profiles to configure elastic agents.</p>
 <p>There can be zero or more profiles.</p>
@@ -2595,7 +2623,7 @@ A profile should have a unique <code>id</code> attribute and should be associate
 <span class="hljs-tag">&lt;/<span class="hljs-title">profile</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
-<h2 id="ldap"><a name="ldap" class="plugin-anchor" href="#ldap"><span class="fa fa-link"></span></a>&lt;ldap&gt; </h2>
+<h2 id="ldap"><a name="ldap" class="plugin-anchor" href="#ldap"><span class="fa fa-link"></span></a>&lt;ldap&gt;  [<em>Deprecated</em>]</h2>
 <p>The <code>&lt;ldap&gt;</code> element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><span class="fa fa-link"></span></a>Attributes</h3>
 <table>
@@ -2685,7 +2713,7 @@ the directory from which the LDAP search begins.</p>
   <span class="hljs-tag">&lt;/<span class="hljs-title">ldap</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
-<h2 id="passwordFile"><a name="passwordFile" class="plugin-anchor" href="#passwordFile"><span class="fa fa-link"></span></a>&lt;passwordFile&gt; </h2>
+<h2 id="passwordFile"><a name="passwordFile" class="plugin-anchor" href="#passwordFile"><span class="fa fa-link"></span></a>&lt;passwordFile&gt;  [<em>Deprecated</em>]</h2>
 <p>The <code>&lt;passwordFile&gt;</code> element is used to specify a file which has a set of username and password pairs. The format of username and password in this file is ${username}=${password which has been encrypted with SHA1}, with one line per user.</p>
 <table>
 <thead>
@@ -2718,6 +2746,54 @@ the directory from which the LDAP search begins.</p>
 <pre><code>Jez=ThmbShxAtJepX80c2JY1FzOEmUk
 lqiao=TfkgShslgJepX80c2JY1trwEskT
 </code></pre><p><a href="#top">top</a></p>
+<h2 id="authConfigs"><a name="authConfigs" class="plugin-anchor" href="#authConfigs"><span class="fa fa-link"></span></a>&lt;authConfigs&gt; </h2>
+<p>Using <code>&lt;authConfigs&gt;</code> element GoCD administrators can provide one or more authorization configurations to connect with the authorization server(s).</p>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">authConfigs</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">authConfig</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;file-auth-config&quot;</span> <span class="hljs-attribute">pluginId</span>=<span class="hljs-value">&quot;cd.go.authentication.passwordfile&quot;</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;/<span class="hljs-title">authConfig</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">authConfig</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;ldap&quot;</span> <span class="hljs-attribute">pluginId</span>=<span class="hljs-value">&quot;cd.go.authentication.ldap&quot;</span>&gt;</span>
+    ...
+    <span class="hljs-tag">&lt;/<span class="hljs-title">authConfig</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">authConfigs</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="authConfig"><a name="authConfig" class="plugin-anchor" href="#authConfig"><span class="fa fa-link"></span></a>&lt;authConfig&gt; </h2>
+<p>The <code>&lt;authConfig&gt;</code> specifies the <a href="#property">configuration</a> to be used by the authorization plugin. This will usually allow administrators to configure the connection settings for your authorization plugin, and may include configuration like URLs and credentials, among others.</p>
+<p>An <code>authConfig</code> should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute. </p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><span class="fa fa-link"></span></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>Unique Id of authConfig.</td>
+</tr>
+<tr>
+<td>pluginId</td>
+<td>Yes</td>
+<td>The Id of authorization plugin.</td>
+</tr>
+</tbody>
+</table>
+<p>Refer to your plugin&apos;s documentation to know the <code>property</code> keys to be configured.</p>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><span class="fa fa-link"></span></a>Example:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">authConfig</span> <span class="hljs-attribute">id</span>=<span class="hljs-value">&quot;file-auth-config&quot;</span> <span class="hljs-attribute">pluginId</span>=<span class="hljs-value">&quot;cd.go.authentication.passwordfile&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>PasswordFilePath<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>/etc/go/password.properties<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">authConfig</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
 <h2 id="roles"><a name="roles" class="plugin-anchor" href="#roles"><span class="fa fa-link"></span></a>&lt;roles&gt; </h2>
 <p>The <code>&lt;roles&gt;</code> element is a container for roles that users defined. It can&apos;t be defined without <code>&lt;role&gt;</code>.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><span class="fa fa-link"></span></a>Examples</h3>
@@ -2785,6 +2861,46 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
     <span class="hljs-tag">&lt;<span class="hljs-title">user</span>&gt;</span>lqiao<span class="hljs-tag">&lt;/<span class="hljs-title">user</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-title">users</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">role</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="plugin_role_definition"><a name="plugin_role_definition" class="plugin-anchor" href="#plugin_role_definition"><span class="fa fa-link"></span></a>&lt;pluginRole&gt; </h2>
+<p>The <code>&lt;pluginRole&gt;</code> element is used to define roles in GoCD. Unlike <code>role</code> which contains a list of <code>users</code>, <code>pluginRole</code> provides <a href="#property">configuration</a> to map a GoCD role to a role defined in an external authorization server managed by an Authorization plugin. e.g pluginRole can be used to define mappings between LDAP group and GoCD roles.</p>
+<p><strong>Notes:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>name</td>
+<td>Yes</td>
+<td>The name of the role.</td>
+</tr>
+<tr>
+<td>authConfigId</td>
+<td>Yes</td>
+<td>Id of an <a href="#authConfig">authorization config</a>.</td>
+</tr>
+</tbody>
+</table>
+<p>Refer to your plugin&apos;s documentation to know the <code>property</code> keys to be configured for the <code>pluginRole</code>.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><span class="fa fa-link"></span></a>Examples</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-title">roles</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-title">pluginRole</span> <span class="hljs-attribute">name</span>=<span class="hljs-value">&quot;SuperAdmin&quot;</span> <span class="hljs-attribute">authConfigId</span>=<span class="hljs-value">&quot;auth_config_id&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>MemberOfAttribute<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>memberOf<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-title">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">key</span>&gt;</span>MatchingGroups<span class="hljs-tag">&lt;/<span class="hljs-title">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-title">value</span>&gt;</span>CN=Dev,OU=Groups,DC=some,DC=enterprise,DC=com<span class="hljs-tag">&lt;/<span class="hljs-title">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-title">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">pluginRole</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-title">roles</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="admins"><a name="admins" class="plugin-anchor" href="#admins"><span class="fa fa-link"></span></a>&lt;admins&gt; </h2>
@@ -5240,7 +5356,7 @@ allow certain variable names and/or values.</p>
   <span class="hljs-tag">&lt;/<span class="hljs-title">agent</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-title">agents</span>&gt;</span>
 </code></pre>
-
+</body></html>
                     
                     </section>
                 
