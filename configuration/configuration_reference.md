@@ -6,9 +6,11 @@
 <a href="#cruise">&lt;cruise&gt;</a>
     <a href="#server">&lt;server&gt;</a>
         <a href="#security">&lt;security&gt;</a>
-            <a href="#ldap">&lt;ldap/&gt;</a>
-                <a href="#bases">&lt;bases/&gt;</a>
+            <a href="#ldap">&lt;ldap&gt;</a>
+                <a href="#bases">&lt;bases&gt;</a>
                     <a href="#base">&lt;base/&gt;</a>
+                <a href="#bases">&lt;/bases&gt;</a>
+            <a href="#ldap">&lt;/ldap&gt;</a>
             <a href="#passwordFile">&lt;passwordFile/&gt;</a>
             <a href="#authConfigs">&lt;authConfigs&gt;</a>
               <a href="#authConfig">&lt;authConfig&gt;</a>
@@ -569,7 +571,7 @@ Using `<authConfigs>` element GoCD administrators can provide one or more author
 
 ## &lt;authConfig&gt; {#authConfig}
 
-`<authConfig>` specifies the [configuration](#property) to be used by the authorization plugin. This will usually allow administrators to configure the connection settings for your authorization plugin, and may include configuration like URLs and credentials, among others.
+The `<authConfig>` specifies the [configuration](#property) to be used by the authorization plugin. This will usually allow administrators to configure the connection settings for your authorization plugin, and may include configuration like URLs and credentials, among others.
 
 An `authConfig` should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute. 
 
@@ -680,14 +682,14 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
 
 ## &lt;pluginRole&gt; {#plugin_role_definition}
 
-The `<pluginRole>` element is used to define roles in GoCD. Unlike `role` which contains a list of `users`, `pluginRole` provides configuration to map a GoCD role to a role defined in an external authorization server managed by an Authorization plugin. e.g pluginRole can be used to define mappings between LDAP group and GoCD roles.
+The `<pluginRole>` element is used to define roles in GoCD. Unlike `role` which contains a list of `users`, `pluginRole` provides [configuration](#property) to map a GoCD role to a role defined in an external authorization server managed by an Authorization plugin. e.g pluginRole can be used to define mappings between LDAP group and GoCD roles.
 
 **Notes:**
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | name | Yes | The name of the role. |
-| authConfigId | Yes | Plugin-id of an authorization plugin. |
+| authConfigId | Yes | Id of an [authorization config](#authConfig). |
 
 Refer to your plugin's documentation to know the `property` keys to be configured for the `pluginRole`.
 
@@ -695,7 +697,7 @@ Refer to your plugin's documentation to know the `property` keys to be configure
 
 ```xml
 <roles>
-<pluginRole name="SuperAdmin" authConfigId="my.custom.plugin">
+<pluginRole name="SuperAdmin" authConfigId="auth_config_id">
   <property>
     <key>MemberOfAttribute</key>
     <value>memberOf</value>
