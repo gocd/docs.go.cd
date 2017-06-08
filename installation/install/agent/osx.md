@@ -4,7 +4,7 @@
 
 ## Installation
 
-1.  Double-click the file downloaded from the [downloads page](https://www.gocd.io/download/) to unzip the contents.
+1.  Double-click the file downloaded from the [downloads page](https://www.gocd.org/download/) to unzip the contents.
 2.  Drag the ```Go Agent.app``` icon to the Applications folder.
 3.  Double-click on the ```Go Agent.app``` icon to open the launcher.
 4.  The very first time you run the GoCD agent on your machine you will be prompted for the hostname or IP address of your

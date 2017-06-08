@@ -383,7 +383,7 @@ The `<elastic>` element is used to provide configurations for the elastic agents
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| jobStarvationTimeout | No | Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be [notified](https://plugin-api.gocd.io/current/elastic-agents/#create-agent) to create a new elastic agent. |
+| jobStarvationTimeout | No | Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be [notified](https://plugin-api.gocd.org/current/elastic-agents/#create-agent) to create a new elastic agent. |
 
 ### Examples
 

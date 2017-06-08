@@ -18,7 +18,7 @@ Once you have the repository setup, execute
 sudo yum install -y go-agent
 ```
 
-Alternatively, if you have the agent RPM [downloaded](https://www.gocd.io/download):
+Alternatively, if you have the agent RPM [downloaded](https://www.gocd.org/download):
 
 ``` bash
 sudo yum install -y java-1.8.0-openjdk #atleast Java 8 is required, you may use other jre/jdk if you prefer
@@ -37,7 +37,7 @@ Once you have the repository setup, execute
 sudo apt-get install go-agent
 ```
 
-Alternatively, if you have the agent DEB [downloaded](https://www.gocd.io/download):
+Alternatively, if you have the agent DEB [downloaded](https://www.gocd.org/download):
 
 ```bash
 sudo dpkg -i go-agent-${version}.deb
