@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Fri Jun 02 2017 01:45:17 GMT-0700 (PDT)">
+    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Thu Jun 08 2017 03:28:36 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -55,7 +55,7 @@
         
             
             <li>
-                <a href="https://www.gocd.io" target="blank" class="custom-link">Home</a>
+                <a href="https://www.gocd.org" target="blank" class="custom-link">Home</a>
             </li>
         
             
@@ -2123,10 +2123,10 @@
 <pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;
 [gocd]
 name     = GoCD YUM Repository
-baseurl  = https://download.gocd.io
+baseurl  = https://download.gocd.org
 enabled  = 1
 gpgcheck = 1
-gpgkey   = https://download.gocd.io/GOCD-GPG-KEY.asc
+gpgkey   = https://download.gocd.org/GOCD-GPG-KEY.asc
 &quot;</span> | sudo tee /etc/yum.repos.d/gocd.repo
 
 sudo yum install -y java-<span class="hljs-number">1.8</span>.<span class="hljs-number">0</span>-openjdk <span class="hljs-comment">#atleast Java 8 is required, you may use other jre/jdk if you prefer</span>
@@ -2134,21 +2134,21 @@ sudo yum install -y java-<span class="hljs-number">1.8</span>.<span class="hljs-
 <p>Once you have the repository setup, execute</p>
 <pre><code class="lang-bash">sudo yum install -y go-agent
 </code></pre>
-<p>Alternatively, if you have the agent RPM <a href="https://www.gocd.io/download" target="_blank">downloaded</a>:</p>
+<p>Alternatively, if you have the agent RPM <a href="https://www.gocd.org/download" target="_blank">downloaded</a>:</p>
 <pre><code class="lang-bash">sudo yum install -y java-<span class="hljs-number">1.8</span>.<span class="hljs-number">0</span>-openjdk <span class="hljs-comment">#atleast Java 8 is required, you may use other jre/jdk if you prefer</span>
 sudo rpm -i go-agent-<span class="hljs-variable">${version}</span>.noarch.rpm
 </code></pre>
 <h2 id="debian-based-distributions-ie-ubuntu"><a name="debian-based-distributions-ie-ubuntu" class="plugin-anchor" href="#debian-based-distributions-ie-ubuntu"><span class="fa fa-link"></span></a>Debian based distributions (ie Ubuntu)</h2>
 <p>The GoCD agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell &#x2014;</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://download.gocd.io /&quot;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
-curl https://download.gocd.io/GOCD-GPG-KEY.asc | sudo apt-key add -
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;deb https://download.gocd.org /&quot;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
+curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
 sudo apt-get update
 </code></pre>
 <p>Once you have the repository setup, execute</p>
 <pre><code class="lang-bash">sudo apt-get install go-agent
 </code></pre>
-<p>Alternatively, if you have the agent DEB <a href="https://www.gocd.io/download" target="_blank">downloaded</a>:</p>
+<p>Alternatively, if you have the agent DEB <a href="https://www.gocd.org/download" target="_blank">downloaded</a>:</p>
 <pre><code class="lang-bash">sudo dpkg -i go-agent-<span class="hljs-variable">${version}</span>.deb
 </code></pre>
 <h2 id="managing-the-go-agent-service-on-linux"><a name="managing-the-go-agent-service-on-linux" class="plugin-anchor" href="#managing-the-go-agent-service-on-linux"><span class="fa fa-link"></span></a>Managing the go-agent service on linux</h2>

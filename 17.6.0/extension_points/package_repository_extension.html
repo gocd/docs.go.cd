@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="7.2" data-basepath=".." data-revision="Fri Jun 02 2017 01:45:17 GMT-0700 (PDT)">
+    <div class="book" data-level="7.2" data-basepath=".." data-revision="Thu Jun 08 2017 03:28:36 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -55,7 +55,7 @@
         
             
             <li>
-                <a href="https://www.gocd.io" target="blank" class="custom-link">Home</a>
+                <a href="https://www.gocd.org" target="blank" class="custom-link">Home</a>
             </li>
         
             
@@ -2116,7 +2116,7 @@ Pipelines in Go can poll packages in repositories similar to how they poll versi
 </ol>
 <p>These files (packages) are often maintained in corresponding package repositories. <strong>Such packages may be specified as materials for Go pipelines.</strong></p>
 <h3 id="supported-packages"><a name="supported-packages" class="plugin-anchor" href="#supported-packages"><span class="fa fa-link"></span></a>Supported Packages</h3>
-<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other <a href="https://www.gocd.io/community/plugins.html" target="_blank">external plugins</a>, it is possible to do the same for other types of packages.</p>
+<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other <a href="https://www.gocd.org/community/plugins.html" target="_blank">external plugins</a>, it is possible to do the same for other types of packages.</p>
 <h3 id="repositories-packages-and-materials"><a name="repositories-packages-and-materials" class="plugin-anchor" href="#repositories-packages-and-materials"><span class="fa fa-link"></span></a>Repositories, Packages and Materials</h3>
 <p>A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the respository, interested pipelines will get scheduled.</p>
 <h4 id="repository-definition"><a name="repository-definition" class="plugin-anchor" href="#repository-definition"><span class="fa fa-link"></span></a>Repository Definition</h4>
