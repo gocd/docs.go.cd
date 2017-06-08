@@ -6,7 +6,7 @@
 
 You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.
 
-1.  Download a version of go-server from the [downloads page](https://www.gocd.io/download/).
+1.  Download a version of go-server from the [downloads page](https://www.gocd.org/download/).
 2.  Double-click the `go-server-${version}.exe` installer file and follow the prompts to install Go.
 3.  During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default
 4.  You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.

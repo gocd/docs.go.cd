@@ -4,7 +4,7 @@
 
 ## Installation
 
-1.  Double-click the file downloaded from the [downloads page](https://www.gocd.io/download/) to unzip the contents.
+1.  Double-click the file downloaded from the [downloads page](https://www.gocd.org/download/) to unzip the contents.
 2.  Drag the GoCD server application to the Applications folder.
 3.  Double-click on the ```Go Server.app``` icon to open the launcher.
 4.  While the GoCD server is starting up, you'll see a progress bar in the top left of your screen.

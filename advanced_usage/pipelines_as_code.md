@@ -20,7 +20,7 @@ Here's an image which shows the relationship between the different pieces of a s
 A quick note about "Infrastructure as code": Many people seem to associate only being able to check in configuration to
 a repository as a part of "Infrastructure as code". However, the ability to configure the GoCD server through code has
 existed in various forms. For instance, [gomatic](https://github.com/SpringerSBM/gomatic), using
-[GoCD APIs](https://api.gocd.io/current/), [yagocd](https://github.com/grundic/yagocd),
+[GoCD APIs](https://api.gocd.org/current/), [yagocd](https://github.com/grundic/yagocd),
 [gocd-cli](https://github.com/gaqzi/py-gocd), etc. This is another way of doing the same. In this case, it's possible to
 make it more declarative, depending on the plugin and possibly give more control to others.
 
@@ -34,7 +34,7 @@ Pipelines can currently be stored using JSON or YAML.
 The setup needed to allow this is:
 
 1. Install the [JSON config plugin](https://github.com/tomzo/gocd-json-config-plugin/releases) as mentioned in the
-   [Plugin User Guide](https://docs.gocd.io/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins).
+   [Plugin User Guide](https://docs.gocd.org/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins).
 
 2. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
 
@@ -61,7 +61,7 @@ The setup needed to allow this is:
 Tomasz [announced](https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion) a Yaml plugin. The setup needed to allow this is:
 
 1. Install the [YAML config plugin](https://github.com/tomzo/gocd-yaml-config-plugin/releases) as mentioned in the
-   [Plugin User Guide](https://docs.gocd.io/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins).
+   [Plugin User Guide](https://docs.gocd.org/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins).
 
 2. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
 
