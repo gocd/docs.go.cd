@@ -71,6 +71,14 @@ Tomasz [announced](https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/dis
        </config-repo>
       </config-repos>
 
+    or using SSH
+
+      <config-repos>
+       <config-repo plugin="yaml.config.plugin">
+         <git url="git@github.com:tomzo/gocd-yaml-config-example.git" />
+       </config-repo>
+      </config-repos>
+    
     You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
     to see what happens. Any file ending in ".gocd.yaml" is picked up by the plugin. Documentation of what is
     possible in the YAML file is [here](https://github.com/tomzo/gocd-yaml-config-plugin).
