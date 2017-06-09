@@ -43,6 +43,14 @@ The setup needed to allow this is:
          <git url="https://github.com/arvindsv/gocd-demo-config-repo-json.git" />
        </config-repo>
       </config-repos>
+      
+    or using SSH
+
+      <config-repos>
+       <config-repo plugin="json.config.plugin">
+         <git url="git@github.com:arvindsv/gocd-demo-config-repo-json.git" />
+       </config-repo>
+      </config-repos>
 
     You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
     to see what happens. Any file ending in ".gopipeline.json" is picked up by the plugin. Documentation of what is
