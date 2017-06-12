@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.12" data-basepath=".." data-revision="Mon May 22 2017 10:47:44 GMT-0700 (PDT)">
+    <div class="book" data-level="5.12" data-basepath=".." data-revision="Mon Jun 12 2017 03:01:27 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2170,7 +2170,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="backup-go-server"><a name="backup-go-server" class="plugin-anchor" href="#backup-go-server"><span class="fa fa-link"></span></a>Backup Go Server</h1>
+                        <html><head></head><body><h1 id="backup-go-server"><a name="backup-go-server" class="plugin-anchor" href="#backup-go-server"><span class="fa fa-link"></span></a>Backup Go Server</h1>
 <p>You can use Go&apos;s administration interface to perform an One-Click Backup of Go. You can also perform the backup <a href="https://api.gocd.io/#backups" target="_blank">using the API</a>.</p>
 <h2 id="steps-to-initiate-backup"><a name="steps-to-initiate-backup" class="plugin-anchor" href="#steps-to-initiate-backup"><span class="fa fa-link"></span></a>Steps to initiate backup</h2>
 <ul>
@@ -2229,13 +2229,13 @@
 <em>For example:</em> Before restoring the Database, make sure the <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> is backed up and the directory is emptied.</p>
 </li>
 <li>Database &#x2013; Unzip the <strong>db.zip</strong> found in the backup directory. Unzip will create a file called <strong>cruise.h2.db</strong> . Copy this file to the directory <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> .</li>
-<li>Configuration - Unzip the <strong>config-dir.zip</strong> into a temp directory. Copy all the files from this directory to <strong>{SERVER_INSTALLATION_DIR}/config</strong> directory on Windows and Mac or <strong>/etc/go</strong> on Linux and Solaris.</li>
+<li>Configuration - Unzip the <strong>config-dir.zip</strong> into a temp directory. Copy all the files from this directory to <strong>{SERVER_INSTALLATION_DIR}/config</strong> directory on Windows and Mac or <strong>/etc/go</strong> on Linux.</li>
 <li>Configuration History - Unzip the <strong>config-repo.zip</strong> into temp directory. Recursively copy all the contents from this directory to <strong>{SERVER_INSTALLATION_DIR}/db/config.git</strong> .</li>
 <li>Make sure the ownership of all the files that are restored are the same as the user running the Go server.<br>
 <em>For example:</em> Make sure you run a &quot;chown -R go:go {SERVER_INSTALLATION_DIR}/db/h2db&quot; after Database restoration.</li>
 <li>Start the Go server</li>
 </ul>
-
+</body></html>
                     
                     </section>
                 
