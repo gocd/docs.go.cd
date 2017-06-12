@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="7.1" data-basepath=".." data-revision="Mon May 22 2017 10:46:52 GMT-0700 (PDT)">
+    <div class="book" data-level="7.1" data-basepath=".." data-revision="Mon Jun 12 2017 02:25:06 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2185,7 +2185,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="plugin-user-guide"><a name="plugin-user-guide" class="plugin-anchor" href="#plugin-user-guide"><span class="fa fa-link"></span></a>Plugin User Guide</h1>
+                        <html><head></head><body><h1 id="plugin-user-guide"><a name="plugin-user-guide" class="plugin-anchor" href="#plugin-user-guide"><span class="fa fa-link"></span></a>Plugin User Guide</h1>
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><span class="fa fa-link"></span></a>Introduction</h2>
 <p>Plugins allow users to extend the functionality of Go. Each plugin is assigned an identifier which is determined by the <strong>id</strong> attribute provided in plugin metadata file packaged along with the plugin jar. If the <a href="https://developer.gocd.io/current/writing_go_plugins/go_plugins_basics.html#plugin-metadata" target="_blank">metadata</a> file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, Go server would try to load all the plugins. On successful load, the plugin will be converted into an OSGi bundle and extracted into <code>&lt;server installation directory&gt;/plugins_work</code> directory. <strong>Plugins</strong> tab, under Go server Administration, would list all the loaded plugins.</p>
 <h2 id="bundled-versus-external"><a name="bundled-versus-external" class="plugin-anchor" href="#bundled-versus-external"><span class="fa fa-link"></span></a>Bundled versus External</h2>
@@ -2208,7 +2208,7 @@
 <li>If two external plugins with same <strong>id</strong> are available, only one of them will be loaded successfully in no specific order.</li>
 <li>If a bundled and an external plugin with same <strong>id</strong> are available, only bundled plugin wll be loaded.</li>
 </ul>
-
+</body></html>
                     
                     </section>
                 
