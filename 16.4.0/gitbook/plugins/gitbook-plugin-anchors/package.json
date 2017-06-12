@@ -41,8 +41,8 @@
   ],
   "dist": {
     "shasum": "9f2b1729a8470c129f6803c22d12be38ffbcdfc0",
-    "tarball": "https://maven-mirrors.gocd.io/repository/npmjs.org-proxy/gitbook-plugin-anchors/-/gitbook-plugin-anchors-0.4.0.tgz"
+    "tarball": "https://maven-mirrors.gocd.org/repository/npmjs.org-proxy/gitbook-plugin-anchors/-/gitbook-plugin-anchors-0.4.0.tgz"
   },
   "directories": {},
-  "_resolved": "https://maven-mirrors.gocd.io/repository/npmjs.org-proxy/gitbook-plugin-anchors/-/gitbook-plugin-anchors-0.4.0.tgz"
+  "_resolved": "https://maven-mirrors.gocd.org/repository/npmjs.org-proxy/gitbook-plugin-anchors/-/gitbook-plugin-anchors-0.4.0.tgz"
 }
