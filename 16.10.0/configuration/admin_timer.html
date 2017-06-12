@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.18" data-basepath=".." data-revision="Mon May 22 2017 20:37:45 GMT-0700 (PDT)">
+    <div class="book" data-level="4.18" data-basepath=".." data-revision="Mon Jun 12 2017 02:50:25 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2170,7 +2170,7 @@
                 
                     <section class="normal" id="section-">
                     
-                        <h1 id="run-a-pipeline-on-a-schedule"><a name="run-a-pipeline-on-a-schedule" class="plugin-anchor" href="#run-a-pipeline-on-a-schedule"><span class="fa fa-link"></span></a>Run a pipeline on a schedule</h1>
+                        <html><head></head><body><h1 id="run-a-pipeline-on-a-schedule"><a name="run-a-pipeline-on-a-schedule" class="plugin-anchor" href="#run-a-pipeline-on-a-schedule"><span class="fa fa-link"></span></a>Run a pipeline on a schedule</h1>
 <p>To run a pipeline at a given time, use a timer. Timers understand a cron-like specification for when to run a pipeline.</p>
 <p>Note that a pipeline will still schedule normally if changes are checked in. If the pipeline should only run according to the timer&apos;s schedule then you should also set a manual approval for the first stage of the pipeline to stop it from automatically scheduling when materials change. This can be also be achieved by un-checking the option &quot;Automatic pipeline scheduling&quot; shown in the screenshot below.</p>
 <p>The timer is similar to a manually triggered pipeline in many ways. But it does not fetch the latest revision of the materials when it runs. It uses the last available revision that it knows of.</p>
@@ -2193,7 +2193,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-title">pipeline</span>&gt;</span>
 </code></pre>
 <p>For more information see <a href="configuration_reference.html#timer">&lt; timer &gt;</a></p>
-
+</body></html>
                     
                     </section>
                 
