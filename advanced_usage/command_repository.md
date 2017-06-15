@@ -71,7 +71,7 @@ cd "C:\Program Files (x86)\Go Server\db\command_repository\default"
 git pull >>c:\pull-log.txt 2>&1
 ```
 
-Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page or by using the [reload API](../api/command_repo_api.md).
+Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page.
 
 
 #### Via API
