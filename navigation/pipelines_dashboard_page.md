@@ -37,4 +37,4 @@ Pipelines created by you using the pipeline creation wizard will always be shown
 -   [Pipeline activity](../navigation/pipeline_activity_page.md)
 -   [Job details](../navigation/job_details_page.md)
 -   [Clean up after canceling a task](../advanced_usage/dev_clean_up_when_cancel.md)
--   [Go overview](../index.md)
+-   [Go overview](../introduction/concepts_in_go.md)
