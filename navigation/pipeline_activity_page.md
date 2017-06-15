@@ -18,4 +18,4 @@ The "Pipeline Activity" page shows the history of stages for each pipeline label
 ##### Also see...
 
 -   [Stage details](../navigation/stage_details_page.md)
--   [Go overview](../index.md)
+-   [Go overview](../introduction/concepts_in_go.md)
