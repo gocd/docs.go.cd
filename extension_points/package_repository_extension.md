@@ -101,7 +101,7 @@ Repositories and their packages are global entities not tied to a pipeline group
 
 ### Polling
 
-Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting [autoUpdate](../configuration/configuration_reference.md#package) to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.md) is on). Also see [API scheduling](../api/pipeline_api.md#key).
+Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting [autoUpdate](../configuration/configuration_reference.md#package) to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.md) is on). Also see [API scheduling](https://api.gocd.org/current/#scheduling-pipelines).
 
 ### Package information display
 
