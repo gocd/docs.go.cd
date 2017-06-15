@@ -8,7 +8,7 @@ Configuration plugins allow users to keep both **pipeline and environment** conf
 in all version control systems supported by Go.
 Most elements of **pipelines and environments** available in XML are supported by configuration repositories.
 However there are a few exceptions, you cannot use in configuration repositories:
- * [GoCD pipeline templates](../pipeline_templates.md), nor references to templates. *Note that you can write a plugin that supports pipeline templates in any way you want*
+ * [GoCD pipeline templates](../configuration/pipeline_templates.md), nor references to templates. *Note that you can write a plugin that supports pipeline templates in any way you want*
  * parameters
 
 The format in which configurations are stored is fully controlled by the plugin,
