@@ -68,7 +68,7 @@ Following this procedure, if you restart the agent, Go server will see it as a n
 
 ## Pausing agents
 
-If you want to pause an agent or temporarily disable it so that Go server will not assign work to the agent. Go will record in its configuration file that the agent has been disabled. This means, if you restart Go server, the disabled agent will remain disabled. You can use the following api to [disable agents](../api/agent_api.md) or you can disable the agent from the agents tab.
+If you want to pause an agent or temporarily disable it so that Go server will not assign work to the agent. Go will record in its configuration file that the agent has been disabled. This means, if you restart Go server, the disabled agent will remain disabled. You can use the following api to [disable agents](https://api.gocd.org/current/#update-an-agent) or you can disable the agent from the agents tab.
 
 A disabled agent can be enabled; this will make it eligible to pick up work again. You can use the api or enable an agent from the agents tab.
 
