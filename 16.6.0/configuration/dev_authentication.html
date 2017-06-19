@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="4.21" data-basepath=".." data-revision="Mon Jun 12 2017 02:54:06 GMT-0700 (PDT)">
+    <div class="book" data-level="4.21" data-basepath=".." data-revision="Sun Jun 18 2017 20:44:39 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2172,8 +2172,9 @@
                     
                         <html><head></head><body><h1 id="authentication"><a name="authentication" class="plugin-anchor" href="#authentication"><span class="fa fa-link"></span></a>Authentication</h1>
 <p>Go was built from the bottom up with security in mind. Go server provides both an http service and an https service by default. The http service listens on port 8153 and the https service listens on port 8154.</p>
-<p>By default, Go does not require users to authenticate. However we provide two mechanisms for you to force users to authenticate if you wish to. You can create a password file (in standard Apache htpasswd syntax) to authenticate log in requests. Alternatively Go can authenticate against LDAP or ActiveDirectory servers.</p>
-<p>You can use both password file and LDAP/ActiveDirectory authentication at the same time. In this case Go will first try and authenticate you against the password file. If it cannot find your username, or if it finds that your username and password do not match, it will try LDAP/AD next. This can be very useful if you need a read-only user that can be used by scripts, and you do not want to add this user to your LDAP.</p>
+<p>You can use both password file and LDAP/ActiveDirectory authentication at the same time. In this case Go will first try and authenticate you against the password file. If it cannot find your username, or if it finds that your username and password do not match, it will try LDAP/AD next. This can be very useful if you need a read-only user that can be used by scripts, and you do not want to add this user to your LDAP.
+Support for in-built Password-File based and LDAP authentication has been disabled. Alternatively, GoCD provides extensions through <a href="https://plugin-api.gocd.org/current/authorization/" target="_blank">Authorization Endpoints</a> using which plugins can provide authentication and authorization services backed by any authorization service providers like LDAP, Google, Github etc.</p>
+<p>By default, GoCD does not require users to authenticate. However, users can be forced to authenticate by installing and configuring any of the <a href="https://plugin-api.gocd.org/current/authorization/" target="_blank">Authorization plugins</a>. GoCD comes bundled with a <a href="https://github.com/gocd/filebased-authentication-plugin" target="_blank">Password File based</a> and <a href="https://github.com/gocd/gocd-ldap-authentication-plugin" target="_blank">LDAP/AD</a> authentication plugins.</p>
 <h2 id="file-based-authentication"><a name="file-based-authentication" class="plugin-anchor" href="#file-based-authentication"><span class="fa fa-link"></span></a>File Based Authentication</h2>
 <p>The simplest way to authenticate people is to create a password file for Go to use. This is just a plain text file with the following format:</p>
 <pre><code>[username]:[password hashed with SHA1 and encoded with base 64]
@@ -2231,9 +2232,28 @@
 <p>If multiple search bases are configured, Go server will look for the specified user in each search base, one after the other. It will stop searching when it finds the information in a search base. In case any of the search bases are invalid, Go server will log this information in the server log, but continue searching in the remaining search bases.</p>
 <h2 id="controlling-user-access"><a name="controlling-user-access" class="plugin-anchor" href="#controlling-user-access"><span class="fa fa-link"></span></a>Controlling User Access</h2>
 <p>Once a user is authenticated, Go checks to see if he is an existing user or a new user (logging in for the first time). If a new user, there are two behaviors Go can operate under:</p>
+<p>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</p>
 <ul>
 <li>Automatically register the new user in Go and continue with the login process. This option has implications on licensing because auto-registering any new user who is in LDAP might cause you to run over your license limit. So keep that in mind when using this option.</li>
-<li>Deny access to the user if not already a registered Go user. New users will have to be explicitly added by an admin.</li>
+<li><h1 id="deny-access-to-the-user-if-not-already-a-registered-go-user-new-users-will-have-to-be-explicitly-added-by-an-admin"><a name="deny-access-to-the-user-if-not-already-a-registered-go-user-new-users-will-have-to-be-explicitly-added-by-an-admin" class="plugin-anchor" href="#deny-access-to-the-user-if-not-already-a-registered-go-user-new-users-will-have-to-be-explicitly-added-by-an-admin"><span class="fa fa-link"></span></a>Deny access to the user if not already a registered Go user. New users will have to be explicitly added by an admin.</h1>
+</li>
+<li>Automatically register the new user in GoCD and continue with the login process.</li>
+<li>Deny access to the user if not already a registered GoCD user. New users will have to be explicitly added by an admin.<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<blockquote>
+<p>06e893a3... Fixed broken URLs (#93)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
 </ul>
 <p>To switch the mode in which the Go Server operates:</p>
 <ol>
