@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="7.2" data-basepath=".." data-revision="Mon Jun 12 2017 02:58:53 GMT-0700 (PDT)">
+    <div class="book" data-level="7.2" data-basepath=".." data-revision="Mon Jun 19 2017 19:21:42 GMT+0000 (UTC)">
     
 
 <div class="book-summary">
@@ -2182,7 +2182,7 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &apos;orchard
 <h3 id="permissions"><a name="permissions" class="plugin-anchor" href="#permissions"><span class="fa fa-link"></span></a>Permissions</h3>
 <p>Repositories and their packages are global entities not tied to a pipeline group or environment. Pipeline group admins may define repositories and packages for use in their pipelines. One pipeline group admin may also use packages defined by another for their pipelines. Changing a package definition will cause all dependent pipelines to schedule - even those not in the same pipeline group as that of the person editing. Because of this, we don&apos;t have a UI way of changing the definition of a package. Only the Go admin can change it via Admin &gt; Config XML tab.</p>
 <h3 id="polling"><a name="polling" class="plugin-anchor" href="#polling"><span class="fa fa-link"></span></a>Polling</h3>
-<p>Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting <a href="../configuration/configuration_reference.html#package">autoUpdate</a> to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming <a href="../configuration/pipeline_scheduling.html">auto scheduling of pipelines</a> is on). Also see <a href="../api/pipeline_api.md#key">API scheduling</a>.</p>
+<p>Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting <a href="../configuration/configuration_reference.html#package">autoUpdate</a> to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming <a href="../configuration/pipeline_scheduling.html">auto scheduling of pipelines</a> is on). Also see <a href="https://api.gocd.org/current/#scheduling-pipelines" target="_blank">API scheduling</a>.</p>
 <h3 id="package-information-display"><a name="package-information-display" class="plugin-anchor" href="#package-information-display"><span class="fa fa-link"></span></a>Package information display</h3>
 <p>The following information is expected from the package material plugin (which in turn obtains it from the package metadata if available)</p>
 <ol>
