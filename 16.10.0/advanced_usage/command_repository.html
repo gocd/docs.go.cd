@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="5.11" data-basepath=".." data-revision="Mon Jun 12 2017 02:50:25 GMT-0700 (PDT)">
+    <div class="book" data-level="5.11" data-basepath=".." data-revision="Sun Jun 18 2017 20:39:55 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2217,7 +2217,7 @@
 <pre><code>echo %date% %time% &gt;&gt;c:\pull-log.txt 2&gt;&amp;1
 cd &quot;C:\Program Files (x86)\Go Server\db\command_repository\default&quot;
 git pull &gt;&gt;c:\pull-log.txt 2&gt;&amp;1
-</code></pre><p>Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page or by using the <a href="../api/command_repo_api.md">reload API</a>.</p>
+</code></pre><p>Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page.</p>
 <h4 id="via-api"><a name="via-api" class="plugin-anchor" href="#via-api"><span class="fa fa-link"></span></a>Via API</h4>
 <p>You may make a <code>POST</code> request to the path <code>/go/api/admin/command-repo-cache/reload</code> in order to update the command repository with the latest.</p>
 <pre><code class="lang-shell">$ curl -u username:password -X POST -H &apos;Confirm: true&apos; http://goserver.com:8153/go/api/admin/command-repo-cache/reload
