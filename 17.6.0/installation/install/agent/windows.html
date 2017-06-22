@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Thu Jun 15 2017 01:49:11 GMT-0700 (PDT)">
+    <div class="book" data-level="3.3.2" data-basepath="../../.." data-revision="Thu Jun 22 2017 01:49:11 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2128,7 +2128,7 @@
 </ol>
 <h1 id="silent-headless-installation"><a name="silent-headless-installation" class="plugin-anchor" href="#silent-headless-installation"><span class="fa fa-link"></span></a>Silent (Headless) Installation</h1>
 <p>You may use this method if you would like to script the installation of the GoCD agent.</p>
-<pre><code>go-agent-${version}-setup.exe /S /SERVERURL=&quot;&lt;SERVERURL&gt;&quot; /GO_AGENT_JAVA_HOME=&lt;PATH_TO_JAVA_HOME&gt; /D=&lt;PATH_TO_AGENT_DIRECTORY&gt;
+<pre><code>go-agent-${version}-setup.exe /S /START_AGENT=NO /SERVERURL=&quot;&lt;SERVERURL&gt;&quot; /GO_AGENT_JAVA_HOME=&lt;PATH_TO_JAVA_HOME&gt; /D=&lt;PATH_TO_AGENT_DIRECTORY&gt;
 </code></pre><table>
 <thead>
 <tr>
@@ -2141,7 +2141,12 @@
 <tr>
 <td><code>SERVERURL</code></td>
 <td>No</td>
-<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>. The value must be surrounded by <code>&quot;</code> quotes. In case of <code>powershell.exe</code>, the quotes must be escaped with backticks <code>` </code></td>
+<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>. The value must be surrounded by <code>&quot;</code> quotes. If using <code>powershell.exe</code>, the quotes must be escaped with backticks <code>` </code></td>
+</tr>
+<tr>
+<td><code>START_AGENT</code></td>
+<td>No</td>
+<td>Whether the agent service should start after installation. Set to <code>NO</code> (case-sensitive) to disable starting up the service after installation.</td>
 </tr>
 <tr>
 <td><code>GO_AGENT_JAVA_HOME</code></td>
