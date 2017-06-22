@@ -18,14 +18,15 @@ You must be logged in as a user with Admin privileges to install the GoCD agent 
 You may use this method if you would like to script the installation of the GoCD agent.
 
 ```
-go-agent-${version}-setup.exe /S /SERVERURL="<SERVERURL>" /GO_AGENT_JAVA_HOME=<PATH_TO_JAVA_HOME> /D=<PATH_TO_AGENT_DIRECTORY>
+go-agent-${version}-setup.exe /S /START_AGENT=NO /SERVERURL="<SERVERURL>" /GO_AGENT_JAVA_HOME=<PATH_TO_JAVA_HOME> /D=<PATH_TO_AGENT_DIRECTORY>
 ```
 
-|Argument                       |Required|Description                                                                                                                         |
-|-------------------------------|--------|------------------------------------------------------------------------------------------------------------------------------------|
-|`SERVERURL`                | No     | The URL of the GoCD server. Defaults to `https://127.0.0.1:8154/go`. The value must be surrounded by `"` quotes. In case of `powershell.exe`, the quotes must be escaped with backticks `` ` ``|
-|`GO_AGENT_JAVA_HOME`       | No     | The path to a JRE (or JDK) that the agent should run with. Defaults to the jre packaged with the agent. Needs to be at-least Java 8 (same version as the GoCD server).|
-|`PATH_TO_AGENT_DIRECTORY`  | No     | The path where the agent should be installed. Defaults to `C:\Program Files(x86)\Go Agent`.                                    |
+| Argument                  | Required | Description                                                                                                                                                                                   |
+|---------------------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `SERVERURL`               | No       | The URL of the GoCD server. Defaults to `https://127.0.0.1:8154/go`. The value must be surrounded by `"` quotes. If using `powershell.exe`, the quotes must be escaped with backticks `` ` `` |
+| `START_AGENT`             | No       | Whether the agent service should start after installation. Set to `NO` (case-sensitive) to disable starting up the service after installation.                                                |
+| `GO_AGENT_JAVA_HOME`      | No       | The path to a JRE (or JDK) that the agent should run with. Defaults to the jre packaged with the agent. Needs to be at-least Java 8 (same version as the GoCD server).                        |
+| `PATH_TO_AGENT_DIRECTORY` | No       | The path where the agent should be installed. Defaults to `C:\Program Files(x86)\Go Agent`.                                                                                                   |
 
 For example:
 ```
