@@ -1,21 +1,20 @@
-# Documentation for Go OSS [![Build Status](https://snap-ci.com/gocd/docs.go.cd/branch/master/build_image)](https://snap-ci.com/gocd/docs.go.cd/branch/master)
+# Documentation for GoCD - Continuous Delivery server
 
-
-This repository contains the documentation for Users.
+This repository contains the user documentation for [GoCD](https://www.gocd.org/).
 
 ## Contributing
 
 ### Install and configure [gitbook-cli](https://github.com/GitbookIO/gitbook-cli)
 
 ```
-$ npm install
+$ yarn install
 ```
 
 ### Serve the documentation locally
 
 ```
-$ npm run init-gitbook
-$ npm run serve
+$ yarn run init-gitbook
+$ yarn run serve
 ```
 
 Point your browser to [http://localhost:4000/](http://localhost:4000/)
@@ -23,7 +22,7 @@ Point your browser to [http://localhost:4000/](http://localhost:4000/)
 ### Generating the static website
 
 ```
-$ npm run build
+$ yarn run build
 ```
 
 ### Generating the documentation in other formats
@@ -43,16 +42,16 @@ A lot of useful information like links to user documentation, design documentati
 
 ### Releasing a new version of the documentation
 
-Assuming current stable is `16.4.0`, you are about to release `16.5.0` and the next version is going to be `16.6.0`, you would execute —
+Assuming current stable is `17.4.0`, you are about to release `17.5.0` and the next version is going to be `17.6.0`, you would execute —
 
 ```
-CURRENT_VERSION=16.4.0 VERSION_TO_RELEASE=16.5.0  NEXT_VERSION=16.6.0 REMOTE_NAME=upstream rake bump_version
+CURRENT_VERSION=17.4.0 VERSION_TO_RELEASE=17.5.0  NEXT_VERSION=17.6.0 REMOTE_NAME=upstream rake bump_version
 ```
 
 ## License
 
 ```plain
-Copyright 2016 ThoughtWorks, Inc.
+Copyright 2017 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
