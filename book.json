@@ -13,14 +13,14 @@
             "all": "https://www.gocd.org"
         }
     },
-    "gitbook": "2.2.0",
+    "gitbook": "3.2.2",
     "plugins": [
-        "anchors",
-        "ga",
-        "include",
-        "toc",
+        "anchors@0.7.1",
+        "ga@1.0.1",
+        "include@0.1.0",
+        "toc@0.0.1",
         "redirect@0.0.7",
-        "edit-link@1.1.0"
+        "edit-link@2.0.2"
     ],
     "pluginsConfig": {
         "ga": {
@@ -33,8 +33,10 @@
             "addClass": true,
             "className": "toc"
         },
-        "rtEditLinkBase": "https://github.com/gocd/docs.go.cd/edit/master",
-        "rtEditLinkLabel": "Edit This Page"
+        "edit-link": {
+          "base": "https://github.com/gocd/docs.go.cd/tree/master",
+          "label": "Edit This Page"
+        }
     },
     "pdf": {
         "toc": true,
