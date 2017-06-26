@@ -98,7 +98,7 @@ This is the summary of user documentation.
     * [Yum Repository Poller](extension_points/yum_repository_poller.md)
     * [SCM Extension](extension_points/scm_extension.md)
     * [Task Extension](extension_points/task_extension.md)
-    * [Notification Extension](extension_points/notification_extension.html)
+    * [Notification Extension](extension_points/notification_extension.md)
     * [Configuration repository Extension](extension_points/configrepo_extension.md)
 * [FAQ/Troubleshooting](faq/index.md)
     * [Ordering of Pipelines](faq/ordering_of_pipelines.md)
