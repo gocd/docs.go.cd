@@ -2184,9 +2184,10 @@ All file paths specified are relative to the pipeline working directory.
 | job | Yes | The name of the job to fetch artifacts from |
 | srcdir | One of srcdir/srcfile | The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed |
 | srcfile | One of srcdir/srcfile | The path of the artifact file of a specific job.
+| dest | No | The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. |
+
 Note: If the file does not exist, the job will fail.
 Go will not fetch the artifact again if it has not changed. The directory path is relative to the pipeline working directory. |
-| dest | No | The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. |
 
 ### Example:
 
