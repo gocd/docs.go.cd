@@ -1,0 +1,7 @@
+{% extends template.self %}
+
+{% block description %}{{ page.description | default("GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.") }}{% endblock %}
+
+{% block head %}
+<meta content="{{ page.keywords|default("continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques") }}" name="keywords" />
+{% endblock %}
