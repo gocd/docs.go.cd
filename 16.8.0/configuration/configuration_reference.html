@@ -2059,6 +2059,13 @@
                             <a href="#resource">&lt;resource/&gt;</a>
                         <a href="#resources">&lt;/resources&gt;</a>
 
+                        <a href="#agentConfig">&lt;agentConfig&gt;</a>
+                            <a href="#property">&lt;property&gt;</a>
+                                <a href="#key">&lt;key/&gt;</a>
+                                <a href="#value">&lt;value/&gt;</a>
+                            <a href="#property">&lt;/property&gt;</a>
+                        <a href="#agentConfig">&lt;/agentConfig&gt;</a>
+
                         <a href="#tasks">&lt;tasks&gt;</a>
                             <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
                                 <a href="#runif">&lt;runif/&gt;</a>
@@ -3856,10 +3863,10 @@ would be:</p>
   <span class="hljs-tag">&lt;<span class="hljs-name">jobs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;linux&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ant</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;unit-test&quot;</span> /&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">ant</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;unit-test&quot;</span> /&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">jobs</span>&gt;</span>
@@ -3869,8 +3876,10 @@ would be:</p>
 <h2 id="job"><a name="job" class="plugin-anchor" href="#job"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;job&gt; </h2>
 <p>A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.</p>
-<p>A job can also be associated with a set of <a href="#resources"><code>&lt;resources&gt;</code></a>. Resources are used to match a Job to an Agent. An Agent can run a Job if it has all the resources that the Job specifies.</p>
-<p>If a Job has no resources then it can be built by any Agent</p>
+<p>A job can also be associated with a set of <a href="#resources"><code>&lt;resources&gt;</code></a> or <a href="#agentConfig"><code>&lt;agentConfig&gt;</code></a>.
+Resources are used to match a Job to an Agent. AgentConfigs are used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or agentConfigs that the Job specifies.</p>
+<p>A job can not have both <a href="#resources">resources</a> as well as <a href="#agentConfig">agentConfig</a>.
+If a Job has no resources then it can be built by any Agent (But not by an elastic agent)</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
 <table>
 <thead>
@@ -3906,7 +3915,9 @@ to Go Server.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;linux&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">environmentvariables</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;FOO&quot;</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">variable</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">variable</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;FOO&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>bar<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">variable</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">environmentvariables</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
@@ -3917,9 +3928,16 @@ to Go Server.</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;run-upgrade&quot;</span> <span class="hljs-attr">runOnAllAgents</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&apos;30&apos;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">resources</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>linux<span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">agentConfig</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;com.example.ec2&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>ami-id<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>ami-6ac7408f<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>region<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>us-east-1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">agentConfig</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">ant</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;upgrade&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
@@ -3958,6 +3976,41 @@ to Go Server.</p>
   <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>tomcat5<span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">resource</span>&gt;</span>mercurial<span class="hljs-tag">&lt;/<span class="hljs-name">resource</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">resources</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="agentConfig"><a name="agentConfig" class="plugin-anchor" href="#agentConfig"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;agentConfig&gt; </h2>
+<p><code>&lt;agentConfig&gt;</code> specifies the <a href="#property">agentConfig properties</a> needed for a job. A job can have zero or more agentConfig properties.</p>
+<p>If a job has no agentConfig properties it can be built on any elastic agent.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pluginId</td>
+<td>Yes</td>
+<td>The Id of elastic-agent plugin.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;run-upgrade&quot;</span> <span class="hljs-attr">runOnAllAgents</span>=<span class="hljs-string">&quot;true&quot;</span> <span class="hljs-attr">timeout</span>=<span class="hljs-string">&apos;30&apos;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">agentConfig</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;com.example.ec2&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>ami-id<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>ami-6ac7408f<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>region<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>us-east-1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">agentConfig</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="tasks"><a name="tasks" class="plugin-anchor" href="#tasks"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;tasks&gt; </h2>
@@ -4904,6 +4957,16 @@ allow certain variable names and/or values.</p>
 <td>No</td>
 <td>The values should be one of &apos;true&apos; or &apos;false&apos; (or 1 / 0). &apos;true&apos; or &apos;1&apos; means that the agent is denied. Go doesn&apos;t assign jobs to a denied agent.</td>
 </tr>
+<tr>
+<td>elasticAgentId</td>
+<td>No</td>
+<td>Id of your elastic agent. <strong>This attribute is only required for elastic agents.</strong></td>
+</tr>
+<tr>
+<td>elasticPluginId</td>
+<td>No</td>
+<td>Elastic-agent plugin Id. <strong>This attribute is only required for elastic agents.</strong></td>
+</tr>
 </tbody>
 </table>
 <h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes:</h3>
@@ -4915,7 +4978,7 @@ allow certain variable names and/or values.</p>
 <p>An agent without any resources will build any jobs that don&apos;t specify resources. Refer to the <a href="#resources"><code>&lt;resources&gt;</code></a> of <a href="#job"><code>&lt;job&gt;</code></a>.</p>
 <p><a href="#top">top</a></p>
 <h2 id="agentresource"><a name="agentresource" class="plugin-anchor" href="#agentresource"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;resource&gt; </h2>
-<p>resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.</p>
+<p>Resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">agents</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">agent</span> <span class="hljs-attr">hostname</span>=<span class="hljs-string">&quot;agent01&quot;</span> <span class="hljs-attr">ipaddress</span>=<span class="hljs-string">&quot;192.168.0.1&quot;</span> <span class="hljs-attr">uuid</span>=<span class="hljs-string">&quot;94fcb7ad-8b97-4078-b5f6-3c7436d6a390&quot;</span>&gt;</span>
@@ -4969,7 +5032,7 @@ allow certain variable names and/or values.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go User Documentation","links":{"sidebar":{"Home":"https://www.gocd.io","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.io","facebook":"https://www.gocd.io","twitter":"https://www.gocd.io","all":"https://www.gocd.io"}},"gitbook":"3.2.2","description":"Help documentation for Go."},"file":{"path":"configuration/configuration_reference.md","mtime":"2017-06-27T04:00:52.827Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-06-27T04:04:00.243Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Go User Documentation","links":{"sidebar":{"Home":"https://www.gocd.io","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.io","facebook":"https://www.gocd.io","twitter":"https://www.gocd.io","all":"https://www.gocd.io"}},"gitbook":"3.2.2","description":"Help documentation for Go."},"file":{"path":"configuration/configuration_reference.md","mtime":"2017-07-09T05:59:34.307Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-07-09T06:00:57.538Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
