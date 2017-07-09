@@ -42,7 +42,7 @@
     <body>
         
         
-    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Mon Jun 19 2017 19:37:52 GMT+0000 (UTC)">
+    <div class="book" data-level="3.3.1" data-basepath="../../.." data-revision="Sat Jul 08 2017 22:36:55 GMT-0700 (PDT)">
     
 
 <div class="book-summary">
@@ -2186,15 +2186,7 @@
 <h2 id="rpm-based-distributions-ie-redhat-centos-fedora"><a name="rpm-based-distributions-ie-redhat-centos-fedora" class="plugin-anchor" href="#rpm-based-distributions-ie-redhat-centos-fedora"><span class="fa fa-link"></span></a>RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 <p>The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
 <p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell &#x2014;</p>
-<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;
-[gocd]
-name     = GoCD YUM Repository
-baseurl  = https://download.gocd.io
-enabled  = 1
-gpgcheck = 1
-gpgkey   = https://download.gocd.io/GOCD-GPG-KEY.asc
-&quot;</span> | sudo tee /etc/yum.repos.d/gocd.repo
-
+<pre><code class="lang-bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
 sudo yum install -y java-<span class="hljs-number">1.7</span>.<span class="hljs-number">0</span>-openjdk <span class="hljs-comment">#optional, you may use other jre/jdk if you prefer</span>
 </code></pre>
 <p>Once you have the repository setup, execute</p>
