@@ -101,7 +101,7 @@ From the Go server's point of view, the command repository is just a directory u
 3.  Go Server caches the commands to improve response time. In case of changes in the command repository, new command gets into the cache in one of the following ways:
     1.  The default cache invalidation interval of 30 mins kicks in and the cache gets refreshed
     2.  Go server admin clicks on the **RELOAD CACHE** button
-    3.  Go server admin uses the [**reload API**](../api/command_repo_api.md) through a cron job or otherwise to force a cache reload.
+    3.  Go server admin uses the **reload API** through a cron job or otherwise to force a cache reload.
 
 > The commands in the command repository are not part of your Go Server config. They become part of your Go server config only after you (optionally edit and) save them.
 
