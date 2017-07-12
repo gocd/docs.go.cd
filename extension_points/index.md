@@ -7,6 +7,10 @@ Please go through [Go Plugin User Guide](plugin_user_guide.md) before using Go p
 - Package Repository Extension
 - Task Extension
 - Notification Extension
+- Configuration Repository Extension
+- Authorization Extension
+- SCM Extension
+- Elastic Agent Extension
 
 # Package Repository Extension
 
@@ -25,6 +29,18 @@ See [this](https://plugin-api.gocd.org/current/notifications) for details about 
 # Configuration repository Extension
 
 See [this](configrepo_extension.md) for details about the configuration repository extension point. You can see [JSON config plugin](https://github.com/tomzo/gocd-json-config-example) for reference.
+
+# Authorization Extension
+
+See [this](https://plugin-api.gocd.org/current/authorization/) for details about the authorization extension point. Go does not have a bundled plugin for authorization extension. You can see [LDAP Authentication plugin](https://github.com/gocd/gocd-ldap-authentication-plugin) for reference.
+
+# SCM Extension
+
+See [this](scm_extension.md) for details about the scm extension point. GoCD does not have a bundled plugin for scm extension. You can see [Github Pull Requests Builder](https://github.com/ashwanthkumar/gocd-build-github-pull-requests) for reference.
+
+# Elastic Agent Extension
+
+See [this](https://plugin-api.gocd.org/current/elastic-agents/) for details about the elastic agent extension point. GoCD does not have a bundled plugin for elastic agent extension. You can see [Docker elastic agents](https://github.com/gocd-contrib/docker-elastic-agents) for reference.
 
 # Note
 

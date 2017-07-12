@@ -73,7 +73,7 @@ Note: Change to the SCM definition causes all dependent pipelines to schedule.
 
 ### Polling
 
-Even if no pipelines use a SCM, Go polls for newer revisions every minute. This may be turned off at a SCM level by setting [`autoUpdate`](../configuration/configuration_reference.md#scm) to false via the config xml (Go admins only). `autoUpdate` is turned on by default. When a newer revision is found for a SCM, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.md) is on). Also see [API scheduling](../api/pipeline_api.md#key).
+Even if no pipelines use a SCM, Go polls for newer revisions every minute. This may be turned off at a SCM level by setting [`autoUpdate`](../configuration/configuration_reference.md#scm) to false via the config xml (Go admins only). `autoUpdate` is turned on by default. When a newer revision is found for a SCM, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.md) is on). Also see [API scheduling](https://api.gocd.org/current/#scheduling-pipelines).
 
 *Filters:* At times you may not want Go to trigger pipelines for every commit. e.g. you might not want to 'build' if its a 'documentation' change. You can setup a [filter](../configuration/configuration_reference.md#filter) at pipeline level asking Go to skip pipeline scheduling if commit contains only files that match a pattern.
 
