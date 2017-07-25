@@ -21,3 +21,12 @@ Often you do want to specify a set of files that Go should ignore when it checks
 -   Enter the items to blacklist using ant-style syntax below
 ![](../resources/images/edit_material_blacklist.png)
 -   Click "Save".
+
+## Whitelist
+
+There are cases where instead of ignoring those files or folder/s, you want to only build them and ignore the rest. With Go whitelisting, you can allow pipeline to trigger on certain repository changesets.	  
+
+- Click on "Invert the file filter...." to enable whitelisting
+![](../resources/images/edit_material_whitelist.png)
+
+-   Click "Save".
