@@ -1,6 +1,7 @@
 # TFS Material configuration
 
 You can use TFS SCM as a material for your pipeline. Go server and agent uses [TFS Java SDK v14.0.3](https://www.microsoft.com/en-us/download/details.aspx?id=47727) by default. The TFS SDK is packaged with Go; no additional configuration is required.
+Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team Services.
 
 You will need to configure the following to add a TFS material:
 
