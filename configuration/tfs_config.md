@@ -1,6 +1,7 @@
 # TFS Material configuration
 
-You can use TFS SCM as a material for your pipeline. Go server and agent uses [TFS Java SDK v10](http://www.microsoft.com/en-us/download/details.aspx?id=22616) by default. The TFS SDK is packaged with Go; no additional configuration is required.
+You can use TFS SCM as a material for your pipeline. Go server and agent uses [TFS Java SDK v14.0.3](https://www.microsoft.com/en-us/download/details.aspx?id=47727) by default. The TFS SDK is packaged with Go; no additional configuration is required.
+Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team Services.
 
 You will need to configure the following to add a TFS material:
 
@@ -28,5 +29,4 @@ You will need to configure the following to add a TFS material:
 -   During the TFS checkout process, if one of the file paths exceeds 259 characters - checkout will fail.So care should be taken when specifying the destination directory so that the path limit is not exceeded. Go agent installation directory also plays a part in both cases where destination directory is specified and when its not.
 -   On all the agents prior to checkout from TFS, entire mapped directory is cleaned and -all option is used for checkout. As a result there is increased load on TFS server and network bandwidth consumption is high during the process. This is an issue that will be addressed in subsequent releases.
 -   Kerberos support for TFS authentication has not been verified.
--   TFS 2011 support has not been verified.
 -   Currently, Go always does a tfs get to retrieve the latest changes on the agents.
