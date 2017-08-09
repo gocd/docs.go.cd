@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Other Config Options · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="A list of advanced GoCD configuration options">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="GoCD config, GoCD environment, system priority" name="keywords" />
 
     </head>
     <body>
@@ -1822,26 +1822,26 @@
                                 
                                 <h1 id="other-config-options"><a name="other-config-options" class="plugin-anchor" href="#other-config-options"><i class="fa fa-link" aria-hidden="true"></i></a>Other config options</h1>
 <p>This is a list of some of the more advanced configuration options available.
-These will typically need to be set before the start of the Go Server, unless
+These will typically need to be set before the start of the GoCD Server, unless
 specified.</p>
 <h2 id="how-to-set-these-options"><a name="how-to-set-these-options" class="plugin-anchor" href="#how-to-set-these-options"><i class="fa fa-link" aria-hidden="true"></i></a>How to set these options</h2>
 <h3 id="environment-variables"><a name="environment-variables" class="plugin-anchor" href="#environment-variables"><i class="fa fa-link" aria-hidden="true"></i></a>Environment variables</h3>
 <p>If an option specified below is of type &quot;Environment Variable&quot;, then it needs to
-be made available to the Go Server in a way that is specified by the operating
+be made available to the GoCD Server in a way that is specified by the operating
 system (or distribution).</p>
 <p>For instance, on Windows,
 <a href="https://msdn.microsoft.com/en-us/library/bb726962.aspx" target="_blank">here</a> is a page from
 Microsft, explaining how to do this.</p>
 <p>On Linux, you can use the /etc/default/go-server file, since it gets sourced by
-the Go Server before it starts. A line like this:</p>
+the GoCD Server before it starts. A line like this:</p>
 <p><code>export ENVIRONMENT_VAR_1=&quot;My variable&quot;</code></p>
-<p>will make that variable (<code>ENVIRONMENT_VAR_1</code>) available to the Go Server.</p>
-<p>If you&apos;re using the ZIP package, and starting the Go Server manually, you can
+<p>will make that variable (<code>ENVIRONMENT_VAR_1</code>) available to the GoCD Server.</p>
+<p>If you&apos;re using the ZIP package, and starting the GoCD Server manually, you can
 use an appropriate mechanism to set the environment variable (could be a DOS
 batch file, or a shell script).</p>
 <h3 id="system-properties"><a name="system-properties" class="plugin-anchor" href="#system-properties"><i class="fa fa-link" aria-hidden="true"></i></a>System properties</h3>
 <p>If an option specified below is of type &quot;System property&quot;, then it will be a
-Java system property, which needs to be provided to the Go Server, typically
+Java system property, which needs to be provided to the GoCD Server, typically
 prefixed with <code>-D</code> unless otherwise stated. So, if the property is called
 <code>my.new.property</code> and the value that needs to be set is <code>true</code>, then the
 Java system property to be used will be <code>-Dmy.new.property=true</code>. Notice the
@@ -1854,17 +1854,17 @@ be set as specified in the <a href="#environment-variables">&quot;Environment Va
 section above.</p>
 <h2 id="options"><a name="options" class="plugin-anchor" href="#options"><i class="fa fa-link" aria-hidden="true"></i></a>Options</h2>
 <p><a name="cruise.listen.host"></a></p>
-<h3 id="cruiselistenhost---the-host-that-the-go-server-should-bind-to"><a name="cruiselistenhost---the-host-that-the-go-server-should-bind-to" class="plugin-anchor" href="#cruiselistenhost---the-host-that-the-go-server-should-bind-to"><i class="fa fa-link" aria-hidden="true"></i></a>cruise.listen.host - The host that the Go Server should bind to</h3>
+<h3 id="cruiselistenhost---the-host-that-the-gocd-server-should-bind-to"><a name="cruiselistenhost---the-host-that-the-gocd-server-should-bind-to" class="plugin-anchor" href="#cruiselistenhost---the-host-that-the-gocd-server-should-bind-to"><i class="fa fa-link" aria-hidden="true"></i></a>cruise.listen.host - The host that the GoCD Server should bind to</h3>
 <ul>
 <li>Name: cruise.listen.host</li>
 <li>Type: <a href="#system-properties">System property</a></li>
 <li>Restrictions: Should be a valid, bind-able IP address</li>
 </ul>
-<p>The Go Server opens a listening socket, so that it can serve pages to users and
-Go Agents. It needs to listen on a specific host. This host determines which
-clients (users as well as Go Agents) can access the Go Server. By default, the
+<p>The GoCD Server opens a listening socket, so that it can serve pages to users and
+GoCD Agents. It needs to listen on a specific host. This host determines which
+clients (users as well as GoCD Agents) can access the GoCD Server. By default, the
 server listens on 0.0.0.0, which is the wildcard or &quot;unspecified&quot; address.
-Usually, this means that the Go Server can be accessed through any network
+Usually, this means that the GoCD Server can be accessed through any network
 interface. In some, more advanced networking setups, it might be needed to
 override this, typically to 127.0.0.1, so that only clients local to the box can
 access it.</p>
@@ -1950,7 +1950,7 @@ so, it&apos;s not recommended to change this.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Other Config Options","level":"1.6.15","depth":2,"next":{"title":"Integrating Go With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"previous":{"title":"Config Repository","level":"1.6.14","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/other_config_options.md","mtime":"2017-08-09T20:24:34.994Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:26:10.049Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"A list of advanced GoCD configuration options","keywords":"GoCD config, GoCD environment, system priority","title":"Other Config Options","level":"1.6.15","depth":2,"next":{"title":"Integrating Go With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"previous":{"title":"Config Repository","level":"1.6.14","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/other_config_options.md","mtime":"2017-08-09T20:27:01.337Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:30:12.660Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
