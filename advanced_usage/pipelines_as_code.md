@@ -1,3 +1,8 @@
+---
+description: "GoCD supports storing pipeline configuration in a source code repository, either with your application code or in a separate repository all on its own."
+keywords: pipeline as code, pipeline configuration, JSON, YAML
+---
+
 # Pipelines as code
 
 GoCD supports storing pipeline configuration in a source code repository, either with your application code or in a
