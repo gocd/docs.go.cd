@@ -1,8 +1,13 @@
+---
+description: Run a job on a group of agents
+keywords: GoCD jobs, configure XML, configure Admin UI, test parallelization 
+---
+
 ## Run a Job on a group of Agents
 
 Sometimes there is a particular job that you may wish to run on all agents in an environment, or in all agents that match a certain resource tag. For example you may want to run a system update on all linux agents, or install a new piece of software.
 
-Go will run the Job on all agents that match the environment and resources specified in the job.
+GoCD will run the Job on all agents that match the environment and resources specified in the job.
 
 If an agent is missing or lost contact, a job will be scheduled. When the agent comes back on line, the job will be re-scheduled.
 
