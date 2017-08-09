@@ -1,8 +1,13 @@
+---
+description: Look up a command from GoCD Command Repository
+keywords: Command Repository, Custom commands and agents, Args style commands, Bundled Repository, Command syntax, lookup logic
+---
+
 # Command Repository
 
 ## Introduction
 
-This feature is an enhancement to [Custom Commands](http://support.thoughtworks.com/entries/22873043-go-s-custom-command) in Go. Rather than start from scratch with command name and arguments, you now have the option to look up a command from a repository of useful commands maintained by the Go team. The lookup provides a starting point, you may need to edit the arguments, specify a working directory etc. Once saved, the behaviour is the same as a manually entered custom command. Take a look at this [video](http://youtu.be/fSQZ5hEQbgY) to learn more.
+This feature is an enhancement to [Custom Commands](http://support.thoughtworks.com/entries/22873043-go-s-custom-command) in GoCD. Rather than start from scratch with command name and arguments, you now have the option to look up a command from a repository of useful commands maintained by the Go team. The lookup provides a starting point, you may need to edit the arguments, specify a working directory etc. Once saved, the behaviour is the same as a manually entered custom command. Take a look at this [video](http://youtu.be/fSQZ5hEQbgY) to learn more.
 
 ## Using the command repository
 
