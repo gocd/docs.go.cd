@@ -1,6 +1,12 @@
+---
+description: Deploy specific revisions of the materials to an environment using GoCD
+keywords: deploy, revision, material, deployment pipeline
+---
+
+
 # Deploy specific revisions of the materials to an environment
 
-Go allows you to hand pick which revision of your materials you would like to deploy to your environment. This is a a very common requirement on larger projects which have multiple materials in their deployment pipeline. Sometimes you may wish to have control over which revision of the application is deployed to a particular environment (say UAT).
+GoCD allows you to hand pick which revision of your materials you would like to deploy to your environment. This is a a very common requirement on larger projects which have multiple materials in their deployment pipeline. Sometimes you may wish to have control over which revision of the application is deployed to a particular environment (say UAT).
 
 ### Select specific revisions of materials to deploy
 
