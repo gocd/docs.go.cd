@@ -1,4 +1,9 @@
-# Beta feature: Upload plugins, from within Go, without restarting the server
+---
+description: Upload GoCD plugins without restarting the server.
+keywords: GoCD plugins, CD plugins, upload plugins, jenkins plugins, beta feature, configure gocd server
+---
+
+# Beta feature: Upload plugins, from within GoCD, without restarting the server
 
 <div style="background-color: rgba(0, 192, 0, 0.25); padding: 5px; margin-bottom: 1em">
   Note: This is a beta feature, which is turned off by default. It can be turned on using the system environment property <strong>go.plugin.upload.enabled</strong>.
@@ -6,7 +11,7 @@
 
   On linux add the following line to /etc/default/go-server
   <div style="font-family: monospace; font-size: 90%; padding-top: 1em; padding-bottom: 1em">export GO_SERVER_SYSTEM_PROPERTIES='-Dgo.plugin.upload.enabled=true'</div>
-  On windows, in the config folder of the Go server installation, edit/create the wrapper-properties.conf file, and add an additional property with the value '-Dgo.plugin.upload.enabled=true'. For example:
+  On windows, in the config folder of the GoCD server installation, edit/create the wrapper-properties.conf file, and add an additional property with the value '-Dgo.plugin.upload.enabled=true'. For example:
   <div style="font-family: monospace; font-size: 90%; padding-top: 1em; padding-bottom: 1em">wrapper.java.additional.17='-Dgo.plugin.upload.enabled=true'</div>
 </div>
 
