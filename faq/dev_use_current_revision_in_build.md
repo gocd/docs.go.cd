@@ -1,3 +1,8 @@
+---
+description: Using environment variables in GoCD
+keywords: environment variable, GoCD configuration, GoCD tasks, custom command, shell-script, ruby script, 
+---
+
 # Using Environment Variables in GoCD
 
 ## Accessing environment variables in tasks
