@@ -1,8 +1,13 @@
-#Ensure only one instance of a pipeline can run at the same time
+---
+description: Ensure only one instance of a GoCD pipeline can run at the same time
+keywords: GoCD congfiguration, continuous delivery pipeline, stage, locked pipeline, pipeline scheduling, pipeline locking
+---
+
+# Ensure only one instance of a GoCD pipeline can run at the same time
 
 Sometimes you want to ensure that only a single instance of a pipeline can run at a time. This is important if the stages of a pipeline are interrelated. For example the first stage may set up an environment that is used by the next stage in the pipeline.
 
-If a pipeline is locked then Go will not allow any other instance of that pipeline to be scheduled until the currently running one has been completed.
+If a pipeline is locked then GoCD will not allow any other instance of that pipeline to be scheduled until the currently running one has been completed.
 
 To enable locking from the Config UI, navigate to the General Options section of pipeline.
 
