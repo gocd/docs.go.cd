@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Extension Points Of Go · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Available extension points for GoCD, including GoCD plugin user guide.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="gocd plugins, gocd extension points, task extension, configuration repository, elastic agent, scm, yum" name="keywords" />
 
     </head>
     <body>
@@ -1820,9 +1820,9 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="go-plugin-user-guide"><a name="go-plugin-user-guide" class="plugin-anchor" href="#go-plugin-user-guide"><i class="fa fa-link" aria-hidden="true"></i></a>Go Plugin User Guide</h1>
-<p>Please go through <a href="plugin_user_guide.html">Go Plugin User Guide</a> before using Go plugin</p>
-<h1 id="available-go-extension-points"><a name="available-go-extension-points" class="plugin-anchor" href="#available-go-extension-points"><i class="fa fa-link" aria-hidden="true"></i></a>Available Go Extension Points</h1>
+                                <h1 id="gocd-plugin-user-guide"><a name="gocd-plugin-user-guide" class="plugin-anchor" href="#gocd-plugin-user-guide"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Plugin User Guide</h1>
+<p>Please go through <a href="plugin_user_guide.html">Go Plugin User Guide</a> before using GoCD plugin</p>
+<h1 id="available-gocd-extension-points"><a name="available-gocd-extension-points" class="plugin-anchor" href="#available-gocd-extension-points"><i class="fa fa-link" aria-hidden="true"></i></a>Available GoCD Extension Points</h1>
 <ul>
 <li>Package Repository Extension</li>
 <li>Task Extension</li>
@@ -1834,15 +1834,15 @@
 </ul>
 <h1 id="package-repository-extension"><a name="package-repository-extension" class="plugin-anchor" href="#package-repository-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Package Repository Extension</h1>
 <p>Please follow <a href="package_repository_extension.html">link</a> for package material extension point details.</p>
-<p>Go bundles a Yum repository poller extension, along with the server. You can find out more details about it <a href="yum_repository_poller.html">here</a>.</p>
+<p>GoCD bundles a Yum repository poller extension, along with the server. You can find out more details about it <a href="yum_repository_poller.html">here</a>.</p>
 <h1 id="task-extension"><a name="task-extension" class="plugin-anchor" href="#task-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Task Extension</h1>
-<p>See <a href="task_extension.html">this</a> for details about the task extension point. Go does not have a bundled task extension. You can see <a href="https://github.com/gocd/sample-plugins/tree/master/curl-plugin" target="_blank">Curl task extension</a> for reference.</p>
+<p>See <a href="task_extension.html">this</a> for details about the task extension point. GoCD does not have a bundled task extension. You can see <a href="https://github.com/gocd/sample-plugins/tree/master/curl-plugin" target="_blank">Curl task extension</a> for reference.</p>
 <h1 id="notification-extension"><a name="notification-extension" class="plugin-anchor" href="#notification-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Notification Extension</h1>
-<p>See <a href="https://plugin-api.gocd.org/current/notifications" target="_blank">this</a> for details about the notification extension point. Go does not have a bundled notification extension. You can see <a href="https://github.com/srinivasupadhya/email-notifier" target="_blank">Email notification extension</a> for reference.</p>
+<p>See <a href="https://plugin-api.gocd.org/current/notifications" target="_blank">this</a> for details about the notification extension point. GoCD does not have a bundled notification extension. You can see <a href="https://github.com/srinivasupadhya/email-notifier" target="_blank">Email notification extension</a> for reference.</p>
 <h1 id="configuration-repository-extension"><a name="configuration-repository-extension" class="plugin-anchor" href="#configuration-repository-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration repository Extension</h1>
 <p>See <a href="configrepo_extension.html">this</a> for details about the configuration repository extension point. You can see <a href="https://github.com/tomzo/gocd-json-config-example" target="_blank">JSON config plugin</a> for reference.</p>
 <h1 id="authorization-extension"><a name="authorization-extension" class="plugin-anchor" href="#authorization-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Authorization Extension</h1>
-<p>See <a href="https://plugin-api.gocd.org/current/authorization/" target="_blank">this</a> for details about the authorization extension point. Go does not have a bundled plugin for authorization extension. You can see <a href="https://github.com/gocd/gocd-ldap-authentication-plugin" target="_blank">LDAP Authentication plugin</a> for reference.</p>
+<p>See <a href="https://plugin-api.gocd.org/current/authorization/" target="_blank">this</a> for details about the authorization extension point. GoCD does not have a bundled plugin for authorization extension. You can see <a href="https://github.com/gocd/gocd-ldap-authentication-plugin" target="_blank">LDAP Authentication plugin</a> for reference.</p>
 <h1 id="scm-extension"><a name="scm-extension" class="plugin-anchor" href="#scm-extension"><i class="fa fa-link" aria-hidden="true"></i></a>SCM Extension</h1>
 <p>See <a href="scm_extension.html">this</a> for details about the scm extension point. GoCD does not have a bundled plugin for scm extension. You can see <a href="https://github.com/ashwanthkumar/gocd-build-github-pull-requests" target="_blank">Github Pull Requests Builder</a> for reference.</p>
 <h1 id="elastic-agent-extension"><a name="elastic-agent-extension" class="plugin-anchor" href="#elastic-agent-extension"><i class="fa fa-link" aria-hidden="true"></i></a>Elastic Agent Extension</h1>
@@ -1895,7 +1895,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Extension Points Of Go","level":"1.8","depth":1,"next":{"title":"Plugin User Guide","level":"1.8.1","depth":2,"path":"extension_points/plugin_user_guide.md","ref":"extension_points/plugin_user_guide.md","articles":[]},"previous":{"title":"Integrating Go With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"extension_points/index.md","mtime":"2017-08-09T20:10:25.894Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:13:43.648Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Available extension points for GoCD, including GoCD plugin user guide.","keywords":"gocd plugins, gocd extension points, task extension, configuration repository, elastic agent, scm, yum","title":"Extension Points Of Go","level":"1.8","depth":1,"next":{"title":"Plugin User Guide","level":"1.8.1","depth":2,"path":"extension_points/plugin_user_guide.md","ref":"extension_points/plugin_user_guide.md","articles":[]},"previous":{"title":"Integrating Go With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"extension_points/index.md","mtime":"2017-08-09T20:13:05.220Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:16:10.665Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
