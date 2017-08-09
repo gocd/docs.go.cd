@@ -1,15 +1,20 @@
-# Configure a Proxy
+---
+description: Tip and examples on how to configue a Proxy server to use with GoCD
+keywords: proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, coninuous delivery
+---
 
-It is sometimes useful to front Go with a proxy server. In this section, we give you some tips and examples on how to achieve this.
+# Configure a Proxy server to use with GoCD
+
+It is sometimes useful to front GoCD with a proxy server. In this section, we give you some tips and examples on how to achieve this.
 
 ## GoCD with Apache
 
-An example of how to configure Go with Apache is shown below.
+An example of how to configure GoCD with Apache is shown below.
 
 **Assumptions:**
 
 -   You have Apache with mod\_proxy installed
--   The Apache server sits on the same machine as the Go server (localhost)
+-   The Apache server sits on the same machine as the GoCD server (localhost)
 
 ```apache
 Listen nnn.nnn.nnn.nnn:80
@@ -93,9 +98,9 @@ server {
 <a name="agents-and-custom-ssl-ports"></a>
 ## Agents and custom SSL ports
 
-Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The Go server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the Go server SSL port, not just on the proxy server SSL port.
+Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The GoCD server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the GoCD server SSL port, not just on the proxy server SSL port.
 
-The initial communication of the agent to the server happens over HTTP, and this can go via the proxy, but afterwards all traffic will go directly via a TLS connection to the Go server (in fact, configuring the agent with the the SSL port instead of the HTTP port of the server will give an error for this initial connection).
+The initial communication of the agent to the server happens over HTTP, and this can go via the proxy, but afterwards all traffic will go directly via a TLS connection to the GoCD server (in fact, configuring the agent with the the SSL port instead of the HTTP port of the server will give an error for this initial connection).
 
 ## Also see...
 
