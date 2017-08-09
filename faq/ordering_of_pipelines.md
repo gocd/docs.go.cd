@@ -1,6 +1,12 @@
-# Ordering of pipelines
+---
+description: In GoCD, we use two distinct types of ordering pipelines; schedule order and natural order.
+keywords: gocd pipelines, manage pipelines, build pipelines, cd pipelines, continuous delivery
+---
 
-In Go, we use two distinct types of ordering of pipelines:
+
+# Ordering of pipelines in GoCD
+
+In GoCD, we use two distinct types of ordering of pipelines:
 
 -   Schedule order: Chronological order in which pipelines are scheduled.
 -   Natural order: Chronological order of pipelines based on material modifications
@@ -41,6 +47,6 @@ The pipeline order based on scheduling is: 1, 2, 3. This is the order in which t
 
 The pipeline order based on natural order: 1, 3, 2. This is because, if we look at the changes in each pipeline instance, 1 has the earliest set of revisions, 3 has the next set of revisions and 2 has the latest revisions in that particular repository (material).
 
-The above example works when there is one material. If the pipeline has multiple materials, Go examines the timestamps of all the materials to determine which is logically the earlier pipeline instance. In this case, the earlier instance is the one that has the earliest time stamp across all the materials.
+The above example works when there is one material. If the pipeline has multiple materials, GoCD examines the timestamps of all the materials to determine which is logically the earlier pipeline instance. In this case, the earlier instance is the one that has the earliest time stamp across all the materials.
 
-Go supports natural ordering of materials when we "Trigger with Options". The user can change the revision of all materials or where one particular material(that is likely to have broken the build) is chosen and all other materials are pinned to a particular revision(last known good revision).
+GoCD supports natural ordering of materials when we "Trigger with Options". The user can change the revision of all materials or where one particular material(that is likely to have broken the build) is chosen and all other materials are pinned to a particular revision(last known good revision).
