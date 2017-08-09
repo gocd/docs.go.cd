@@ -1,6 +1,6 @@
 ---
 description: GoCD Authentication 
-keywords: GoCD configuration, authentication, https, ldap, ldap authenticaiton, authorization plugins, user access, passwords, logins
+keywords: GoCD configuration, authentication, https, ldap, ldap authenticaiton, authorization plugins, user access, passwords, logins, authorization endpoints
 ---
 
 # Authentication
