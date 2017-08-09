@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Configure a Proxy · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Tip and examples on how to configue a Proxy server to use with GoCD">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, coninuous delivery" name="keywords" />
 
     </head>
     <body>
@@ -1820,14 +1820,14 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="configure-a-proxy"><a name="configure-a-proxy" class="plugin-anchor" href="#configure-a-proxy"><i class="fa fa-link" aria-hidden="true"></i></a>Configure a Proxy</h1>
-<p>It is sometimes useful to front Go with a proxy server. In this section, we give you some tips and examples on how to achieve this.</p>
+                                <h1 id="configure-a-proxy-server-to-use-with-gocd"><a name="configure-a-proxy-server-to-use-with-gocd" class="plugin-anchor" href="#configure-a-proxy-server-to-use-with-gocd"><i class="fa fa-link" aria-hidden="true"></i></a>Configure a Proxy server to use with GoCD</h1>
+<p>It is sometimes useful to front GoCD with a proxy server. In this section, we give you some tips and examples on how to achieve this.</p>
 <h2 id="gocd-with-apache"><a name="gocd-with-apache" class="plugin-anchor" href="#gocd-with-apache"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD with Apache</h2>
-<p>An example of how to configure Go with Apache is shown below.</p>
+<p>An example of how to configure GoCD with Apache is shown below.</p>
 <p><strong>Assumptions:</strong></p>
 <ul>
 <li>You have Apache with mod_proxy installed</li>
-<li>The Apache server sits on the same machine as the Go server (localhost)</li>
+<li>The Apache server sits on the same machine as the GoCD server (localhost)</li>
 </ul>
 <pre><code class="lang-apache"><span class="hljs-attribute"><span class="hljs-nomarkup">Listen</span></span> nnn.nnn.nnn.nnn:80
 <span class="hljs-attribute">NameVirtualHost</span> nnn.nnn.nnn.nnn:80
@@ -1902,8 +1902,8 @@
 </code></pre>
 <p><a name="agents-and-custom-ssl-ports"></a></p>
 <h2 id="agents-and-custom-ssl-ports"><a name="agents-and-custom-ssl-ports" class="plugin-anchor" href="#agents-and-custom-ssl-ports"><i class="fa fa-link" aria-hidden="true"></i></a>Agents and custom SSL ports</h2>
-<p>Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The Go server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the Go server SSL port, not just on the proxy server SSL port.</p>
-<p>The initial communication of the agent to the server happens over HTTP, and this can go via the proxy, but afterwards all traffic will go directly via a TLS connection to the Go server (in fact, configuring the agent with the the SSL port instead of the HTTP port of the server will give an error for this initial connection).</p>
+<p>Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The GoCD server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the GoCD server SSL port, not just on the proxy server SSL port.</p>
+<p>The initial communication of the agent to the server happens over HTTP, and this can go via the proxy, but afterwards all traffic will go directly via a TLS connection to the GoCD server (in fact, configuring the agent with the the SSL port instead of the HTTP port of the server will give an error for this initial connection).</p>
 <h2 id="also-see"><a name="also-see" class="plugin-anchor" href="#also-see"><i class="fa fa-link" aria-hidden="true"></i></a>Also see...</h2>
 <ul>
 <li><a href="configuring_server_details.html#configure-site-urls">Configure site URLs</a></li>
@@ -1951,7 +1951,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configure a Proxy","level":"1.4.6","depth":2,"next":{"title":"Configuring SSL/TLS","level":"1.4.7","depth":2,"path":"installation/ssl_tls_config.md","ref":"installation/ssl_tls_config.md","articles":[{"title":"Customizing Ciphers","level":"1.4.7.1","depth":3,"path":"installation/ssl_tls/setting_up_ciphers.md","ref":"installation/ssl_tls/setting_up_ciphers.md","articles":[]},{"title":"Change SSL Certificates","level":"1.4.7.2","depth":3,"path":"installation/ssl_tls/custom_server_certificate.md","ref":"installation/ssl_tls/custom_server_certificate.md","articles":[]},{"title":"End to end transport security","level":"1.4.7.3","depth":3,"path":"installation/ssl_tls/end_to_end_transport_security.md","ref":"installation/ssl_tls/end_to_end_transport_security.md","articles":[]}]},"previous":{"title":"Configuring Server Details","level":"1.4.5","depth":2,"path":"installation/configuring_server_details.md","ref":"installation/configuring_server_details.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/configure_proxy.md","mtime":"2017-08-09T20:40:59.998Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:42:36.355Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Tip and examples on how to configue a Proxy server to use with GoCD","keywords":"proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, coninuous delivery","title":"Configure a Proxy","level":"1.4.6","depth":2,"next":{"title":"Configuring SSL/TLS","level":"1.4.7","depth":2,"path":"installation/ssl_tls_config.md","ref":"installation/ssl_tls_config.md","articles":[{"title":"Customizing Ciphers","level":"1.4.7.1","depth":3,"path":"installation/ssl_tls/setting_up_ciphers.md","ref":"installation/ssl_tls/setting_up_ciphers.md","articles":[]},{"title":"Change SSL Certificates","level":"1.4.7.2","depth":3,"path":"installation/ssl_tls/custom_server_certificate.md","ref":"installation/ssl_tls/custom_server_certificate.md","articles":[]},{"title":"End to end transport security","level":"1.4.7.3","depth":3,"path":"installation/ssl_tls/end_to_end_transport_security.md","ref":"installation/ssl_tls/end_to_end_transport_security.md","articles":[]}]},"previous":{"title":"Configuring Server Details","level":"1.4.5","depth":2,"path":"installation/configuring_server_details.md","ref":"installation/configuring_server_details.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/configure_proxy.md","mtime":"2017-08-09T20:49:30.990Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:52:42.751Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
