@@ -3,7 +3,7 @@ description: Add new material to an existing GoCD pipeline
 keywords: material, continuous delivery pipeline, GoCD configuration, blacklist, CD pipeline
 ---
 
-# Add a new material to an existing pipeline
+# Add a new material to an existing GoCD pipeline
 
 Now that you have a pipeline, lets add another material to it.
 
