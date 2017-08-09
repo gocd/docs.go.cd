@@ -1,6 +1,11 @@
-#Mailhost information
+---
+description: GoCD mailhost information and email notifications
+keywords: GoCD configuration, mailhost, mailhost configuration, email notifications, SMTPS, TLS 
+---
 
-In order to allow [email notifications](dev_notifications.md), you need to tell Go information about your mailhost.
+# Mailhost information
+
+In order to allow [email notifications](dev_notifications.md), you need to tell GoCD information about your mailhost.
 
 -   Click on the [Administration](../navigation/administration_page.md) tab
 ![](../resources/images/topnav_admin.png)
@@ -14,11 +19,11 @@ In order to allow [email notifications](dev_notifications.md), you need to tell 
 <a name='starttls'></a>
 # SMTPS and TLS
 
-Depending on the way your email server is setup, you might need to enable TLS or SMTPS setup in Go, to get it to send emails properly. Please ask you administrators for information about the setup of your email server.
+Depending on the way your email server is setup, you might need to enable TLS or SMTPS setup in GoCD, to get it to send emails properly. Please ask you administrators for information about the setup of your email server.
 
-To make Go change the protocol to use SMTPS, while connecting to the email server, just enable the "Use SMTPS" setting shown in the image above. Most often, but not always, this setting is used in conjunction with port 465.
+To make GoCD change the protocol to use SMTPS, while connecting to the email server, just enable the "Use SMTPS" setting shown in the image above. Most often, but not always, this setting is used in conjunction with port 465.
 
-If your email server uses STARTTLS, then you need to pass in the ```mail.smtp.starttls.enable``` Java system property to Go, to enable support for it. This is done by providing the command-line argument ```-Dmail.smtp.starttls.enable=true``` during startup (into the GO_SERVER_SYSTEM_PROPERTIES part of /etc/default/go-server, for instance). Most often, but not always, this setting is used in conjunction with port 587, and with the "Use SMTPS" option turned off.
+If your email server uses STARTTLS, then you need to pass in the ```mail.smtp.starttls.enable``` Java system property to GoCD, to enable support for it. This is done by providing the command-line argument ```-Dmail.smtp.starttls.enable=true``` during startup (into the GO_SERVER_SYSTEM_PROPERTIES part of /etc/default/go-server, for instance). Most often, but not always, this setting is used in conjunction with port 587, and with the "Use SMTPS" option turned off.
 
 #### References:
 
