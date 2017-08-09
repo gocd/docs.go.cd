@@ -6,7 +6,7 @@ keywords: Disk space, schedule pipelines,
 
 # Running out of disk space
 
-After you've had Go running for a while, you may notice the following warning box when browsing Go:
+After you've had GoCD running for a while, you may notice the following warning box when browsing GoCD:
 
 ![](../resources/images/1_low_disk_space_on_artifacts.png)
 
@@ -67,7 +67,7 @@ Now, if you add this to a system [crontab](http://en.wikipedia.org/wiki/Cron), y
 
 ## Move the artifact repository to a new (larger) drive
 
-If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location Go uses for it's artifact repository.
+If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it's artifact repository.
 
 -   Find the location of the GoCD configuration file
 -   Navigate to the [Admin](../navigation/administration_page.md) section
