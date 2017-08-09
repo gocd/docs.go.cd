@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Properties · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Properties provide a simple way of collecting metrics over time. GoCD sets standard properties. You can also set properties using the GoCD REST APIs.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="Properites, API, Standard properties" name="keywords" />
 
     </head>
     <body>
@@ -1822,10 +1822,10 @@
                                 
                                 <h1 id="properties"><a name="properties" class="plugin-anchor" href="#properties"><i class="fa fa-link" aria-hidden="true"></i></a>Properties</h1>
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
-<p>Properties provide a simple way of collecting metrics over time. Go sets some standard properties for you. You can also set properties yourself using the Go REST APIs (see <a href="https://api.gocd.org/current/#properties" target="_blank">Properties API</a> for more information). Go also allows you to download the history of your job in a convenient CSV format, so that you can analyse the results in spreadsheets or scripts.</p>
+<p>Properties provide a simple way of collecting metrics over time. GoCD sets some standard properties for you. You can also set properties yourself using the Go REST APIs (see <a href="https://api.gocd.org/current/#properties" target="_blank">Properties API</a> for more information). GoCD also allows you to download the history of your job in a convenient CSV format, so that you can analyse the results in spreadsheets or scripts.</p>
 <p><img src="../resources/images/cruise_properties.png" alt=""></p>
 <h2 id="property-history"><a name="property-history" class="plugin-anchor" href="#property-history"><i class="fa fa-link" aria-hidden="true"></i></a>Property history</h2>
-<p>Go allows you to download the history of properties that you have defined. This history is available as a Comma Separated Values (CSV) file. You can import this file into a spreadsheet program to generate charts and diagnostics of your project.</p>
+<p>GoCD allows you to download the history of properties that you have defined. This history is available as a Comma Separated Values (CSV) file. You can import this file into a spreadsheet program to generate charts and diagnostics of your project.</p>
 <p>You can of course access these resources through standard URLs:</p>
 <ul>
 <li><strong>CSV</strong> --
@@ -1835,12 +1835,12 @@
 <p><img src="../resources/images/properties_export.png" alt=""></p>
 <p><img src="../resources/images/properties-chart.png" alt=""></p>
 <h2 id="standard-properties"><a name="standard-properties" class="plugin-anchor" href="#standard-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Standard Properties</h2>
-<p>The standard properties defined by Go are:</p>
+<p>The standard properties defined by GoCD are:</p>
 <ul>
 <li><strong>cruise_agent</strong> -- the agent that is running the job</li>
 <li><strong>cruise_job_duration</strong> -- total time to run the job</li>
 <li><strong>cruise_job_result</strong> -- one of &quot;passed&quot; or &quot;failed&quot;</li>
-<li><strong>cruise_job_id</strong> -- the name of the folder that the artifacts of the job was stored in under the artifact repository on server side (on earlier versions of Go).</li>
+<li><strong>cruise_job_id</strong> -- the name of the folder that the artifacts of the job was stored in under the artifact repository on server side (on earlier versions of GoCD).</li>
 <li><strong>cruise_pipeline_label</strong> -- same as the value of the environment variable GO_PIPELINE_LABEL</li>
 <li><strong>cruise_pipeline_counter</strong> -- same as the value of the environment variable GO_PIPELINE_COUNTER</li>
 <li><strong>cruise_stage_counter</strong> -- same as the value of the environment variable GO_STAGE_COUNTER</li>
@@ -1852,7 +1852,7 @@
 <li><strong>cruise_timestamp_06_completed</strong> -- time at which the job completed</li>
 </ul>
 <h2 id="generating-properties-from-artifacts"><a name="generating-properties-from-artifacts" class="plugin-anchor" href="#generating-properties-from-artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>Generating Properties from Artifacts</h2>
-<p>Go allows you to generate properties from XML artifacts that you create during the build. This can be used to harvest statistics produced by coverage tools etc. By storing them as properties it becomes very easy to show the history and trends over time of these values.</p>
+<p>GoCD allows you to generate properties from XML artifacts that you create during the build. This can be used to harvest statistics produced by coverage tools etc. By storing them as properties it becomes very easy to show the history and trends over time of these values.</p>
 <p>Note that the properties are generated on the agent side, so the src path is relative to the working directory of the pipeline on the agent.</p>
 <p>For example, to add support for the coverage tool &quot;Emma&quot;, you might do this:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span>&gt;</span>
@@ -1865,7 +1865,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
 <h3 id="tests"><a name="tests" class="plugin-anchor" href="#tests"><i class="fa fa-link" aria-hidden="true"></i></a>Tests</h3>
-<p>If you define a tests artifact that contains the test reports, then Go will add some properties associated with the tests.</p>
+<p>If you define a tests artifact that contains the test reports, then GoCD will add some properties associated with the tests.</p>
 <ul>
 <li><strong>tests_failed_count</strong> -- number of failed tests</li>
 <li><strong>tests_ignored_count</strong> -- number of ignored tests</li>
@@ -1916,7 +1916,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Properties","level":"1.6.9","depth":2,"next":{"title":"Compare Builds","level":"1.6.10","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Fan In","level":"1.6.8","depth":2,"path":"advanced_usage/fan_in.md","ref":"advanced_usage/fan_in.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/properties.md","mtime":"2017-08-09T20:33:46.148Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:35:16.024Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Properties provide a simple way of collecting metrics over time. GoCD sets standard properties. You can also set properties using the GoCD REST APIs.","keywords":"Properites, API, Standard properties","title":"Properties","level":"1.6.9","depth":2,"next":{"title":"Compare Builds","level":"1.6.10","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Fan In","level":"1.6.8","depth":2,"path":"advanced_usage/fan_in.md","ref":"advanced_usage/fan_in.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/properties.md","mtime":"2017-08-09T20:38:01.072Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:39:49.212Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
