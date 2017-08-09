@@ -1,4 +1,10 @@
-# System requirements
+---
+description: Requirements for installation of GoCD server and agents. Additional CPUs and/or memory may need to be allocated.
+keywords: install gocd, system requirements, browser requirements, hardware requirements, server requirements, operating systems, gocd agent
+---
+
+
+# GoCD System requirements
 
 These requirements should meet the needs of most GoCD installations. You may need to allocate additonal CPUs and/or
 memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
