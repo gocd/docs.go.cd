@@ -1,7 +1,12 @@
+---
+description: A list of advanced GoCD configuration options
+keywords: GoCD config, GoCD environment, system priority
+---
+
 # Other config options
 
 This is a list of some of the more advanced configuration options available.
-These will typically need to be set before the start of the Go Server, unless
+These will typically need to be set before the start of the GoCD Server, unless
 specified.
 
 ## How to set these options
@@ -9,7 +14,7 @@ specified.
 ### Environment variables
 
 If an option specified below is of type "Environment Variable", then it needs to
-be made available to the Go Server in a way that is specified by the operating
+be made available to the GoCD Server in a way that is specified by the operating
 system (or distribution).
 
 For instance, on Windows,
@@ -17,20 +22,20 @@ For instance, on Windows,
 Microsft, explaining how to do this.
 
 On Linux, you can use the /etc/default/go-server file, since it gets sourced by
-the Go Server before it starts. A line like this:
+the GoCD Server before it starts. A line like this:
 
 ``` export ENVIRONMENT_VAR_1="My variable" ```
 
-will make that variable (```ENVIRONMENT_VAR_1```) available to the Go Server.
+will make that variable (```ENVIRONMENT_VAR_1```) available to the GoCD Server.
 
-If you're using the ZIP package, and starting the Go Server manually, you can
+If you're using the ZIP package, and starting the GoCD Server manually, you can
 use an appropriate mechanism to set the environment variable (could be a DOS
 batch file, or a shell script).
 
 ### System properties
 
 If an option specified below is of type "System property", then it will be a
-Java system property, which needs to be provided to the Go Server, typically
+Java system property, which needs to be provided to the GoCD Server, typically
 prefixed with ```-D``` unless otherwise stated. So, if the property is called
 ```my.new.property``` and the value that needs to be set is ```true```, then the
 Java system property to be used will be ```-Dmy.new.property=true```. Notice the
@@ -48,17 +53,17 @@ section above.
 ## Options
 
 <a name='cruise.listen.host'></a>
-### cruise.listen.host - The host that the Go Server should bind to
+### cruise.listen.host - The host that the GoCD Server should bind to
 
 - Name: cruise.listen.host
 - Type: [System property](#system-properties)
 - Restrictions: Should be a valid, bind-able IP address
 
-The Go Server opens a listening socket, so that it can serve pages to users and
-Go Agents. It needs to listen on a specific host. This host determines which
-clients (users as well as Go Agents) can access the Go Server. By default, the
+The GoCD Server opens a listening socket, so that it can serve pages to users and
+GoCD Agents. It needs to listen on a specific host. This host determines which
+clients (users as well as GoCD Agents) can access the GoCD Server. By default, the
 server listens on 0.0.0.0, which is the wildcard or "unspecified" address.
-Usually, this means that the Go Server can be accessed through any network
+Usually, this means that the GoCD Server can be accessed through any network
 interface. In some, more advanced networking setups, it might be needed to
 override this, typically to 127.0.0.1, so that only clients local to the box can
 access it.
