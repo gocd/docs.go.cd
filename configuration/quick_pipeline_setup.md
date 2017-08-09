@@ -1,3 +1,8 @@
+---
+description: GoCD pipeline setup
+keywords: GoCD configuration, pipeline setup, pipeline configuration, GoCD pipeline stages, stages, jobs, GoCD jobs, materials, create new pipeline
+---
+
 # Setup a new pipeline
 
 ## New Pipeline Wizard
@@ -43,25 +48,25 @@ See the [Managing pipelines](managing_pipelines.md) documentation for editing th
 
 ### Ant
 
-The Ant task allows you to run an ant script. Go does not include Ant and so you must ensure that it is already on the command path. By default it will use build.xml in the agent's working directory as the build file. If you want to customize the build file or build target, click the **edit** link to change the defaults.
+The Ant task allows you to run an ant script. GoCD does not include Ant and so you must ensure that it is already on the command path. By default it will use build.xml in the agent's working directory as the build file. If you want to customize the build file or build target, click the **edit** link to change the defaults.
 
-For this option to work, Ant needs to be installed on the Go Agent(s) and the *go user* should be able to execute it.
+For this option to work, Ant needs to be installed on the GoCD Agent(s) and the *go user* should be able to execute it.
 
 ### NAnt
 
-The NAnt task allows you to run a NAnt script. Go does not include NAnt and so you must ensure that it is already on the command path. By default it will use default.build as build file in the agent's working directory. If you want to customize the build file or build target, click the **edit** link to change the defaults.
+The NAnt task allows you to run a NAnt script. GoCD does not include NAnt and so you must ensure that it is already on the command path. By default it will use default.build as build file in the agent's working directory. If you want to customize the build file or build target, click the **edit** link to change the defaults.
 
-For this option to work, NAnt needs to be installed on the Go Agent(s) and the *go user* should be able to execute it.
+For this option to work, NAnt needs to be installed on the GoCD Agent(s) and the *go user* should be able to execute it.
 
 ### Rake
 
-The Rake task allows you to run a ruby rake build. Go does not include ruby or rake and so you must ensure that it is correctly installed on the agents. Go will assume the standard **rakefile** exists in the working directory of the agent.
+The Rake task allows you to run a ruby rake build. GoCD does not include ruby or rake and so you must ensure that it is correctly installed on the agents. GoCD will assume the standard **rakefile** exists in the working directory of the agent.
 
 For this option to work, Rake needs to be installed on the Go Agent(s) and the *go user* should be able to execute it.
 
 ### More...
 
-In addition to the above tasks, Go allows you to run anything on the command line. You can use the [command repository](../advanced_usage/command_repository.md) to help you choose the command. Alternately you can specify a command on your own.
+In addition to the above tasks, GoCD allows you to run anything on the command line. You can use the [command repository](../advanced_usage/command_repository.md) to help you choose the command. Alternately you can specify a command on your own.
 
 You can see the complete configuration reference [here](configuration_reference.md).
 
