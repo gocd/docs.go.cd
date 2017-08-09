@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Managing Artifacts and Reports · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Managing artifacts and reports in GoCD">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="GoCD configuration, artifacts, reports, publishing artifacts, artifact repository, test artifacts," name="keywords" />
 
     </head>
     <body>
@@ -1821,9 +1821,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="managing-artifacts-and-reports"><a name="managing-artifacts-and-reports" class="plugin-anchor" href="#managing-artifacts-and-reports"><i class="fa fa-link" aria-hidden="true"></i></a>Managing artifacts and reports</h1>
-<p>Because all your work is done on remote agents, Go provides a mechanism for files to be automatically uploaded to Go server following the completion of every job. These files can then be accessed via the Go server dashboard, or via the RESTful API.</p>
+<p>Because all your work is done on remote agents, GoCD provides a mechanism for files to be automatically uploaded to GoCD server following the completion of every job. These files can then be accessed via the GoCD server dashboard, or via the RESTful API.</p>
 <h2 id="publishing-artifacts"><a name="publishing-artifacts" class="plugin-anchor" href="#publishing-artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>Publishing artifacts</h2>
-<p>The first step in using the artifact repository is to tell Go which files you want to publish. To do this just specify the path to the file or directory relative to the root of the source control checkout. You also need to specify where Go will publish the artifact. You can add as many files and directories as you like.</p>
+<p>The first step in using the artifact repository is to tell GoCD which files you want to publish. To do this just specify the path to the file or directory relative to the root of the source control checkout. You also need to specify where GoCD will publish the artifact. You can add as many files and directories as you like.</p>
 <p>To configure an artifact:</p>
 <ul>
 <li>Navigate to <strong>Admin &#x2192; Pipelines</strong></li>
@@ -1839,8 +1839,8 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 </code></pre>
 <h2 id="using-tabs"><a name="using-tabs" class="plugin-anchor" href="#using-tabs"><i class="fa fa-link" aria-hidden="true"></i></a>Using tabs</h2>
-<p>Once your artifacts are safely in Go server&apos;s artifact repository, you can have the dashboard display them in tabs.</p>
-<p>Go can display images, text files, or anything else that a browser will normally render in an IFrame. If you display an html page which references other resources (such as images, Flash files or whatever), so long as the resources are referenced with relative paths, they will display correctly.</p>
+<p>Once your artifacts are safely in GoCD server&apos;s artifact repository, you can have the dashboard display them in tabs.</p>
+<p>GoCD can display images, text files, or anything else that a browser will normally render in an IFrame. If you display an html page which references other resources (such as images, Flash files or whatever), so long as the resources are referenced with relative paths, they will display correctly.</p>
 <p>This mechanism is a simple way to include reports (for example code coverage) in Go.</p>
 <h4 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h4>
 <p>The console tab shows output information from all the phases of the job. This also includes information from the version control system and details regarding the artifacts created and published during the job.</p>
@@ -1852,10 +1852,10 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">tab</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;Recording&quot;</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;deployment/drop/smoke/smoke-recording.html&quot;</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">tabs</span>&gt;</span>
 </code></pre>
-<p>Go will create a tab called &quot;Recording&quot; and display the contents of the file in the tab when you click on it:</p>
+<p>GoCD will create a tab called &quot;Recording&quot; and display the contents of the file in the tab when you click on it:</p>
 <p><img src="../resources/images/recording.png" alt=""></p>
 <h3 id="publishing-tests"><a name="publishing-tests" class="plugin-anchor" href="#publishing-tests"><i class="fa fa-link" aria-hidden="true"></i></a>Publishing tests</h3>
-<p>Go has support for publishing tests from JUnit or NUnit test reports.</p>
+<p>GoCD has support for publishing tests from JUnit or NUnit test reports.</p>
 <p>To configure a test artifact:</p>
 <ul>
 <li>Navigate to <strong>Admin &#x2192; Pipelines</strong></li>
@@ -1871,7 +1871,7 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;xstream/target/test-reports&quot;</span> /&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 </code></pre>
-<p>Go will:</p>
+<p>GoCD will:</p>
 <ul>
 <li>add a tab called Tests that lists the tests in the project</li>
 <li>add a list of the failed tests to the Failures tab</li>
@@ -1879,7 +1879,7 @@
 <li>copy the artifacts into the repository. In this case the test reports will be copied into a new directory test-reports in the artifact repository</li>
 </ul>
 <h3 id="restful-api"><a name="restful-api" class="plugin-anchor" href="#restful-api"><i class="fa fa-link" aria-hidden="true"></i></a>RESTful API</h3>
-<p>Go publishes all of its information as resources that can be queried through http in the form of RESTful API. See the <a href="../integration/">Go integration</a> page for more information.</p>
+<p>GoCD publishes all of its information as resources that can be queried through http in the form of RESTful API. See the <a href="../integration/">Go integration</a> page for more information.</p>
 
                                 
                                 </section>
@@ -1923,7 +1923,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Managing Artifacts and Reports","level":"1.5.26","depth":2,"next":{"title":"Auto Delete Artifacts","level":"1.5.27","depth":2,"path":"configuration/delete_artifacts.md","ref":"configuration/delete_artifacts.md","articles":[]},"previous":{"title":"Publish Reports and Artifacts","level":"1.5.25","depth":2,"path":"configuration/dev_upload_test_report.md","ref":"configuration/dev_upload_test_report.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/managing_artifacts_and_reports.md","mtime":"2017-08-09T21:31:03.426Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T21:32:33.087Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Managing artifacts and reports in GoCD","keywords":"GoCD configuration, artifacts, reports, publishing artifacts, artifact repository, test artifacts,","title":"Managing Artifacts and Reports","level":"1.5.26","depth":2,"next":{"title":"Auto Delete Artifacts","level":"1.5.27","depth":2,"path":"configuration/delete_artifacts.md","ref":"configuration/delete_artifacts.md","articles":[]},"previous":{"title":"Publish Reports and Artifacts","level":"1.5.25","depth":2,"path":"configuration/dev_upload_test_report.md","ref":"configuration/dev_upload_test_report.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/managing_artifacts_and_reports.md","mtime":"2017-08-09T21:33:56.358Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T21:35:34.051Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
