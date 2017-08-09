@@ -1,6 +1,11 @@
+---
+description: Delegating group administration in GoCD
+keywords: GoCD configuration, group administration, pipeline groups, GoCD administrator, group administrator, pipeline templates
+---
+
 # Delegating Group Administration
 
-A Go Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section "Privileges of a Group Administrator".
+A GoCD Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section "Privileges of a Group Administrator".
 
 ## Steps to assign Group Administrators
 
@@ -13,7 +18,7 @@ To assign a user as a group administrator:
 
 ![](../resources/images/group_admin_permissions.png)
 
-In the above screenshot, the Go admin has delegated group admin privileges to a user "jez" and all users defined under the role "groupAdminRole". The privileges of a Group Administrator have been described in the next section.
+In the above screenshot, the GoCD admin has delegated group admin privileges to a user "jez" and all users defined under the role "groupAdminRole". The privileges of a Group Administrator have been described in the next section.
 
 For power users, here's how you'd assign the same permissions via Config XML:
 
