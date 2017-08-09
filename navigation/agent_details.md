@@ -1,6 +1,12 @@
+---
+description: Details about the agent configuration and history of all jobs that ran on a single agent in GoCD.
+keywords: gocd agent, single agent, agent configuration, job run history, gocd debug
+---
+
+
 # Details of a single agent
 
-Go now provides a page that shows the details of a single agent. This page provides details about the agent configuration and the history of all the jobs that ran on that agent.
+GoCD now provides a page that shows the details of a single agent. This page provides details about the agent configuration and the history of all the jobs that ran on that agent.
 
 ## Agent Details tab
 
