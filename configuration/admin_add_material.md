@@ -1,4 +1,9 @@
-#Add a new material to an existing pipeline
+---
+description: Add new material to an existing GoCD pipeline
+keywords: material, continuous delivery pipeline, GoCD configuration, blacklist, CD pipeline
+---
+
+# Add a new material to an existing pipeline
 
 Now that you have a pipeline, lets add another material to it.
 
@@ -16,7 +21,7 @@ Now that you have a pipeline, lets add another material to it.
 
 ## Blacklist 
 
-Often you do want to specify a set of files that Go should ignore when it checks for changes. Repository changesets which contain only these files will not automatically trigger a pipeline. These are detailed in the [ignore](configuration_reference.md#ignore) section of the [configuration reference.](configuration_reference.md)
+Often you do want to specify a set of files that GoCD should ignore when it checks for changes. Repository changesets which contain only these files will not automatically trigger a pipeline. These are detailed in the [ignore](configuration_reference.md#ignore) section of the [configuration reference.](configuration_reference.md)
 
 -   Enter the items to blacklist using ant-style syntax below
 ![](../resources/images/edit_material_blacklist.png)
