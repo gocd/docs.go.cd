@@ -1,8 +1,14 @@
-# Historical Configuration
+---
+description: Admin users can trace a pipeline run back to it's configuration. The stage history has markers indicating GoCD configuration changes.
+keywords: gocd config, build history, configuration changes, audit pipeline, pipeline history, stage history
+---
+
+
+# GoCD Historical Configuration
 
 ## Trace a stage run to it's config
 
-Go provides a section on the stage details page to view the Go configuration xml used when executing a particular instance of the stage. Admin users can use this view to trace a pipeline run back to it's configuration. The stage history widget which can be found on the right hand side of the stage details page has markers to indicate Go configuration changes. These markers are visible to all users.
+GoCD provides a section on the stage details page to view the GoCD configuration xml used when executing a particular instance of the stage. Admin users can use this view to trace a pipeline run back to it's configuration. The stage history widget which can be found on the right hand side of the stage details page has markers to indicate GoCD configuration changes. These markers are visible to all users.
 
 **To navigate to the historical config:**
 
