@@ -1,4 +1,9 @@
-# Troubleshooting issues
+---
+description: Troubleshooting GoCD server and agent installation errors.
+keywords: gocd troubleshooting, installation errors gocd, agent not registering, ssl error
+---
+
+# GoCD Troubleshooting issues
 
 This page is mainly for newer users of GoCD, to help with troubleshooting issues.
 
@@ -264,7 +269,7 @@ Java 1.7+ executable.
 ### Incompatible java version while upgrading to 17.x version
 
 Java 7 support is removed as part of 17.1 release.
-This implies an existing installation of Go will stop working after an upgrade
+This implies an existing installation of GoCD will stop working after an upgrade
 if it is configured to run with Java 7.
 
 In such cases, one of the following error messages would be seen in the logs:
@@ -284,7 +289,7 @@ This error will be logged, in `<GO_INSTALLATION_DIR>/go-server-wrapper.log` on s
 `<GO_INSTALLATION_DIR>/go-agent-bootstrapper-wrapper.log` on agent, if startup failed due to incompatible version of Java.
 
 Resolution: Update the environment variable `GO_SERVER_JAVA_HOME`, `GO_AGENT_JAVA_HOME`
-to the Java 8 path and restart the Go server/agent.
+to the Java 8 path and restart the GoCD server/agent.
 
 On Linux:
 
@@ -292,4 +297,4 @@ This error will be logged, in `<GO_LOG_DIR>/go-server.out.log` on server and
 `<GO_LOG_DIR>/go-agent-bootstrapper.log` on agent, if startup failed due to incompatible version of Java.
 
 Resolution: Update the environment variable JAVA_HOME set in `/etc/default/go-server`, `/etc/default/go-agent`
-to Java 8 path, and restart the Go server/agent.
+to Java 8 path, and restart the GoCD server/agent.
