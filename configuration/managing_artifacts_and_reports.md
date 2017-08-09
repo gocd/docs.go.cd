@@ -1,10 +1,15 @@
+---
+description: Managing artifacts and reports in GoCD
+keywords: GoCD configuration, artifacts, reports, publishing artifacts, artifact repository, test artifacts, 
+---
+
 # Managing artifacts and reports
 
-Because all your work is done on remote agents, Go provides a mechanism for files to be automatically uploaded to Go server following the completion of every job. These files can then be accessed via the Go server dashboard, or via the RESTful API.
+Because all your work is done on remote agents, GoCD provides a mechanism for files to be automatically uploaded to GoCD server following the completion of every job. These files can then be accessed via the GoCD server dashboard, or via the RESTful API.
 
 ## Publishing artifacts
 
-The first step in using the artifact repository is to tell Go which files you want to publish. To do this just specify the path to the file or directory relative to the root of the source control checkout. You also need to specify where Go will publish the artifact. You can add as many files and directories as you like.
+The first step in using the artifact repository is to tell GoCD which files you want to publish. To do this just specify the path to the file or directory relative to the root of the source control checkout. You also need to specify where GoCD will publish the artifact. You can add as many files and directories as you like.
 
 To configure an artifact:
 
@@ -26,9 +31,9 @@ For power users, here's how you would configure this via Config XML:
 
 ## Using tabs
 
-Once your artifacts are safely in Go server's artifact repository, you can have the dashboard display them in tabs.
+Once your artifacts are safely in GoCD server's artifact repository, you can have the dashboard display them in tabs.
 
-Go can display images, text files, or anything else that a browser will normally render in an IFrame. If you display an html page which references other resources (such as images, Flash files or whatever), so long as the resources are referenced with relative paths, they will display correctly.
+GoCD can display images, text files, or anything else that a browser will normally render in an IFrame. If you display an html page which references other resources (such as images, Flash files or whatever), so long as the resources are referenced with relative paths, they will display correctly.
 
 This mechanism is a simple way to include reports (for example code coverage) in Go.
 
@@ -50,13 +55,13 @@ You can use the following configuration to display it in a tab:
 </tabs>
 ```
 
-Go will create a tab called "Recording" and display the contents of the file in the tab when you click on it:
+GoCD will create a tab called "Recording" and display the contents of the file in the tab when you click on it:
 
 ![](../resources/images/recording.png)
 
 ### Publishing tests
 
-Go has support for publishing tests from JUnit or NUnit test reports.
+GoCD has support for publishing tests from JUnit or NUnit test reports.
 
 To configure a test artifact:
 
@@ -77,7 +82,7 @@ For power users, here's how you would configure this via Config XML:
 </artifacts>
 ```
 
-Go will:
+GoCD will:
 
 -   add a tab called Tests that lists the tests in the project
 -   add a list of the failed tests to the Failures tab
@@ -86,4 +91,4 @@ Go will:
 
 ### RESTful API
 
-Go publishes all of its information as resources that can be queried through http in the form of RESTful API. See the [Go integration](../integration/index.md) page for more information.
+GoCD publishes all of its information as resources that can be queried through http in the form of RESTful API. See the [Go integration](../integration/index.md) page for more information.
