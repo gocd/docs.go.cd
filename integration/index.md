@@ -1,8 +1,13 @@
-# Integration with external tools
+---
+description: Integrate external tools with GoCD
+keywords: gocd integrations, tool integrations, cctray, mingle project management, configure tracking tool
+---
+
+# GoCD Integration with external tools
 
 ## Integration with bug tracking and story management tools
 
-Go allows you to link your commit messages with bug tracking and story management tools which are web applications.
+GoCD allows you to link your commit messages with bug tracking and story management tools which are web applications.
 
 The following shows an example of tracking cards on Mingle by card numbers starting with a "\#" (e.g: \#4618):
 
@@ -19,13 +24,13 @@ For power users, here's how you'd do it from Config XML:
 </pipeline>
 ```
 
-Now, when a user commits code with comments like "\#4618 - Make sure the TrackingToolConfig and...", Go detects the modifications and automatically links story/bug numbers to the configured tracking tool:
+Now, when a user commits code with comments like "\#4618 - Make sure the TrackingToolConfig and...", GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:
 
 ![](../resources/images/pipeline_activity_tracking_tool.png)
 
 ## Monitoring your builds with client tools
 
-Go allows you to monitor your builds with CCTray through the url 'http://[your_go_server]:8153/go/cctray.xml.
+GoCD allows you to monitor your builds with CCTray through the url 'http://[your_go_server]:8153/go/cctray.xml.
 
 If you have switched on security in your configuration you can use BASIC authentication to connect. In many cases you can do this by including the username and password in the URL. The username and password should not include special characters.
 
