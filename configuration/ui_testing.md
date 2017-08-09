@@ -1,10 +1,15 @@
+---
+description: UI Testing
+keywords: GoCD configuration, UI testing, 
+---
+
 # UI testing
 
-Because Go installs itself as a service (Windows) or daemon (Linux) by default, getting Go agents to interact with your operating system's windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here's how you do it.
+Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system's windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here's how you do it.
 
 ## Windows
 
-The first step is to disable the Go agent service. To do this:
+The first step is to disable the GoCD agent service. To do this:
 
 1.  Log in to your Windows machine as an Administrative user.
 2.  Click on Start → Control Panel → Administrative Tools → Services.
