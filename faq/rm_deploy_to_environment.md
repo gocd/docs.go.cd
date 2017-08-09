@@ -1,6 +1,12 @@
+---
+description: One of the most useful aspects of having your build mapped as a pipeline, is being able to know exactly what is in a particular environment.
+keywords: gocd environment build pipeline, cd pipeline, user accepting test, deployments
+---
+
+
 # Releasing into an environment
 
-One of the most useful aspects of having your build mapped as a pipeline, is being able to know exactly what is in a particular environment. For example, you might have a User Acceptance Testing environment into which you want Go to automatically deploy your binary. Due to process restriction within your company, you might want to manually install a binary yourself, but have Go still retain the information of what is currently released.
+One of the most useful aspects of having your build mapped as a pipeline, is being able to know exactly what is in a particular environment. For example, you might have a User Acceptance Testing environment into which you want GoCD to automatically deploy your binary. Due to process restriction within your company, you might want to manually install a binary yourself, but have GoCD still retain the information of what is currently released.
 
 ## Example usages
 
