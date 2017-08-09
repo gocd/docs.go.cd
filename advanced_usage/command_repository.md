@@ -3,7 +3,7 @@ description: Look up a command from GoCD Command Repository
 keywords: Command Repository, Custom commands and agents, Args style commands, Bundled Repository, Command syntax, lookup logic
 ---
 
-# Command Repository
+# GoCD Command Repository
 
 ## Introduction
 
