@@ -1,4 +1,9 @@
-#Clone an existing pipeline
+---
+description: Clone an existing GoCD pipeline
+keywords: GoCD configuration, clone pipeline, CD pipeline, continuous delivery pipeline, branch, pipeline group
+---
+
+# Clone an existing GoCD pipeline
 
 Clone pipeline functionality helps you create a new pipeline from an existing pipeline by giving it a new name. Typically when setting up a pipeline for a new branch, it is very useful to take an existing pipeline and clone it.
 
