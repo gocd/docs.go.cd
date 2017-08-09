@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Package Repository Extension · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="gocd pipelines, build pipelines, jenkins, version control, linux systems package, package repository, rpm, xml configuration, value stream modeling" name="keywords" />
 
     </head>
     <body>
@@ -1820,23 +1820,23 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="package-material"><a name="package-material" class="plugin-anchor" href="#package-material"><i class="fa fa-link" aria-hidden="true"></i></a>Package Material</h1>
+                                <h1 id="gocd-package-material"><a name="gocd-package-material" class="plugin-anchor" href="#gocd-package-material"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Package Material</h1>
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
-<p><a href="https://youtu.be/Pk52CFBYWIw" target="_blank">Poll from Go packages and more from Go 13.3 onwards</a>
-Pipelines in Go can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:</p>
+<p><a href="https://youtu.be/Pk52CFBYWIw" target="_blank">Poll from GoCD packages and more from GoCD 13.3 onwards</a>
+Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:</p>
 <ol>
 <li>jar, war or ear file in case of Java</li>
 <li><a href="http://nuget.org/" target="_blank">nuget</a>/ <a href="http://chocolatey.org/" target="_blank">chocolatey</a> package in case of .NET</li>
 <li><a href="http://en.wikipedia.org/wiki/Package_management_system#Package_formats" target="_blank">Linux system package</a> (e.g rpm, deb) in case of any application platform</li>
 <li>Other <a href="http://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers" target="_blank">application level package formats</a> like gem, npm, <a href="http://php.net/manual/en/book.phar.php" target="_blank">phar</a>, <a href="http://www.python.org/dev/peps/pep-0427/" target="_blank">wheel</a> etc.</li>
 </ol>
-<p>These files (packages) are often maintained in corresponding package repositories. <strong>Such packages may be specified as materials for Go pipelines.</strong></p>
+<p>These files (packages) are often maintained in corresponding package repositories. <strong>Such packages may be specified as materials for GoCD pipelines.</strong></p>
 <h3 id="supported-packages"><a name="supported-packages" class="plugin-anchor" href="#supported-packages"><i class="fa fa-link" aria-hidden="true"></i></a>Supported Packages</h3>
-<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a Go pipeline. Using other <a href="https://www.gocd.org/community/plugins.html" target="_blank">external plugins</a>, it is possible to do the same for other types of packages.</p>
+<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a GoCD pipeline. Using other <a href="https://www.gocd.org/community/plugins.html" target="_blank">external plugins</a>, it is possible to do the same for other types of packages.</p>
 <h3 id="repositories-packages-and-materials"><a name="repositories-packages-and-materials" class="plugin-anchor" href="#repositories-packages-and-materials"><i class="fa fa-link" aria-hidden="true"></i></a>Repositories, Packages and Materials</h3>
 <p>A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the respository, interested pipelines will get scheduled.</p>
 <h4 id="repository-definition"><a name="repository-definition" class="plugin-anchor" href="#repository-definition"><i class="fa fa-link" aria-hidden="true"></i></a>Repository Definition</h4>
-<p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to Go. e.g. here is how we define a yum repository using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
+<p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a yum repository using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
 <h5 id="note"><a name="note" class="plugin-anchor" href="#note"><i class="fa fa-link" aria-hidden="true"></i></a>Note:</h5>
 <ol>
 <li>The repository name is not used by the package material plugin - it is used by Go to construct the material name.</li>
@@ -1884,21 +1884,21 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &apos;orchard
   ...
 </code></pre>
 <h3 id="value-stream-modeling-tip"><a name="value-stream-modeling-tip" class="plugin-anchor" href="#value-stream-modeling-tip"><i class="fa fa-link" aria-hidden="true"></i></a>Value stream modeling tip</h3>
-<p>Depending on whether Go is also publishing the package or just consuming it, there are two options for modeling a value stream that includes packages.</p>
+<p>Depending on whether GoCD is also publishing the package or just consuming it, there are two options for modeling a value stream that includes packages.</p>
 <ol>
-<li><p>The first scenario is where the package is published from some pipeline in Go. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:</p>
+<li><p>The first scenario is where the package is published from some pipeline in GoCD. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:</p>
 <ol>
 <li>Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this <a href="http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines" target="_blank">tip</a> may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the <a href="../navigation/value_stream_map.html">value stream map.</a></li>
 <li>Package material: Y adds P as a package material. Y no longer has to resolve P.</li>
 </ol>
 <p>It isn&apos;t advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option #1 makes sense.</p>
 </li>
-<li>The second scenario is where Go does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. Go helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.</li>
+<li>The second scenario is where GoCD does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. GoCD helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.</li>
 </ol>
 <h3 id="permissions"><a name="permissions" class="plugin-anchor" href="#permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Permissions</h3>
-<p>Repositories and their packages are global entities not tied to a pipeline group or environment. Pipeline group admins may define repositories and packages for use in their pipelines. One pipeline group admin may also use packages defined by another for their pipelines. Changing a package definition will cause all dependent pipelines to schedule - even those not in the same pipeline group as that of the person editing. Because of this, we don&apos;t have a UI way of changing the definition of a package. Only the Go admin can change it via Admin &gt; Config XML tab.</p>
+<p>Repositories and their packages are global entities not tied to a pipeline group or environment. Pipeline group admins may define repositories and packages for use in their pipelines. One pipeline group admin may also use packages defined by another for their pipelines. Changing a package definition will cause all dependent pipelines to schedule - even those not in the same pipeline group as that of the person editing. Because of this, we don&apos;t have a UI way of changing the definition of a package. Only the GoCD admin can change it via Admin &gt; Config XML tab.</p>
 <h3 id="polling"><a name="polling" class="plugin-anchor" href="#polling"><i class="fa fa-link" aria-hidden="true"></i></a>Polling</h3>
-<p>Even if no pipelines use a package, Go polls for newer packages every minute. This may be turned off at a package level by setting <a href="../configuration/configuration_reference.html#package">autoUpdate</a> to false via the config xml (Go admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming <a href="../configuration/pipeline_scheduling.html">auto scheduling of pipelines</a> is on). Also see <a href="https://api.gocd.org/current/#scheduling-pipelines" target="_blank">API scheduling</a>.</p>
+<p>Even if no pipelines use a package, GoCD polls for newer packages every minute. This may be turned off at a package level by setting <a href="../configuration/configuration_reference.html#package">autoUpdate</a> to false via the config xml (GoCD admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming <a href="../configuration/pipeline_scheduling.html">auto scheduling of pipelines</a> is on). Also see <a href="https://api.gocd.org/current/#scheduling-pipelines" target="_blank">API scheduling</a>.</p>
 <h3 id="package-information-display"><a name="package-information-display" class="plugin-anchor" href="#package-information-display"><i class="fa fa-link" aria-hidden="true"></i></a>Package information display</h3>
 <p>The following information is expected from the package material plugin (which in turn obtains it from the package metadata if available)</p>
 <ol>
@@ -1906,13 +1906,13 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &apos;orchard
 <li>Package build time</li>
 <li>Name of package creator (if available)</li>
 <li>Package comment</li>
-<li>Trackback URL - Typically an absolute URL that indicates what job (in Go or otherwise) created the package.</li>
+<li>Trackback URL - Typically an absolute URL that indicates what job (in GoCD or otherwise) created the package.</li>
 <li>Package - material name (i.e. repo-name:package-name)</li>
 </ol>
 <p>At the time of building the package, it is recommended to include as much of the above information as possible so that it is available for Go to display as below.</p>
 <p><img src="../resources/images/package-changes.png" alt=""></p>
 <h3 id="downloading-the-package"><a name="downloading-the-package" class="plugin-anchor" href="#downloading-the-package"><i class="fa fa-link" aria-hidden="true"></i></a>Downloading the package</h3>
-<p>The package isn&apos;t automatically downloaded on the agent and made available to the jobs. This is unlike VCS/SCM materials where a checkout is made by default. In case of packages, the Go Agent is typically not the target node for deployment, it is only orchestrating deployment to a remote node. So, instead of an automatic download, the following environment variables are made available:</p>
+<p>The package isn&apos;t automatically downloaded on the agent and made available to the jobs. This is unlike VCS/SCM materials where a checkout is made by default. In case of packages, the GoCD Agent is typically not the target node for deployment, it is only orchestrating deployment to a remote node. So, instead of an automatic download, the following environment variables are made available:</p>
 <ol>
 <li>GO_PACKAGE_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_LABEL</li>
 <li>GO_REPO_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_REPO_URL</li>
@@ -1945,10 +1945,10 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &apos;orchard
 <p><strong>Important:</strong> Please note that if you change repository credentials and then try to re-trigger (redeploy) an old package, the published environment variables will not reflect new credentials.</p>
 </blockquote>
 <h3 id="publishing-a-package"><a name="publishing-a-package" class="plugin-anchor" href="#publishing-a-package"><i class="fa fa-link" aria-hidden="true"></i></a>Publishing a Package</h3>
-<p>At the moment, Go does not create or publish the package for you. But it is simple enough for each type of package. e.g. <a href="yum_repository_poller.html#creating-and-publishing-rpms">rpm</a></p>
+<p>At the moment, GoCD does not create or publish the package for you. But it is simple enough for each type of package. e.g. <a href="yum_repository_poller.html#creating-and-publishing-rpms">rpm</a></p>
 <p>You could also explore the command repository on <a href="https://github.com/gocd/go-command-repo/tree/master/deploy" target="_blank">GitHub</a> for helpful commands. What is command repository? Please see <a href="../advanced_usage/command_repository.html">this</a>.</p>
 <h3 id="package-dependencies"><a name="package-dependencies" class="plugin-anchor" href="#package-dependencies"><i class="fa fa-link" aria-hidden="true"></i></a>Package Dependencies</h3>
-<p>Please note that Go does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let</p>
+<p>Please note that GoCD does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let</p>
 <pre><code class="lang-shell">yum install componentA-1.2.0-b234-noarch
 </code></pre>
 <p>do the resolution of componentB for you.</p>
@@ -1995,7 +1995,7 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &apos;orchard
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Package Repository Extension","level":"1.8.2","depth":2,"next":{"title":"Yum Repository Poller","level":"1.8.3","depth":2,"path":"extension_points/yum_repository_poller.md","ref":"extension_points/yum_repository_poller.md","articles":[]},"previous":{"title":"Plugin User Guide","level":"1.8.1","depth":2,"path":"extension_points/plugin_user_guide.md","ref":"extension_points/plugin_user_guide.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"extension_points/package_repository_extension.md","mtime":"2017-08-09T20:18:57.092Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:20:28.890Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems.","keywords":"gocd pipelines, build pipelines, jenkins, version control, linux systems package, package repository, rpm, xml configuration, value stream modeling","title":"Package Repository Extension","level":"1.8.2","depth":2,"next":{"title":"Yum Repository Poller","level":"1.8.3","depth":2,"path":"extension_points/yum_repository_poller.md","ref":"extension_points/yum_repository_poller.md","articles":[]},"previous":{"title":"Plugin User Guide","level":"1.8.1","depth":2,"path":"extension_points/plugin_user_guide.md","ref":"extension_points/plugin_user_guide.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"extension_points/package_repository_extension.md","mtime":"2017-08-09T20:21:45.653Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T20:23:20.830Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
