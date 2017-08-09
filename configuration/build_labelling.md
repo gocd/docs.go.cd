@@ -1,6 +1,6 @@
 ---
 description: GoCD pipeline labeling
-keywords: GoCD configuration, pipeline labeling, pipeline labels, customizing pipeline labels, pipeline identifier, environment variable, label template, VCS material
+keywords: GoCD configuration, pipeline labeling, pipeline labels, customizing pipeline labels, pipeline identifier, environment variable, label template, VCS material, pipeline counter
 ---
 
 # GoCD Pipeline Labeling
