@@ -1,6 +1,11 @@
+---
+description: GoCD configuration reference index
+keywords: GoCD configuration, reference index
+---
+
 <a id="top"></a>
 
-# Go Configuration Reference
+# GoCD Configuration Reference
 
 <big><pre>
 <a href="#cruise">&lt;cruise&gt;</a>
