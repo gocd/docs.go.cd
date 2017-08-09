@@ -1,13 +1,13 @@
 ---
 description: Automatically delete artifacts in GoCD
-keywords: GoCD configuration, delete artifacts, disk space, artifact purge, pipeline configuration, pipeline management 
+keywords: GoCD configuration, delete artifacts, disk space, artifact purge, pipeline configuration, pipeline management, artifact management,  
 ---
 
 # Auto delete artifacts
 
 ## Introduction
 
-GoCD can be configured to automatically delete artifacts if the available disk space on the server is low. GoCD will purge artifacts when available disk space is lower than the given value. Artifacts will be purged upto the point when available disk space is greater than a defined value.
+GoCD can be configured to automatically delete artifacts if the available disk space on the server is low. GoCD will purge artifacts when available disk space is lower than the given value. Artifacts will be purged up to the point when available disk space is greater than a defined value.
 
 ## Configuration
 
