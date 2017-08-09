@@ -1,8 +1,13 @@
+---
+description: GoCD provides a chart on the stage details page which can be used for trend analysis of the stage's periodic runs.
+keywords: stage duration, stage analysis, periodic runs, GoCD graphs
+---
+
 # Graphs
 
 ## Stage Duration Chart
 
-Go provides a chart on the stage details page which can be used for trend analysis of the stage's periodic runs. This graph shows two line graphs, one each for passed and failed stage instances which are plotted using the total duration of the last 300 stage instances.
+GoCD provides a chart on the stage details page which can be used for trend analysis of the stage's periodic runs. This graph shows two line graphs, one each for passed and failed stage instances which are plotted using the total duration of the last 300 stage instances.
 
 #### To navigate to the Graphs:
 
