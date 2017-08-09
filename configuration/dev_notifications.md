@@ -1,3 +1,9 @@
+---
+description: GoCD notifications
+keywords: GoCD configuration, email notifications, status change, build events
+---
+
+
 # Notifications
 
 It is often useful to receive an email when certain status changes occur in a stage. For example, a developer might want to know when their own check-in has broken the build. Alternatively, a manager might want an email whenever a project is deployed into production. Both of these scenarios can be covered by Notification Filters
