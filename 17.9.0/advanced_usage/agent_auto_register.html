@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Auto Register a Remote Agent · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Auto registration of remote agents">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="remote agents, GoCD agents, Auto registration, GoCD server" name="keywords" />
 
     </head>
     <body>
@@ -1821,7 +1821,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="auto-registration-of-remote-agents"><a name="auto-registration-of-remote-agents" class="plugin-anchor" href="#auto-registration-of-remote-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Auto registration of remote agents</h1>
-<p>As a Go administrator, you can auto approve remote agents by using a shared key between the Go Agent and Go Server.</p>
+<p>As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.</p>
 <ul>
 <li>Add an attribute named &quot;agentAutoRegisterKey&quot;, for e.g., agentAutoRegisterKey=&quot;388b633a88de126531afa41eff9aa69e&quot;, in the server configuration fragment, in case it is not present.</li>
 </ul>
@@ -1832,7 +1832,7 @@
 <span class="hljs-tag">&lt;/<span class="hljs-name">cruise</span>&gt;</span>
 </code></pre>
 <ul>
-<li><p>On the remote Go Agent machine, create a file named <code>&lt;agent_installation_directory&gt;/config/autoregister.properties</code>.</p>
+<li><p>On the remote GoCD Agent machine, create a file named <code>&lt;agent_installation_directory&gt;/config/autoregister.properties</code>.</p>
 <p>This file supports the following properties</p>
 </li>
 </ul>
@@ -1887,7 +1887,7 @@ agent.auto.register.hostname=Agent01
 agent.auto.register.elasticAgent.agentId=i-123456
 agent.auto.register.elasticAgent.pluginId=com.example.aws
 </code></pre><ul>
-<li>Now, bringing up the remote agent should automatically register with the Go Server without the administrator having to &apos;Enable&apos; the newly added agent and configure its resources and assign it to environments.</li>
+<li>Now, bringing up the remote agent should automatically register with the GoCD Server without the administrator having to &apos;Enable&apos; the newly added agent and configure its resources and assign it to environments.</li>
 </ul>
 
                                 
@@ -1932,7 +1932,7 @@ agent.auto.register.elasticAgent.pluginId=com.example.aws
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Auto Register a Remote Agent","level":"1.6.2","depth":2,"next":{"title":"Spawn multiple instances of a Job","level":"1.6.3","depth":2,"path":"advanced_usage/admin_spawn_multiple_jobs.md","ref":"advanced_usage/admin_spawn_multiple_jobs.md","articles":[]},"previous":{"title":"Pipelines as code","level":"1.6.1","depth":2,"path":"advanced_usage/pipelines_as_code.md","ref":"advanced_usage/pipelines_as_code.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/agent_auto_register.md","mtime":"2017-08-09T19:53:15.388Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T19:56:20.284Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Auto registration of remote agents","keywords":"remote agents, GoCD agents, Auto registration, GoCD server","title":"Auto Register a Remote Agent","level":"1.6.2","depth":2,"next":{"title":"Spawn multiple instances of a Job","level":"1.6.3","depth":2,"path":"advanced_usage/admin_spawn_multiple_jobs.md","ref":"advanced_usage/admin_spawn_multiple_jobs.md","articles":[]},"previous":{"title":"Pipelines as code","level":"1.6.1","depth":2,"path":"advanced_usage/pipelines_as_code.md","ref":"advanced_usage/pipelines_as_code.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/agent_auto_register.md","mtime":"2017-08-09T19:56:25.500Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T19:59:37.909Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
