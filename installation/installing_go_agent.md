@@ -1,8 +1,13 @@
-# Installing Go agent
+---
+description: You need to deploy at least one GoCD agent before you can build with GoCD. You can run a GoCD agent on the same machine as your GoCD server.
+keywords: gocd agents, agent installation, linux, windows, mac osx, gocd server
+---
 
-You need to deploy at least one Go agent before you can build with Go. For the very simplest installation, you can run a Go agent on the same machine as your Go server.
+# Installing GoCD agent
 
-Before you install the Go server or agent, please ensure that you meet the [System Requirements](system_requirements.md).
+You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.
+
+Before you install the GoCD server or agent, please ensure that you meet the [System Requirements](system_requirements.md).
 
 # Choose your operating system
 
