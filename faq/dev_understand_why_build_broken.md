@@ -1,3 +1,9 @@
+---
+description: Why is the build broken? 
+keywords: broken build, fix build, failed build, faild stages, failed job
+---
+
+
 # Why is the build broken?
 
 Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
