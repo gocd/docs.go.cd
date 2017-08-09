@@ -1,3 +1,8 @@
+---
+description: Using GoCD propereies to save extra information about your build.
+keywords: build, GoCD properties, resource
+---
+
 # Saving properties about a build
 
 When building your code, there can be quite a bit of extra information that you are interested in. For example, you might run [EMMA](http://emma.sourceforge.net/) on your code in order to log code coverage. With properties, you can save this information, and even look at the history of a property (by way of an exported spreadsheet).
