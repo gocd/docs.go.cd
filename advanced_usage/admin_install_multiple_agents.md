@@ -1,12 +1,18 @@
-#Install multiple agents on the same machine
+---
+description: Install multiple GoCD agents on a single machine
+keywords: agents, GoCD installers, windows, Mac OSX, Linux
+---
+
+
+# Install multiple agents on the same machine
 
 In order to fully utilize your hardware, it is often useful to install multiple agents on a single machine.
 
-Currently Go installers do not support this out of the box. The following sections describe how this can be done manually
+Currently GoCD installers do not support this out of the box. The following sections describe how this can be done manually
 
 ## Windows
 
-On Windows, multiple Go agents can be run in two ways - as Windows service or as a Windows command
+On Windows, multiple GoCD agents can be run in two ways - as Windows service or as a Windows command
 
 ### Running as Windows service
 
