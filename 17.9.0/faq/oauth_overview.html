@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>OAuth Overview · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="GoCD implements the OAuth protocol to authorize third party application's (client's) request to access data on the GoCD server.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="gocd oauth, oauth workflow, oauth client, oauth continuous delivery" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1821,12 +1821,12 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="oauth-overview"><a name="oauth-overview" class="plugin-anchor" href="#oauth-overview"><i class="fa fa-link" aria-hidden="true"></i></a>OAuth Overview</h1>
-<p>Go implements the OAuth protocol to authorize third party application&apos;s (client&apos;s) request to access data on the Go server.</p>
+<p>GoCD implements the OAuth protocol to authorize third party application&apos;s (client&apos;s) request to access data on the GoCD server.</p>
 <h2 id="what-is-oauth"><a name="what-is-oauth" class="plugin-anchor" href="#what-is-oauth"><i class="fa fa-link" aria-hidden="true"></i></a>What is OAuth?</h2>
 <p>OAuth is an open-source specification for building a framework for allowing a third-party app (the &#x201C;client&#x201D;) to access protected resources from another application (the &#x201C;provider,&#x201D; or &#x201C;resource owner&#x201D;) at the request of a &#x201C;user&#x201D; of the client app. Oauth allows the user to enter his user credentials (ex. username and password) only to the provider app, which then grants the client app permission to view the protected resources on behalf of the user.</p>
 <h4 id="common-terms"><a name="common-terms" class="plugin-anchor" href="#common-terms"><i class="fa fa-link" aria-hidden="true"></i></a>Common terms:</h4>
 <ul>
-<li><strong>Provider/Resource Owner</strong> &#x2013; the app that hosts the protected resource. An example is Twitter which uses OAuth as the protocol for all its clients. In the context of this document, Go is the provider/resource owner.</li>
+<li><strong>Provider/Resource Owner</strong> &#x2013; the app that hosts the protected resource. An example is Twitter which uses OAuth as the protocol for all its clients. In the context of this document, GoCD is the provider/resource owner.</li>
 <li><strong>Client</strong> &#x2013; the app that requests to see the resource data on behalf of the user. Any Twitter client that shows tweets is an example of this.</li>
 <li><strong>User/end user</strong> &#x2013; the entity who initiates the OAuth flow to allow the client to access protected data from the provider.</li>
 <li><strong>Client id/client secret</strong> &#x2013; Often, provider apps will maintain a list of clients that are allowed to access their data. Client apps can be identified in a number of ways, including with an id and a secret.</li>
@@ -1837,30 +1837,30 @@
 <h3 id="create-a-new-oauth-client"><a name="create-a-new-oauth-client" class="plugin-anchor" href="#create-a-new-oauth-client"><i class="fa fa-link" aria-hidden="true"></i></a>Create a new OAuth client</h3>
 <p>Before any third-party application can use GoCD using OAuth, it needs to be registered in Go as an OAuth client.</p>
 <ul>
-<li>Login as an administrator to Go.</li>
+<li>Login as an administrator to GoCD.</li>
 <li>Navigate to the <strong>Admin page</strong> , then the <strong>OAuth Clients</strong> tab.</li>
 <li>Click the <strong>New OAuth Client</strong> button.</li>
 <li>Fill in the <strong>Name</strong> and <strong>Redirect URL</strong> for the third-party application. The redirect URL is where Go will send the end-user to once the authorization process is complete.</li>
-<li>You&apos;ll be presented with a summary of the newly registered application. Use the provided Client ID and Secret in the third-party application to enable OAuth communications with Go.</li>
+<li>You&apos;ll be presented with a summary of the newly registered application. Use the provided Client ID and Secret in the third-party application to enable OAuth communications with GoCD.</li>
 </ul>
 <h3 id="edit-an-existing-oauth-client"><a name="edit-an-existing-oauth-client" class="plugin-anchor" href="#edit-an-existing-oauth-client"><i class="fa fa-link" aria-hidden="true"></i></a>Edit an existing OAuth client</h3>
 <p>If you&apos;ve already registered an OAuth Client, but want to change its name or redirect URL, here&apos;s how:</p>
 <ul>
-<li>Login as an administrator to Go.</li>
+<li>Login as an administrator to GoCD.</li>
 <li>Navigate to the <strong>Admin page</strong> , then the <strong>OAuth Clients</strong> tab.</li>
 <li>Locate the Client you want to modify and click the <strong>Edit</strong> link next to it.</li>
 <li>Edit the necessary fields and click the <strong>Update</strong> button to save your changes.</li>
 </ul>
 <h3 id="delete-an-existing-oauth-client"><a name="delete-an-existing-oauth-client" class="plugin-anchor" href="#delete-an-existing-oauth-client"><i class="fa fa-link" aria-hidden="true"></i></a>Delete an existing OAuth client</h3>
-<p>If you want to un-register/delete an OAuth Client (prevent it from accessing Go via OAuth), here&apos;s how:</p>
+<p>If you want to un-register/delete an OAuth Client (prevent it from accessing GoCD via OAuth), here&apos;s how:</p>
 <ul>
-<li>Login as an administrator to Go.</li>
+<li>Login as an administrator to GoCD.</li>
 <li>Navigate to the <strong>Admin page</strong> , then the <strong>OAuth Clients</strong> tab.</li>
 <li>Locate the Client you want to delete and click the <strong>Destroy</strong> link next to it.</li>
 <li>Confirm the deletion in the popup box.</li>
 </ul>
 <h3 id="request-for-authorization-code"><a name="request-for-authorization-code" class="plugin-anchor" href="#request-for-authorization-code"><i class="fa fa-link" aria-hidden="true"></i></a>Request for authorization code</h3>
-<p>Your client needs to contact Go server for an authorization code using the client Id and client secret. Go verifies that the requesting application has been registered with it.</p>
+<p>Your client needs to contact GoCD server for an authorization code using the client Id and client secret. GoCD verifies that the requesting application has been registered with it.</p>
 <p>Send a request to: <a href="https://your-go-server.com:8154/oauth/authorize" target="_blank">https://your-go-server.com:8154/oauth/authorize</a> with the following query parameters:</p>
 <table>
 <thead>
@@ -1929,7 +1929,7 @@
 <p><strong>Example Response:</strong></p>
 <pre><code>{:access_token =&gt; f180f7bb68d38531aac2f49e5b0cac0c5ed5ced9b72842a429e783747e819664, :expires_in =&gt; 3529, :refresh_token =&gt; e1n54df802f162108a6336ec584dc637a7ad5578832a5db364e0d7b47657c875}
 </code></pre><h3 id="use-the-access-token"><a name="use-the-access-token" class="plugin-anchor" href="#use-the-access-token"><i class="fa fa-link" aria-hidden="true"></i></a>Use the access token</h3>
-<p>Now you are ready to query data from the Go server.</p>
+<p>Now you are ready to query data from the GoCD server.</p>
 <p><strong>Example Request:</strong></p>
 <pre><code class="lang-shell">curl -H &apos;Authorization: Token token=&quot;f180f7bb68d38531aac2f49e5b0cac0c5ed5ced9b72842a429e783747e819664&quot;&apos; https://www.your-go-server.com:8154/go/cctray.xml
 </code></pre>
@@ -1976,7 +1976,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"OAuth Overview","level":"1.9.14","depth":2,"next":{"title":"What is OAuth?","level":"1.9.15","depth":2,"path":"faq/what_is_oauth.md","ref":"faq/what_is_oauth.md","articles":[]},"previous":{"title":"Clone/Copy an Existing Agents","level":"1.9.13","depth":2,"path":"faq/agent_guid_issue.md","ref":"faq/agent_guid_issue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/oauth_overview.md","mtime":"2017-08-09T21:53:15.158Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T21:56:23.320Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD implements the OAuth protocol to authorize third party application's (client's) request to access data on the GoCD server.","keywords":"gocd oauth, oauth workflow, oauth client, oauth continuous delivery","title":"OAuth Overview","level":"1.9.14","depth":2,"next":{"title":"What is OAuth?","level":"1.9.15","depth":2,"path":"faq/what_is_oauth.md","ref":"faq/what_is_oauth.md","articles":[]},"previous":{"title":"Clone/Copy an Existing Agents","level":"1.9.13","depth":2,"path":"faq/agent_guid_issue.md","ref":"faq/agent_guid_issue.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/oauth_overview.md","mtime":"2017-08-14T16:36:13.017Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-14T16:39:47.681Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

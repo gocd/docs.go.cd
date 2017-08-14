@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Managing Environments · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Managing environments">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="GoCD configuration, GoCD environments, pipeline groups, agents, UAT environments, performance testing environment, production environment, deployment pipeline" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1821,7 +1821,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="managing-environments"><a name="managing-environments" class="plugin-anchor" href="#managing-environments"><i class="fa fa-link" aria-hidden="true"></i></a>Managing environments</h1>
-<p>Go is configured using an XML configuration file. This file can be edited through the Go server dashboard. Go allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.</p>
+<p>GoCD is configured using an XML configuration file. This file can be edited through the GoCD server dashboard. GoCD allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.</p>
 <h2 id="creating-a-new-environment"><a name="creating-a-new-environment" class="plugin-anchor" href="#creating-a-new-environment"><i class="fa fa-link" aria-hidden="true"></i></a>Creating a new environment</h2>
 <p>An Environment is a grouping of pipelines and agents. By assigning an agent to an environment, it will be used to run only those jobs that belong to the pipelines of that environment. An agent can belong to more than one environment. This means, for instance, the same agent can be used to deploy something into an UAT or a Performance testing environment. A pipeline can, however, only be assigned to a single environment. Generally, these pipelines represent the tasks that need to happen in a given environment. For example deploying a 3-tier application into an UAT environment with 6 machines and running smoke tests on the setup.</p>
 <p>However, once an agent is associated with one or more environments, it is no longer capable of picking up jobs on pipelines that do not belong to environments. Pipelines outside of environments will only be assigned to agents in the default pool (not associated with any environment).</p>
@@ -1905,7 +1905,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Managing Environments","level":"1.5.5","depth":2,"next":{"title":"Pipeline Labelling","level":"1.5.6","depth":2,"path":"configuration/build_labelling.md","ref":"configuration/build_labelling.md","articles":[]},"previous":{"title":"Managing Agents","level":"1.5.4","depth":2,"path":"configuration/managing_a_build_cloud.md","ref":"configuration/managing_a_build_cloud.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/managing_environments.md","mtime":"2017-08-09T21:53:15.156Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T21:56:23.320Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Managing environments","keywords":"GoCD configuration, GoCD environments, pipeline groups, agents, UAT environments, performance testing environment, production environment, deployment pipeline","title":"Managing Environments","level":"1.5.5","depth":2,"next":{"title":"Pipeline Labelling","level":"1.5.6","depth":2,"path":"configuration/build_labelling.md","ref":"configuration/build_labelling.md","articles":[]},"previous":{"title":"Managing Agents","level":"1.5.4","depth":2,"path":"configuration/managing_a_build_cloud.md","ref":"configuration/managing_a_build_cloud.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/managing_environments.md","mtime":"2017-08-14T16:36:13.014Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-14T16:39:47.681Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

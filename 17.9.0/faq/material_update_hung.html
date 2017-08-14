@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Go unable to poll for changes · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="GoCD server polls for changes to all materials of 'Auto Triggered' pipelines. Polling occurs every minute and ten materials at a time.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="gocd server polls, build materials, polling intervals, pipelines, cd pipelines, schedule pipeline" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,18 +1820,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="go-unable-to-poll-for-changes"><a name="go-unable-to-poll-for-changes" class="plugin-anchor" href="#go-unable-to-poll-for-changes"><i class="fa fa-link" aria-hidden="true"></i></a>Go unable to poll for changes</h1>
-<p>Go server polls for changes to all materials of &apos;Auto Triggered&apos; pipelines. By default, polling occurs every minute and ten materials at a time. The polling interval and the number of materials to be polled simultaneously are configurable.</p>
-<p>Go uses SCM commands to poll for changes. For example, to check for any new changes in SVN repository the following command is used:</p>
+                                <h1 id="gocd-unable-to-poll-for-changes"><a name="gocd-unable-to-poll-for-changes" class="plugin-anchor" href="#gocd-unable-to-poll-for-changes"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD unable to poll for changes</h1>
+<p>GoCD server polls for changes to all materials of &apos;Auto Triggered&apos; pipelines. By default, polling occurs every minute and ten materials at a time. The polling interval and the number of materials to be polled simultaneously are configurable.</p>
+<p>GoCD uses SCM commands to poll for changes. For example, to check for any new changes in SVN repository the following command is used:</p>
 <pre><code class="lang-shell">svn log --non-interactive --xml -v -r HEAD:&apos;revision&apos; &apos;repository-URL&apos;
 </code></pre>
-<p>The SCM command used by Go server can hang with no output. Invalid configuration, network issues, console input block are some of the causes for such a situation. Such scenarios cause pipeline scheduling delays and also lead to performance degradation</p>
+<p>The SCM command used by GoCD server can hang with no output. Invalid configuration, network issues, console input block are some of the causes for such a situation. Such scenarios cause pipeline scheduling delays and also lead to performance degradation</p>
 <p>Such a scenario is notified to the users by a warning in Server Health; when clicked shows a message similar to the one below.</p>
 <p><img src="../resources/images/material_update_hung.png" alt=""></p>
 <h2 id="what-can-i-do-with-the-information"><a name="what-can-i-do-with-the-information" class="plugin-anchor" href="#what-can-i-do-with-the-information"><i class="fa fa-link" aria-hidden="true"></i></a>What can I do with the information</h2>
 <p>When you see warning messages like the one above</p>
 <ul>
-<li><p>Identify the processes running as children of Go Server</p>
+<li><p>Identify the processes running as children of GoCD Server</p>
 <blockquote>
 <p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &apos;ps waux | grep &apos;material-type&apos;&apos;</p>
 </blockquote>
@@ -1844,21 +1844,21 @@
 </li>
 <li><p>Ensure that the warning message goes away from Server Health.</p>
 <blockquote>
-<p>Please note the folder name (of the form .../flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the Go installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.</p>
+<p>Please note the folder name (of the form .../flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the GoCD installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.</p>
 </blockquote>
 </li>
 </ul>
 <h2 id="configuring-warning-time"><a name="configuring-warning-time" class="plugin-anchor" href="#configuring-warning-time"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring warning time</h2>
 <ul>
-<li>Go server waits for 15 minutes (of no output) before it warns user about possible hung material update. User can modify this wait time using a System Property: &apos;material.update.inactive.timeout&apos;.</li>
-<li><p>On linux installations of Go server, add the following line to /etc/default/go-server.</p>
+<li>GoCD server waits for 15 minutes (of no output) before it warns user about possible hung material update. User can modify this wait time using a System Property: &apos;material.update.inactive.timeout&apos;.</li>
+<li><p>On linux installations of GoCD server, add the following line to /etc/default/go-server.</p>
 <pre><code class="lang-shell">export GO_SERVER_SYSTEM_PROPERTIES=&apos;-Dmaterial.update.inactive.timeout=20&apos;
 </code></pre>
-<p>The above configuration sets the time that Go server uses to determine if a material update is possibly hung, to 20 minutes.</p>
+<p>The above configuration sets the time that GoCD server uses to determine if a material update is possibly hung, to 20 minutes.</p>
 </li>
-<li><p>On Windows, add the following line in the <em><a href="../installation/installing_go_server.html">wrapper-properties.conf</a></em> file in the config folder of the Go server installation where <strong>x</strong> is 1 more than the highest number in <em>wrapper-server.conf</em> and <em>wrapper-properties.conf</em> combined.</p>
+<li><p>On Windows, add the following line in the <em><a href="../installation/installing_go_server.html">wrapper-properties.conf</a></em> file in the config folder of the GoCD server installation where <strong>x</strong> is 1 more than the highest number in <em>wrapper-server.conf</em> and <em>wrapper-properties.conf</em> combined.</p>
 <pre><code>wrapper.java.additional.x=&apos;-Dmaterial.update.inactive.timeout=20&apos;
-</code></pre><p>The above configuration sets the time that Go server uses to determine if a material update is possibly hung, to 20 minutes.</p>
+</code></pre><p>The above configuration sets the time that GoCD server uses to determine if a material update is possibly hung, to 20 minutes.</p>
 </li>
 </ul>
 
@@ -1904,7 +1904,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Go unable to poll for changes","level":"1.9.17","depth":2,"next":{"title":"Artifact integrity verification","level":"1.9.18","depth":2,"path":"faq/artifact_integrity.md","ref":"faq/artifact_integrity.md","articles":[]},"previous":{"title":"How do I re-run jobs?","level":"1.9.16","depth":2,"path":"faq/job_rerun.md","ref":"faq/job_rerun.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/material_update_hung.md","mtime":"2017-08-09T21:53:15.158Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T21:56:23.320Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD server polls for changes to all materials of 'Auto Triggered' pipelines. Polling occurs every minute and ten materials at a time.","keywords":"gocd server polls, build materials, polling intervals, pipelines, cd pipelines, schedule pipeline","title":"Go unable to poll for changes","level":"1.9.17","depth":2,"next":{"title":"Artifact integrity verification","level":"1.9.18","depth":2,"path":"faq/artifact_integrity.md","ref":"faq/artifact_integrity.md","articles":[]},"previous":{"title":"How do I re-run jobs?","level":"1.9.16","depth":2,"path":"faq/job_rerun.md","ref":"faq/job_rerun.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/material_update_hung.md","mtime":"2017-08-14T16:36:13.017Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-14T16:39:47.681Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

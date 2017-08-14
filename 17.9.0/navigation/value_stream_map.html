@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Value Stream Map · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="GoCD's Value Stream Map (VSM) helps you visualize your continuous delivery work">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="value stream map, vsm, gocd, continuous integration, continuous delivery, cd workflow, cd pipelines, pipeline dependencies, build pipeline" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="./">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,7 +1820,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="value-stream-map"><a name="value-stream-map" class="plugin-anchor" href="#value-stream-map"><i class="fa fa-link" aria-hidden="true"></i></a>Value Stream Map</h1>
+                                <h1 id="gocd-value-stream-map"><a name="gocd-value-stream-map" class="plugin-anchor" href="#gocd-value-stream-map"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Value Stream Map</h1>
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
 <p>Value Stream Map helps you visualize your CI/CD workflow. With a single click, it allows you to trace a commit from when it is checked in up to when it is deployed.</p>
 <p><img src="../resources/images/whole_map.png" alt=""></p>
@@ -1837,7 +1837,7 @@
 <p>The pipeline instance for which the Value Stream Map is being viewed is the main pipeline and is highlighted. Everything to the left of this pipeline are its upstream dependencies, ie all the materials that have contributed to this instance. Everything to the right are its downstream dependencies, ie, all the pipelines that it can potentially trigger or contribute to.</p>
 <p><img src="../resources/images/upstream_and_downstream.png" alt=""></p>
 <h3 id="upstream-dependencies"><a name="upstream-dependencies" class="plugin-anchor" href="#upstream-dependencies"><i class="fa fa-link" aria-hidden="true"></i></a>Upstream Dependencies</h3>
-<p>The upstream dependencies of the main pipeline are taken from history and show all the source control and pipeline dependency materials that have contributed to the main pipeline. Even when the Go Configuration changes after a certain instance of a pipeline, its upstream dependency graph will continue to reflect the older configuration with which it was run. This also means that it would display pipelines that do not exist in the configuration any more.</p>
+<p>The upstream dependencies of the main pipeline are taken from history and show all the source control and pipeline dependency materials that have contributed to the main pipeline. Even when the GoCD Configuration changes after a certain instance of a pipeline, its upstream dependency graph will continue to reflect the older configuration with which it was run. This also means that it would display pipelines that do not exist in the configuration any more.</p>
 <p>Let us assume that instance &apos;1&apos; of pipeline &apos;Build&apos; is as below</p>
 <p><img src="../resources/images/upstream.png" alt=""></p>
 <p>If the configuration changes to replace the pipeline &apos;Services&apos; with 2 pipelines - &apos;Service-1&apos; and &apos;Service-2&apos;, the next instance of pipeline &apos;Build&apos; would reflect the change.</p>
@@ -1853,7 +1853,7 @@
 <p>A pipeline could be re-triggered multiple times with the same revision. In such cases, all the instances are shown in descending order against that pipeline. In the below example, &apos;Deploy&apos; has been triggered thrice with counter &apos;2&apos; of pipeline &apos;FunctionalTests&apos;.</p>
 <p><img src="../resources/images/multiple_instances.png" alt=""></p>
 <h3 id="viewing-the-value-stream-map"><a name="viewing-the-value-stream-map" class="plugin-anchor" href="#viewing-the-value-stream-map"><i class="fa fa-link" aria-hidden="true"></i></a>Viewing the Value Stream Map</h3>
-<p>Every pipeline label in Go directs you to the value stream map of that instance of the pipeline.</p>
+<p>Every pipeline label in GoCD directs you to the value stream map of that instance of the pipeline.</p>
 <p><img src="../resources/images/navigation.png" alt=""></p>
 <p>You can access Value Stream Map for a commit in 2 ways:</p>
 <p><img src="../resources/images/vsm_commit_1.png" alt="">
@@ -1861,7 +1861,7 @@
 <h3 id="permissions"><a name="permissions" class="plugin-anchor" href="#permissions"><i class="fa fa-link" aria-hidden="true"></i></a>Permissions</h3>
 <p>The permissions required to view a value stream map are as follows:</p>
 <ul>
-<li>Go Administrators have access to the value stream maps of all the pipelines that are configured.</li>
+<li>GoCD Administrators have access to the value stream maps of all the pipelines that are configured.</li>
 <li>Users with view permissions for a pipeline will be able to view the value stream map for all instances of that pipeline.</li>
 </ul>
 <p>However, there is one special case to be noted where the pipeline details might not be shown completely. If the user does not have view permissions for a pipeline in the Value Stream Map, its details, like the stages and instances run will not be shown.</p>
@@ -1899,7 +1899,7 @@
                 </a>
                 
                 
-                <a href="../installation/" class="navigation navigation-next " aria-label="Next page: Installing Go">
+                <a href="../installation/" class="navigation navigation-next " aria-label="Next page: Installing GoCD">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -1910,7 +1910,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Value Stream Map","level":"1.3.10","depth":2,"next":{"title":"Installing Go","level":"1.4","depth":1,"path":"installation/index.md","ref":"installation/index.md","articles":[{"title":"System requirements","level":"1.4.1","depth":2,"path":"installation/system_requirements.md","ref":"installation/system_requirements.md","articles":[]},{"title":"Installing Go Server","level":"1.4.2","depth":2,"path":"installation/installing_go_server.md","ref":"installation/installing_go_server.md","articles":[{"title":"Linux","level":"1.4.2.1","depth":3,"path":"installation/install/server/linux.md","ref":"installation/install/server/linux.md","articles":[]},{"title":"Windows","level":"1.4.2.2","depth":3,"path":"installation/install/server/windows.md","ref":"installation/install/server/windows.md","articles":[]},{"title":"Mac OS X","level":"1.4.2.3","depth":3,"path":"installation/install/server/osx.md","ref":"installation/install/server/osx.md","articles":[]},{"title":"Generic Zip","level":"1.4.2.4","depth":3,"path":"installation/install/server/zip.md","ref":"installation/install/server/zip.md","articles":[]}]},{"title":"Installing Go Agent","level":"1.4.3","depth":2,"path":"installation/installing_go_agent.md","ref":"installation/installing_go_agent.md","articles":[{"title":"Linux","level":"1.4.3.1","depth":3,"path":"installation/install/agent/linux.md","ref":"installation/install/agent/linux.md","articles":[]},{"title":"Windows","level":"1.4.3.2","depth":3,"path":"installation/install/agent/windows.md","ref":"installation/install/agent/windows.md","articles":[]},{"title":"Mac OS X","level":"1.4.3.3","depth":3,"path":"installation/install/agent/osx.md","ref":"installation/install/agent/osx.md","articles":[]},{"title":"Generic Zip","level":"1.4.3.4","depth":3,"path":"installation/install/agent/zip.md","ref":"installation/install/agent/zip.md","articles":[]}]},{"title":"Upgrading Go","level":"1.4.4","depth":2,"path":"installation/upgrading_go.md","ref":"installation/upgrading_go.md","articles":[]},{"title":"Configuring Server Details","level":"1.4.5","depth":2,"path":"installation/configuring_server_details.md","ref":"installation/configuring_server_details.md","articles":[]},{"title":"Configure a Proxy","level":"1.4.6","depth":2,"path":"installation/configure_proxy.md","ref":"installation/configure_proxy.md","articles":[]},{"title":"Configuring SSL/TLS","level":"1.4.7","depth":2,"path":"installation/ssl_tls_config.md","ref":"installation/ssl_tls_config.md","articles":[{"title":"Customizing Ciphers","level":"1.4.7.1","depth":3,"path":"installation/ssl_tls/setting_up_ciphers.md","ref":"installation/ssl_tls/setting_up_ciphers.md","articles":[]},{"title":"Change SSL Certificates","level":"1.4.7.2","depth":3,"path":"installation/ssl_tls/custom_server_certificate.md","ref":"installation/ssl_tls/custom_server_certificate.md","articles":[]},{"title":"End to end transport security","level":"1.4.7.3","depth":3,"path":"installation/ssl_tls/end_to_end_transport_security.md","ref":"installation/ssl_tls/end_to_end_transport_security.md","articles":[]}]},{"title":"Performance Tuning","level":"1.4.8","depth":2,"path":"installation/performance_tuning.md","ref":"installation/performance_tuning.md","articles":[]},{"title":"Hardware Specifications","level":"1.4.9","depth":2,"path":"installation/hardware_specifications.md","ref":"installation/hardware_specifications.md","articles":[]},{"title":"Troubleshooting","level":"1.4.10","depth":2,"path":"installation/troubleshooting.md","ref":"installation/troubleshooting.md","articles":[]}]},"previous":{"title":"Environments","level":"1.3.9","depth":2,"path":"navigation/environments_page.md","ref":"navigation/environments_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/value_stream_map.md","mtime":"2017-08-09T21:53:15.161Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-09T21:56:23.320Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD's Value Stream Map (VSM) helps you visualize your continuous delivery work","keywords":"value stream map, vsm, gocd, continuous integration, continuous delivery, cd workflow, cd pipelines, pipeline dependencies, build pipeline","title":"Value Stream Map","level":"1.3.10","depth":2,"next":{"title":"Installing GoCD","level":"1.4","depth":1,"path":"installation/index.md","ref":"installation/index.md","articles":[{"title":"System requirements","level":"1.4.1","depth":2,"path":"installation/system_requirements.md","ref":"installation/system_requirements.md","articles":[]},{"title":"Installing GoCD Server","level":"1.4.2","depth":2,"path":"installation/installing_go_server.md","ref":"installation/installing_go_server.md","articles":[{"title":"Linux","level":"1.4.2.1","depth":3,"path":"installation/install/server/linux.md","ref":"installation/install/server/linux.md","articles":[]},{"title":"Windows","level":"1.4.2.2","depth":3,"path":"installation/install/server/windows.md","ref":"installation/install/server/windows.md","articles":[]},{"title":"Mac OS X","level":"1.4.2.3","depth":3,"path":"installation/install/server/osx.md","ref":"installation/install/server/osx.md","articles":[]},{"title":"Generic Zip","level":"1.4.2.4","depth":3,"path":"installation/install/server/zip.md","ref":"installation/install/server/zip.md","articles":[]}]},{"title":"Installing GoCD Agent","level":"1.4.3","depth":2,"path":"installation/installing_go_agent.md","ref":"installation/installing_go_agent.md","articles":[{"title":"Linux","level":"1.4.3.1","depth":3,"path":"installation/install/agent/linux.md","ref":"installation/install/agent/linux.md","articles":[]},{"title":"Windows","level":"1.4.3.2","depth":3,"path":"installation/install/agent/windows.md","ref":"installation/install/agent/windows.md","articles":[]},{"title":"Mac OS X","level":"1.4.3.3","depth":3,"path":"installation/install/agent/osx.md","ref":"installation/install/agent/osx.md","articles":[]},{"title":"Generic Zip","level":"1.4.3.4","depth":3,"path":"installation/install/agent/zip.md","ref":"installation/install/agent/zip.md","articles":[]}]},{"title":"Upgrading GoCD","level":"1.4.4","depth":2,"path":"installation/upgrading_go.md","ref":"installation/upgrading_go.md","articles":[]},{"title":"Configuring Server Details","level":"1.4.5","depth":2,"path":"installation/configuring_server_details.md","ref":"installation/configuring_server_details.md","articles":[]},{"title":"Configure a Proxy","level":"1.4.6","depth":2,"path":"installation/configure_proxy.md","ref":"installation/configure_proxy.md","articles":[]},{"title":"Configuring SSL/TLS","level":"1.4.7","depth":2,"path":"installation/ssl_tls_config.md","ref":"installation/ssl_tls_config.md","articles":[{"title":"Customizing Ciphers","level":"1.4.7.1","depth":3,"path":"installation/ssl_tls/setting_up_ciphers.md","ref":"installation/ssl_tls/setting_up_ciphers.md","articles":[]},{"title":"Change SSL Certificates","level":"1.4.7.2","depth":3,"path":"installation/ssl_tls/custom_server_certificate.md","ref":"installation/ssl_tls/custom_server_certificate.md","articles":[]},{"title":"End to end transport security","level":"1.4.7.3","depth":3,"path":"installation/ssl_tls/end_to_end_transport_security.md","ref":"installation/ssl_tls/end_to_end_transport_security.md","articles":[]}]},{"title":"Performance Tuning","level":"1.4.8","depth":2,"path":"installation/performance_tuning.md","ref":"installation/performance_tuning.md","articles":[]},{"title":"Hardware Specifications","level":"1.4.9","depth":2,"path":"installation/hardware_specifications.md","ref":"installation/hardware_specifications.md","articles":[]},{"title":"Troubleshooting","level":"1.4.10","depth":2,"path":"installation/troubleshooting.md","ref":"installation/troubleshooting.md","articles":[]}]},"previous":{"title":"Environments","level":"1.3.9","depth":2,"path":"navigation/environments_page.md","ref":"navigation/environments_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/value_stream_map.md","mtime":"2017-08-14T16:36:13.022Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-14T16:39:47.681Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
