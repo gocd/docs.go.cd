@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Customize a Pipeline Label · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Creating and using custom pipeline label in GoCD">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="GoCD configuration, pipeline labels, custom pipeline labels, material revision, upstream pipeline labels" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1821,7 +1821,7 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="use-a-custom-pipeline-label"><a name="use-a-custom-pipeline-label" class="plugin-anchor" href="#use-a-custom-pipeline-label"><i class="fa fa-link" aria-hidden="true"></i></a>Use a custom pipeline label</h1>
-<p>When using Go to build your application, it is often useful to be able to include extra information in the label Go uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.</p>
+<p>When using GoCD to build your application, it is often useful to be able to include extra information in the label GoCD uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.</p>
 <ul>
 <li>Click on the <a href="../navigation/administration_page.html">Administration</a> tab
 <img src="../resources/images/topnav_admin.png" alt=""></li>
@@ -1832,7 +1832,7 @@
 <li>Click save</li>
 </ul>
 <h2 id="using-material-revisions"><a name="using-material-revisions" class="plugin-anchor" href="#using-material-revisions"><i class="fa fa-link" aria-hidden="true"></i></a>Using material revisions</h2>
-<p>You might also want to include material revision into the pipeline label so that it&apos;s easier to find a Go pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:</p>
+<p>You might also want to include material revision into the pipeline label so that it&apos;s easier to find a GoCD pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">pipeline</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;main&quot;</span> <span class="hljs-attr">labeltemplate</span>=<span class="hljs-string">&quot;1.3.${COUNT}-${svn}&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">materials</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">svn</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;http://server/path&quot;</span> <span class="hljs-attr">materialName</span>=<span class="hljs-string">&quot;svn&quot;</span> /&gt;</span>
@@ -1927,7 +1927,7 @@ under &quot;--short&quot; for further details.)</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Customize a Pipeline Label","level":"1.5.9","depth":2,"next":{"title":"Clone a Pipeline","level":"1.5.10","depth":2,"path":"configuration/admin_clone_pipeline.md","ref":"configuration/admin_clone_pipeline.md","articles":[]},"previous":{"title":"Parameterize a Pipeline","level":"1.5.8","depth":2,"path":"configuration/admin_use_parameters_in_configuration.md","ref":"configuration/admin_use_parameters_in_configuration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/admin_use_custom_pipeline_label.md","mtime":"2017-08-16T05:48:54.016Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Creating and using custom pipeline label in GoCD","keywords":"GoCD configuration, pipeline labels, custom pipeline labels, material revision, upstream pipeline labels","title":"Customize a Pipeline Label","level":"1.5.9","depth":2,"next":{"title":"Clone a Pipeline","level":"1.5.10","depth":2,"path":"configuration/admin_clone_pipeline.md","ref":"configuration/admin_clone_pipeline.md","articles":[]},"previous":{"title":"Parameterize a Pipeline","level":"1.5.8","depth":2,"path":"configuration/admin_use_parameters_in_configuration.md","ref":"configuration/admin_use_parameters_in_configuration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/admin_use_custom_pipeline_label.md","mtime":"2017-08-16T23:15:40.379Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

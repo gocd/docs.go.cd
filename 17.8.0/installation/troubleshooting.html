@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Troubleshooting · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Troubleshooting GoCD server and agent installation errors.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="gocd troubleshooting, installation errors gocd, agent not registering, ssl error" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="./">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,7 +1820,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="troubleshooting-issues"><a name="troubleshooting-issues" class="plugin-anchor" href="#troubleshooting-issues"><i class="fa fa-link" aria-hidden="true"></i></a>Troubleshooting issues</h1>
+                                <h1 id="gocd-troubleshooting-issues"><a name="gocd-troubleshooting-issues" class="plugin-anchor" href="#gocd-troubleshooting-issues"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Troubleshooting issues</h1>
 <p>This page is mainly for newer users of GoCD, to help with troubleshooting issues.</p>
 <ul>
 <li><a href="#agent_registration">GoCD Agent not registering with the GoCD Server</a></li>
@@ -2051,7 +2051,7 @@ Java 1.7+ executable.</p>
 <p><a name="upgrade-issues"></a></p>
 <h3 id="incompatible-java-version-while-upgrading-to-17x-version"><a name="incompatible-java-version-while-upgrading-to-17x-version" class="plugin-anchor" href="#incompatible-java-version-while-upgrading-to-17x-version"><i class="fa fa-link" aria-hidden="true"></i></a>Incompatible java version while upgrading to 17.x version</h3>
 <p>Java 7 support is removed as part of 17.1 release.
-This implies an existing installation of Go will stop working after an upgrade
+This implies an existing installation of GoCD will stop working after an upgrade
 if it is configured to run with Java 7.</p>
 <p>In such cases, one of the following error messages would be seen in the logs:</p>
 <pre><code>Unrecognized VM option &quot;MaxMetaSpaceSize=256m&quot;
@@ -2061,12 +2061,12 @@ if it is configured to run with Java 7.</p>
 <p>This error will be logged, in <code>&lt;GO_INSTALLATION_DIR&gt;/go-server-wrapper.log</code> on server and
 <code>&lt;GO_INSTALLATION_DIR&gt;/go-agent-bootstrapper-wrapper.log</code> on agent, if startup failed due to incompatible version of Java.</p>
 <p>Resolution: Update the environment variable <code>GO_SERVER_JAVA_HOME</code>, <code>GO_AGENT_JAVA_HOME</code>
-to the Java 8 path and restart the Go server/agent.</p>
+to the Java 8 path and restart the GoCD server/agent.</p>
 <p>On Linux:</p>
 <p>This error will be logged, in <code>&lt;GO_LOG_DIR&gt;/go-server.out.log</code> on server and
 <code>&lt;GO_LOG_DIR&gt;/go-agent-bootstrapper.log</code> on agent, if startup failed due to incompatible version of Java.</p>
 <p>Resolution: Update the environment variable JAVA_HOME set in <code>/etc/default/go-server</code>, <code>/etc/default/go-agent</code>
-to Java 8 path, and restart the Go server/agent.</p>
+to Java 8 path, and restart the GoCD server/agent.</p>
 
                                 
                                 </section>
@@ -2110,7 +2110,7 @@ to Java 8 path, and restart the Go server/agent.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Troubleshooting","level":"1.4.10","depth":2,"next":{"title":"Configuration","level":"1.5","depth":1,"path":"configuration/index.md","ref":"configuration/index.md","articles":[{"title":"Setup a New Pipeline","level":"1.5.1","depth":2,"path":"configuration/quick_pipeline_setup.md","ref":"configuration/quick_pipeline_setup.md","articles":[]},{"title":"Managing Pipelines","level":"1.5.2","depth":2,"path":"configuration/managing_pipelines.md","ref":"configuration/managing_pipelines.md","articles":[]},{"title":"Managing Dependencies","level":"1.5.3","depth":2,"path":"configuration/managing_dependencies.md","ref":"configuration/managing_dependencies.md","articles":[]},{"title":"Managing Agents","level":"1.5.4","depth":2,"path":"configuration/managing_a_build_cloud.md","ref":"configuration/managing_a_build_cloud.md","articles":[]},{"title":"Managing Environments","level":"1.5.5","depth":2,"path":"configuration/managing_environments.md","ref":"configuration/managing_environments.md","articles":[]},{"title":"Pipeline Labelling","level":"1.5.6","depth":2,"path":"configuration/build_labelling.md","ref":"configuration/build_labelling.md","articles":[]},{"title":"Pipeline Scheduling","level":"1.5.7","depth":2,"path":"configuration/pipeline_scheduling.md","ref":"configuration/pipeline_scheduling.md","articles":[]},{"title":"Parameterize a Pipeline","level":"1.5.8","depth":2,"path":"configuration/admin_use_parameters_in_configuration.md","ref":"configuration/admin_use_parameters_in_configuration.md","articles":[]},{"title":"Customize a Pipeline Label","level":"1.5.9","depth":2,"path":"configuration/admin_use_custom_pipeline_label.md","ref":"configuration/admin_use_custom_pipeline_label.md","articles":[]},{"title":"Clone a Pipeline","level":"1.5.10","depth":2,"path":"configuration/admin_clone_pipeline.md","ref":"configuration/admin_clone_pipeline.md","articles":[]},{"title":"Lock a Pipeline","level":"1.5.11","depth":2,"path":"configuration/admin_lock_pipelines.md","ref":"configuration/admin_lock_pipelines.md","articles":[]},{"title":"Add Material to Existing Pipeline","level":"1.5.12","depth":2,"path":"configuration/admin_add_material.md","ref":"configuration/admin_add_material.md","articles":[]},{"title":"Add Stage to Existing Pipeline","level":"1.5.13","depth":2,"path":"configuration/admin_add_stage.md","ref":"configuration/admin_add_stage.md","articles":[]},{"title":"Add job to Existing Stage","level":"1.5.14","depth":2,"path":"configuration/admin_add_job.md","ref":"configuration/admin_add_job.md","articles":[]},{"title":"Add task to Existing Job","level":"1.5.15","depth":2,"path":"configuration/admin_add_task.md","ref":"configuration/admin_add_task.md","articles":[]},{"title":"Pipeline Templates","level":"1.5.16","depth":2,"path":"configuration/pipeline_templates.md","ref":"configuration/pipeline_templates.md","articles":[]},{"title":"Choose When a Stage Runs","level":"1.5.17","depth":2,"path":"configuration/dev_choose_when_stage_runs.md","ref":"configuration/dev_choose_when_stage_runs.md","articles":[]},{"title":"Timer Trigger","level":"1.5.18","depth":2,"path":"configuration/admin_timer.md","ref":"configuration/admin_timer.md","articles":[]},{"title":"Job Timeout","level":"1.5.19","depth":2,"path":"configuration/job_timeout.md","ref":"configuration/job_timeout.md","articles":[]},{"title":"Managing Users","level":"1.5.20","depth":2,"path":"configuration/managing_users.md","ref":"configuration/managing_users.md","articles":[]},{"title":"Authentication","level":"1.5.21","depth":2,"path":"configuration/dev_authentication.md","ref":"configuration/dev_authentication.md","articles":[]},{"title":"Authorizing Users","level":"1.5.22","depth":2,"path":"configuration/dev_authorization.md","ref":"configuration/dev_authorization.md","articles":[]},{"title":"Delegating Group Administration","level":"1.5.23","depth":2,"path":"configuration/delegating_group_administration.md","ref":"configuration/delegating_group_administration.md","articles":[]},{"title":"Pipeline Group Administration","level":"1.5.24","depth":2,"path":"configuration/pipeline_group_admin_config.md","ref":"configuration/pipeline_group_admin_config.md","articles":[]},{"title":"Publish Reports and Artifacts","level":"1.5.25","depth":2,"path":"configuration/dev_upload_test_report.md","ref":"configuration/dev_upload_test_report.md","articles":[]},{"title":"Managing Artifacts and Reports","level":"1.5.26","depth":2,"path":"configuration/managing_artifacts_and_reports.md","ref":"configuration/managing_artifacts_and_reports.md","articles":[]},{"title":"Auto Delete Artifacts","level":"1.5.27","depth":2,"path":"configuration/delete_artifacts.md","ref":"configuration/delete_artifacts.md","articles":[]},{"title":"UI Testing","level":"1.5.28","depth":2,"path":"configuration/ui_testing.md","ref":"configuration/ui_testing.md","articles":[]},{"title":"Mailhost Information","level":"1.5.29","depth":2,"path":"configuration/admin_mailhost_info.md","ref":"configuration/admin_mailhost_info.md","articles":[]},{"title":"Notifications","level":"1.5.30","depth":2,"path":"configuration/dev_notifications.md","ref":"configuration/dev_notifications.md","articles":[]},{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},{"title":"Reference","level":"1.5.32","depth":2,"path":"configuration/configuration_reference.md","ref":"configuration/configuration_reference.md","articles":[]},{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]}]},"previous":{"title":"Hardware Specifications","level":"1.4.9","depth":2,"path":"installation/hardware_specifications.md","ref":"installation/hardware_specifications.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/troubleshooting.md","mtime":"2017-08-16T05:48:54.021Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Troubleshooting GoCD server and agent installation errors.","keywords":"gocd troubleshooting, installation errors gocd, agent not registering, ssl error","title":"Troubleshooting","level":"1.4.10","depth":2,"next":{"title":"Configuration","level":"1.5","depth":1,"path":"configuration/index.md","ref":"configuration/index.md","articles":[{"title":"Setup a New Pipeline","level":"1.5.1","depth":2,"path":"configuration/quick_pipeline_setup.md","ref":"configuration/quick_pipeline_setup.md","articles":[]},{"title":"Managing Pipelines","level":"1.5.2","depth":2,"path":"configuration/managing_pipelines.md","ref":"configuration/managing_pipelines.md","articles":[]},{"title":"Managing Dependencies","level":"1.5.3","depth":2,"path":"configuration/managing_dependencies.md","ref":"configuration/managing_dependencies.md","articles":[]},{"title":"Managing Agents","level":"1.5.4","depth":2,"path":"configuration/managing_a_build_cloud.md","ref":"configuration/managing_a_build_cloud.md","articles":[]},{"title":"Managing Environments","level":"1.5.5","depth":2,"path":"configuration/managing_environments.md","ref":"configuration/managing_environments.md","articles":[]},{"title":"Pipeline Labelling","level":"1.5.6","depth":2,"path":"configuration/build_labelling.md","ref":"configuration/build_labelling.md","articles":[]},{"title":"Pipeline Scheduling","level":"1.5.7","depth":2,"path":"configuration/pipeline_scheduling.md","ref":"configuration/pipeline_scheduling.md","articles":[]},{"title":"Parameterize a Pipeline","level":"1.5.8","depth":2,"path":"configuration/admin_use_parameters_in_configuration.md","ref":"configuration/admin_use_parameters_in_configuration.md","articles":[]},{"title":"Customize a Pipeline Label","level":"1.5.9","depth":2,"path":"configuration/admin_use_custom_pipeline_label.md","ref":"configuration/admin_use_custom_pipeline_label.md","articles":[]},{"title":"Clone a Pipeline","level":"1.5.10","depth":2,"path":"configuration/admin_clone_pipeline.md","ref":"configuration/admin_clone_pipeline.md","articles":[]},{"title":"Lock a Pipeline","level":"1.5.11","depth":2,"path":"configuration/admin_lock_pipelines.md","ref":"configuration/admin_lock_pipelines.md","articles":[]},{"title":"Add Material to Existing Pipeline","level":"1.5.12","depth":2,"path":"configuration/admin_add_material.md","ref":"configuration/admin_add_material.md","articles":[]},{"title":"Add Stage to Existing Pipeline","level":"1.5.13","depth":2,"path":"configuration/admin_add_stage.md","ref":"configuration/admin_add_stage.md","articles":[]},{"title":"Add job to Existing Stage","level":"1.5.14","depth":2,"path":"configuration/admin_add_job.md","ref":"configuration/admin_add_job.md","articles":[]},{"title":"Add task to Existing Job","level":"1.5.15","depth":2,"path":"configuration/admin_add_task.md","ref":"configuration/admin_add_task.md","articles":[]},{"title":"Pipeline Templates","level":"1.5.16","depth":2,"path":"configuration/pipeline_templates.md","ref":"configuration/pipeline_templates.md","articles":[]},{"title":"Choose When a Stage Runs","level":"1.5.17","depth":2,"path":"configuration/dev_choose_when_stage_runs.md","ref":"configuration/dev_choose_when_stage_runs.md","articles":[]},{"title":"Timer Trigger","level":"1.5.18","depth":2,"path":"configuration/admin_timer.md","ref":"configuration/admin_timer.md","articles":[]},{"title":"Job Timeout","level":"1.5.19","depth":2,"path":"configuration/job_timeout.md","ref":"configuration/job_timeout.md","articles":[]},{"title":"Managing Users","level":"1.5.20","depth":2,"path":"configuration/managing_users.md","ref":"configuration/managing_users.md","articles":[]},{"title":"Authentication","level":"1.5.21","depth":2,"path":"configuration/dev_authentication.md","ref":"configuration/dev_authentication.md","articles":[]},{"title":"Authorizing Users","level":"1.5.22","depth":2,"path":"configuration/dev_authorization.md","ref":"configuration/dev_authorization.md","articles":[]},{"title":"Delegating Group Administration","level":"1.5.23","depth":2,"path":"configuration/delegating_group_administration.md","ref":"configuration/delegating_group_administration.md","articles":[]},{"title":"Pipeline Group Administration","level":"1.5.24","depth":2,"path":"configuration/pipeline_group_admin_config.md","ref":"configuration/pipeline_group_admin_config.md","articles":[]},{"title":"Publish Reports and Artifacts","level":"1.5.25","depth":2,"path":"configuration/dev_upload_test_report.md","ref":"configuration/dev_upload_test_report.md","articles":[]},{"title":"Managing Artifacts and Reports","level":"1.5.26","depth":2,"path":"configuration/managing_artifacts_and_reports.md","ref":"configuration/managing_artifacts_and_reports.md","articles":[]},{"title":"Auto Delete Artifacts","level":"1.5.27","depth":2,"path":"configuration/delete_artifacts.md","ref":"configuration/delete_artifacts.md","articles":[]},{"title":"UI Testing","level":"1.5.28","depth":2,"path":"configuration/ui_testing.md","ref":"configuration/ui_testing.md","articles":[]},{"title":"Mailhost Information","level":"1.5.29","depth":2,"path":"configuration/admin_mailhost_info.md","ref":"configuration/admin_mailhost_info.md","articles":[]},{"title":"Notifications","level":"1.5.30","depth":2,"path":"configuration/dev_notifications.md","ref":"configuration/dev_notifications.md","articles":[]},{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},{"title":"Reference","level":"1.5.32","depth":2,"path":"configuration/configuration_reference.md","ref":"configuration/configuration_reference.md","articles":[]},{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]}]},"previous":{"title":"Hardware Specifications","level":"1.4.9","depth":2,"path":"installation/hardware_specifications.md","ref":"installation/hardware_specifications.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/troubleshooting.md","mtime":"2017-08-16T23:15:40.387Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

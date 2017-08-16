@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Configuring Server Details · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Configure GoCD server and create a separate partition for GoCD server artifacts.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="configure gocd, artifact repository, config xml, windows, configure site URLs, server management" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="./">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,11 +1820,11 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="configuring-server-details"><a name="configuring-server-details" class="plugin-anchor" href="#configuring-server-details"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring server details</h1>
+                                <h1 id="configuring-gocd-server-details"><a name="configuring-gocd-server-details" class="plugin-anchor" href="#configuring-gocd-server-details"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring GoCD server details</h1>
 <h2 id="artifact-repository-configuration"><a name="artifact-repository-configuration" class="plugin-anchor" href="#artifact-repository-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Artifact repository configuration</h2>
-<p>Go needs no configuration once installed. However, we recommend that you create a separate partition on your computer&apos;s hard disk for Go server artifacts. The artifact repository can grow in size very quickly. If located on your system&apos;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.</p>
-<p>Once you have created a new disk partition, you need to tell Go where to find it.</p>
-<p>Click on &quot;Server Configuration&quot; tab of the &quot;Admin&quot; tab. Go to the &quot;Pipeline Management&quot; section.</p>
+<p>GoCD needs no configuration once installed. However, we recommend that you create a separate partition on your computer&apos;s hard disk for GoCD server artifacts. The artifact repository can grow in size very quickly. If located on your system&apos;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.</p>
+<p>Once you have created a new disk partition, you need to tell GoCD where to find it.</p>
+<p>Click on &quot;Server Configuration&quot; tab of the &quot;Admin&quot; tab. GoCD to the &quot;Pipeline Management&quot; section.</p>
 <p><img src="../resources/images/artifact_location.png" alt="Specify artifact location"></p>
 <p>Specify the artifacts directory location and click on &quot;Save&quot;</p>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the
@@ -1843,20 +1843,20 @@ Admin section:</p>
 <span class="hljs-tag">&lt;/<span class="hljs-name">cruise</span>&gt;</span>
 </code></pre>
 <p>When you have entered this information, click &quot;Save&quot; to save the configuration file.</p>
-<p>You can change the artifacts directory location at any time using the method described above, even when Go is running. However Go will not move existing artifacts to the new location for you, and changing the location while Go is running won&apos;t take effect until Go Server is restarted.</p>
+<p>You can change the artifacts directory location at any time using the method described above, even when GoCD is running. However GoCD will not move existing artifacts to the new location for you, and changing the location while GoCD is running won&apos;t take effect until GoCD Server is restarted.</p>
 <p>If you decide to move your artifact repository, the safe way to do it is:</p>
 <ol>
 <li>Pause all pipelines and wait until all active jobs on the agent grid has completed (all agents are in the state &quot;idle&quot;)</li>
-<li>Shut down Go server</li>
+<li>Shut down GoCD server</li>
 <li>Copy the artifact repository to the new location</li>
-<li>Edit Go&apos;s configuration file manually as described above to tell Go where to find the artifacts</li>
-<li>Restart Go server</li>
+<li>Edit GoCD&apos;s configuration file manually as described above to tell GoCD where to find the artifacts</li>
+<li>Restart GoCD server</li>
 </ol>
-<p>Even when all active jobs on the agent grid have stopped, users may still be uploading artifacts using the RESTful URLs. This is why we need to stop Go server completely in order to be safe.</p>
+<p>Even when all active jobs on the agent grid have stopped, users may still be uploading artifacts using the RESTful URLs. This is why we need to stop GoCD server completely in order to be safe.</p>
 <h2 id="configure-site-urls"><a name="configure-site-urls" class="plugin-anchor" href="#configure-site-urls"><i class="fa fa-link" aria-hidden="true"></i></a>Configure site URLs</h2>
-<p>Click on &quot;Server Configuration&quot; tab of the &quot;Admin&quot; tab. Go to the &quot;Server Management&quot; section.</p>
+<p>Click on &quot;Server Configuration&quot; tab of the &quot;Admin&quot; tab. GoCD to the &quot;Server Management&quot; section.</p>
 <p><img src="../resources/images/site_url.png" alt="Specify site url"></p>
-<p>Go generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where Go cannot rely upon publishing URLs relative to a request. If you have fronted Go with a reverse proxy, this value should be the base URL for the proxy and not the internal Go address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.</p>
+<p>GoCD generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where GoCD cannot rely upon publishing URLs relative to a request. If you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.</p>
 <p>Power users, if they so desire, can directly update the <a href="../configuration/configuration_reference.html#server">server</a> section.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">cruise</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">server</span> <span class="hljs-attr">siteUrl</span>=<span class="hljs-string">&quot;http://&lt;host&gt;:&lt;port&gt;&quot;</span> <span class="hljs-attr">secureSiteUrl</span>=<span class="hljs-string">&quot;https://&lt;host&gt;:&lt;securePort&gt;&quot;</span>&gt;</span>
@@ -1864,11 +1864,11 @@ Admin section:</p>
       <span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">cruise</span>&gt;</span>
 </code></pre>
-<p>Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.</p>
+<p>Certain features in GoCD, such as Mingle integration, require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.</p>
 <h3 id="also-see"><a name="also-see" class="plugin-anchor" href="#also-see"><i class="fa fa-link" aria-hidden="true"></i></a>Also see...</h3>
 <ul>
-<li><a href="installing_go_agent.html">Installing Go agents</a></li>
-<li><a href="configure_proxy.html">Configure Go to work with a proxy</a></li>
+<li><a href="installing_go_agent.html">Installing GoCD agents</a></li>
+<li><a href="configure_proxy.html">Configure GoCD to work with a proxy</a></li>
 </ul>
 
                                 
@@ -1897,7 +1897,7 @@ Admin section:</p>
 
             
                 
-                <a href="upgrading_go.html" class="navigation navigation-prev " aria-label="Previous page: Upgrading Go">
+                <a href="upgrading_go.html" class="navigation navigation-prev " aria-label="Previous page: Upgrading GoCD">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -1913,7 +1913,7 @@ Admin section:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configuring Server Details","level":"1.4.5","depth":2,"next":{"title":"Configure a Proxy","level":"1.4.6","depth":2,"path":"installation/configure_proxy.md","ref":"installation/configure_proxy.md","articles":[]},"previous":{"title":"Upgrading Go","level":"1.4.4","depth":2,"path":"installation/upgrading_go.md","ref":"installation/upgrading_go.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/configuring_server_details.md","mtime":"2017-08-16T05:48:54.019Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Configure GoCD server and create a separate partition for GoCD server artifacts.","keywords":"configure gocd, artifact repository, config xml, windows, configure site URLs, server management","title":"Configuring Server Details","level":"1.4.5","depth":2,"next":{"title":"Configure a Proxy","level":"1.4.6","depth":2,"path":"installation/configure_proxy.md","ref":"installation/configure_proxy.md","articles":[]},"previous":{"title":"Upgrading GoCD","level":"1.4.4","depth":2,"path":"installation/upgrading_go.md","ref":"installation/upgrading_go.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/configuring_server_details.md","mtime":"2017-08-16T23:15:40.385Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

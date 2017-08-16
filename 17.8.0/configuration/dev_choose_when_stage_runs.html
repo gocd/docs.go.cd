@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Choose When a Stage Runs · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Choose when a stage runs in GoCD">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="GoCD configuration, stage, manual pipeline, continuous delivery pipeline, GoCD stages" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,8 +1820,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="choose-when-a-stage-runs"><a name="choose-when-a-stage-runs" class="plugin-anchor" href="#choose-when-a-stage-runs"><i class="fa fa-link" aria-hidden="true"></i></a>Choose when a stage runs</h1>
-<p>Often there are steps in your <a href="../introduction/concepts_in_go.html">pipeline</a> that you do not want to happen automatically. For example, you might want to keep binaries from being created for every pipeline (to prevent <a href="../faq/admin_out_of_disk_space.html">running out of disk space</a>) or want to choose when your code is <a href="../faq/rm_deploy_to_environment.html">deployed to production</a>. Stages in Go can be marked as &apos;manual&apos; just for this purpose.</p>
+                                <h1 id="choose-when-a-gocd-stage-runs"><a name="choose-when-a-gocd-stage-runs" class="plugin-anchor" href="#choose-when-a-gocd-stage-runs"><i class="fa fa-link" aria-hidden="true"></i></a>Choose when a GoCD stage runs</h1>
+<p>Often there are steps in your <a href="../introduction/concepts_in_go.html">pipeline</a> that you do not want to happen automatically. For example, you might want to keep binaries from being created for every pipeline (to prevent <a href="../faq/admin_out_of_disk_space.html">running out of disk space</a>) or want to choose when your code is <a href="../faq/rm_deploy_to_environment.html">deployed to production</a>. Stages in GoCD can be marked as &apos;manual&apos; just for this purpose.</p>
 <p>You can create a manual pipeline by setting the first stage to manual.</p>
 <h2 id="example-usage"><a name="example-usage" class="plugin-anchor" href="#example-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Example usage</h2>
 <p>Usage: We need a manual &apos;dist&apos; stage that will create the binaries used by later stages.</p>
@@ -1831,7 +1831,7 @@
 </ul>
 <p><img src="../resources/images/1_add_approval_tag.png" alt="Set stage type to &quot;Manual&quot;"></p>
 <ul>
-<li>Now, when the build stage &apos;build&apos; is completed, you can manually cause Go to create the binary from the <a href="../navigation/pipeline_activity_page.html">Pipeline activity</a> page</li>
+<li>Now, when the build stage &apos;build&apos; is completed, you can manually cause GoCD to create the binary from the <a href="../navigation/pipeline_activity_page.html">Pipeline activity</a> page</li>
 </ul>
 <p><img src="../resources/images/2_click_manual.png" alt="Manual gate"></p>
 
@@ -1877,7 +1877,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Choose When a Stage Runs","level":"1.5.17","depth":2,"next":{"title":"Timer Trigger","level":"1.5.18","depth":2,"path":"configuration/admin_timer.md","ref":"configuration/admin_timer.md","articles":[]},"previous":{"title":"Pipeline Templates","level":"1.5.16","depth":2,"path":"configuration/pipeline_templates.md","ref":"configuration/pipeline_templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/dev_choose_when_stage_runs.md","mtime":"2017-08-16T05:48:54.017Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Choose when a stage runs in GoCD","keywords":"GoCD configuration, stage, manual pipeline, continuous delivery pipeline, GoCD stages","title":"Choose When a Stage Runs","level":"1.5.17","depth":2,"next":{"title":"Timer Trigger","level":"1.5.18","depth":2,"path":"configuration/admin_timer.md","ref":"configuration/admin_timer.md","articles":[]},"previous":{"title":"Pipeline Templates","level":"1.5.16","depth":2,"path":"configuration/pipeline_templates.md","ref":"configuration/pipeline_templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/dev_choose_when_stage_runs.md","mtime":"2017-08-16T23:15:40.381Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

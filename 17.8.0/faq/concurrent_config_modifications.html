@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Concurrent Modifications to Config · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Concurrent Modifications to GoCD's Configuration">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="concurrent modification, multiple modifications, GoCD configuration, successful merge, merge conflict" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,15 +1820,15 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="concurrent-modifications-to-gos-configuration"><a name="concurrent-modifications-to-gos-configuration" class="plugin-anchor" href="#concurrent-modifications-to-gos-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Concurrent Modifications to Go&apos;s Configuration</h1>
-<p>Go handles concurrent modifications to its configuration. Multiple modifications are merged and saved successfully. Modifications to the same area of configuration would result in a conflict.</p>
-<p>Note: Configuration file is maintained in git version control system. Go leverages git&#x2019;s merge feature to merge changes from multiple users. As expected, concurrent changes to the same section by users would result in a conflict.</p>
+                                <h1 id="concurrent-modifications-to-gocds-configuration"><a name="concurrent-modifications-to-gocds-configuration" class="plugin-anchor" href="#concurrent-modifications-to-gocds-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Concurrent Modifications to GoCD&apos;s Configuration</h1>
+<p>GoCD handles concurrent modifications to its configuration. Multiple modifications are merged and saved successfully. Modifications to the same area of configuration would result in a conflict.</p>
+<p>Note: Configuration file is maintained in git version control system. GoCD leverages git&#x2019;s merge feature to merge changes from multiple users. As expected, concurrent changes to the same section by users would result in a conflict.</p>
 <h2 id="successful-merge"><a name="successful-merge" class="plugin-anchor" href="#successful-merge"><i class="fa fa-link" aria-hidden="true"></i></a>Successful Merge</h2>
 <p>In case of a successful merge, user would see a success message as below:</p>
 <p><img src="../resources/images/successful_config_merge.png" alt=""></p>
 <h2 id="merge-conflicts"><a name="merge-conflicts" class="plugin-anchor" href="#merge-conflicts"><i class="fa fa-link" aria-hidden="true"></i></a>Merge Conflicts</h2>
-<h3 id="handling-conflict-while-using-config-xml-tab-go-administrator"><a name="handling-conflict-while-using-config-xml-tab-go-administrator" class="plugin-anchor" href="#handling-conflict-while-using-config-xml-tab-go-administrator"><i class="fa fa-link" aria-hidden="true"></i></a>Handling conflict while using Config XML tab (Go Administrator)</h3>
-<p>In case of a conflict, Go provides an interface with the latest version of config along with the changes made by the user. As an example, if the same job was re-named by two users concurrently, the changes from first user would be successfully saved while the second user would see a page similar to the one displayed in the image below.</p>
+<h3 id="handling-conflict-while-using-config-xml-tab-gocd-administrator"><a name="handling-conflict-while-using-config-xml-tab-gocd-administrator" class="plugin-anchor" href="#handling-conflict-while-using-config-xml-tab-gocd-administrator"><i class="fa fa-link" aria-hidden="true"></i></a>Handling conflict while using Config XML tab (GoCD Administrator)</h3>
+<p>In case of a conflict, GoCD provides an interface with the latest version of config along with the changes made by the user. As an example, if the same job was re-named by two users concurrently, the changes from first user would be successfully saved while the second user would see a page similar to the one displayed in the image below.</p>
 <p>User needs to re-apply their changes displayed on the left-hand pane, to the editable version on the right and save again.</p>
 <p><img src="../resources/images/config_xml_merge_conflict.png" alt=""></p>
 <h3 id="handling-conflict-while-using-config-xml-tab-pipeline-group-administrator"><a name="handling-conflict-while-using-config-xml-tab-pipeline-group-administrator" class="plugin-anchor" href="#handling-conflict-while-using-config-xml-tab-pipeline-group-administrator"><i class="fa fa-link" aria-hidden="true"></i></a>Handling conflict while using Config XML tab (Pipeline group administrator)</h3>
@@ -1880,7 +1880,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Concurrent Modifications to Config","level":"1.9.3","depth":2,"next":{"title":"Why the Build is Broken?","level":"1.9.4","depth":2,"path":"faq/dev_understand_why_build_broken.md","ref":"faq/dev_understand_why_build_broken.md","articles":[]},"previous":{"title":"Historical Configuration","level":"1.9.2","depth":2,"path":"faq/stage_old_config.md","ref":"faq/stage_old_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/concurrent_config_modifications.md","mtime":"2017-08-16T05:48:54.018Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Concurrent Modifications to GoCD's Configuration","keywords":"concurrent modification, multiple modifications, GoCD configuration, successful merge, merge conflict","title":"Concurrent Modifications to Config","level":"1.9.3","depth":2,"next":{"title":"Why the Build is Broken?","level":"1.9.4","depth":2,"path":"faq/dev_understand_why_build_broken.md","ref":"faq/dev_understand_why_build_broken.md","articles":[]},"previous":{"title":"Historical Configuration","level":"1.9.2","depth":2,"path":"faq/stage_old_config.md","ref":"faq/stage_old_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/concurrent_config_modifications.md","mtime":"2017-08-16T23:15:40.383Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

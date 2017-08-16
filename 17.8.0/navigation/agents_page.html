@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Agents · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="List of all agents available on GoCD server and how to enable and filter agents.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="gocd agents, filter agents on gocd, gocd server, continuous delivery, elastic agents" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="./">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,10 +1820,10 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="agents"><a name="agents" class="plugin-anchor" href="#agents"><i class="fa fa-link" aria-hidden="true"></i></a>Agents</h1>
+                                <h1 id="agents-on-gocd"><a name="agents-on-gocd" class="plugin-anchor" href="#agents-on-gocd"><i class="fa fa-link" aria-hidden="true"></i></a>Agents on GoCD</h1>
 <p>The Agents page lists all the agents available to the server and their current status.</p>
-<p>When an Agent first connects to the Server it is &apos;Pending&apos;. An administrator must enable the Agent before Go will schedule work on that agent.</p>
-<p>Administrators can also disable agents. Go will not schedule work for a disabled Agent. If a job is building on the agent when it is disabled, that job will be completed; the agent is then disabled. An administrator will need to enable the Agent before it will again schedule work</p>
+<p>When an Agent first connects to the Server it is &apos;Pending&apos;. An administrator must enable the Agent before GoCD will schedule work on that agent.</p>
+<p>Administrators can also disable agents. GoCD will not schedule work for a disabled Agent. If a job is building on the agent when it is disabled, that job will be completed; the agent is then disabled. An administrator will need to enable the Agent before it will again schedule work</p>
 <p>Administrators can choose to delete an agent which is no longer required. The agent must be disabled before it can be deleted. An agent in a disabled(building) or disabled(cancelled) state cannot be deleted.</p>
 <p><img src="../resources/images/agents.png" alt=""></p>
 <h3 id="key"><a name="key" class="plugin-anchor" href="#key"><i class="fa fa-link" aria-hidden="true"></i></a>Key</h3>
@@ -1836,14 +1836,14 @@
 <li>To associate an agent with an environment, first select the agents you are interested in. Then click the &apos;Environments&apos; button. You are now able to associate your agents with an environment.</li>
 <li>Admin users can click here to get to the <a href="agent_details.html">Agent details</a> of the given agent</li>
 <li>Filter the agents list. See the section below.</li>
-<li>To delete agents, first select the agents that you are interested in. Then click the &apos;DELETE&apos; button. If you try to delete an agent that is in disabled(building) or disabled(cancelled), Go will not delete that agent.</li>
+<li>To delete agents, first select the agents that you are interested in. Then click the &apos;DELETE&apos; button. If you try to delete an agent that is in disabled(building) or disabled(cancelled), GoCD will not delete that agent.</li>
 </ol>
 <h2 id="filtering-agents"><a name="filtering-agents" class="plugin-anchor" href="#filtering-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Filtering Agents</h2>
 <p>Since the agent list can become very long, it is useful to be able to filter it by various criteria. The <strong>Filter</strong> option provides this functionality.</p>
 <ul>
 <li>Format: tag:value</li>
 <li>Supported tags: ip, resource, os, name, status, environment</li>
-<li>Supported values: Free form text. After you specify a tag, enter a value. Go only displays agents containing the entered value.</li>
+<li>Supported values: Free form text. After you specify a tag, enter a value. GoCD only displays agents containing the entered value.</li>
 <li>The sort function will work with filtered lists.</li>
 <li>Entering a tag:value combination that does not match any agents will result in an empty result set being displayed.</li>
 </ul>
@@ -1853,7 +1853,7 @@
 <li>If you want to see only agents with resource names containing &quot;java&quot;, enter &quot;resource:java&quot;.</li>
 </ul>
 <h3 id="autocompletion"><a name="autocompletion" class="plugin-anchor" href="#autocompletion"><i class="fa fa-link" aria-hidden="true"></i></a>Autocompletion</h3>
-<p>Go support autocompletion of searches. After you specify a tag, Go suggests possible values for the tag, based on the exsting values entered. You can choose an appropriate value from the autocompletion list and then search.</p>
+<p>GoCD support autocompletion of searches. After you specify a tag, GoCD suggests possible values for the tag, based on the exsting values entered. You can choose an appropriate value from the autocompletion list and then search.</p>
 <p><img src="../resources/images/agents_autocomplete.png" alt=""></p>
 <p>A maximum of 10 results is displayed for autocomplete, irrespetive of the number of actual matches. For best results, ensure sufficient text is entered to narrow down the number of matches</p>
 <h3 id="exact-search"><a name="exact-search" class="plugin-anchor" href="#exact-search"><i class="fa fa-link" aria-hidden="true"></i></a>Exact search</h3>
@@ -1864,7 +1864,7 @@
 <h4 id="also-see"><a name="also-see" class="plugin-anchor" href="#also-see"><i class="fa fa-link" aria-hidden="true"></i></a>Also see...</h4>
 <ul>
 <li><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a></li>
-<li><a href="../introduction/concepts_in_go.html">Go overview</a></li>
+<li><a href="../introduction/concepts_in_go.html">GoCD overview</a></li>
 </ul>
 
                                 
@@ -1909,7 +1909,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Agents","level":"1.3.2","depth":2,"next":{"title":"Agent Details","level":"1.3.3","depth":2,"path":"navigation/agent_details.md","ref":"navigation/agent_details.md","articles":[]},"previous":{"title":"Pipeline Dashboard","level":"1.3.1","depth":2,"path":"navigation/pipelines_dashboard_page.md","ref":"navigation/pipelines_dashboard_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/agents_page.md","mtime":"2017-08-16T05:48:54.021Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"List of all agents available on GoCD server and how to enable and filter agents.","keywords":"gocd agents, filter agents on gocd, gocd server, continuous delivery, elastic agents","title":"Agents","level":"1.3.2","depth":2,"next":{"title":"Agent Details","level":"1.3.3","depth":2,"path":"navigation/agent_details.md","ref":"navigation/agent_details.md","articles":[]},"previous":{"title":"Pipeline Dashboard","level":"1.3.1","depth":2,"path":"navigation/pipelines_dashboard_page.md","ref":"navigation/pipelines_dashboard_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/agents_page.md","mtime":"2017-08-16T23:15:40.388Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

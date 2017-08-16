@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Yum Repository Poller · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Yum repository poller is available for GoCD servers running on Linux nodes.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="yum repository poller, yum plugin, gocd plugins, jenkins plugins, rpm packages, poll server, environment variables" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="./">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1821,9 +1821,9 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="yum-repository-poller"><a name="yum-repository-poller" class="plugin-anchor" href="#yum-repository-poller"><i class="fa fa-link" aria-hidden="true"></i></a>Yum Repository Poller</h1>
-<p><strong>Note:</strong> This plugin is available for Go servers running on Linux nodes having repoquery installed (part of the <a href="http://linux.die.net/man/1/yum-utils" target="_blank">yum-utils</a> package, <a href="http://manpages.ubuntu.com/manpages/latest/man1/yum-utils.1.html" target="_blank">Ubuntu</a>, <a href="http://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&amp;system=centos" target="_blank">CentOS</a>)</p>
+<p><strong>Note:</strong> This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the <a href="http://linux.die.net/man/1/yum-utils" target="_blank">yum-utils</a> package, <a href="http://manpages.ubuntu.com/manpages/latest/man1/yum-utils.1.html" target="_blank">Ubuntu</a>, <a href="http://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&amp;system=centos" target="_blank">CentOS</a>)</p>
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
-<p>The Yum respository poller is a bundled <a href="package_repository_extension.html">package material</a> plugin capable of polling yum repositories for rpm packages. Go server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d</p>
+<p>The Yum respository poller is a bundled <a href="package_repository_extension.html">package material</a> plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d</p>
 <pre><code class="lang-shell">repoquery --repofrompath=uuid,$REPO_URL --repoid=uuid -q $PACKAGE_SPEC -qf &quot;%{LOCATION}...&quot;
 </code></pre>
 <p>A given instance of polling is considered successful if repoquery returns a single package as output.</p>
@@ -1847,10 +1847,10 @@ epoch:name-ver-rel.arch
 <h3 id="package-metadata"><a name="package-metadata" class="plugin-anchor" href="#package-metadata"><i class="fa fa-link" aria-hidden="true"></i></a>Package Metadata</h3>
 <p>The following <a href="http://www.rpm.org/max-rpm-snapshot/s1-rpm-inside-tags.html" target="_blank">rpm metadata</a> is accessed by the plugin</p>
 <ol>
-<li>BuildTime (required, automatically set by rpmbuild) - Used by the plugin to validate if the package is newer than what was last seen by Go. Go displays this field as <em>Modified On</em>.</li>
-<li>Packager - Go displays this field as <em>Modified By</em>. If not provided, it is shown as anonymous</li>
-<li>URL - Displayed as a <em>Trackback URL</em> by Go. <strong>Use this as a means to trace back to the job that published the package</strong> (within Go or outside) to the yum repository.</li>
-<li>BuildHost - Displayed by Go as <em>Comment: Built on $BUILDHOST</em></li>
+<li>BuildTime (required, automatically set by rpmbuild) - Used by the plugin to validate if the package is newer than what was last seen by GoCD. GoCD displays this field as <em>Modified On</em>.</li>
+<li>Packager - GoCD displays this field as <em>Modified By</em>. If not provided, it is shown as anonymous</li>
+<li>URL - Displayed as a <em>Trackback URL</em> by GoCD. <strong>Use this as a means to trace back to the job that published the package</strong> (within GoCD or outside) to the yum repository.</li>
+<li>BuildHost - Displayed by GoCD as <em>Comment: Built on $BUILDHOST</em></li>
 </ol>
 <h3 id="published-environment-variables"><a name="published-environment-variables" class="plugin-anchor" href="#published-environment-variables"><i class="fa fa-link" aria-hidden="true"></i></a>Published Environment Variables</h3>
 <p>The following information is made available as environment variables for tasks:</p>
@@ -1895,7 +1895,7 @@ server</p>
 </code></pre>
 <p>This would require that /etc/yum.repos.d contain the repository definitions.</p>
 <h3 id="creating-and-publishing-rpms"><a name="creating-and-publishing-rpms" class="plugin-anchor" href="#creating-and-publishing-rpms"><i class="fa fa-link" aria-hidden="true"></i></a>Creating and Publishing RPMs</h3>
-<p>Although the support for package as material in Go isn&apos;t concerned with how the packages are created and published, here is a short set of pointers to information on the web.</p>
+<p>Although the support for package as material in GoCD isn&apos;t concerned with how the packages are created and published, here is a short set of pointers to information on the web.</p>
 <ul>
 <li><a href="http://www.ibm.com/developerworks/library/l-rpm1/#first_rpm" target="_blank">Building an RPM using rpmbuild and SPEC file</a></li>
 <li><a href="https://github.com/jordansissel/fpm/wiki" target="_blank">Building using fpm</a></li>
@@ -1903,11 +1903,11 @@ server</p>
 </ul>
 <h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes</h3>
 <ol>
-<li>This plugin will detect at max one package revision per minute (the default interval at which Go materials poll). If multiple versions of a package get published to a repo in the time interval between two polls, Go will only register the latest version in that interval.</li>
+<li>This plugin will detect at max one package revision per minute (the default interval at which GoCD materials poll). If multiple versions of a package get published to a repo in the time interval between two polls, GoCD will only register the latest version in that interval.</li>
 <li>This plugin makes use of buildtime in rpm metadata to determine if a poll has returned a new result. If for some reason (e.g. timezone misconfiguration), the buildtime of pkg-1.1 is less than that of pkg-1.0, then the plugin will not register pkg-1.1 as a newer package.</li>
 <li>The only way to update an rpm is to change the version or release. <a href="http://unix.stackexchange.com/questions/71288/does-yum-use-package-buildtime-to-decide-if-a-package-is-newer" target="_blank">Republishing</a> a different file with the same name and different buildtime won&apos;t do.</li>
 <li>Package groups are not supported.</li>
-<li>The <a href="https://github.com/gocd/go-command-repo/tree/master/package/rpm" target="_blank">Go command repository</a> has a bunch of commands related to rpm packages.</li>
+<li>The <a href="https://github.com/gocd/go-command-repo/tree/master/package/rpm" target="_blank">GoCD command repository</a> has a bunch of commands related to rpm packages.</li>
 </ol>
 
                                 
@@ -1952,7 +1952,7 @@ server</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Yum Repository Poller","level":"1.8.3","depth":2,"next":{"title":"SCM Extension","level":"1.8.4","depth":2,"path":"extension_points/scm_extension.md","ref":"extension_points/scm_extension.md","articles":[]},"previous":{"title":"Package Repository Extension","level":"1.8.2","depth":2,"path":"extension_points/package_repository_extension.md","ref":"extension_points/package_repository_extension.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"extension_points/yum_repository_poller.md","mtime":"2017-08-16T05:48:54.018Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Yum repository poller is available for GoCD servers running on Linux nodes.","keywords":"yum repository poller, yum plugin, gocd plugins, jenkins plugins, rpm packages, poll server, environment variables","title":"Yum Repository Poller","level":"1.8.3","depth":2,"next":{"title":"SCM Extension","level":"1.8.4","depth":2,"path":"extension_points/scm_extension.md","ref":"extension_points/scm_extension.md","articles":[]},"previous":{"title":"Package Repository Extension","level":"1.8.2","depth":2,"path":"extension_points/package_repository_extension.md","ref":"extension_points/package_repository_extension.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"extension_points/yum_repository_poller.md","mtime":"2017-08-16T23:15:40.383Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

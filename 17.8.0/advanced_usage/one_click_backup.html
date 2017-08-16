@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Backup Go Server · GoCD User Documentation</title>
+        <title>Backup GoCD Server · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="Use GoCD's administration interface or API to backup and restore GoCD server">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="GoCD server, GoCD backup, administration interface, backup API" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1805,7 +1805,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Backup Go Server</a>
+        <a href=".." >Backup GoCD Server</a>
     </h1>
 </div>
 
@@ -1820,35 +1820,35 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="backup-go-server"><a name="backup-go-server" class="plugin-anchor" href="#backup-go-server"><i class="fa fa-link" aria-hidden="true"></i></a>Backup Go Server</h1>
-<p>You can use Go&apos;s administration interface to perform an One-Click Backup of Go. You can also perform the backup <a href="https://api.gocd.org/#backups" target="_blank">using the API</a>.</p>
+                                <h1 id="backup-gocd-server"><a name="backup-gocd-server" class="plugin-anchor" href="#backup-gocd-server"><i class="fa fa-link" aria-hidden="true"></i></a>Backup GoCD Server</h1>
+<p>You can use GoCD&apos;s administration interface to perform an One-Click Backup of Go. You can also perform the backup <a href="https://api.gocd.org/#backups" target="_blank">using the API</a>.</p>
 <h2 id="steps-to-initiate-backup"><a name="steps-to-initiate-backup" class="plugin-anchor" href="#steps-to-initiate-backup"><i class="fa fa-link" aria-hidden="true"></i></a>Steps to initiate backup</h2>
 <ul>
-<li>On the Go Administration page, click on the Backup tab.
+<li>On the GoCD Administration page, click on the Backup tab.
 <img src="../resources/images/backup_tab.png" alt=""></li>
 <li>Click on &quot;BACKUP&quot;
 <img src="../resources/images/backup_button.png" alt=""></li>
 <li>Click &quot;PROCEED&quot;
 <img src="../resources/images/backup_proceed.png" alt=""><blockquote>
-<p>Go will be unusable during the backup process.</p>
+<p>GoCD will be unusable during the backup process.</p>
 </blockquote>
 </li>
-<li>Backup time is proportional to the database and configuration size. We suggest you backup Go when the Go Server is idle. Users who are logged into the Go Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.</li>
+<li>Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.</li>
 </ul>
 <h3 id="what-is-backed-up"><a name="what-is-backed-up" class="plugin-anchor" href="#what-is-backed-up"><i class="fa fa-link" aria-hidden="true"></i></a>What is backed up?</h3>
 <p>The backup will be performed into the <strong>{ARTIFACT_REPOSITORY_LOCATION}/serverBackups</strong> directory. {ARTIFACT_REPOSITORY_LOCATION} for your server can be found as mentioned <a href="../installation/configuring_server_details.html#artifact-repository-configuration">here</a>.</p>
 <p>The backup directory will be named <strong>backup_{TIMESTAMP}</strong> where the <strong>{TIMESTAMP}</strong> is the time when the backup was initiated.</p>
 <ul>
 <li>Database &#x2013; This is in a zip called <strong>db.zip</strong> . The zip has a single DB file called <strong>cruise.h2.db</strong></li>
-<li>Configuration &#x2013; This is in a zip called <strong>config-dir.zip</strong> . This zip contains the XML configuration, Jetty server configuration, Keystores and all other Go&apos;s internal configurations.</li>
+<li>Configuration &#x2013; This is in a zip called <strong>config-dir.zip</strong> . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD&apos;s internal configurations.</li>
 <li>XML Configuration Version Repo &#x2013; This is in a zip called <strong>config-repo.zip</strong> . This zip contains the Git repository of the XML configuration file.</li>
-<li>Go version &#x2013; This is a file called <strong>version.txt</strong> . This file contains the version of the Go server when the backup was initiated</li>
+<li>GoCD version &#x2013; This is a file called <strong>version.txt</strong> . This file contains the version of the GoCD server when the backup was initiated</li>
 </ul>
 <h3 id="what-is-not-backed-up"><a name="what-is-not-backed-up" class="plugin-anchor" href="#what-is-not-backed-up"><i class="fa fa-link" aria-hidden="true"></i></a>What is not backed up?</h3>
 <blockquote>
 <p>Please refer to the <a href="../installation/installing_go_server.html#location-of-files-after-installation-of-go-server">this</a> page to see what the {SERVER_INSTALLATION_DIR} location is on different platforms.</p>
 </blockquote>
-<p>The following are not backed up as a part of the Go backup process. Please ensure that these are manually backed up regularly.</p>
+<p>The following are not backed up as a part of the GoCD backup process. Please ensure that these are manually backed up regularly.</p>
 <ul>
 <li>Artifacts - Please refer to <a href="../faq/admin_out_of_disk_space.html#move-the-artifact-repository-to-a-new-larger-drive">this section</a> to find out how to deal with artifacts</li>
 <li>Test Reporting Data - This is found at the location <strong>{SERVER_INSTALLATION_DIR}/db/shine</strong> . This contains the data used in the Failed Test History reporting</li>
@@ -1861,17 +1861,17 @@
 <pre><code class="lang-shell">rsync -avzP {ARTIFACT_LOCATION} {BACKUP_LOCATION}
 </code></pre>
 <p>This makes sure that only the files and directories that got newly added will be synced to the {BACKUP_LOCATION} and not the entire contents.</p>
-<h3 id="restoring-go-using-backup"><a name="restoring-go-using-backup" class="plugin-anchor" href="#restoring-go-using-backup"><i class="fa fa-link" aria-hidden="true"></i></a>Restoring Go using backup</h3>
+<h3 id="restoring-gocd-using-backup"><a name="restoring-gocd-using-backup" class="plugin-anchor" href="#restoring-gocd-using-backup"><i class="fa fa-link" aria-hidden="true"></i></a>Restoring GoCD using backup</h3>
 <blockquote>
 <p>Please refer to the <a href="../installation/installing_go_server.html#location-of-files-after-installation-of-go-server">this</a> page to see what the {SERVER_INSTALLATION_DIR} location is on different platforms.</p>
 </blockquote>
 <p>The restoration process is not automated and needs to be done manually. Please refer to the previous sections about the contents of the backup.</p>
 <h4 id="steps-to-restore"><a name="steps-to-restore" class="plugin-anchor" href="#steps-to-restore"><i class="fa fa-link" aria-hidden="true"></i></a>Steps to restore</h4>
 <ul>
-<li>In order to restore the Go server from a backup, the server must first be stopped. Make sure the process is completely dead before starting the restoration.</li>
+<li>In order to restore the GoCD server from a backup, the server must first be stopped. Make sure the process is completely dead before starting the restoration.</li>
 <li><p>Choose the backup directory that you want to restore from.</p>
 <blockquote>
-<p><strong>You cannot restore from a backup whose version is bigger than the version of the Go server being used.</strong><br>
+<p><strong>You cannot restore from a backup whose version is bigger than the version of the GoCD server being used.</strong><br>
 <em>For example:</em> If the backup is from version 12.3 and the server installation is of version 12.2, the restoration might not work. You can check the version of the backup from the <strong>version.txt</strong> file.</p>
 </blockquote>
 </li>
@@ -1883,7 +1883,7 @@
 <li>Configuration History - Unzip the <strong>config-repo.zip</strong> into temp directory. Recursively copy all the contents from this directory to <strong>{SERVER_INSTALLATION_DIR}/db/config.git</strong> .</li>
 <li>Make sure the ownership of all the files that are restored are the same as the user running the Go server.<br>
 <em>For example:</em> Make sure you run a &quot;chown -R go:go {SERVER_INSTALLATION_DIR}/db/h2db&quot; after Database restoration.</li>
-<li>Start the Go server</li>
+<li>Start the GoCD server</li>
 </ul>
 
                                 
@@ -1928,7 +1928,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Backup Go Server","level":"1.6.13","depth":2,"next":{"title":"Config Repository","level":"1.6.14","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"previous":{"title":"Command Repository","level":"1.6.12","depth":2,"path":"advanced_usage/command_repository.md","ref":"advanced_usage/command_repository.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/one_click_backup.md","mtime":"2017-08-16T05:48:54.014Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Use GoCD's administration interface or API to backup and restore GoCD server","keywords":"GoCD server, GoCD backup, administration interface, backup API","title":"Backup GoCD Server","level":"1.6.13","depth":2,"next":{"title":"Config Repository","level":"1.6.14","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"previous":{"title":"Command Repository","level":"1.6.12","depth":2,"path":"advanced_usage/command_repository.md","ref":"advanced_usage/command_repository.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/one_click_backup.md","mtime":"2017-08-16T23:15:40.377Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

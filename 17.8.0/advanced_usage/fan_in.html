@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Fan In · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="GoCD's fan-in dependency resolution ensures that a pipeline triggers only when all its upstream pipelines have triggered off the same version of material.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="GoCD Fan-in, pipeline dependency, auto trigger, build artifact, upstream pipeline, downstream pip" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,8 +1820,8 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="fan-in-dependency-management"><a name="fan-in-dependency-management" class="plugin-anchor" href="#fan-in-dependency-management"><i class="fa fa-link" aria-hidden="true"></i></a>Fan-in Dependency Management</h1>
-<p>Go supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.</p>
+                                <h1 id="gocd-fan-in-dependency-management"><a name="gocd-fan-in-dependency-management" class="plugin-anchor" href="#gocd-fan-in-dependency-management"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Fan-in Dependency Management</h1>
+<p>GoCD supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.</p>
 <p>When you have non trivial pipeline dependency graphs, significant differences in pipeline execution times and automatic builds/deployments, you may typically run into the following issues</p>
 <ul>
 <li><strong>Wasted builds</strong> : Premature runs which do not have the right version of dependent components because one of the dependent pipelines was faster than the rest.</li>
@@ -1829,10 +1829,10 @@
 <li><strong>Incorrect feedback</strong> : Your deployment to Production should happen only when it has successfully passed the UAT, Staging and Pre-Prod environments but it was triggered prematurely as soon as UAT went green.</li>
 <li><strong>Running code with the wrong tests</strong> : Your commit to SCM contains both code and tests written for the code. Your pipelines are modeled such that your acceptance or test pipeline runs after the build pipeline. Acceptance has to run with the right tests for the code but instead it triggers as soon as the commit goes through with the previous available version for tests.</li>
 </ul>
-<p>Go helps solve all of the above problems.</p>
+<p>GoCD helps solve all of the above problems.</p>
 <h2 id="how-to-use-fan-in"><a name="how-to-use-fan-in" class="plugin-anchor" href="#how-to-use-fan-in"><i class="fa fa-link" aria-hidden="true"></i></a>How to use fan-in:</h2>
 <ul>
-<li>In cases where your SCM material is used throughout the process you will need to define the same URL for the material throughout. This will let Go know that it is a shared material and Go will enforce fan-in wherever applicable. For example: code, tests, environment configuration are in <a href="http://svn.company.com/code" target="_blank">http://svn.company.com/code</a>, <a href="http://svn.company.com/tests" target="_blank">http://svn.company.com/tests</a>, and <a href="http://svn.company.com/config" target="_blank">http://svn.company.com/config</a> respectively. In this case ensure for pipelines that need these materials, the url is set to the same value. For example the pipelines Build, Acceptance and Deploy have the material url <a href="http://svn.company.com" target="_blank">http://svn.company.com</a></li>
+<li>In cases where your SCM material is used throughout the process you will need to define the same URL for the material throughout. This will let GoCD know that it is a shared material and GoCD will enforce fan-in wherever applicable. For example: code, tests, environment configuration are in <a href="http://svn.company.com/code" target="_blank">http://svn.company.com/code</a>, <a href="http://svn.company.com/tests" target="_blank">http://svn.company.com/tests</a>, and <a href="http://svn.company.com/config" target="_blank">http://svn.company.com/config</a> respectively. In this case ensure for pipelines that need these materials, the url is set to the same value. For example the pipelines Build, Acceptance and Deploy have the material url <a href="http://svn.company.com" target="_blank">http://svn.company.com</a></li>
 <li>Pipelines where fan-in dependency resolution is required will need to have trigger type set as auto</li>
 </ul>
 <h2 id="example-use-cases-for-fan-in-resolution"><a name="example-use-cases-for-fan-in-resolution" class="plugin-anchor" href="#example-use-cases-for-fan-in-resolution"><i class="fa fa-link" aria-hidden="true"></i></a>Example use cases for fan-in resolution</h2>
@@ -1845,7 +1845,7 @@
 <ul>
 <li>A new build is generated.</li>
 <li>The build is pushed to QA, UAT and performance pipelines.</li>
-<li>Regardless of the time taken in each of these pipelines, Go will ensure that production is triggered only after all three pipelines go green with the same version of build. Production will use the right version of your build artifacts.</li>
+<li>Regardless of the time taken in each of these pipelines, GoCD will ensure that production is triggered only after all three pipelines go green with the same version of build. Production will use the right version of your build artifacts.</li>
 </ul>
 <p>How to configure:</p>
 <ul>
@@ -1861,7 +1861,7 @@
 <li>C1 is triggered on a change.</li>
 <li>C2 and C3 are triggered after C1 is successful.</li>
 <li>C2 builds quickly but C3 is still in Progress.</li>
-<li>Go resolves that C3 and C2 depend on a common ancestor C1. Hence Go will wait for C3 to finish.</li>
+<li>Go resolves that C3 and C2 depend on a common ancestor C1. Hence GoCD will wait for C3 to finish.</li>
 <li>If C3 goes green, the Package pipeline will trigger. It will use the right versions of C1, C2 and C3.</li>
 </ul>
 <p>How to configure:</p>
@@ -1876,7 +1876,7 @@
 <p>Sequence of Events and Resolution</p>
 <ul>
 <li>On committing the changes, the Build pipeline will trigger with the latest revision.</li>
-<li>Although Acceptance also has the same material dependency, Go will not trigger it immediately.</li>
+<li>Although Acceptance also has the same material dependency, GoCD will not trigger it immediately.</li>
 <li>Build pipeline executes successfully.</li>
 <li>Acceptance will now trigger with the same version of the SCM and fetch the right build artifact from the Build pipeline.</li>
 </ul>
@@ -1896,13 +1896,13 @@
 </ul>
 <h2 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes</h2>
 <ul>
-<li><p>Fan-in as a feature is enabled by default. In case you need pipelines to trigger with every version regardless of ancestor versions you can disable fan-in. To disable fan-in you will need to add a system property and restart the Go server. On linux add the following line to /etc/default/go-server</p>
+<li><p>Fan-in as a feature is enabled by default. In case you need pipelines to trigger with every version regardless of ancestor versions you can disable fan-in. To disable fan-in you will need to add a system property and restart the GoCD server. On linux add the following line to /etc/default/go-server</p>
 <pre><code class="lang-shell">export GO_SERVER_SYSTEM_PROPERTIES=&apos;-Dresolve.fanin.revisions=N&apos;
 </code></pre>
-<p>On windows, in the config folder of the Go server installation, edit the wrapper-server.conf file, and add an additional property with the value &apos;-Dresolve.fanin.revisions=N&apos;. For example:</p>
+<p>On windows, in the config folder of the GoCD server installation, edit the wrapper-server.conf file, and add an additional property with the value &apos;-Dresolve.fanin.revisions=N&apos;. For example:</p>
 <pre><code>wrapper.java.additional.17=&apos;-Dresolve.fanin.revisions=N&apos;
 </code></pre></li>
-<li><p>Go will apply fan-in dependency resolution for pipelines that have auto trigger type only.</p>
+<li><p>GoCD will apply fan-in dependency resolution for pipelines that have auto trigger type only.</p>
 </li>
 </ul>
 
@@ -1948,7 +1948,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Fan In","level":"1.6.8","depth":2,"next":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"previous":{"title":"Trigger With Options","level":"1.6.7","depth":2,"path":"advanced_usage/trigger_with_options.md","ref":"advanced_usage/trigger_with_options.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/fan_in.md","mtime":"2017-08-16T05:48:54.014Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD's fan-in dependency resolution ensures that a pipeline triggers only when all its upstream pipelines have triggered off the same version of material.","keywords":"GoCD Fan-in, pipeline dependency, auto trigger, build artifact, upstream pipeline, downstream pip","title":"Fan In","level":"1.6.8","depth":2,"next":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"previous":{"title":"Trigger With Options","level":"1.6.7","depth":2,"path":"advanced_usage/trigger_with_options.md","ref":"advanced_usage/trigger_with_options.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/fan_in.md","mtime":"2017-08-16T23:15:40.377Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Running out of Disk Space · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="When run of of space, GoCD stops scheduling new pipelines by compressing large files, attaching a larger hard drive, or by deleting unused artifacts.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="Disk space, schedule pipelines," name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="../navigation/">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1821,24 +1821,24 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="running-out-of-disk-space"><a name="running-out-of-disk-space" class="plugin-anchor" href="#running-out-of-disk-space"><i class="fa fa-link" aria-hidden="true"></i></a>Running out of disk space</h1>
-<p>After you&apos;ve had Go running for a while, you may notice the following warning box when browsing Go:</p>
+<p>After you&apos;ve had GoCD running for a while, you may notice the following warning box when browsing GoCD:</p>
 <p><img src="../resources/images/1_low_disk_space_on_artifacts.png" alt=""></p>
 <p>If you don&apos;t do anything about it, you&apos;ll end up seeing the following error:</p>
 <p><img src="../resources/images/2_out_of_disk_space_on_artifacts.png" alt=""></p>
-<p>Go will stop scheduling new pipelines until you make more room, either by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. You could also let Go manage artifact disk space by enabling auto purge of old artifacts.</p>
+<p>GoCD will stop scheduling new pipelines until you make more room, either by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. You could also let GoCD manage artifact disk space by enabling auto purge of old artifacts.</p>
 <h2 id="auto-delete-artifacts"><a name="auto-delete-artifacts" class="plugin-anchor" href="#auto-delete-artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>Auto delete artifacts</h2>
 <h3 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h3>
-<p>Go can be configured to automatically delete artifacts if the available disk space on the server is low. Go will purge artifacts when available disk space is lower than the given value. Artifacts will be purged upto the point when available disk space is greater than a defined value.</p>
+<p>GoCD can be configured to automatically delete artifacts if the available disk space on the server is low. GoCD will purge artifacts when available disk space is lower than the given value. Artifacts will be purged upto the point when available disk space is greater than a defined value.</p>
 <h3 id="configuration"><a name="configuration" class="plugin-anchor" href="#configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration</h3>
 <h4 id="specify-artifact-purge-start-and-end-limits"><a name="specify-artifact-purge-start-and-end-limits" class="plugin-anchor" href="#specify-artifact-purge-start-and-end-limits"><i class="fa fa-link" aria-hidden="true"></i></a>Specify artifact purge start and end limits</h4>
 <blockquote>
 <p>You must be logged in as an admin user to configure this step.</p>
 </blockquote>
 <ol>
-<li>Navigate to the Admin section on the Go dashboard.</li>
+<li>Navigate to the Admin section on the GoCD dashboard.</li>
 <li>Navigate to the Pipeline Management sub-section</li>
-<li>Specify when Go should begin to purge artifacts in the first edit box.</li>
-<li>Specify when Go should stop purging artifacts in the second edit box.</li>
+<li>Specify when GoCD should begin to purge artifacts in the first edit box.</li>
+<li>Specify when GoCD should stop purging artifacts in the second edit box.</li>
 </ol>
 <p><img src="../resources/images/pipeline_management.png" alt="Purge artifacts"></p>
 <h4 id="never-delete-artifacts-for-a-stage"><a name="never-delete-artifacts-for-a-stage" class="plugin-anchor" href="#never-delete-artifacts-for-a-stage"><i class="fa fa-link" aria-hidden="true"></i></a>Never delete artifacts for a stage</h4>
@@ -1847,7 +1847,7 @@
 </blockquote>
 <p>You can disallow deletion of artifacts from a particular stage so that those artifacts are excluded during deletion. This option can be set in the stage editor for a pipeline. This option can be set for stages that are important so that artifacts for the stage are preserved.</p>
 <ol>
-<li>Navigate to the admin section on the Go dashboard.</li>
+<li>Navigate to the admin section on the GoCD dashboard.</li>
 <li>Navigate to the pipelines section and choose a pipeline to edit</li>
 <li>Navigate to the stage settings for the stage</li>
 </ol>
@@ -1859,33 +1859,33 @@
 <li><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean up after cancelling a task</a></li>
 </ul>
 <h2 id="compress-large-log-files"><a name="compress-large-log-files" class="plugin-anchor" href="#compress-large-log-files"><i class="fa fa-link" aria-hidden="true"></i></a>Compress large log files</h2>
-<p>In many cases, the easiest thing to do is compress some of the larger artifacts that you won&apos;t frequently have need for. For example, if you have a large log file named &apos;test.log&apos; and you&apos;re running Go server on a unix machine, the following script will gzip those files that haven&apos;t been modified in the last 10 days</p>
+<p>In many cases, the easiest thing to do is compress some of the larger artifacts that you won&apos;t frequently have need for. For example, if you have a large log file named &apos;test.log&apos; and you&apos;re running GoCD server on a unix machine, the following script will gzip those files that haven&apos;t been modified in the last 10 days</p>
 <pre><code>find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v &apos;{}&apos; \;
 </code></pre><p>Now, if you add this to a system <a href="http://en.wikipedia.org/wiki/Cron" target="_blank">crontab</a>, your server can compress large artifacts automatically.</p>
 <h2 id="move-the-artifact-repository-to-a-new-larger-drive"><a name="move-the-artifact-repository-to-a-new-larger-drive" class="plugin-anchor" href="#move-the-artifact-repository-to-a-new-larger-drive"><i class="fa fa-link" aria-hidden="true"></i></a>Move the artifact repository to a new (larger) drive</h2>
-<p>If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location Go uses for it&apos;s artifact repository.</p>
+<p>If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it&apos;s artifact repository.</p>
 <ul>
-<li>Find the location of the Go configuration file</li>
+<li>Find the location of the GoCD configuration file</li>
 <li>Navigate to the <a href="../navigation/administration_page.html">Admin</a> section
 <img src="../resources/images/topnav_admin.png" alt=""></li>
 <li>Click on the &quot;Config XML&quot; tab</li>
 <li>The location of the configuration file is listed here
 <img src="../resources/images/4_find_config_location.png" alt=""></li>
 <li>Install the new drive</li>
-<li>Shut down Go server</li>
+<li>Shut down GoCD server</li>
 <li>Copy all files from the original artifact repository location to the new drive</li>
 <li>Change the artifact repository location in the configuration file<pre><code>&lt;server artifactsDir=&quot;/path/to/new/artifacts&quot;&gt;
 ...
 &lt;/server&gt;
 </code></pre></li>
-<li>Start up Go server and verify you still have access to old artifacts</li>
+<li>Start up GoCD server and verify you still have access to old artifacts</li>
 </ul>
 <h2 id="delete-unused-artifacts"><a name="delete-unused-artifacts" class="plugin-anchor" href="#delete-unused-artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>Delete unused artifacts</h2>
 <p>Another option for making more room is to remove unused (or easily recreatable) artifacts. You may also have old pipelines that you no longer need.</p>
 <p>The directory structure of the artifact repository makes selecting which artifacts are safe to delete easier. The format is:</p>
 <pre><code>[artifacts-dir]/pipelines/[pipelineName]/[pipelineLabel]/[stageName]/[stageCounter]/[jobName]
 </code></pre><blockquote>
-<p>Keep in mind that there are two files that Go needs in order to display the <a href="../navigation/job_details_page.html">Job</a> or <a href="../navigation/stage_details_page.html">Stage</a> details pages</p>
+<p>Keep in mind that there are two files that GoCD needs in order to display the <a href="../navigation/job_details_page.html">Job</a> or <a href="../navigation/stage_details_page.html">Stage</a> details pages</p>
 <ul>
 <li>cruise-output/console.log</li>
 <li>cruise-output/log.xml</li>
@@ -1934,7 +1934,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Running out of Disk Space","level":"1.9.20","depth":2,"next":{"title":"Beta features","level":"1.10","depth":1,"path":"beta/index.md","ref":"beta/index.md","articles":[{"title":"Comment on a pipeline run","level":"1.10.1","depth":2,"path":"beta/comment_on_pipeline_run.md","ref":"beta/comment_on_pipeline_run.md","articles":[]},{"title":"Plugin upload from within Go","level":"1.10.2","depth":2,"path":"beta/plugin_upload.md","ref":"beta/plugin_upload.md","articles":[]}]},"previous":{"title":"Email Notifications","level":"1.9.19","depth":2,"path":"faq/notifications_page.md","ref":"faq/notifications_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/admin_out_of_disk_space.md","mtime":"2017-08-16T05:48:54.018Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"When run of of space, GoCD stops scheduling new pipelines by compressing large files, attaching a larger hard drive, or by deleting unused artifacts.","keywords":"Disk space, schedule pipelines,","title":"Running out of Disk Space","level":"1.9.20","depth":2,"next":{"title":"Beta features","level":"1.10","depth":1,"path":"beta/index.md","ref":"beta/index.md","articles":[{"title":"Comment on a pipeline run","level":"1.10.1","depth":2,"path":"beta/comment_on_pipeline_run.md","ref":"beta/comment_on_pipeline_run.md","articles":[]},{"title":"Plugin upload from within Go","level":"1.10.2","depth":2,"path":"beta/plugin_upload.md","ref":"beta/plugin_upload.md","articles":[]}]},"previous":{"title":"Email Notifications","level":"1.9.19","depth":2,"path":"faq/notifications_page.md","ref":"faq/notifications_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"faq/admin_out_of_disk_space.md","mtime":"2017-08-16T23:15:40.383Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

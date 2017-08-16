@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Job Details · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
+        <meta name="description" content="The Job Details page shows the details of a job within a specific stage in your build pipeline.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
+<meta content="gocd job details, upload test reports, job artifacts, build materials, job history, cd pipeline" name="keywords" />
 
     </head>
     <body>
@@ -103,7 +103,7 @@
                 <a href="../introduction/">
             
                     
-                    Concepts In Go
+                    Concepts In GoCD
             
                 </a>
             
@@ -117,7 +117,7 @@
                 <a href="../introduction/concepts_in_go.html">
             
                     
-                    Concepts in Go
+                    Concepts in GoCD
             
                 </a>
             
@@ -135,7 +135,7 @@
                 <a href="./">
             
                     
-                    Go Tour
+                    GoCD Tour
             
                 </a>
             
@@ -284,7 +284,7 @@
                 <a href="../installation/">
             
                     
-                    Installing Go
+                    Installing GoCD
             
                 </a>
             
@@ -311,7 +311,7 @@
                 <a href="../installation/installing_go_server.html">
             
                     
-                    Installing Go Server
+                    Installing GoCD Server
             
                 </a>
             
@@ -382,7 +382,7 @@
                 <a href="../installation/installing_go_agent.html">
             
                     
-                    Installing Go Agent
+                    Installing GoCD Agent
             
                 </a>
             
@@ -453,7 +453,7 @@
                 <a href="../installation/upgrading_go.html">
             
                     
-                    Upgrading Go
+                    Upgrading GoCD
             
                 </a>
             
@@ -1212,7 +1212,7 @@
                 <a href="../advanced_usage/one_click_backup.html">
             
                     
-                    Backup Go Server
+                    Backup GoCD Server
             
                 </a>
             
@@ -1256,7 +1256,7 @@
                 <a href="../integration/">
             
                     
-                    Integrating Go With Other Tools
+                    Integrating GoCD With Other Tools
             
                 </a>
             
@@ -1269,7 +1269,7 @@
                 <a href="../extension_points/">
             
                     
-                    Extension Points Of Go
+                    Extension Points Of GoCD
             
                 </a>
             
@@ -1820,7 +1820,7 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="job-details"><a name="job-details" class="plugin-anchor" href="#job-details"><i class="fa fa-link" aria-hidden="true"></i></a>Job Details</h1>
+                                <h1 id="job-details-in-gocd"><a name="job-details-in-gocd" class="plugin-anchor" href="#job-details-in-gocd"><i class="fa fa-link" aria-hidden="true"></i></a>Job Details in GoCD</h1>
 <p>The &quot;Job Details&quot; page shows the details of a job within a specific stage.</p>
 <p><img src="../resources/images/JobDetails.png" alt="Job Details Page"></p>
 <h3 id="key"><a name="key" class="plugin-anchor" href="#key"><i class="fa fa-link" aria-hidden="true"></i></a>Key</h3>
@@ -1830,7 +1830,7 @@
 <li>The &quot;Failures&quot; Tab shows any test, server, compilation or network error associated with a failed job run</li>
 <li>The &quot;Artifacts&quot; Tab shows a collapsible list of the job&apos;s artifacts</li>
 <li>The &quot;Materials&quot; Tab shows what activated the pipeline through a list of comments and revisions</li>
-<li>The &quot;Properties&quot; Tab shows the list of <a href="../advanced_usage/properties.html">properties</a> for the job. Some properties are Go defaults. You can also automatically <a href="../faq/dev_save_properties.html">save custom properties</a></li>
+<li>The &quot;Properties&quot; Tab shows the list of <a href="../advanced_usage/properties.html">properties</a> for the job. Some properties are GoCD defaults. You can also automatically <a href="../faq/dev_save_properties.html">save custom properties</a></li>
 <li>The &quot;Coverage&quot; Tab is an example of a custom tab. You can create <a href="../faq/dev_see_artifact_as_tab.html">custom tabs</a> to view any uploaded artifact</li>
 <li>Click &quot;Export property history to spreadsheet (csv)&quot; to view a job&apos;s property values over time in an excel compatible format. This is useful for charting and graphing various build metrics</li>
 <li>The Jobs History sidebar lists recent jobs by date and time. Each job is highlighted with a passed, failed, or canceled icon. Click the job to view its Job Details information</li>
@@ -1882,7 +1882,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Job Details","level":"1.3.6","depth":2,"next":{"title":"Administration","level":"1.3.7","depth":2,"path":"navigation/administration_page.md","ref":"navigation/administration_page.md","articles":[]},"previous":{"title":"Stage Details","level":"1.3.5","depth":2,"path":"navigation/stage_details_page.md","ref":"navigation/stage_details_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/job_details_page.md","mtime":"2017-08-16T05:48:54.021Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T05:52:13.046Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The Job Details page shows the details of a job within a specific stage in your build pipeline.","keywords":"gocd job details, upload test reports, job artifacts, build materials, job history, cd pipeline","title":"Job Details","level":"1.3.6","depth":2,"next":{"title":"Administration","level":"1.3.7","depth":2,"path":"navigation/administration_page.md","ref":"navigation/administration_page.md","articles":[]},"previous":{"title":"Stage Details","level":"1.3.5","depth":2,"path":"navigation/stage_details_page.md","ref":"navigation/stage_details_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/job_details_page.md","mtime":"2017-08-16T23:15:40.388Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-08-16T23:19:00.369Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
