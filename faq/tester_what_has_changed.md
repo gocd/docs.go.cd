@@ -1,6 +1,12 @@
-# What has changed in the current version?
+---
+description: When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated.
+keywords: gocd, test environments, pipeline activity, user acceptance testing
+---
 
-When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in Go automatically, there are some extra steps we must take.
+
+# What has changed in the current GOCD version?
+
+When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
 
 ## Example usage
 

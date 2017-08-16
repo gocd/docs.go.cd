@@ -1,11 +1,17 @@
+---
+description: Way to clean up environment after canceling a task in GoCD
+keywords: GoCD jobs, tasks, clean up, 
+---
+
+
 # Clean up after canceling a task
 
 When you have jobs that take a long time to run, it is very useful to have the capability to cancel it when you already know it will fail.
 
-By default, Go will **kill any currently running tasks** . There are two other alternatives to this behaviour
+By default, GoCD will **kill any currently running tasks** . There are two other alternatives to this behaviour
 
 -   Specify a task to clean up your environment. This could kill the processes and cleanup any existing state.
--   Indicate to Go you do not want anything done. This will allow the task to finish executing so the agent does not get into an inconsistent state.
+-   Indicate to GoCD you do not want anything done. This will allow the task to finish executing so the agent does not get into an inconsistent state.
 
 ## Using web interface
 

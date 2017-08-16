@@ -1,4 +1,10 @@
-# Stage Details
+---
+description: The stage details page displays details of a specific stage on GoCD.
+keywords: gocd pipeline stage, stage details, gocd failed stage, gocd rerun stage, build materials, build history, test failures, continuous delivery
+---
+
+
+# Stage Details in GoCD
 
 The "Stage Details" page displays details of a specific stage.
 
@@ -63,7 +69,7 @@ You are viewing stage 'Dev' of pipeline label '59'. The pipeline has been failin
 -   61 has 3 newly failing tests.
 -   None of the currently failing tests started failing in 59, 58. 57, 56 or 55.
 
-If there are no tests configured in the stage or Go is still computing results, this is the message that is displayed.
+If there are no tests configured in the stage or GoCD is still computing results, this is the message that is displayed.
 
 ![](../resources/images/no_tests_configured.png)
 

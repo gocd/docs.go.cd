@@ -1,4 +1,9 @@
-# Run a pipeline on a schedule
+---
+description: Run a GoCD pipeline on a schedule or timer
+keywords: GoCD configuration, GoCD pipeline, scheduled pipelines, cron, timer, continuous delivery pipeline, CD pipeline, stage, material, trigger
+---
+
+# Run a GoCD pipeline on a schedule
 
 To run a pipeline at a given time, use a timer. Timers understand a cron-like specification for when to run a pipeline.
 

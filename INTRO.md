@@ -1,3 +1,9 @@
+---
+description: Welcome to GoCD. More information on concepts, managing pipelines, and getting started.
+keywords: gocd, continuous delivery, continuous integration, quick start guide, cd pipelines, build pipelines, gocd tutorials, gocd videos, install gocd
+---
+
+
 # GoCD User Documentation
 
 Welcome to GoCD - an open-source Continuous Integration and Continuous Delivery system.

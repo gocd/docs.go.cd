@@ -1,4 +1,9 @@
-# Configuration repository
+---
+description: GoCD's configuration is version controlled in a local git repository. It allows auditing of all changes made to the configuration. 
+keywords: GoCD configuration repository, gabage collection, config repo, 
+---
+
+# GoCD Configuration repository
 
 GoCD's configuration is version controlled in a local git repository - *config.git* hosted on the same machine as the
 GoCD server. The repo is available at `<GoCD server installation directory>/db/config.git`. Any changes to the config,

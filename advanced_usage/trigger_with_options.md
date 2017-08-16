@@ -1,6 +1,11 @@
+---
+description: GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).
+keywords: Pipeline trigger, pipeline materal, pipeline label, Trigger with options
+---
+
 # Trigger with a different revision of material
 
-Go supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).
+GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).
 
 ## Trigger with options
 
@@ -27,7 +32,7 @@ If you want to trigger with a revision other than the 5 that is displayed, you c
 -   committer name
 -   check-in comment
 
-Go will find matches and display the same. One of the matches can be chosen and the build triggered.
+GoCD will find matches and display the same. One of the matches can be chosen and the build triggered.
 
 ![Trigger with options search](../resources/images/trigger_with_options_search.png)
 

@@ -1,8 +1,13 @@
+---
+description: GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command.
+keywords: task extension, task plugin, gocd plugins, nan, ant, rake, curl plugin, build pipelines, configure pipelines
+---
+
 # Task Extension
 
 ## Overview
 
-Go supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:
+GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you'll see something like this:
 
 ![](../resources/images/1_Without_Curl.png)
 
@@ -64,6 +69,6 @@ Dload  Upload   Total   Spent    Left  Speed
 100   259  100   259    0     0    122      0  0:00:02  0:00:02 --:--:--   122
 ```
 
-Go provides two ways of writing a task plugin:
+GoCD provides two ways of writing a task plugin:
 * [JSON API - Message based](https://developer.gocd.org/current/writing_go_plugins/task/json_message_based_task_extension.html)
 * [Java API based (Deprecated)](https://developer.gocd.org/current/writing_go_plugins/task/writing_go_task_plugins.html)

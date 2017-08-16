@@ -1,6 +1,12 @@
-# Introduction
+---
+description: Introduction to GoCD, it's underlying concepts, and get a good understanding of continuous delivery and continuous integration.
+keywords: introduction gocd, continuous delivery, continuous integration, martin fowler, gocd getting started, build pipelines, value stream map, build artifacts, fan in
+---
 
-This page explains some of the underlying concepts of Go. If you want to know more about Continuous Integration and
+
+# Introduction to GoCD
+
+This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and
 Continuous Delivery, in general, you can refer to Martin Fowler's articles on the subject: [Continuous
 Integration](http://martinfowler.com/articles/continuousIntegration.html) and [Continuous
 Delivery](http://martinfowler.com/bliki/ContinuousDelivery.html).
@@ -31,7 +37,7 @@ starting point to get a good understanding of the concepts while trying them out
 
 A task, or a build task, is an action that needs to be performed. Usually, it is a single command.
 
-The task shown in the image below is set to run the command `ant -Dmodule=A compile`, when executed by Go.
+The task shown in the image below is set to run the command `ant -Dmodule=A compile`, when executed by GoCD.
 
 <figure class="concept_image">
   <img src="../resources/images/concepts/01_task.png" alt="Figure 1: Task" id="image_task" class="small_image">
@@ -57,7 +63,7 @@ tasks. Any changes made by a task on the filesystem will be visible to subsequen
 <a name="stage"/>
 # Stage
 
-A stage consists of multiple jobs, each of which can run independently of the others. This means that Go can and does parallelize the execution of
+A stage consists of multiple jobs, each of which can run independently of the others. This means that GoCD can and does parallelize the execution of
 jobs in a stage. If a job fails, then the stage is considered failed. However, since jobs are independent of each other, the other jobs in the
 stage will be run to completion.
 
@@ -95,7 +101,7 @@ and tasks. This representation is shown below.
 <a name="materials"/>
 # Materials and triggers <span class="header smaller">(or "*When* do these tasks, jobs, stages and pipelines run?")</span>
 
-A material is a cause for a pipeline to run. Often, it is a source code material repository (Git, SVN, Mercurial, etc). The Go Server
+A material is a cause for a pipeline to run. Often, it is a source code material repository (Git, SVN, Mercurial, etc). The GoCD Server
 continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered".
 
 There are different kinds of materials. Here's an example of a Git material. When a commit is made to the repository configured in the Git material,
@@ -106,7 +112,7 @@ the pipeline gets triggered.
   <figcaption>Figure 6: Material - git</figcaption>
 </figure>
 
-Similarly, an SVN material is shown below. Go has support for many different kinds of source code materials, as well as a plugin endpoint for
+Similarly, an SVN material is shown below. GoCD has support for many different kinds of source code materials, as well as a plugin endpoint for
 extending the kinds of materials it supports.
 
 <figure class="concept_image">
@@ -165,7 +171,7 @@ in the image below. The cause of a fan-out need not always be a pipeline depende
 </figure>
 
 A "fan-in" is when multiple upstream materials are needed to trigger a downstream pipeline, as shown in the image below. One important and interesting
-aspect of fan-in is that Go will ensure that the revisions of upstream pipelines are consistent, before triggering a downstream pipeline.
+aspect of fan-in is that GoCD will ensure that the revisions of upstream pipelines are consistent, before triggering a downstream pipeline.
 
 In the image shown below, this means that if Stage 2 of Pipeline 1 is slow and Stage 1 of Pipeline 2 is quick, Pipeline 3 will wait for Pipeline 1
 to finish before triggering. It will not trigger with an inconsistent or old revision of Pipeline 1, just because Pipeline 2 finished quickly.
@@ -179,9 +185,9 @@ to finish before triggering. It will not trigger with an inconsistent or old rev
 # Value Stream Map (VSM)
 
 The Value Stream Map (VSM) is an end-to-end view of a pipeline, its upstream dependencies and the downstream pipelines it triggers. When deciding which
-pipelines to trigger, Go's fan-in and fan-out resolution will take care of all the dependencies consistently.
+pipelines to trigger, GoCD's fan-in and fan-out resolution will take care of all the dependencies consistently.
 
-For instance, in the image below, when a new commit is found in Repo 1 (git), Go will not trigger Pipeline 5 immediately. It will wait for Pipeline 1 to
+For instance, in the image below, when a new commit is found in Repo 1 (git), GoCD will not trigger Pipeline 5 immediately. It will wait for Pipeline 1 to
 trigger and finish successfully, then it will wait for Pipeline 4 to trigger and finish successfully. Finally, it will trigger Pipeline 5 with the same
 revision of Repo 1 that was used with Pipeline 1.
 
@@ -193,7 +199,7 @@ revision of Repo 1 that was used with Pipeline 1.
 <a name="artifacts"/>
 # Artifacts
 
-Every [job](#job) in Go can optionally publish "Artifacts", which are files or directories. After the job is run, Go will ensure that the specified artifacts are
+Every [job](#job) in Go can optionally publish "Artifacts", which are files or directories. After the job is run, GoCD will ensure that the specified artifacts are
 published and made available to the user, and other downstream stages and pipelines.
 
 A representation of artifacts is shown below. As shown, every job can have artifacts. In this case, the job on the top has two files and a directory as
@@ -207,8 +213,8 @@ its artifacts and the job below it has two directories and a file as its artifac
 <a name="fetch_artifact"/>
 ### Fetching artifacts
 
-Go provides a special task called a "Fetch Artifact Task", which allows artifacts to be fetched and used, from any ancestor pipeline - that is, any
-pipeline that is upstream of the current pipeline. Go will ensure that the correct version of the artifact is fetched, irrespective of anything else
+GoCD provides a special task called a "Fetch Artifact Task", which allows artifacts to be fetched and used, from any ancestor pipeline - that is, any
+pipeline that is upstream of the current pipeline. GoCD will ensure that the correct version of the artifact is fetched, irrespective of anything else
 that might be going on in the system.
 
 In the image shown below, the jobs in Stage 1 of Pipeline 1 publish some artifacts. In Stage 2, a Fetch Artifact Task fetches the artifact published in
@@ -223,12 +229,12 @@ a Fetch Artifact Task fetches an artifact from Pipeline 1, through Pipeline 2.
 <a name="agent"/>
 # Agent <span class="header smaller">(or "*Where* do these tasks, jobs, stages and pipelines run?")</span>
 
-Go Agents are the workers in the Go ecosystem. All tasks configured in the system run on Go Agents. The Go Server polls for changes in material (this
-happens on the Go Server itself) and then, when a change is detected and a pipeline needs to be triggered, the corresponding jobs are assigned to the
+GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents. The GoCD Server polls for changes in material (this
+happens on the GoCD Server itself) and then, when a change is detected and a pipeline needs to be triggered, the corresponding jobs are assigned to the
 agents, for them to execute the tasks.
 
-Agents pick up [jobs](#job) which are assigned to them, execute the [tasks](#task) in the job and report the status of the job to the Go Server. Then,
-the Go Server collates all the information from the different jobs and then decides on the status of the stage.
+Agents pick up [jobs](#job) which are assigned to them, execute the [tasks](#task) in the job and report the status of the job to the GoCD Server. Then,
+the GoCD Server collates all the information from the different jobs and then decides on the status of the stage.
 
 An agent is represented by a monitor in the image below.
 
@@ -265,7 +271,7 @@ resource. Job 3 claims that it needs an agent with *both* Firefox&reg; and Linux
 
 In the case of the image above:
 
-1. Job 1 can be assigned to either Agents 1 or 3, by the Go Server.
+1. Job 1 can be assigned to either Agents 1 or 3, by the GoCD Server.
 
 2. Job 2 can be assigned only to Agent 1 (since it is the only agent to provide the Linux resource).
 
@@ -280,7 +286,7 @@ needed by any of the jobs shown.
 <a name="environment"/>
 # Environments
 
-An "Environment" in Go is a way to group and isolate pipelines and agents. The rules of an environment are:
+An "Environment" in GoCD is a way to group and isolate pipelines and agents. The rules of an environment are:
 
 1. A pipeline can be associated with a maximum of one environment.
 
@@ -312,7 +318,7 @@ on [Resources](#resources).
 <a name="environment_variables"/>
 # Environment Variables
 
-Environment variables are often confused with "Environments". They're not directly related. In Go, "Environment Variables" are user-defined variables that
+Environment variables are often confused with "Environments". They're not directly related. In GoCD, "Environment Variables" are user-defined variables that
 are defined in the configuration. These environment variables are made available to tasks just like other environment variables available to processes
 when they run in an operation system.
 

@@ -1,4 +1,10 @@
-# Discover what's in an environment
+---
+description: Before deploying something into production on GoCD, it's useful to understand what is currently there.
+keywords: gocd environments, deployments, production deployment, deploy to environment, deploy application
+---
+
+
+# Discover what's in an GoCD environment
 
 Before [deploying something into production](rm_deploy_to_environment.md), it is often useful to know what is currently there.
 
@@ -14,6 +20,6 @@ For this example, we will assume we have a stage name "production" that will aut
 
 ![](../resources/images/2_click_stage_activity.png)
 
--   The [Stage Details](../navigation/stage_details_page.md) page will show every time Go has deployed your application
+-   The [Stage Details](../navigation/stage_details_page.md) page will show every time GoCD has deployed your application
 
 ![](../resources/images/3_stage_activity.png)

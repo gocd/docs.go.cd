@@ -1,6 +1,11 @@
-# Pipeline Groups Administration
+---
+description: GoCD pipeline groups administration
+keywords: GoCD configuration, GoCD pipeline groups, pipeline group administration, pipeline groups, continuous delivery pipelines, CD pipelines
+---
 
-Pipeline Group Administrators in Go can add, remove and edit pipelines in their respective pipeline groups. They can do these operations via the UI as well by editing the config XML of the pipeline group.
+# GoCD Pipeline Groups Administration
+
+Pipeline Group Administrators in GoCD can add, remove and edit pipelines in their respective pipeline groups. They can do these operations via the UI as well by editing the config XML of the pipeline group.
 
 ## Administration using UI
 

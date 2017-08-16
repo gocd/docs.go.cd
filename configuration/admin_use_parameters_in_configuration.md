@@ -1,6 +1,11 @@
+---
+description: Paramerterize GoCD pipelines and pipeline templates
+keywords: GoCD configuration, GoCD pipelines, continuous delivery pipelines, pipeline templates, parameters, CD pipelines, pipeline configuration, pipeline template configuration
+---
+
 # Parameterize your Configuration
 
-Go allows you to parameterize your pipelines and pipeline templates. This powerful feature can help reduce repetition within your configurations and also allows for complex setups using a combination of parameters and pipeline templates.
+GoCD allows you to parameterize your pipelines and pipeline templates. This powerful feature can help reduce repetition within your configurations and also allows for complex setups using a combination of parameters and pipeline templates.
 
 ## Using Web Interface
 

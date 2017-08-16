@@ -1,6 +1,12 @@
-# Dependency Management
+---
+description: How GoCD handles deployment pipeline dependency. 
+keywords: dependency pipeline, test, code,build, propagate material, dependency chain
+---
 
-When you have non-trivial dependency pipeline chains, you may have concerns about how dependent pipelines and materials interact. For example, code and tests are checked in as part of the same commit. But code is built and tested in sequence, so the same material version has to be used for pipelines that build and test your code. This section covers some Dependency Management concepts and how Go handles certain complex scenarios.
+
+# GoCD Dependency Management
+
+When you have non-trivial dependency pipeline chains, you may have concerns about how dependent pipelines and materials interact. For example, code and tests are checked in as part of the same commit. But code is built and tested in sequence, so the same material version has to be used for pipelines that build and test your code. This section covers some Dependency Management concepts and how GoCD handles certain complex scenarios.
 
 ## Propagate material revision throughout the dependency chain
 

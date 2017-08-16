@@ -1,4 +1,9 @@
-# Pipeline Scheduling
+---
+description: GoCD pipeline scheduling
+keywords: GoCD configuration, pipeline scheduling, automatic scheduling, stages, continuous delivery pipeline
+---
+
+# GoCD Pipeline Scheduling
 
 Pipelines get scheduled automatically by default. Please see the knowledge base article in the Also see section below. Here we'll see how to disable automatic scheduling.
 

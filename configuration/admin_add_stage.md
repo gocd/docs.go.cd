@@ -1,4 +1,9 @@
-#Add a new stage to an existing pipeline
+---
+description: Add a new stage to an existing GoCD pipeline
+keywords: GoCD configuration, continuous delivery pipeline, CD pipeline, stages, jobs
+---
+
+# Add a new stage to an existing GoCD pipeline
 
 Now that you have a pipeline with a single stage, lets add more stages
 to it.

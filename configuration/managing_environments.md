@@ -1,6 +1,11 @@
+---
+description: Managing environments
+keywords: GoCD configuration, GoCD environments, pipeline groups, agents, UAT environments, performance testing environment, production environment, deployment pipeline
+---
+
 # Managing environments
 
-Go is configured using an XML configuration file. This file can be edited through the Go server dashboard. Go allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.
+GoCD is configured using an XML configuration file. This file can be edited through the GoCD server dashboard. GoCD allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.
 
 ## Creating a new environment
 

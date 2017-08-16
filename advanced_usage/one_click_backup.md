@@ -1,17 +1,23 @@
-# Backup Go Server
+---
+description: Use GoCD's administration interface or API to backup and restore GoCD server
+keywords: GoCD server, GoCD backup, administration interface, backup API
+---
 
-You can use Go's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](https://api.gocd.org/#backups).
+
+# Backup GoCD Server
+
+You can use GoCD's administration interface to perform an One-Click Backup of Go. You can also perform the backup [using the API](https://api.gocd.org/#backups).
 
 ## Steps to initiate backup
 
--   On the Go Administration page, click on the Backup tab.
+-   On the GoCD Administration page, click on the Backup tab.
 ![](../resources/images/backup_tab.png)
 -   Click on "BACKUP"
 ![](../resources/images/backup_button.png)
 -   Click "PROCEED"
 ![](../resources/images/backup_proceed.png)
->Go will be unusable during the backup process.
--   Backup time is proportional to the database and configuration size. We suggest you backup Go when the Go Server is idle. Users who are logged into the Go Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.
+>GoCD will be unusable during the backup process.
+-   Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.
 
 ### What is backed up?
 
@@ -20,15 +26,15 @@ The backup will be performed into the **{ARTIFACT\_REPOSITORY\_LOCATION}/serverB
 The backup directory will be named **backup\_{TIMESTAMP}** where the **{TIMESTAMP}** is the time when the backup was initiated.
 
 -   Database – This is in a zip called **db.zip** . The zip has a single DB file called **cruise.h2.db**
--   Configuration – This is in a zip called **config-dir.zip** . This zip contains the XML configuration, Jetty server configuration, Keystores and all other Go's internal configurations.
+-   Configuration – This is in a zip called **config-dir.zip** . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD's internal configurations.
 -   XML Configuration Version Repo – This is in a zip called **config-repo.zip** . This zip contains the Git repository of the XML configuration file.
--   Go version – This is a file called **version.txt** . This file contains the version of the Go server when the backup was initiated
+-   GoCD version – This is a file called **version.txt** . This file contains the version of the GoCD server when the backup was initiated
 
 ### What is not backed up?
 
 > Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
-The following are not backed up as a part of the Go backup process. Please ensure that these are manually backed up regularly.
+The following are not backed up as a part of the GoCD backup process. Please ensure that these are manually backed up regularly.
 
 -   Artifacts - Please refer to [this section](../faq/admin_out_of_disk_space.md#move-the-artifact-repository-to-a-new-larger-drive) to find out how to deal with artifacts
 -   Test Reporting Data - This is found at the location **{SERVER\_INSTALLATION\_DIR}/db/shine** . This contains the data used in the Failed Test History reporting
@@ -47,7 +53,7 @@ rsync -avzP {ARTIFACT_LOCATION} {BACKUP_LOCATION}
 
 This makes sure that only the files and directories that got newly added will be synced to the {BACKUP\_LOCATION} and not the entire contents.
 
-### Restoring Go using backup
+### Restoring GoCD using backup
 
 > Please refer to the [this](../installation/installing_go_server.md#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
@@ -55,10 +61,10 @@ The restoration process is not automated and needs to be done manually. Please r
 
 #### Steps to restore
 
--   In order to restore the Go server from a backup, the server must first be stopped. Make sure the process is completely dead before starting the restoration.
+-   In order to restore the GoCD server from a backup, the server must first be stopped. Make sure the process is completely dead before starting the restoration.
 -   Choose the backup directory that you want to restore from.
 
-    >**You cannot restore from a backup whose version is bigger than the version of the Go server being used.**<br>
+    >**You cannot restore from a backup whose version is bigger than the version of the GoCD server being used.**<br>
     >*For example:* If the backup is from version 12.3 and the server installation is of version 12.2, the restoration might not work. You can check the version of the backup from the **version.txt** file.
 
 -   You might want to keep a copy of all the files and directories that are involved in restoration. This will help in troubleshooting if there was a problem. Following this, make sure all the destination directories mentioned in the following steps are empty.<br>
@@ -68,4 +74,4 @@ The restoration process is not automated and needs to be done manually. Please r
 -   Configuration History - Unzip the **config-repo.zip** into temp directory. Recursively copy all the contents from this directory to **{SERVER\_INSTALLATION\_DIR}/db/config.git** .
 -   Make sure the ownership of all the files that are restored are the same as the user running the Go server.<br>
     *For example:* Make sure you run a "chown -R go:go {SERVER\_INSTALLATION\_DIR}/db/h2db" after Database restoration.
--   Start the Go server
+-   Start the GoCD server

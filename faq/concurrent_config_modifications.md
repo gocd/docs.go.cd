@@ -1,8 +1,13 @@
-# Concurrent Modifications to Go's Configuration
+---
+description: Concurrent Modifications to GoCD's Configuration
+keywords: concurrent modification, multiple modifications, GoCD configuration, successful merge, merge conflict
+---
 
-Go handles concurrent modifications to its configuration. Multiple modifications are merged and saved successfully. Modifications to the same area of configuration would result in a conflict.
+# Concurrent Modifications to GoCD's Configuration
 
-Note: Configuration file is maintained in git version control system. Go leverages git’s merge feature to merge changes from multiple users. As expected, concurrent changes to the same section by users would result in a conflict.
+GoCD handles concurrent modifications to its configuration. Multiple modifications are merged and saved successfully. Modifications to the same area of configuration would result in a conflict.
+
+Note: Configuration file is maintained in git version control system. GoCD leverages git’s merge feature to merge changes from multiple users. As expected, concurrent changes to the same section by users would result in a conflict.
 
 ## Successful Merge
 
@@ -12,9 +17,9 @@ In case of a successful merge, user would see a success message as below:
 
 ## Merge Conflicts
 
-### Handling conflict while using Config XML tab (Go Administrator)
+### Handling conflict while using Config XML tab (GoCD Administrator)
 
-In case of a conflict, Go provides an interface with the latest version of config along with the changes made by the user. As an example, if the same job was re-named by two users concurrently, the changes from first user would be successfully saved while the second user would see a page similar to the one displayed in the image below.
+In case of a conflict, GoCD provides an interface with the latest version of config along with the changes made by the user. As an example, if the same job was re-named by two users concurrently, the changes from first user would be successfully saved while the second user would see a page similar to the one displayed in the image below.
 
 User needs to re-apply their changes displayed on the left-hand pane, to the editable version on the right and save again.
 

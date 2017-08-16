@@ -1,4 +1,9 @@
-# Pipeline Templates
+---
+description: GoCD pipeline template management
+keywords: GoCD configuration, pipeline templates, creating pipeline templates, editing pipeline templates, viewing pipeline templates, pipeline groups
+---
+
+# GoCD Pipeline Templates
 
 Templating helps to create reusable workflows in order to make tasks like creating and maintaining branches, and managing large number of pipelines easier.
 
@@ -59,7 +64,7 @@ Power users can configure the above as follows:
 
 ### Editing Pipeline Templates
 
-Go Administrators can now enable any Go user to edit a template by [making them a template administrator](dev_authorization.html#specifying-permissions-for-templates).
+GoCD Administrators can now enable any GoCD user to edit a template by [making them a template administrator](dev_authorization.html#specifying-permissions-for-templates).
 
 Template administrators can view and edit the templates to which they have permissions, on the template tab of the admin page. Template Administrators, will however not be able to add, delete or change permissions for a template. They will also be able to see the number of pipelines in which the template is being used, but not the details of those pipelines.
 
