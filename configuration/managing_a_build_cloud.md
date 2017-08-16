@@ -1,12 +1,17 @@
-# Managing agents
+---
+description: Managing GoCD agents
+keywords: GoCD configuration, GoCD agent, build cloud, agents, pausing agents, job run history, agent states, debugging agent issues, pausing agents, removing agents, agent management
+---
 
-Go is designed to make managing a build cloud extremely simple. This page takes you through the lifecycle of expanding your cloud and maintaining your agents.
+# Managing GoCD agents
 
-## Adding a Go agent to your cloud
+GoCD is designed to make managing a build cloud extremely simple. This page takes you through the lifecycle of expanding your cloud and maintaining your agents.
+
+## Adding a GoCD agent to your cloud
 
 The first thing you need to do is [install Go agent](../installation/installing_go_agent.md) on the machine you want to add to the cloud.
 
-Once the Go agent has been installed and pointed at your Go server, go to the [Agents](../navigation/agents_page.md) tab on the Go dashboard. You should see something like this:
+Once the GoCD agent has been installed and pointed at your GoCD server, go to the [Agents](../navigation/agents_page.md) tab on the GoCD dashboard. You should see something like this:
 
 ![](../resources/images/enable_agent.png)
 
@@ -18,7 +23,7 @@ Once your agent has successfully been enabled, it should no longer appear greyed
 
 ## Matching jobs to agents
 
-In its default state, Go server will assign scheduled jobs to the first available agent. Go doesn't have the ability to determine what operating system or other resources are present on a given agent. If you want particular jobs to run on particular agents, you'll need to specify **resources** .
+In its default state, GoCD server will assign scheduled jobs to the first available agent. GoCD doesn't have the ability to determine what operating system or other resources are present on a given agent. If you want particular jobs to run on particular agents, you'll need to specify **resources** .
 
 You can specify one or more resources that a particular job needs in order to execute. In the same way, you can specify that an agent has one or more resources. Go will then match jobs to agents, such that a job will only run on agents which have at least the resources required for that job.
 
@@ -50,25 +55,25 @@ All existing resources across your agents and jobs will appear in alphabetical o
 
 ## Agent states
 
-Go will tell you if it loses touch with agents. If Go server doesn't hear from an agent for two minutes, the agent will turn red in the [Agents](../navigation/agents_page.md) tab, and Go will tell you the last time it heard from the agent. Go will also transparently re-assign the build to the next available agent that can run it, if the lost agent was building a job.
+GoCD will tell you if it loses touch with agents. If GoCD server doesn't hear from an agent for two minutes, the agent will turn red in the [Agents](../navigation/agents_page.md) tab, and GoCD will tell you the last time it heard from the agent. GoCD will also transparently re-assign the build to the next available agent that can run it, if the lost agent was building a job.
 
-Go will also let you know if one of the agents it knows about has never contacted it since Go server was last started. In this case, the agent's state will be marked as "missing" and it will be gray.
+GoCD will also let you know if one of the agents it knows about has never contacted it since GoCD server was last started. In this case, the agent's state will be marked as "missing" and it will be gray.
 
 If an agent is working on a job, it will turn orange, and display the name of the job it is working on. You can click on the job description to go to the job details page for that job:
 
 ## Removing agents
 
-If you want to remove an agent from Go's build cloud, go to the agents tab, locate the agent you want to remove, and click on the button marked "Disable". Go will record in its configuration that this agent should be excluded from the build cloud. If you restart Go server, the agent will continue to be disabled. Disabled agents do not count towards Go's licensed agents.
+If you want to remove an agent from GoCD's build cloud, go to the agents tab, locate the agent you want to remove, and click on the button marked "Disable". GoCD will record in its configuration that this agent should be excluded from the build cloud. If you restart Go server, the agent will continue to be disabled. Disabled agents do not count towards GoCD's licensed agents.
 
 To permanently remove an agent from Go's configuration, you can use the [agent api](https://api.gocd.org/#agents) or delete from the agents tab. The agent must be disabled before it can be deleted
 
-Following this procedure, if you restart the agent, Go server will see it as a new agent, and you can enable it again in the same way as described above.
+Following this procedure, if you restart the agent, GoCD server will see it as a new agent, and you can enable it again in the same way as described above.
 
 ![](../resources/images/delete_agent.png)
 
 ## Pausing agents
 
-If you want to pause an agent or temporarily disable it so that Go server will not assign work to the agent. Go will record in its configuration file that the agent has been disabled. This means, if you restart Go server, the disabled agent will remain disabled. You can use the following api to [disable agents](https://api.gocd.org/current/#update-an-agent) or you can disable the agent from the agents tab.
+If you want to pause an agent or temporarily disable it so that GoCD server will not assign work to the agent. GoCD will record in its configuration file that the agent has been disabled. This means, if you restart GoCD server, the disabled agent will remain disabled. You can use the following api to [disable agents](https://api.gocd.org/current/#update-an-agent) or you can disable the agent from the agents tab.
 
 A disabled agent can be enabled; this will make it eligible to pick up work again. You can use the api or enable an agent from the agents tab.
 
@@ -76,7 +81,7 @@ A disabled agent can be enabled; this will make it eligible to pick up work agai
 
 ## Details of a single agent
 
-Go now provides a page that shows the details of a single agent. This page provides details about the agent configuration and the history of all the jobs that ran on that agent.
+GoCD now provides a page that shows the details of a single agent. This page provides details about the agent configuration and the history of all the jobs that ran on that agent.
 
 ### Agent Details tab
 

@@ -1,4 +1,10 @@
-# Administration
+---
+description: Get started with GoCD. Configure pipelines and learn about pipeline templates.
+keywords: gocd get started, gocd configuration, build pipelines, jenkins, configure pipelines, config as code, pipeline templates
+---
+
+
+# GoCD Administration
 
 There are four ways to configure pipelines etc.
 
@@ -36,4 +42,4 @@ The "Templates" tab allows you to configure pipeline templates which can be used
 2.  Edit the pipeline template.
 3.  Delete an unused pipeline template.
 4.  Edit a pipeline using this pipeline template.
-5.  As a Go Administrator, you can now edit permissions for the template to make users [Template Administrators](../configuration/dev_authorization.md#template-admin).
+5.  As a GoCD Administrator, you can now edit permissions for the template to make users [Template Administrators](../configuration/dev_authorization.md#template-admin).

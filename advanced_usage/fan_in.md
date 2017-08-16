@@ -1,6 +1,11 @@
-# Fan-in Dependency Management
+---
+description: GoCD's fan-in dependency resolution ensures that a pipeline triggers only when all its upstream pipelines have triggered off the same version of material.
+keywords: GoCD Fan-in, pipeline dependency, auto trigger, build artifact, upstream pipeline, downstream pip
+---
 
-Go supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.
+# GoCD Fan-in Dependency Management
+
+GoCD supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.
 
 When you have non trivial pipeline dependency graphs, significant differences in pipeline execution times and automatic builds/deployments, you may typically run into the following issues
 
@@ -9,11 +14,11 @@ When you have non trivial pipeline dependency graphs, significant differences in
 -   **Incorrect feedback** : Your deployment to Production should happen only when it has successfully passed the UAT, Staging and Pre-Prod environments but it was triggered prematurely as soon as UAT went green.
 -   **Running code with the wrong tests** : Your commit to SCM contains both code and tests written for the code. Your pipelines are modeled such that your acceptance or test pipeline runs after the build pipeline. Acceptance has to run with the right tests for the code but instead it triggers as soon as the commit goes through with the previous available version for tests.
 
-Go helps solve all of the above problems.
+GoCD helps solve all of the above problems.
 
 ## How to use fan-in:
 
--   In cases where your SCM material is used throughout the process you will need to define the same URL for the material throughout. This will let Go know that it is a shared material and Go will enforce fan-in wherever applicable. For example: code, tests, environment configuration are in http://svn.company.com/code, http://svn.company.com/tests, and http://svn.company.com/config respectively. In this case ensure for pipelines that need these materials, the url is set to the same value. For example the pipelines Build, Acceptance and Deploy have the material url http://svn.company.com
+-   In cases where your SCM material is used throughout the process you will need to define the same URL for the material throughout. This will let GoCD know that it is a shared material and GoCD will enforce fan-in wherever applicable. For example: code, tests, environment configuration are in http://svn.company.com/code, http://svn.company.com/tests, and http://svn.company.com/config respectively. In this case ensure for pipelines that need these materials, the url is set to the same value. For example the pipelines Build, Acceptance and Deploy have the material url http://svn.company.com
 -   Pipelines where fan-in dependency resolution is required will need to have trigger type set as auto
 
 ## Example use cases for fan-in resolution
@@ -32,7 +37,7 @@ Sequence of Events and Resolution
 
 -   A new build is generated.
 -   The build is pushed to QA, UAT and performance pipelines.
--   Regardless of the time taken in each of these pipelines, Go will ensure that production is triggered only after all three pipelines go green with the same version of build. Production will use the right version of your build artifacts.
+-   Regardless of the time taken in each of these pipelines, GoCD will ensure that production is triggered only after all three pipelines go green with the same version of build. Production will use the right version of your build artifacts.
 
 How to configure:
 
@@ -52,7 +57,7 @@ Sequence of Events and Resolution
 -   C1 is triggered on a change.
 -   C2 and C3 are triggered after C1 is successful.
 -   C2 builds quickly but C3 is still in Progress.
--   Go resolves that C3 and C2 depend on a common ancestor C1. Hence Go will wait for C3 to finish.
+-   Go resolves that C3 and C2 depend on a common ancestor C1. Hence GoCD will wait for C3 to finish.
 -   If C3 goes green, the Package pipeline will trigger. It will use the right versions of C1, C2 and C3.
 
 How to configure:
@@ -70,7 +75,7 @@ You check-in code and tests as part of the same commit. The build pipeline compi
 Sequence of Events and Resolution
 
 -   On committing the changes, the Build pipeline will trigger with the latest revision.
--   Although Acceptance also has the same material dependency, Go will not trigger it immediately.
+-   Although Acceptance also has the same material dependency, GoCD will not trigger it immediately.
 -   Build pipeline executes successfully.
 -   Acceptance will now trigger with the same version of the SCM and fetch the right build artifact from the Build pipeline.
 
@@ -93,16 +98,16 @@ How to configure:
 
 ## Notes
 
--   Fan-in as a feature is enabled by default. In case you need pipelines to trigger with every version regardless of ancestor versions you can disable fan-in. To disable fan-in you will need to add a system property and restart the Go server. On linux add the following line to /etc/default/go-server
+-   Fan-in as a feature is enabled by default. In case you need pipelines to trigger with every version regardless of ancestor versions you can disable fan-in. To disable fan-in you will need to add a system property and restart the GoCD server. On linux add the following line to /etc/default/go-server
 
     ```shell
     export GO_SERVER_SYSTEM_PROPERTIES='-Dresolve.fanin.revisions=N'
     ```
 
-    On windows, in the config folder of the Go server installation, edit the wrapper-server.conf file, and add an additional property with the value '-Dresolve.fanin.revisions=N'. For example:
+    On windows, in the config folder of the GoCD server installation, edit the wrapper-server.conf file, and add an additional property with the value '-Dresolve.fanin.revisions=N'. For example:
 
     ```
     wrapper.java.additional.17='-Dresolve.fanin.revisions=N'
     ```
 
--   Go will apply fan-in dependency resolution for pipelines that have auto trigger type only.
+-   GoCD will apply fan-in dependency resolution for pipelines that have auto trigger type only.

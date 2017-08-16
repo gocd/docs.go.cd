@@ -1,3 +1,8 @@
+---
+description: GoCD Authentication 
+keywords: GoCD configuration, authentication, https, ldap, ldap authenticaiton, authorization plugins, user access, passwords, logins, authorization endpoints, GoCD security
+---
+
 # Authentication
 
 GoCD was built from the bottom up with security in mind. GoCD server provides both an http service and an https service by default. The http service listens on port 8153 and the https service listens on port 8154.
@@ -19,7 +24,7 @@ GoCD checks if an authenticated user is an existing user or a new user (logging 
 
 To switch the mode in which the GoCD Server operates:
 
-1.  Login to Go as an admin
+1.  Login to GoCD as an admin
 2.  Navigate to the "Admin" section
 3.  Click on the "Server Configuration" tab
 4.  Set the "Allow users that exist in LDAP, password file or via plugin to log into GoCD, even if they haven't been explicitly added to GoCD." checkbox

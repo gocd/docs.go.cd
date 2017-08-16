@@ -1,6 +1,11 @@
+---
+description: Creating and using custom pipeline label in GoCD
+keywords: GoCD configuration, pipeline labels, custom pipeline labels, material revision, upstream pipeline labels
+---
+
 # Use a custom pipeline label
 
-When using Go to build your application, it is often useful to be able to include extra information in the label Go uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.
+When using GoCD to build your application, it is often useful to be able to include extra information in the label GoCD uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.
 
 -   Click on the [Administration](../navigation/administration_page.html) tab
 ![](../resources/images/topnav_admin.png)
@@ -12,7 +17,7 @@ When using Go to build your application, it is often useful to be able to includ
 
 ## Using material revisions
 
-You might also want to include material revision into the pipeline label so that it's easier to find a Go pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:
+You might also want to include material revision into the pipeline label so that it's easier to find a GoCD pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:
 
 ```xml
 <pipeline name="main" labeltemplate="1.3.${COUNT}-${svn}">

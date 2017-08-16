@@ -1,10 +1,15 @@
+---
+description: GoCD authorization and administration
+keywords: GoCD configuration, authorization, administration, users, roles, role-based security, security, security configuration, user permissions, pipeline groups, pipeline permissions, GoCD administration
+---
+
 # Authorization
 
-With no security switched on, there is of course no authorization either. Once you have configured security, the default is that any user can perform any operation. However you can get Go to limit certain operations to particular Users or Roles, and manage membership of those Roles.
+With no security switched on, there is of course no authorization either. Once you have configured security, the default is that any user can perform any operation. However, GoCD can limit certain operations to particular Users or Roles, and manage membership of those Roles.
 
 ## Administrators
 
-Go allows you to restrict the users who can perform certain functions. Administrators is a special role that allows its members to perform any action in Go. Specifying administrators is optional -- without it, all users are automatically made administrators.
+GoCD allows you to restrict the users who can perform certain functions. Administrators is a special role that allows its members to perform any action in GoCD. Specifying administrators is optional -- without it, all users are automatically made administrators.
 
 If administrators are specified, only they can perform the following actions:
 
@@ -59,7 +64,7 @@ In this example, the "qa" role has two users: dyang and pavan. The "go\_admin" r
 
 ## Specifying permissions for pipeline groups
 
-Go allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.
+GoCD allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.
 
 The **"view" permission** allows users to view the pipeline. It does not give permission to trigger pipelines, approve stages, or re-run stages. In the below example, the users "akrishna" and "aantony" can view the pipelines in this group, but they cannot perform any operations on it.
 
@@ -77,7 +82,7 @@ Then, click the "Edit" link for the pipeline group you want to manage permission
 
 ![](../resources/images/group_permission.png)
 
-If no authorization is defined for a pipeline group, all Go users will have view and operate permissions to that group.
+If no authorization is defined for a pipeline group, all GoCD users will have view and operate permissions to that group.
 
 For power users, here's how you would configure permissions via "Config XML":
 
@@ -103,7 +108,7 @@ For power users, here's how you would configure permissions via "Config XML":
 
 ## Adding authorization to approvals
 
-In Go, it is possible to specify [manual approvals](managing_pipelines.md) between stages. You can also specify which user is allowed to trigger manual approvals.
+In GoCD, it is possible to specify [manual approvals](managing_pipelines.md) between stages. You can also specify which user is allowed to trigger manual approvals.
 
 The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role "admin", and the user "goleys", can trigger the approval.
 
@@ -137,7 +142,7 @@ For power users, here's how you would configure authorization for approvals for 
 
 ## Specifying permissions for templates
 
-A Go Administrator can make any user a template administrator for a specific template. As a template administrator, a user can now view and edit the template to which he has permissions.
+A GoCD Administrator can make any user a template administrator for a specific template. As a template administrator, a user can now view and edit the template to which he has permissions.
 
 To edit the permissions for a template, navigate to the "Templates" tab on the "Admin" section:
 

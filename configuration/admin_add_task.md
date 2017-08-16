@@ -1,4 +1,9 @@
-#Add a new task to an existing Job
+---
+description: Add a new task to an existing GoCD job
+keywords: GoCD configuration, job, jobs, task, continuous delivery pipeline, CD pipeline
+---
+
+# Add a new task to an existing GoCD Job
 
 Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a job under a stage.
 

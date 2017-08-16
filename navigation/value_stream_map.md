@@ -1,4 +1,10 @@
-# Value Stream Map
+---
+description: GoCD's Value Stream Map (VSM) helps you visualize your continuous delivery work
+keywords: value stream map, vsm, gocd, continuous integration, continuous delivery, cd workflow, cd pipelines, pipeline dependencies, build pipeline
+---
+
+
+# GoCD Value Stream Map
 
 ## Introduction
 
@@ -25,7 +31,7 @@ The pipeline instance for which the Value Stream Map is being viewed is the main
 
 ### Upstream Dependencies
 
-The upstream dependencies of the main pipeline are taken from history and show all the source control and pipeline dependency materials that have contributed to the main pipeline. Even when the Go Configuration changes after a certain instance of a pipeline, its upstream dependency graph will continue to reflect the older configuration with which it was run. This also means that it would display pipelines that do not exist in the configuration any more.
+The upstream dependencies of the main pipeline are taken from history and show all the source control and pipeline dependency materials that have contributed to the main pipeline. Even when the GoCD Configuration changes after a certain instance of a pipeline, its upstream dependency graph will continue to reflect the older configuration with which it was run. This also means that it would display pipelines that do not exist in the configuration any more.
 
 Let us assume that instance '1' of pipeline 'Build' is as below
 
@@ -57,7 +63,7 @@ A pipeline could be re-triggered multiple times with the same revision. In such 
 
 ### Viewing the Value Stream Map
 
-Every pipeline label in Go directs you to the value stream map of that instance of the pipeline.
+Every pipeline label in GoCD directs you to the value stream map of that instance of the pipeline.
 
 ![](../resources/images/navigation.png)
 
@@ -70,7 +76,7 @@ You can access Value Stream Map for a commit in 2 ways:
 
 The permissions required to view a value stream map are as follows:
 
--   Go Administrators have access to the value stream maps of all the pipelines that are configured.
+-   GoCD Administrators have access to the value stream maps of all the pipelines that are configured.
 -   Users with view permissions for a pipeline will be able to view the value stream map for all instances of that pipeline.
 
 However, there is one special case to be noted where the pipeline details might not be shown completely. If the user does not have view permissions for a pipeline in the Value Stream Map, its details, like the stages and instances run will not be shown.

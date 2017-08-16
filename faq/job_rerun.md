@@ -1,4 +1,10 @@
-# Re-running Job(s)
+---
+description: How to re-fun jobs in GoCD
+keywords: Jobs, re-run, GoCD environment, Rerun, re-run pipeline, resource
+---
+
+
+# Re-running Job(s) in GoCD
 
 You may sometimes encounter situations where you want to re-run only a subset of jobs within a stage rather than the entire stage or pipeline. Examples of such scenarios include:
 

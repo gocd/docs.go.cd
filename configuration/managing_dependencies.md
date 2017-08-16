@@ -1,3 +1,8 @@
+---
+description: Managing dependencies in GoCD
+keywords: GoCD configuration, dependency management, pipeline dependencies, pipelines as materials, upstream pipeline, downstream pipeline
+---
+
 # Managing dependencies
 
 Sometimes you need more complex triggers than a simple pipeline of stages and jobs. In particular, you may want a pipeline to trigger based on the result of a stage in another pipeline. This is possible by adding pipelines as materials.
@@ -37,7 +42,7 @@ If you want to view the materials that are associated with "downstream\_pipeline
 
 ### Fetching artifacts from an upstream pipeline
 
-Go can automatically fetch artifacts from a previous stage of the current pipeline or from any ancestor pipeline it depends on. This is useful when a pipeline depends on binaries that are produced earlier in the pipeline.
+GoCD can automatically fetch artifacts from a previous stage of the current pipeline or from any ancestor pipeline it depends on. This is useful when a pipeline depends on binaries that are produced earlier in the pipeline.
 
 Note that you can not specify two (or more) dependencies for the same upstream pipeline.
 

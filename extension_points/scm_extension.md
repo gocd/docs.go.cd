@@ -1,8 +1,13 @@
+---
+description: GoCD has built-in support for Git, Mercurial, SVN, TFS & Perforce. Users can use SCM plugins to integrate with other SCMs.
+keywords: source code materials, perforce, mercurial, git, tfs, team foundation, scm, build pipelines, cd pipeines, continuos delivery, xml configuration
+---
+
 # SCM Material
 
 ## Introduction
 
-A build typically consumes source code maintained in a version control system (VCS/SCM). Go has built-in support for Git, Mercurial, SVN, TFS & Perforce. Users can use SCM plugins to integrate with other SCMs.
+A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS & Perforce. Users can use SCM plugins to integrate with other SCMs.
 
 ### SCMs and Materials
 
@@ -10,7 +15,7 @@ Unlike built-in VCS/SCM materials, the material definition in case of plugin SCM
 
 #### SCM Definition
 
-A SCM material plugin lets pipeline group admins provide details of the corresponding SCM type to Go.
+A SCM material plugin lets pipeline group admins provide details of the corresponding SCM type to GoCD.
 
 ![](../resources/images/scm-select-material.png)
 
@@ -36,7 +41,7 @@ Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
 
 #### Sample XML Configuration
 
-Here is a XML view of an SCM. Note the relation between SCM and pipeline material. Loosely typed property, key and value tags are used for SCM configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn't necessary to provide SCM IDs, Go server wil auto-generate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.
+Here is a XML view of an SCM. Note the relation between SCM and pipeline material. Loosely typed property, key and value tags are used for SCM configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn't necessary to provide SCM IDs, GoCD server wil auto-generate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.
 
 ```xml
 <scms>
@@ -73,9 +78,9 @@ Note: Change to the SCM definition causes all dependent pipelines to schedule.
 
 ### Polling
 
-Even if no pipelines use a SCM, Go polls for newer revisions every minute. This may be turned off at a SCM level by setting [`autoUpdate`](../configuration/configuration_reference.md#scm) to false via the config xml (Go admins only). `autoUpdate` is turned on by default. When a newer revision is found for a SCM, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.md) is on). Also see [API scheduling](https://api.gocd.org/current/#scheduling-pipelines).
+Even if no pipelines use a SCM, GoCD polls for newer revisions every minute. This may be turned off at a SCM level by setting [`autoUpdate`](../configuration/configuration_reference.md#scm) to false via the config xml (GoCD admins only). `autoUpdate` is turned on by default. When a newer revision is found for a SCM, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.md) is on). Also see [API scheduling](https://api.gocd.org/current/#scheduling-pipelines).
 
-*Filters:* At times you may not want Go to trigger pipelines for every commit. e.g. you might not want to 'build' if its a 'documentation' change. You can setup a [filter](../configuration/configuration_reference.md#filter) at pipeline level asking Go to skip pipeline scheduling if commit contains only files that match a pattern.
+*Filters:* At times you may not want GoCD to trigger pipelines for every commit. e.g. you might not want to 'build' if its a 'documentation' change. You can setup a [filter](../configuration/configuration_reference.md#filter) at pipeline level asking GoCD to skip pipeline scheduling if commit contains only files that match a pattern.
 
 ### SCM information display
 
@@ -87,7 +92,7 @@ The following information is expected from the SCM material plugin (which in tur
 4.  Comment for the commit
 5.  Files in the commit along with action (added/modified/deleted)
 
-At the time of building the SCM, it is recommended to include as much of the above information as possible so that it is available for Go to display as below.
+At the time of building the SCM, it is recommended to include as much of the above information as possible so that it is available for GoCD to display as below.
 
 ![](../resources/images/scm-revision-details.png)
 

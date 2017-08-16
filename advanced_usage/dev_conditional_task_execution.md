@@ -1,3 +1,8 @@
+---
+description: How to conditionally execute tasks in GoCD
+keywords: task execution, if conditions, XML configuration
+---
+
 # Conditional task execution
 
 At times there are certain steps you need to execute only when you know that the build has already failed. For example, when a test suite fails you might want to output additional environment information to the console output

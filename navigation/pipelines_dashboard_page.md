@@ -1,4 +1,10 @@
-# Pipelines Dashboard
+---
+description: In GoCD's pipeline dashboard, you can see all the instances of a given pipeline that are currently in progress.
+keywords: gocd pipelines, build pipelines, jenkins, cd pipelines, configure pipelines, visual stream mapping, continuous delivery
+---
+
+
+# Pipelines Dashboard in GoCD
 
 This shows the current activity in the system. You can see all the instances of a given pipeline that are currently in progress.
 
@@ -20,7 +26,7 @@ This shows the current activity in the system. You can see all the instances of 
 12. View all changes between the current pipeline instance with the previous one.
 13. Lets you customize which pipelines are displayed on the dashboard. See [below](#personalize-pipelines-view) for more details.
 14. Lets you search for any pipeline configured to be visible on your pipeline dashboard.
-15. If you are a Go pipeline group administrator or a super administrator, you can now navigate to edit a pipeline by clicking this settings icon on the pipeline dashboard or the environments page.
+15. If you are a GoCD pipeline group administrator or a super administrator, you can now navigate to edit a pipeline by clicking this settings icon on the pipeline dashboard or the environments page.
 
 ### Personalize pipelines view
 
@@ -37,4 +43,4 @@ Pipelines created by you using the pipeline creation wizard will always be shown
 -   [Pipeline activity](../navigation/pipeline_activity_page.md)
 -   [Job details](../navigation/job_details_page.md)
 -   [Clean up after canceling a task](../advanced_usage/dev_clean_up_when_cancel.md)
--   [Go overview](../introduction/concepts_in_go.md)
+-   [GoCD overview](../introduction/concepts_in_go.md)

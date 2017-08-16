@@ -1,10 +1,16 @@
+---
+description: Yum repository poller is available for GoCD servers running on Linux nodes.
+keywords: yum repository poller, yum plugin, gocd plugins, jenkins plugins, rpm packages, poll server, environment variables
+---
+
+
 # Yum Repository Poller
 
-**Note:** This plugin is available for Go servers running on Linux nodes having repoquery installed (part of the [yum-utils](http://linux.die.net/man/1/yum-utils) package, [Ubuntu](http://manpages.ubuntu.com/manpages/latest/man1/yum-utils.1.html), [CentOS](http://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&system=centos))
+**Note:** This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the [yum-utils](http://linux.die.net/man/1/yum-utils) package, [Ubuntu](http://manpages.ubuntu.com/manpages/latest/man1/yum-utils.1.html), [CentOS](http://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&system=centos))
 
 ## Introduction
 
-The Yum respository poller is a bundled [package material](package_repository_extension.md) plugin capable of polling yum repositories for rpm packages. Go server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d
+The Yum respository poller is a bundled [package material](package_repository_extension.md) plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d
 
 ```shell
 repoquery --repofrompath=uuid,$REPO_URL --repoid=uuid -q $PACKAGE_SPEC -qf "%{LOCATION}..."
@@ -42,10 +48,10 @@ epoch:name-ver-rel.arch
 
 The following [rpm metadata](http://www.rpm.org/max-rpm-snapshot/s1-rpm-inside-tags.html) is accessed by the plugin
 
-1.  BuildTime (required, automatically set by rpmbuild) - Used by the plugin to validate if the package is newer than what was last seen by Go. Go displays this field as *Modified On*.
-2.  Packager - Go displays this field as *Modified By*. If not provided, it is shown as anonymous
-3.  URL - Displayed as a *Trackback URL* by Go. **Use this as a means to trace back to the job that published the package** (within Go or outside) to the yum repository.
-4.  BuildHost - Displayed by Go as *Comment: Built on \$BUILDHOST*
+1.  BuildTime (required, automatically set by rpmbuild) - Used by the plugin to validate if the package is newer than what was last seen by GoCD. GoCD displays this field as *Modified On*.
+2.  Packager - GoCD displays this field as *Modified By*. If not provided, it is shown as anonymous
+3.  URL - Displayed as a *Trackback URL* by GoCD. **Use this as a means to trace back to the job that published the package** (within GoCD or outside) to the yum repository.
+4.  BuildHost - Displayed by GoCD as *Comment: Built on \$BUILDHOST*
 
 ### Published Environment Variables
 
@@ -113,7 +119,7 @@ This would require that /etc/yum.repos.d contain the repository definitions.
 
 ### Creating and Publishing RPMs
 
-Although the support for package as material in Go isn't concerned with how the packages are created and published, here is a short set of pointers to information on the web.
+Although the support for package as material in GoCD isn't concerned with how the packages are created and published, here is a short set of pointers to information on the web.
 
 -   [Building an RPM using rpmbuild and SPEC file](http://www.ibm.com/developerworks/library/l-rpm1/#first_rpm)
 -   [Building using fpm](https://github.com/jordansissel/fpm/wiki)
@@ -121,8 +127,8 @@ Although the support for package as material in Go isn't concerned with how the 
 
 ### Notes
 
-1.  This plugin will detect at max one package revision per minute (the default interval at which Go materials poll). If multiple versions of a package get published to a repo in the time interval between two polls, Go will only register the latest version in that interval.
+1.  This plugin will detect at max one package revision per minute (the default interval at which GoCD materials poll). If multiple versions of a package get published to a repo in the time interval between two polls, GoCD will only register the latest version in that interval.
 2.  This plugin makes use of buildtime in rpm metadata to determine if a poll has returned a new result. If for some reason (e.g. timezone misconfiguration), the buildtime of pkg-1.1 is less than that of pkg-1.0, then the plugin will not register pkg-1.1 as a newer package.
 3.  The only way to update an rpm is to change the version or release. [Republishing](http://unix.stackexchange.com/questions/71288/does-yum-use-package-buildtime-to-decide-if-a-package-is-newer) a different file with the same name and different buildtime won't do.
 4.  Package groups are not supported.
-5.  The [Go command repository](https://github.com/gocd/go-command-repo/tree/master/package/rpm) has a bunch of commands related to rpm packages.
+5.  The [GoCD command repository](https://github.com/gocd/go-command-repo/tree/master/package/rpm) has a bunch of commands related to rpm packages.

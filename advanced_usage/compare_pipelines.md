@@ -1,6 +1,11 @@
+---
+description: Compare any two builds of a pipeline and see changes
+keywords: GoCD pipeline, builds, build changes, pipelnie compare, pipeline history
+---
+
 # Compare Builds
 
-Go allows you to compare any two builds of a pipeline and see exactly what changes happened between those two instances. The information in this view will include:
+GoCD allows you to compare any two builds of a pipeline and see exactly what changes happened between those two instances. The information in this view will include:
 
 -   Code checkins
 -   Upstream pipelines

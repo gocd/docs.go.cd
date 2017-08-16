@@ -1,3 +1,8 @@
+---
+description: Depending on current needs or expansion plans, GoCD hardware specifications depend on a number of factors and require some experimentation.
+keywords: gocd server, gocd continuous delivery, jenkins, hardware specficiations, server requirements, agent requirements
+---
+
 # GoCD hardware specifications
 
 <!-- toc -->
@@ -35,7 +40,7 @@ You can find out the number of requests that your server is handling by turning 
 
 ### Number of agents connected to a GoCD server, and how often they build
 
-Each gocd agent that is connected to the server will poll the gocd server every few seconds and to update its status on the server and check if there are any jobs that it should build.
+Each GoCD agent that is connected to the server will poll the GoCD server every few seconds and to update its status on the server and check if there are any jobs that it should build.
 
 When a build starts off on an agent, it will first perform an SCM checkout operation to update to the correct revision that must be built. If the job requires that artifacts from other dependent jobs be downloaded, the agent will download the artifacts from the server. During a job run, the agent will send the console logs every few seconds and at the end of the build, an agent may upload artifacts to the server if it is configured to do so.
 

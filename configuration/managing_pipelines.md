@@ -1,6 +1,11 @@
-# Managing pipelines
+---
+description: Managing GoCD pipelines
+keywords: GoCD configuration, GoCD pipelines, pipeline templates, adding stages to pipelines, adding materials to pipelines, clone pipelines, blacklist, adding jobs to pipelines
+---
 
-Go can be configured using [Administration](../navigation/administration_page.md) Tab. You can perform operations like add/edit Pipelines, Stages, Jobs, Tasks, Templates and Pipeline group. You can also configure Go by editing the full XML file if you wish, by clicking on the **Config XML** section of the [Administration](../navigation/administration_page.md) tab. Go will check the syntax of the configuration before it saves it again
+# Managing GoCD pipelines
+
+GoCD can be configured using [Administration](../navigation/administration_page.md) Tab. You can perform operations like add/edit Pipelines, Stages, Jobs, Tasks, Templates and Pipeline group. You can also configure GoCD by editing the full XML file if you wish, by clicking on the **Config XML** section of the [Administration](../navigation/administration_page.md) tab. GoCD will check the syntax of the configuration before it saves it again
 
 ## Creating a new pipeline
 

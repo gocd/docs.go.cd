@@ -1,3 +1,9 @@
+---
+description: Before you install GoCD, ensure you meet our system requirements.
+keywords: install gocd, gocd server, install gocd server, gocd agents, system requirements, linux, windows, mac osx
+---
+
+
 # Installing GoCD server
 
 Before you install the GoCD server or agent, please ensure that you meet the

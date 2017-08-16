@@ -1,10 +1,16 @@
-# See artifacts as sub-tabs
+---
+description: See artifacts as sub-tabs in GoCD
+keywords: artifacts, configuration, GoCD stage, GoCD job, broken build
+---
+
+
+# See artifacts as sub-tabs in GoCD
 
 After [uploading html reports](../configuration/dev_upload_test_report.md), it is often useful to be able to easily view this information when trying to [understand why the build is broken](dev_understand_why_build_broken.md).
 
 ### Example usage
 
--   Suppose we have configured Go to [upload a flash video and html file and display it as a tab](../configuration/dev_upload_test_report.md)
+-   Suppose we have configured GoCD to [upload a flash video and html file and display it as a tab](../configuration/dev_upload_test_report.md)
 -   Click on the [Pipelines](../navigation/pipelines_dashboard_page.md) tab
 
 ![](../resources/images/topnav_pipelines.png)

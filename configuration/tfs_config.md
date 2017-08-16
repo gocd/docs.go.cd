@@ -1,3 +1,8 @@
+---
+description: TFS material configuration
+keywords: GoCD configuration, TFS, GoCD server, TFS server, pipeline materials
+---
+
 # TFS Material configuration
 
 You can use TFS SCM as a material for your pipeline. Go server and agent uses [TFS Java SDK v10](http://www.microsoft.com/en-us/download/details.aspx?id=22616) by default. The TFS SDK is packaged with Go; no additional configuration is required.
@@ -16,17 +21,17 @@ You will need to configure the following to add a TFS material:
 
 ##### Notes:
 
--   Go will map TFS projects to destination folders within the Go agent installation directories. You can identify mappings by looking at the destination folders.
--   In this release, Go does not delete any workspace it has created. Workspace names are generated internally.
--   If possible, create a new user account on TFS which will be used for creating TFS materials in Go. You can use this account to easily identify TFS workspaces that Go created on the server and agents.
--   If you are using the cross platform command line client, you cannot run the Go server and Go agent as a service on the local system account. You will need to run the service with a user account which has accepted the eula for the client.
--   If at any point, you need to change the go server installation to a different location or machine, you will need to manually delete the old tfs mappings at the old Go server location.
+-   GoCD will map TFS projects to destination folders within the GoCD agent installation directories. You can identify mappings by looking at the destination folders.
+-   In this release, GoCD does not delete any workspace it has created. Workspace names are generated internally.
+-   If possible, create a new user account on TFS which will be used for creating TFS materials in GoCD. You can use this account to easily identify TFS workspaces that GoCD created on the server and agents.
+-   If you are using the cross platform command line client, you cannot run the GoCD server and GoCD agent as a service on the local system account. You will need to run the service with a user account which has accepted the eula for the client.
+-   If at any point, you need to change the go server installation to a different location or machine, you will need to manually delete the old tfs mappings at the old GoCD server location.
 
 ### Known Caveats
 
--   If TFS server is accessed using HTTPS and the SSL certificate is an untrusted certificate then the certificate must be added to the trust store of the Java installation used to launch the Go server and agents. Untrusted certificate will not be trusted by default Go server and agents.
--   During the TFS checkout process, if one of the file paths exceeds 259 characters - checkout will fail.So care should be taken when specifying the destination directory so that the path limit is not exceeded. Go agent installation directory also plays a part in both cases where destination directory is specified and when its not.
+-   If TFS server is accessed using HTTPS and the SSL certificate is an untrusted certificate then the certificate must be added to the trust store of the Java installation used to launch the GoCD server and agents. Untrusted certificate will not be trusted by default GoCD server and agents.
+-   During the TFS checkout process, if one of the file paths exceeds 259 characters - checkout will fail.So care should be taken when specifying the destination directory so that the path limit is not exceeded. GoCD agent installation directory also plays a part in both cases where destination directory is specified and when its not.
 -   On all the agents prior to checkout from TFS, entire mapped directory is cleaned and -all option is used for checkout. As a result there is increased load on TFS server and network bandwidth consumption is high during the process. This is an issue that will be addressed in subsequent releases.
 -   Kerberos support for TFS authentication has not been verified.
 -   TFS 2011 support has not been verified.
--   Currently, Go always does a tfs get to retrieve the latest changes on the agents.
+-   Currently, GoCD always does a tfs get to retrieve the latest changes on the agents.

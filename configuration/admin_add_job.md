@@ -1,4 +1,9 @@
-#Add a new job to an existing stage
+---
+description: Add new job to an existing GoCD pipeline stage.
+keywords: continuous delivery pipeline, job, jobs, stage, stages, CD pipeline
+---
+
+# Add a new job to an existing GoCD stage
 
 Now that we have a pipeline with stage(s), we can add more jobs to any of the existing stages. You can now use the tree navigation on the left side of the screen to edit a stage or a job under a pipeline.
 

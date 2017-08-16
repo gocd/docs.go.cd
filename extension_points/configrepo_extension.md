@@ -1,3 +1,8 @@
+---
+description: Move pipeline configurations out of GoCD and its cruise-config.xml file so that you can modify them externally.
+keywords: pipeline configurations, gocd pipelines, build pipelines, config as code, config plugins, merging pipelines, source repository
+---
+
 # Configuration repository Extension
 
 GoCD supports writing configuration plugins starting `16.7`.
@@ -5,7 +10,7 @@ GoCD supports writing configuration plugins starting `16.7`.
 It is a feature which allows you to move pipeline configurations out of GoCD and its cruise-config.xml file into one or more source-control repositories (e.g. git), so that you can modify them externally. Such modifications will be seen by a periodic poller in the GoCD server and it will [merge](#merging-configurations) those pipeline configurations into the pipelines it finds in the main configuration XML file.
 
 Configuration plugins allow users to keep both **pipeline and environment** configurations
-in all version control systems supported by Go.
+in all version control systems supported by GoCD.
 Most elements of **pipelines and environments** available in XML are supported by configuration repositories.
 However there are a few exceptions, you cannot use in configuration repositories:
  * [GoCD pipeline templates](../configuration/pipeline_templates.md), nor references to templates. *Note that you can write a plugin that supports pipeline templates in any way you want*
@@ -22,12 +27,12 @@ There are certain limits involved when using configuration repository:
 
 ## Merging configurations
 
-Go server polls all materials from pipelines and user-defined configuration repositories.
+GoCD server polls all materials from pipelines and user-defined configuration repositories.
 The final server configuration is merged from `cruise-config.xml` and remote elements in repositories.
 It is important to pay attention to errors introduced in repositories.
-It is **highly recommended** to remove any errors as soon as Go reports them. For configuration repositories the only way to so is by pushing changes to faulty repository.
+It is **highly recommended** to remove any errors as soon as GoCD reports them. For configuration repositories the only way to so is by pushing changes to faulty repository.
 All configuration errors are displayed in server health messages.
-More details about handling configuration repository errors in Go server are [lower](#errors-in-configuration-repository).
+More details about handling configuration repository errors in GoCD server are [lower](#errors-in-configuration-repository).
 
 ### Merging pipeline groups
 
@@ -43,7 +48,7 @@ all configuration repositories. E.g.
  - in repository B we can define that `pipeline2` and `pipeline3` is member of environment `development`
  - in repository C we can define that `pipeline3` is member of environment `development`
 
-Then in Go server, the final pipelines in environment `development` are `pipeline1`, `pipeline2`, `pipeline3`.
+Then in GoCD server, the final pipelines in environment `development` are `pipeline1`, `pipeline2`, `pipeline3`.
 Notice that `pipeline3` membership in environment `development` was declared twice.
 
 Same approach is used for agents.
@@ -57,14 +62,14 @@ There are several ways in which current configuration can be invalid because of 
 
 #### Configuration repository plugin Error
 The least problematic situation is when plugin or extension point has detected problems with remote configuration part *alone*.
-Then Go does not attempt to merge this configuration repository and previous configuration part stays *active*. You should fix errors reported by Go server health messages in order to see any new changes from that configuration repository.
+Then Go does not attempt to merge this configuration repository and previous configuration part stays *active*. You should fix errors reported by GoCD server health messages in order to see any new changes from that configuration repository.
 If you don't fix such error, there are no other consequences than having old configuration.
 Many errors of this type can exist simultaneously - there can be many invalid repositories in *this way*.
 
 #### Invalid Merged Configuration Error
 
 In some situations it is not possible to create merged configuration from configuration repositories
-and main Go configuration. Then server health messages reports **Invalid Merged Configuration**.
+and main GoCD configuration. Then server health messages reports **Invalid Merged Configuration**.
 
 The common cases that will cause this error are:
  - a pipeline is configured both through UI (in `cruise-config.xml`) and in on of configuration repositories.
@@ -73,7 +78,7 @@ The common cases that will cause this error are:
  - plugin or extension point is not doing enough validations on the remote configuration part *alone*. This causes server to assemble merged configuration from part which is invalid.
 
 There are **limitations** in how Go server can handle this type of error(s):
-1. Go can handle situation when there are errors in **exactly one** of the repositories. You will not see new configuration changes from invalid repository until error is fixed. Other configuration repositories and edits to Config XML will be operational. You should fix **Invalid Merged Configuration** anyway to avoid being in next situation...
+1. GoCD can handle situation when there are errors in **exactly one** of the repositories. You will not see new configuration changes from invalid repository until error is fixed. Other configuration repositories and edits to Config XML will be operational. You should fix **Invalid Merged Configuration** anyway to avoid being in next situation...
 2. When **2 or more** configuration repositories are invalid - you *may* start experiencing being *locked out* from editing configuration through UI. Changes to XML will be rejected. Reasons for this are beyond scope of this document. You **must fix all configuration repositories first**.
 
 ## References

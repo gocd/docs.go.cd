@@ -1,3 +1,9 @@
+---
+description: GoCD installation instructions for both server and agent.
+keywords: install gocd, open source cd tool, free cd tool, gocd agents, gocd server, jenkins
+---
+
+
 # Installing GoCD
 
 GoCD consists of two installable components. The GoCD Server and one or more GoCD Agents. They have a one-to-many
