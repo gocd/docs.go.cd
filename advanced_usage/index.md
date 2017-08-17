@@ -1,7 +1,4 @@
 <html>
-    <head>
-        <title>concepts_in_go</title>
-    </head>
     <body>
     <div style="text-align:center;" class="my-block">
     <br>

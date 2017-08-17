@@ -1,7 +1,4 @@
 <html>
-    <head>
-        <title>SSL/TLS configuration</title>
-    </head>
     <body>
     <div style="text-align:center;" class="my-block">
     <br>
