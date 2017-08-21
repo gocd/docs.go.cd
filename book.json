@@ -21,7 +21,8 @@
         "include@0.1.0",
         "toc@0.0.1",
         "redirect@0.0.7",
-        "edit-link@2.0.2"
+        "edit-link@2.0.2",
+        "sitemap-general@0.1.1"
     ],
     "pluginsConfig": {
         "ga": {
@@ -37,6 +38,9 @@
         "edit-link": {
           "base": "https://github.com/gocd/docs.go.cd/tree/master",
           "label": "Edit This Page"
+        },
+        "sitemap-general": {
+          "prefix": "https://docs.gocd.org/current/"
         }
     },
     "pdf": {
