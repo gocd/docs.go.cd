@@ -38,10 +38,7 @@ Pipelines can currently be stored using JSON or YAML.
 
 The setup needed to allow this is:
 
-1. Install the [JSON config plugin](https://github.com/tomzo/gocd-json-config-plugin/releases) as mentioned in the
-   [Plugin User Guide](https://docs.gocd.org/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins).
-
-2. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
+1. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
 
       ```xml
       <config-repos>
@@ -55,22 +52,19 @@ The setup needed to allow this is:
     to see what happens. Any file ending in ".gopipeline.json" is picked up by the plugin. Documentation of what is
     possible in the JSON is [here](https://github.com/tomzo/gocd-json-config-plugin).
 
-3. Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
+2. Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
    dashboard, as a part of the "demo" pipeline group. You can make some changes to the JSON (change a group, add a
    stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
    config. Remember that, if you make any changes and make a mistake, you'll see an error at the bottom right corner (a
    red box).
 
-4. You can even have multiple repositories. Just repeat the `<config-repo>` tag and make sure that there are no duplicate pipelines.
+3. You can even have multiple repositories. Just repeat the `<config-repo>` tag and make sure that there are no duplicate pipelines.
 
 ### Storing pipeline configuration in YAML
 
 Tomasz [announced](https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion) a Yaml plugin. The setup needed to allow this is:
 
-1. Install the [YAML config plugin](https://github.com/tomzo/gocd-yaml-config-plugin/releases) as mentioned in the
-   [Plugin User Guide](https://docs.gocd.org/current/extension_points/plugin_user_guide.html#installing-and-uninstalling-of-plugins).
-
-2. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
+1. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
 
       ```xml
       <config-repos>
@@ -84,10 +78,10 @@ Tomasz [announced](https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/dis
     to see what happens. Any file ending in ".gocd.yaml" is picked up by the plugin. Documentation of what is
     possible in the YAML file is [here](https://github.com/tomzo/gocd-yaml-config-plugin).
 
-3. Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
+2. Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
    dashboard, as a part of the "demo" pipeline group. You can make some changes to the YAML (change a group, add a
    stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
    config. Remember that, if you make any changes and make a mistake, you'll see an error at the bottom right corner (a
    red box).
 
-4. You can even have multiple repositories. Just repeat the `<config-repo>` tag and make sure that there are no duplicate pipelines.
+3. You can even have multiple repositories. Just repeat the `<config-repo>` tag and make sure that there are no duplicate pipelines.
