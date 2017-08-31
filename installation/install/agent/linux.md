@@ -56,7 +56,7 @@ sudo /etc/init.d/go-agent [start|stop|status|restart]
 After installing the go-agent service, you must first configure the service with the hostname (or IP address) of your GoCD server, in order to do this -
 
 1.  Open ```/etc/default/go-agent``` in your favourite text editor.
-2.  Change the line ```GO_SERVER=127.0.0.1``` to the hostname (or IP address) of your GoCD server.
+2.  Change the IP address (127.0.0.1) in the line ```GO_SERVER_URL=https://127.0.0.1:8154/go``` to the hostname (or IP address) of your GoCD server.
 3.  Save the file and exit your editor.
 4.  Run ```/etc/init.d/go-agent [start|restart]``` to (re)start the agent.
 
