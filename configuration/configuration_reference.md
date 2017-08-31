@@ -806,10 +806,10 @@ The `<config-repos>` element is a container of many `<config-repo>`.
 <cruise>
   ...
   <config-repos>
-    <config-repo plugin="json.config.plugin">
+    <config-repo plugin="json.config.plugin" id="gocd-json-config-example">
       <git url="https://github.com/tomzo/gocd-json-config-example.git" />
     </config-repo>
-    <config-repo plugin="yaml.config.plugin">
+    <config-repo plugin="yaml.config.plugin" id="gocd-yaml-config-example">
       <git url="https://github.com/tomzo/gocd-yaml-config-example.git" />
       <configuration>
         <property>
@@ -833,6 +833,7 @@ The `<config-repo>` element specifies a single configuration repository. It must
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | plugin | Yes | The ID of configuration repository plugin. E.g. `json.config.plugin`. |
+| id | Yes | The ID of the configuration repository. ID must be a unique alphanumeric string. It can also contain `-`,`_`,`.`. |
 
 ### Example
 
@@ -840,7 +841,7 @@ The `<config-repo>` element specifies a single configuration repository. It must
 <cruise>
     ...
     <config-repos>
-      <config-repo plugin="yaml.config.plugin">
+      <config-repo plugin="yaml.config.plugin" id="gocd-yaml-config-example">
         <git url="https://github.com/tomzo/gocd-yaml-config-example.git" />
         <configuration>
           <property>
