@@ -45,7 +45,7 @@ The setup needed to allow this is:
 
       ```xml
       <config-repos>
-        <config-repo plugin="json.config.plugin">
+        <config-repo pluginId="json.config.plugin" id="gocd-demo-config-repo-json">
           <git url="https://github.com/arvindsv/gocd-demo-config-repo-json.git" />
         </config-repo>
       </config-repos>
@@ -74,7 +74,7 @@ Tomasz [announced](https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/dis
 
       ```xml
       <config-repos>
-        <config-repo plugin="yaml.config.plugin">
+        <config-repo pluginId="yaml.config.plugin" id="gocd-yaml-config-example">
           <git url="https://github.com/tomzo/gocd-yaml-config-example.git" />
         </config-repo>
       </config-repos>
