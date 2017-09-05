@@ -41,12 +41,16 @@ For power users, here's how you would configure roles via "Config XML":
 
       <roles>
         <role name="qa">
-          <user>dyang</user>
-          <user>pavan</user>
+          <users>
+            <user>dyang</user>
+            <user>pavan</user>
+          </users>
         </role>
         <role name="go_admin">
-          <user>jhumble</user>
-          <user>qiao</user>
+          <users> 
+            <user>jhumble</user>
+            <user>qiao</user>
+          </users>
         </role>
       </roles>
 
