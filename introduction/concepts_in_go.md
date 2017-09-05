@@ -1,5 +1,5 @@
 ---
-description: Introduction to GoCD, it's underlying concepts, and get a good understanding of continuous delivery and continuous integration.
+description: Introduction to GoCD, its underlying concepts, and get a good understanding of continuous delivery and continuous integration.
 keywords: introduction gocd, continuous delivery, continuous integration, martin fowler, gocd getting started, build pipelines, value stream map, build artifacts, fan in
 ---
 
