@@ -81,6 +81,7 @@ This is the summary of user documentation.
     * [Trigger With Options](advanced_usage/trigger_with_options.md)
     * [Fan In](advanced_usage/fan_in.md)
     * [Properties](advanced_usage/properties.md)
+    * [Logging](advanced_usage/logging.md)
     * [Compare Builds](advanced_usage/compare_pipelines.md)
     * [Graphs](advanced_usage/stage_duration_chart.md)
     * [Command Repository](advanced_usage/command_repository.md)
