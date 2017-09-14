@@ -1,6 +1,6 @@
 ---
 description: Compare any two builds of a pipeline and see changes
-keywords: GoCD pipeline, builds, build changes, pipelnie compare, pipeline history
+keywords: GoCD pipeline, builds, build changes, pipeline compare, pipeline history
 ---
 
 # Compare Builds

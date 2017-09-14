@@ -1,6 +1,6 @@
 ---
 description: GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).
-keywords: Pipeline trigger, pipeline materal, pipeline label, Trigger with options
+keywords: Pipeline trigger, pipeline material, pipeline label, Trigger with options
 ---
 
 # Trigger with a different revision of material
@@ -13,14 +13,14 @@ GoCD supports a Trigger with option that allows you to run the pipeline with a s
 
 ## Information
 
-The following information are displayed for the last 5 revisions. For an SCM materal, the following information is shown
+The following information are displayed for the last 5 revisions. For an SCM material, the following information is shown
 
 -   Revision hash or pipeline label
 -   Committer
 -   Check-in comment for the revision
 -   Check-in time of the revision
 
-For a pipeline materal, the pipeline label and the corresponding run time is shown
+For a pipeline material, the pipeline label and the corresponding run time is shown
 
 ### Choosing the revision
 

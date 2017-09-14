@@ -1,6 +1,6 @@
 ---
 description: Properties provide a simple way of collecting metrics over time. GoCD sets standard properties. You can also set properties using the GoCD REST APIs.
-keywords: Properites, API, Standard properties 
+keywords: Properties, API, Standard properties 
 ---
 
 

@@ -1,6 +1,6 @@
 ---
 description: GoCD's configuration is version controlled in a local git repository. It allows auditing of all changes made to the configuration. 
-keywords: GoCD configuration repository, gabage collection, config repo, 
+keywords: GoCD configuration repository, garbage collection, config repo, 
 ---
 
 # GoCD Configuration repository
