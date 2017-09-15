@@ -1,9 +1,9 @@
 ---
-description: Tip and examples on how to configue a Proxy server to use with GoCD
-keywords: proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, coninuous delivery
+description: Tip and examples on how to configue a Proxy server to use with GoCD server
+keywords: proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, continuous delivery
 ---
 
-# Configure a Proxy server to use with GoCD
+# Configure a reverse proxy server to use with GoCD server
 
 It is sometimes useful to front GoCD with a proxy server. In this section, we give you some tips and examples on how to achieve this.
 
@@ -13,7 +13,7 @@ An example of how to configure GoCD with Apache is shown below.
 
 **Assumptions:**
 
--   You have Apache with mod\_proxy installed
+-   You have Apache with `mod_proxy` installed
 -   The Apache server sits on the same machine as the GoCD server (localhost)
 
 ```apache
@@ -35,7 +35,6 @@ If you're additionally using SSL (highly recommended), you may use the following
 ```apache
 Listen nnn.nnn.nnn.nnn:80
 NameVirtualHost nnn.nnn.nnn.nnn:80
-
 
 <VirtualHost nnn.nnn.nnn.nnn:80>
   ServerName gocd.example.com
@@ -96,9 +95,9 @@ server {
 ```
 
 <a name="agents-and-custom-ssl-ports"></a>
-## Agents and custom SSL ports
+## Agents and reverse proxies
 
-Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The GoCD server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the GoCD server SSL port, not just on the proxy server SSL port.
+The GoCD server requires that the agents connect to it directly without any reverse-proxies in between that perform SSL termination. This is because GoCD agent-server communication is authenticated using SSL/TLS client certificates, a reverse-proxy will be interpreted as a MITM (man-in-the-middle-attack) and the agents will not be able to connect to the server.
 
 ## Also see...
 
