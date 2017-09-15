@@ -95,8 +95,6 @@ server {
 
 Keep in mind that the agents must still be able to connect to the SSL port of the server (8154 by default), bypassing the proxy. The Go server itself needs to terminate the TLS connections of the agents, because they each use TLS client certificates to authenticate themselves to the server. So you have a firewall between your agents and your server, you must allow incoming traffic on the Go server SSL port, not just on the proxy server SSL port.
 
-The initial communication of the agent to the server happens over HTTP, and this can go via the proxy, but afterwards all traffic will go directly via a TLS connection to the Go server (in fact, configuring the agent with the the SSL port instead of the HTTP port of the server will give an error for this initial connection).
-
 ## Also see...
 
 -   [Configure site URLs](../installation/configuring_server_details.md#configure-site-urls)
