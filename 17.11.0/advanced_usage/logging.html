@@ -6,7 +6,7 @@
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
         <title>Logging · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="Properties provide a simple way of collecting metrics over time. GoCD sets standard properties. You can also set properties using the GoCD REST APIs.">
+        <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,7 +43,7 @@
     
 
         
-<meta content="logging, debugging, performance" name="keywords" />
+<meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
 
     </head>
     <body>
@@ -1834,9 +1834,18 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="logging"><a name="logging" class="plugin-anchor" href="#logging"><i class="fa fa-link" aria-hidden="true"></i></a>Logging</h1>
+<!-- toc -->
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#gocd-server">GoCD Server</a></li>
+<li><a href="#gocd-agent">GoCD Agent</a></li>
+<li><a href="#log-configuration-syntax">Log configuration syntax</a></li>
+<li><a href="#advanced-logging-features">Advanced logging features</a></li>
+</ul>
+<!-- toc stop -->
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
 <p>You can turn on additional logging to diagnose and troubleshoot issues with the GoCD server and agent.</p>
-<h3 id="gocd-server"><a name="gocd-server" class="plugin-anchor" href="#gocd-server"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Server</h3>
+<h2 id="gocd-server"><a name="gocd-server" class="plugin-anchor" href="#gocd-server"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Server</h2>
 <p>To turn on additional logging on the GoCD server, you must:</p>
 <ul>
 <li>create/edit the file <code>CONFIG_DIR/logback-include.xml</code>. The config directory is typically <code>/etc/go</code> on Linux and <code>C:\Program Files\Go Server\config</code> on Windows. See the section <a href="#log-configuration-syntax">Log configuration syntax</a> for the log configuration syntax.</li>
@@ -1933,7 +1942,7 @@
 </tr>
 </tbody>
 </table>
-<h3 id="gocd-agent"><a name="gocd-agent" class="plugin-anchor" href="#gocd-agent"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Agent</h3>
+<h2 id="gocd-agent"><a name="gocd-agent" class="plugin-anchor" href="#gocd-agent"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Agent</h2>
 <p>To turn on additional logging on the GoCD agent, you must:</p>
 <ul>
 <li>create/edit the file <code>CONFIG_DIR/agent-logback-include.xml</code>. The config directory is typically <code>/var/lib/go-agent/config</code> on Linux and <code>C:\Program Files\Go Agent\config</code> on Windows. See the section <a href="#log-configuration-syntax">Log configuration syntax</a> for the log configuration syntax.</li>
@@ -2050,6 +2059,37 @@
   --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">included</span>&gt;</span>
 </code></pre>
+<h2 id="advanced-logging-features"><a name="advanced-logging-features" class="plugin-anchor" href="#advanced-logging-features"><i class="fa fa-link" aria-hidden="true"></i></a>Advanced logging features</h2>
+<p>If you&apos;d like to send log events to a log aggregator service (like logstash, graylog, splunk) of your choice, you may require additional configuration to be performed:</p>
+<ul>
+<li>ensure that the relevant java libraries along with their dependencies are present in the <code>libs</code> directory</li>
+<li>configure appenders and encoders in the relevant <code>logback-include.xml</code> file for your agent or server</li>
+</ul>
+<p>For e.g. to send logs to logstash (using <a href="https://github.com/logstash/logstash-logback-encoder" target="_blank">logstash-logback-encoder</a>) one would need to perform the following:</p>
+<ul>
+<li>download all logstash-logback-encoder jars and dependencies into <code>libs</code> dir:<ul>
+<li><code>logstash-logback-encoder-4.11.jar</code></li>
+<li><code>jackson-databind-2.9.1.jar</code></li>
+<li><code>jackson-annotations-2.9.1.jar</code></li>
+<li><code>jackson-core-2.9.1.jar</code></li>
+</ul>
+</li>
+</ul>
+<p>Then follow the instructions on the <a href="https://github.com/logstash/logstash-logback-encoder" target="_blank">README</a> to configure your <code>logback-include.xml</code> to setup relevant appenders and encoders:</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">included</span>&gt;</span>
+
+  <span class="hljs-comment">&lt;!-- see https://github.com/logstash/logstash-logback-encoder for more examples and configuration --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;stash&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.appender.LogstashTcpSocketAppender&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">destination</span>&gt;</span>127.0.0.1:4560<span class="hljs-tag">&lt;/<span class="hljs-name">destination</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;net.logstash.logback.encoder.LogstashEncoder&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;info&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;stash&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">included</span>&gt;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -2093,7 +2133,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"Properties provide a simple way of collecting metrics over time. GoCD sets standard properties. You can also set properties using the GoCD REST APIs.","keywords":"logging, debugging, performance","title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2017-09-18T10:22:31.932Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-09-18T10:24:02.898Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2017-10-04T06:21:04.092Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-10-04T06:23:46.103Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
