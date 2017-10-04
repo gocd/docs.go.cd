@@ -1,15 +1,14 @@
----
-description: Properties provide a simple way of collecting metrics over time. GoCD sets standard properties. You can also set properties using the GoCD REST APIs.
-keywords: logging, debugging, performance
----
-
 # Logging
+
+<!-- toc -->
 
 ## Introduction
 
 You can turn on additional logging to diagnose and troubleshoot issues with the GoCD server and agent.
 
-### GoCD Server
+
+
+## GoCD Server
 
 To turn on additional logging on the GoCD server, you must:
 
@@ -36,7 +35,7 @@ The table below describes the various loggers that can be configured with the se
 | `com.thoughtworks.go.domain.materials.svn`             | `true`     | Turn on logging for materials of type `svn`.                                                                                                                                                        |
 | `com.thoughtworks.go.domain.materials.tfs`             | `true`     | Turn on logging for materials of type `tfs`.                                                                                                                                                        |
 
-### GoCD Agent
+## GoCD Agent
 
 To turn on additional logging on the GoCD agent, you must:
 
@@ -99,5 +98,38 @@ To configure logging, you can specify the configuration below. You must tweak th
     <appender-ref ref="my-appender" />
   </logger>
   -->
+</included>
+```
+
+## Advanced logging features
+
+If you'd like to send log events to a log aggregator service (like logstash, graylog, splunk) of your choice, you may require additional configuration to be performed:
+
+* ensure that the relevant java libraries along with their dependencies are present in the `libs` directory
+* configure appenders and encoders in the relevant `logback-include.xml` file for your agent or server
+
+For e.g. to send logs to logstash (using [logstash-logback-encoder](https://github.com/logstash/logstash-logback-encoder)) one would need to perform the following:
+
+- download all logstash-logback-encoder jars and dependencies into `libs` dir:
+  - `logstash-logback-encoder-4.11.jar`
+  - `jackson-databind-2.9.1.jar`
+  - `jackson-annotations-2.9.1.jar`
+  - `jackson-core-2.9.1.jar`
+
+Then follow the instructions on the [README](https://github.com/logstash/logstash-logback-encoder) to configure your `logback-include.xml` to setup relevant appenders and encoders:
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+
+  <!-- see https://github.com/logstash/logstash-logback-encoder for more examples and configuration -->
+  <appender name="stash" class="net.logstash.logback.appender.LogstashTcpSocketAppender">
+      <destination>127.0.0.1:4560</destination>
+      <encoder class="net.logstash.logback.encoder.LogstashEncoder" />
+  </appender>
+
+  <root level="info">
+    <appender-ref ref="stash" />
+  </root>
 </included>
 ```
