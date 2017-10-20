@@ -1169,14 +1169,14 @@ There should be at least one stage in one pipeline. Go uses the pipeline name to
 |-----------|----------|-------------|
 | name | Yes | The name is used to identify a pipeline, so each pipeline name must be unique. Pipeline name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters. |
 | labeltemplate | No | Both of material names and ${COUNT} are available in the labeltemplate and the default value of labeltemplate is '${COUNT}'. If you just specify labeltemplate="foo-1.0-${COUNT}", your pipeline will show foo-1.0-1, foo-1.0-2, and so on. When you reference material names in the labeltemplate, Go will use the revisions of the reference materials to populate the pipeline label. For example, given a mateial name is 'svnrepo' in a pipeline, when you specify labeltemplate="foo-1.0-${svnrepo}", then your pipeline would show foo-1.0-3123, foo-1.0-3124, and so on. Material names are case insensitive. The max length of a pipeline label is 255. If a material name is 'svnrepo', the following labeltemplates are valid: ${COUNT}, ${svnrepo}, foo-${COUNT}-${SVNrepo}, foo-${svnrepo}-${COUNT}-bar. |
-| isLocked | No | The possible values are "true" or "false".The default value is "false". When set to "true" Go ensures that only a single instance of a pipeline can be run at a time. |
+| lockBehavior | No | The possible values are "none", "lockOnFailure" or "unlockWhenFinished".The default value is "none". When set to "lockOnFailure", GoCD ensures that only a single instance of a pipeline can be run at a time and the pipeline [will be locked](../configuration/admin_lock_pipelines.html) if it fails, unless it is the last stage which fails. When set to "unlockWhenFinished", GoCD ensures that only a single instance of a pipeline can be run at a time, and the pipeline will be unlocked as soon as it finishes (success or failure), or reaches a manual stage. |
 | template | No | The name of the template that this pipeline references. If this is set, no stages may be defined in this pipeline. |
 
 ### Examples
 
 ```xml
 <pipelines>
-  <pipeline name="yourproject" labeltemplate="foo-1.0.${COUNT}-${svn}" isLocked="true">
+  <pipeline name="yourproject" labeltemplate="foo-1.0.${COUNT}-${svn}" lockBehavior="lockOnFailure">
   <environmentvariables>
      <variable name="FOO"><value>bar</value></variable>
    </environmentvariables>
