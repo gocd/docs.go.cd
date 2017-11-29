@@ -72,32 +72,22 @@ keywords: GoCD configuration, reference index
     <a href="#repositories">&lt;/repositories&gt;</a>
     <a href="#config-repos">&lt;config-repos&gt;</a>
       <a href="#config-repo">&lt;config-repo&gt;</a>
-        <a href="#svn">&lt;svn&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
+        <a href="#config-repo-svn">&lt;svn&gt;</a>
+            &lt;url/&gt;
         <a href="#svn">&lt;/svn&gt;</a>
-        <a href="#hg">&lt;hg&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#hg">&lt;/hg&gt;</a>
-        <a href="#p4">&lt;p4&gt;</a>
+        <a href="#config-repo-hg">&lt;hg&gt;</a>
+            &lt;url/&gt;
+        <a href="#config-repo-hg">&lt;/hg&gt;</a>
+        <a href="#config-repo-p4">&lt;p4&gt;</a>
             &lt;view/&gt;
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#p4">&lt;/p4&gt;</a>
-        <a href="#git">&lt;git&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#git">&lt;/git&gt;</a>
-        <a href="#tfs">&lt;tfs&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#tfs">&lt;/tfs&gt;</a>
+            &lt;port/&gt;
+        <a href="#config-repo-p4">&lt;/p4&gt;</a>
+        <a href="#config-repo-git">&lt;git&gt;</a>
+            &lt;url/&gt;
+        <a href="#config-repo-git">&lt;/git&gt;</a>
+        <a href="#config-repo-tfs">&lt;tfs&gt;</a>
+            &lt;url/&gt;
+        <a href="#config-repo-tfs">&lt;/tfs&gt;</a>
         <a href="#config-repo-configuration">&lt;configuration&gt;</a>
             <a href="#config-repo-property">&lt;property&gt;</a>
                 <a href="#config-repo-property-key">&lt;key/&gt;</a>
@@ -876,6 +866,191 @@ can be used to **customize how config repo plugin works when parsing this specif
 ```
 
 [top](#top)
+
+## &lt;svn&gt; {#config-repo-svn}
+
+The config repo `<svn>` material element specifies the location of your code base in Subversion repository.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| url | Yes | URL for the remote repository, for example: 'http://www.thoughtworks-studios.com/go-agile-release-management/svn/myproject/trunk'. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support 'file:///'. |
+| username | No | The user account for the remote repository. |
+| password | No | The password for the specified user |
+| encryptedPassword | No | The encrypted password for the specified user |
+| checkexternals | No | The default value is false, the value should be either one of true/false or 1/0. 'true' or '1' means that the changes of externals will trigger the pipeline automatically. |
+| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. It needs to be unique within a pipeline. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material or it receives a notification through a post-commit hook. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+
+### Notes:
+
+Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server and each Agent,
+and as the user 'go' do a command "svn update" to store the certificates in the cache permanently.
+
+### Examples:
+
+For a Go Agent on linux with the following configuration:
+
+```xml
+<config-repo pluginId="json.config.plugin" id="repo1">
+    <svn  url="http://svn-server.com/framework" />
+</config-repo>
+```
+
+[top](#top)
+
+## &lt;hg&gt; {#config-repo-hg}
+
+
+The config repo `<hg>` material element specifies the location of your code base in a Mercural repository. Go supports the http and ssh for mercural.
+
+### Notes:
+
+You must install Mercurial 1.5 or above on the Go Server. Go does not ship with Mercurial.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| url | Yes | URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercural repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go. |
+| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+
+### Examples
+
+```xml
+<config-repo pluginId="json.config.plugin" id="repo1">
+    <hg url="http://username:password@your-hg/"/>
+</config-repo>
+```
+
+#### Specifying a mercurial branch.
+
+```xml
+<config-repo pluginId="json.config.plugin" id="repo1">
+    <hg url="http://username:password@your-hg##branch_name"/>
+</config-repo>
+```
+Note that \# needs to be escaped with another \# - hence the \#\# in the url above.
+
+[top](#top)
+
+## &lt;p4&gt; {#config-repo-p4}
+
+The config repo `<p4>` material element specifies the location of your code base in a Perforce repository.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| port | Yes | Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the P4PORT environment variable. |
+| username | No | Perforce username to use. |
+| password | No | Password for the specified user. |
+| encryptedPassword | No | Encrypted Password for the specified user. |
+| useTickets | No | Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described [here](http://www.perforce.com/perforce/doc.current/manuals/cmdref/login.html). |
+| view | Yes | Valid Perforce view. The view should be a sub-element of P4. Click [here](http://www.perforce.com/perforce/doc.082/manuals/p4guide/02_config.html#1066090) to see details about VIEW of Perforce. |
+| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+
+### Notes:
+
+You do not need to specify the above attributes if you have already defined them as system variables. So if you have a P4PASSWD variable
+defined then you can leave out the "password" tag defined above. If you already have them defined as system variables and also in Go
+configuration, Go will overwrite them before running p4.
+
+Views consist of multiple mappings. Each mapping has two parts:
+
+1.  The left-hand side specifies one or more files in the depot and has the form: //depotname/file\_specification
+2.  The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file\_specification
+
+Go creates a p4 client to check out files into its sandbox with the 'clobber' option set. This means, during material update all writable-but-unopened files in the workspace would be overwritten on the agent. All other options use default values as defined by Perforce. Client name is generated automatically by Go. Hence, you can use anything as 'clientname' on the right-hand side in view mapping. The client name format is: cruise-[hostname]-[pipeline name]-[a random hash code], for example "cruise-myhostname-mypipelinename-wOaJ9kjpfgOLQCncki19ikXt5Q". THE GO\_P4\_CLIENT environment variable will have the client name used. This variable can be used in scripts to get the client name
+
+Go views are in the same format as that used by Perforce itself. In fact you should be able to copy a Perforce view from your existing Perforce
+setup and paste it into the view section.
+
+For example:
+
+```xml
+<config-repo pluginId="json.config.plugin" id="repo1">
+    <p4 port="10.18.3.102:1666" username="userName" password="passwd">
+      <view><![CDATA[
+    //depot/dev/src...          //anything/src/...
+    //depot/dev/test...         //anything/test/...
+    //depot/dev/main/docs/...   //anything/docs/...
+      ]]></view>
+    </p4>
+</config-repo>
+```
+
+[top](#top)
+
+## &lt;git&gt; {#config-repo-git}
+
+The config repo `<git>` material element specifies the location of your code base in a GIT repository. Go only supports remote repositories.
+
+### Notes:
+
+git versions 1.9 and above are supported by Go.
+
+If 'branch' is defined, Go will check out the specified branch. Otherwise, Go will check out the master branch.
+
+If there are submodules in the repository, Go will check out them as well.
+
+msysGit on Windows has a [defect](https://github.com/msysgit/msysgit/issues/43) which causes an error when using Go. Please ensure to use a build which fixes this.
+
+While installing msysGit On Windows machines for Go server or agents, please choose Option iii, namely *Run Git and included UNIX tools from
+windows command prompt*
+
+If you are using git through SSH on windows, please ensure that the HOME user environment variable is set to the full path of the parent
+directory where the .ssh/ directory is located.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| url | Yes | GIT URL for the repository. |
+| branch | No | a branch name in the repository. |
+| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+
+### Examples are:
+
+```xml
+<config-repo pluginId="json.config.plugin" id="repo1">
+    <git url="git://127.0.0.1/precommit.git" branch="1.3branch"/>
+</config-repo>
+```
+
+[top](#top)
+
+## &lt;tfs&gt; {#config-repo-tfs}
+
+The config repo `<tfs>` material element specifies the location of your code base in a TFS Source repository.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| URL | Yes | URL for the Collection on the TFS Server. |
+| Domain | No | Domain name for TFS authentication credentials. |
+| Username | Yes | Username of the account to access the TFS collection. |
+| Password | Yes | Password of the account to access the TFS collection. |
+| encryptedPassword | No | Encrypted Password of the account to access the TFS collection. |
+| Project Path| Yes | The project path within the TFS collection. |
+| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+
+### Examples are:
+
+```xml
+<config-repo pluginId="json.config.plugin" id="repo1">
+    <tfs url="http://10.21.3.210:8080/tfs/New" domain="DOMAIN" username="jim" password="as802nsk9==" projectPath="$/webapp" />
+</config-repo>
+```
+
+[top](#top)
+
 
 ## &lt;repositories&gt; {#repositories}
 
