@@ -72,22 +72,12 @@ keywords: GoCD configuration, reference index
     <a href="#repositories">&lt;/repositories&gt;</a>
     <a href="#config-repos">&lt;config-repos&gt;</a>
       <a href="#config-repo">&lt;config-repo&gt;</a>
-        <a href="#config-repo-svn">&lt;svn&gt;</a>
-            &lt;url/&gt;
-        <a href="#svn">&lt;/svn&gt;</a>
-        <a href="#config-repo-hg">&lt;hg&gt;</a>
-            &lt;url/&gt;
-        <a href="#config-repo-hg">&lt;/hg&gt;</a>
-        <a href="#config-repo-p4">&lt;p4&gt;</a>
-            &lt;view/&gt;
-            &lt;port/&gt;
-        <a href="#config-repo-p4">&lt;/p4&gt;</a>
-        <a href="#config-repo-git">&lt;git&gt;</a>
-            &lt;url/&gt;
-        <a href="#config-repo-git">&lt;/git&gt;</a>
-        <a href="#config-repo-tfs">&lt;tfs&gt;</a>
-            &lt;url/&gt;
-        <a href="#config-repo-tfs">&lt;/tfs&gt;</a>
+        <a href="#config-repo-svn">&lt;svn /&gt;</a>
+        <a href="#config-repo-hg">&lt;hg /&gt;</a>
+        <a href="#config-repo-p4">&lt;p4 /&gt;</a>
+        <a href="#config-repo-git">&lt;git /&gt;</a>
+        <a href="#config-repo-tfs">&lt;tfs /&gt;</a>
+        <a href="#config-repo-scm">&lt;scm /&gt;</a>
         <a href="#config-repo-configuration">&lt;configuration&gt;</a>
             <a href="#config-repo-property">&lt;property&gt;</a>
                 <a href="#config-repo-property-key">&lt;key/&gt;</a>
@@ -568,7 +558,7 @@ Using `<authConfigs>` element GoCD administrators can provide one or more author
 
 The `<authConfig>` specifies the [configuration](#property) to be used by the authorization plugin. This will usually allow administrators to configure the connection settings for your authorization plugin, and may include configuration like URLs and credentials, among others.
 
-An `authConfig` should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute. 
+An `authConfig` should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute.
 
 ### Attributes
 
@@ -875,22 +865,20 @@ The config repo `<svn>` material element specifies the location of your code bas
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| url | Yes | URL for the remote repository, for example: 'http://www.thoughtworks-studios.com/go-agile-release-management/svn/myproject/trunk'. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support 'file:///'. |
+| url | Yes | URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support 'file:///'. |
 | username | No | The user account for the remote repository. |
 | password | No | The password for the specified user |
 | encryptedPassword | No | The encrypted password for the specified user |
-| checkexternals | No | The default value is false, the value should be either one of true/false or 1/0. 'true' or '1' means that the changes of externals will trigger the pipeline automatically. |
-| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. It needs to be unique within a pipeline. The max length is 255 characters. |
-| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material or it receives a notification through a post-commit hook. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+| checkexternals | No | The default value is false, the value should be either one of true/false or 1/0. 'true' or '1' means that the changes of externals will be included as part of configuration. |
+| materialName | No | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true. |
 
 ### Notes:
 
-Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server and each Agent,
+Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server,
 and as the user 'go' do a command "svn update" to store the certificates in the cache permanently.
 
 ### Examples:
-
-For a Go Agent on linux with the following configuration:
 
 ```xml
 <config-repo pluginId="json.config.plugin" id="repo1">
@@ -903,7 +891,7 @@ For a Go Agent on linux with the following configuration:
 ## &lt;hg&gt; {#config-repo-hg}
 
 
-The config repo `<hg>` material element specifies the location of your code base in a Mercural repository. Go supports the http and ssh for mercural.
+The config repo `<hg>` material element specifies the location of your code base in a Mercurial repository. Go supports the following protocols for Mercurial: http, ssh.
 
 ### Notes:
 
@@ -913,9 +901,9 @@ You must install Mercurial 1.5 or above on the Go Server. Go does not ship with 
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| url | Yes | URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercural repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go. |
-| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
-| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+| url | Yes | URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go. |
+| materialName | No | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true. |
 
 ### Examples
 
@@ -950,21 +938,17 @@ The config repo `<p4>` material element specifies the location of your code base
 | encryptedPassword | No | Encrypted Password for the specified user. |
 | useTickets | No | Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described [here](http://www.perforce.com/perforce/doc.current/manuals/cmdref/login.html). |
 | view | Yes | Valid Perforce view. The view should be a sub-element of P4. Click [here](http://www.perforce.com/perforce/doc.082/manuals/p4guide/02_config.html#1066090) to see details about VIEW of Perforce. |
-| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
-| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+| materialName | No | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true. |
 
 ### Notes:
-
-You do not need to specify the above attributes if you have already defined them as system variables. So if you have a P4PASSWD variable
-defined then you can leave out the "password" tag defined above. If you already have them defined as system variables and also in Go
-configuration, Go will overwrite them before running p4.
 
 Views consist of multiple mappings. Each mapping has two parts:
 
 1.  The left-hand side specifies one or more files in the depot and has the form: //depotname/file\_specification
 2.  The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file\_specification
 
-Go creates a p4 client to check out files into its sandbox with the 'clobber' option set. This means, during material update all writable-but-unopened files in the workspace would be overwritten on the agent. All other options use default values as defined by Perforce. Client name is generated automatically by Go. Hence, you can use anything as 'clientname' on the right-hand side in view mapping. The client name format is: cruise-[hostname]-[pipeline name]-[a random hash code], for example "cruise-myhostname-mypipelinename-wOaJ9kjpfgOLQCncki19ikXt5Q". THE GO\_P4\_CLIENT environment variable will have the client name used. This variable can be used in scripts to get the client name
+Go creates a p4 client to check out files into its sandbox with the 'clobber' option set. All other options use default values as defined by Perforce. Client name is generated automatically by Go. Hence, you can use anything as 'clientname' on the right-hand side in view mapping. The client name format is: cruise-[hostname]-[config repo id]-[a random hash code], for example "cruise-myhostname-configrepo1-wOaJ9kjpfgOLQCncki19ikXt5Q".
 
 Go views are in the same format as that used by Perforce itself. In fact you should be able to copy a Perforce view from your existing Perforce
 setup and paste it into the view section.
@@ -997,9 +981,7 @@ If 'branch' is defined, Go will check out the specified branch. Otherwise, Go wi
 
 If there are submodules in the repository, Go will check out them as well.
 
-msysGit on Windows has a [defect](https://github.com/msysgit/msysgit/issues/43) which causes an error when using Go. Please ensure to use a build which fixes this.
-
-While installing msysGit On Windows machines for Go server or agents, please choose Option iii, namely *Run Git and included UNIX tools from
+While installing msysGit On Windows machines for Go server, please choose Option iii, namely *Run Git and included UNIX tools from
 windows command prompt*
 
 If you are using git through SSH on windows, please ensure that the HOME user environment variable is set to the full path of the parent
@@ -1009,10 +991,10 @@ directory where the .ssh/ directory is located.
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| url | Yes | GIT URL for the repository. |
+| url | Yes | git url for the repository. |
 | branch | No | a branch name in the repository. |
-| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
-| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+| materialName | No | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true. |
 
 ### Examples are:
 
@@ -1032,20 +1014,40 @@ The config repo `<tfs>` material element specifies the location of your code bas
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| URL | Yes | URL for the Collection on the TFS Server. |
+| url | Yes | url for the Collection on the TFS Server. |
 | Domain | No | Domain name for TFS authentication credentials. |
 | Username | Yes | Username of the account to access the TFS collection. |
 | Password | Yes | Password of the account to access the TFS collection. |
 | encryptedPassword | No | Encrypted Password of the account to access the TFS collection. |
 | Project Path| Yes | The project path within the TFS collection. |
-| materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
-| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
+| materialName | No | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters. |
+| autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true. |
 
 ### Examples are:
 
 ```xml
 <config-repo pluginId="json.config.plugin" id="repo1">
     <tfs url="http://10.21.3.210:8080/tfs/New" domain="DOMAIN" username="jim" password="as802nsk9==" projectPath="$/webapp" />
+</config-repo>
+```
+
+[top](#top)
+
+## &lt;git&gt; {#config-repo-scm}
+
+The config repo `<scm>` material element specifies the location of your code base in any of the  SCM repositories.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| ref | Yes | The unique package repository id. |
+
+### Examples are:
+
+```xml
+<config-repo pluginId="json.config.plugin" id="repo1">
+    <scm ref="e289f497-057b-46bc-bb69-8043454f5c1b"/>
 </config-repo>
 ```
 
@@ -1672,7 +1674,7 @@ The `<svn>` element specifies the location of your code base in Subversion repos
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| url | Yes | URL for the remote repository, for example: 'http://www.thoughtworks-studios.com/go-agile-release-management/svn/myproject/trunk'. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support 'file:///'. |
+| url | Yes | URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support 'file:///'. |
 | username | No | The user account for the remote repository. |
 | password | No | The password for the specified user |
 | checkexternals | No | The default value is false, the value should be either one of true/false or 1/0. 'true' or '1' means that the changes of externals will trigger the pipeline automatically. |
@@ -1707,7 +1709,7 @@ Go Agent will check out source code from 'http://svn-server.com/framework' to '/
 ## &lt;hg&gt; {#hg}
 
 
-The `<hg>` element specifies the location of your code base in a Mercural repository. Go supports the http and ssh for mercural.
+The `<hg>` element specifies the location of your code base in a Mercurial repository. Go supports the http and ssh for Mercurial.
 
 ### Notes:
 
@@ -1717,7 +1719,7 @@ You must install Mercurial 1.5 or above on the Go Server and Go Agents for the j
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| url | Yes | URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercural repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go. |
+| url | Yes | URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go. |
 | dest | Only for multiple materials | The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent's sandbox. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
