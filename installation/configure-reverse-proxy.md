@@ -24,8 +24,16 @@ NameVirtualHost nnn.nnn.nnn.nnn:80
   ServerName go.yourdomain.com
   DocumentRoot /var/www/html
 
-  ProxyPass         /  http://localhost:8081/
-  ProxyPassReverse  /  http://localhost:8081/
+  <IfVersion >= 2.4>
+    ProxyPass         /  ws://localhost:8153/
+    ProxyPassReverse  /  ws://localhost:8153/
+  </IfVersion>
+  
+  <IfVersion < 2.4>
+    ProxyPass         /  http://localhost:8153/
+    ProxyPassReverse  /  http://localhost:8153/
+  </IfVersion>
+  
   ProxyPreserveHost On
 </VirtualHost>
 ```
@@ -77,6 +85,11 @@ server {
   return 301     https://gocd.example.com$request_uri;
 }
 
+map $http_upgrade $connection_upgrade {
+  default upgrade;
+  '' close;
+}
+
 server {
   listen                    443 ssl;
   server_name               gocd.example.com;
@@ -90,6 +103,9 @@ server {
     proxy_set_header        X-Real-IP       $remote_addr;
     proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header        X-Forwarded-Proto $scheme;
+    proxy_http_version      1.1;
+    proxy_set_header 	    Upgrade $http_upgrade;
+    proxy_set_header 	    Connection $connection_upgrade;
   }
 }
 ```
