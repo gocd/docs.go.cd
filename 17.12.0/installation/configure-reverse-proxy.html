@@ -1855,17 +1855,25 @@
 <li>You have Apache with <code>mod_proxy</code> installed</li>
 <li>The Apache server sits on the same machine as the GoCD server (localhost)</li>
 </ul>
-<pre><code class="lang-apache"><span class="hljs-attribute"><span class="hljs-nomarkup">Listen</span></span> nnn.nnn.nnn.nnn:80
-<span class="hljs-attribute">NameVirtualHost</span> nnn.nnn.nnn.nnn:80
+<pre><code class="lang-apache">Listen nnn.nnn.nnn.nnn:80
+NameVirtualHost nnn.nnn.nnn.nnn:80
 
-<span class="hljs-section">&lt;VirtualHost nnn.nnn.nnn.nnn:80&gt;</span>
-  <span class="hljs-attribute"><span class="hljs-nomarkup">ServerName</span></span> go.yourdomain.com
-  <span class="hljs-attribute"><span class="hljs-nomarkup">DocumentRoot</span></span> /var/www/html
+&lt;VirtualHost nnn.nnn.nnn.nnn:80&gt;
+  ServerName go.yourdomain.com
+  DocumentRoot /var/www/html
 
-  <span class="hljs-attribute">ProxyPass</span>         /  http://localhost:8081/
-  <span class="hljs-attribute">ProxyPassReverse</span>  /  http://localhost:8081/
-  <span class="hljs-attribute">ProxyPreserveHost</span> <span class="hljs-literal">On</span>
-<span class="hljs-section">&lt;/VirtualHost&gt;</span>
+  &lt;IfVersion &gt;= 2.4&gt;
+    ProxyPass         /  ws://localhost:8153/
+    ProxyPassReverse  /  ws://localhost:8153/
+  &lt;/IfVersion&gt;
+
+  &lt;IfVersion &lt; 2.4&gt;
+    ProxyPass         /  http://localhost:8153/
+    ProxyPassReverse  /  http://localhost:8153/
+  &lt;/IfVersion&gt;
+
+  ProxyPreserveHost On
+&lt;/VirtualHost&gt;
 </code></pre>
 <p>If you&apos;re additionally using SSL (highly recommended), you may use the following snippet -</p>
 <pre><code class="lang-apache"><span class="hljs-attribute"><span class="hljs-nomarkup">Listen</span></span> nnn.nnn.nnn.nnn:80
@@ -1902,26 +1910,34 @@
 <span class="hljs-section">&lt;/VirtualHost&gt;</span>
 </code></pre>
 <h2 id="gocd-with-nginx"><a name="gocd-with-nginx" class="plugin-anchor" href="#gocd-with-nginx"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD with NGINX</h2>
-<pre><code class="lang-nginx"><span class="hljs-section">server</span> {
-  <span class="hljs-comment"># Redirect any http requests to https</span>
-  <span class="hljs-attribute">listen</span>         <span class="hljs-number">80</span>;
-  <span class="hljs-attribute">server_name</span>    gocd.example.com;
-  <span class="hljs-attribute">return</span> <span class="hljs-number">301</span>     https://gocd.example.com<span class="hljs-variable">$request_uri</span>;
+<pre><code class="lang-nginx">server {
+  # Redirect any http requests to https
+  listen         80;
+  server_name    gocd.example.com;
+  return 301     https://gocd.example.com$request_uri;
 }
 
-<span class="hljs-section">server</span> {
-  <span class="hljs-attribute">listen</span>                    <span class="hljs-number">443</span> ssl;
-  <span class="hljs-attribute">server_name</span>               gocd.example.com;
+map $http_upgrade $connection_upgrade {
+  default upgrade;
+  &apos;&apos; close;
+}
 
-  <span class="hljs-attribute">ssl_certificate</span>           /etc/pki/tls/certs/gocd.example.com.chained.pem;
-  <span class="hljs-attribute">ssl_certificate_key</span>       /etc/pki/tls/private/gocd.example.com.key;
+server {
+  listen                    443 ssl;
+  server_name               gocd.example.com;
 
-  <span class="hljs-comment"># Proxy everything over to the GoCD server</span>
-  <span class="hljs-attribute">location</span> / {
-    <span class="hljs-attribute">proxy_set_header</span>        Host            <span class="hljs-variable">$host</span>;
-    <span class="hljs-attribute">proxy_set_header</span>        X-Real-IP       <span class="hljs-variable">$remote_addr</span>;
-    <span class="hljs-attribute">proxy_set_header</span>        X-Forwarded-For <span class="hljs-variable">$proxy_add_x_forwarded_for</span>;
-    <span class="hljs-attribute">proxy_set_header</span>        X-Forwarded-Proto <span class="hljs-variable">$scheme</span>;
+  ssl_certificate           /etc/pki/tls/certs/gocd.example.com.chained.pem;
+  ssl_certificate_key       /etc/pki/tls/private/gocd.example.com.key;
+
+  # Proxy everything over to the GoCD server
+  location / {
+    proxy_set_header        Host            $host;
+    proxy_set_header        X-Real-IP       $remote_addr;
+    proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header        X-Forwarded-Proto $scheme;
+    proxy_http_version      1.1;
+    proxy_set_header         Upgrade $http_upgrade;
+    proxy_set_header         Connection $connection_upgrade;
   }
 }
 </code></pre>
@@ -1975,7 +1991,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"Tip and examples on how to configue a Proxy server to use with GoCD server","keywords":"proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, continuous delivery","title":"Configure a Reverse Proxy","level":"1.4.6","depth":2,"next":{"title":"Configure an agent with proxy","level":"1.4.7","depth":2,"path":"installation/configure-agent-proxy.md","ref":"installation/configure-agent-proxy.md","articles":[]},"previous":{"title":"Configuring Server Details","level":"1.4.5","depth":2,"path":"installation/configuring_server_details.md","ref":"installation/configuring_server_details.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/configure-reverse-proxy.md","mtime":"2017-11-22T14:01:34.282Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-11-22T14:04:14.537Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Tip and examples on how to configue a Proxy server to use with GoCD server","keywords":"proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, continuous delivery","title":"Configure a Reverse Proxy","level":"1.4.6","depth":2,"next":{"title":"Configure an agent with proxy","level":"1.4.7","depth":2,"path":"installation/configure-agent-proxy.md","ref":"installation/configure-agent-proxy.md","articles":[]},"previous":{"title":"Configuring Server Details","level":"1.4.5","depth":2,"path":"installation/configuring_server_details.md","ref":"installation/configuring_server_details.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/configure-reverse-proxy.md","mtime":"2017-12-05T09:18:50.007Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-05T09:20:37.008Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
