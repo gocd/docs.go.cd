@@ -65,4 +65,14 @@ The GoCD server installs its files in the following locations on your filesystem
 /etc/default/go-server   #contains all the environment variables with default values. These variable values can be changed as per requirement.
 ```
 
+## Overriding default startup arguments and environment
+
+Users can override default startup arguments in a Linux machine by editing the file etc/default/go-server.
+
+For e.g To reduce the session timeout from default 14 days to 60 seconds, user can set the following GoCD server system property
+
+```bash
+ export GO_SERVER_SYSTEM_PROPERTIES="$GO_SERVER_SYSTEM_PROPERTIES -Dgo.server.session.timeout.seconds=60"
+ ```
+
 !INCLUDE "_install_server_footer.md"
