@@ -1033,7 +1033,7 @@ The config repo `<tfs>` material element specifies the location of your code bas
 
 [top](#top)
 
-## &lt;git&gt; {#config-repo-scm}
+## &lt;scm&gt; {#config-repo-scm}
 
 The config repo `<scm>` material element specifies the location of your code base in any of the  SCM repositories.
 
