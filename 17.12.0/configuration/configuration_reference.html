@@ -1913,32 +1913,12 @@
     <a href="#repositories">&lt;/repositories&gt;</a>
     <a href="#config-repos">&lt;config-repos&gt;</a>
       <a href="#config-repo">&lt;config-repo&gt;</a>
-        <a href="#svn">&lt;svn&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#svn">&lt;/svn&gt;</a>
-        <a href="#hg">&lt;hg&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#hg">&lt;/hg&gt;</a>
-        <a href="#p4">&lt;p4&gt;</a>
-            &lt;view/&gt;
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#p4">&lt;/p4&gt;</a>
-        <a href="#git">&lt;git&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#git">&lt;/git&gt;</a>
-        <a href="#tfs">&lt;tfs&gt;</a>
-            <a href="#filter">&lt;filter&gt;</a>
-                <a href="#ignore">&lt;ignore/&gt;</a>
-            <a href="#filter">&lt;/filter&gt;</a>
-        <a href="#tfs">&lt;/tfs&gt;</a>
+        <a href="#config-repo-svn">&lt;svn /&gt;</a>
+        <a href="#config-repo-hg">&lt;hg /&gt;</a>
+        <a href="#config-repo-p4">&lt;p4 /&gt;</a>
+        <a href="#config-repo-git">&lt;git /&gt;</a>
+        <a href="#config-repo-tfs">&lt;tfs /&gt;</a>
+        <a href="#config-repo-scm">&lt;scm /&gt;</a>
         <a href="#config-repo-configuration">&lt;configuration&gt;</a>
             <a href="#config-repo-property">&lt;property&gt;</a>
                 <a href="#config-repo-property-key">&lt;key/&gt;</a>
@@ -2504,7 +2484,7 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
 <p><a href="#top">top</a></p>
 <h2 id="authConfig"><a name="authConfig" class="plugin-anchor" href="#authConfig"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;authConfig&gt; </h2>
 <p>The <code>&lt;authConfig&gt;</code> specifies the <a href="#property">configuration</a> to be used by the authorization plugin. This will usually allow administrators to configure the connection settings for your authorization plugin, and may include configuration like URLs and credentials, among others.</p>
-<p>An <code>authConfig</code> should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute. </p>
+<p>An <code>authConfig</code> should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
 <table>
 <thead>
@@ -2775,6 +2755,315 @@ can be used to <strong>customize how config repo plugin works when parsing this 
     <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>project-X-.*<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="config-repo-svn"><a name="config-repo-svn" class="plugin-anchor" href="#config-repo-svn"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;svn&gt; </h2>
+<p>The config repo <code>&lt;svn&gt;</code> material element specifies the location of your code base in Subversion repository.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>Yes</td>
+<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &apos;file:///&apos;.</td>
+</tr>
+<tr>
+<td>username</td>
+<td>No</td>
+<td>The user account for the remote repository.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>No</td>
+<td>The password for the specified user</td>
+</tr>
+<tr>
+<td>encryptedPassword</td>
+<td>No</td>
+<td>The encrypted password for the specified user</td>
+</tr>
+<tr>
+<td>checkexternals</td>
+<td>No</td>
+<td>The default value is false, the value should be either one of true/false or 1/0. &apos;true&apos; or &apos;1&apos; means that the changes of externals will be included as part of configuration.</td>
+</tr>
+<tr>
+<td>materialName</td>
+<td>No</td>
+<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. The max length is 255 characters.</td>
+</tr>
+<tr>
+<td>autoUpdate</td>
+<td>No</td>
+<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes:</h3>
+<p>Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server,
+and as the user &apos;go&apos; do a command &quot;svn update&quot; to store the certificates in the cache permanently.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">config-repo</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;json.config.plugin&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;repo1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">svn</span>  <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;http://svn-server.com/framework&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">config-repo</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="config-repo-hg"><a name="config-repo-hg" class="plugin-anchor" href="#config-repo-hg"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;hg&gt; </h2>
+<p>The config repo <code>&lt;hg&gt;</code> material element specifies the location of your code base in a Mercurial repository. Go supports the following protocols for Mercurial: http, ssh.</p>
+<h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes:</h3>
+<p>You must install Mercurial 1.5 or above on the Go Server. Go does not ship with Mercurial.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>Yes</td>
+<td>URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go.</td>
+</tr>
+<tr>
+<td>materialName</td>
+<td>No</td>
+<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+</tr>
+<tr>
+<td>autoUpdate</td>
+<td>No</td>
+<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">config-repo</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;json.config.plugin&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;repo1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hg</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;http://username:password@your-hg/&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">config-repo</span>&gt;</span>
+</code></pre>
+<h4 id="specifying-a-mercurial-branch"><a name="specifying-a-mercurial-branch" class="plugin-anchor" href="#specifying-a-mercurial-branch"><i class="fa fa-link" aria-hidden="true"></i></a>Specifying a mercurial branch.</h4>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">config-repo</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;json.config.plugin&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;repo1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">hg</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;http://username:password@your-hg##branch_name&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">config-repo</span>&gt;</span>
+</code></pre>
+<p>Note that # needs to be escaped with another # - hence the ## in the url above.</p>
+<p><a href="#top">top</a></p>
+<h2 id="config-repo-p4"><a name="config-repo-p4" class="plugin-anchor" href="#config-repo-p4"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;p4&gt; </h2>
+<p>The config repo <code>&lt;p4&gt;</code> material element specifies the location of your code base in a Perforce repository.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>port</td>
+<td>Yes</td>
+<td>Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the P4PORT environment variable.</td>
+</tr>
+<tr>
+<td>username</td>
+<td>No</td>
+<td>Perforce username to use.</td>
+</tr>
+<tr>
+<td>password</td>
+<td>No</td>
+<td>Password for the specified user.</td>
+</tr>
+<tr>
+<td>encryptedPassword</td>
+<td>No</td>
+<td>Encrypted Password for the specified user.</td>
+</tr>
+<tr>
+<td>useTickets</td>
+<td>No</td>
+<td>Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described <a href="http://www.perforce.com/perforce/doc.current/manuals/cmdref/login.html" target="_blank">here</a>.</td>
+</tr>
+<tr>
+<td>view</td>
+<td>Yes</td>
+<td>Valid Perforce view. The view should be a sub-element of P4. Click <a href="http://www.perforce.com/perforce/doc.082/manuals/p4guide/02_config.html#1066090" target="_blank">here</a> to see details about VIEW of Perforce.</td>
+</tr>
+<tr>
+<td>materialName</td>
+<td>No</td>
+<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+</tr>
+<tr>
+<td>autoUpdate</td>
+<td>No</td>
+<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes:</h3>
+<p>Views consist of multiple mappings. Each mapping has two parts:</p>
+<ol>
+<li>The left-hand side specifies one or more files in the depot and has the form: //depotname/file_specification</li>
+<li>The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file_specification</li>
+</ol>
+<p>Go creates a p4 client to check out files into its sandbox with the &apos;clobber&apos; option set. All other options use default values as defined by Perforce. Client name is generated automatically by Go. Hence, you can use anything as &apos;clientname&apos; on the right-hand side in view mapping. The client name format is: cruise-[hostname]-[config repo id]-[a random hash code], for example &quot;cruise-myhostname-configrepo1-wOaJ9kjpfgOLQCncki19ikXt5Q&quot;.</p>
+<p>Go views are in the same format as that used by Perforce itself. In fact you should be able to copy a Perforce view from your existing Perforce
+setup and paste it into the view section.</p>
+<p>For example:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">config-repo</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;json.config.plugin&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;repo1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">p4</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;10.18.3.102:1666&quot;</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;userName&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;passwd&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">view</span>&gt;</span>&lt;![CDATA[
+    //depot/dev/src...          //anything/src/...
+    //depot/dev/test...         //anything/test/...
+    //depot/dev/main/docs/...   //anything/docs/...
+      ]]&gt;<span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">p4</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">config-repo</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="config-repo-git"><a name="config-repo-git" class="plugin-anchor" href="#config-repo-git"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;git&gt; </h2>
+<p>The config repo <code>&lt;git&gt;</code> material element specifies the location of your code base in a GIT repository. Go only supports remote repositories.</p>
+<h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes:</h3>
+<p>git versions 1.9 and above are supported by Go.</p>
+<p>If &apos;branch&apos; is defined, Go will check out the specified branch. Otherwise, Go will check out the master branch.</p>
+<p>If there are submodules in the repository, Go will check out them as well.</p>
+<p>While installing msysGit On Windows machines for Go server, please choose Option iii, namely <em>Run Git and included UNIX tools from
+windows command prompt</em></p>
+<p>If you are using git through SSH on windows, please ensure that the HOME user environment variable is set to the full path of the parent
+directory where the .ssh/ directory is located.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>Yes</td>
+<td>git url for the repository.</td>
+</tr>
+<tr>
+<td>branch</td>
+<td>No</td>
+<td>a branch name in the repository.</td>
+</tr>
+<tr>
+<td>materialName</td>
+<td>No</td>
+<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+</tr>
+<tr>
+<td>autoUpdate</td>
+<td>No</td>
+<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples-are"><a name="examples-are" class="plugin-anchor" href="#examples-are"><i class="fa fa-link" aria-hidden="true"></i></a>Examples are:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">config-repo</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;json.config.plugin&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;repo1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">git</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;git://127.0.0.1/precommit.git&quot;</span> <span class="hljs-attr">branch</span>=<span class="hljs-string">&quot;1.3branch&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">config-repo</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="config-repo-tfs"><a name="config-repo-tfs" class="plugin-anchor" href="#config-repo-tfs"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;tfs&gt; </h2>
+<p>The config repo <code>&lt;tfs&gt;</code> material element specifies the location of your code base in a TFS Source repository.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>url</td>
+<td>Yes</td>
+<td>url for the Collection on the TFS Server.</td>
+</tr>
+<tr>
+<td>Domain</td>
+<td>No</td>
+<td>Domain name for TFS authentication credentials.</td>
+</tr>
+<tr>
+<td>Username</td>
+<td>Yes</td>
+<td>Username of the account to access the TFS collection.</td>
+</tr>
+<tr>
+<td>Password</td>
+<td>Yes</td>
+<td>Password of the account to access the TFS collection.</td>
+</tr>
+<tr>
+<td>encryptedPassword</td>
+<td>No</td>
+<td>Encrypted Password of the account to access the TFS collection.</td>
+</tr>
+<tr>
+<td>Project Path</td>
+<td>Yes</td>
+<td>The project path within the TFS collection.</td>
+</tr>
+<tr>
+<td>materialName</td>
+<td>No</td>
+<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+</tr>
+<tr>
+<td>autoUpdate</td>
+<td>No</td>
+<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples-are"><a name="examples-are" class="plugin-anchor" href="#examples-are"><i class="fa fa-link" aria-hidden="true"></i></a>Examples are:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">config-repo</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;json.config.plugin&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;repo1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">tfs</span> <span class="hljs-attr">url</span>=<span class="hljs-string">&quot;http://10.21.3.210:8080/tfs/New&quot;</span> <span class="hljs-attr">domain</span>=<span class="hljs-string">&quot;DOMAIN&quot;</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;jim&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;as802nsk9==&quot;</span> <span class="hljs-attr">projectPath</span>=<span class="hljs-string">&quot;$/webapp&quot;</span> /&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">config-repo</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="config-repo-scm"><a name="config-repo-scm" class="plugin-anchor" href="#config-repo-scm"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;scm&gt; </h2>
+<p>The config repo <code>&lt;scm&gt;</code> material element specifies the location of your code base in any of the  SCM repositories.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ref</td>
+<td>Yes</td>
+<td>The unique package repository id.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples-are"><a name="examples-are" class="plugin-anchor" href="#examples-are"><i class="fa fa-link" aria-hidden="true"></i></a>Examples are:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">config-repo</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;json.config.plugin&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;repo1&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">scm</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;e289f497-057b-46bc-bb69-8043454f5c1b&quot;</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">config-repo</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="repositories"><a name="repositories" class="plugin-anchor" href="#repositories"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;repositories&gt; </h2>
@@ -3502,7 +3791,7 @@ contain these files will not trigger a pipeline automatically.</p>
 <tr>
 <td>url</td>
 <td>Yes</td>
-<td>URL for the remote repository, for example: &apos;<a href="http://www.thoughtworks-studios.com/go-agile-release-management/svn/myproject/trunk" target="_blank">http://www.thoughtworks-studios.com/go-agile-release-management/svn/myproject/trunk</a>&apos;. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &apos;file:///&apos;.</td>
+<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &apos;file:///&apos;.</td>
 </tr>
 <tr>
 <td>username</td>
@@ -3557,7 +3846,7 @@ and as the user &apos;go&apos; do a command &quot;svn update&quot; to store the 
 <p>Go Agent will check out source code from &apos;<a href="http://svn-server.com/framework" target="_blank">http://svn-server.com/framework</a>&apos; to &apos;/var/lib/go-agent/pipelines/myproduct/framwork&apos;, and from &apos;<a href="http://svn-server.com/componentOne" target="_blank">http://svn-server.com/componentOne</a>&apos; to &apos;/var/lib/go-agent/pipelines/myproduct/mycomponent&apos;.</p>
 <p><a href="#top">top</a></p>
 <h2 id="hg"><a name="hg" class="plugin-anchor" href="#hg"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;hg&gt; </h2>
-<p>The <code>&lt;hg&gt;</code> element specifies the location of your code base in a Mercural repository. Go supports the http and ssh for mercural.</p>
+<p>The <code>&lt;hg&gt;</code> element specifies the location of your code base in a Mercurial repository. Go supports the http and ssh for Mercurial.</p>
 <h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes:</h3>
 <p>You must install Mercurial 1.5 or above on the Go Server and Go Agents for the jobs need Mercurial. Go does not ship with Mercurial.</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
@@ -3573,7 +3862,7 @@ and as the user &apos;go&apos; do a command &quot;svn update&quot; to store the 
 <tr>
 <td>url</td>
 <td>Yes</td>
-<td>URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercural repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go.</td>
+<td>URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go.</td>
 </tr>
 <tr>
 <td>dest</td>
@@ -5151,7 +5440,7 @@ allow certain variable names and/or values.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2017-12-06T06:59:10.914Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-06T07:00:44.602Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2017-12-07T06:57:38.793Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-07T07:00:13.905Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
