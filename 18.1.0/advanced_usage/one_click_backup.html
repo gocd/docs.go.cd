@@ -1,0 +1,2001 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Backup GoCD Server · GoCD User Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Use GoCD's administration interface or API to backup and restore GoCD server">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../resources/stylesheets/website.css">
+        
+    
+
+        
+<meta content="GoCD server, GoCD backup, administration interface, backup API" name="keywords" />
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.gocd.org" target="_blank" class="custom-link">Home</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/gocd/docs.go.cd/" target="_blank" class="custom-link">Contribute</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="../introduction/">
+            
+                <a href="../introduction/">
+            
+                    
+                    Concepts In GoCD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/concepts_in_go.html">
+            
+                <a href="../introduction/concepts_in_go.html">
+            
+                    
+                    Concepts in GoCD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../navigation/">
+            
+                <a href="../navigation/">
+            
+                    
+                    GoCD Tour
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../navigation/pipelines_dashboard_page.html">
+            
+                <a href="../navigation/pipelines_dashboard_page.html">
+            
+                    
+                    Pipeline Dashboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../navigation/agents_page.html">
+            
+                <a href="../navigation/agents_page.html">
+            
+                    
+                    Agents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../navigation/agent_details.html">
+            
+                <a href="../navigation/agent_details.html">
+            
+                    
+                    Agent Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../navigation/pipeline_activity_page.html">
+            
+                <a href="../navigation/pipeline_activity_page.html">
+            
+                    
+                    Pipeline Activity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../navigation/stage_details_page.html">
+            
+                <a href="../navigation/stage_details_page.html">
+            
+                    
+                    Stage Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../navigation/job_details_page.html">
+            
+                <a href="../navigation/job_details_page.html">
+            
+                    
+                    Job Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../navigation/administration_page.html">
+            
+                <a href="../navigation/administration_page.html">
+            
+                    
+                    Administration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../navigation/server_details_page.html">
+            
+                <a href="../navigation/server_details_page.html">
+            
+                    
+                    Server Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../navigation/environments_page.html">
+            
+                <a href="../navigation/environments_page.html">
+            
+                    
+                    Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../navigation/value_stream_map.html">
+            
+                <a href="../navigation/value_stream_map.html">
+            
+                    
+                    Value Stream Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../installation/">
+            
+                <a href="../installation/">
+            
+                    
+                    Installing GoCD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../installation/system_requirements.html">
+            
+                <a href="../installation/system_requirements.html">
+            
+                    
+                    System requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../installation/installing_go_server.html">
+            
+                <a href="../installation/installing_go_server.html">
+            
+                    
+                    Installing GoCD Server
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../installation/install/server/linux.html">
+            
+                <a href="../installation/install/server/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../installation/install/server/windows.html">
+            
+                <a href="../installation/install/server/windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../installation/install/server/osx.html">
+            
+                <a href="../installation/install/server/osx.html">
+            
+                    
+                    Mac OS X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../installation/install/server/zip.html">
+            
+                <a href="../installation/install/server/zip.html">
+            
+                    
+                    Generic Zip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../installation/installing_go_agent.html">
+            
+                <a href="../installation/installing_go_agent.html">
+            
+                    
+                    Installing GoCD Agent
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../installation/install/agent/linux.html">
+            
+                <a href="../installation/install/agent/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../installation/install/agent/windows.html">
+            
+                <a href="../installation/install/agent/windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="../installation/install/agent/osx.html">
+            
+                <a href="../installation/install/agent/osx.html">
+            
+                    
+                    Mac OS X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="../installation/install/agent/zip.html">
+            
+                <a href="../installation/install/agent/zip.html">
+            
+                    
+                    Generic Zip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../installation/upgrading_go.html">
+            
+                <a href="../installation/upgrading_go.html">
+            
+                    
+                    Upgrading GoCD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../installation/configuring_server_details.html">
+            
+                <a href="../installation/configuring_server_details.html">
+            
+                    
+                    Configuring Server Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../installation/configure-reverse-proxy.html">
+            
+                <a href="../installation/configure-reverse-proxy.html">
+            
+                    
+                    Configure a Reverse Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../installation/configure-agent-proxy.html">
+            
+                <a href="../installation/configure-agent-proxy.html">
+            
+                    
+                    Configure an agent with proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../installation/ssl_tls_config.html">
+            
+                <a href="../installation/ssl_tls_config.html">
+            
+                    
+                    Configuring SSL/TLS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.8.1" data-path="../installation/ssl_tls/setting_up_ciphers.html">
+            
+                <a href="../installation/ssl_tls/setting_up_ciphers.html">
+            
+                    
+                    Customizing Ciphers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.2" data-path="../installation/ssl_tls/custom_server_certificate.html">
+            
+                <a href="../installation/ssl_tls/custom_server_certificate.html">
+            
+                    
+                    Change SSL Certificates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.3" data-path="../installation/ssl_tls/end_to_end_transport_security.html">
+            
+                <a href="../installation/ssl_tls/end_to_end_transport_security.html">
+            
+                    
+                    End to end transport security
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../installation/performance_tuning.html">
+            
+                <a href="../installation/performance_tuning.html">
+            
+                    
+                    Performance Tuning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../installation/hardware_specifications.html">
+            
+                <a href="../installation/hardware_specifications.html">
+            
+                    
+                    Hardware Specifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../installation/troubleshooting.html">
+            
+                <a href="../installation/troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../configuration/">
+            
+                <a href="../configuration/">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../configuration/quick_pipeline_setup.html">
+            
+                <a href="../configuration/quick_pipeline_setup.html">
+            
+                    
+                    Setup a New Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../configuration/managing_pipelines.html">
+            
+                <a href="../configuration/managing_pipelines.html">
+            
+                    
+                    Managing Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../configuration/managing_dependencies.html">
+            
+                <a href="../configuration/managing_dependencies.html">
+            
+                    
+                    Managing Dependencies
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../configuration/managing_a_build_cloud.html">
+            
+                <a href="../configuration/managing_a_build_cloud.html">
+            
+                    
+                    Managing Agents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../configuration/managing_environments.html">
+            
+                <a href="../configuration/managing_environments.html">
+            
+                    
+                    Managing Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../configuration/build_labelling.html">
+            
+                <a href="../configuration/build_labelling.html">
+            
+                    
+                    Pipeline Labelling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../configuration/pipeline_scheduling.html">
+            
+                <a href="../configuration/pipeline_scheduling.html">
+            
+                    
+                    Pipeline Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../configuration/admin_use_parameters_in_configuration.html">
+            
+                <a href="../configuration/admin_use_parameters_in_configuration.html">
+            
+                    
+                    Parameterize a Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../configuration/admin_use_custom_pipeline_label.html">
+            
+                <a href="../configuration/admin_use_custom_pipeline_label.html">
+            
+                    
+                    Customize a Pipeline Label
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../configuration/admin_clone_pipeline.html">
+            
+                <a href="../configuration/admin_clone_pipeline.html">
+            
+                    
+                    Clone a Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../configuration/admin_lock_pipelines.html">
+            
+                <a href="../configuration/admin_lock_pipelines.html">
+            
+                    
+                    Lock a Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../configuration/admin_add_material.html">
+            
+                <a href="../configuration/admin_add_material.html">
+            
+                    
+                    Add Material to Existing Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../configuration/admin_add_stage.html">
+            
+                <a href="../configuration/admin_add_stage.html">
+            
+                    
+                    Add Stage to Existing Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../configuration/admin_add_job.html">
+            
+                <a href="../configuration/admin_add_job.html">
+            
+                    
+                    Add job to Existing Stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../configuration/admin_add_task.html">
+            
+                <a href="../configuration/admin_add_task.html">
+            
+                    
+                    Add task to Existing Job
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../configuration/pipeline_templates.html">
+            
+                <a href="../configuration/pipeline_templates.html">
+            
+                    
+                    Pipeline Templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../configuration/dev_choose_when_stage_runs.html">
+            
+                <a href="../configuration/dev_choose_when_stage_runs.html">
+            
+                    
+                    Choose When a Stage Runs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="../configuration/admin_timer.html">
+            
+                <a href="../configuration/admin_timer.html">
+            
+                    
+                    Timer Trigger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="../configuration/job_timeout.html">
+            
+                <a href="../configuration/job_timeout.html">
+            
+                    
+                    Job Timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.20" data-path="../configuration/managing_users.html">
+            
+                <a href="../configuration/managing_users.html">
+            
+                    
+                    Managing Users
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.21" data-path="../configuration/dev_authentication.html">
+            
+                <a href="../configuration/dev_authentication.html">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.22" data-path="../configuration/dev_authorization.html">
+            
+                <a href="../configuration/dev_authorization.html">
+            
+                    
+                    Authorizing Users
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.23" data-path="../configuration/delegating_group_administration.html">
+            
+                <a href="../configuration/delegating_group_administration.html">
+            
+                    
+                    Delegating Group Administration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.24" data-path="../configuration/pipeline_group_admin_config.html">
+            
+                <a href="../configuration/pipeline_group_admin_config.html">
+            
+                    
+                    Pipeline Group Administration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.25" data-path="../configuration/dev_upload_test_report.html">
+            
+                <a href="../configuration/dev_upload_test_report.html">
+            
+                    
+                    Publish Reports and Artifacts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.26" data-path="../configuration/managing_artifacts_and_reports.html">
+            
+                <a href="../configuration/managing_artifacts_and_reports.html">
+            
+                    
+                    Managing Artifacts and Reports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.27" data-path="../configuration/delete_artifacts.html">
+            
+                <a href="../configuration/delete_artifacts.html">
+            
+                    
+                    Auto Delete Artifacts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.28" data-path="../configuration/ui_testing.html">
+            
+                <a href="../configuration/ui_testing.html">
+            
+                    
+                    UI Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.29" data-path="../configuration/admin_mailhost_info.html">
+            
+                <a href="../configuration/admin_mailhost_info.html">
+            
+                    
+                    Mailhost Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.30" data-path="../configuration/dev_notifications.html">
+            
+                <a href="../configuration/dev_notifications.html">
+            
+                    
+                    Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.31" data-path="../configuration/tfs_config.html">
+            
+                <a href="../configuration/tfs_config.html">
+            
+                    
+                    TFS Material configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.32" data-path="../configuration/configuration_reference.html">
+            
+                <a href="../configuration/configuration_reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.33" data-path="../configuration/schema.html">
+            
+                <a href="../configuration/schema.html">
+            
+                    
+                    Schema
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Advanced Usage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="pipelines_as_code.html">
+            
+                <a href="pipelines_as_code.html">
+            
+                    
+                    Pipelines as code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="agent_auto_register.html">
+            
+                <a href="agent_auto_register.html">
+            
+                    
+                    Auto Register a Remote Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="admin_spawn_multiple_jobs.html">
+            
+                <a href="admin_spawn_multiple_jobs.html">
+            
+                    
+                    Spawn multiple instances of a Job
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="admin_install_multiple_agents.html">
+            
+                <a href="admin_install_multiple_agents.html">
+            
+                    
+                    Multiple Agents on One Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="dev_clean_up_when_cancel.html">
+            
+                <a href="dev_clean_up_when_cancel.html">
+            
+                    
+                    Clean on Task Cancel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="dev_conditional_task_execution.html">
+            
+                <a href="dev_conditional_task_execution.html">
+            
+                    
+                    Conditional Task Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="trigger_with_options.html">
+            
+                <a href="trigger_with_options.html">
+            
+                    
+                    Trigger With Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="fan_in.html">
+            
+                <a href="fan_in.html">
+            
+                    
+                    Fan In
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="properties.html">
+            
+                <a href="properties.html">
+            
+                    
+                    Properties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="logging.html">
+            
+                <a href="logging.html">
+            
+                    
+                    Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="compare_pipelines.html">
+            
+                <a href="compare_pipelines.html">
+            
+                    
+                    Compare Builds
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="stage_duration_chart.html">
+            
+                <a href="stage_duration_chart.html">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="command_repository.html">
+            
+                <a href="command_repository.html">
+            
+                    
+                    Command Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.6.14" data-path="one_click_backup.html">
+            
+                <a href="one_click_backup.html">
+            
+                    
+                    Backup GoCD Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="config_repo.html">
+            
+                <a href="config_repo.html">
+            
+                    
+                    Config Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.16" data-path="other_config_options.html">
+            
+                <a href="other_config_options.html">
+            
+                    
+                    Other Config Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../integration/">
+            
+                <a href="../integration/">
+            
+                    
+                    Integrating GoCD With Other Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../extension_points/">
+            
+                <a href="../extension_points/">
+            
+                    
+                    Extension Points Of GoCD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../extension_points/plugin_user_guide.html">
+            
+                <a href="../extension_points/plugin_user_guide.html">
+            
+                    
+                    Plugin User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../extension_points/package_repository_extension.html">
+            
+                <a href="../extension_points/package_repository_extension.html">
+            
+                    
+                    Package Repository Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../extension_points/yum_repository_poller.html">
+            
+                <a href="../extension_points/yum_repository_poller.html">
+            
+                    
+                    Yum Repository Poller
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../extension_points/scm_extension.html">
+            
+                <a href="../extension_points/scm_extension.html">
+            
+                    
+                    SCM Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../extension_points/task_extension.html">
+            
+                <a href="../extension_points/task_extension.html">
+            
+                    
+                    Task Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../extension_points/notification_extension.html">
+            
+                <a href="../extension_points/notification_extension.html">
+            
+                    
+                    Notification Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../extension_points/configrepo_extension.html">
+            
+                <a href="../extension_points/configrepo_extension.html">
+            
+                    
+                    Configuration repository Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../faq/">
+            
+                <a href="../faq/">
+            
+                    
+                    FAQ/Troubleshooting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../faq/ordering_of_pipelines.html">
+            
+                <a href="../faq/ordering_of_pipelines.html">
+            
+                    
+                    Ordering of Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../faq/stage_old_config.html">
+            
+                <a href="../faq/stage_old_config.html">
+            
+                    
+                    Historical Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../faq/concurrent_config_modifications.html">
+            
+                <a href="../faq/concurrent_config_modifications.html">
+            
+                    
+                    Concurrent Modifications to Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../faq/dev_understand_why_build_broken.html">
+            
+                <a href="../faq/dev_understand_why_build_broken.html">
+            
+                    
+                    Why the Build is Broken?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.5" data-path="../faq/dev_see_artifact_as_tab.html">
+            
+                <a href="../faq/dev_see_artifact_as_tab.html">
+            
+                    
+                    See artifacts as sub-tabs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.6" data-path="../faq/dev_save_properties.html">
+            
+                <a href="../faq/dev_save_properties.html">
+            
+                    
+                    Save Properties for a Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.7" data-path="../faq/environment_variables.html">
+            
+                <a href="../faq/environment_variables.html">
+            
+                    
+                    Using Environment variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.8" data-path="../faq/rm_deploy_to_environment.html">
+            
+                <a href="../faq/rm_deploy_to_environment.html">
+            
+                    
+                    Deploy to an environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.9" data-path="../faq/tester_what_has_changed.html">
+            
+                <a href="../faq/tester_what_has_changed.html">
+            
+                    
+                    See changes in new binary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.10" data-path="../faq/dependency_management.html">
+            
+                <a href="../faq/dependency_management.html">
+            
+                    
+                    Run Tests against new Builds
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.11" data-path="../faq/rm_what_is_deployed.html">
+            
+                <a href="../faq/rm_what_is_deployed.html">
+            
+                    
+                    Check What's Deployed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.12" data-path="../faq/deploy_a_specific_build_to_an_environment.html">
+            
+                <a href="../faq/deploy_a_specific_build_to_an_environment.html">
+            
+                    
+                    Deploy a Specific Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.13" data-path="../faq/agent_guid_issue.html">
+            
+                <a href="../faq/agent_guid_issue.html">
+            
+                    
+                    Clone/Copy an Existing Agents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.14" data-path="../faq/oauth_overview.html">
+            
+                <a href="../faq/oauth_overview.html">
+            
+                    
+                    OAuth Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.15" data-path="../faq/what_is_oauth.html">
+            
+                <a href="../faq/what_is_oauth.html">
+            
+                    
+                    What is OAuth?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.16" data-path="../faq/job_rerun.html">
+            
+                <a href="../faq/job_rerun.html">
+            
+                    
+                    How do I re-run jobs?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.17" data-path="../faq/material_update_hung.html">
+            
+                <a href="../faq/material_update_hung.html">
+            
+                    
+                    Go unable to poll for changes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.18" data-path="../faq/artifact_integrity.html">
+            
+                <a href="../faq/artifact_integrity.html">
+            
+                    
+                    Artifact integrity verification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.19" data-path="../faq/notifications_page.html">
+            
+                <a href="../faq/notifications_page.html">
+            
+                    
+                    Email Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.20" data-path="../faq/admin_out_of_disk_space.html">
+            
+                <a href="../faq/admin_out_of_disk_space.html">
+            
+                    
+                    Running out of Disk Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../beta/">
+            
+                <a href="../beta/">
+            
+                    
+                    Beta features
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../beta/comment_on_pipeline_run.html">
+            
+                <a href="../beta/comment_on_pipeline_run.html">
+            
+                    
+                    Comment on a pipeline run
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../beta/plugin_upload.html">
+            
+                <a href="../beta/plugin_upload.html">
+            
+                    
+                    Plugin upload from within Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../release_history/">
+            
+                <a href="../release_history/">
+            
+                    
+                    Release History
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../release_history/whats_new_in_go.html">
+            
+                <a href="../release_history/whats_new_in_go.html">
+            
+                    
+                    What's New in Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" >
+            
+                <span>
+            
+                    
+                    Gitbook - Internal
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../installation/troubleshoot_installer.html">
+            
+                <a href="../installation/troubleshoot_installer.html">
+            
+                    
+                    Ignore this
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12.2" data-path="../faq/dev_use_current_revision_in_build.html">
+            
+                <a href="../faq/dev_use_current_revision_in_build.html">
+            
+                    
+                    Ignore this
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Backup GoCD Server</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="backup-gocd-server"><a name="backup-gocd-server" class="plugin-anchor" href="#backup-gocd-server"><i class="fa fa-link" aria-hidden="true"></i></a>Backup GoCD Server</h1>
+<p>You can use GoCD&apos;s administration interface to perform an One-Click Backup of Go. You can also perform the backup <a href="https://api.gocd.org/#backups" target="_blank">using the API</a>.</p>
+<h2 id="steps-to-initiate-backup"><a name="steps-to-initiate-backup" class="plugin-anchor" href="#steps-to-initiate-backup"><i class="fa fa-link" aria-hidden="true"></i></a>Steps to initiate backup</h2>
+<ul>
+<li>On the GoCD Administration page, click on the Backup tab.
+<img src="../resources/images/backup_tab.png" alt=""></li>
+<li>Click on &quot;BACKUP&quot;
+<img src="../resources/images/backup_button.png" alt=""></li>
+<li>Click &quot;PROCEED&quot;
+<img src="../resources/images/backup_proceed.png" alt=""><blockquote>
+<p>GoCD will be unusable during the backup process.</p>
+</blockquote>
+</li>
+<li>Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.</li>
+</ul>
+<h3 id="what-is-backed-up"><a name="what-is-backed-up" class="plugin-anchor" href="#what-is-backed-up"><i class="fa fa-link" aria-hidden="true"></i></a>What is backed up?</h3>
+<p>The backup will be performed into the <strong>{ARTIFACT_REPOSITORY_LOCATION}/serverBackups</strong> directory. {ARTIFACT_REPOSITORY_LOCATION} for your server can be found as mentioned <a href="../installation/configuring_server_details.html#artifact-repository-configuration">here</a>.</p>
+<p>The backup directory will be named <strong>backup_{TIMESTAMP}</strong> where the <strong>{TIMESTAMP}</strong> is the time when the backup was initiated.</p>
+<ul>
+<li>Database &#x2013; This is in a zip called <strong>db.zip</strong> . The zip has a single DB file called <strong>cruise.h2.db</strong></li>
+<li>Configuration &#x2013; This is in a zip called <strong>config-dir.zip</strong> . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD&apos;s internal configurations.</li>
+<li>XML Configuration Version Repo &#x2013; This is in a zip called <strong>config-repo.zip</strong> . This zip contains the Git repository of the XML configuration file.</li>
+<li>GoCD version &#x2013; This is a file called <strong>version.txt</strong> . This file contains the version of the GoCD server when the backup was initiated</li>
+</ul>
+<h3 id="what-is-not-backed-up"><a name="what-is-not-backed-up" class="plugin-anchor" href="#what-is-not-backed-up"><i class="fa fa-link" aria-hidden="true"></i></a>What is not backed up?</h3>
+<blockquote>
+<p>Please refer to the <a href="../installation/installing_go_server.html#location-of-files-after-installation-of-go-server">this</a> page to see what the {SERVER_INSTALLATION_DIR} location is on different platforms.</p>
+</blockquote>
+<p>The following are not backed up as a part of the GoCD backup process. Please ensure that these are manually backed up regularly.</p>
+<ul>
+<li>Artifacts - Please refer to <a href="../faq/admin_out_of_disk_space.html#move-the-artifact-repository-to-a-new-larger-drive">this section</a> to find out how to deal with artifacts</li>
+<li>Test Reporting Data - This is found at the location <strong>{SERVER_INSTALLATION_DIR}/db/shine</strong> . This contains the data used in the Failed Test History reporting</li>
+<li>Environment Variables - On Windows the environment variables that might be set for the user and on Linux the changes made to <strong>/etc/default/go-server</strong> are not backed up.</li>
+<li>Log Files</li>
+</ul>
+<h4 id="strategy-to-backup-artifacts-and-test-reporting-data"><a name="strategy-to-backup-artifacts-and-test-reporting-data" class="plugin-anchor" href="#strategy-to-backup-artifacts-and-test-reporting-data"><i class="fa fa-link" aria-hidden="true"></i></a>Strategy to backup Artifacts and Test Reporting Data</h4>
+<p>Artifacts and the Test Reporting Data keep getting new files and directories added to them. So, it is a good idea to use <strong>rsync</strong> to copy the contents of these two into a backup location.</p>
+<p><em>For Instance:</em> Lets say you have a copy of all the files till 12-02-2012 in a location. On 20-02-2012, you can do something like:</p>
+<pre><code class="lang-shell">rsync -avzP {ARTIFACT_LOCATION} {BACKUP_LOCATION}
+</code></pre>
+<p>This makes sure that only the files and directories that got newly added will be synced to the {BACKUP_LOCATION} and not the entire contents.</p>
+<h3 id="restoring-gocd-using-backup"><a name="restoring-gocd-using-backup" class="plugin-anchor" href="#restoring-gocd-using-backup"><i class="fa fa-link" aria-hidden="true"></i></a>Restoring GoCD using backup</h3>
+<blockquote>
+<p>Please refer to the <a href="../installation/installing_go_server.html#location-of-files-after-installation-of-go-server">this</a> page to see what the {SERVER_INSTALLATION_DIR} location is on different platforms.</p>
+</blockquote>
+<p>The restoration process is not automated and needs to be done manually. Please refer to the previous sections about the contents of the backup.</p>
+<h4 id="steps-to-restore"><a name="steps-to-restore" class="plugin-anchor" href="#steps-to-restore"><i class="fa fa-link" aria-hidden="true"></i></a>Steps to restore</h4>
+<ul>
+<li>In order to restore the GoCD server from a backup, the server must first be stopped. Make sure the process is completely dead before starting the restoration.</li>
+<li><p>Choose the backup directory that you want to restore from.</p>
+<blockquote>
+<p><strong>You cannot restore from a backup whose version is bigger than the version of the GoCD server being used.</strong><br>
+<em>For example:</em> If the backup is from version 12.3 and the server installation is of version 12.2, the restoration might not work. You can check the version of the backup from the <strong>version.txt</strong> file.</p>
+</blockquote>
+</li>
+<li><p>You might want to keep a copy of all the files and directories that are involved in restoration. This will help in troubleshooting if there was a problem. Following this, make sure all the destination directories mentioned in the following steps are empty.<br>
+<em>For example:</em> Before restoring the Database, make sure the <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> is backed up and the directory is emptied.</p>
+</li>
+<li>Database &#x2013; Unzip the <strong>db.zip</strong> found in the backup directory. Unzip will create a file called <strong>cruise.h2.db</strong> . Copy this file to the directory <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> .</li>
+<li>Configuration - Unzip the <strong>config-dir.zip</strong> into a temp directory. Copy all the files from this directory to <strong>{SERVER_INSTALLATION_DIR}/config</strong> directory on Windows and Mac or <strong>/etc/go</strong> on Linux.</li>
+<li>Configuration History - Unzip the <strong>config-repo.zip</strong> into temp directory. Recursively copy all the contents from this directory to <strong>{SERVER_INSTALLATION_DIR}/db/config.git</strong> .</li>
+<li>Make sure the ownership of all the files that are restored are the same as the user running the Go server.<br>
+<em>For example:</em> Make sure you run a &quot;chown -R go:go {SERVER_INSTALLATION_DIR}/db/h2db&quot; after Database restoration.</li>
+<li>Start the GoCD server</li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="command_repository.html" class="navigation navigation-prev " aria-label="Previous page: Command Repository">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="config_repo.html" class="navigation navigation-next " aria-label="Next page: Config Repository">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"description":"Use GoCD's administration interface or API to backup and restore GoCD server","keywords":"GoCD server, GoCD backup, administration interface, backup API","title":"Backup GoCD Server","level":"1.6.14","depth":2,"next":{"title":"Config Repository","level":"1.6.15","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"previous":{"title":"Command Repository","level":"1.6.13","depth":2,"path":"advanced_usage/command_repository.md","ref":"advanced_usage/command_repository.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/one_click_backup.md","mtime":"2017-12-09T17:05:44.692Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-09T17:08:30.068Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
