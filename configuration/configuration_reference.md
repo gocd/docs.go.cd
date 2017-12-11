@@ -38,17 +38,17 @@ keywords: GoCD configuration, reference index
             <a href="#admins">&lt;/admins&gt;</a>
         <a href="#security">&lt;/security&gt;</a>
         <a href="#mailhost">&lt;mailhost/&gt;</a>
-        <a href="#elastic">&lt;elastic&gt;</a>
-            <a href="#profiles">&lt;profiles&gt;</a>
-              <a href="#profile">&lt;profile&gt;</a>
-                <a href="#property">&lt;property&gt;</a>
-                  <a href="#key">&lt;key/&gt;</a>
-                  <a href="#value">&lt;value/&gt;</a>
-                <a href="#property">&lt;/property&gt;</a>
-              <a href="#profile">&lt;/profile&gt;</a>
-            <a href="#profiles">&lt;/profiles&gt;</a>
-        <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
+    <a href="#elastic">&lt;elastic&gt;</a>
+        <a href="#profiles">&lt;profiles&gt;</a>
+            <a href="#profile">&lt;profile&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                    <a href="#key">&lt;key/&gt;</a>
+                    <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+            <a href="#profile">&lt;/profile&gt;</a>
+        <a href="#profiles">&lt;/profiles&gt;</a>
+    <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#repositories">&lt;repositories&gt;</a>
         <a href="#repository">&lt;repository&gt;</a>
             <a href="#pluginConfiguration">&lt;pluginConfiguration/&gt;</a>
@@ -359,76 +359,6 @@ The `<mailhost>` element is used to configure mail notifications. Mail notificat
 <mailhost hostname="mailhost.yourcompany.com" port="25" username="go-user" password="crs123" tls="false" from="go@yourcompany.com" admin="goadministrator@yourcompany.com" />
 ```
 
-
-[top](#top)
-
-## &lt;elastic&gt; {#elastic}
-
-The `<elastic>` element is used to provide configurations for the elastic agents.
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| jobStarvationTimeout | No | Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be [notified](https://plugin-api.gocd.org/current/elastic-agents/#create-agent) to create a new elastic agent. |
-
-### Examples
-
-```xml
-<elastic jobStarvationTimeout="10">
-  <profiles>
-    <profile id="aws.small" pluginId="aws">
-      ...
-    </profile>
-  </profiles>
-</elastic>
-```
-
-[top](#top)
-
-
-## &lt;profiles&gt; {#profiles}
-
-`<profiles>` element specifies the profiles to configure elastic agents.
-
-There can be zero or more profiles.
-
-### Examples
-
-```xml
-<profiles>
-  <profile id="aws.small" pluginId="aws">
-    ...
-  </profile>
-</profiles>
-```
-
-[top](#top)
-
-## &lt;profile&gt; {#profile}
-
-`<profile>` specifies the [configuration](#property) to be used to to create an elastic-agent instance.
-A profile should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute.
-
-### Attributes
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| id       | Yes | Unique Id of profile.           |
-| pluginId | Yes | The Id of elastic-agent plugin. |
-
-### Example:
-
-```xml
-<profile id="ec2.small-us-east" pluginId="com.example.ec2">
-  <property>
-    <key>ami-id</key>
-    <value>ami-6ac7408f</value>
-  </property>
-  <property>
-    <key>region</key>
-    <value>us-east-1</value>
-  </property>
-</profile>
-```
 
 [top](#top)
 
@@ -774,6 +704,75 @@ Two users would be administrators, they are **Jez** and **lqiao**.
    <role>_readonly_member<role>
 </view>
 ```
+## &lt;elastic&gt; {#elastic}
+
+The `<elastic>` element is used to provide configurations for the elastic agents.
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| jobStarvationTimeout | No | Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be [notified](https://plugin-api.gocd.org/current/elastic-agents/#create-agent) to create a new elastic agent. |
+
+### Examples
+
+```xml
+<elastic jobStarvationTimeout="10">
+  <profiles>
+    <profile id="aws.small" pluginId="aws">
+      ...
+    </profile>
+  </profiles>
+</elastic>
+```
+
+[top](#top)
+
+
+## &lt;profiles&gt; {#profiles}
+
+`<profiles>` element specifies the profiles to configure elastic agents.
+
+There can be zero or more profiles.
+
+### Examples
+
+```xml
+<profiles>
+  <profile id="aws.small" pluginId="aws">
+    ...
+  </profile>
+</profiles>
+```
+
+[top](#top)
+
+## &lt;profile&gt; {#profile}
+
+`<profile>` specifies the [configuration](#property) to be used to to create an elastic-agent instance.
+A profile should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| id       | Yes | Unique Id of profile.           |
+| pluginId | Yes | The Id of elastic-agent plugin. |
+
+### Example:
+
+```xml
+<profile id="ec2.small-us-east" pluginId="com.example.ec2">
+  <property>
+    <key>ami-id</key>
+    <value>ami-6ac7408f</value>
+  </property>
+  <property>
+    <key>region</key>
+    <value>us-east-1</value>
+  </property>
+</profile>
+```
+
+[top](#top)
 
 
 ## &lt;config-repos&gt; {#config-repos}
