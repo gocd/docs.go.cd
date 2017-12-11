@@ -1879,17 +1879,17 @@
             <a href="#admins">&lt;/admins&gt;</a>
         <a href="#security">&lt;/security&gt;</a>
         <a href="#mailhost">&lt;mailhost/&gt;</a>
-        <a href="#elastic">&lt;elastic&gt;</a>
-            <a href="#profiles">&lt;profiles&gt;</a>
-              <a href="#profile">&lt;profile&gt;</a>
-                <a href="#property">&lt;property&gt;</a>
-                  <a href="#key">&lt;key/&gt;</a>
-                  <a href="#value">&lt;value/&gt;</a>
-                <a href="#property">&lt;/property&gt;</a>
-              <a href="#profile">&lt;/profile&gt;</a>
-            <a href="#profiles">&lt;/profiles&gt;</a>
-        <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
+    <a href="#elastic">&lt;elastic&gt;</a>
+        <a href="#profiles">&lt;profiles&gt;</a>
+            <a href="#profile">&lt;profile&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                    <a href="#key">&lt;key/&gt;</a>
+                    <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+            <a href="#profile">&lt;/profile&gt;</a>
+        <a href="#profiles">&lt;/profiles&gt;</a>
+    <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#repositories">&lt;repositories&gt;</a>
         <a href="#repository">&lt;repository&gt;</a>
             <a href="#pluginConfiguration">&lt;pluginConfiguration/&gt;</a>
@@ -2269,83 +2269,6 @@
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">mailhost</span> <span class="hljs-attr">hostname</span>=<span class="hljs-string">&quot;mailhost.yourcompany.com&quot;</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;25&quot;</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;go-user&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;crs123&quot;</span> <span class="hljs-attr">tls</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">from</span>=<span class="hljs-string">&quot;go@yourcompany.com&quot;</span> <span class="hljs-attr">admin</span>=<span class="hljs-string">&quot;goadministrator@yourcompany.com&quot;</span> /&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
-<h2 id="elastic"><a name="elastic" class="plugin-anchor" href="#elastic"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;elastic&gt; </h2>
-<p>The <code>&lt;elastic&gt;</code> element is used to provide configurations for the elastic agents.</p>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>jobStarvationTimeout</td>
-<td>No</td>
-<td>Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be <a href="https://plugin-api.gocd.org/current/elastic-agents/#create-agent" target="_blank">notified</a> to create a new elastic agent.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">elastic</span> <span class="hljs-attr">jobStarvationTimeout</span>=<span class="hljs-string">&quot;10&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aws.small&quot;</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;aws&quot;</span>&gt;</span>
-      ...
-    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">elastic</span>&gt;</span>
-</code></pre>
-<p><a href="#top">top</a></p>
-<h2 id="profiles"><a name="profiles" class="plugin-anchor" href="#profiles"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;profiles&gt; </h2>
-<p><code>&lt;profiles&gt;</code> element specifies the profiles to configure elastic agents.</p>
-<p>There can be zero or more profiles.</p>
-<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">profile</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aws.small&quot;</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;aws&quot;</span>&gt;</span>
-    ...
-  <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span>
-</code></pre>
-<p><a href="#top">top</a></p>
-<h2 id="profile"><a name="profile" class="plugin-anchor" href="#profile"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;profile&gt; </h2>
-<p><code>&lt;profile&gt;</code> specifies the <a href="#property">configuration</a> to be used to to create an elastic-agent instance.
-A profile should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
-<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>Unique Id of profile.</td>
-</tr>
-<tr>
-<td>pluginId</td>
-<td>Yes</td>
-<td>The Id of elastic-agent plugin.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example:</h3>
-<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">profile</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;ec2.small-us-east&quot;</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;com.example.ec2&quot;</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>ami-id<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>ami-6ac7408f<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>region<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>us-east-1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
-  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
-</code></pre>
-<p><a href="#top">top</a></p>
 <h2 id="ldap"><a name="ldap" class="plugin-anchor" href="#ldap"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;ldap&gt;  [<em>Deprecated</em>]</h2>
 <p>The <code>&lt;ldap&gt;</code> element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
@@ -2678,6 +2601,83 @@ lqiao=TfkgShslgJepX80c2JY1trwEskT
    <span class="hljs-tag">&lt;<span class="hljs-name">role</span>&gt;</span>_readonly_member<span class="hljs-tag">&lt;<span class="hljs-name">role</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">view</span>&gt;</span>
 </code></pre>
+<h2 id="elastic"><a name="elastic" class="plugin-anchor" href="#elastic"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;elastic&gt; </h2>
+<p>The <code>&lt;elastic&gt;</code> element is used to provide configurations for the elastic agents.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>jobStarvationTimeout</td>
+<td>No</td>
+<td>Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be <a href="https://plugin-api.gocd.org/current/elastic-agents/#create-agent" target="_blank">notified</a> to create a new elastic agent.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">elastic</span> <span class="hljs-attr">jobStarvationTimeout</span>=<span class="hljs-string">&quot;10&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">profile</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aws.small&quot;</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;aws&quot;</span>&gt;</span>
+      ...
+    <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">elastic</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="profiles"><a name="profiles" class="plugin-anchor" href="#profiles"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;profiles&gt; </h2>
+<p><code>&lt;profiles&gt;</code> element specifies the profiles to configure elastic agents.</p>
+<p>There can be zero or more profiles.</p>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">profiles</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">profile</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;aws.small&quot;</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;aws&quot;</span>&gt;</span>
+    ...
+  <span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">profiles</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="profile"><a name="profile" class="plugin-anchor" href="#profile"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;profile&gt; </h2>
+<p><code>&lt;profile&gt;</code> specifies the <a href="#property">configuration</a> to be used to to create an elastic-agent instance.
+A profile should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>Unique Id of profile.</td>
+</tr>
+<tr>
+<td>pluginId</td>
+<td>Yes</td>
+<td>The Id of elastic-agent plugin.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example:</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">profile</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;ec2.small-us-east&quot;</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;com.example.ec2&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>ami-id<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>ami-6ac7408f<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>region<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>us-east-1<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">profile</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
 <h2 id="config-repos"><a name="config-repos" class="plugin-anchor" href="#config-repos"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;config-repos&gt; </h2>
 <p>The <code>&lt;config-repos&gt;</code> element is a container of many <code>&lt;config-repo&gt;</code>.</p>
 <h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
@@ -5440,7 +5440,7 @@ allow certain variable names and/or values.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2017-12-09T17:05:44.695Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-09T17:08:30.068Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2017-12-11T05:21:23.304Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2017-12-11T05:23:05.034Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
