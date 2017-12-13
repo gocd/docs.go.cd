@@ -45,7 +45,7 @@ AGENT_BOOTSTRAPPER_JVM_ARGS="${PROXY_SETTINGS}"
 ## Configuring an agent on Windows
 
 
-Follow the [instructions](../install/agent/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for GoCD agents setup on windows, such as:
+Follow the [instructions](../installation/install/agent/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for GoCD agents setup on windows, such as:
 
 ```
 wrapper.java.additional.17="-Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts='localhost|*.department.acme.com'"
