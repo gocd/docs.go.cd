@@ -73,4 +73,14 @@ The GoCD agent installs its files in the following locations on your filesystem:
 /etc/default/go-agent  #contains all the environment variables with default values. These variable values can be changed as per requirement
 ```
 
+## Overriding default startup arguments and environment
+
+Users can override default startup arguments for a GoCD agent in a Linux machine by editing the file etc/default/go-agent.
+
+For e.g To enable Websocket communication between the server and agent, user can add the following GoCD agent system property
+
+```bash
+ export GO_AGENT_SYSTEM_PROPERTIES="$GO_AGENT_SYSTEM_PROPERTIES -Dgo.agent.websocket.enabled=true"
+ ```
+
 !INCLUDE "_register_with_server.md"
