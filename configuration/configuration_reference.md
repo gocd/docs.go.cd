@@ -2009,7 +2009,7 @@ There must be at least one job in stage.
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | name | Yes  | The name is used to identify a stage in the pipeline, so it has to be unique (case insensitive) for that `<pipeline>`. The available characters in stage name are following: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. |
-| fetchMaterials | No (Default: true) | Perform material updates or checkouts. Set this attribute to false to skip this operation. |
+| fetchMaterials | No (Default: true) | **Perform material updates or checkouts on the agent**. Set this attribute to false to skip this operation. |
 | cleanWorkingDir | No (Default: false) | Remove all files/directories in the working directory on the agent. By default this operation is skipped. |
 | artifactCleanupProhibited | No (Default: false) | Never cleanup artifacts for this stage, if purging artifacts is configured at the Server Level. |
 
