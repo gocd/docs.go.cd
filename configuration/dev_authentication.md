@@ -13,9 +13,17 @@ By default, GoCD does not require users to authenticate. However, users can be f
 
 You should be able to configure any number of Authorization plugins, GoCD would attempt authenticating the user with each plugin (in no specific order) until a successful authentication.
 
-A authenticated session has a default idle session timeout set to 14 days. The session timeout can be controlled by the system property `go.server.session.timeout.seconds`.
-
 GoCD forces a perodic re-authentication of users, this is to ensure any changes like removing of users or roles in the external authorization server are reflected in GoCD. The re-authentication interval is controlled by the system property `go.security.reauthentication.interval` which is defaulted to 30 minutes. The plugins could potentially be written in a way to detect such changes in the external system, and [notify](https://plugin-api.gocd.org/current/authorization/#invalidate-users-cache) GoCD server to force a reauthentication of users.
+
+##### Session configuration
+
+You could use one or more of the below to tweak the session config:
+
+| System property name | Default value | Description |
+|-----------|----------|-------------|
+| `go.server.session.timeout.seconds` | `1209600` (14 days)  | Idle session timeout (in seconds). Do not set this to `-1` else the session will never timeout. |
+| `go.sessioncookie.maxage.seconds` | `1209600` (14 days)  | Expiry of a session cookie. Set to `-1` to expire the cookie on browser close. Do not set to `0` as this will cause the cookie to expire immediately.|
+| `go.sessioncookie.secure` | `N`  | Set this to `Y` to allow a session cookie to be set only if the request was made over HTTPS. Do not set this property if the users access GoCD via HTTP url|
 
 ## Controlling User Access
 
