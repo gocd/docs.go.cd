@@ -61,7 +61,7 @@ The table below shows how the previous state can influence the triggered event:
 
 > I'll be emailed on all events for any stage of "regression" pipeline for my check-in
 
-Users can also select to get notifications for a particular (or all) event on any satge of any pipeline.
+Users can also select to get notifications for a particular (or all) event on any stage of any pipeline.
 
 ![](../resources/images/6_added_filter_any_pipeline.png)
 
