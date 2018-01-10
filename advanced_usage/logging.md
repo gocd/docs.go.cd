@@ -105,7 +105,7 @@ To configure logging, you can specify the configuration below. You must tweak th
 
 If you'd like to send log events to a log aggregator service (like logstash, graylog, splunk) of your choice, you may require additional configuration to be performed:
 
-* ensure that the relevant java libraries along with their dependencies are present in the `libs` directory
+* ensure that the relevant java libraries along with their dependencies are present in the `libs` directory, relative to the working directory of the GoCD server or agent process. The working directory is usually `/var/lib/go-{server,agent}` on linux, and `C:\Program Files\Go {Server,Agent}` on windows.
 * configure appenders and encoders in the relevant `logback-include.xml` file for your agent or server
 
 For e.g. to send logs to logstash (using [logstash-logback-encoder](https://github.com/logstash/logstash-logback-encoder)) one would need to perform the following:
