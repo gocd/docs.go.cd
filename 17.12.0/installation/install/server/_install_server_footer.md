@@ -13,5 +13,5 @@ To do this, the administrator should copy ```cruise-config.xml``` from the confi
 
 - [Installing GoCD agents](../../installing_go_agent.md)
 - [Configuring server details](../../configuring_server_details.md)
-- [Configure GoCD to work with a proxy](../../configure_proxy.md)
+- [Configure GoCD to work with a proxy](../../configure-reverse-proxy.md)
 - [Backing up a GoCD server](../../../advanced_usage/one_click_backup.md)
