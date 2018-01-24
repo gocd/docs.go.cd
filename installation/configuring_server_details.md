@@ -75,4 +75,4 @@ Certain features in GoCD, such as Mingle integration, require an HTTPS(SSL) endp
 ### Also see...
 
 -   [Installing GoCD agents](../installation/installing_go_agent.md)
--   [Configure GoCD to work with a proxy](../../configure-reverse-proxy.md)
+-   [Configure GoCD to work with a proxy](../installation/configure-reverse-proxy.md)
