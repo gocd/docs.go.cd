@@ -40,6 +40,6 @@ You can find logs in `~/Library/Application Support/Go Agent`. The `osx-app.log`
 
 ## Setting the server location without the GUI
 
-You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI ([be aware that this might not always work as you expect](../../configure_proxy.md#agents-and-custom-ssl-ports)). The properties file is located in `~/Library/Preferences/com.thoughtworks.go.agent.properties`, and has a `serverUrl` and a `sslVerificationMode` property.
+You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI ([be aware that this might not always work as you expect](../../configure-reverse-proxy.md#agents-and-reverse-proxies)). The properties file is located in `~/Library/Preferences/com.thoughtworks.go.agent.properties`, and has a `serverUrl` and a `sslVerificationMode` property.
 
 !INCLUDE "_register_with_server.md"
