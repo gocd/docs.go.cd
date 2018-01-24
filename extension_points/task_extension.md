@@ -68,7 +68,4 @@ Dload  Upload   Total   Spent    Left  Speed
 0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
 100   259  100   259    0     0    122      0  0:00:02  0:00:02 --:--:--   122
 ```
-
-GoCD provides two ways of writing a task plugin:
-* [JSON API - Message based](https://developer.gocd.org/current/writing_go_plugins/task/json_message_based_task_extension.html)
-* [Java API based (Deprecated)](https://developer.gocd.org/current/writing_go_plugins/task/writing_go_task_plugins.html)
+You can write a task plugin in GoCD using [JSON API - Message based](https://developer.gocd.org/current/writing_go_plugins/task/json_message_based_task_extension.html)
