@@ -26,7 +26,7 @@ Just after the line \#include ../conf/wrapper-license.conf, add
     - set.GO\_AGENT\_JAVA\_HOME=%GO\_AGENT\_DIR%\\jre
 - Run the following command
 ```
-sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent2\cruisewrapper.exe\" -s \"C:\Program Files\Go Agent2\config\wrapper-agent.conf\""
+sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent 2\cruisewrapper.exe\" -s \"C:\Program Files\Go Agent 2\config\wrapper-agent.conf\""
 ```
 - Start "GoAgent2" service
 
