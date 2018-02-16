@@ -1,6 +1,7 @@
 {
     "title": "Go User Documentation",
     "description": "Help documentation for Go.",
+    "currentBaseUrl": "https://docs.gocd.org/current",
     "links": {
         "sidebar": {
             "Home": "https://www.gocd.io",
