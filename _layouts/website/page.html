@@ -4,4 +4,5 @@
 
 {% block head %}
 <meta content="{{ page.keywords|default("continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques") }}" name="keywords" />
+    <link rel="canonical" href="{{ config.currentBaseUrl }}/{{file.path | replace('index.html.md','') | replace('INTRO.md','') | replace('README.md','') | replace('readme.md','') | replace('.md','.html') | replace('.adoc','.html')}}">
 {% endblock %}
