@@ -1,0 +1,7 @@
+{% extends template.self %}
+
+{% block description %}{{ page.description | default("GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.") }}{% endblock %}
+
+{% block head %}
+    <link rel="canonical" href="{{ config.currentBaseUrl }}/{{file.path | replace('index.html.md','') | replace('INTRO.md','') | replace('README.md','') | replace('readme.md','') | replace('.md','.html') | replace('.adoc','.html')}}"/>
+{% endblock %}
