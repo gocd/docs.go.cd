@@ -1,6 +1,7 @@
 {
     "title": "GoCD User Documentation",
     "description": "Help documentation for GoCD.",
+    "currentBaseUrl": "https://docs.gocd.org/current",
     "links": {
         "sidebar": {
             "Home": "https://www.gocd.org",
