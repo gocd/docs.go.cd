@@ -101,6 +101,7 @@ This is the summary of user documentation.
 * [GoCD Helm Chart](gocd_helm_chart/index.md)
     * [Introduction](gocd_helm_chart/introduction.md)
     * [Prerequisites](gocd_helm_chart/prerequisites.md)
+        * [Cluster setup](gocd_helm_chart/setup_cluster.md)
     * [Getting started](gocd_helm_chart/getting_started.md)
     * [Deploy a sample application](gocd_helm_chart/deploy_sample_application.md)
     * [DinD recommendations](gocd_helm_chart/dind_pitfalls_and_recommendations.md)

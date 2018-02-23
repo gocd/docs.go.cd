@@ -24,6 +24,6 @@ Please refer to the [helm install docs](https://github.com/kubernetes/helm/blob/
 #### Ingress controller
 
 The GoCD server is a web application. This means that to expose the GoCD server to the internet, we need to expose it as an ingress. Standard platformas like minikube, GKE etc come with an addon for ingress or with ingress enabled by default
-Please refer to the [cluster setup](set_up_cluster.md) for enabling ingress. 
+Please refer to the [cluster setup](setup_cluster.md) for enabling ingress. 
 
 #### Privileges
