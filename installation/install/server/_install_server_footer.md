@@ -2,7 +2,7 @@
 
 You can replicate a GoCD server with all the pipeline, stage, job, tasks and materials definitions/configuration intact.
 
-To do this, the administrator should copy ```cruise-config.xml``` from the config directory to the new server and clear
+To do this, the administrator should copy ```/etc/go/cruise-config.xml``` from the config directory (`/etc/go`) to the new server and clear
 `serverId` attribute of `server` tag.
 
 > **Note:** Copying just the ```cruise-config.xml``` file will not migrate the historical pipeline data and
