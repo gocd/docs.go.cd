@@ -104,7 +104,7 @@ This is the summary of user documentation.
         * [Cluster setup](gocd_helm_chart/setup_cluster.md)
     * [Getting started](gocd_helm_chart/getting_started.md)
     * [Deploy a sample application](gocd_helm_chart/deploy_sample_application.md)
-    * [DinD recommendations](gocd_helm_chart/dind_pitfalls_and_recommendations.md)
+    * [Docker Workflow Use-Cases](gocd_helm_chart/docker_use_cases_and_pitfalls.md)
     * [Troubleshooting](gocd_helm_chart/troubleshooting.md)
 * [FAQ/Troubleshooting](faq/index.md)
     * [Ordering of Pipelines](faq/ordering_of_pipelines.md)
