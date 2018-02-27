@@ -3,5 +3,13 @@
 {% block description %}{{ page.description | default("GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.") }}{% endblock %}
 
 {% block head %}
+    {% set skipLink = false %}
+    {% for name in config.skipCanonicalLinks %}
+        {% if name === file.path %}
+            {% set skipLink = true %}
+        {% endif %}
+    {% endfor %}
+    {% if not skipLink %}
     <link rel="canonical" href="{{ config.currentBaseUrl }}/{{file.path | replace('index.html.md','') | replace('INTRO.md','') | replace('README.md','') | replace('readme.md','') | replace('.md','.html') | replace('.adoc','.html')}}"/>
+    {% endif %}
 {% endblock %}
