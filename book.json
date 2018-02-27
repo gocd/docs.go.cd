@@ -2,6 +2,16 @@
     "title": "Go User Documentation",
     "description": "Help documentation for Go.",
     "currentBaseUrl": "https://docs.gocd.org/current",
+    "skipCanonicalLinks": [
+        "integration/go_integration.md",
+        "integration/mingle_integration.md",
+        "faq/what_is_opensocial.md",
+        "integration/gadgets.md",
+        "integration/mingle_card_activity_gadget.md",
+        "integration/mingle_in_go.md",
+        "installation/install/server/solaris.md",
+        "installation/install/agent/solaris.md"
+    ],
     "links": {
         "sidebar": {
             "Home": "https://www.gocd.io",
