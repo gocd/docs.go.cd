@@ -116,3 +116,29 @@ Go Server's config directory. The default value of this property is specified
 
 Changing this could have an impact on the ability to upgrade the Go Server, and
 so, it's not recommended to change this.
+
+<a id='go-spa-refresh-interval'></a>
+### go.spa.refresh.interval - GoCD SPA pages refresh interval time
+
+- Name: go.spa.refresh.interval
+- Type: [System property](#system-properties)
+- Restrictions: Should be the time duration specified in milliseconds
+- Default: 10000
+
+The GoCD SPA pages are refreshed periodically to ensure they have upto date information. 
+
+This property can be used to change the time interval at which these GoCD pages should be refreshed.
+
+Setting this to a lower value (<=5000) could have a performance impact on the GoCD server. 
+
+<a id='go-spa-timeout'></a>
+### go.spa.timeout	 - GoCD SPA pages request timeout
+
+- Name: go.spa.timeout
+- Type: [System property](#system-properties)
+- Restrictions: Should be the time duration specified in milliseconds
+- Default: 5000
+
+This property can be used to change the timeout value of AJAX requests made from the GoCD SPA pages.
+
+Setting this to a lower value (<5000) could result in AJAX requests being cancelled more frequently.
