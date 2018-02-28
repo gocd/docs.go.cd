@@ -13,6 +13,7 @@ This page is mainly for newer users of GoCD, to help with troubleshooting issues
 - [Mac OS X - Message related to Java 1.7](#mac_java)
 - [Unrecognized VM option "MaxMetaSpaceSize"](#upgrade-issues)
 - [Unsupported major.minor version 52.0](#upgrade-issues)
+- [GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)](#ajax-polling-interval)
 
 <a name="agent_registration"></a>
 ### GoCD Agent not registering with the GoCD Server
@@ -298,3 +299,17 @@ This error will be logged, in `<GO_LOG_DIR>/go-server.out.log` on server and
 
 Resolution: Update the environment variable JAVA_HOME set in `/etc/default/go-server`, `/etc/default/go-agent`
 to Java 8 path, and restart the GoCD server/agent.
+
+<a id="ajax-polling-interval"></a>
+### GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)
+
+The GoCD SPA page periodically makes AJAX API calls to fetch the current state of the entity and refreshes the page, this is done to ensure the information on the page is not stale.
+
+The AJAX API request has a timeout set to 5000 milliseconds, if the server does not respond within that duration the request is cancelled and an error is shown on the page.  
+
+<figure>
+  <img src="../resources/images/troubleshooting/error_8_request_timeout.png">
+</figure>
+
+Resolution: If this is happening, consider increase the timeout period by specifying the [go.spa.timeout](../advanced_usage/other_config_options.md#go-spa-timeout) 
+
