@@ -1934,6 +1934,27 @@ Go Server&apos;s config directory. The default value of this property is specifi
 <a href="../installation/installing_go_server.html#location-of-files-after-installation-of-go-server">here</a>.</p>
 <p>Changing this could have an impact on the ability to upgrade the Go Server, and
 so, it&apos;s not recommended to change this.</p>
+<p><a id="go-spa-refresh-interval"></a></p>
+<h3 id="gosparefreshinterval---gocd-spa-pages-refresh-interval-time"><a name="gosparefreshinterval---gocd-spa-pages-refresh-interval-time" class="plugin-anchor" href="#gosparefreshinterval---gocd-spa-pages-refresh-interval-time"><i class="fa fa-link" aria-hidden="true"></i></a>go.spa.refresh.interval - GoCD SPA pages refresh interval time</h3>
+<ul>
+<li>Name: go.spa.refresh.interval</li>
+<li>Type: <a href="#system-properties">System property</a></li>
+<li>Restrictions: Should be the time duration specified in milliseconds</li>
+<li>Default: 10000</li>
+</ul>
+<p>The GoCD SPA pages are refreshed periodically to ensure they have upto date information. </p>
+<p>This property can be used to change the time interval at which these GoCD pages should be refreshed.</p>
+<p>Setting this to a lower value (&lt;=5000) could have a performance impact on the GoCD server. </p>
+<p><a id="go-spa-timeout"></a></p>
+<h3 id="gospatimeout-------gocd-spa-pages-request-timeout"><a name="gospatimeout-------gocd-spa-pages-request-timeout" class="plugin-anchor" href="#gospatimeout-------gocd-spa-pages-request-timeout"><i class="fa fa-link" aria-hidden="true"></i></a>go.spa.timeout     - GoCD SPA pages request timeout</h3>
+<ul>
+<li>Name: go.spa.timeout</li>
+<li>Type: <a href="#system-properties">System property</a></li>
+<li>Restrictions: Should be the time duration specified in milliseconds</li>
+<li>Default: 5000</li>
+</ul>
+<p>This property can be used to change the timeout value of AJAX requests made from the GoCD SPA pages.</p>
+<p>Setting this to a lower value (&lt;5000) could result in AJAX requests being cancelled more frequently.</p>
 
                                 
                                 </section>
@@ -1977,7 +1998,7 @@ so, it&apos;s not recommended to change this.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"A list of advanced GoCD configuration options","keywords":"GoCD config, GoCD environment, system priority","title":"Other Config Options","level":"1.6.16","depth":2,"next":{"title":"Integrating GoCD With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"previous":{"title":"Config Repository","level":"1.6.15","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/other_config_options.md","mtime":"2018-02-27T08:16:34.668Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-27T08:22:33.192Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"A list of advanced GoCD configuration options","keywords":"GoCD config, GoCD environment, system priority","title":"Other Config Options","level":"1.6.16","depth":2,"next":{"title":"Integrating GoCD With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"previous":{"title":"Config Repository","level":"1.6.15","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/other_config_options.md","mtime":"2018-02-28T10:33:03.183Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-02-28T10:35:44.834Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
