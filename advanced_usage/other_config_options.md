@@ -137,8 +137,8 @@ Setting this to a lower value (<=5000) could have a performance impact on the Go
 - Name: go.spa.timeout
 - Type: [System property](#system-properties)
 - Restrictions: Should be the time duration specified in milliseconds
-- Default: 5000
+- Default: 60000
 
 This property can be used to change the timeout value of AJAX requests made from the GoCD SPA pages.
 
-Setting this to a lower value (<5000) could result in AJAX requests being cancelled more frequently.
+Setting this to a very low value (ie. <5000) could result in AJAX requests being cancelled more frequently.
