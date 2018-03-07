@@ -13,7 +13,9 @@ helm install incubator/gocd --name gocd --namespace gocd
 
 Once the cluster and the GoCD helm chart installation is completed, you're ready to use GoCD to build and deploy a containerized application to a Kubernetes cluster.
 
-1. The GoCD server dashboard can be accessed from the ingress IP. 
+### Access the GoCD server
+
+The GoCD server dashboard can be accessed from the ingress IP. 
  - On minikube, the IP address is the output of `minikube ip`
  - Generally, the IP address can be obtained by doing:
  
@@ -26,7 +28,7 @@ The first screen will look like -
 
 ![](../resources/images/gocd-helm-chart/first_screen.png)
 
-2. Create the build pipeline
+### Create the build pipeline
 
 This pipeline will be used for building a docker image from a dockerfile and pushing it to DockerHub.
 
@@ -55,7 +57,7 @@ Configure the dockerhub username as a parameter in the `Parameters` tab.
 - Configure the following tasks to push to DockerHub
 ![](../resources/images/gocd-helm-chart/tasks.png)
 
-3. Configure the Kubernetes Elastic Agent Plugin Settings
+### Configure the Kubernetes Elastic Agent Plugin Settings
 Now that the build pipeline is configured, let's focus on actually running the pipeline to build and push the docker image. 
 The GoCD Helm chart comes shipped with the [Kubernetes elastic agent](https://github.com/gocd/kubernetes-elastic-agents.git) to bring up the GoCD agent pods on demand. Everytime there is a job to execute, this plugin is responsible to bring up a pod in the kubernetes cluster to run the job.
 Refer to the [GoCD Elastic Agent blogpost](https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits/) to understand more about the GoCD Elastic Agents. 
@@ -79,9 +81,16 @@ Privileges:
     - namespace: list, get
     - pods, pods/log: *
 
+The token can be obtained by doing:
+
+```bash
+secret_name=$(kubectl --namespace=gocd get serviceaccount gocd-gocd -o jsonpath="{.secrets[0].name}")
+kubectl --namespace=gocd get secret $secret_name -o jsonpath="{.data['token']}" | base64 --decode
+```
+
 ![](../resources/images/gocd-helm-chart/plugin_settings.png)
 
-4. Create an elastic profile
+### Create an elastic profile
 An elastic profile is the configuration which is specific to the GoCD Elastic agent. While the plugin configuration deals the with global details about the Kubernetes cluster itself, the profile configuration can be used to bring up different kinds of agent pods within the same cluster to run different kinds of jobs.
 Details like the GoCD agent image and the resources that must be provided to the container is specified here.
 
@@ -89,15 +98,98 @@ To configure an elastic profile, go to Admin -> Elastic Profiles. Make sure to p
  
 ![](../resources/images/gocd-helm-chart/profile.png)
 
-5. Associate profile with jobs
+### Associate profile with jobs
 
 Now that the agent related setup is complete, we can associate the elastic profile with the `build_and_push_image` job and run the pipeline.
 
 ![](../resources/images/gocd-helm-chart/associate_job_and_profile.png)
 
-
-6. Run Pipeline and Verify
+### Run Pipeline and Verify
 
 Now that the build pipeline is configured. We can run it and verify that the docker image has been pushed. To run the pipeline, unpuase the pipeline in the GoCD dashboard. The changes in the source git repository is picked up automatically and the pipeline is triggered. 
 
 Once the pipeline run is finished, you can go to your DockerHub account and verify if the image has been pushed. 
+
+### Create the deploy pipeline 
+
+We can make use of the deploy pipeline to create a Kubernetes deployment with the pushed image. For every build, a new image is created with a new tag. 
+We will make use of a sample pod template and replace the namespace and image with the correct values from the pipeline. 
+
+```json
+{
+    "kind": "Pod",
+    "apiVersion": "v1",
+    "metadata":{
+        "name": "sample-app",
+        "namespace": "#{namespace}",
+        "labels": {
+            "name": "sample-app"
+        }
+    },
+    "spec": {
+        "containers": [{
+            "name": "sample-app",
+            "image": "#{image}",
+            "ports": [{"containerPort": 8080}]
+        }]
+    }
+}
+```
+
+- Navigate to Admin -> Pipelines. Click on `Create a pipeline within this group`
+
+- Specify the pipeline name as `Deploy_Application`
+
+- Specify the git material with url `https://github.com/varshavaradarajan/docker-workflow.git`
+
+- Create the `Deploy_Application` stage.
+
+- Create the `create_pod` job as follows:
+
+The task `sed -i "s/##{namespace}/$NAMESPACE/" sample-app-pod.json` replaces the namespace with the namespace you want the pod to be created in just before using the json to create the kubernetes resource.
+Note the extra `#`.
+
+![](../resources/images/gocd-helm-chart/create_pod.png)
+
+- Add a pipeline dependency
+
+We want the deploy pipeline to run only after the docker image is built. To ensure that, we can introduce the pipeline  `Build_And_Push_App_Image` as a material called `upstream`. 
+GoCD also exposes additional environment variables to use in builds when a pipeline depends on another pipeline.
+
+![](../resources/images/gocd-helm-chart/pipeline_dependency.png)
+
+- Add parameter `dockerhub_username`
+
+- Add environment variable `NAMESPACE` with the value of the namespace you want the pod to be created in. This will be used in the task you specified earlier.
+
+- Add a secure environment variable `KUBE_TOKEN`. This environment variable is needed when we make a Kubernetes API request The service account associated with the token must have pod creation privileges. For the sake of simplicity, let's choose the same service account token specified for the Kubernetes elastic agent plugin. The token can be obtained by doing:
+
+```bash
+secret_name=$(kubectl --namespace=gocd get serviceaccount gocd-gocd -o jsonpath="{.secrets[0].name}")
+kubectl --namespace=gocd get secret $secret_name -o jsonpath="{.data['token']}" | base64 --decode
+```
+
+![](../resources/images/gocd-helm-chart/env_vars_deploy.png)
+
+- Specify a sed task in `create_pod` to provide the right image. The task is as follows `sed -i "s/##{image}/#{dockerhub_username}\/sample-app:$GO_DEPENDENCY_LABEL_UPSTREAM/" sample-app-pod.json`
+
+- Specify a task to invoke the create_pod.sh script. 
+
+![](../resources/images/gocd-helm-chart/deploy_app_tasks.png)
+
+- Associate the `create_pod` job with the elastic_profile
+
+![](../resources/images/gocd-helm-chart/associate_job_with_profile.png)
+
+- Unpause the Deploy_Application pipeline
+
+
+### Verify the application
+
+Once the pipeline goes green, you can verify that the right pod has been created with
+
+```bash
+kubectl describe pod sample-app --namespace=NAMESPACE
+```
+
+Here, the namespace value is the same as the one specified as the environment variable in the `Deploy_Application` pipeline
