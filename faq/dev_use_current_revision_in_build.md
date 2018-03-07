@@ -142,6 +142,9 @@ environment variables available during every job run, set by GoCD. They are:
 | GO\_TO\_REVISION\_${material name or dest} | If you are using more than one material in your pipeline, the 'to' revision for each material is available. The environment variable is named with the material's "materialName" attribute. If "materialName" is not defined, then "dest" directory is used. Non alphanumeric characters are replaced with underscores ("\_"). | `123`
 | GO\_FROM\_REVISION | If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the oldest revision (when using only one material) | `121`
 | GO\_FROM\_REVISION\_${material name or dest} | If you are using more than one material in your pipeline, the 'from' revision for each material is available. The environment variable is named with the material's "materialName" attribute. If "materialName" is not defined, then "dest" directory is used. Non alphanumeric characters are replaced with underscores ("\_"). | `121`
+| GO\_MATERIAL\_HAS\_CHANGED | A boolean value indicating if the material revision has changed since the previous run (when using only one material) | `true`
+| GO\_MATERIAL\_${material name or dest}\_HAS\_CHANGED | When more than one material is configured for your pipeline, a flag would be available for each of the materials available to denote if the corresponding material's revision has changed since the previous run. The environment variable is named with the material's "materialName" attribute. If "materialName" is not defined, then "dest" directory is used. Non alphanumeric characters are replaced with underscores ("\_"). | `false`
+
 
 ## Use current revision in a build
 
