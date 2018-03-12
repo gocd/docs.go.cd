@@ -12,7 +12,7 @@
     <br>
     <br>
     <br>
-       <h1>GoCD Helm Chart</h1>
+       <h1>GoCD on Kubernetes</h1>
     </div>
     </body>
 </html>

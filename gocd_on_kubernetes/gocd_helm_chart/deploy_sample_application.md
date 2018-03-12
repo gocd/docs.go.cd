@@ -26,36 +26,36 @@ The GoCD server dashboard can be accessed from the ingress IP.
 
 The first screen will look like - 
 
-![](../resources/images/gocd-helm-chart/first_screen.png)
+![](../../resources/images/gocd-helm-chart/first_screen.png)
 
 ### Create the build pipeline
 
 This pipeline will be used for building a docker image from a dockerfile and pushing it to DockerHub.
 
 - Specify the pipline name and the group name like below: 
-![](../resources/images/gocd-helm-chart/pipeline_name.png)
+![](../..resources/images/gocd-helm-chart/pipeline_name.png)
 
 - Specify a git material with repo `https://github.com/varshavaradarajan/docker-workflow.git`
-![](../resources/images/gocd-helm-chart/pipeline_wizard_material.png)
+![](../../resources/images/gocd-helm-chart/pipeline_wizard_material.png)
 
 - Create a stage called `Build_And_Push_Image`
-![](../resources/images/gocd-helm-chart/pipeline_wizard_stage.png)
+![](../../resources/images/gocd-helm-chart/pipeline_wizard_stage.png)
 
 - Create a job `build_and_push_image` with an initial build task. The GO_PIPELINE_LABEL is an environment variable provided by GoCD which can be used to differentiate between builds from a repository. Here we are using that to determine the application image tag.
-![](../resources/images/gocd-helm-chart/pipeline_wizard_job.png)
+![](../../resources/images/gocd-helm-chart/pipeline_wizard_job.png)
 
 - Once you click on `Finish`, the pipeline is created. However, we still need to configure a number of tasks to push the image to DockerHub.
 Configure the dockerhub username as a parameter in the `Parameters` tab.
-![](../resources/images/gocd-helm-chart/parameters.png)
+![](../../resources/images/gocd-helm-chart/parameters.png)
 
 - Configure the dockerhub password as a secure variable in the `Environment Variables` tab.
-![](../resources/images/gocd-helm-chart/env_var.png)
+![](../../resources/images/gocd-helm-chart/env_var.png)
 
 - Edit the initial docker build task to include the dockerhub username. 
-![](../resources/images/gocd-helm-chart/edit_initial_task.png)
+![](../../resources/images/gocd-helm-chart/edit_initial_task.png)
 
 - Configure the following tasks to push to DockerHub
-![](../resources/images/gocd-helm-chart/tasks.png)
+![](../../resources/images/gocd-helm-chart/tasks.png)
 
 ### Configure the Kubernetes Elastic Agent Plugin Settings
 Now that the build pipeline is configured, let's focus on actually running the pipeline to build and push the docker image. 
@@ -63,7 +63,7 @@ The GoCD Helm chart comes shipped with the [Kubernetes elastic agent](https://gi
 Refer to the [GoCD Elastic Agent blogpost](https://www.gocd.org/2017/08/08/gocd-elastic-agents-benefits/) to understand more about the GoCD Elastic Agents. 
 
 - We must first configure the plugin to point to the right Kubernetes cluster and provide enough details so that the plugin will be able to bring up the agent pods. To configure the plugin, Navigate to the plugins page from the Admin dropdown. Click on the gear icon for the Kubernetes Elastic Agent plugin to edit the settings. 
-![](../resources/images/gocd-helm-chart/admin_dropdown.png)
+![](../../resources/images/gocd-helm-chart/admin_dropdown.png)
 
 - The GoCD server URL is required for the agents brought up by the plugin to connect to the GoCD server. An private GoCD server IP within the Kubernetes cluster can be obtained and specified.
 ```bash
@@ -88,7 +88,7 @@ secret_name=$(kubectl --namespace=gocd get serviceaccount gocd-gocd -o jsonpath=
 kubectl --namespace=gocd get secret $secret_name -o jsonpath="{.data['token']}" | base64 --decode
 ```
 
-![](../resources/images/gocd-helm-chart/plugin_settings.png)
+![](../../resources/images/gocd-helm-chart/plugin_settings.png)
 
 ### Create an elastic profile
 An elastic profile is the configuration which is specific to the GoCD Elastic agent. While the plugin configuration deals the with global details about the Kubernetes cluster itself, the profile configuration can be used to bring up different kinds of agent pods within the same cluster to run different kinds of jobs.
@@ -96,13 +96,13 @@ Details like the GoCD agent image and the resources that must be provided to the
 
 To configure an elastic profile, go to Admin -> Elastic Profiles. Make sure to provide an Docker In Docker image and check the privileged mode checkbox as we are using this profile to build the docker image.
  
-![](../resources/images/gocd-helm-chart/profile.png)
+![](../../resources/images/gocd-helm-chart/profile.png)
 
 ### Associate profile with jobs
 
 Now that the agent related setup is complete, we can associate the elastic profile with the `build_and_push_image` job and run the pipeline.
 
-![](../resources/images/gocd-helm-chart/associate_job_and_profile.png)
+![](../../resources/images/gocd-helm-chart/associate_job_and_profile.png)
 
 ### Run Pipeline and Verify
 
@@ -149,14 +149,14 @@ We will make use of a sample pod template and replace the namespace and image wi
 The task `sed -i "s/##{namespace}/$NAMESPACE/" sample-app-pod.json` replaces the namespace with the namespace you want the pod to be created in just before using the json to create the kubernetes resource.
 Note the extra `#`.
 
-![](../resources/images/gocd-helm-chart/create_pod.png)
+![](../../resources/images/gocd-helm-chart/create_pod.png)
 
 - Add a pipeline dependency
 
 We want the deploy pipeline to run only after the docker image is built. To ensure that, we can introduce the pipeline  `Build_And_Push_App_Image` as a material called `upstream`. 
 GoCD also exposes additional environment variables to use in builds when a pipeline depends on another pipeline.
 
-![](../resources/images/gocd-helm-chart/pipeline_dependency.png)
+![](../../resources/images/gocd-helm-chart/pipeline_dependency.png)
 
 - Add parameter `dockerhub_username`
 
@@ -169,17 +169,17 @@ secret_name=$(kubectl --namespace=gocd get serviceaccount gocd-gocd -o jsonpath=
 kubectl --namespace=gocd get secret $secret_name -o jsonpath="{.data['token']}" | base64 --decode
 ```
 
-![](../resources/images/gocd-helm-chart/env_vars_deploy.png)
+![](../../resources/images/gocd-helm-chart/env_vars_deploy.png)
 
 - Specify a sed task in `create_pod` to provide the right image. The task is as follows `sed -i "s/##{image}/#{dockerhub_username}\/sample-app:$GO_DEPENDENCY_LABEL_UPSTREAM/" sample-app-pod.json`
 
 - Specify a task to invoke the create_pod.sh script. 
 
-![](../resources/images/gocd-helm-chart/deploy_app_tasks.png)
+![](../../resources/images/gocd-helm-chart/deploy_app_tasks.png)
 
 - Associate the `create_pod` job with the elastic_profile
 
-![](../resources/images/gocd-helm-chart/associate_job_with_profile.png)
+![](../../resources/images/gocd-helm-chart/associate_job_with_profile.png)
 
 - Unpause the Deploy_Application pipeline
 
