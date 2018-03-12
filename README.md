@@ -51,7 +51,7 @@ CURRENT_VERSION=17.4.0 VERSION_TO_RELEASE=17.5.0  NEXT_VERSION=17.6.0 REMOTE_NAM
 ## License
 
 ```plain
-Copyright 2017 ThoughtWorks, Inc.
+Copyright 2018 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
