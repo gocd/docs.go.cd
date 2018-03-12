@@ -1,14 +1,17 @@
 ---
-description: The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.
-keywords: gocd helm chart, cd pipeline
+description: The GoCD Helm Chart page explains how to start a GoCD instance on kubernetes using Helm.
+keywords: gocd helm chart, cd pipeline, gocd kubernetes, gocd k8s
 ---
 
 # Introduction
 
-The GoCD Helm Chart can be used to install a set of kubernetes resources on a kubernetes cluster for a successful installation of the GoCD server and agents in the cluster.
+## Get started with GoCD on Kubernetes using the GoCD Helm Chart. 
 
-Note:This guide assumes that the users are familiar with the Helm package management for Kubernetes. For those of you who are unfamiliar with helm, please refer to the [helm documentation]() before starting with the GoCD Helm chart.
+*Note: This guide assumes that the users are familiar with the [Helm package management](https://helm.sh/) for Kubernetes.*
 
-The GoCD Helm Chart is currently present in the [incubator repo](https://hub.kubeapps.com/charts/incubator/gocd).
+Using the GoCD Helm Chart, you will be able to install a set of Kubernetes resources on a Kubernetes cluster. (for a successful installation of the GoCD server and agents in the cluster).
 
-Refer to the [prerequisites](prerequisites.md) section to start with the helm installation.  
+To get started, you'll need: 
+
+1. The GoCD Helm Chart - this is currently present in the [incubator repo](https://hub.kubeapps.com/charts/incubator/gocd).
+2. The required [pre-requisites](prerequisites.md) for a Kubernetes install before you start with the helm installation.  
