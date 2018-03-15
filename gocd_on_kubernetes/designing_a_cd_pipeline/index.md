@@ -12,7 +12,7 @@
     <br>
     <br>
     <br>
-       <h1>Getting Started with GoCD on Kubernetes</h1>
+       <h1>Designing a CD Pipeline</h1>
     </div>
     </body>
 </html>

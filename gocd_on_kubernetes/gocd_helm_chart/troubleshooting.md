@@ -19,7 +19,6 @@ keywords: gocd helm chart, faq, cd pipeline
 If the server is not starting up and has the following exception message in the logs, 
 
 
-
 Minikube is often used to easily develop and test out containerized workflows. Minikube allows mounting or sharing host files with the hypervisor and then in turn volume mounting to the docker containers brought up on the VM.
 
 The vboxsf and xhyve    

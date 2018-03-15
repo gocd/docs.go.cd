@@ -3,77 +3,52 @@ description: The GoCD Helm Chart page explains how to get started with GoCD for 
 keywords: gocd helm chart, cd pipeline
 ---
 
-## Prerequisites
+# Prerequisites
 
-#### Kubectl
+Before you can get started with GoCD on Kubernetes, make sure that you have taken a look at the list below. 
 
-The kubenetes CLI `kubectl` is used for cluster management purposes. The [Kubernetes install documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl/) provides various ways of installing `kubectl` for different platforms.  
+## Kubectl
 
-#### Helm Client
+The Kubernetes CLI `kubectl` is used for cluster management purposes. The Kubernetes [install documentation](https://kubernetes.io/docs/tasks/tools/install-kubectl/) provides various ways of installing kubectl for different platforms.
 
-The easiest way to install the helm client is using the install script.
+## Setting up a Kubernetes Cluster
+
+Before installing GoCD, you need to setup a Kubernetes cluster. You can do this using any of the following tools: 
+- Minikube ([setup guide](https://kubernetes.io/docs/getting-started-guides/minikube/))
+  
+  *Tip: Once minikube is installed, start minikube with the `kubeadm` bootstrapper.*
+  ```bash
+  minikube start --vm-driver=virtualbox --bootstrapper=kubeadm
+  ```
+
+- Google Kubernetes Engine or GKE ([setup guide](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster))
+  
+  *Tip: Once the cluster is running, execute the following command to see if kubectl is using right context.*
+  
+  ```bash
+    $ kubectl config current-context
+    gke_my-project_us-central1-a_gocd-cluster
+  ```
+
+- Kubernetes Operations on AWS/GCE or kops ([setup guide](https://github.com/kubernetes/kops/blob/master/docs/README.md)) 
+
+## Helm 
+
+Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are packages of pre-configured Kubernetes resources. Helm has two parts to it, a client and a server called `Tiller`. 
+
+The helm client is a CLI that let’s you install and update packaged applications on Kubernetes. 
+
+The simplest way to install the helm client is using the install script.
 
 ```bash
 $ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
 $ chmod 700 get_helm.sh
 $ ./get_helm.sh
 ```
+Please refer to the helm [install documentation](https://github.com/kubernetes/helm/blob/master/docs/install.md) for alternative methods of installation.
 
-Please refer to the [helm install docs](https://github.com/kubernetes/helm/blob/master/docs/install.md) for alternative methods of installation.
-
-#### Ingress controller
-
-The GoCD server is a web application. This means that to expose the GoCD server to the internet, we need to expose it as an ingress. Standard platformas like minikube, GKE etc come with an addon for ingress or with ingress enabled by default
-Please refer to the [cluster setup](setup_cluster.md) for enabling ingress. 
-
-#### Privileges
-
-The service account associated with the `Tiller` pod must have the permissions to perform `CRUD` operations on the following resources:
-
-| Resources                                     |
-| --------------------------------------------- |
-| Cluster Role                                  |
-| Cluster Role Binding                          |
-| Service Account                               |
-| Pod                                           |
-| Deployments                                   |
-| Service                                       |
-| Ingress                                       |
-| Persistent Volumes & Claims                   |
-
-Tiller needs cluster level privileges in order to perform operations on the above listed resources.
-Associating the service account with a cluster admin or equivalent role will ensure that the above resources can be created.
-
-
-On any existing Kubernetes cluster, create a cluster role binding to associate the service account with the cluster-admin or its equivalent role
-Usually, the Tiller pod is present in the `kube-system` namespace and associated with the `default` service account.
-
-The cluster-admin role is a cluster role that exists on GKE. To create the cluster admin role,
-
-```yaml
-apiVersion: rbac.authorization.k8s.io/v1
-kind: ClusterRole
-metadata:
-  name: cluster-admin
-rules:
-- apiGroups: [""]
-  resources: ["*"]
-  verbs: ["*"]
-```
-Associate the cluster role with the service account with a cluster role binding: 
+The helm server is installed as a Kubernetes pod and can be installed with the command:
 
 ```bash
-kubectl create clusterrolebinding clusterRoleBinding \
---clusterrole=cluster-admin \
---serviceaccount=kube-system:default
-```
-
-- Minikube
-
-The `kubeadm` toolkit helps to easily bootstrap a cluster so that the appropriate privileges are granted for performing CRUD operations on RBAC resources.
-
-Add the bootstrapper flag to the minikube start command like below. This may initally take several minutes to download and setup.
-
-```bash
-minikube start --bootstrapper kubeadm;
+$ helm init
 ```

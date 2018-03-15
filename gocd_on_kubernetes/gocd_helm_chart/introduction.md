@@ -3,12 +3,20 @@ description: The GoCD Helm Chart page explains how to get started with GoCD for 
 keywords: gocd helm chart, cd pipeline
 ---
 
-# Introduction
+# Installing GoCD on Kubernetes
 
-The GoCD Helm Chart can be used to install a set of kubernetes resources on a kubernetes cluster for a successful installation of the GoCD server and agents in the cluster.
+In this section, we’ll look at how to get an instance of GoCD up and running natively on Kubernetes. To help you get started, we’ll use an example deployment pipeline and elastic agents.
 
-Note:This guide assumes that the users are familiar with the Helm package management for Kubernetes. For those of you who are unfamiliar with helm, please refer to the [helm documentation]() before starting with the GoCD Helm chart.
+For getting started with GoCD on Kubernetes, we’ll follow these sequence of steps. 
 
-The GoCD Helm Chart is currently present in the [incubator repo](https://hub.kubeapps.com/charts/incubator/gocd).
+Step 1: Making sure the machine to run the cluster on is equipped with the [prerequisite software](prerequisites.md)
 
-Refer to the [prerequisites](prerequisites.md) section to start with the helm installation.  
+Step 2: Setting up a Kubernetes Cluster using minikube, GKE or kops 
+
+Step 3: [Configuring the cluster](configure_cluster.md) to make sure it’s ready to run GoCD
+
+Step 4: Installing the [GoCD Helm Chart](helm_install.md)
+
+Step 5: Configuring the GoCD Kubernetes [elastic agent plugin & elastic profile](configure_k8s_ea_plugin.md)
+
+Step 6: [Designing your Continuous Delivery pipeline](../designing_a_cd_pipeline/index.md) to deploy a sample application
