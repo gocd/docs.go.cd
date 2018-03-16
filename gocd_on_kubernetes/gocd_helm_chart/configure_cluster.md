@@ -3,7 +3,7 @@ description: The GoCD Helm Chart page explains how to get started with GoCD for 
 keywords: gocd helm chart, cd pipeline
 ---
 
-# Configuring your Kubernetes Cluster
+# Configure your Kubernetes Cluster
 
 Now that you have your Kubernetes cluster [set up and running](prerequisites.md), you’ll need to make the following configuration changes.
 
@@ -54,7 +54,7 @@ $ kubectl create clusterrolebinding clusterRoleBinding \
 To enable ingress for kops, you can configure an ingress controller of your own or an [ingress addon](https://github.com/kubernetes/kops/tree/master/addons) provided by kops.
 
 
-#### Configuration on kops
+#### Configure service account
 
 Kops requires a cluster role and cluster role binding to be set up for the service account associated with the `Tiller` pod.
 
