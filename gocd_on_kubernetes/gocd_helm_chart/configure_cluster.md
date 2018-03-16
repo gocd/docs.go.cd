@@ -3,9 +3,9 @@ description: The GoCD Helm Chart page explains how to get started with GoCD for 
 keywords: gocd helm chart, cd pipeline
 ---
 
-# Configuring your Kubernetes Cluster 
+# Configuring your Kubernetes Cluster
 
-Now that you have your Kubernetes cluster [set up and running](prerequisites.md), you’ll need to make these configuration changes before you can begin the installation of GoCD. 
+Now that you have your Kubernetes cluster [set up and running](prerequisites.md), you’ll need to make these configuration changes before you can begin the installation of GoCD.
 
 ## Enable Ingress
 
@@ -21,15 +21,15 @@ $ minikube addons enable ingress
 ```
 
 ### Enable Ingress for GKE
-GKE comes with Ingress enabled by default. 
+GKE comes with Ingress enabled by default.
 
 ### Enable Ingress for kops
-To enable ingress for kops, you can configure an ingress controller of your own or an [ingress addon](https://github.com/kubernetes/kops/tree/master/addons) provided by kops. 
+To enable ingress for kops, you can configure an ingress controller of your own or an [ingress addon](https://github.com/kubernetes/kops/tree/master/addons) provided by kops.
 
-## Permissions for the Service Account 
+## Permissions for the Service Account
 
 A service account is how Kubernetes manages **roles and permissions**. Before you install GoCD, you’ll need to make sure that the service account associated with the `Tiller` pod has the permissions to perform `CRUD` operations on the following resources:
- 
+
 - Cluster Role
 - Cluster Role Binding
 - Service Account
@@ -39,7 +39,7 @@ A service account is how Kubernetes manages **roles and permissions**. Before yo
 - Ingress
 - Persistent Volumes & Claims
 
-### Why do you need to do this? 
+### Why do you need to do this?
 
 The `Tiller` pod needs cluster level privileges in order to perform operations on the above listed resources. Associating the service account with a cluster admin or equivalent role will ensure that the above resources can be created.
 
@@ -68,7 +68,7 @@ $ kubectl create clusterrolebinding clusterRoleBinding \
 
 Kops requires a cluster role and cluster role binding to be set up for the service account for the `Tiller` pod.
 
-To create the cluster admin role,
+To create the cluster admin role, apply the following resource descriptor:
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
