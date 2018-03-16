@@ -109,6 +109,8 @@ This is the summary of user documentation.
         * [Creating a build pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md)
         * [Elastic profiles](gocd_on_kubernetes/designing_a_cd_pipeline/elastic_profiles.md)
         * [Docker workflows](gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md)
+        * [Configure the build pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md)
+        * [Configure the deploy pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md)
     * [Troubleshooting](gocd_on_kubernetes/gocd_helm_chart/troubleshooting.md)
 
 * [FAQ/Troubleshooting](faq/index.md)
