@@ -10,7 +10,7 @@ In this section, we cover how to design CD pipelines that build and publish appl
 
 In this example, we’ll build a docker image artifact and publish it to DockerHub.
 
-1. Specify the [pipeline](https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline) name and the group name.
+1. Specify the [pipeline](https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline) name and the group name as `build_and_publish_image` and `kubernetes_app_deployment` respectively.
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_pipeline.png)
 
@@ -67,7 +67,7 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
 ## Associate the job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have associated the [elastic profile]((../gocd_helm_chart/configure_k8s_ea_plugin.md#create-an-elastic-profile)) we previously with the job to be executed. In our example of building a pipeline for GoCD on Kubernetes, we’ve used `build_and_publish_image` . Once you’ve associated the job to the profile, you’re ready to run the pipeline.
+Before you can run the pipeline, you’ll need to make sure you have associated the [elastic profile](elastic_profiles.md) we previously with the job to be executed. In our example of building a pipeline for GoCD on Kubernetes, we’ve used `build_and_publish_image` . Once you’ve associated the job to the profile, you’re ready to run the pipeline.
 
   ![](../../resources/images/gocd-helm-chart/associate_job_with_profile.png)
 
