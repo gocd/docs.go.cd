@@ -100,7 +100,7 @@ This is the summary of user documentation.
     * [Configuration repository Extension](extension_points/configrepo_extension.md)
 * [GoCD on Kubernetes](gocd_on_kubernetes/index.md)
     * [Introduction](gocd_on_kubernetes/introduction.md)
-    * [GoCD Helm Chart](gocd_on_kubernetes/gocd_helm_chart/introduction.md)
+    * [Setup and configuration](gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.md)
         * [Prerequisites](gocd_on_kubernetes/gocd_helm_chart/prerequisites.md)
         * [Configure your Kubernetes Cluster](gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md)
         * [Install the GoCD Helm chart](gocd_on_kubernetes/gocd_helm_chart/helm_install.md)
@@ -108,7 +108,7 @@ This is the summary of user documentation.
     * [Designing a CD Pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/index.md)
         * [Docker workflows](gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md)
     * [Troubleshooting](gocd_on_kubernetes/gocd_helm_chart/troubleshooting.md)
-        
+
 * [FAQ/Troubleshooting](faq/index.md)
     * [Ordering of Pipelines](faq/ordering_of_pipelines.md)
     * [Historical Configuration](faq/stage_old_config.md)

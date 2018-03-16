@@ -12,7 +12,7 @@
     <br>
     <br>
     <br>
-       <h1>Step 2: Designing a CD Pipeline</h1>
+       <h1>Step 1: Setup and Configuration</h1>
     </div>
     </body>
 </html>
