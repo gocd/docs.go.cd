@@ -27,7 +27,9 @@ In this example, we’ll build a docker image artifact and publish it to DockerH
    docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
 ```
 
-  The `GO_PIPELINE_LABEL` is an environment variable provided by GoCD which can be used to differentiate between builds from a repository. Here we are using that to determine the application image tag.
+  > The `GO_PIPELINE_LABEL` is an environment variable provided by GoCD which can be used to differentiate between builds from a repository. 
+  
+  Here we are using `GO_PIPELINE_LABEL` to determine the application image tag.
 
   *Note: This is the job that we have to associate with the elastic agent profile that we created earlier.*
 
@@ -73,7 +75,7 @@ Before you can run the pipeline, you’ll need to make sure you have associated 
 
 ## Verifying your build pipeline
 
-Now that the build pipeline is configured, we can run it and verify that the docker image has been pushed. To run the pipeline, `unpuase` the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
+Now that the build pipeline is configured, we can run it and verify that the docker image has been pushed. To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
 
 Once the pipeline run is finished, you can go to your DockerHub account to verify if the image has been pushed.
 

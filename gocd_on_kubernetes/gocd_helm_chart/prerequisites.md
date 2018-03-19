@@ -34,10 +34,12 @@ Before installing GoCD, you need to setup a Kubernetes cluster. You can do this 
 
 ## 3. Install the Kubernetes package manager - Helm
 
-Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes. Helm has two parts to it, a client and a server called `Tiller`.
+> Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes. 
+
+Helm has two parts to it, a client and a server called `Tiller`.
 
 #### Install the Helm client
-The helm client is a CLI that let’s you install and update packaged applications on Kubernetes.
+> The helm client is a CLI that let’s you install and update packaged applications on Kubernetes.
 
 The simplest way to install the helm client is using the install script.
 

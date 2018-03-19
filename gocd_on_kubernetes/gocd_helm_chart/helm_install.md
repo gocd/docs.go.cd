@@ -5,7 +5,7 @@ keywords: gocd helm chart, cd pipeline
 
 # Install the GoCD Helm chart
 
-Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.  
+> Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.  
 
 
 Install the GoCD Helm chart with this command:
