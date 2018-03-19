@@ -9,10 +9,3 @@ keywords: gocd helm chart, cd pipeline
 To configure an elastic profile, go to Admin -> Elastic Profiles. Make sure you provide a [Docker In Docker](../designing_a_cd_pipeline/docker_workflows.md) image and check the ‘Privileged mode’ checkbox. This mode is essential to run the Docker in Docker image.
 
 ![](../../resources/images/gocd-helm-chart/profile.png)
-
-
-### Associate elastic profile with jobs
-
-Now we need to associate the elastic profile with the `build_and_publish_image` job and run the pipeline.
-
-![](../../resources/images/gocd-helm-chart/associate_job_and_profile.png)

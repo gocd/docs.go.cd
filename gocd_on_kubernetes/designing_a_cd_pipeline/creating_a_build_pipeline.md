@@ -67,16 +67,19 @@ At this point, we have created a pipeline but we need to configure the tasks to 
   
   ![](../../resources/images/gocd-helm-chart/docker_push.png)
 
-## Associate the job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have associated the [elastic profile](elastic_profiles.md) we previously with the job to be executed. In our example of building a pipeline for GoCD on Kubernetes, we’ve used `build_and_publish_image` . Once you’ve associated the job to the profile, you’re ready to run the pipeline.
+## Associate job with the elastic profile
+
+Before you can run the pipeline, you’ll need to make sure you have associated the [elastic profile](elastic_profiles.md) with the job to be executed. 
+
+In our example of building a pipeline for GoCD on Kubernetes, we’ve used `build_and_publish_image` . Once you’ve associated the job to the profile, you’re ready to run the pipeline.
 
   ![](../../resources/images/gocd-helm-chart/associate_job_with_profile.png)
 
-## Verifying your build pipeline
+## Verifying your pipeline
 
-Now that the build pipeline is configured, we can run it and verify that the docker image has been pushed. To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
+Now that the pipeline has been configured, we can run it and verify that the docker image has been pushed. To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes from the source git repository gets picked up automatically when the pipeline is triggered.
 
-Once the pipeline run is finished, you can go to your DockerHub account to verify if the image has been pushed.
+Once the pipeline has run successfully, you can go to your DockerHub account to verify if the image has been published.
 
-In the [next section](creating_a_deploy_pipeline.md), we look at how to configure the deploy pipeline to deploy the sample application onto a kubernetes cluster.
+In our [next section](creating_a_deploy_pipeline.md), we'll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.
