@@ -31,18 +31,17 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_pipeline_dep.png)
 
+7. Add the `NAMESPACE`, `DOCKERHUB_USERNAME` and `KUBE_TOKEN` environment variables.
 
-7. Add the `NAMESPACE`, `DOCKERHUB_USERNAME` and `KUBE_TOKEN` environment variables. 
-    
     > The `KUBE_TOKEN` environment variable is needed when we make a Kubernetes API requests to create deployments, service and ingress.
     For convenience, you can use the secret associated with the service account we used to start the `Tiller` pod: `kube-system:default`.  
-    
+
     ```bash
     kubectl describe sa default --namespace kube-system // to obtain the secret name
     kubectl describe secrets <token_name> --namespace kube-system
-    ``` 
+    ```
 
-    ![](../../resources/images/gocd-helm-chart/deploy_add_pipeline_dep.png)
+    ![](../../resources/images/gocd-helm-chart/env_vars_deploy.png)
 
 8. Configure a task to call the `application-deployment.sh` script.
 
@@ -50,13 +49,13 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 ## Associate job with the elastic profile
 
-Before you can run the pipeline to deploy your application, you’ll need to make sure you have associated the required [elastic profile](elastic_profiles.md) to the job to be executed. 
+Before you can run the pipeline, you’ll need to make sure you have create and associated an [elastic profile](elastic_profiles.md) with the job to be executed. You can do so on the `Job Settings` tab of a job.
 
 ![](../../resources/images/gocd-helm-chart/deploy_associate_with_profile.png)
 
 ## Verifying your deploy pipeline
 
-Now that the deploy pipeline is configured, we can run it and verify that the deployment has been completed. 
+Now that the deploy pipeline is configured, we can run it and verify that the deployment has been completed.
 
 > To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
 

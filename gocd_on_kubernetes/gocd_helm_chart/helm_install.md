@@ -20,7 +20,7 @@ After you’ve installed the GoCD helm chart, you should be able to access the G
 
 The Ingress IP address can be obtained by using:
 ```bash
-$ ip=$(kubectl get ingress --namespace gocd gocd-gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+$ ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
 $ echo "http://$ip"
 ```
 
@@ -33,4 +33,4 @@ $ minikube ip
 The GoCD server on startup will look like this.
 ![](../../resources/images/gocd-helm-chart/first_screen.png)
 
-Now that you have accessed the dashboard successfully, you will need to configure the Kubernetes elastic agent plugin. 
+Now that you have accessed the dashboard successfully, you will need to configure the Kubernetes elastic agent plugin.

@@ -107,9 +107,9 @@ This is the summary of user documentation.
         * [Configure the Kubernetes Elastic Agent Plugin](gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md)
     * [Designing a CD Pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/index.md)
         * [Creating a build pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md)
-        * [Configure the deploy pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md)
-        * [Elastic profiles](gocd_on_kubernetes/designing_a_cd_pipeline/elastic_profiles.md)
+        * [Creating a deployment pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md)
         * [Docker workflows](gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md)
+        * [Elastic profiles](gocd_on_kubernetes/designing_a_cd_pipeline/elastic_profiles.md)
     * [Troubleshooting](gocd_on_kubernetes/gocd_helm_chart/troubleshooting.md)
 
 * [FAQ/Troubleshooting](faq/index.md)

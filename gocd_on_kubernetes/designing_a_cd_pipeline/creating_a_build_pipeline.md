@@ -10,25 +10,27 @@ In this section, we cover how to design CD pipelines that build and publish appl
 
 In this example, we’ll build a docker image artifact and publish it to DockerHub.
 
-1. Specify the [pipeline](https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline) name and the group name as `build_and_publish_image` and `kubernetes_app_deployment` respectively.
+1. Click on the `Pipelines` link on the top menu to create your first pipeline.
+
+2. Specify the [pipeline](https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline) name and the group name as `build_and_publish_image` and `kubernetes_app_deployment` respectively.
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_pipeline.png)
 
-2. Specify a git [material](https://docs.gocd.org/current/introduction/concepts_in_go.html#materials) with repository `https://github.com/bdpiparva/node-bulletin-board`.
+3. Specify a git [material](https://docs.gocd.org/current/introduction/concepts_in_go.html#materials) with repository `https://github.com/bdpiparva/node-bulletin-board`.
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_material.png)
 
-3. Create a [stage](https://docs.gocd.org/current/introduction/concepts_in_go.html#stage) called `build_and_publish_image`.
+4. Create a [stage](https://docs.gocd.org/current/introduction/concepts_in_go.html#stage) called `build_and_publish_image`.
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_stage.png)
 
-4. Create a [job](https://docs.gocd.org/current/introduction/concepts_in_go.html#job) called `build_and_publish_image` with an initial task argument
+5. Create a [job](https://docs.gocd.org/current/introduction/concepts_in_go.html#job) called `build_and_publish_image` with an initial task argument
 ```bash
    docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
 ```
 
-  > The `GO_PIPELINE_LABEL` is an environment variable provided by GoCD which can be used to differentiate between builds from a repository. 
-  
+  > The `GO_PIPELINE_LABEL` is an environment variable provided by GoCD which can be used to differentiate between builds from a repository.
+
   Here we are using `GO_PIPELINE_LABEL` to determine the application image tag.
 
   *Note: This is the job that we have to associate with the elastic agent profile that we created earlier.*
@@ -44,7 +46,7 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
   ![](../../resources/images/gocd-helm-chart/configure_env_vars.png)
 
-2. Create a task for the following command that executes tests.
+2. Create a task under the `build_and_publish_image` stage with the following command that executes tests.
 
   ```bash
     docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL npm test
@@ -64,15 +66,18 @@ At this point, we have created a pipeline but we need to configure the tasks to 
   ```bash
     docker push $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL
   ```
-  
+
   ![](../../resources/images/gocd-helm-chart/docker_push.png)
 
+3. This is what the `Tasks` under the `build_and_publish_image` stage should look like once you finish this configuration
+
+  ![](../../resources/images/gocd-helm-chart/build_and_publish_image_tasks.png)
 
 ## Associate job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have associated the [elastic profile](elastic_profiles.md) with the job to be executed. 
+Before you can run the pipeline, you’ll need to make sure you have create and associated an [elastic profile](elastic_profiles.md) with the job to be executed. You can do so on the `Job Settings` tab of a job.
 
-In our example of building a pipeline for GoCD on Kubernetes, we’ve used `build_and_publish_image` . Once you’ve associated the job to the profile, you’re ready to run the pipeline.
+In our example of building a pipeline for GoCD on Kubernetes, we're going to set the elastic profile for the `build_and_publish_image` job. Once you’ve associated the job to the profile, you’re ready to run the pipeline.
 
   ![](../../resources/images/gocd-helm-chart/associate_job_with_profile.png)
 
