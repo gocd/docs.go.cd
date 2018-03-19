@@ -2,7 +2,7 @@
 description: The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.
 keywords: gocd helm chart, cd pipeline
 ---
-# Creating a pipeline to deploy the published artifact
+# Create a pipeline to deploy the published artifact
 
 In this section, we’ll learn to design a deployment pipeline to deploy to Kubernetes. After you've designed and run the build pipeline, you'll see that for every successful build, a new image gets created with a new tag. To create a pipeline to deploy the published artifact, follow these steps:   
 
