@@ -4,11 +4,11 @@ keywords: gocd helm chart, cd pipeline
 ---
 # Create a pipeline to build and publish your application image
 
-In this section, we cover how to design CD pipelines that build and publish application image. 
+In this section, we cover how to design CD pipelines that build and publish application image. As an example, we've used a [sample node application](https://github.com/bdpiparva/node-bulletin-board) called 'Bulletin Board'.
 
 ## Build an application artifact
 
-In this example, we’ll build a docker image artifact and publish it to DockerHub. To do this, you'll need a [Dockerhub](https://hub.docker.com) account. 
+We’ll build our application as a docker image artifact and publish it to DockerHub. To do this, you'll need a [Dockerhub](https://hub.docker.com) account. 
 
 1. Click on the `Pipelines` link on the top menu to create your first pipeline.
 
@@ -41,21 +41,22 @@ In this example, we’ll build a docker image artifact and publish it to DockerH
 
 At this point, we have created a pipeline but we need to configure the tasks to push the image to DockerHub. To do this,
 
-
 1. Configure the `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD` as environment variables.
 
   ![](../../resources/images/gocd-helm-chart/configure_env_vars.png)
 
-2. Create a task under the `build_and_publish_image` stage with the following command that executes tests.
+2. Create a task under the `build_and_publish_image` stage with the following command that executes tests. We have included sample tests for our application.
+
+*Tip: Use the tree on the left to navigate to the Job `build_and_publish_image`. Once you're here, you can create the tasks under the Tasks tab.*
 
   ```bash
     docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL npm test
   ```
-  *Note:Choose the More option in the Add New Task dropdown*
+  *Tip: Choose the More option in the Add New Task dropdown.*
 
   ![](../../resources/images/gocd-helm-chart/docker_test.png)
 
-3. Create tasks for the following Docker commands that push the image to Dockerhub.
+3. Create tasks for the following Docker commands that will push the image to Dockerhub.
 
   ```bash
     docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
@@ -69,15 +70,19 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
   ![](../../resources/images/gocd-helm-chart/docker_push.png)
 
-3. This is what the `Tasks` under the `build_and_publish_image` stage should look like once you finish this configuration
+4. This is what the `Tasks` under the `build_and_publish_image` job should look like once you finish this configuration
 
   ![](../../resources/images/gocd-helm-chart/build_and_publish_image_tasks.png)
 
 ## Associate job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have [created an elastic profile](elastic_profiles.md) and associated it with the job to be executed. You can do so on the `Job Settings` tab of a job.
+Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. For this, you must have [elastic profiles added](elastic_profiles.md).
 
-In our example of building a pipeline for GoCD on Kubernetes, we're going to set the elastic profile for the `build_and_publish_image` job. Once you’ve associated the job to the profile, you’re ready to run the pipeline.
+In this example, we're going to set the elastic profile for the `build_and_publish_image` job. To do this, go to the `Job Settings` tab of the specific job.
+
+*Tip: Use the tree on the left to navigate to the job `build_and_publish_image`. Once you're here, you can associate the profile ID under the Job Settings tab.*
+
+Once you’ve associated the job to the profile, you’re ready to run the pipeline.
 
   ![](../../resources/images/gocd-helm-chart/associate_job_with_profile.png)
 

@@ -20,15 +20,18 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_stage.png)
 
-5. Create the initial job `deploy_to_cluster`. The initial task argument is `sed -i "s/##{image}/$DOCKERHUB_USERNAME\/bulletin-board:$GO_DEPENDENCY_LABEL_UPSTREAM/" bulletin-board-deployment.json`.
-*Note the extra '#'.*
+5. Create the initial job `deploy_to_cluster`. The initial task argument is
+
+    `sed -i "s/##{image}/$DOCKERHUB_USERNAME\/bulletin-board:$GO_DEPENDENCY_LABEL_UPSTREAM/" bulletin-board-deployment.json`
+
+    *Note the extra '#'. GoCD offers additional environment variables (like $GO_DEPENDENCY_LABEL_*)to use in builds when a pipeline depends on another pipeline. We'll look at how to configure a dependency in the next step.*
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_job.png)
 
-6. Add a pipeline dependency
+6. Introduce the pipeline `build_and_publish_image` as a material called `upstream`. 
 
-    We want the deploy pipeline to run only after the docker image is built. To ensure that, we can introduce the pipeline Build_And_Push_App_Image as a material called 'upstream'. GoCD also exposes additional environment variables to use in builds when a pipeline depends on another pipeline.
-
+    We want to add the earlier pipeline to build the app as a dependency as we want this pipeline to run only after the docker image is built. 
+    
     ![](../../resources/images/gocd-helm-chart/deploy_add_pipeline_dep.png)
 
 7. Add the `NAMESPACE`, `DOCKERHUB_USERNAME` and `KUBE_TOKEN` environment variables.
@@ -43,13 +46,19 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
     ![](../../resources/images/gocd-helm-chart/env_vars_deploy.png)
 
-8. Configure a task to call the `application-deployment.sh` script.
+8. Configure a task to call the `./app-deployment.sh` script.
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_task.png)
 
 ## Associate job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have [created an elastic profile](elastic_profiles.md) and associated it with the job to be executed. You can do so on the `Job Settings` tab of a job.
+*Note: You’ll need to make sure you have [created an elastic profile](elastic_profiles.md) before you proceed.*
+
+Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. To do this, go to the `Job Settings` tab of the specific job.
+
+*Tip: Use the tree on the left to navigate to the job `deploy_to_cluster`. Once you're here, you can associate the profile ID under the Job Settings tab.*
+
+Once you’ve associated the job to the profile, you’re ready to run the pipeline.
 
 ![](../../resources/images/gocd-helm-chart/deploy_associate_with_profile.png)
 
@@ -59,6 +68,22 @@ Now that the deploy pipeline is configured, we can run it and verify that the de
 
 > To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
 
+## View the value stream map
+
+You can view the value stream map of your deployment by clicking on the 'VSM' link of the `deploy_app_to_cluster` pipeline in the Dashboard. 
+
+![](../../resources/images/gocd-helm-chart/value_stream_map.png)
+
+## Access your application
+
 Once the pipeline has run successfully, go to `<ingress-ip>/bulletin-board` to see your deployed sample application.
+
+Get the new ingress IP address for the application by doing
+
+```bash
+kubectl get ingress bulletin-board-ingress --namespace <NAMESPACE>
+```
+
+*Note: On minikube, the ingress IP will remain the same as the GoCD server IP.*
 
 ![](../../resources/images/gocd-helm-chart/sample_application.png)
