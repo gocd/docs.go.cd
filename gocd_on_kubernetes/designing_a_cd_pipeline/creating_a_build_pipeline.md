@@ -4,7 +4,7 @@ keywords: gocd helm chart, cd pipeline
 ---
 # Create a pipeline to build and publish your application artifact
 
-In this section, we cover how to design CD pipelines that build and publish application [artifacts](https://docs.gocd.org/current/introduction/concepts_in_go.html#artifacts).
+In this section, we cover how to design CD pipelines that build and publish application [artifacts](https://docs.gocd.org/current/introduction/concepts_in_go.html#artifacts). For this example, you'll need a [Dockerhub](https://hub.docker.com) account. 
 
 ## Build an application artifact
 
@@ -81,9 +81,40 @@ In our example of building a pipeline for GoCD on Kubernetes, we're going to set
 
   ![](../../resources/images/gocd-helm-chart/associate_job_with_profile.png)
 
-## Verifying your pipeline
+## Run your pipeline
 
-Now that the pipeline has been configured, we can run it and verify that the docker image has been pushed. To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes from the source git repository gets picked up automatically when the pipeline is triggered.
+Now that the pipeline has been configured, we can run it and verify that the docker image has been pushed. 
+
+To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes from the source git repository gets picked up automatically when the pipeline is triggered.
+
+![](../../resources/images/gocd-helm-chart/unpause.png)
+
+## Check the status of agents with Agent Status Report
+
+When the pipeline is running (signified by a yellow bar), you can take a look at the status of the agents that are assigned to run the jobs in the pipeline. You can find the following information here
+- pod details & configuration
+- pod events
+- logs for the agents
+
+This can be useful to troubleshoot when an agent is not picking up the job. 
+
+To access the agent status report, 
+
+1. Click on a stage of your choice when the pipeline is being built. 
+
+2. You'll see the stage detail page with a list of jobs. Click on the job that you wish to see the agents of.   
+
+3. This is the job detail page which has a console log. Click on the button titled 'Check Agent Status'. 
+
+    ![](../../resources/images/gocd-helm-chart/job_details.png)
+
+4. Clicking on this will take you to the Agent Status Report where you can see --- 
+
+    ![](../../resources/images/gocd-helm-chart/agent_status_report.png)
+
+*Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.*
+
+## Verify your pipeline
 
 Once the pipeline has run successfully, you can go to your DockerHub account to verify if the image has been published.
 
