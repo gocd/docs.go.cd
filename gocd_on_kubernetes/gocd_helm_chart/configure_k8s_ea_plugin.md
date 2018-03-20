@@ -36,4 +36,6 @@ This is a rundown of the attributes of the Kubernetes elastic agent
   $ kubectl --namespace=gocd get secret $secret_name -o jsonpath="{.data['token']}" | base64 --decode
   ```
 
-5. Once you save your configuration, navigate to the plugin Status Report page from the plugins page and confirm that you don't have configuration errors.
+5. Once you save your configuration, navigate to the plugin status report page from the plugins page and confirm that you don't have configuration errors.
+
+ ![](../../resources/images/gocd-helm-chart/plugin_status.png)
