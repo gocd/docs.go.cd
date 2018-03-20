@@ -16,6 +16,9 @@ Need a quick start? Setup your first GoCD pipeline, while learning all the conce
 ["Getting Started" guide](https://www.gocd.org/help/). Make sure you've
 [installed](https://docs.gocd.org/current/installation/) the GoCD Server and at least one GoCD Agent.
 
+
+[Read this](gocd_on_kubernetes/introduction.md) to setup GoCD pipelines on a Kubernetes cluster. 
+
 ### More information and guides
 
 - [Basic concepts in GoCD](introduction/concepts_in_go.md) - Review basic concepts in GoCD. Understand how GoCD sees the world.
@@ -23,6 +26,7 @@ Need a quick start? Setup your first GoCD pipeline, while learning all the conce
 - [Managing pipelines](configuration/managing_pipelines.md) - Release Management with GoCD.
 - [Managing a build cloud](configuration/managing_a_build_cloud.md) - How to set up and scale your build cloud.
 - [Managing artifacts and reports](configuration/managing_artifacts_and_reports.md) - Keep your test reports, binaries and other artifacts in GoCD's central repository.
+- [Running GoCD on Kubernetes](gocd_on_kubernetes/introduction.md) - Learn how to setup GoCD on a Kubernetes cluster. 
 
 ### See GoCD in use
 
