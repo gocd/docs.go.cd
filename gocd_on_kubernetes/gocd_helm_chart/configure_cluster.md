@@ -36,7 +36,7 @@ $ minikube start --bootstrapper kubeadm;
 ## Option 2: Configure GKE
 
 #### Enable Ingress
-GKE comes with Ingress enabled by default.
+GKE comes with Ingress enabled by default, so no action needed here.
 
 #### Configure service account
 The `cluster-admin` role is a cluster level role that exists on GKE.
