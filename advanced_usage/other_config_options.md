@@ -52,7 +52,7 @@ section above.
 
 ## Options
 
-<a name='cruise.listen.host'></a>
+<a id='cruise-listen-host'></a>
 ### cruise.listen.host - The host that the GoCD Server should bind to
 
 - Name: cruise.listen.host
@@ -73,7 +73,7 @@ variable](#environment-variables) SERVER_LISTEN_HOST, which is used by the
 server startup shell script, to set the ```cruise.listen.host``` system property.
 
 
-<a name='cruise.server.port'></a>
+<a id='cruise-server-port'></a>
 ### cruise.server.port - HTTP port for the Go Server
 
 - Name: cruise.server.port
@@ -81,14 +81,14 @@ server startup shell script, to set the ```cruise.listen.host``` system property
 - Restrictions: Should be the number of a valid port that is not used by another
   process
 
-Similar to the [cruise.listen.host](#cruise.listen.host) property, the value of
+Similar to the [cruise.listen.host](#cruise-listen-host) property, the value of
 this property determines which port the Go Server binds to, and accepts HTTP
 connections from. If not overridden, it is set to 8153.
 
-See also: Sister property - [cruise.server.ssl.port](#cruise.server.ssl.port).
+See also: Sister property - [cruise.server.ssl.port](#cruise-server-ssl-port).
 
 
-<a name='cruise.server.ssl.port'></a>
+<a id='cruise-server-ssl-port'></a>
 ### cruise.server.ssl.port - HTTPS port for the Go Server
 
 - Name: cruise.server.ssl.port
@@ -96,14 +96,14 @@ See also: Sister property - [cruise.server.ssl.port](#cruise.server.ssl.port).
 - Restrictions: Should be the number of a valid port that is not used by another
   process
 
-Similar to the [cruise.listen.host](#cruise.listen.host) property, the value of
+Similar to the [cruise.listen.host](#cruise-listen-host) property, the value of
 this property determines which port the Go Server binds to, and accepts HTTPS
 connections from. If not overridden, it is set to 8154.
 
-See also: Sister property - [cruise.server.port](#cruise.server.port).
+See also: Sister property - [cruise.server.port](#cruise-server-port).
 
 
-<a name='cruise.config.dir'></a>
+<a id='cruise-config-dir'></a>
 ### cruise.config.dir - Location of the configuration files
 
 - Name: cruise.config.dir

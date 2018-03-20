@@ -15,7 +15,7 @@ This page is mainly for newer users of GoCD, to help with troubleshooting issues
 - [Unsupported major.minor version 52.0](#upgrade-issues)
 - [GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)](#ajax-polling-interval)
 
-<a name="agent_registration"></a>
+<a id="agent_registration"></a>
 ### GoCD Agent not registering with the GoCD Server
 
 This issue shows up either as an agent not showing up on the "Agents" page, or
@@ -125,7 +125,7 @@ at the end of these files might be interesting. Some common errors are:
    this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
    needs Java 7.
 
-<a name="path_issues"></a>
+<a id="path_issues"></a>
 ### Command not found (git, svn, mvn, ant or others)
 
 This issue shows up in one of three ways as you can see below. The resolution
@@ -193,7 +193,7 @@ is correct.
    tool from Microsoft's Windows SysInternals might be useful to check this. It
    shows per-process environment variables in an easy way.
 
-<a name="agent_assignment"></a>
+<a id="agent_assignment"></a>
 ### Agent is not being assigned or "Nothing gets built"
 
 This shows up as a pipeline which stays in the "Building" (yellow) state for a
@@ -226,7 +226,7 @@ found for this job. The reasons for this can be:
    config). If it is, then any agent that can pick up a job from that pipeline
    needs to be a part of that environment as well.
 
-<a name="mac_java"></a>
+<a id="mac_java"></a>
 ### Mac OS X - Message related to Java 1.7
 
 If you were greeted with a message such as this, when trying to use GoCD on Mac OSX:
@@ -266,7 +266,7 @@ Java 1.7+ executable.
   figure.small_image img { width: 50%; margin-left: 25%; }
 </style>
 
-<a name="upgrade-issues"></a>
+<a id="upgrade-issues"></a>
 ### Incompatible java version while upgrading to 17.x version
 
 Java 7 support is removed as part of 17.1 release.

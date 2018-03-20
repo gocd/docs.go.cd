@@ -110,7 +110,7 @@ server {
 }
 ```
 
-<a name="agents-and-custom-ssl-ports"></a>
+<a id="agents-and-custom-ssl-ports"></a>
 ## Agents and reverse proxies
 
 The GoCD server requires that the agents connect to it directly without any reverse-proxies in between that perform SSL termination. This is because GoCD agent-server communication is authenticated using SSL/TLS client certificates, a reverse-proxy will be interpreted as a MITM (man-in-the-middle-attack) and the agents will not be able to connect to the server.
