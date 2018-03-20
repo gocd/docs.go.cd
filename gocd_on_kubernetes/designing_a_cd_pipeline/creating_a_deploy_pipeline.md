@@ -49,7 +49,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 ## Associate job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have create and associated an [elastic profile](elastic_profiles.md) with the job to be executed. You can do so on the `Job Settings` tab of a job.
+Before you can run the pipeline, you’ll need to make sure you have created and associated an [elastic profile](elastic_profiles.md) with the job to be executed. You can do so on the `Job Settings` tab of a job.
 
 ![](../../resources/images/gocd-helm-chart/deploy_associate_with_profile.png)
 

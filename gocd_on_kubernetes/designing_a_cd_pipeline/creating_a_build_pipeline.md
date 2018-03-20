@@ -75,7 +75,7 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
 ## Associate job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have create and associated an [elastic profile](elastic_profiles.md) with the job to be executed. You can do so on the `Job Settings` tab of a job.
+Before you can run the pipeline, you’ll need to make sure you have created and associated an [elastic profile](elastic_profiles.md) with the job to be executed. You can do so on the `Job Settings` tab of a job.
 
 In our example of building a pipeline for GoCD on Kubernetes, we're going to set the elastic profile for the `build_and_publish_image` job. Once you’ve associated the job to the profile, you’re ready to run the pipeline.
 
