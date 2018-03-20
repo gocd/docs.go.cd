@@ -8,9 +8,10 @@ keywords: gocd helm chart, cd pipeline
 > Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.  
 
 
-Install the GoCD Helm chart with this command:
+Install the GoCD Helm chart with these commands:
 
 ```bash
+$ helm repo add stable https://kubernetes-charts.storage.googleapis.com
 $ helm install stable/gocd --name gocd --namespace gocd
 ```
 
@@ -28,6 +29,12 @@ On minikube, the IP address can be obtained by running the command
 
 ```bash
 $ minikube ip
+```
+
+It might take a few minutes for the GoCD server to come up for the first time. You can check if the GoCD server is up with this command:
+
+```bash
+$ kubectl get deployments --namespace gocd
 ```
 
 The GoCD server on startup will look like this.
