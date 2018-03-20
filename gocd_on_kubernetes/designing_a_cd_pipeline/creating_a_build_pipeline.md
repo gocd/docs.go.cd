@@ -2,13 +2,13 @@
 description: The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.
 keywords: gocd helm chart, cd pipeline
 ---
-# Create a pipeline to build and publish your application artifact
+# Create a pipeline to build and publish your application image
 
-In this section, we cover how to design CD pipelines that build and publish application [artifacts](https://docs.gocd.org/current/introduction/concepts_in_go.html#artifacts). For this example, you'll need a [Dockerhub](https://hub.docker.com) account. 
+In this section, we cover how to design CD pipelines that build and publish application image. 
 
 ## Build an application artifact
 
-In this example, we’ll build a docker image artifact and publish it to DockerHub.
+In this example, we’ll build a docker image artifact and publish it to DockerHub. To do this, you'll need a [Dockerhub](https://hub.docker.com) account. 
 
 1. Click on the `Pipelines` link on the top menu to create your first pipeline.
 
@@ -37,7 +37,7 @@ In this example, we’ll build a docker image artifact and publish it to DockerH
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_job.png)
 
-## Publish your application artifact
+## Publish your application image
 
 At this point, we have created a pipeline but we need to configure the tasks to push the image to DockerHub. To do this,
 
@@ -75,7 +75,7 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
 ## Associate job with the elastic profile
 
-Before you can run the pipeline, you’ll need to make sure you have created and associated an [elastic profile](elastic_profiles.md) with the job to be executed. You can do so on the `Job Settings` tab of a job.
+Before you can run the pipeline, you’ll need to make sure you have [created an elastic profile](elastic_profiles.md) and associated it with the job to be executed. You can do so on the `Job Settings` tab of a job.
 
 In our example of building a pipeline for GoCD on Kubernetes, we're going to set the elastic profile for the `build_and_publish_image` job. Once you’ve associated the job to the profile, you’re ready to run the pipeline.
 

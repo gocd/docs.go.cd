@@ -5,7 +5,7 @@ keywords: gocd helm chart, cd pipeline
 
 # Configure your Kubernetes Cluster
 
-Now that you have your Kubernetes cluster [set up and running](prerequisites.md), you’ll need to make the following configuration changes.
+Now that you have your Kubernetes cluster [set up and running](setup.md), you’ll need to make the following configuration changes.
 
 **1. Enable Ingress** - To expose the GoCD Kubernetes application to the internet, you will need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers).
 
