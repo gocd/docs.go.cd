@@ -24,7 +24,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
     `sed -i "s/##{image}/$DOCKERHUB_USERNAME\/bulletin-board:$GO_DEPENDENCY_LABEL_UPSTREAM/" bulletin-board-deployment.json`
 
-    *Note the extra '#'. GoCD offers additional environment variables (like $GO_DEPENDENCY_LABEL_*)to use in builds when a pipeline depends on another pipeline. We'll look at how to configure a dependency in the next step.*
+    *Note the extra '#'. GoCD offers additional environment variables (like $GO_DEPENDENCY_LABEL_*) to use in builds when a pipeline depends on another pipeline. We'll look at how to configure a dependency in the next step.*
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_job.png)
 
@@ -52,7 +52,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 ## Associate job with the elastic profile
 
-*Note: You’ll need to make sure you have [created an elastic profile](elastic_profiles.md) before you proceed.*
+*Note: You’ll need to make sure you have [created an elastic profile](creating_a_build_pipeline.md#create-an-elastic-profile) before you proceed.*
 
 Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. To do this, go to the `Job Settings` tab of the specific job.
 
@@ -66,7 +66,7 @@ Once you’ve associated the job to the profile, you’re ready to run the pipel
 
 Now that the deploy pipeline is configured, we can run it and verify that the deployment has been completed.
 
-> To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
+To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
 
 ## View the value stream map
 
@@ -80,10 +80,15 @@ Once the pipeline has run successfully, go to `<ingress-ip>/bulletin-board` to s
 
 Get the new ingress IP address for the application by doing
 
-```bash
-kubectl get ingress bulletin-board-ingress --namespace <NAMESPACE>
-```
+- For Minikube,
 
-*Note: On minikube, the ingress IP will remain the same as the GoCD server IP.*
+```bash
+minikube ip
+```
+- For others,
+
+```bash
+echo "http://$(kubectl get ingress bulletin-board-ingress --namespace $NAMESPACE -o jsonpath="{.status.loadBalancer.ingress[0]['ip']}")"
+```
 
 ![](../../resources/images/gocd-helm-chart/sample_application.png)
