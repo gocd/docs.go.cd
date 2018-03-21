@@ -14,14 +14,14 @@ The Kubernetes CLI `kubectl` is used for cluster management purposes. The Kubern
 ## 2. Setup a Kubernetes Cluster
 
 Before installing GoCD, you need to setup a Kubernetes cluster. You can do this using any of the following tools:
-- Minikube ([setup guide](https://kubernetes.io/docs/getting-started-guides/minikube/))
+- Option 1: Minikube ([setup guide](https://kubernetes.io/docs/getting-started-guides/minikube/))
 
   *Tip: Once minikube is installed, start minikube with the `kubeadm` bootstrapper.*
   ```bash
   minikube start --vm-driver=virtualbox --bootstrapper=kubeadm
   ```
 
-- Google Kubernetes Engine or GKE ([setup guide](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster))
+- Option 2: Google Kubernetes Engine or GKE ([setup guide](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster))
 
   *Tip: Once the cluster is running, execute the following command to see if kubectl is using right context.*
 
@@ -30,7 +30,7 @@ Before installing GoCD, you need to setup a Kubernetes cluster. You can do this 
     gke_my-project_us-central1-a_gocd-cluster
   ```
 
-- Kubernetes Operations on AWS/GCE or kops ([setup guide](https://github.com/kubernetes/kops/blob/master/docs/README.md))
+- Option 3: Kubernetes Operations on AWS/GCE or kops ([setup guide](https://github.com/kubernetes/kops/blob/master/docs/README.md))
 
 ## 3. Install the Kubernetes package manager - Helm
 

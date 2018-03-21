@@ -8,7 +8,7 @@ Using docker containers to execute docker commands can be done in the following 
 
 ## Docker in Docker (DinD)
 
-Docker in Docker involves setting up a docker binary and running an isolated docker daemon inside the container. This requires that the host docker container be run in privileged mode. The privileged flag enables the host container to do almost all of the things that the underlying host machine can do. We have provided the [GoCD Agent DinD](https://hub.docker.com/r/gocd/gocd-agent-docker-dind/) image that can be used to run docker related tasks in the CI.
+Docker in Docker involves setting up a docker binary and running an isolated docker daemon inside the container. This requires that the host docker container be run in privileged mode. The privileged flag enables the host container to do almost all of the things that the underlying host machine can do. We have provided the [GoCD Agent DinD](https://hub.docker.com/r/gocd/gocd-agent-docker-dind/) image that can be used to run docker related tasks in a GoCD agent.
 
 **Drawbacks:**
 

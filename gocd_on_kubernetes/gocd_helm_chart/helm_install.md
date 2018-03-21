@@ -15,9 +15,9 @@ $ helm repo add stable https://kubernetes-charts.storage.googleapis.com
 $ helm install stable/gocd --name gocd --namespace gocd
 ```
 
-## Access the GoCD server dashboard
+## Access the GoCD server
 
-After you’ve installed the GoCD helm chart, you should be able to access the GoCD server dashboard from the Ingress IP.
+After you’ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.
 
 The Ingress IP address can be obtained by using:
 ```bash
@@ -40,4 +40,4 @@ $ kubectl get deployments --namespace gocd
 The GoCD server on startup will look like this.
 ![](../../resources/images/gocd-helm-chart/first_screen.png)
 
-Now that you have accessed the dashboard successfully, you will need to configure the Kubernetes elastic agent plugin.
+Now that you have accessed the GoCD server successfully, you will need to configure the Kubernetes elastic agent plugin.

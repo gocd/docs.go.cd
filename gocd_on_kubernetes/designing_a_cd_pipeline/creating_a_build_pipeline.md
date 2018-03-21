@@ -4,7 +4,7 @@ keywords: gocd helm chart, cd pipeline
 ---
 # Create a pipeline to build and publish your application image
 
-In this section, we cover how to design CD pipelines that build and publish application image. As an example, we've used a [sample node application](https://github.com/bdpiparva/node-bulletin-board) called 'Bulletin Board'.
+In this section, we cover how to design CD pipelines that build and publish an application image. As an example, we've used a [sample nodejs application](https://github.com/bdpiparva/node-bulletin-board) called 'Bulletin Board'.
 
 ## Build an application artifact
 
@@ -47,10 +47,10 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
 2. Create a task under the `build_and_publish_image` stage with the following command that executes tests. We have included sample tests for our application.
 
-*Tip: Use the tree on the left to navigate to the Job `build_and_publish_image`. Once you're here, you can create the tasks under the Tasks tab.*
+  *Tip: Use the tree on the left to navigate to the Job `build_and_publish_image`. Once you're here, you can create the tasks under the Tasks tab.*
 
   ```bash
-    docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL npm test
+     docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL npm test
   ```
   *Tip: Choose the More option in the Add New Task dropdown.*
 
@@ -74,11 +74,26 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
   ![](../../resources/images/gocd-helm-chart/build_and_publish_image_tasks.png)
 
+## Create an elastic profile
+
+> An elastic agent plugin spins up GoCD agents on the fly. It needs to know what type of agent to spin up. An elastic profile specifies the type of GoCD Agent to be used by the elastic agent plugin. Using this, you can bring up different kinds of agent pods within the same cluster to run different kinds of jobs.
+
+To configure an elastic profile, go to Admin -> Elastic Agent Profiles and click on the 'Add' button to add a new profile.
+
+1. Choose an ID name for the profile. 
+2. Choose a GoCD agent image. For this example, since we are building Docker images, we recommend using `gocd/gocd-agent-docker-dind:v18.2.0`.
+
+*Tip: Check the 'Privileged mode' checkbox which is essential to run the [Docker in Docker]((../designing_a_cd_pipeline/docker_workflows.md)) image.*
+
+![](../../resources/images/gocd-helm-chart/profile.png)
+
+You can see all of our docker images (both server and agent) [here](https://hub.docker.com/r/gocd/).
+
+Once you've created an elastic profile, you can begin to associate the profile to jobs inorder to run them. 
+
 ## Associate job with the elastic profile
 
-Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. For this, you must have [elastic profiles added](elastic_profiles.md).
-
-In this example, we're going to set the elastic profile for the `build_and_publish_image` job. To do this, go to the `Job Settings` tab of the specific job.
+Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. To do this, go to the `Job Settings` tab of the specific job.
 
 *Tip: Use the tree on the left to navigate to the job `build_and_publish_image`. Once you're here, you can associate the profile ID under the Job Settings tab.*
 
@@ -90,7 +105,7 @@ Once you’ve associated the job to the profile, you’re ready to run the pipel
 
 Now that the pipeline has been configured, we can run it and verify that the docker image has been pushed. 
 
-To run the pipeline, `unpause` the pipeline in the GoCD dashboard. The changes from the source git repository gets picked up automatically when the pipeline is triggered.
+To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes from the source git repository gets picked up automatically when the pipeline is triggered.
 
 ![](../../resources/images/gocd-helm-chart/unpause.png)
 
