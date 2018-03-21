@@ -2063,7 +2063,7 @@
 </li>
 <li><p>Create the initial job <code>deploy_to_cluster</code>. The initial task argument is</p>
 <p> <code>sed -i &quot;s/##{image}/$DOCKERHUB_USERNAME\/bulletin-board:$GO_DEPENDENCY_LABEL_UPSTREAM/&quot; bulletin-board-deployment.json</code></p>
-<p> <em>Note the extra &apos;#&apos;. GoCD offers additional environment variables (like $GO<em>DEPENDENCY_LABEL</em></em>)to use in builds when a pipeline depends on another pipeline. We&apos;ll look at how to configure a dependency in the next step.*</p>
+<p> <em>Note the extra &apos;#&apos;. GoCD offers additional environment variables (like $GO<em>DEPENDENCY_LABEL</em></em>) to use in builds when a pipeline depends on another pipeline. We&apos;ll look at how to configure a dependency in the next step.*</p>
 <p> <img src="../../resources/images/gocd-helm-chart/deploy_add_job.png" alt=""></p>
 </li>
 <li><p>Introduce the pipeline <code>build_and_publish_image</code> as a material called <code>upstream</code>. </p>
@@ -2085,25 +2085,30 @@
 </li>
 </ol>
 <h2 id="associate-job-with-the-elastic-profile"><a name="associate-job-with-the-elastic-profile" class="plugin-anchor" href="#associate-job-with-the-elastic-profile"><i class="fa fa-link" aria-hidden="true"></i></a>Associate job with the elastic profile</h2>
-<p><em>Note: You&#x2019;ll need to make sure you have <a href="elastic_profiles.html">created an elastic profile</a> before you proceed.</em></p>
+<p><em>Note: You&#x2019;ll need to make sure you have <a href="creating_a_build_pipeline.html#create-an-elastic-profile">created an elastic profile</a> before you proceed.</em></p>
 <p>Before you can run the pipeline, you&#x2019;ll need to associate an elastic profile ID with the job to be executed. To do this, go to the <code>Job Settings</code> tab of the specific job.</p>
 <p><em>Tip: Use the tree on the left to navigate to the job <code>deploy_to_cluster</code>. Once you&apos;re here, you can associate the profile ID under the Job Settings tab.</em></p>
 <p>Once you&#x2019;ve associated the job to the profile, you&#x2019;re ready to run the pipeline.</p>
 <p><img src="../../resources/images/gocd-helm-chart/deploy_associate_with_profile.png" alt=""></p>
 <h2 id="run-your-pipeline"><a name="run-your-pipeline" class="plugin-anchor" href="#run-your-pipeline"><i class="fa fa-link" aria-hidden="true"></i></a>Run your pipeline</h2>
 <p>Now that the deploy pipeline is configured, we can run it and verify that the deployment has been completed.</p>
-<blockquote>
-<p>To run the pipeline, <code>unpause</code> the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.</p>
-</blockquote>
+<p>To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.</p>
 <h2 id="view-the-value-stream-map"><a name="view-the-value-stream-map" class="plugin-anchor" href="#view-the-value-stream-map"><i class="fa fa-link" aria-hidden="true"></i></a>View the value stream map</h2>
 <p>You can view the value stream map of your deployment by clicking on the &apos;VSM&apos; link of the <code>deploy_app_to_cluster</code> pipeline in the Dashboard. </p>
 <p><img src="../../resources/images/gocd-helm-chart/value_stream_map.png" alt=""></p>
 <h2 id="access-your-application"><a name="access-your-application" class="plugin-anchor" href="#access-your-application"><i class="fa fa-link" aria-hidden="true"></i></a>Access your application</h2>
 <p>Once the pipeline has run successfully, go to <code>&lt;ingress-ip&gt;/bulletin-board</code> to see your deployed sample application.</p>
 <p>Get the new ingress IP address for the application by doing</p>
-<pre><code class="lang-bash">kubectl get ingress bulletin-board-ingress --namespace &lt;NAMESPACE&gt;
+<ul>
+<li>For Minikube,</li>
+</ul>
+<pre><code class="lang-bash">minikube ip
 </code></pre>
-<p><em>Note: On minikube, the ingress IP will remain the same as the GoCD server IP.</em></p>
+<ul>
+<li>For others,</li>
+</ul>
+<pre><code class="lang-bash"><span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;http://<span class="hljs-variable">$(kubectl get ingress bulletin-board-ingress --namespace $NAMESPACE -o jsonpath=&quot;{.status.loadBalancer.ingress[0][&apos;ip&apos;]}&quot;)</span>&quot;</span>
+</code></pre>
 <p><img src="../../resources/images/gocd-helm-chart/sample_application.png" alt=""></p>
 
                                 
@@ -2148,7 +2153,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"next":{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},"previous":{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","mtime":"2018-03-20T11:53:32.916Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-20T11:56:12.270Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"next":{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},"previous":{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","mtime":"2018-03-21T10:49:05.189Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-21T10:54:07.202Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
