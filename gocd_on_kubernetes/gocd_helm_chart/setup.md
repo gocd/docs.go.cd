@@ -14,11 +14,13 @@ The Kubernetes CLI `kubectl` is used for cluster management purposes. The Kubern
 ## 2. Setup a Kubernetes Cluster
 
 Before installing GoCD, you need to setup a Kubernetes cluster. You can do this using any of the following tools:
+
 - Option 1: Minikube ([setup guide](https://kubernetes.io/docs/getting-started-guides/minikube/))
 
-  *Tip: Once minikube is installed, start minikube with the `kubeadm` bootstrapper.*
+  Once minikube is installed, start minikube with the `kubeadm` bootstrapper. The `kubeadm` toolkit helps to easily bootstrap a cluster so that appropriate privileges are granted for performing read-write operations on Kubernetes authentication and authorization (RBAC) resources.
+
   ```bash
-  minikube start --vm-driver=virtualbox --bootstrapper=kubeadm
+  minikube start --vm-driver=virtualbox --bootstrapper=kubeadm --memory 4096
   ```
 
 - Option 2: Google Kubernetes Engine or GKE ([setup guide](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster))
@@ -32,27 +34,26 @@ Before installing GoCD, you need to setup a Kubernetes cluster. You can do this 
 
 - Option 3: Kubernetes Operations on AWS/GCE or kops ([setup guide](https://github.com/kubernetes/kops/blob/master/docs/README.md))
 
+  ##### Other References
+
+  - [Manage Kubernetes Clusters on AWS Using Kops](https://aws.amazon.com/blogs/compute/kubernetes-clusters-aws-kops/)
+  - [Installing Kubernetes on AWS with kops](https://kubernetes.io/docs/getting-started-guides/kops/)
+
 ## 3. Install the Kubernetes package manager - Helm
 
-> Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes. 
+Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes. 
 
 Helm has two parts to it, a client and a server called `Tiller`.
 
 #### Install the Helm client
-> The helm client is a CLI that let’s you install and update packaged applications on Kubernetes.
 
-The simplest way to install the helm client is using the install script.
+The helm client is a CLI that let’s you install and update packaged applications on Kubernetes.
 
-```bash
-$ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get > get_helm.sh
-$ chmod 700 get_helm.sh
-$ ./get_helm.sh
-```
 Please refer to the helm [install documentation](https://github.com/kubernetes/helm/blob/master/docs/install.md) for alternative methods of installation.
 
 #### Install the Helm server
 
-The helm server is installed as a Kubernetes pod and can be installed with the command:
+The helm server is installed as a Kubernetes pod and can be started with the command:
 
 ```bash
 $ helm init

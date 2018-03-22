@@ -6,6 +6,10 @@ keywords: gocd helm chart, cd pipeline
 
 In this section, we cover how to design CD pipelines that build and publish an application image. As an example, we've used a [sample nodejs application](https://github.com/bdpiparva/node-bulletin-board) called 'Bulletin Board'.
 
+### Quick links
+
+- [Getting started with GoCD](https://www.gocd.org/getting-started/part-1/)
+
 ## Build an application artifact
 
 We’ll build our application as a docker image artifact and publish it to DockerHub. To do this, you'll need a [Dockerhub](https://hub.docker.com) account. 
@@ -16,7 +20,7 @@ We’ll build our application as a docker image artifact and publish it to Docke
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_pipeline.png)
 
-3. Specify a git [material](https://docs.gocd.org/current/introduction/concepts_in_go.html#materials) with repository `https://github.com/bdpiparva/node-bulletin-board`.
+3. Specify a git [material](https://docs.gocd.org/current/introduction/concepts_in_go.html#materials) with repository `https://github.com/gocd-demo/node-bulletin-board.git`.
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_material.png)
 
@@ -25,9 +29,10 @@ We’ll build our application as a docker image artifact and publish it to Docke
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_stage.png)
 
 5. Create a [job](https://docs.gocd.org/current/introduction/concepts_in_go.html#job) called `build_and_publish_image` with an initial task argument
-```bash
-   docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
-```
+
+  ```bash
+    docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
+  ```
 
   > The `GO_PIPELINE_LABEL` is an environment variable provided by GoCD which can be used to differentiate between builds from a repository.
 
@@ -35,6 +40,8 @@ We’ll build our application as a docker image artifact and publish it to Docke
 
   *Note: This is the job that we have to associate with the elastic agent profile that we created earlier.*
 
+  *Tip: Do not forget the `-c` option in the arguments section.*
+  
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_job.png)
 
 ## Publish your application image
@@ -45,10 +52,12 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
   ![](../../resources/images/gocd-helm-chart/configure_env_vars.png)
 
-2. Create a task under the `build_and_publish_image` stage with the following command that executes tests. We have included sample tests for our application.
+2. Create a task under the `build_and_publish_image` job with the following command that executes tests. We have included sample tests for our application.
 
   *Tip: Use the tree on the left to navigate to the Job `build_and_publish_image`. Once you're here, you can create the tasks under the Tasks tab.*
 
+  *Tip: Do not forget the `-c` option in the arguments section.*
+  
   ```bash
      docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL npm test
   ```
@@ -57,6 +66,8 @@ At this point, we have created a pipeline but we need to configure the tasks to 
   ![](../../resources/images/gocd-helm-chart/docker_test.png)
 
 3. Create tasks for the following Docker commands that will push the image to Dockerhub.
+
+  *Tip: Do not forget the `-c` option in the arguments section.*
 
   ```bash
     docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
@@ -74,24 +85,9 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
   ![](../../resources/images/gocd-helm-chart/build_and_publish_image_tasks.png)
 
-## Create an elastic profile
-
-> An elastic agent plugin spins up GoCD agents on the fly. It needs to know what type of agent to spin up. An elastic profile specifies the type of GoCD Agent to be used by the elastic agent plugin. Using this, you can bring up different kinds of agent pods within the same cluster to run different kinds of jobs.
-
-To configure an elastic profile, go to Admin -> Elastic Agent Profiles and click on the 'Add' button to add a new profile.
-
-1. Choose an ID name for the profile. 
-2. Choose a GoCD agent image. For this example, since we are building Docker images, we recommend using `gocd/gocd-agent-docker-dind:v18.2.0`.
-
-*Tip: Check the 'Privileged mode' checkbox which is essential to run the [Docker in Docker]((../designing_a_cd_pipeline/docker_workflows.md)) image.*
-
-![](../../resources/images/gocd-helm-chart/profile.png)
-
-You can see all of our docker images (both server and agent) [here](https://hub.docker.com/r/gocd/).
-
-Once you've created an elastic profile, you can begin to associate the profile to jobs inorder to run them. 
-
 ## Associate job with the elastic profile
+
+*Note: You’ll need to make sure you have [created an elastic profile](../gocd_helm_chart/configure_k8s_ea_plugin.md#create-an-elastic-profile) before you proceed.*
 
 Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. To do this, go to the `Job Settings` tab of the specific job.
 
@@ -112,8 +108,11 @@ To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes fro
 ## Check the status of agents with Agent Status Report
 
 When the pipeline is running (signified by a yellow bar), you can take a look at the status of the agents that are assigned to run the jobs in the pipeline. You can find the following information here
+
 - pod details & configuration
+
 - pod events
+
 - logs for the agents
 
 This can be useful to troubleshoot when an agent is not picking up the job. 
@@ -132,10 +131,10 @@ To access the agent status report,
 
     ![](../../resources/images/gocd-helm-chart/agent_status_report.png)
 
-*Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.*
+    *Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.*
 
 ## Verify your pipeline
 
 Once the pipeline has run successfully, you can go to your DockerHub account to verify if the image has been published.
 
-In our [next section](creating_a_deploy_pipeline.md), we'll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.
+In the [next section](creating_a_deploy_pipeline.md), we'll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.
