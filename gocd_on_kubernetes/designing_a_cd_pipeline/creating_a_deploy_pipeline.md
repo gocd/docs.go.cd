@@ -16,7 +16,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
     ![](../../resources/images/gocd-helm-chart/pipeline_wizard_deploy_pipeline.png)
 
-3. Specify the git material with URL `https://github.com/bdpiparva/node-bulletin-board`. This was the same git repository we had configured for the `build_and_publish_image` pipeline. Adding the same git material ensures that the revision for which we ran the `build_and_publish_image` pipeline is the same that gets deployed. This concept is known as [Fan-In](https://docs.gocd.org/current/advanced_usage/fan_in.html).
+3. Specify the git material with URL `https://github.com/bdpiparva/node-bulletin-board`. The deploy scripts are present in the same repository as the application source. 
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_material.png)
 
