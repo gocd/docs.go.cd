@@ -6,17 +6,19 @@ keywords: gocd helm chart, cd pipeline
 
 In this section, we’ll learn to design a deployment pipeline to deploy to Kubernetes. After you've designed and run the build pipeline, you'll see that for every successful build, a new image gets created with a new tag. To create a pipeline to deploy the published artifact, follow these steps:   
 
-### Quick Links
+##### Quick Links
 
-- [Modelling Deployment Pipelines](https://www.gocd.org/tags/modeling-deployment-pipelines.html)
+[Modeling Deployment Pipelines](https://www.gocd.org/tags/modeling-deployment-pipelines.html)
 
+## Deploy application to Kubernetes
+ 
 1. Navigate to Admin -> Pipelines and click on `Create a pipeline within this group`.
 
 2. Specify the pipeline name as `deploy_app_to_cluster`.
 
     ![](../../resources/images/gocd-helm-chart/pipeline_wizard_deploy_pipeline.png)
 
-3. Specify the git material with URL `https://github.com/bdpiparva/node-bulletin-board`. The deploy scripts are present in the same repository as the application source. 
+3. Specify the git material with URL `https://github.com/gocd-demo/node-bulletin-board.git`. The deploy scripts are present in the same repository as the application source.
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_material.png)
 
@@ -84,7 +86,7 @@ You can view the value stream map of your deployment by clicking on the 'VSM' li
 
 ## Access your application
 
-Once the pipeline has run successfully, go to `<ingress-ip>/bulletin-board` to see your deployed sample application.
+Once the pipeline has run successfully, go to `http://<ingress-ip>/bulletin-board` to see your deployed sample application.
 
 Get the new ingress IP address for the application by doing
 

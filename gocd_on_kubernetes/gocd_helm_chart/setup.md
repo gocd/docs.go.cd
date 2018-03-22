@@ -34,14 +34,20 @@ Before installing GoCD, you need to setup a Kubernetes cluster. You can do this 
 
 - Option 3: Kubernetes Operations on AWS/GCE or kops ([setup guide](https://github.com/kubernetes/kops/blob/master/docs/README.md))
 
+  ##### Other References
+
+  - [Manage Kubernetes Clusters on AWS Using Kops](https://aws.amazon.com/blogs/compute/kubernetes-clusters-aws-kops/)
+  - [Installing Kubernetes on AWS with kops](https://kubernetes.io/docs/getting-started-guides/kops/)
+
 ## 3. Install the Kubernetes package manager - Helm
 
-> Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes. 
+Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes. 
 
 Helm has two parts to it, a client and a server called `Tiller`.
 
 #### Install the Helm client
-> The helm client is a CLI that let’s you install and update packaged applications on Kubernetes.
+
+The helm client is a CLI that let’s you install and update packaged applications on Kubernetes.
 
 Please refer to the helm [install documentation](https://github.com/kubernetes/helm/blob/master/docs/install.md) for alternative methods of installation.
 

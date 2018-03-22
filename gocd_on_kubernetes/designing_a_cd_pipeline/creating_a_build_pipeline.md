@@ -20,7 +20,7 @@ We’ll build our application as a docker image artifact and publish it to Docke
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_pipeline.png)
 
-3. Specify a git [material](https://docs.gocd.org/current/introduction/concepts_in_go.html#materials) with repository `https://github.com/bdpiparva/node-bulletin-board`.
+3. Specify a git [material](https://docs.gocd.org/current/introduction/concepts_in_go.html#materials) with repository `https://github.com/gocd-demo/node-bulletin-board.git`.
 
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_material.png)
 
@@ -30,9 +30,9 @@ We’ll build our application as a docker image artifact and publish it to Docke
 
 5. Create a [job](https://docs.gocd.org/current/introduction/concepts_in_go.html#job) called `build_and_publish_image` with an initial task argument
 
-```bash
-   docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
-```
+  ```bash
+    docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
+  ```
 
   > The `GO_PIPELINE_LABEL` is an environment variable provided by GoCD which can be used to differentiate between builds from a repository.
 
@@ -108,8 +108,11 @@ To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes fro
 ## Check the status of agents with Agent Status Report
 
 When the pipeline is running (signified by a yellow bar), you can take a look at the status of the agents that are assigned to run the jobs in the pipeline. You can find the following information here
+
 - pod details & configuration
+
 - pod events
+
 - logs for the agents
 
 This can be useful to troubleshoot when an agent is not picking up the job. 
@@ -128,10 +131,10 @@ To access the agent status report,
 
     ![](../../resources/images/gocd-helm-chart/agent_status_report.png)
 
-*Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.*
+    *Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.*
 
 ## Verify your pipeline
 
 Once the pipeline has run successfully, you can go to your DockerHub account to verify if the image has been published.
 
-In our [next section](creating_a_deploy_pipeline.md), we'll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.
+In the [next section](creating_a_deploy_pipeline.md), we'll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.
