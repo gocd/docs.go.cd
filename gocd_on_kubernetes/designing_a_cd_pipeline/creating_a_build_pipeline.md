@@ -85,24 +85,9 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
   ![](../../resources/images/gocd-helm-chart/build_and_publish_image_tasks.png)
 
-## Create an elastic profile
-
-> An elastic agent plugin spins up GoCD agents on the fly. It needs to know what type of agent to spin up. An elastic profile specifies the type of GoCD Agent to be used by the elastic agent plugin. Using this, you can bring up different kinds of agent pods within the same cluster to run different kinds of jobs.
-
-To configure an elastic profile, go to Admin -> Elastic Agent Profiles and click on the 'Add' button to add a new profile.
-
-1. Choose an ID name for the profile. 
-2. Choose a GoCD agent image. For this example, since we are building Docker images, we recommend using `gocd/gocd-agent-docker-dind:v18.2.0`.
-
-*Tip: Check the 'Privileged mode' checkbox which is essential to run the [Docker in Docker]((../designing_a_cd_pipeline/docker_workflows.md)) image.*
-
-![](../../resources/images/gocd-helm-chart/profile.png)
-
-You can see all of our docker images (both server and agent) [here](https://hub.docker.com/r/gocd/).
-
-Once you've created an elastic profile, you can begin to associate the profile to jobs inorder to run them. 
-
 ## Associate job with the elastic profile
+
+*Note: You’ll need to make sure you have [created an elastic profile](../gocd_helm_chart/configure_k8s_ea_plugin.md#create-an-elastic-profile) before you proceed.*
 
 Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. To do this, go to the `Job Settings` tab of the specific job.
 
