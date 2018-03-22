@@ -20,8 +20,8 @@ This configuration will be specific to your target Kubernetes environment.
 You can enable Ingress on minikube with this command
 
 ```bash
-$ minikube addons enable ingress
-   ingress was successfully enabled
+minikube addons enable ingress
+  ingress was successfully enabled
 ```
 
 #### Configure service account

@@ -11,8 +11,8 @@ keywords: gocd helm chart, cd pipeline
 Install the GoCD Helm chart with these commands:
 
 ```bash
-$ helm repo add stable https://kubernetes-charts.storage.googleapis.com
-$ helm install stable/gocd --name gocd --namespace gocd
+helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm install stable/gocd --name gocd --namespace gocd
 ```
 
 ## Access the GoCD server
@@ -21,21 +21,22 @@ After you’ve installed the GoCD helm chart, you should be able to access the G
 
 The Ingress IP address can be obtained by using:
 ```bash
-$ ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
-$ echo "http://$ip"
+ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+echo "http://$ip"
 ```
 
 On minikube, the IP address can be obtained by running the command
 
 ```bash
-$ minikube ip
+minikube ip
 ```
 
 It might take a few minutes for the GoCD server to come up for the first time. You can check if the GoCD server is up with this command:
 
 ```bash
-$ kubectl get deployments --namespace gocd
+kubectl get deployments --namespace gocd
 ```
+The column `Available` should show 1 for gocd-server.
 
 The GoCD server on startup will look like this.
 ![](../../resources/images/gocd-helm-chart/first_screen.png)
