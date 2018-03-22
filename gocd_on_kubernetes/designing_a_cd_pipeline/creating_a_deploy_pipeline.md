@@ -62,7 +62,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 ## Associate job with the elastic profile
 
-*Note: You’ll need to make sure you have [created an elastic profile](creating_a_build_pipeline.md#create-an-elastic-profile) before you proceed.*
+*Note: You’ll need to make sure you have [created an elastic profile](../gocd_helm_chart/configure_k8s_ea_plugin.md#create-an-elastic-profile) before you proceed.*
 
 Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. To do this, go to the `Job Settings` tab of the specific job.
 
