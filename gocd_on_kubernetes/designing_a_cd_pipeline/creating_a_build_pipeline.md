@@ -6,6 +6,10 @@ keywords: gocd helm chart, cd pipeline
 
 In this section, we cover how to design CD pipelines that build and publish an application image. As an example, we've used a [sample nodejs application](https://github.com/bdpiparva/node-bulletin-board) called 'Bulletin Board'.
 
+### Quick links
+
+- [Getting started with GoCD](https://www.gocd.org/getting-started/part-1/)
+
 ## Build an application artifact
 
 We’ll build our application as a docker image artifact and publish it to DockerHub. To do this, you'll need a [Dockerhub](https://hub.docker.com) account. 
@@ -25,6 +29,7 @@ We’ll build our application as a docker image artifact and publish it to Docke
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_stage.png)
 
 5. Create a [job](https://docs.gocd.org/current/introduction/concepts_in_go.html#job) called `build_and_publish_image` with an initial task argument
+
 ```bash
    docker build -t $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL . -f Dockerfile.application
 ```
@@ -35,6 +40,8 @@ We’ll build our application as a docker image artifact and publish it to Docke
 
   *Note: This is the job that we have to associate with the elastic agent profile that we created earlier.*
 
+  *Tip: Do not forget the `-c` option in the arguments section.*
+  
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_job.png)
 
 ## Publish your application image
@@ -45,10 +52,12 @@ At this point, we have created a pipeline but we need to configure the tasks to 
 
   ![](../../resources/images/gocd-helm-chart/configure_env_vars.png)
 
-2. Create a task under the `build_and_publish_image` stage with the following command that executes tests. We have included sample tests for our application.
+2. Create a task under the `build_and_publish_image` job with the following command that executes tests. We have included sample tests for our application.
 
   *Tip: Use the tree on the left to navigate to the Job `build_and_publish_image`. Once you're here, you can create the tasks under the Tasks tab.*
 
+  *Tip: Do not forget the `-c` option in the arguments section.*
+  
   ```bash
      docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL npm test
   ```
@@ -57,6 +66,8 @@ At this point, we have created a pipeline but we need to configure the tasks to 
   ![](../../resources/images/gocd-helm-chart/docker_test.png)
 
 3. Create tasks for the following Docker commands that will push the image to Dockerhub.
+
+  *Tip: Do not forget the `-c` option in the arguments section.*
 
   ```bash
     docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
