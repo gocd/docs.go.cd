@@ -5,13 +5,11 @@ keywords: gocd helm chart, cd pipeline
 
 # Configure your Kubernetes Cluster
 
-Now that you have your Kubernetes cluster [set up and running](setup.md), you’ll need to make the following configuration changes.
+Now that you have your Kubernetes cluster [set up and running](setup.md), you’ll need to make the following configuration changes. This configuration will be specific to your target Kubernetes environment. We have specified the required actions for Minikube, GKE, AWS below.
 
 **1. Enable Ingress** - to be able to expose the GoCD application over your network, you will need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers).
 
-**2. Configure Service Account** - A [service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) is how Kubernetes manages roles and permissions. The default Kubernetes service account needs to be associated with the cluster-admin role to be able to install the GoCD application.
-
-This configuration will be specific to your target Kubernetes environment.
+**2. Configure Service Account** - A [service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) is how Kubernetes manages roles and permissions. The default Kubernetes service account needs to be associated with the cluster-admin type role to be able to install the GoCD application.
 
 ## Option 1: Configure minikube
 
@@ -20,14 +18,13 @@ This configuration will be specific to your target Kubernetes environment.
 You can enable Ingress on minikube with this command
 
 ```bash
-$ minikube addons enable ingress
-   ingress was successfully enabled
+minikube addons enable ingress
+  ingress was successfully enabled
 ```
 
 #### Configure service account
 
-The `kubeadm` toolkit helps to easily bootstrap a cluster so that appropriate privileges are granted for performing read-write operations on Kubernetes authentication and authorization (RBAC) resources.
-Add the bootstrapper flag to the minikube start command as shown in the [setup](setup.md#2-setup-a-kubernetes-cluster) step. This may initially take several minutes to download and setup.
+As explained in the [setup](setup.md#2-setup-a-kubernetes-cluster) section, starting minikube with the `--boostrapper kubeadm` option is sufficient to install the GoCD application.
 
 ## Option 2: Configure GKE
 

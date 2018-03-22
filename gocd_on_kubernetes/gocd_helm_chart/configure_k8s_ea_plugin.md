@@ -4,7 +4,7 @@
 
 The Kubernetes elastic agent plugin is bundled with the GoCD Helm chart. This plugin spins up GoCD agent pods in the Kubernetes cluster in response to build workload.
 
-### Configure the Kubernetes elastic agent plugin
+## Configure the Kubernetes elastic agent plugin
 
 We need to configure the plugin to point to the right Kubernetes cluster. Navigate to the plugins page from the Admin dropdown. 
 
@@ -47,3 +47,20 @@ This is a rundown of the attributes of the Kubernetes elastic agent
 5. Once you save your configuration, navigate to the plugin status report page from the plugins page and confirm that you don't have configuration errors.
 
    ![](../../resources/images/gocd-helm-chart/plugin_status.png)
+
+## Create an elastic profile
+
+> An elastic agent plugin spins up GoCD agents on the fly. It needs to know what type of agent to spin up. An elastic profile specifies the type of GoCD Agent to be used by the elastic agent plugin. Using this, you can bring up different kinds of agent pods within the same cluster to run different kinds of jobs.
+
+To configure an elastic profile, go to Admin -> Elastic Agent Profiles and click on the 'Add' button to add a new profile.
+
+1. Choose an ID name for the profile. This profile ID will be made use of when we create the [build_and_publish_image](../designing_a_cd_pipeline/creating_a_build_pipeline.md#associate-job-with-the-elastic-profile) pipeline and [deploy_app_to_cluster](../designing_a_cd_pipeline/creating_a_deploy_pipeline.md#associate-job-with-the-elastic-profile) pipeline.
+2. Choose a GoCD agent image. For this example, since we are building Docker images, we recommend using `gocd/gocd-agent-docker-dind:v18.2.0`.
+
+*Tip: Check the 'Privileged mode' checkbox which is essential to run the [Docker in Docker](../designing_a_cd_pipeline/docker_workflows.md) image.*
+
+![](../../resources/images/gocd-helm-chart/profile.png)
+
+You can see all of our docker images (both server and agent) [here](https://hub.docker.com/r/gocd/).
+
+Once you've created an elastic profile, you can begin to associate the profile to jobs inorder to run them. 
