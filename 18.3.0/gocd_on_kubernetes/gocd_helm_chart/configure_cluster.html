@@ -1565,19 +1565,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.4" data-path="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                <a href="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                    
-                    Elastic Profiles
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -2048,19 +2035,17 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="configure-your-kubernetes-cluster"><a name="configure-your-kubernetes-cluster" class="plugin-anchor" href="#configure-your-kubernetes-cluster"><i class="fa fa-link" aria-hidden="true"></i></a>Configure your Kubernetes Cluster</h1>
-<p>Now that you have your Kubernetes cluster <a href="setup.html">set up and running</a>, you&#x2019;ll need to make the following configuration changes.</p>
+<p>Now that you have your Kubernetes cluster <a href="setup.html">set up and running</a>, you&#x2019;ll need to make the following configuration changes. This configuration will be specific to your target Kubernetes environment. We have specified the required actions for Minikube, GKE, AWS below.</p>
 <p><strong>1. Enable Ingress</strong> - to be able to expose the GoCD application over your network, you will need an <a href="https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers" target="_blank">Ingress controller</a>.</p>
-<p><strong>2. Configure Service Account</strong> - A <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/" target="_blank">service account</a> is how Kubernetes manages roles and permissions. The default Kubernetes service account needs to be associated with the cluster-admin role to be able to install the GoCD application.</p>
-<p>This configuration will be specific to your target Kubernetes environment.</p>
+<p><strong>2. Configure Service Account</strong> - A <a href="https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/" target="_blank">service account</a> is how Kubernetes manages roles and permissions. The default Kubernetes service account needs to be associated with the cluster-admin type role to be able to install the GoCD application.</p>
 <h2 id="option-1-configure-minikube"><a name="option-1-configure-minikube" class="plugin-anchor" href="#option-1-configure-minikube"><i class="fa fa-link" aria-hidden="true"></i></a>Option 1: Configure minikube</h2>
 <h4 id="enable-ingress"><a name="enable-ingress" class="plugin-anchor" href="#enable-ingress"><i class="fa fa-link" aria-hidden="true"></i></a>Enable Ingress</h4>
 <p>You can enable Ingress on minikube with this command</p>
-<pre><code class="lang-bash">$ minikube addons <span class="hljs-built_in">enable</span> ingress
-   ingress was successfully enabled
+<pre><code class="lang-bash">minikube addons <span class="hljs-built_in">enable</span> ingress
+  ingress was successfully enabled
 </code></pre>
 <h4 id="configure-service-account"><a name="configure-service-account" class="plugin-anchor" href="#configure-service-account"><i class="fa fa-link" aria-hidden="true"></i></a>Configure service account</h4>
-<p>The <code>kubeadm</code> toolkit helps to easily bootstrap a cluster so that appropriate privileges are granted for performing read-write operations on Kubernetes authentication and authorization (RBAC) resources.
-Add the bootstrapper flag to the minikube start command as shown in the <a href="setup.html#2-setup-a-kubernetes-cluster">setup</a> step. This may initially take several minutes to download and setup.</p>
+<p>As explained in the <a href="setup.html#2-setup-a-kubernetes-cluster">setup</a> section, starting minikube with the <code>--boostrapper kubeadm</code> option is sufficient to install the GoCD application.</p>
 <h2 id="option-2-configure-gke"><a name="option-2-configure-gke" class="plugin-anchor" href="#option-2-configure-gke"><i class="fa fa-link" aria-hidden="true"></i></a>Option 2: Configure GKE</h2>
 <h4 id="enable-ingress"><a name="enable-ingress" class="plugin-anchor" href="#enable-ingress"><i class="fa fa-link" aria-hidden="true"></i></a>Enable Ingress</h4>
 <p>GKE comes with Ingress enabled by default, so no action needed here.</p>
@@ -2134,7 +2119,7 @@ Add the bootstrapper flag to the minikube start command as shown in the <a href=
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"next":{"title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","ref":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","articles":[]},"previous":{"title":"Setup","level":"1.9.2.1","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/setup.md","ref":"gocd_on_kubernetes/gocd_helm_chart/setup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","mtime":"2018-03-21T10:49:05.189Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-21T10:54:07.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"next":{"title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","ref":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","articles":[]},"previous":{"title":"Setup","level":"1.9.2.1","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/setup.md","ref":"gocd_on_kubernetes/gocd_helm_chart/setup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","mtime":"2018-03-22T06:41:56.060Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-22T06:44:50.572Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

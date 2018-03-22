@@ -1565,19 +1565,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.4" data-path="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                <a href="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                    
-                    Elastic Profiles
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -2055,8 +2042,8 @@
 <p>Before installing GoCD, you need to setup a Kubernetes cluster. You can do this using any of the following tools:</p>
 <ul>
 <li><p>Option 1: Minikube (<a href="https://kubernetes.io/docs/getting-started-guides/minikube/" target="_blank">setup guide</a>)</p>
-<p><em>Tip: Once minikube is installed, start minikube with the <code>kubeadm</code> bootstrapper.</em></p>
-<pre><code class="lang-bash">minikube start --vm-driver=virtualbox --bootstrapper=kubeadm
+<p>Once minikube is installed, start minikube with the <code>kubeadm</code> bootstrapper. The <code>kubeadm</code> toolkit helps to easily bootstrap a cluster so that appropriate privileges are granted for performing read-write operations on Kubernetes authentication and authorization (RBAC) resources.</p>
+<pre><code class="lang-bash">minikube start --vm-driver=virtualbox --bootstrapper=kubeadm --memory 4096
 </code></pre>
 </li>
 <li><p>Option 2: Google Kubernetes Engine or GKE (<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster" target="_blank">setup guide</a>)</p>
@@ -2066,25 +2053,21 @@
 </code></pre>
 </li>
 <li><p>Option 3: Kubernetes Operations on AWS/GCE or kops (<a href="https://github.com/kubernetes/kops/blob/master/docs/README.md" target="_blank">setup guide</a>)</p>
+<h5 id="other-references"><a name="other-references" class="plugin-anchor" href="#other-references"><i class="fa fa-link" aria-hidden="true"></i></a>Other References</h5>
+<ul>
+<li><a href="https://aws.amazon.com/blogs/compute/kubernetes-clusters-aws-kops/" target="_blank">Manage Kubernetes Clusters on AWS Using Kops</a></li>
+<li><a href="https://kubernetes.io/docs/getting-started-guides/kops/" target="_blank">Installing Kubernetes on AWS with kops</a></li>
+</ul>
 </li>
 </ul>
 <h2 id="3-install-the-kubernetes-package-manager---helm"><a name="3-install-the-kubernetes-package-manager---helm" class="plugin-anchor" href="#3-install-the-kubernetes-package-manager---helm"><i class="fa fa-link" aria-hidden="true"></i></a>3. Install the Kubernetes package manager - Helm</h2>
-<blockquote>
 <p>Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes. </p>
-</blockquote>
 <p>Helm has two parts to it, a client and a server called <code>Tiller</code>.</p>
 <h4 id="install-the-helm-client"><a name="install-the-helm-client" class="plugin-anchor" href="#install-the-helm-client"><i class="fa fa-link" aria-hidden="true"></i></a>Install the Helm client</h4>
-<blockquote>
 <p>The helm client is a CLI that let&#x2019;s you install and update packaged applications on Kubernetes.</p>
-</blockquote>
-<p>The simplest way to install the helm client is using the install script.</p>
-<pre><code class="lang-bash">$ curl https://raw.githubusercontent.com/kubernetes/helm/master/scripts/get &gt; get_helm.sh
-$ chmod 700 get_helm.sh
-$ ./get_helm.sh
-</code></pre>
 <p>Please refer to the helm <a href="https://github.com/kubernetes/helm/blob/master/docs/install.md" target="_blank">install documentation</a> for alternative methods of installation.</p>
 <h4 id="install-the-helm-server"><a name="install-the-helm-server" class="plugin-anchor" href="#install-the-helm-server"><i class="fa fa-link" aria-hidden="true"></i></a>Install the Helm server</h4>
-<p>The helm server is installed as a Kubernetes pod and can be installed with the command:</p>
+<p>The helm server is installed as a Kubernetes pod and can be started with the command:</p>
 <pre><code class="lang-bash">$ helm init
 </code></pre>
 
@@ -2130,7 +2113,7 @@ $ ./get_helm.sh
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Setup","level":"1.9.2.1","depth":3,"next":{"title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","articles":[]},"previous":{"title":"Setup and configuration","level":"1.9.2","depth":2,"path":"gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.md","ref":"gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.md","articles":[{"title":"Setup","level":"1.9.2.1","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/setup.md","ref":"gocd_on_kubernetes/gocd_helm_chart/setup.md","articles":[]},{"title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","articles":[]},{"title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","ref":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","articles":[]},{"title":"Configure the Kubernetes Elastic Agent Plugin","level":"1.9.2.4","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/setup.md","mtime":"2018-03-21T10:49:05.189Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-21T10:54:07.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Setup","level":"1.9.2.1","depth":3,"next":{"title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","articles":[]},"previous":{"title":"Setup and configuration","level":"1.9.2","depth":2,"path":"gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.md","ref":"gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.md","articles":[{"title":"Setup","level":"1.9.2.1","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/setup.md","ref":"gocd_on_kubernetes/gocd_helm_chart/setup.md","articles":[]},{"title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","articles":[]},{"title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","ref":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","articles":[]},{"title":"Configure the Kubernetes Elastic Agent Plugin","level":"1.9.2.4","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/setup.md","mtime":"2018-03-22T06:41:56.060Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-22T06:44:50.572Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -1565,19 +1565,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.4" data-path="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                <a href="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                    
-                    Elastic Profiles
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -2052,7 +2039,7 @@
 <p>GoCD agents are &#x201C;workers&#x201D; and execute tasks that make up jobs, stages and the pipeline. GoCD <a href="https://www.gocd.org/elastic-agents" target="_blank">Elastic agents</a> spin up agents on demand, depending on the intensity of the tasks and availability of processing power.</p>
 </blockquote>
 <p>The Kubernetes elastic agent plugin is bundled with the GoCD Helm chart. This plugin spins up GoCD agent pods in the Kubernetes cluster in response to build workload.</p>
-<h3 id="configure-the-kubernetes-elastic-agent-plugin"><a name="configure-the-kubernetes-elastic-agent-plugin" class="plugin-anchor" href="#configure-the-kubernetes-elastic-agent-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Configure the Kubernetes elastic agent plugin</h3>
+<h2 id="configure-the-kubernetes-elastic-agent-plugin"><a name="configure-the-kubernetes-elastic-agent-plugin" class="plugin-anchor" href="#configure-the-kubernetes-elastic-agent-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Configure the Kubernetes elastic agent plugin</h2>
 <p>We need to configure the plugin to point to the right Kubernetes cluster. Navigate to the plugins page from the Admin dropdown. </p>
 <p>  <img src="../../resources/images/gocd-helm-chart/plugins_page.png" alt=""></p>
 <p>Click on the &#x2018;gear&#x2019; icon for the Kubernetes Elastic Agent plugin to edit its settings.</p>
@@ -2086,6 +2073,19 @@
 <p><img src="../../resources/images/gocd-helm-chart/plugin_status.png" alt=""></p>
 </li>
 </ol>
+<h2 id="create-an-elastic-profile"><a name="create-an-elastic-profile" class="plugin-anchor" href="#create-an-elastic-profile"><i class="fa fa-link" aria-hidden="true"></i></a>Create an elastic profile</h2>
+<blockquote>
+<p>An elastic agent plugin spins up GoCD agents on the fly. It needs to know what type of agent to spin up. An elastic profile specifies the type of GoCD Agent to be used by the elastic agent plugin. Using this, you can bring up different kinds of agent pods within the same cluster to run different kinds of jobs.</p>
+</blockquote>
+<p>To configure an elastic profile, go to Admin -&gt; Elastic Agent Profiles and click on the &apos;Add&apos; button to add a new profile.</p>
+<ol>
+<li>Choose an ID name for the profile. This profile ID will be made use of when we create the <a href="../designing_a_cd_pipeline/creating_a_build_pipeline.html#associate-job-with-the-elastic-profile">build_and_publish_image</a> pipeline and <a href="../designing_a_cd_pipeline/creating_a_deploy_pipeline.html#associate-job-with-the-elastic-profile">deploy_app_to_cluster</a> pipeline.</li>
+<li>Choose a GoCD agent image. For this example, since we are building Docker images, we recommend using <code>gocd/gocd-agent-docker-dind:v18.2.0</code>.</li>
+</ol>
+<p><em>Tip: Check the &apos;Privileged mode&apos; checkbox which is essential to run the <a href="../designing_a_cd_pipeline/docker_workflows.html">Docker in Docker</a> image.</em></p>
+<p><img src="../../resources/images/gocd-helm-chart/profile.png" alt=""></p>
+<p>You can see all of our docker images (both server and agent) <a href="https://hub.docker.com/r/gocd/" target="_blank">here</a>.</p>
+<p>Once you&apos;ve created an elastic profile, you can begin to associate the profile to jobs inorder to run them.</p>
 
                                 
                                 </section>
@@ -2129,7 +2129,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Configure the Kubernetes Elastic Agent Plugin","level":"1.9.2.4","depth":3,"next":{"title":"Designing a CD Pipeline","level":"1.9.3","depth":2,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","articles":[{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},{"title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","articles":[]},{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},{"title":"Elastic Profiles","level":"1.9.3.4","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/elastic_profiles.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/elastic_profiles.md","articles":[]}]},"previous":{"title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","ref":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","mtime":"2018-03-21T10:49:05.189Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-21T10:54:07.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configure the Kubernetes Elastic Agent Plugin","level":"1.9.2.4","depth":3,"next":{"title":"Designing a CD Pipeline","level":"1.9.3","depth":2,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","articles":[{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},{"title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","articles":[]},{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]}]},"previous":{"title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","ref":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","mtime":"2018-03-22T06:41:56.060Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-22T06:44:50.572Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

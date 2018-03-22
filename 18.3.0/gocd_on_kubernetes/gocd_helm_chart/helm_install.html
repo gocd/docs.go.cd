@@ -1565,19 +1565,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.4" data-path="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                <a href="../designing_a_cd_pipeline/elastic_profiles.html">
-            
-                    
-                    Elastic Profiles
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -2048,25 +2035,29 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="install-the-gocd-helm-chart"><a name="install-the-gocd-helm-chart" class="plugin-anchor" href="#install-the-gocd-helm-chart"><i class="fa fa-link" aria-hidden="true"></i></a>Install the GoCD Helm chart</h1>
-<blockquote>
 <p>Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.  </p>
-</blockquote>
 <p>Install the GoCD Helm chart with these commands:</p>
-<pre><code class="lang-bash">$ helm repo add stable https://kubernetes-charts.storage.googleapis.com
-$ helm install stable/gocd --name gocd --namespace gocd
+<pre><code class="lang-bash">helm repo add stable https://kubernetes-charts.storage.googleapis.com
+helm install stable/gocd --name gocd --namespace gocd
 </code></pre>
 <h2 id="access-the-gocd-server"><a name="access-the-gocd-server" class="plugin-anchor" href="#access-the-gocd-server"><i class="fa fa-link" aria-hidden="true"></i></a>Access the GoCD server</h2>
 <p>After you&#x2019;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</p>
-<p>The Ingress IP address can be obtained by using:</p>
-<pre><code class="lang-bash">$ ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath=<span class="hljs-string">&quot;{.status.loadBalancer.ingress[0].ip}&quot;</span>)
-$ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;http://<span class="hljs-variable">$ip</span>&quot;</span>
+<p>The Ingress IP address can be obtained as specified below:</p>
+<ul>
+<li>Minikube</li>
+</ul>
+<pre><code class="lang-bash">minikube ip
 </code></pre>
-<p>On minikube, the IP address can be obtained by running the command</p>
-<pre><code class="lang-bash">$ minikube ip
+<ul>
+<li>Others</li>
+</ul>
+<pre><code class="lang-bash">ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath=<span class="hljs-string">&quot;{.status.loadBalancer.ingress[0].ip}&quot;</span>)
+<span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;http://<span class="hljs-variable">$ip</span>&quot;</span>
 </code></pre>
 <p>It might take a few minutes for the GoCD server to come up for the first time. You can check if the GoCD server is up with this command:</p>
-<pre><code class="lang-bash">$ kubectl get deployments --namespace gocd
+<pre><code class="lang-bash">kubectl get deployments --namespace gocd
 </code></pre>
+<p>The column <code>Available</code> should show 1 for gocd-server.</p>
 <p>The GoCD server on startup will look like this.
 <img src="../../resources/images/gocd-helm-chart/first_screen.png" alt=""></p>
 <p>Now that you have accessed the GoCD server successfully, you will need to configure the Kubernetes elastic agent plugin.</p>
@@ -2113,7 +2104,7 @@ $ <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;http:/
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"next":{"title":"Configure the Kubernetes Elastic Agent Plugin","level":"1.9.2.4","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","articles":[]},"previous":{"title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","mtime":"2018-03-21T10:49:05.189Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-21T10:54:07.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"next":{"title":"Configure the Kubernetes Elastic Agent Plugin","level":"1.9.2.4","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","articles":[]},"previous":{"title":"Configure your Kubernetes Cluster","level":"1.9.2.2","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","ref":"gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","mtime":"2018-03-22T06:41:56.060Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-22T06:44:50.572Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

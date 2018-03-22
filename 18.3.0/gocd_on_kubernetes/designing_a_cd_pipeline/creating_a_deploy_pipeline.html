@@ -1565,19 +1565,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.4" data-path="elastic_profiles.html">
-            
-                <a href="elastic_profiles.html">
-            
-                    
-                    Elastic Profiles
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -2049,13 +2036,16 @@
                                 
                                 <h1 id="create-a-pipeline-to-deploy-the-published-artifact"><a name="create-a-pipeline-to-deploy-the-published-artifact" class="plugin-anchor" href="#create-a-pipeline-to-deploy-the-published-artifact"><i class="fa fa-link" aria-hidden="true"></i></a>Create a pipeline to deploy the published artifact</h1>
 <p>In this section, we&#x2019;ll learn to design a deployment pipeline to deploy to Kubernetes. After you&apos;ve designed and run the build pipeline, you&apos;ll see that for every successful build, a new image gets created with a new tag. To create a pipeline to deploy the published artifact, follow these steps:   </p>
+<h5 id="quick-links"><a name="quick-links" class="plugin-anchor" href="#quick-links"><i class="fa fa-link" aria-hidden="true"></i></a>Quick Links</h5>
+<p><a href="https://www.gocd.org/tags/modeling-deployment-pipelines.html" target="_blank">Modeling Deployment Pipelines</a></p>
+<h2 id="deploy-application-to-kubernetes"><a name="deploy-application-to-kubernetes" class="plugin-anchor" href="#deploy-application-to-kubernetes"><i class="fa fa-link" aria-hidden="true"></i></a>Deploy application to Kubernetes</h2>
 <ol>
 <li><p>Navigate to Admin -&gt; Pipelines and click on <code>Create a pipeline within this group</code>.</p>
 </li>
 <li><p>Specify the pipeline name as <code>deploy_app_to_cluster</code>.</p>
 <p> <img src="../../resources/images/gocd-helm-chart/pipeline_wizard_deploy_pipeline.png" alt=""></p>
 </li>
-<li><p>Specify the git material with URL <code>https://github.com/bdpiparva/node-bulletin-board</code>.</p>
+<li><p>Specify the git material with URL <code>https://github.com/gocd-demo/node-bulletin-board.git</code>. The deploy scripts are present in the same repository as the application source.</p>
 <p> <img src="../../resources/images/gocd-helm-chart/deploy_add_material.png" alt=""></p>
 </li>
 <li><p>Create a stage named <code>deploy_to_cluster</code>.</p>
@@ -2067,14 +2057,16 @@
 <p> <img src="../../resources/images/gocd-helm-chart/deploy_add_job.png" alt=""></p>
 </li>
 <li><p>Introduce the pipeline <code>build_and_publish_image</code> as a material called <code>upstream</code>. </p>
+<p> <em>Tip: Choose the option &apos;Pipeline&apos; in the &apos;Add Material&apos; dropdown under the Materials tab.</em></p>
 <p> We want to add the earlier pipeline to build the app as a dependency as we want this pipeline to run only after the docker image is built. </p>
 <p> <img src="../../resources/images/gocd-helm-chart/deploy_add_pipeline_dep.png" alt=""></p>
 </li>
 <li><p>Add the <code>NAMESPACE</code>, <code>DOCKERHUB_USERNAME</code> and <code>KUBE_TOKEN</code> environment variables.</p>
 <blockquote>
-<p>The <code>KUBE_TOKEN</code> environment variable is needed when we make a Kubernetes API requests to create deployments, service and ingress.
+<p>The <code>KUBE_TOKEN</code> secure environment variable is needed when we make a Kubernetes API requests to create deployments, service and ingress.
  For convenience, you can use the secret associated with the service account we used to start the <code>Tiller</code> pod: <code>kube-system:default</code>.  </p>
 </blockquote>
+<p> <em>Note: The KUBE_TOKEN environment variable must be configured as a secure variable as shown in the image. This token should not be exposed.</em></p>
 <pre><code class="lang-bash"> kubectl describe sa default --namespace kube-system // to obtain the secret name
  kubectl describe secrets &lt;token_name&gt; --namespace kube-system
 </code></pre>
@@ -2097,7 +2089,7 @@
 <p>You can view the value stream map of your deployment by clicking on the &apos;VSM&apos; link of the <code>deploy_app_to_cluster</code> pipeline in the Dashboard. </p>
 <p><img src="../../resources/images/gocd-helm-chart/value_stream_map.png" alt=""></p>
 <h2 id="access-your-application"><a name="access-your-application" class="plugin-anchor" href="#access-your-application"><i class="fa fa-link" aria-hidden="true"></i></a>Access your application</h2>
-<p>Once the pipeline has run successfully, go to <code>&lt;ingress-ip&gt;/bulletin-board</code> to see your deployed sample application.</p>
+<p>Once the pipeline has run successfully, go to <code>http://&lt;ingress-ip&gt;/bulletin-board</code> to see your deployed sample application.</p>
 <p>Get the new ingress IP address for the application by doing</p>
 <ul>
 <li>For Minikube,</li>
@@ -2153,7 +2145,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"next":{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},"previous":{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","mtime":"2018-03-21T10:49:05.189Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-21T10:54:07.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"next":{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},"previous":{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","mtime":"2018-03-22T06:41:56.060Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-22T06:44:50.572Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

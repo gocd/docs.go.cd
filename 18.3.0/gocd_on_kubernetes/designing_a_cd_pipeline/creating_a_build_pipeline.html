@@ -1565,19 +1565,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.4" data-path="elastic_profiles.html">
-            
-                <a href="elastic_profiles.html">
-            
-                    
-                    Elastic Profiles
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -2049,6 +2036,10 @@
                                 
                                 <h1 id="create-a-pipeline-to-build-and-publish-your-application-image"><a name="create-a-pipeline-to-build-and-publish-your-application-image" class="plugin-anchor" href="#create-a-pipeline-to-build-and-publish-your-application-image"><i class="fa fa-link" aria-hidden="true"></i></a>Create a pipeline to build and publish your application image</h1>
 <p>In this section, we cover how to design CD pipelines that build and publish an application image. As an example, we&apos;ve used a <a href="https://github.com/bdpiparva/node-bulletin-board" target="_blank">sample nodejs application</a> called &apos;Bulletin Board&apos;.</p>
+<h3 id="quick-links"><a name="quick-links" class="plugin-anchor" href="#quick-links"><i class="fa fa-link" aria-hidden="true"></i></a>Quick links</h3>
+<ul>
+<li><a href="https://www.gocd.org/getting-started/part-1/" target="_blank">Getting started with GoCD</a></li>
+</ul>
 <h2 id="build-an-application-artifact"><a name="build-an-application-artifact" class="plugin-anchor" href="#build-an-application-artifact"><i class="fa fa-link" aria-hidden="true"></i></a>Build an application artifact</h2>
 <p>We&#x2019;ll build our application as a docker image artifact and publish it to DockerHub. To do this, you&apos;ll need a <a href="https://hub.docker.com" target="_blank">Dockerhub</a> account. </p>
 <ol>
@@ -2057,20 +2048,21 @@
 <li><p>Specify the <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#pipeline" target="_blank">pipeline</a> name and the group name as <code>build_and_publish_image</code> and <code>kubernetes_app_deployment</code> respectively.</p>
 <p><img src="../../resources/images/gocd-helm-chart/pipeline_wizard_add_pipeline.png" alt=""></p>
 </li>
-<li><p>Specify a git <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#materials" target="_blank">material</a> with repository <code>https://github.com/bdpiparva/node-bulletin-board</code>.</p>
+<li><p>Specify a git <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#materials" target="_blank">material</a> with repository <code>https://github.com/gocd-demo/node-bulletin-board.git</code>.</p>
 <p><img src="../../resources/images/gocd-helm-chart/pipeline_wizard_add_material.png" alt=""></p>
 </li>
 <li><p>Create a <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#stage" target="_blank">stage</a> called <code>build_and_publish_image</code>.</p>
 <p><img src="../../resources/images/gocd-helm-chart/pipeline_wizard_add_stage.png" alt=""></p>
 </li>
 <li><p>Create a <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#job" target="_blank">job</a> called <code>build_and_publish_image</code> with an initial task argument</p>
-<pre><code class="lang-bash">docker build -t <span class="hljs-variable">$DOCKERHUB_USERNAME</span>/bulletin-board:<span class="hljs-variable">$GO_PIPELINE_LABEL</span> . <span class="hljs-_">-f</span> Dockerfile.application
+<pre><code class="lang-bash"> docker build -t <span class="hljs-variable">$DOCKERHUB_USERNAME</span>/bulletin-board:<span class="hljs-variable">$GO_PIPELINE_LABEL</span> . <span class="hljs-_">-f</span> Dockerfile.application
 </code></pre>
 <blockquote>
 <p>The <code>GO_PIPELINE_LABEL</code> is an environment variable provided by GoCD which can be used to differentiate between builds from a repository.</p>
 </blockquote>
 <p>Here we are using <code>GO_PIPELINE_LABEL</code> to determine the application image tag.</p>
 <p><em>Note: This is the job that we have to associate with the elastic agent profile that we created earlier.</em></p>
+<p><em>Tip: Do not forget the <code>-c</code> option in the arguments section.</em></p>
 <p><img src="../../resources/images/gocd-helm-chart/pipeline_wizard_add_job.png" alt=""></p>
 </li>
 </ol>
@@ -2080,14 +2072,16 @@
 <li><p>Configure the <code>DOCKERHUB_USERNAME</code> and <code>DOCKERHUB_PASSWORD</code> as environment variables.</p>
 <p><img src="../../resources/images/gocd-helm-chart/configure_env_vars.png" alt=""></p>
 </li>
-<li><p>Create a task under the <code>build_and_publish_image</code> stage with the following command that executes tests. We have included sample tests for our application.</p>
+<li><p>Create a task under the <code>build_and_publish_image</code> job with the following command that executes tests. We have included sample tests for our application.</p>
 <p><em>Tip: Use the tree on the left to navigate to the Job <code>build_and_publish_image</code>. Once you&apos;re here, you can create the tasks under the Tasks tab.</em></p>
+<p><em>Tip: Do not forget the <code>-c</code> option in the arguments section.</em></p>
 <pre><code class="lang-bash">  docker run <span class="hljs-variable">$DOCKERHUB_USERNAME</span>/bulletin-board:<span class="hljs-variable">$GO_PIPELINE_LABEL</span> npm <span class="hljs-built_in">test</span>
 </code></pre>
 <p><em>Tip: Choose the More option in the Add New Task dropdown.</em></p>
 <p><img src="../../resources/images/gocd-helm-chart/docker_test.png" alt=""></p>
 </li>
 <li><p>Create tasks for the following Docker commands that will push the image to Dockerhub.</p>
+<p><em>Tip: Do not forget the <code>-c</code> option in the arguments section.</em></p>
 <pre><code class="lang-bash"> docker login -u <span class="hljs-variable">$DOCKERHUB_USERNAME</span> -p <span class="hljs-variable">$DOCKERHUB_PASSWORD</span>
 </code></pre>
 <p><img src="../../resources/images/gocd-helm-chart/docker_login.png" alt=""></p>
@@ -2099,20 +2093,8 @@
 <p><img src="../../resources/images/gocd-helm-chart/build_and_publish_image_tasks.png" alt=""></p>
 </li>
 </ol>
-<h2 id="create-an-elastic-profile"><a name="create-an-elastic-profile" class="plugin-anchor" href="#create-an-elastic-profile"><i class="fa fa-link" aria-hidden="true"></i></a>Create an elastic profile</h2>
-<blockquote>
-<p>An elastic agent plugin spins up GoCD agents on the fly. It needs to know what type of agent to spin up. An elastic profile specifies the type of GoCD Agent to be used by the elastic agent plugin. Using this, you can bring up different kinds of agent pods within the same cluster to run different kinds of jobs.</p>
-</blockquote>
-<p>To configure an elastic profile, go to Admin -&gt; Elastic Agent Profiles and click on the &apos;Add&apos; button to add a new profile.</p>
-<ol>
-<li>Choose an ID name for the profile. </li>
-<li>Choose a GoCD agent image. For this example, since we are building Docker images, we recommend using <code>gocd/gocd-agent-docker-dind:v18.2.0</code>.</li>
-</ol>
-<p><em>Tip: Check the &apos;Privileged mode&apos; checkbox which is essential to run the <a href="(../designing_a_cd_pipeline/docker_workflows.md">Docker in Docker</a>) image.</em></p>
-<p><img src="../../resources/images/gocd-helm-chart/profile.png" alt=""></p>
-<p>You can see all of our docker images (both server and agent) <a href="https://hub.docker.com/r/gocd/" target="_blank">here</a>.</p>
-<p>Once you&apos;ve created an elastic profile, you can begin to associate the profile to jobs inorder to run them. </p>
 <h2 id="associate-job-with-the-elastic-profile"><a name="associate-job-with-the-elastic-profile" class="plugin-anchor" href="#associate-job-with-the-elastic-profile"><i class="fa fa-link" aria-hidden="true"></i></a>Associate job with the elastic profile</h2>
+<p><em>Note: You&#x2019;ll need to make sure you have <a href="../gocd_helm_chart/configure_k8s_ea_plugin.html#create-an-elastic-profile">created an elastic profile</a> before you proceed.</em></p>
 <p>Before you can run the pipeline, you&#x2019;ll need to associate an elastic profile ID with the job to be executed. To do this, go to the <code>Job Settings</code> tab of the specific job.</p>
 <p><em>Tip: Use the tree on the left to navigate to the job <code>build_and_publish_image</code>. Once you&apos;re here, you can associate the profile ID under the Job Settings tab.</em></p>
 <p>Once you&#x2019;ve associated the job to the profile, you&#x2019;re ready to run the pipeline.</p>
@@ -2124,9 +2106,12 @@
 <h2 id="check-the-status-of-agents-with-agent-status-report"><a name="check-the-status-of-agents-with-agent-status-report" class="plugin-anchor" href="#check-the-status-of-agents-with-agent-status-report"><i class="fa fa-link" aria-hidden="true"></i></a>Check the status of agents with Agent Status Report</h2>
 <p>When the pipeline is running (signified by a yellow bar), you can take a look at the status of the agents that are assigned to run the jobs in the pipeline. You can find the following information here</p>
 <ul>
-<li>pod details &amp; configuration</li>
-<li>pod events</li>
-<li>logs for the agents</li>
+<li><p>pod details &amp; configuration</p>
+</li>
+<li><p>pod events</p>
+</li>
+<li><p>logs for the agents</p>
+</li>
 </ul>
 <p>This can be useful to troubleshoot when an agent is not picking up the job. </p>
 <p>To access the agent status report, </p>
@@ -2140,12 +2125,12 @@
 </li>
 <li><p>Clicking on this will take you to the Agent Status Report where you can see --- </p>
 <p> <img src="../../resources/images/gocd-helm-chart/agent_status_report.png" alt=""></p>
+<p> <em>Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.</em></p>
 </li>
 </ol>
-<p><em>Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.</em></p>
 <h2 id="verify-your-pipeline"><a name="verify-your-pipeline" class="plugin-anchor" href="#verify-your-pipeline"><i class="fa fa-link" aria-hidden="true"></i></a>Verify your pipeline</h2>
 <p>Once the pipeline has run successfully, you can go to your DockerHub account to verify if the image has been published.</p>
-<p>In our <a href="creating_a_deploy_pipeline.html">next section</a>, we&apos;ll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.</p>
+<p>In the <a href="creating_a_deploy_pipeline.html">next section</a>, we&apos;ll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.</p>
 
                                 
                                 </section>
@@ -2189,7 +2174,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"next":{"title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","articles":[]},"previous":{"title":"Designing a CD Pipeline","level":"1.9.3","depth":2,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","articles":[{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},{"title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","articles":[]},{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},{"title":"Elastic Profiles","level":"1.9.3.4","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/elastic_profiles.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/elastic_profiles.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","mtime":"2018-03-21T10:49:05.189Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-21T10:54:07.202Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"next":{"title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","articles":[]},"previous":{"title":"Designing a CD Pipeline","level":"1.9.3","depth":2,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","articles":[{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},{"title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","articles":[]},{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","mtime":"2018-03-22T06:41:56.060Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-03-22T06:44:50.572Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
