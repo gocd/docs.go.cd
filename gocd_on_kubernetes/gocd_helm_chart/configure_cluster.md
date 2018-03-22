@@ -7,11 +7,11 @@ keywords: gocd helm chart, cd pipeline
 
 Now that you have your Kubernetes cluster [set up and running](setup.md), you’ll need to make the following configuration changes.
 
-**1. Enable Ingress** - to be able to expose the GoCD application over your network, you will need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers). We have specified the required actions for Minikube, GKE, AWS below.
+**1. Enable Ingress** - to be able to expose the GoCD application over your network, you will need an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress/#ingress-controllers).
 
 **2. Configure Service Account** - A [service account](https://kubernetes.io/docs/tasks/configure-pod-container/configure-service-account/) is how Kubernetes manages roles and permissions. The default Kubernetes service account needs to be associated with the cluster-admin type role to be able to install the GoCD application.
 
-This configuration will be specific to your target Kubernetes environment.
+This configuration will be specific to your target Kubernetes environment. We have specified the required actions for Minikube, GKE, AWS below.
 
 ## Option 1: Configure minikube
 
