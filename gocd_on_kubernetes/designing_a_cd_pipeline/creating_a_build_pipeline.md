@@ -4,7 +4,7 @@ keywords: gocd helm chart, cd pipeline
 ---
 # Create a pipeline to build and publish your application image
 
-In this section, we cover how to design CD pipelines that build and publish an application image. As an example, we've used a [sample nodejs application](https://github.com/bdpiparva/node-bulletin-board) called 'Bulletin Board'.
+In this section, we cover how to design CD pipelines that build and publish an application image. As an example, we've used a [sample nodejs application](https://github.com/gocd-demo/node-bulletin-board) called 'Bulletin Board'.
 
 ### Quick links
 
