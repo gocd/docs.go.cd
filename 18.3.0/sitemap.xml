@@ -133,7 +133,6 @@
 <url> <loc>https://docs.gocd.org/current/faq/admin_out_of_disk_space.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/beta/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/beta/comment_on_pipeline_run.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://docs.gocd.org/current/beta/plugin_upload.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/release_history/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/release_history/whats_new_in_go.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/installation/troubleshoot_installer.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
