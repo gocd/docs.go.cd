@@ -26,3 +26,46 @@ Often you do want to specify a set of files that GoCD should ignore when it chec
 -   Enter the items to blacklist using ant-style syntax below
 ![](../resources/images/edit_material_blacklist.png)
 -   Click "Save".
+
+## Whitelist
+
+There are cases where instead of ignoring those files or folder/s, you want to only build them and ignore the rest. With GoCD whitelisting, you can allow pipeline to trigger on certain repository changesets.
+
+- Click on "Invert the file filter...." to enable whitelisting
+![](../resources/images/edit_material_whitelist.png)
+- Click "Save".
+
+**Note** - ```GoCD uses '**' for folder/path and '*' for files.```
+
+## Examples:
+
+```xml
+<ignore pattern="doc/**/*" />
+```
+Ignore everything under the folder **'doc'**, even deeper levels of subfolders/files under doc folder.
+
+```xml
+<ignore pattern="doc/*" />
+```
+Ignore files under the folder **'doc'**, excluding any subfolder.
+
+```xml
+<ignore pattern="framework/helper/*.doc" />
+```
+Ignore files that are under the directory 'framework/helper' and the file extension is **.doc**.
+
+```xml
+<ignore pattern="*.pdf" />
+```
+Ignore files that are under the root directory of SCM repository and the file extension is **.pdf**.
+
+```xml
+<ignore pattern="**/helper/*.pdf" />
+```
+Ignore all the files that is under any **'helper'** folder and the file extension is **.pdf**.
+
+```xml
+<ignore pattern="helper/**/*.pdf" />
+```
+
+Ignore all the files that are in the nested directory under folder **'helper'** of the repository and the file extension is **.pdf**.
