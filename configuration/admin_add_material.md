@@ -19,7 +19,7 @@ Now that you have a pipeline, lets add another material to it.
 ![](../resources/images/edit_material.png)
 -   Click "Save".
 
-## Blacklist 
+## Blacklist
 
 Often you do want to specify a set of files that GoCD should ignore when it checks for changes. Repository changesets which contain only these files will not automatically trigger a pipeline. These are detailed in the [ignore](configuration_reference.md#ignore) section of the [configuration reference.](configuration_reference.md)
 
@@ -29,7 +29,7 @@ Often you do want to specify a set of files that GoCD should ignore when it chec
 
 ## Whitelist
 
-There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD whitelisting, you can allow pipeline to trigger on certain repository changesets.
+There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD whitelisting, you can allow a pipeline to trigger on certain repository changesets.
 
 - Click on "Invert the file filter...." to enable whitelisting
 ![](../resources/images/edit_material_whitelist.png)
