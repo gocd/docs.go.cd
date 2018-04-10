@@ -23,7 +23,7 @@ This shows the current activity in the system. You can see all the instances of 
 9.  The "Changes" shows you the modifications to materials that have been built in this instance. The "!" indicates that the changes are being built for the first time.
 10. Click the pipeline VSM to see the [value stream map](../navigation/value_stream_map.md) of that instance of the pipeline.
 11. Click the pipeline history to see [pipeline activity](../navigation/pipeline_activity_page.md) for that pipeline.
-12. "triggered by [user name] about [how long ago]" gives you a quick look at who activated this pipeline and when this was triggered.
+12. "triggered by [user name] on [time]" gives you a quick look at who activated this pipeline and when this was triggered.
 13. Lets you search for any pipeline configured to be visible on your pipeline dashboard.
 14. Lets you customize which pipelines are displayed on the dashboard. See [below](#personalize-pipelines-view) for more details.
 
