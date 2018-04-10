@@ -2043,6 +2043,33 @@
 <img src="../resources/images/edit_material_blacklist.png" alt=""></li>
 <li>Click &quot;Save&quot;.</li>
 </ul>
+<h2 id="whitelist"><a name="whitelist" class="plugin-anchor" href="#whitelist"><i class="fa fa-link" aria-hidden="true"></i></a>Whitelist</h2>
+<p>There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD whitelisting, you can allow a pipeline to trigger on certain repository changesets.</p>
+<ul>
+<li>Click on &quot;Invert the file filter....&quot; to enable whitelisting
+<img src="../resources/images/edit_material_whitelist.png" alt=""></li>
+<li>Click &quot;Save&quot;.</li>
+</ul>
+<p><strong>Note</strong> - <code>GoCD uses &apos;**&apos; for folder/path and &apos;*&apos; for files.</code></p>
+<h2 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples:</h2>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ignore</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;doc/**/*&quot;</span> /&gt;</span>
+</code></pre>
+<p>Ignore everything under the folder <strong>&apos;doc&apos;</strong>, even deeper levels of subfolders/files under doc folder.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ignore</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;doc/*&quot;</span> /&gt;</span>
+</code></pre>
+<p>Ignore files under the folder <strong>&apos;doc&apos;</strong>, excluding any subfolder.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ignore</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;framework/helper/*.doc&quot;</span> /&gt;</span>
+</code></pre>
+<p>Ignore files that are under the directory &apos;framework/helper&apos; and the file extension is <strong>.doc</strong>.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ignore</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;*.pdf&quot;</span> /&gt;</span>
+</code></pre>
+<p>Ignore files that are under the root directory of SCM repository and the file extension is <strong>.pdf</strong>.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ignore</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;**/helper/*.pdf&quot;</span> /&gt;</span>
+</code></pre>
+<p>Ignore all the files that is under any <strong>&apos;helper&apos;</strong> folder and the file extension is <strong>.pdf</strong>.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">ignore</span> <span class="hljs-attr">pattern</span>=<span class="hljs-string">&quot;helper/**/*.pdf&quot;</span> /&gt;</span>
+</code></pre>
+<p>Ignore all the files that are in the nested directory under folder <strong>&apos;helper&apos;</strong> of the repository and the file extension is <strong>.pdf</strong>.</p>
 
                                 
                                 </section>
@@ -2086,7 +2113,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"Add new material to an existing GoCD pipeline","keywords":"material, continuous delivery pipeline, GoCD configuration, blacklist, CD pipeline","title":"Add Material to Existing Pipeline","level":"1.5.12","depth":2,"next":{"title":"Add Stage to Existing Pipeline","level":"1.5.13","depth":2,"path":"configuration/admin_add_stage.md","ref":"configuration/admin_add_stage.md","articles":[]},"previous":{"title":"Lock a Pipeline","level":"1.5.11","depth":2,"path":"configuration/admin_lock_pipelines.md","ref":"configuration/admin_lock_pipelines.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/admin_add_material.md","mtime":"2018-04-07T03:44:25.073Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-07T03:46:06.342Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Add new material to an existing GoCD pipeline","keywords":"material, continuous delivery pipeline, GoCD configuration, blacklist, CD pipeline","title":"Add Material to Existing Pipeline","level":"1.5.12","depth":2,"next":{"title":"Add Stage to Existing Pipeline","level":"1.5.13","depth":2,"path":"configuration/admin_add_stage.md","ref":"configuration/admin_add_stage.md","articles":[]},"previous":{"title":"Lock a Pipeline","level":"1.5.11","depth":2,"path":"configuration/admin_lock_pipelines.md","ref":"configuration/admin_lock_pipelines.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/admin_add_material.md","mtime":"2018-04-10T20:43:08.838Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-10T20:45:19.959Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
