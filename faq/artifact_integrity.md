@@ -1,5 +1,5 @@
 ---
-description: GoCD Artifact integrity verification 
+description: GoCD Artifact integrity verification
 keywords: GoCD artifact, artifact integrity, GoCD job, checksum, download artifact, artifact
 ---
 
@@ -13,7 +13,7 @@ GoCD verifies artifact integrity to ensure that they are unchanged from the poin
 -   If the downloaded artifact is different from the point of generation, the job will be failed with an error in the console output for the job.
 -   If GoCD is unable to fetch the original checksum for the downloaded artifact, a warning is displayed in the console output for the job.
 
-Users who download artifacts for a job from the artifacts tab on the dashboard can verify their integirty by using the md5.checksum file within the cruise-output folder available on same tab. The file contains the name and checksum for each artifact saved by the job.
+Users who download artifacts for a job from the artifacts tab on the dashboard can verify their integrity by using the md5.checksum file within the cruise-output folder available on same tab. The file contains the name and checksum for each artifact saved by the job.
 
 ![](../resources/images/md5_checksum.png)
 
