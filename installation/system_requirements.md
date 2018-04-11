@@ -6,7 +6,7 @@ keywords: install gocd, system requirements, browser requirements, hardware requ
 
 # GoCD System requirements
 
-These requirements should meet the needs of most GoCD installations. You may need to allocate additonal CPUs and/or
+These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or
 memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
 
 ### Client (browser) requirements
@@ -65,7 +65,7 @@ build agents.
 
 #### Dependencies
 
-* The agent needs to be on the same Java version as the GoCD server. In this case, `Java Runtime Environment (JRE) version 8` 
+* The agent needs to be on the same Java version as the GoCD server. In this case, `Java Runtime Environment (JRE) version 8`
 
 #### Additional requirements for GoCD Agent
 

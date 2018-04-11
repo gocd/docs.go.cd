@@ -23,7 +23,7 @@ Since there are many package formats each with its own package manager and repos
 
 ### Repositories, Packages and Materials
 
-A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the respository, interested pipelines will get scheduled.
+A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the repository, interested pipelines will get scheduled.
 
 #### Repository Definition
 
@@ -43,12 +43,12 @@ A package material plugin also lets you define packages at the time of pipeline 
 
 ![](../resources/images/yum-pkg.png)
 
-Unlike other VCS/SCM materials, *the material definition in case of packages is not contained within the pipeline definition*. Many pipelines may have material definitions refering to the same package. Here is how we associate an existing package as material for a pipeline.
+Unlike other VCS/SCM materials, *the material definition in case of packages is not contained within the pipeline definition*. Many pipelines may have material definitions referring to the same package. Here is how we associate an existing package as material for a pipeline.
 
 ![](../resources/images/yum-pkg-exist.png)
 
 ##### Note:
-Each package definition must resolve to exactly one package on the respository, else the pipeline will not run. In order to set up a pipeline that polls for multiple packages, configure each package as a separate material.
+Each package definition must resolve to exactly one package on the repository, else the pipeline will not run. In order to set up a pipeline that polls for multiple packages, configure each package as a separate material.
 
 Each package material plugin defines a subset of its properties as a *package fingerprint*. e.g. in case of the bundled yum plugin this subset consists of Repository URL and Package Spec (it excludes repository username and password). Repository and Package names are **not** part of package fingerprint. It is not permitted to multiple packages having the same package fingerprint. An attempt to do so will result in an error message like this:
 
@@ -57,7 +57,7 @@ Cannot save package or repo, found duplicate packages. [Repo Name: 'orchard', Pa
 
 #### Sample XML Configuration
 
-Here is a XML view of an RPM package defintion. Note the relation between repository, package and pipeline material. Loosely typed property, key and value tags are used for repository and package configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn't necessary to provide repository and package IDs, Go server wil autogenerate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.
+Here is a XML view of an RPM package definition. Note the relation between repository, package and pipeline material. Loosely typed property, key and value tags are used for repository and package configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn't necessary to provide repository and package IDs, Go server will autogenerate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.
 
 ```xml
 <repository id="1ce5c205-977f-4c0e-ada4-882030580eed" name="ora">

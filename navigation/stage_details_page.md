@@ -54,7 +54,7 @@ You are viewing stage 'Dev' of pipeline label '60'. The pipeline has been failin
 ![Tests Tab Example 1](../resources/images/failed_build_history_2.png)
 
 -   60 has 3 failing test all of which started failing in 60
--   59 and 58 are listed because the 'dev' stage failed but none of the currently failing tests started failing because of the changes in 59 or 58. This could be because the tests that were failing in 59 got fixed by the checkins in 60. But these check-ins broke other tests. Or this could be because none of the test ran in 59 and 58, an error occured before the tests started running.
+-   59 and 58 are listed because the 'dev' stage failed but none of the currently failing tests started failing because of the changes in 59 or 58. This could be because the tests that were failing in 59 got fixed by the checkins in 60. But these check-ins broke other tests. Or this could be because none of the test ran in 59 and 58, an error occurred before the tests started running.
 -   The pipeline instances are listed in [natural order](../faq/ordering_of_pipelines.md). In this case the schedule and natural order are the same.
 
 ### Example 2
