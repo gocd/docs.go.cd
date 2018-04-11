@@ -80,7 +80,7 @@ An easy way to check the memory usage, heap size (initial and over time) and GC 
 In case of the GoCD server, these arguments will have to be added in the script that starts the Go jar:
 
 - For linux : ```/usr/share/go-server/server.sh```
-- For Windows: ```[go_server_installion_dir]/server.cmd``` In most cases GoCD is installed in ```C:\Program Files\Go Server```
+- For Windows: ```[go_server_installation_dir]/server.cmd``` In most cases GoCD is installed in ```C:\Program Files\Go Server```
 
 ### Using JConsole
 

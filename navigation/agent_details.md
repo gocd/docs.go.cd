@@ -10,7 +10,7 @@ GoCD now provides a page that shows the details of a single agent. This page pro
 
 ## Agent Details tab
 
-This tab shows the configuration and runtime information of an agent. For example, this tab shows the free space available on the agent, the IP Adress and the OS of the agent.
+This tab shows the configuration and runtime information of an agent. For example, this tab shows the free space available on the agent, the IP Address and the OS of the agent.
 
 In terms of configuration, this tab shows the resources of the agent and the environment it belongs to. A sample Details tab looks as below:
 

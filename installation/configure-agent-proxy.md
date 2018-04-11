@@ -1,5 +1,5 @@
 ---
-description: Tip and examples on how to configue an agent to communicate with the server through a proxy server
+description: Tip and examples on how to configure an agent to communicate with the server through a proxy server
 keywords: proxy server, gocd agent server proxy
 ---
 

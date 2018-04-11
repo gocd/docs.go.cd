@@ -1,6 +1,6 @@
 ---
 description: Publishing artifacts in GoCD
-keywords: GoCD configuration, publishing artifacts, reports, GoCD pipeline, job configuration, 
+keywords: GoCD configuration, publishing artifacts, reports, GoCD pipeline, job configuration,
 ---
 
 # Publishing artifacts
@@ -35,7 +35,7 @@ For each job that runs JUnit:
 
 We are going to assume that the flash file, and the html file referencing it, are being created in the "target/reports" folder.
 
-Click on the [Adminstration](../navigation/administration_page.md) tab
+Click on the [Administration](../navigation/administration_page.md) tab
 
 ![](../resources/images/topnav_admin.png)
 

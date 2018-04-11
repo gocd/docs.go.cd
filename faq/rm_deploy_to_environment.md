@@ -12,7 +12,7 @@ One of the most useful aspects of having your build mapped as a pipeline, is bei
 
 ### Automatically deploy to UAT
 
-For this example, we'll assume that there is already an ant task defined in your build that will take a binary and deploy it to your environment. A seperate task will verify the install was successful. If it is not, a task will run to rollback the deployment. We will also assume that earlier in the pipeline there is a **dist** stage with a **create-installers** job that will have already created the binary for us to use.
+For this example, we'll assume that there is already an ant task defined in your build that will take a binary and deploy it to your environment. A separate task will verify the install was successful. If it is not, a task will run to rollback the deployment. We will also assume that earlier in the pipeline there is a **dist** stage with a **create-installers** job that will have already created the binary for us to use.
 
 -   [Add a new stage](../configuration/admin_add_stage.md) named **UAT** with a job named **deploy**
 -   [Ensure that the **UAT** stage is manual](../configuration/dev_choose_when_stage_runs.md)
@@ -70,4 +70,3 @@ environment...
 -   If everything seems to be working correctly, click on the manual transition into the **production** stage
 
 ![](../resources/images/6_click_manual_to_prod.png)
-
