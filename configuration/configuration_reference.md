@@ -332,7 +332,7 @@ The `<security>` element can be used to enable authentication. If the element is
          <value>mail</value>
        </property>
      </authConfig>
-   </authConfigs>  
+   </authConfigs>
   </security>
 </server>
 ```
@@ -2651,7 +2651,7 @@ Define a tab with specific name and artifact to show.
 
 ### Example:
 
-Given some coverage infomation in 'target/Jcoverage' folder on the agent side, We configure a tab to show the coverage information by specifying a tab with the index.html file.
+Given some coverage information in 'target/Jcoverage' folder on the agent side, We configure a tab to show the coverage information by specifying a tab with the index.html file.
 
 ```xml
 <job name="unit">

@@ -1,6 +1,6 @@
 ---
 description: GoCD has built-in support for Git, Mercurial, SVN, TFS & Perforce. Users can use SCM plugins to integrate with other SCMs.
-keywords: source code materials, perforce, mercurial, git, tfs, team foundation, scm, build pipelines, cd pipeines, continuos delivery, xml configuration
+keywords: source code materials, perforce, mercurial, git, tfs, team foundation, scm, build pipelines, cd pipeines, continuous delivery, xml configuration
 ---
 
 # SCM Material
@@ -11,7 +11,7 @@ A build typically consumes source code maintained in a version control system (V
 
 ### SCMs and Materials
 
-Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is *not* contained within the pipeline definition. They are global entities. Many pipelines may have material definitions refering to the same SCM. When there is a new revision in the SCM, interested pipelines will get scheduled.
+Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is *not* contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM. When there is a new revision in the SCM, interested pipelines will get scheduled.
 
 #### SCM Definition
 
