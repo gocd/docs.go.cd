@@ -1,5 +1,5 @@
 ---
-description: Tip and examples on how to configue a Proxy server to use with GoCD server
+description: Tip and examples on how to configure a Proxy server to use with GoCD server
 keywords: proxy server, configure proxy server, gocd apache, gocd nginx, custom ssl ports, continuous delivery
 ---
 
@@ -28,12 +28,12 @@ NameVirtualHost nnn.nnn.nnn.nnn:80
     ProxyPass         /  ws://localhost:8153/
     ProxyPassReverse  /  ws://localhost:8153/
   </IfVersion>
-  
+
   <IfVersion < 2.4>
     ProxyPass         /  http://localhost:8153/
     ProxyPassReverse  /  http://localhost:8153/
   </IfVersion>
-  
+
   ProxyPreserveHost On
 </VirtualHost>
 ```
