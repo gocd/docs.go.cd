@@ -2029,39 +2029,15 @@
 <p><img src="../resources/images/agents.png" alt=""></p>
 <h3 id="key"><a name="key" class="plugin-anchor" href="#key"><i class="fa fa-link" aria-hidden="true"></i></a>Key</h3>
 <ol>
+<li>Admin users can click here to get to the <a href="agent_details.html">Agent details</a> of the given agent.</li>
+<li>Filter the agents list.</li>
+<li>By default, the table is sorted by the status column. The order of sort is pending, lost contact, missing, building, idle, disabled, cancelled.</li>
 <li>Find out how many agents are pending, enabled and disabled.</li>
-<li>Status is sorted by default. The order of sort is pending, lost contact, missing, building, idle, disabled, cancelled.</li>
-<li>Click on a column header to sort by that column.</li>
-<li>To enable or disable agents, first select the agents that you are interested in. Then click the &apos;ENABLE&apos; or &apos;DISABLE&apos; button. If you try to disable an agent that is already disabled, or enable an agent that is already enabled, Go will ignore that change.</li>
+<li>To delete agents, first disable them [see point 6 below] and then select the agents that you are interested in deleting. Then click the &apos;DELETE&apos; button. If you try to delete an agent that is in disabled(building) or disabled(cancelled), GoCD will not delete that agent.</li>
+<li>To enable or disable agents, first select the agents that you are interested in. Then click the &apos;ENABLE&apos; or &apos;DISABLE&apos; button. If you try to disable an agent that is already disabled, or enable an agent that is already enabled, GoCD will ignore that change.</li>
 <li>To associate a resource with an agent, first select the agents you are interested in. Then click the &apos;Resources&apos; button. You are now able to associate new or existing resources with your agents.</li>
 <li>To associate an agent with an environment, first select the agents you are interested in. Then click the &apos;Environments&apos; button. You are now able to associate your agents with an environment.</li>
-<li>Admin users can click here to get to the <a href="agent_details.html">Agent details</a> of the given agent</li>
-<li>Filter the agents list. See the section below.</li>
-<li>To delete agents, first select the agents that you are interested in. Then click the &apos;DELETE&apos; button. If you try to delete an agent that is in disabled(building) or disabled(cancelled), GoCD will not delete that agent.</li>
 </ol>
-<h2 id="filtering-agents"><a name="filtering-agents" class="plugin-anchor" href="#filtering-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Filtering Agents</h2>
-<p>Since the agent list can become very long, it is useful to be able to filter it by various criteria. The <strong>Filter</strong> option provides this functionality.</p>
-<ul>
-<li>Format: tag:value</li>
-<li>Supported tags: ip, resource, os, name, status, environment</li>
-<li>Supported values: Free form text. After you specify a tag, enter a value. GoCD only displays agents containing the entered value.</li>
-<li>The sort function will work with filtered lists.</li>
-<li>Entering a tag:value combination that does not match any agents will result in an empty result set being displayed.</li>
-</ul>
-<p>Examples:</p>
-<ul>
-<li>If you want to see only missing agents, enter &quot;status:missing&quot;.</li>
-<li>If you want to see only agents with resource names containing &quot;java&quot;, enter &quot;resource:java&quot;.</li>
-</ul>
-<h3 id="autocompletion"><a name="autocompletion" class="plugin-anchor" href="#autocompletion"><i class="fa fa-link" aria-hidden="true"></i></a>Autocompletion</h3>
-<p>GoCD support autocompletion of searches. After you specify a tag, GoCD suggests possible values for the tag, based on the exsting values entered. You can choose an appropriate value from the autocompletion list and then search.</p>
-<p><img src="../resources/images/agents_autocomplete.png" alt=""></p>
-<p>A maximum of 10 results is displayed for autocomplete, irrespetive of the number of actual matches. For best results, ensure sufficient text is entered to narrow down the number of matches</p>
-<h3 id="exact-search"><a name="exact-search" class="plugin-anchor" href="#exact-search"><i class="fa fa-link" aria-hidden="true"></i></a>Exact search</h3>
-<p>Even with autocomplete, there are some limitations to the search criteria.</p>
-<p>For example <strong>resource:windows</strong> matches both &quot;windows&quot; and &quot;windows2k3&quot;, though you may have wanted an exact match on &quot;windows&quot;. This is because, the current filter is a wildcard search rathern than a token search.</p>
-<p><strong>Exact search</strong> addresses this problem. The way to do exact search is to use quotes (&quot;&quot;) to specify the values. e.g. <strong>resource:&quot;windows&quot;</strong> will filter and return only those agents whose names are &quot;windows&quot; and nothing else.</p>
-<p>You cannot combine autocomplete and exact search. Once you specify the values in quotes, autocomplete will be turned off.</p>
 <h4 id="also-see"><a name="also-see" class="plugin-anchor" href="#also-see"><i class="fa fa-link" aria-hidden="true"></i></a>Also see...</h4>
 <ul>
 <li><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a></li>
@@ -2110,7 +2086,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"List of all agents available on GoCD server and how to enable and filter agents.","keywords":"gocd agents, filter agents on gocd, gocd server, continuous delivery, elastic agents","title":"Agents","level":"1.3.2","depth":2,"next":{"title":"Agent Details","level":"1.3.3","depth":2,"path":"navigation/agent_details.md","ref":"navigation/agent_details.md","articles":[]},"previous":{"title":"Pipeline Dashboard","level":"1.3.1","depth":2,"path":"navigation/pipelines_dashboard_page.md","ref":"navigation/pipelines_dashboard_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/agents_page.md","mtime":"2018-04-12T02:29:12.756Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-12T02:30:51.373Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"List of all agents available on GoCD server and how to enable and filter agents.","keywords":"gocd agents, filter agents on gocd, gocd server, continuous delivery, elastic agents","title":"Agents","level":"1.3.2","depth":2,"next":{"title":"Agent Details","level":"1.3.3","depth":2,"path":"navigation/agent_details.md","ref":"navigation/agent_details.md","articles":[]},"previous":{"title":"Pipeline Dashboard","level":"1.3.1","depth":2,"path":"navigation/pipelines_dashboard_page.md","ref":"navigation/pipelines_dashboard_page.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Home":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"navigation/agents_page.md","mtime":"2018-04-12T20:54:21.418Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-04-12T20:56:09.857Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
