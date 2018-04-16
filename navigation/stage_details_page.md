@@ -12,18 +12,18 @@ The "Stage Details" page displays details of a specific stage.
 
 ### Key
 
-1.  Details of a specific stage run: run number, status, when it was triggered, who triggered it and duration of the stage
-2.  Name of the stage
-3.  The jobs in this stage are grouped by status: Passed, Failed, Cancelled, In Progress. Expand these sections to see the jobs
+
+1.  Name of the stage.
+2.  The jobs in this stage are grouped by status: Passed, Failed, Cancelled, In Progress. Expand these sections to see the jobs.
+3.  Cancelled job. Click the job name to view [job details](../navigation/job_details_page.md) for that job.
 4.  Failed jobs: Click the job name to view [ details](../navigation/job_details_page.md) for that job.
-5.  "Stage History" shows the status and the pipeline label in which this stage has run. The latest 10 are shown by default. The rest are paginated, the user can select to view the details of this particular stage in any of the pipeline instances. This will indicate if the stage was a re-run and show the stage counter. Click on the stage instance in the stage history section to view the stage details page for that stage
-6.  Displays a graphical visualization of the pipeline dependency chain
-7.  Lists all the material changes that were part of the build in this stage
-8.  Displays detailed information about the jobs in this stage
-9.  Shows the failed build history for tests failing in the stage
-10. Cancelled job. Click the job name to view [job details](../navigation/job_details_page.md) for that job
+5.  Displays a graphical visualization of the pipeline dependency chain.
+6.  Details of a specific stage run: run number, status, when it was triggered, who triggered it and duration of the stage.
+7.  Lists all the material changes that were part of the build in this stage.
+8.  Displays detailed information about the jobs in this stage.
+9.  Shows the failed build history for tests failing in the stage.
+10. "Stage History" shows the status and the pipeline label in which this stage has run. The latest 10 are shown by default. The rest are paginated, the user can select to view the details of this particular stage in any of the pipeline instances. This will indicate if the stage was a re-run and show the stage counter. Click on the stage instance in the stage history section to view the stage details page for that stage
 11. RSS feed for the stage in Atom format
-12. Name of the stage
 
 ## Failed Build History
 
