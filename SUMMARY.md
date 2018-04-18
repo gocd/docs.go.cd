@@ -105,7 +105,6 @@ This is the summary of user documentation.
         * [Setup](gocd_on_kubernetes/gocd_helm_chart/setup.md)
         * [Configure your Kubernetes Cluster](gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md)
         * [Install the GoCD Helm chart](gocd_on_kubernetes/gocd_helm_chart/helm_install.md)
-        * [Configure the Kubernetes Elastic Agent Plugin](gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md)
     * [Designing a CD Pipeline](gocd_on_kubernetes/designing_a_cd_pipeline/index.md)
         * [Create a pipeline to build application](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md)
         * [Create a pipeline to deploy on Kubernetes](gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md)
