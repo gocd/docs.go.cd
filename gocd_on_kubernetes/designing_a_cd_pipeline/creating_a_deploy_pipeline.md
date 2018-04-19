@@ -62,7 +62,29 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 ## Associate job with the elastic profile
 
-*Note: You’ll need to make sure you have [created an elastic profile](../gocd_helm_chart/configure_k8s_ea_plugin.md#create-an-elastic-profile) before you proceed.*
+We have created a sample elastic profile `demo-app` for this guide. Before associating elastic profile to a job, you'll need to verify that the elastic profile and plugin settings are set up.
+
+### Step 1: Verify elastic profile
+
+Navigate to Admin > Elastic Agent Profiles
+
+![](../../resources/images/gocd-helm-chart/demo_app_profile.png)
+
+You should be able to see `demo-app` in this.
+
+*If the elastic profile does not exist or if you would like to create your own, refer to [this section](../gocd_helm_chart/configure_k8s_ea_plugin.md#create-an-elastic-profile)*
+
+### Step 2: Verify Kubernetes elastic agent plugin
+
+Navigate to Admin > Plugins and click on Status Report
+
+![](../../resources/images/gocd-helm-chart/plugin_status.png)
+
+If you're able to see a screen similar to the screenshot above, then the plugin has been configured.
+
+*If the plugin settings have not been configured, refer to [this section](../gocd_helm_chart/configure_k8s_ea_plugin.md)*
+
+### Step 3: Configure elastic profile ID for the job
 
 Before you can run the pipeline, you’ll need to associate an elastic profile ID with the job to be executed. To do this, go to the `Job Settings` tab of the specific job.
 
