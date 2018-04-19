@@ -11,7 +11,7 @@ Continuous Delivery, in general, you can refer to Martin Fowler's articles on th
 Integration](http://martinfowler.com/articles/continuousIntegration.html) and [Continuous
 Delivery](http://martinfowler.com/bliki/ContinuousDelivery.html).
 
-If you're very new to GoCD, the Getting Started guide on the [GoCD help page](https://www.gocd.org/help/) is a good
+If you're very new to GoCD, the [Getting Started Guide](https://www.gocd.org/getting-started/part-1/) is a good
 starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.
 
 ### Index

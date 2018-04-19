@@ -8,12 +8,12 @@ keywords: gocd, continuous delivery, continuous integration, quick start guide, 
 
 Welcome to GoCD - an open-source Continuous Integration and Continuous Delivery system.
 
-![Start using GoCD](resources/images/home-image1.png)
+![Start using GoCD](resources/images/home-image1.svg)
 
 ## Quick help
 
 Need a quick start? Setup your first GoCD pipeline, while learning all the concepts, by following the
-["Getting Started" guide](https://www.gocd.org/help/). Make sure you've
+["Getting Started" guide](https://www.gocd.org/getting-started/part-1/). Make sure you've
 [installed](https://docs.gocd.org/current/installation/) the GoCD Server and at least one GoCD Agent.
 
 
