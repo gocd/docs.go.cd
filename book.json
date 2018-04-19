@@ -4,7 +4,7 @@
     "currentBaseUrl": "https://docs.gocd.org/current",
     "links": {
         "sidebar": {
-            "Home": "https://www.gocd.org",
+            "Back to GoCD.org": "https://www.gocd.org",
             "Contribute": "https://github.com/gocd/docs.go.cd/"
         },
         "sharing": {
