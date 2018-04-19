@@ -104,7 +104,6 @@
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/setup.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/helm_install.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
