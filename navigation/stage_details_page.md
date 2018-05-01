@@ -22,8 +22,8 @@ The "Stage Details" page displays details of a specific stage.
 7.  Lists all the material changes that were part of the build in this stage.
 8.  Displays detailed information about the jobs in this stage.
 9.  Shows the failed build history for tests failing in the stage.
-10. "Stage History" shows the status and the pipeline label in which this stage has run. The latest 10 are shown by default. The rest are paginated, the user can select to view the details of this particular stage in any of the pipeline instances. This will indicate if the stage was a re-run and show the stage counter. Click on the stage instance in the stage history section to view the stage details page for that stage
-11. RSS feed for the stage in Atom format
+10. "Stage History" shows the status and the pipeline label in which this stage has run. The latest 10 are shown by default. The rest are paginated, the user can select to view the details of this particular stage in any of the pipeline instances. This will indicate if the stage was a re-run and show the stage counter. Click on the stage instance in the stage history section to view the stage details page for that stage.
+11. RSS feed for the stage in Atom format.
 
 ## Failed Build History
 
