@@ -48,7 +48,7 @@ Enter the name of the new resource and click the “Add” button.
 All existing resources across your agents and jobs will appear in alphabetical order. Select one of three states for all resources you want to associate and then click the “Apply” button.
 
 -   A resource **with a check** will add the resource to all selected agents.
--   A resource **with a forward slash** means some of your selected agents are associated to it. No change will occur after clicking “Apply”.
+-   A resource **with a hyphen** means some of your selected agents are associated to it. No change will occur after clicking “Apply”.
 -   A resource **without a check** will remove the resource from all selected agents.
 
 ![](../resources/images/associate_agent_resources_existing.png)
