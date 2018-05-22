@@ -2015,7 +2015,11 @@
 <li><a href="#gocd-server">GoCD Server</a></li>
 <li><a href="#gocd-agent">GoCD Agent</a></li>
 <li><a href="#log-configuration-syntax">Log configuration syntax</a></li>
-<li><a href="#advanced-logging-features">Advanced logging features</a></li>
+<li><a href="#advanced-logging-features">Advanced logging features</a><ul>
+<li><a href="#example-logstash-setup">Example logstash setup</a></li>
+<li><a href="#example-gelf-setup">Example gelf setup</a></li>
+</ul>
+</li>
 </ul>
 <!-- toc stop -->
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
@@ -2240,6 +2244,7 @@
 <li>ensure that the relevant java libraries along with their dependencies are present in the <code>libs</code> directory, relative to the working directory of the GoCD server or agent process. The working directory is usually <code>/var/lib/go-{server,agent}</code> on linux, and <code>C:\Program Files\Go {Server,Agent}</code> on windows.</li>
 <li>configure appenders and encoders in the relevant <code>logback-include.xml</code> file for your agent or server</li>
 </ul>
+<h3 id="example-logstash-setup"><a name="example-logstash-setup" class="plugin-anchor" href="#example-logstash-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Example logstash setup</h3>
 <p>For e.g. to send logs to logstash (using <a href="https://github.com/logstash/logstash-logback-encoder" target="_blank">logstash-logback-encoder</a>) one would need to perform the following:</p>
 <ul>
 <li>download all logstash-logback-encoder jars and dependencies into <code>libs</code> dir:<ul>
@@ -2263,6 +2268,40 @@
   <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;info&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;stash&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">included</span>&gt;</span>
+</code></pre>
+<h3 id="example-gelf-setup"><a name="example-gelf-setup" class="plugin-anchor" href="#example-gelf-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Example gelf setup</h3>
+<p>Another example setup using GELF (Graylog Extended Log Format) using <a href="https://github.com/osiegmar/logback-gelf" target="_blank">logback-gelf</a>:</p>
+<p>Download <code>logback-gelf-1.1.0.jar</code> and place it in <code>libs</code> directory.
+On typical linux server, that can be done with</p>
+<pre><code>wget &quot;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&quot; -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
+</code></pre><p>Configure <code>logback-include.xml</code> with any of the gelf appenders as defined on <a href="https://github.com/osiegmar/logback-gelf#example" target="_blank">project documentation</a>:
+An example logging over UDP could look like this:</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">included</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;GELF&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;de.siegmar.logbackgelf.GelfUdpAppender&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">graylogHost</span>&gt;</span>graylog.mycompany.com<span class="hljs-tag">&lt;/<span class="hljs-name">graylogHost</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">graylogPort</span>&gt;</span>12201<span class="hljs-tag">&lt;/<span class="hljs-name">graylogPort</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">layout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;de.siegmar.logbackgelf.GelfLayout&quot;</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">includeRawMessage</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">includeRawMessage</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">includeMarker</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">includeMarker</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">includeMdcData</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">includeMdcData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">includeCallerData</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">includeCallerData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">includeRootCauseData</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">includeRootCauseData</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">includeLevelName</span>&gt;</span>false<span class="hljs-tag">&lt;/<span class="hljs-name">includeLevelName</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">shortPatternLayout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.PatternLayout&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%m%nopex<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">shortPatternLayout</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">fullPatternLayout</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.classic.PatternLayout&quot;</span>&gt;</span>
+                <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%m<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">fullPatternLayout</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">staticField</span>&gt;</span>application:go-server<span class="hljs-tag">&lt;/<span class="hljs-name">staticField</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">staticField</span>&gt;</span>environment:production<span class="hljs-tag">&lt;/<span class="hljs-name">staticField</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">layout</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">root</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;GELF&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">included</span>&gt;</span>
 </code></pre>
 
@@ -2308,7 +2347,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2018-05-11T19:14:52.436Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-11T19:17:25.672Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2018-05-22T21:11:49.135Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-05-22T21:13:26.183Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
