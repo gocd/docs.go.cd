@@ -48,7 +48,7 @@ Setting up an environment through the xml can be found in the [configuration ref
 You can do this very easily in the Agents tab. Just select the agents you want to add to your environment and click on the Environments button. All existing environments will appear in alphabetical order. Select one of three states for all environments you want to add and then click the “Apply” button.
 
 -   An environment **with a check** will add the environment to all selected agents.
--   An environment **with a forward slash** means some of your selected agents are associated to it. No change will occur after clicking “Apply”.
+-   An environment **with a hyphen** means some of your selected agents are associated to it. No change will occur after clicking “Apply”.
 -   An environment **without a check** will remove the environment from all selected agents.
 
 ![](../resources/images/associate_agent_environment.png)
