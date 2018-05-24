@@ -36,6 +36,8 @@ figure.concept_image img.medium_image {
   position: fixed;
   z-index: 100;
 
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,.1);
+
   text-align: center;
   font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
   font-size: 14px;
