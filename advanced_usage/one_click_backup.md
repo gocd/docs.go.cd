@@ -42,6 +42,7 @@ The following are not backed up as a part of the GoCD backup process. Please ens
 -   Environment Variables - On Windows the environment variables that might be set for the user and on Linux the changes made to **/etc/default/go-server** are not backed up.
 -   Log Files
 -   Plugins - These are found at **{SERVER\_INSTALLATION\_DIR}/plugins/**. This contains both the external and bundled plugins.
+-	Addons - These are found at **{SERVER\_INSTALLATION\_DIR}/addons/**. This contains installed addons.
 
 #### Strategy to backup Artifacts and Test Reporting Data
 
