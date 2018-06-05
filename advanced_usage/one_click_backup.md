@@ -18,6 +18,7 @@ You can use GoCD's administration interface to perform an One-Click Backup of Go
 ![](../resources/images/backup_proceed.png)
 >GoCD will be unusable during the backup process.
 -   Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.
+-   If you are using PostgreSQL Addon please refer to our documentation [here](https://extensions-docs.gocd.org/postgresql/current/backup-restore-database) for back and restore process.
 
 ### What is backed up?
 
@@ -40,6 +41,8 @@ The following are not backed up as a part of the GoCD backup process. Please ens
 -   Test Reporting Data - This is found at the location **{SERVER\_INSTALLATION\_DIR}/db/shine** . This contains the data used in the Failed Test History reporting
 -   Environment Variables - On Windows the environment variables that might be set for the user and on Linux the changes made to **/etc/default/go-server** are not backed up.
 -   Log Files
+-   Plugins - These are found at **{SERVER\_INSTALLATION\_DIR}/plugins/**. This contains both the external and bundled plugins.
+-	Addons - These are found at **{SERVER\_INSTALLATION\_DIR}/addons/**. This contains installed addons.
 
 #### Strategy to backup Artifacts and Test Reporting Data
 
