@@ -190,7 +190,6 @@ keywords: GoCD configuration, reference index
                         <a href="#tasks">&lt;/tasks&gt;</a>
                         <a href="#artifacts">&lt;artifacts&gt;</a>
                             <a href="#artifact">&lt;artifact/&gt;</a>
-                            <a href="#test">&lt;test/&gt;</a>
                         <a href="#artifacts">&lt;/artifacts&gt;</a>
                         <a href="#tabs">&lt;tabs&gt;</a>
                             <a href="#tab">&lt;tab/&gt;</a>
@@ -2361,6 +2360,7 @@ All file paths specified are relative to the pipeline working directory.
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
+| origin | Yes | Indicates where the artifact needs to be pulled from. Currently, the supported value for this is `gocd`. This implies that the artifact needs to be fetched from the gocd server.|
 | pipeline | No | This value can either be: 1. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under `<materials>`, or 2. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value "BuildPipeline/AcceptancePipeline" denotes that the fetch task attempts to fetch artifacts from its ancestor 'BuildPipeline'. The given hierarchy denotes that the current pipeline depends on 'AcceptancePipeline' which in turn depends on 'BuildPipeline' using the dependency material definition given under materials. Defaults to current pipeline if not specified. |
 | stage | Yes | The name of the stage to fetch artifacts from |
 | job | Yes | The name of the job to fetch artifacts from |
@@ -2383,7 +2383,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
           <jobs>
         <job name="unit">
           <artifacts>
-            <artifact src="target/deployable.jar" dest="pkg"/>
+            <artifact type="build" src="target/deployable.jar" dest="pkg"/>
           </artifacts>
         </job>
           </jobs>
@@ -2392,7 +2392,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
           <jobs>
         <job name="functional">
           <tasks>
-            <fetchartifact stage="dev" job="unit" srcdir="pkg" dest="lib"/>
+            <fetchartifact origin="gocd" stage="dev" job="unit" srcdir="pkg" dest="lib"/>
           </tasks>
         </job>
           </jobs>
@@ -2412,7 +2412,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
         <jobs>
           <job name="unit">
         <tasks>
-          <fetchartifact pipeline="framework" stage="dev" job="unit"
+          <fetchartifact origin="gocd" pipeline="framework" stage="dev" job="unit"
                  srcfile="pkg/deployable.jar" dest="lib" />
         </tasks>
           </job>
@@ -2432,7 +2432,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
         <jobs>
           <job name="deploy-win">
         <tasks>
-          <fetchartifact pipeline="build" stage="dist" job="create-installer"
+          <fetchartifact origin="gocd" pipeline="build" stage="dist" job="create-installer"
                  srcfile="installers/deployable-setup.exe" dest="installer" />
         </tasks>
           </job>
@@ -2476,7 +2476,7 @@ Given the tasks in a job is following:
 ```xml
 <tasks>
     <ant  buildfile="build.xml" target="complie-test-source"/>
-    <fetchartifact  pipeline="my_app" stage="dist" job="package-artifact" srcdir="pkg">
+    <fetchartifact origin="gocd" pipeline="my_app" stage="dist" job="package-artifact" srcdir="pkg">
        <runif  status="passed"/>
     </fetchartifact>
     <exec command="./copy_error_log_to_someplace" >
@@ -2541,8 +2541,8 @@ The task 'start\_server' starts a process on an agent. When the stage is cancell
 ```xml
 <job name="unit">
   <artifacts>
-    <artifact src="target/deployable.jar" dest="pkg"/>
-    <test src="target/junit-output" dest="junit"/>
+    <artifact type="build" src="target/deployable.jar" dest="pkg"/>
+    <artifact type="test" src="target/junit-output" dest="junit"/>
   </artifacts>
 </job>
 ```
@@ -2551,12 +2551,14 @@ The task 'start\_server' starts a process on an agent. When the stage is cancell
 
 ## &lt;artifact&gt; {#artifact}
 
-Publish build artifacts to the artifact repository for the job.
+Publish build or test artifacts to the artifact repository for the job. The src attribute should point towards a folder that contains the test output files. Go will use these to generate a test report if the artifact type is `test`. Test
+information is placed in the Failures and Test sub-tabs. Test results from multiple jobs are aggregated on the stage detail pages. This allows you to see the results of tests from both functional and unit tests even if they are run in different jobs.
 
 ### Attributes
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
+| type | Yes |Type can be either `build` or `test`. This identifies the type of artifact that is uploaded to the GoCD server|
 | src | Yes | The file or folders to publish to the server. Go will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload: ** means any path, * means any file or folder name. |
 | dest | No | The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory. |
 
@@ -2564,12 +2566,12 @@ You can use wildcards to specify which files to upload. The wildcard syntax foll
 would upload all xml files in the target directory and any of its subdirectories. The original directory structure is preserved on the
 server.
 
-### Examples
+### Examples for build artifact
 
 ```xml
 <job name="unit">
   <artifacts>
-    <artifact src="target/deployable.jar" dest="pkg"/>
+    <artifact type="build" src="target/deployable.jar" dest="pkg"/>
   </artifacts>
 </job>
 ```
@@ -2577,7 +2579,7 @@ server.
 ```xml
 <job name="unit">
   <artifacts>
-    <artifact src="target/**/*Test.xml" dest="pkg"/>
+    <artifact type="build" src="target/**/*Test.xml" dest="pkg"/>
   </artifacts>
 </job>
 ```
@@ -2587,32 +2589,20 @@ The following will upload all xml files to the server's artifact repository.
 ```xml
 <job name="unit">
   <artifacts>
-    <artifact src="target/**/*.xml" />
+    <artifact type="build" src="target/**/*.xml" />
   </artifacts>
 </job>
 ```
 
 [top](#top)
 
-## &lt;test&gt; {#test}
 
-The src attribute should point towards a folder that contains the test output files. Go will use these to generate a test report. Test
-information is placed in the Failures and Test sub-tabs. Test results from multiple jobs are aggregated on the stage detail pages. This allows
-you to see the results of tests from both functional and unit tests even if they are run in different jobs.
-
-### Attributes
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| src | Yes | Specify the directory into which the test output of the job will be put on agent side. This is relative to the Job's working directory. |
-| dest | No | The path in the artifacts repository where the reports will be placed. |
-
-### Examples
+### Examples for test artifact
 
 ```xml
 <job name="unit">
   <artifacts>
-    <test src="target/junit-output" dest="junit"/>
+    <artifact type="test" src="target/junit-output" dest="junit"/>
   </artifacts>
 </job>
 ```
@@ -2628,7 +2618,7 @@ The `<tabs>` element allows you to add tabs to the Job Details page. You can put
 ```xml
 <job name="unit">
   <artifacts>
-    <artifact src="target/jcoverage" dest="Jcoverage"/>
+    <artifact type="build" src="target/jcoverage" dest="Jcoverage"/>
   </artifacts>
   <tabs>
     <tab name="coverage" path="Jcoverage/index.html"/>
@@ -2656,7 +2646,7 @@ Given some coverage information in 'target/Jcoverage' folder on the agent side, 
 ```xml
 <job name="unit">
   <artifacts>
-    <artifact src="target/jcoverage" dest="Jcoverage"/>
+    <artifact type="build" src="target/jcoverage" dest="Jcoverage"/>
   </artifacts>
   <tabs>
     <tab name="coverage" path="Jcoverage/index.html"/>
@@ -2675,10 +2665,10 @@ improving or getting worse.
 ```xml
 <job name="emma">
   <artifacts>
-    <artifact src="target/emma" dest="analysis" />
+    <artifact type="build" src="target/emma" dest="analysis" />
   </artifacts>
   <tasks>
-    <ant target="emma">
+    <ant target="emma" />
   </tasks>
   <properties>
     <property name="coverage.class" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'class')]/@value, '%')" />
@@ -2725,10 +2715,10 @@ coverage.xml file.
 ```xml
 <job name="emma">
   <artifacts>
-    <artifact src="target/emma" dest="analysis" />
+    <artifact type="build" src="target/emma" dest="analysis" />
   </artifacts>
   <tasks>
-    <ant target="emma">
+    <ant target="emma" />
   </tasks>
   <properties>
     <property name="coverage.class" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'class')]/@value, '%')" />
