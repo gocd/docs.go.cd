@@ -2194,7 +2194,6 @@
                         <a href="#tasks">&lt;/tasks&gt;</a>
                         <a href="#artifacts">&lt;artifacts&gt;</a>
                             <a href="#artifact">&lt;artifact/&gt;</a>
-                            <a href="#test">&lt;test/&gt;</a>
                         <a href="#artifacts">&lt;/artifacts&gt;</a>
                         <a href="#tabs">&lt;tabs&gt;</a>
                             <a href="#tab">&lt;tab/&gt;</a>
@@ -4849,6 +4848,11 @@ introduced in 12.2. Stages after the upstream stage can not be fetched from, bec
 </thead>
 <tbody>
 <tr>
+<td>origin</td>
+<td>Yes</td>
+<td>Indicates where the artifact needs to be pulled from. Currently, the supported value for this is <code>gocd</code>. This implies that the artifact needs to be fetched from the gocd server.</td>
+</tr>
+<tr>
 <td>pipeline</td>
 <td>No</td>
 <td>This value can either be: 1. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under <code>&lt;materials&gt;</code>, or 2. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value &quot;BuildPipeline/AcceptancePipeline&quot; denotes that the fetch task attempts to fetch artifacts from its ancestor &apos;BuildPipeline&apos;. The given hierarchy denotes that the current pipeline depends on &apos;AcceptancePipeline&apos; which in turn depends on &apos;BuildPipeline&apos; using the dependency material definition given under materials. Defaults to current pipeline if not specified.</td>
@@ -4892,7 +4896,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
       <span class="hljs-tag">&lt;<span class="hljs-name">jobs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">jobs</span>&gt;</span>
@@ -4901,7 +4905,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
       <span class="hljs-tag">&lt;<span class="hljs-name">jobs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;functional&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dev&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;unit&quot;</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;pkg&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;lib&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;gocd&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dev&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;unit&quot;</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;pkg&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;lib&quot;</span>/&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">jobs</span>&gt;</span>
@@ -4919,7 +4923,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
     <span class="hljs-tag">&lt;<span class="hljs-name">jobs</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">pipeline</span>=<span class="hljs-string">&quot;framework&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dev&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;unit&quot;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;gocd&quot;</span> <span class="hljs-attr">pipeline</span>=<span class="hljs-string">&quot;framework&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dev&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;unit&quot;</span>
              <span class="hljs-attr">srcfile</span>=<span class="hljs-string">&quot;pkg/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;lib&quot;</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
@@ -4937,7 +4941,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
     <span class="hljs-tag">&lt;<span class="hljs-name">jobs</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;deploy-win&quot;</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
-      <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">pipeline</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dist&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;create-installer&quot;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;gocd&quot;</span> <span class="hljs-attr">pipeline</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dist&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;create-installer&quot;</span>
              <span class="hljs-attr">srcfile</span>=<span class="hljs-string">&quot;installers/deployable-setup.exe&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;installer&quot;</span> /&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
@@ -4981,7 +4985,7 @@ the state &#x201C;failed&#x201D;.</p>
 <p>Given the tasks in a job is following:</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">ant</span>  <span class="hljs-attr">buildfile</span>=<span class="hljs-string">&quot;build.xml&quot;</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;complie-test-source&quot;</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span>  <span class="hljs-attr">pipeline</span>=<span class="hljs-string">&quot;my_app&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dist&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;package-artifact&quot;</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;pkg&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;gocd&quot;</span> <span class="hljs-attr">pipeline</span>=<span class="hljs-string">&quot;my_app&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dist&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;package-artifact&quot;</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;pkg&quot;</span>&gt;</span>
        <span class="hljs-tag">&lt;<span class="hljs-name">runif</span>  <span class="hljs-attr">status</span>=<span class="hljs-string">&quot;passed&quot;</span>/&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">fetchartifact</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">exec</span> <span class="hljs-attr">command</span>=<span class="hljs-string">&quot;./copy_error_log_to_someplace&quot;</span> &gt;</span>
@@ -5023,14 +5027,15 @@ the state &#x201C;failed&#x201D;.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/junit-output&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;junit&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;test&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/junit-output&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;junit&quot;</span>/&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="artifact"><a name="artifact" class="plugin-anchor" href="#artifact"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;artifact&gt; </h2>
-<p>Publish build artifacts to the artifact repository for the job.</p>
+<p>Publish build or test artifacts to the artifact repository for the job. The src attribute should point towards a folder that contains the test output files. Go will use these to generate a test report if the artifact type is <code>test</code>. Test
+information is placed in the Failures and Test sub-tabs. Test results from multiple jobs are aggregated on the stage detail pages. This allows you to see the results of tests from both functional and unit tests even if they are run in different jobs.</p>
 <h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
 <table>
 <thead>
@@ -5041,6 +5046,11 @@ the state &#x201C;failed&#x201D;.</p>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>Type can be either <code>build</code> or <code>test</code>. This identifies the type of artifact that is uploaded to the GoCD server</td>
+</tr>
 <tr>
 <td>src</td>
 <td>Yes</td>
@@ -5056,57 +5066,31 @@ the state &#x201C;failed&#x201D;.</p>
 <p>You can use wildcards to specify which files to upload. The wildcard syntax follows the commonly used ant/nant style. So &quot;target/**/*.xml&quot;
 would upload all xml files in the target directory and any of its subdirectories. The original directory structure is preserved on the
 server.</p>
-<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<h3 id="examples-for-build-artifact"><a name="examples-for-build-artifact" class="plugin-anchor" href="#examples-for-build-artifact"><i class="fa fa-link" aria-hidden="true"></i></a>Examples for build artifact</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/**/*Test.xml&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/**/*Test.xml&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
 <p>The following will upload all xml files to the server&apos;s artifact repository.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/**/*.xml&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/**/*.xml&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
 <p><a href="#top">top</a></p>
-<h2 id="test"><a name="test" class="plugin-anchor" href="#test"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;test&gt; </h2>
-<p>The src attribute should point towards a folder that contains the test output files. Go will use these to generate a test report. Test
-information is placed in the Failures and Test sub-tabs. Test results from multiple jobs are aggregated on the stage detail pages. This allows
-you to see the results of tests from both functional and unit tests even if they are run in different jobs.</p>
-<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>src</td>
-<td>Yes</td>
-<td>Specify the directory into which the test output of the job will be put on agent side. This is relative to the Job&apos;s working directory.</td>
-</tr>
-<tr>
-<td>dest</td>
-<td>No</td>
-<td>The path in the artifacts repository where the reports will be placed.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<h3 id="examples-for-test-artifact"><a name="examples-for-test-artifact" class="plugin-anchor" href="#examples-for-test-artifact"><i class="fa fa-link" aria-hidden="true"></i></a>Examples for test artifact</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">test</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/junit-output&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;junit&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;test&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/junit-output&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;junit&quot;</span>/&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
@@ -5116,7 +5100,7 @@ you to see the results of tests from both functional and unit tests even if they
 <h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example:</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/jcoverage&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;Jcoverage&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/jcoverage&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;Jcoverage&quot;</span>/&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">tabs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tab</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;coverage&quot;</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;Jcoverage/index.html&quot;</span>/&gt;</span>
@@ -5152,7 +5136,7 @@ you to see the results of tests from both functional and unit tests even if they
 <p>Given some coverage information in &apos;target/Jcoverage&apos; folder on the agent side, We configure a tab to show the coverage information by specifying a tab with the index.html file.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/jcoverage&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;Jcoverage&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/jcoverage&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;Jcoverage&quot;</span>/&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">tabs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">tab</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;coverage&quot;</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;Jcoverage/index.html&quot;</span>/&gt;</span>
@@ -5166,10 +5150,10 @@ improving or getting worse.</p>
 <h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example:</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;emma&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/emma&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;analysis&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/emma&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;analysis&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ant</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;emma&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ant</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;emma&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;coverage.class&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/emma/coverage.xml&quot;</span> <span class="hljs-attr">xpath</span>=<span class="hljs-string">&quot;substring-before(//report/data/all/coverage[starts-with(@type,&apos;class&apos;)]/@value, &apos;%&apos;)&quot;</span> /&gt;</span>
@@ -5225,10 +5209,10 @@ improving or getting worse.</p>
 coverage.xml file.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;emma&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/emma&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;analysis&quot;</span> /&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/emma&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;analysis&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
-    <span class="hljs-tag">&lt;<span class="hljs-name">ant</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;emma&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">ant</span> <span class="hljs-attr">target</span>=<span class="hljs-string">&quot;emma&quot;</span> /&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">properties</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;coverage.class&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/emma/coverage.xml&quot;</span> <span class="hljs-attr">xpath</span>=<span class="hljs-string">&quot;substring-before(//report/data/all/coverage[starts-with(@type,&apos;class&apos;)]/@value, &apos;%&apos;)&quot;</span> /&gt;</span>
@@ -5603,7 +5587,7 @@ allow certain variable names and/or values.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2018-06-05T13:38:41.346Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-05T13:40:26.567Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2018-06-08T09:43:33.223Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-08T09:45:25.710Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
