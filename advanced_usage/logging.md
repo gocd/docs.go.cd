@@ -101,6 +101,36 @@ To configure logging, you can specify the configuration below. You must tweak th
 </included>
 ```
 
+## Example: Enable web-request logs
+
+To turn on web request logs, add below content to logback-include.xml.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+
+  <appender name="web-request-appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file>logs/web-requests.log</file>
+    <encoder>
+      <pattern>%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n</pattern>
+    </encoder>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern>logs/web-requests.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+      <maxFileSize>10 MB</maxFileSize>
+      <maxHistory>10</maxHistory>
+      <totalSizeCap>512 MB</totalSizeCap>
+    </rollingPolicy>
+  </appender>
+
+  <logger name="org.eclipse.jetty.server.RequestLog" level="DEBUG" additivity="false">
+    <appender-ref ref="web-request-appender" />
+  </logger>
+</included>
+```
+
+**Note:** Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path.
+
 ## Advanced logging features
 
 If you'd like to send log events to a log aggregator service (like logstash, graylog, splunk) of your choice, you may require additional configuration to be performed:
