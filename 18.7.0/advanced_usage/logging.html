@@ -2016,6 +2016,7 @@
 <li><a href="#gocd-server">GoCD Server</a></li>
 <li><a href="#gocd-agent">GoCD Agent</a></li>
 <li><a href="#log-configuration-syntax">Log configuration syntax</a></li>
+<li><a href="#example-enable-web-request-logs">Example: Enable web-request logs</a></li>
 <li><a href="#advanced-logging-features">Advanced logging features</a><ul>
 <li><a href="#example-logstash-setup">Example logstash setup</a></li>
 <li><a href="#example-gelf-setup">Example gelf setup</a></li>
@@ -2239,6 +2240,32 @@
   --&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">included</span>&gt;</span>
 </code></pre>
+<h2 id="example-enable-web-request-logs"><a name="example-enable-web-request-logs" class="plugin-anchor" href="#example-enable-web-request-logs"><i class="fa fa-link" aria-hidden="true"></i></a>Example: Enable web-request logs</h2>
+<p>To turn on web request logs, add below content to logback-include.xml.</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">included</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;web-request-appender&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">file</span>&gt;</span>logs/web-requests.log<span class="hljs-tag">&lt;/<span class="hljs-name">file</span>&gt;</span>
+    <span class="hljs-comment">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n<span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">rollingPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">fileNamePattern</span>&gt;</span>logs/web-requests.log.%d{yyyy-MM-dd}.%i.gz<span class="hljs-tag">&lt;/<span class="hljs-name">fileNamePattern</span>&gt;</span>
+      <span class="hljs-comment">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">maxFileSize</span>&gt;</span>10 MB<span class="hljs-tag">&lt;/<span class="hljs-name">maxFileSize</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">maxHistory</span>&gt;</span>10<span class="hljs-tag">&lt;/<span class="hljs-name">maxHistory</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">totalSizeCap</span>&gt;</span>512 MB<span class="hljs-tag">&lt;/<span class="hljs-name">totalSizeCap</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">rollingPolicy</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">logger</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;org.eclipse.jetty.server.RequestLog&quot;</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;DEBUG&quot;</span> <span class="hljs-attr">additivity</span>=<span class="hljs-string">&quot;false&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;web-request-appender&quot;</span> /&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">logger</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">included</span>&gt;</span>
+</code></pre>
 <h2 id="advanced-logging-features"><a name="advanced-logging-features" class="plugin-anchor" href="#advanced-logging-features"><i class="fa fa-link" aria-hidden="true"></i></a>Advanced logging features</h2>
 <p>If you&apos;d like to send log events to a log aggregator service (like logstash, graylog, splunk) of your choice, you may require additional configuration to be performed:</p>
 <ul>
@@ -2348,7 +2375,7 @@ An example logging over UDP could look like this:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2018-06-22T12:42:13.709Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-22T12:45:05.304Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2018-06-30T06:39:11.823Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-06-30T06:42:09.453Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
