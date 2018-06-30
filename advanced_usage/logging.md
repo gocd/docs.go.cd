@@ -111,12 +111,14 @@ To turn on web request logs, add below content to logback-include.xml.
 
   <appender name="web-request-appender" class="ch.qos.logback.core.rolling.RollingFileAppender">
     <file>logs/web-requests.log</file>
+    <!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. -->
     <encoder>
       <pattern>%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n</pattern>
     </encoder>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
       <fileNamePattern>logs/web-requests.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+      <!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. -->
       <maxFileSize>10 MB</maxFileSize>
       <maxHistory>10</maxHistory>
       <totalSizeCap>512 MB</totalSizeCap>
@@ -129,7 +131,7 @@ To turn on web request logs, add below content to logback-include.xml.
 </included>
 ```
 
-**Note:** Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path.
+
 
 ## Advanced logging features
 
