@@ -39,4 +39,4 @@ To switch the mode in which the GoCD Server operates:
 3.  Click on the "Server Configuration" tab
 4.  Set the "Allow users to login via plugin into GoCD, even if they haven't been explicitly added to GoCD." checkbox
 
-![](../resources/images/    )
+![](../resources/images/user_authentication_auto_login.png)
