@@ -13,3 +13,4 @@ With this documentation guide, you’ll be able to
 
 - [Setup and configure](gocd_helm_chart/setup_and_configuration.md) an instance of GoCD on a Kubernetes cluster.
 - [Design a continuous delivery pipeline](designing_a_cd_pipeline/index.md) to deploy a sample application to Kubernetes.
+- [Publish to](gocd_helm_chart/creating_a_build_pipeline.md#publish-your-application-image-on-docker-hub) and [fetch artifacts from](gocd_helm_chart/creating_a_test_pipeline.md) an external respository like Docker Hub Registry.
