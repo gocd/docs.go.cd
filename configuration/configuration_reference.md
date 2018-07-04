@@ -86,6 +86,14 @@ keywords: GoCD configuration, reference index
         <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
       <a href="#config-repo">&lt;/config-repo&gt;</a>
     <a href="#config-repos">&lt;/config-repos&gt;</a>
+    <a href="#artifactStores">&lt;artifactStores&gt;</a>
+        <a href="#artifactStore">&lt;artifactStore&gt;</a>
+            <a href="#property">&lt;property&gt;</a>
+                <a href="#key">&lt;key/&gt;</a>
+                <a href="#value">&lt;value/&gt;</a>
+            <a href="#property">&lt;/property&gt;</a>
+        <a href="#artifactStore">&lt;/artifactStore&gt;</a>
+    <a href="#artifactStores">&lt;/artifactStores&gt;</a>
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -1187,6 +1195,50 @@ The `<package>` element specifies single package under a repository. This tag ho
 | id | No | The id uniquely identifies a package by GO across repositories. This attribute need not be specified. In case no value is given, server auto-generates a random UUID and assigns it as package id. |
 | name | Yes | The name uniquely identifies a package within a repository, name will be specified by user and same will be used to display on screen. Package name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. |
+
+[top](#top)
+
+## &lt;artifactStores&gt; {#artifactStores}
+
+The `<artifactStores>` element is a container of many `<artifactStore>`.
+
+### Example
+
+```xml
+<cruise>
+  ...
+  <artifactStores>
+      <artifactStore id="dockerhub" pluginId="cd.go.artifact.docker.registry">
+        <property>
+          <key>RegistryURL</key>
+          <value>https://index.docker.io/v1/</value>
+        </property>
+        <property>
+          <key>Username</key>
+          <value>boohoo</value>
+        </property>
+        <property>
+          <key>Password</key>
+          <value>password</value>
+        </property>
+      </artifactStore>
+    </artifactStores>
+</cruise>
+```
+
+[top](#top)
+
+## &lt;artifactStore&gt; {#artifactStore}
+
+The `<artifactStore>` element specifies a global artifact store to publish/fetch external artifacts. It can contain zero or more `<property>` elements to specify the plugin properties.
+
+### Attributes
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| pluginId | Yes | The ID of artifact plugin. E.g. `cd.go.artifact.docker.registry`. |
+| id | Yes | The ID of the artifact store. ID must be a unique alphanumeric string. It can also contain `-`,`_`,`.`. This will be used later in the publish config |
+
 
 [top](#top)
 
@@ -2360,13 +2412,15 @@ All file paths specified are relative to the pipeline working directory.
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| origin | Yes | Indicates where the artifact needs to be pulled from. Currently, the supported value for this is `gocd`. This implies that the artifact needs to be fetched from the gocd server.|
+| artifactOrigin | Yes | Indicates where the artifact needs to be pulled from. Supported values are `gocd` and `external`. `gocd` implies that the artifact needs to be fetched from the gocd server, `external` implies that the artifact must be fetched from an external artifact store. |
 | pipeline | No | This value can either be: 1. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under `<materials>`, or 2. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value "BuildPipeline/AcceptancePipeline" denotes that the fetch task attempts to fetch artifacts from its ancestor 'BuildPipeline'. The given hierarchy denotes that the current pipeline depends on 'AcceptancePipeline' which in turn depends on 'BuildPipeline' using the dependency material definition given under materials. Defaults to current pipeline if not specified. |
 | stage | Yes | The name of the stage to fetch artifacts from |
 | job | Yes | The name of the job to fetch artifacts from |
-| srcdir | One of srcdir/srcfile | The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed |
-| srcfile | One of srcdir/srcfile | The path of the artifact file of a specific job.
-| dest | No | The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. |
+| srcdir | One of srcdir/srcfile if artifact origin is `gocd` | The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed. Should be specified if artifactOrigin is `gocd`. |
+| srcfile | One of srcdir/srcfile if artifact origin is `gocd` | The path of the artifact file of a specific job. Should be specified if artifactOrigin is `gocd`. |
+| dest | No | The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. Should be specified if artifactOrigin is `gocd`. |
+| artifactId | Yes, if artifact origin is `external` | The id of the external artifact that is published by the plugin in the upstream job. Should be specified if the artifact origin is `external`. |
+| configuration | No |  'A list of `key`-`value` pairs which defines the plugin configuration. Should be specified if artifact origin is `external`. |
 
 Note: If the file does not exist, the job will fail.
 Go will not fetch the artifact again if it has not changed. The directory path is relative to the pipeline working directory. |
@@ -2384,6 +2438,14 @@ Go will not fetch the artifact again if it has not changed. The directory path i
         <job name="unit">
           <artifacts>
             <artifact type="build" src="target/deployable.jar" dest="pkg"/>
+            <artifact type="external" id="artifact_jar" storeId="dummy-s3">
+              <configuration>
+                <property>
+                  <key>Filename</key>
+                  <value>target/deployable.jar</value>
+                </property>
+              </configuration>
+            </artifact>
           </artifacts>
         </job>
           </jobs>
@@ -2392,7 +2454,15 @@ Go will not fetch the artifact again if it has not changed. The directory path i
           <jobs>
         <job name="functional">
           <tasks>
-            <fetchartifact origin="gocd" stage="dev" job="unit" srcdir="pkg" dest="lib"/>
+            <fetchartifact artifactOrigin="gocd" stage="dev" job="unit" srcdir="pkg" dest="lib"/>
+            <fetchartifact artifactOrigin="external" stage="dev" job="unit" artifactId="artifact_jar">
+              <configuration>
+                <property>
+                  <key>dest_on_agent</key>
+                  <value>release_candidate.jar</value>
+                </property>
+              </configuration>
+            </fetchartifact>
           </tasks>
         </job>
           </jobs>
@@ -2534,7 +2604,7 @@ The task 'start\_server' starts a process on an agent. When the stage is cancell
 
 ## &lt;artifacts&gt; {#artifacts}
 
-`<artifacts>` specifies what files the agent will publish to the server.
+`<artifacts>` specifies what files the agent will publish to the server or an external artifact store.
 
 ### Examples
 
@@ -2543,6 +2613,18 @@ The task 'start\_server' starts a process on an agent. When the stage is cancell
   <artifacts>
     <artifact type="build" src="target/deployable.jar" dest="pkg"/>
     <artifact type="test" src="target/junit-output" dest="junit"/>
+    <artifact type="external" id="docker-image" storeId="dockerhub">
+      <configuration>
+        <property>
+          <key>Image</key>
+          <value>gocd/gocd-demo</value>
+        </property>
+        <property>
+          <key>Tag</key>
+          <value>v${GO_PIPELINE_COUNTER}</value>
+        </property>
+      </configuration>
+    </artifact>
   </artifacts>
 </job>
 ```
@@ -2559,10 +2641,13 @@ information is placed in the Failures and Test sub-tabs. Test results from multi
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | type | Yes |Type can be either `build` or `test`. This identifies the type of artifact that is uploaded to the GoCD server|
-| src | Yes | The file or folders to publish to the server. Go will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload: ** means any path, * means any file or folder name. |
-| dest | No | The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory. |
+| src | Yes, if type is `build` or `test` | The file or folders to publish to the server. Go will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload: ** means any path, * means any file or folder name. Should be specified if type is `build` or `test` |
+| dest | No | The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory. Should be specified if type is `build` or `test` |
+| id | Yes, if type is `external` | The artifact id for an external artifact. This id can be used later in a downstream fetch task. Should be specified if type is `external`. |
+| storeId | Yes, if type is `external` | The artifact store id referencing an existing global artifact store. Should be specified if type is `external`. |
+| configuration | No |  'A list of `key`-`value` pairs which defines the plugin configuration. Should be specified if type is `external`. |
 
-You can use wildcards to specify which files to upload. The wildcard syntax follows the commonly used ant/nant style. So "target/\*\*/\*.xml"
+You can use wildcards to specify which files to upload to the go server in case of build or test artifacts. The wildcard syntax follows the commonly used ant/nant style. So "target/\*\*/\*.xml"
 would upload all xml files in the target directory and any of its subdirectories. The original directory structure is preserved on the
 server.
 
@@ -2603,6 +2688,27 @@ The following will upload all xml files to the server's artifact repository.
 <job name="unit">
   <artifacts>
     <artifact type="test" src="target/junit-output" dest="junit"/>
+  </artifacts>
+</job>
+```
+
+### Examples for external artifact
+
+```xml
+<job name="build_image">
+  <artifacts>
+    <artifact type="external" id="docker-image" storeId="dockerhub">
+      <configuration>
+        <property>
+          <key>Image</key>
+          <value>gocd/gocd-demo</value>
+        </property>
+        <property>
+          <key>Tag</key>
+          <value>v${GO_PIPELINE_COUNTER}</value>
+        </property>
+      </configuration>
+    </artifact>
   </artifacts>
 </job>
 ```
