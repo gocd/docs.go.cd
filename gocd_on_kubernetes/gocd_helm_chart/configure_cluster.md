@@ -24,7 +24,7 @@ minikube addons enable ingress
 
 #### Configure service account
 
-As explained in the [setup](setup.md#2-setup-a-kubernetes-cluster) section, starting minikube with the `--boostrapper kubeadm` option is sufficient to install the GoCD application.
+As explained in the [setup](setup.md#2-setup-a-kubernetes-cluster) section, starting minikube with the `--bootstrapper kubeadm` option is sufficient to install the GoCD application.
 
 ## Option 2: Configure GKE
 
