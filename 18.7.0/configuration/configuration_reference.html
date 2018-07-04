@@ -2090,6 +2090,14 @@
         <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
       <a href="#config-repo">&lt;/config-repo&gt;</a>
     <a href="#config-repos">&lt;/config-repos&gt;</a>
+    <a href="#artifactStores">&lt;artifactStores&gt;</a>
+        <a href="#artifactStore">&lt;artifactStore&gt;</a>
+            <a href="#property">&lt;property&gt;</a>
+                <a href="#key">&lt;key/&gt;</a>
+                <a href="#value">&lt;value/&gt;</a>
+            <a href="#property">&lt;/property&gt;</a>
+        <a href="#artifactStore">&lt;/artifactStore&gt;</a>
+    <a href="#artifactStores">&lt;/artifactStores&gt;</a>
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -3378,6 +3386,55 @@ directory where the .ssh/ directory is located.</p>
 <td>autoUpdate</td>
 <td>No</td>
 <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material.</td>
+</tr>
+</tbody>
+</table>
+<p><a href="#top">top</a></p>
+<h2 id="artifactStores"><a name="artifactStores" class="plugin-anchor" href="#artifactStores"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;artifactStores&gt; </h2>
+<p>The <code>&lt;artifactStores&gt;</code> element is a container of many <code>&lt;artifactStore&gt;</code>.</p>
+<h3 id="example"><a name="example" class="plugin-anchor" href="#example"><i class="fa fa-link" aria-hidden="true"></i></a>Example</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">cruise</span>&gt;</span>
+  ...
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifactStores</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">artifactStore</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;dockerhub&quot;</span> <span class="hljs-attr">pluginId</span>=<span class="hljs-string">&quot;cd.go.artifact.docker.registry&quot;</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>RegistryURL<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>https://index.docker.io/v1/<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Username<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>boohoo<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Password<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>password<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">artifactStore</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">artifactStores</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">cruise</span>&gt;</span>
+</code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="artifactStore"><a name="artifactStore" class="plugin-anchor" href="#artifactStore"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;artifactStore&gt; </h2>
+<p>The <code>&lt;artifactStore&gt;</code> element specifies a global artifact store to publish/fetch external artifacts. It can contain zero or more <code>&lt;property&gt;</code> elements to specify the plugin properties.</p>
+<h3 id="attributes"><a name="attributes" class="plugin-anchor" href="#attributes"><i class="fa fa-link" aria-hidden="true"></i></a>Attributes</h3>
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>pluginId</td>
+<td>Yes</td>
+<td>The ID of artifact plugin. E.g. <code>cd.go.artifact.docker.registry</code>.</td>
+</tr>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>The ID of the artifact store. ID must be a unique alphanumeric string. It can also contain <code>-</code>,<code>_</code>,<code>.</code>. This will be used later in the publish config</td>
 </tr>
 </tbody>
 </table>
@@ -4848,9 +4905,9 @@ introduced in 12.2. Stages after the upstream stage can not be fetched from, bec
 </thead>
 <tbody>
 <tr>
-<td>origin</td>
+<td>artifactOrigin</td>
 <td>Yes</td>
-<td>Indicates where the artifact needs to be pulled from. Currently, the supported value for this is <code>gocd</code>. This implies that the artifact needs to be fetched from the gocd server.</td>
+<td>Indicates where the artifact needs to be pulled from. Supported values are <code>gocd</code> and <code>external</code>. <code>gocd</code> implies that the artifact needs to be fetched from the gocd server, <code>external</code> implies that the artifact must be fetched from an external artifact store.</td>
 </tr>
 <tr>
 <td>pipeline</td>
@@ -4869,18 +4926,28 @@ introduced in 12.2. Stages after the upstream stage can not be fetched from, bec
 </tr>
 <tr>
 <td>srcdir</td>
-<td>One of srcdir/srcfile</td>
-<td>The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed</td>
+<td>One of srcdir/srcfile if artifact origin is <code>gocd</code></td>
+<td>The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed. Should be specified if artifactOrigin is <code>gocd</code>.</td>
 </tr>
 <tr>
 <td>srcfile</td>
-<td>One of srcdir/srcfile</td>
-<td>The path of the artifact file of a specific job.</td>
+<td>One of srcdir/srcfile if artifact origin is <code>gocd</code></td>
+<td>The path of the artifact file of a specific job. Should be specified if artifactOrigin is <code>gocd</code>.</td>
 </tr>
 <tr>
 <td>dest</td>
 <td>No</td>
-<td>The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory.</td>
+<td>The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. Should be specified if artifactOrigin is <code>gocd</code>.</td>
+</tr>
+<tr>
+<td>artifactId</td>
+<td>Yes, if artifact origin is <code>external</code></td>
+<td>The id of the external artifact that is published by the plugin in the upstream job. Should be specified if the artifact origin is <code>external</code>.</td>
+</tr>
+<tr>
+<td>configuration</td>
+<td>No</td>
+<td>&apos;A list of <code>key</code>-<code>value</code> pairs which defines the plugin configuration. Should be specified if artifact origin is <code>external</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -4897,6 +4964,14 @@ Go will not fetch the artifact again if it has not changed. The directory path i
     <span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;external&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;artifact_jar&quot;</span> <span class="hljs-attr">storeId</span>=<span class="hljs-string">&quot;dummy-s3&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Filename<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>target/deployable.jar<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">artifact</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">jobs</span>&gt;</span>
@@ -4905,7 +4980,15 @@ Go will not fetch the artifact again if it has not changed. The directory path i
       <span class="hljs-tag">&lt;<span class="hljs-name">jobs</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;functional&quot;</span>&gt;</span>
       <span class="hljs-tag">&lt;<span class="hljs-name">tasks</span>&gt;</span>
-        <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">origin</span>=<span class="hljs-string">&quot;gocd&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dev&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;unit&quot;</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;pkg&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;lib&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">artifactOrigin</span>=<span class="hljs-string">&quot;gocd&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dev&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;unit&quot;</span> <span class="hljs-attr">srcdir</span>=<span class="hljs-string">&quot;pkg&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;lib&quot;</span>/&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">fetchartifact</span> <span class="hljs-attr">artifactOrigin</span>=<span class="hljs-string">&quot;external&quot;</span> <span class="hljs-attr">stage</span>=<span class="hljs-string">&quot;dev&quot;</span> <span class="hljs-attr">job</span>=<span class="hljs-string">&quot;unit&quot;</span> <span class="hljs-attr">artifactId</span>=<span class="hljs-string">&quot;artifact_jar&quot;</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+            <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>dest_on_agent<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+              <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>release_candidate.jar<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+            <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">fetchartifact</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">tasks</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
       <span class="hljs-tag">&lt;/<span class="hljs-name">jobs</span>&gt;</span>
@@ -5023,12 +5106,24 @@ the state &#x201C;failed&#x201D;.</p>
 </code></pre>
 <p><a href="#top">top</a></p>
 <h2 id="artifacts"><a name="artifacts" class="plugin-anchor" href="#artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;artifacts&gt; </h2>
-<p><code>&lt;artifacts&gt;</code> specifies what files the agent will publish to the server.</p>
+<p><code>&lt;artifacts&gt;</code> specifies what files the agent will publish to the server or an external artifact store.</p>
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;build&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/deployable.jar&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;pkg&quot;</span>/&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;test&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/junit-output&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;junit&quot;</span>/&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;external&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;docker-image&quot;</span> <span class="hljs-attr">storeId</span>=<span class="hljs-string">&quot;dockerhub&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Image<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>gocd/gocd-demo<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Tag<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>v${GO_PIPELINE_COUNTER}<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">artifact</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
@@ -5053,17 +5148,32 @@ information is placed in the Failures and Test sub-tabs. Test results from multi
 </tr>
 <tr>
 <td>src</td>
-<td>Yes</td>
-<td>The file or folders to publish to the server. Go will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload: <em>* means any path, </em> means any file or folder name.</td>
+<td>Yes, if type is <code>build</code> or <code>test</code></td>
+<td>The file or folders to publish to the server. Go will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload: <em>* means any path, </em> means any file or folder name. Should be specified if type is <code>build</code> or <code>test</code></td>
 </tr>
 <tr>
 <td>dest</td>
 <td>No</td>
-<td>The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory.</td>
+<td>The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory. Should be specified if type is <code>build</code> or <code>test</code></td>
+</tr>
+<tr>
+<td>id</td>
+<td>Yes, if type is <code>external</code></td>
+<td>The artifact id for an external artifact. This id can be used later in a downstream fetch task. Should be specified if type is <code>external</code>.</td>
+</tr>
+<tr>
+<td>storeId</td>
+<td>Yes, if type is <code>external</code></td>
+<td>The artifact store id referencing an existing global artifact store. Should be specified if type is <code>external</code>.</td>
+</tr>
+<tr>
+<td>configuration</td>
+<td>No</td>
+<td>&apos;A list of <code>key</code>-<code>value</code> pairs which defines the plugin configuration. Should be specified if type is <code>external</code>.</td>
 </tr>
 </tbody>
 </table>
-<p>You can use wildcards to specify which files to upload. The wildcard syntax follows the commonly used ant/nant style. So &quot;target/**/*.xml&quot;
+<p>You can use wildcards to specify which files to upload to the go server in case of build or test artifacts. The wildcard syntax follows the commonly used ant/nant style. So &quot;target/**/*.xml&quot;
 would upload all xml files in the target directory and any of its subdirectories. The original directory structure is preserved on the
 server.</p>
 <h3 id="examples-for-build-artifact"><a name="examples-for-build-artifact" class="plugin-anchor" href="#examples-for-build-artifact"><i class="fa fa-link" aria-hidden="true"></i></a>Examples for build artifact</h3>
@@ -5091,6 +5201,24 @@ server.</p>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;unit&quot;</span>&gt;</span>
   <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
     <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;test&quot;</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;target/junit-output&quot;</span> <span class="hljs-attr">dest</span>=<span class="hljs-string">&quot;junit&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
+</code></pre>
+<h3 id="examples-for-external-artifact"><a name="examples-for-external-artifact" class="plugin-anchor" href="#examples-for-external-artifact"><i class="fa fa-link" aria-hidden="true"></i></a>Examples for external artifact</h3>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">job</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;build_image&quot;</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">artifacts</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">artifact</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;external&quot;</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;docker-image&quot;</span> <span class="hljs-attr">storeId</span>=<span class="hljs-string">&quot;dockerhub&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Image<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>gocd/gocd-demo<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">property</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">key</span>&gt;</span>Tag<span class="hljs-tag">&lt;/<span class="hljs-name">key</span>&gt;</span>
+          <span class="hljs-tag">&lt;<span class="hljs-name">value</span>&gt;</span>v${GO_PIPELINE_COUNTER}<span class="hljs-tag">&lt;/<span class="hljs-name">value</span>&gt;</span>
+        <span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span>
+      <span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">artifact</span>&gt;</span>
   <span class="hljs-tag">&lt;/<span class="hljs-name">artifacts</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">job</span>&gt;</span>
 </code></pre>
@@ -5587,7 +5715,7 @@ allow certain variable names and/or values.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2018-07-02T10:42:15.673Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-02T10:44:10.991Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.32","depth":2,"next":{"title":"Schema","level":"1.5.33","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.31","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2018-07-04T10:25:50.825Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-04T10:27:36.057Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
