@@ -106,6 +106,7 @@
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/helm_install.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
