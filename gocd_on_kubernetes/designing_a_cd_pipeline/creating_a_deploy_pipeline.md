@@ -28,13 +28,11 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 5. Create the initial job `deploy_to_cluster`. The initial task argument is
 
-    `sed -i "s/##{image}/$DOCKERHUB_USERNAME\/bulletin-board:$GO_DEPENDENCY_LABEL_UPSTREAM/" bulletin-board-deployment.json`
-
-    *Note the extra '#'. GoCD offers additional environment variables (like $GO_DEPENDENCY_LABEL_*) to use in builds when a pipeline depends on another pipeline. We'll look at how to configure a dependency in the next step.*
+    `PLUGIN_FILENAME=cd.go.artifact.docker.registry.json rake create_json`
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_job.png)
 
-6. Introduce the pipeline `build_and_publish_image` as a material called `upstream`. 
+6. Introduce the pipeline `test_application` as a material called `test`. 
     
     *Tip: Choose the option 'Pipeline' in the 'Add Material' dropdown under the Materials tab.*
 
@@ -55,10 +53,18 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
     ```
 
     ![](../../resources/images/gocd-helm-chart/env_vars_deploy.png)
+    
+8. Configure a `Fetch Artifact Task` to fetch the plugin json file. This is the file that is present in the upstream `build_and_publish_image` which stores the information about the image that's been published.
+   
+    ![](../../resources/images/gocd-helm-chart/deploy_fetch_task.png)
 
-8. Configure a task to call the `./app-deployment.sh` script.
+9. Configure a task to call the `./app-deployment.sh` script.
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_task.png)
+    
+10.  Reorder the tasks as shown as we want to first fetch the image before running any tests.
+
+    ![](../../resources/images/gocd-helm-chart/deploy_tasks.png)
 
 ## Associate job with the elastic profile
 

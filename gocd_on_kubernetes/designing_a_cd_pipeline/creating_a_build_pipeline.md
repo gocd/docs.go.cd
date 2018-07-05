@@ -4,15 +4,17 @@ keywords: gocd helm chart, cd pipeline
 ---
 # Create a pipeline to build and publish your application image
 
-In this section, we cover how to design CD pipelines that build and publish an application image. As an example, we've used a [sample nodejs application](https://github.com/gocd-demo/node-bulletin-board) called 'Bulletin Board'.
+In this section, we'll go over how to design CD pipelines that build and publish an application image. As an example, we've used a [sample nodejs application](https://github.com/gocd-demo/node-bulletin-board) called 'Bulletin Board'.
+
+### Prerequisites
+
+We’ll be building our application as a docker image artifact and publishing it to Docker Hub. To do this, make sure you have a [Docker Hub](https://hub.docker.com) account. 
 
 ### Quick links
 
 - [Getting started with GoCD](https://www.gocd.org/getting-started/part-1/)
 
 ## Build an application artifact
-
-We’ll build our application as a docker image artifact and publish it to DockerHub. To do this, you'll need a [Dockerhub](https://hub.docker.com) account. 
 
 1. Click on the `Pipelines` link on the top menu to create your first pipeline.
 
@@ -43,45 +45,44 @@ We’ll build our application as a docker image artifact and publish it to Docke
   *Tip: Do not forget the `-c` option in the arguments section.*
   
   ![](../../resources/images/gocd-helm-chart/pipeline_wizard_add_job.png)
-
-## Publish your application image
-
-At this point, we have created a pipeline but we need to configure the tasks to push the image to DockerHub. To do this,
-
-1. Configure the `DOCKERHUB_USERNAME` and `DOCKERHUB_PASSWORD` as environment variables.
+  
+  Click on the `Finish` button when you're done. This will take you to the pipeline settings page for additional configurations.
+  
+6. Navigate to Environment Variables tab. Configure the `DOCKERHUB_USERNAME` as an environment variable.
 
   ![](../../resources/images/gocd-helm-chart/configure_env_vars.png)
-
-2. Create a task under the `build_and_publish_image` job with the following command that executes tests. We have included sample tests for our application.
-
-  *Tip: Use the tree on the left to navigate to the Job `build_and_publish_image`. Once you're here, you can create the tasks under the Tasks tab.*
-
-  *Tip: Do not forget the `-c` option in the arguments section.*
   
-  ```bash
-     docker run $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL npm test
-  ```
-  *Tip: Choose the More option in the Add New Task dropdown.*
 
-  ![](../../resources/images/gocd-helm-chart/docker_test.png)
+## Publish your application image to Docker Hub
 
-3. Create tasks for the following Docker commands that will push the image to Dockerhub.
+1. Create an artifact store
 
-  *Tip: Do not forget the `-c` option in the arguments section.*
+    Navigate to Admin > Artifact Stores to add the global artifact store
+        
+    ![](../../resources/images/gocd-helm-chart/artifact_store.png)
 
-  ```bash
-    docker login -u $DOCKERHUB_USERNAME -p $DOCKERHUB_PASSWORD
-  ```
+    
+2.  Navigate to the pipeline settings for `build_and_publish_image`.
 
-  ![](../../resources/images/gocd-helm-chart/docker_login.png)
+    *Tip: Use the tree on the left to navigate to the job `build_and_publish_image`. Once you're here, you can associate the profile ID under the Job Settings tab.*
+    
+    Create an external artifact under the `build_and_publish_image` job.
 
-  ```bash
-    docker push $DOCKERHUB_USERNAME/bulletin-board:$GO_PIPELINE_LABEL
-  ```
+    Specify the artifact id as `bulletin-board`
 
-  ![](../../resources/images/gocd-helm-chart/docker_push.png)
+    Specify the artifact store id as `dockerhub`
 
-4. This is what the `Tasks` under the `build_and_publish_image` job should look like once you finish this configuration
+    Specify the `image` property as `${DOCKERHUB_USERNAME}/bulletin-board`
+
+    Specify the `tag` property as `${GO_PIPELINE_LABEL}`
+    
+    This will ensure that the image being built by the `build_and_publish_image` job is the one being published.
+
+   *Note: You need to have an artifact store configured for this so that the plugin is aware of the credentials to use when publishing the artifact.*
+   
+   ![](../../resources/images/gocd-helm-chart/build_and_publish_image_artifacts.png)
+
+3. This is what the `Tasks` under the `build_and_publish_image` job should look like once you finish this configuration
 
   ![](../../resources/images/gocd-helm-chart/build_and_publish_image_tasks.png)
 
