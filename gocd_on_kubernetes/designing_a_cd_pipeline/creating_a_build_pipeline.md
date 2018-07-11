@@ -88,7 +88,11 @@ We’ll be building our application as a docker image artifact and publishing it
 
 ## Associate job with the elastic profile
 
-We have created a sample elastic profile `demo-app` for this guide. Before associating elastic profile to a job, you'll need to verify that the elastic profile and plugin settings are set up.
+### Quick links
+
+- [What are elastic profiles?](https://docs.gocd.org/18.7.0/configuration/configuration_reference.html#profile)
+
+We have created a sample elastic profile `demo-app` for the helm release by default. Before associating elastic profile to a job, you'll need to verify that the elastic profile and plugin settings are set up.
 
 ### Step 1: Verify elastic profile
 
