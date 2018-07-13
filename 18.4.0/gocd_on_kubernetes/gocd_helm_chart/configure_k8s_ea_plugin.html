@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Designing a CD Pipeline · GoCD User Documentation</title>
+        <title>Configure the Kubernetes Elastic Agent plugin · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
         <meta name="generator" content="GitBook 3.2.2">
@@ -44,7 +44,7 @@
 
         
 <meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
-    <link rel="canonical" href="https://docs.gocd.org/current/gocd_on_kubernetes/designing_a_cd_pipeline/index.html"/>
+    <link rel="canonical" href="https://docs.gocd.org/current/gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html"/>
     <script async src="resources/javascripts/_gdpr-banner.js" type="text/javascript"></script>
 
     </head>
@@ -1442,9 +1442,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2" data-path="../gocd_helm_chart/setup_and_configuration.html">
+        <li class="chapter " data-level="1.9.2" data-path="setup_and_configuration.html">
             
-                <a href="../gocd_helm_chart/setup_and_configuration.html">
+                <a href="setup_and_configuration.html">
             
                     
                     Setup and configuration
@@ -1456,9 +1456,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.2.1" data-path="../gocd_helm_chart/setup.html">
+        <li class="chapter " data-level="1.9.2.1" data-path="setup.html">
             
-                <a href="../gocd_helm_chart/setup.html">
+                <a href="setup.html">
             
                     
                     Setup
@@ -1469,9 +1469,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2.2" data-path="../gocd_helm_chart/configure_cluster.html">
+        <li class="chapter " data-level="1.9.2.2" data-path="configure_cluster.html">
             
-                <a href="../gocd_helm_chart/configure_cluster.html">
+                <a href="configure_cluster.html">
             
                     
                     Configure your Kubernetes Cluster
@@ -1482,9 +1482,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.2.3" data-path="../gocd_helm_chart/helm_install.html">
+        <li class="chapter " data-level="1.9.2.3" data-path="helm_install.html">
             
-                <a href="../gocd_helm_chart/helm_install.html">
+                <a href="helm_install.html">
             
                     
                     Install the GoCD Helm chart
@@ -1500,9 +1500,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.9.3" data-path="./">
+        <li class="chapter " data-level="1.9.3" data-path="../designing_a_cd_pipeline/">
             
-                <a href="./">
+                <a href="../designing_a_cd_pipeline/">
             
                     
                     Designing a CD Pipeline
@@ -1514,9 +1514,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.9.3.1" data-path="creating_a_build_pipeline.html">
+        <li class="chapter " data-level="1.9.3.1" data-path="../designing_a_cd_pipeline/creating_a_build_pipeline.html">
             
-                <a href="creating_a_build_pipeline.html">
+                <a href="../designing_a_cd_pipeline/creating_a_build_pipeline.html">
             
                     
                     Create a pipeline to build application
@@ -1527,9 +1527,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.2" data-path="creating_a_deploy_pipeline.html">
+        <li class="chapter " data-level="1.9.3.2" data-path="../designing_a_cd_pipeline/creating_a_deploy_pipeline.html">
             
-                <a href="creating_a_deploy_pipeline.html">
+                <a href="../designing_a_cd_pipeline/creating_a_deploy_pipeline.html">
             
                     
                     Create a pipeline to deploy on Kubernetes
@@ -1540,9 +1540,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.3" data-path="docker_workflows.html">
+        <li class="chapter " data-level="1.9.3.3" data-path="../designing_a_cd_pipeline/docker_workflows.html">
             
-                <a href="docker_workflows.html">
+                <a href="../designing_a_cd_pipeline/docker_workflows.html">
             
                     
                     Docker workflows
@@ -1553,9 +1553,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.3.4" data-path="../gocd_helm_chart/configure_k8s_ea_plugin.html">
+        <li class="chapter active" data-level="1.9.3.4" data-path="configure_k8s_ea_plugin.html">
             
-                <a href="../gocd_helm_chart/configure_k8s_ea_plugin.html">
+                <a href="configure_k8s_ea_plugin.html">
             
                     
                     Configure the Kubernetes Elastic Agent plugin
@@ -1571,9 +1571,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.9.4" data-path="../gocd_helm_chart/troubleshooting.html">
+        <li class="chapter " data-level="1.9.4" data-path="troubleshooting.html">
             
-                <a href="../gocd_helm_chart/troubleshooting.html">
+                <a href="troubleshooting.html">
             
                     
                     Troubleshooting
@@ -2007,7 +2007,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >Designing a CD Pipeline</a>
+        <a href="../.." >Configure the Kubernetes Elastic Agent plugin</a>
     </h1>
 </div>
 
@@ -2022,19 +2022,59 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <html>
-    <body>
-    <div style="text-align:center;" class="my-block">
-    <br>
-    <br>
-    <br>
-    <br>
-       <h2 id="getting-started-with-gocd-on-kubernetes"><a name="getting-started-with-gocd-on-kubernetes" class="plugin-anchor" href="#getting-started-with-gocd-on-kubernetes"><i class="fa fa-link" aria-hidden="true"></i></a>Getting Started with GoCD on Kubernetes</h2>
-    <br>
-       <h1 id="step-2-designing-a-cd-pipeline"><a name="step-2-designing-a-cd-pipeline" class="plugin-anchor" href="#step-2-designing-a-cd-pipeline"><i class="fa fa-link" aria-hidden="true"></i></a>Step 2: Designing a CD Pipeline</h1>
-    </div>
-    </body>
-</html>
+                                <h1 id="kubernetes-elastic-agent-plugin"><a name="kubernetes-elastic-agent-plugin" class="plugin-anchor" href="#kubernetes-elastic-agent-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Kubernetes elastic agent plugin</h1>
+<blockquote>
+<p>GoCD agents are &#x201C;workers&#x201D; and execute tasks that make up jobs, stages and the pipeline. GoCD <a href="https://www.gocd.org/elastic-agents" target="_blank">Elastic agents</a> spin up agents on demand, depending on the intensity of the tasks and availability of processing power.</p>
+</blockquote>
+<p>The Kubernetes elastic agent plugin is bundled with the GoCD Helm chart. This plugin spins up GoCD agent pods in the Kubernetes cluster in response to build workload.</p>
+<h2 id="configure-the-kubernetes-elastic-agent-plugin"><a name="configure-the-kubernetes-elastic-agent-plugin" class="plugin-anchor" href="#configure-the-kubernetes-elastic-agent-plugin"><i class="fa fa-link" aria-hidden="true"></i></a>Configure the Kubernetes elastic agent plugin</h2>
+<p>We need to configure the plugin to point to the right Kubernetes cluster. Navigate to the plugins page from the Admin dropdown. </p>
+<p>  <img src="../../resources/images/gocd-helm-chart/plugins_page.png" alt=""></p>
+<p>Click on the &#x2018;gear&#x2019; icon for the Kubernetes Elastic Agent plugin to edit its settings.</p>
+<p>  <img src="../../resources/images/gocd-helm-chart/plugin_settings.png" alt=""></p>
+<p>This is a rundown of the attributes of the Kubernetes elastic agent</p>
+<ol>
+<li><p>The GoCD Server URL is required for the agents brought up by the plugin to connect to the GoCD server. A private GoCD server IP within the Kubernetes cluster can be obtained and specified with the following command.</p>
+<pre><code class="lang-bash">  <span class="hljs-built_in">echo</span> <span class="hljs-string">&quot;https://<span class="hljs-variable">$(kubectl --namespace=gocd get service gocd-server -o jsonpath=&apos;{.spec.clusterIP}&apos;)</span>:8154/go&quot;</span>
+</code></pre>
+</li>
+<li><p>The Cluster URL indicates the Kubernetes cluster in which the GoCD agent pods must be brought up. This can be obtained by running the following command</p>
+<pre><code class="lang-bash">  kubectl cluster-info
+</code></pre>
+<p>The <code>Kubernetes master</code> url is the Cluster URL.</p>
+</li>
+<li><p>The Kubernetes namespace where the helm chart was installed needs to be specified. As mentioned in the installation guide above, the namespace we have used is <code>gocd</code>.</p>
+</li>
+<li><p>The Service Account token specified must be associated with a service account that has the following privileges</p>
+<ul>
+<li>nodes: list, get</li>
+<li>events: list, watch</li>
+<li>namespace: list, get</li>
+<li>pods, pods/log: *</li>
+</ul>
+<p>The token can be obtained by:</p>
+<pre><code class="lang-bash">  secret_name=$(kubectl --namespace=gocd get serviceaccount gocd -o jsonpath=<span class="hljs-string">&quot;{.secrets[0].name}&quot;</span>)
+  kubectl --namespace=gocd get secret <span class="hljs-variable">$secret_name</span> -o jsonpath=<span class="hljs-string">&quot;{.data[&apos;token&apos;]}&quot;</span> | base64 --decode
+</code></pre>
+</li>
+<li><p>Once you save your configuration, navigate to the plugin status report page from the plugins page and confirm that you don&apos;t have configuration errors.</p>
+<p><img src="../../resources/images/gocd-helm-chart/plugin_status.png" alt=""></p>
+</li>
+</ol>
+<h2 id="create-an-elastic-profile"><a name="create-an-elastic-profile" class="plugin-anchor" href="#create-an-elastic-profile"><i class="fa fa-link" aria-hidden="true"></i></a>Create an elastic profile</h2>
+<blockquote>
+<p>An elastic agent plugin spins up GoCD agents on the fly. It needs to know what type of agent to spin up. An elastic profile specifies the type of GoCD Agent to be used by the elastic agent plugin. Using this, you can bring up different kinds of agent pods within the same cluster to run different kinds of jobs.</p>
+</blockquote>
+<p>To configure an elastic profile, go to Admin -&gt; Elastic Agent Profiles and click on the &apos;Add&apos; button to add a new profile.</p>
+<ol>
+<li>Choose an ID name for the profile. This profile ID will be made use of when we create the <a href="../designing_a_cd_pipeline/creating_a_build_pipeline.html#associate-job-with-the-elastic-profile">build_and_publish_image</a> pipeline and <a href="../designing_a_cd_pipeline/creating_a_deploy_pipeline.html#associate-job-with-the-elastic-profile">deploy_app_to_cluster</a> pipeline.</li>
+<li>Choose a GoCD agent image. For this example, since we are building Docker images, we recommend using <code>gocd/gocd-agent-docker-dind:v18.2.0</code>.</li>
+</ol>
+<p><em>Tip: Check the &apos;Privileged mode&apos; checkbox which is essential to run the <a href="../designing_a_cd_pipeline/docker_workflows.html">Docker in Docker</a> image.</em></p>
+<p><img src="../../resources/images/gocd-helm-chart/profile.png" alt=""></p>
+<p>You can see all of our docker images (both server and agent) <a href="https://hub.docker.com/r/gocd/" target="_blank">here</a>.</p>
+<p>Once you&apos;ve created an elastic profile, you can begin to associate the profile to jobs inorder to run them.</p>
+
                                 
                                 </section>
                             
@@ -2061,12 +2101,12 @@
 
             
                 
-                <a href="../gocd_helm_chart/helm_install.html" class="navigation navigation-prev " aria-label="Previous page: Install the GoCD Helm chart">
+                <a href="../designing_a_cd_pipeline/docker_workflows.html" class="navigation navigation-prev " aria-label="Previous page: Docker workflows">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="creating_a_build_pipeline.html" class="navigation navigation-next " aria-label="Next page: Create a pipeline to build application">
+                <a href="troubleshooting.html" class="navigation navigation-next " aria-label="Next page: Troubleshooting">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2077,7 +2117,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Designing a CD Pipeline","level":"1.9.3","depth":2,"next":{"title":"Create a pipeline to build application","level":"1.9.3.1","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md","articles":[]},"previous":{"title":"Install the GoCD Helm chart","level":"1.9.2.3","depth":3,"path":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","ref":"gocd_on_kubernetes/gocd_helm_chart/helm_install.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/index.md","mtime":"2018-07-13T05:11:58.573Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-13T05:14:58.749Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configure the Kubernetes Elastic Agent plugin","level":"1.9.3.4","depth":3,"next":{"title":"Troubleshooting","level":"1.9.4","depth":2,"path":"gocd_on_kubernetes/gocd_helm_chart/troubleshooting.md","ref":"gocd_on_kubernetes/gocd_helm_chart/troubleshooting.md","articles":[]},"previous":{"title":"Docker workflows","level":"1.9.3.3","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md","mtime":"2018-07-13T05:11:58.573Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-13T05:14:58.749Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
