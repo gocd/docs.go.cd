@@ -1,0 +1,2424 @@
+
+<!DOCTYPE HTML>
+<html lang="" >
+    <head>
+        <meta charset="UTF-8">
+        <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+        <title>Concepts in GoCD · GoCD User Documentation</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="Introduction to GoCD, its underlying concepts, and get a good understanding of continuous delivery and continuous integration.">
+        <meta name="generator" content="GitBook 3.2.2">
+        
+        
+        
+    
+    <link rel="stylesheet" href="../gitbook/style.css">
+
+    
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-highlight/website.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-anchors/plugin.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-search/search.css">
+                
+            
+                
+                <link rel="stylesheet" href="../gitbook/gitbook-plugin-fontsettings/website.css">
+                
+            
+        
+
+    
+
+    
+        
+        <link rel="stylesheet" href="../resources/stylesheets/website.css">
+        
+    
+
+        
+<meta content="introduction gocd, continuous delivery, continuous integration, martin fowler, gocd getting started, build pipelines, value stream map, build artifacts, fan in" name="keywords" />
+    <link rel="canonical" href="https://docs.gocd.org/current/introduction/concepts_in_go.html"/>
+    <script async src="resources/javascripts/_gdpr-banner.js" type="text/javascript"></script>
+
+    </head>
+    <body>
+        
+<div class="book">
+    <div class="book-summary">
+        
+            
+<div id="book-search-input" role="search">
+    <input type="text" placeholder="Type to search" />
+</div>
+
+            
+                <nav role="navigation">
+                
+
+
+<ul class="summary">
+    
+    
+    
+        
+        <li>
+            <a href="https://www.gocd.org" target="_blank" class="custom-link">Back to GoCD.org</a>
+        </li>
+    
+        
+        <li>
+            <a href="https://github.com/gocd/docs.go.cd/" target="_blank" class="custom-link">Contribute</a>
+        </li>
+    
+    
+
+    
+    <li class="divider"></li>
+    
+
+    
+        
+        
+    
+        <li class="chapter " data-level="1.1" data-path="../">
+            
+                <a href="../">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.2" data-path="./">
+            
+                <a href="./">
+            
+                    
+                    Concepts In GoCD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter active" data-level="1.2.1" data-path="concepts_in_go.html">
+            
+                <a href="concepts_in_go.html">
+            
+                    
+                    Concepts in GoCD
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3" data-path="../navigation/">
+            
+                <a href="../navigation/">
+            
+                    
+                    GoCD Tour
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.3.1" data-path="../navigation/pipelines_dashboard_page.html">
+            
+                <a href="../navigation/pipelines_dashboard_page.html">
+            
+                    
+                    Pipeline Dashboard
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.2" data-path="../navigation/agents_page.html">
+            
+                <a href="../navigation/agents_page.html">
+            
+                    
+                    Agents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.3" data-path="../navigation/agent_details.html">
+            
+                <a href="../navigation/agent_details.html">
+            
+                    
+                    Agent Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.4" data-path="../navigation/pipeline_activity_page.html">
+            
+                <a href="../navigation/pipeline_activity_page.html">
+            
+                    
+                    Pipeline Activity
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.5" data-path="../navigation/stage_details_page.html">
+            
+                <a href="../navigation/stage_details_page.html">
+            
+                    
+                    Stage Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.6" data-path="../navigation/job_details_page.html">
+            
+                <a href="../navigation/job_details_page.html">
+            
+                    
+                    Job Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.7" data-path="../navigation/administration_page.html">
+            
+                <a href="../navigation/administration_page.html">
+            
+                    
+                    Administration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.8" data-path="../navigation/server_details_page.html">
+            
+                <a href="../navigation/server_details_page.html">
+            
+                    
+                    Server Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.9" data-path="../navigation/environments_page.html">
+            
+                <a href="../navigation/environments_page.html">
+            
+                    
+                    Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.3.10" data-path="../navigation/value_stream_map.html">
+            
+                <a href="../navigation/value_stream_map.html">
+            
+                    
+                    Value Stream Map
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4" data-path="../installation/">
+            
+                <a href="../installation/">
+            
+                    
+                    Installing GoCD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.1" data-path="../installation/system_requirements.html">
+            
+                <a href="../installation/system_requirements.html">
+            
+                    
+                    System requirements
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../installation/installing_go_server.html">
+            
+                <a href="../installation/installing_go_server.html">
+            
+                    
+                    Installing GoCD Server
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.2.1" data-path="../installation/install/server/linux.html">
+            
+                <a href="../installation/install/server/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.2" data-path="../installation/install/server/windows.html">
+            
+                <a href="../installation/install/server/windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.3" data-path="../installation/install/server/osx.html">
+            
+                <a href="../installation/install/server/osx.html">
+            
+                    
+                    Mac OS X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2.4" data-path="../installation/install/server/zip.html">
+            
+                <a href="../installation/install/server/zip.html">
+            
+                    
+                    Generic Zip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../installation/installing_go_agent.html">
+            
+                <a href="../installation/installing_go_agent.html">
+            
+                    
+                    Installing GoCD Agent
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.3.1" data-path="../installation/install/agent/linux.html">
+            
+                <a href="../installation/install/agent/linux.html">
+            
+                    
+                    Linux
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.2" data-path="../installation/install/agent/windows.html">
+            
+                <a href="../installation/install/agent/windows.html">
+            
+                    
+                    Windows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.3" data-path="../installation/install/agent/osx.html">
+            
+                <a href="../installation/install/agent/osx.html">
+            
+                    
+                    Mac OS X
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3.4" data-path="../installation/install/agent/zip.html">
+            
+                <a href="../installation/install/agent/zip.html">
+            
+                    
+                    Generic Zip
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.4" data-path="../installation/upgrading_go.html">
+            
+                <a href="../installation/upgrading_go.html">
+            
+                    
+                    Upgrading GoCD
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../installation/configuring_server_details.html">
+            
+                <a href="../installation/configuring_server_details.html">
+            
+                    
+                    Configuring Server Details
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.6" data-path="../installation/configure-reverse-proxy.html">
+            
+                <a href="../installation/configure-reverse-proxy.html">
+            
+                    
+                    Configure a Reverse Proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.7" data-path="../installation/configure-agent-proxy.html">
+            
+                <a href="../installation/configure-agent-proxy.html">
+            
+                    
+                    Configure an agent with proxy
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8" data-path="../installation/ssl_tls_config.html">
+            
+                <a href="../installation/ssl_tls_config.html">
+            
+                    
+                    Configuring SSL/TLS
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.4.8.1" data-path="../installation/ssl_tls/setting_up_ciphers.html">
+            
+                <a href="../installation/ssl_tls/setting_up_ciphers.html">
+            
+                    
+                    Customizing Ciphers
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.2" data-path="../installation/ssl_tls/custom_server_certificate.html">
+            
+                <a href="../installation/ssl_tls/custom_server_certificate.html">
+            
+                    
+                    Change SSL Certificates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.8.3" data-path="../installation/ssl_tls/end_to_end_transport_security.html">
+            
+                <a href="../installation/ssl_tls/end_to_end_transport_security.html">
+            
+                    
+                    End to end transport security
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.9" data-path="../installation/performance_tuning.html">
+            
+                <a href="../installation/performance_tuning.html">
+            
+                    
+                    Performance Tuning
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.10" data-path="../installation/hardware_specifications.html">
+            
+                <a href="../installation/hardware_specifications.html">
+            
+                    
+                    Hardware Specifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.11" data-path="../installation/troubleshooting.html">
+            
+                <a href="../installation/troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5" data-path="../configuration/">
+            
+                <a href="../configuration/">
+            
+                    
+                    Configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.5.1" data-path="../configuration/quick_pipeline_setup.html">
+            
+                <a href="../configuration/quick_pipeline_setup.html">
+            
+                    
+                    Setup a New Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.2" data-path="../configuration/managing_pipelines.html">
+            
+                <a href="../configuration/managing_pipelines.html">
+            
+                    
+                    Managing Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../configuration/managing_dependencies.html">
+            
+                <a href="../configuration/managing_dependencies.html">
+            
+                    
+                    Managing Dependencies
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../configuration/managing_a_build_cloud.html">
+            
+                <a href="../configuration/managing_a_build_cloud.html">
+            
+                    
+                    Managing Agents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.5" data-path="../configuration/managing_environments.html">
+            
+                <a href="../configuration/managing_environments.html">
+            
+                    
+                    Managing Environments
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.6" data-path="../configuration/build_labelling.html">
+            
+                <a href="../configuration/build_labelling.html">
+            
+                    
+                    Pipeline Labelling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.7" data-path="../configuration/pipeline_scheduling.html">
+            
+                <a href="../configuration/pipeline_scheduling.html">
+            
+                    
+                    Pipeline Scheduling
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.8" data-path="../configuration/admin_use_parameters_in_configuration.html">
+            
+                <a href="../configuration/admin_use_parameters_in_configuration.html">
+            
+                    
+                    Parameterize a Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.9" data-path="../configuration/admin_use_custom_pipeline_label.html">
+            
+                <a href="../configuration/admin_use_custom_pipeline_label.html">
+            
+                    
+                    Customize a Pipeline Label
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.10" data-path="../configuration/admin_clone_pipeline.html">
+            
+                <a href="../configuration/admin_clone_pipeline.html">
+            
+                    
+                    Clone a Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.11" data-path="../configuration/admin_lock_pipelines.html">
+            
+                <a href="../configuration/admin_lock_pipelines.html">
+            
+                    
+                    Lock a Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.12" data-path="../configuration/admin_add_material.html">
+            
+                <a href="../configuration/admin_add_material.html">
+            
+                    
+                    Add Material to Existing Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.13" data-path="../configuration/admin_add_stage.html">
+            
+                <a href="../configuration/admin_add_stage.html">
+            
+                    
+                    Add Stage to Existing Pipeline
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.14" data-path="../configuration/admin_add_job.html">
+            
+                <a href="../configuration/admin_add_job.html">
+            
+                    
+                    Add job to Existing Stage
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.15" data-path="../configuration/admin_add_task.html">
+            
+                <a href="../configuration/admin_add_task.html">
+            
+                    
+                    Add task to Existing Job
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.16" data-path="../configuration/pipeline_templates.html">
+            
+                <a href="../configuration/pipeline_templates.html">
+            
+                    
+                    Pipeline Templates
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.17" data-path="../configuration/dev_choose_when_stage_runs.html">
+            
+                <a href="../configuration/dev_choose_when_stage_runs.html">
+            
+                    
+                    Choose When a Stage Runs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.18" data-path="../configuration/admin_timer.html">
+            
+                <a href="../configuration/admin_timer.html">
+            
+                    
+                    Timer Trigger
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.19" data-path="../configuration/job_timeout.html">
+            
+                <a href="../configuration/job_timeout.html">
+            
+                    
+                    Job Timeout
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.20" data-path="../configuration/managing_users.html">
+            
+                <a href="../configuration/managing_users.html">
+            
+                    
+                    Managing Users
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.21" data-path="../configuration/dev_authentication.html">
+            
+                <a href="../configuration/dev_authentication.html">
+            
+                    
+                    Authentication
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.22" data-path="../configuration/dev_authorization.html">
+            
+                <a href="../configuration/dev_authorization.html">
+            
+                    
+                    Authorizing Users
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.23" data-path="../configuration/delegating_group_administration.html">
+            
+                <a href="../configuration/delegating_group_administration.html">
+            
+                    
+                    Delegating Group Administration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.24" data-path="../configuration/pipeline_group_admin_config.html">
+            
+                <a href="../configuration/pipeline_group_admin_config.html">
+            
+                    
+                    Pipeline Group Administration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.25" data-path="../configuration/dev_upload_test_report.html">
+            
+                <a href="../configuration/dev_upload_test_report.html">
+            
+                    
+                    Publish Reports and Artifacts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.26" data-path="../configuration/managing_artifacts_and_reports.html">
+            
+                <a href="../configuration/managing_artifacts_and_reports.html">
+            
+                    
+                    Managing Artifacts and Reports
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.27" data-path="../configuration/delete_artifacts.html">
+            
+                <a href="../configuration/delete_artifacts.html">
+            
+                    
+                    Auto Delete Artifacts
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.28" data-path="../configuration/ui_testing.html">
+            
+                <a href="../configuration/ui_testing.html">
+            
+                    
+                    UI Testing
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.29" data-path="../configuration/admin_mailhost_info.html">
+            
+                <a href="../configuration/admin_mailhost_info.html">
+            
+                    
+                    Mailhost Information
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.30" data-path="../configuration/dev_notifications.html">
+            
+                <a href="../configuration/dev_notifications.html">
+            
+                    
+                    Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.31" data-path="../configuration/tfs_config.html">
+            
+                <a href="../configuration/tfs_config.html">
+            
+                    
+                    TFS Material configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.32" data-path="../configuration/configuration_reference.html">
+            
+                <a href="../configuration/configuration_reference.html">
+            
+                    
+                    Reference
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.33" data-path="../configuration/schema.html">
+            
+                <a href="../configuration/schema.html">
+            
+                    
+                    Schema
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6" data-path="../advanced_usage/">
+            
+                <a href="../advanced_usage/">
+            
+                    
+                    Advanced Usage
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.6.1" data-path="../advanced_usage/pipelines_as_code.html">
+            
+                <a href="../advanced_usage/pipelines_as_code.html">
+            
+                    
+                    Pipelines as code
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.2" data-path="../advanced_usage/agent_auto_register.html">
+            
+                <a href="../advanced_usage/agent_auto_register.html">
+            
+                    
+                    Auto Register a Remote Agent
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.3" data-path="../advanced_usage/admin_spawn_multiple_jobs.html">
+            
+                <a href="../advanced_usage/admin_spawn_multiple_jobs.html">
+            
+                    
+                    Spawn multiple instances of a Job
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../advanced_usage/admin_install_multiple_agents.html">
+            
+                <a href="../advanced_usage/admin_install_multiple_agents.html">
+            
+                    
+                    Multiple Agents on One Machine
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../advanced_usage/dev_clean_up_when_cancel.html">
+            
+                <a href="../advanced_usage/dev_clean_up_when_cancel.html">
+            
+                    
+                    Clean on Task Cancel
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.6" data-path="../advanced_usage/dev_conditional_task_execution.html">
+            
+                <a href="../advanced_usage/dev_conditional_task_execution.html">
+            
+                    
+                    Conditional Task Execution
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.7" data-path="../advanced_usage/trigger_with_options.html">
+            
+                <a href="../advanced_usage/trigger_with_options.html">
+            
+                    
+                    Trigger With Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.8" data-path="../advanced_usage/fan_in.html">
+            
+                <a href="../advanced_usage/fan_in.html">
+            
+                    
+                    Fan In
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.9" data-path="../advanced_usage/properties.html">
+            
+                <a href="../advanced_usage/properties.html">
+            
+                    
+                    Properties
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.10" data-path="../advanced_usage/logging.html">
+            
+                <a href="../advanced_usage/logging.html">
+            
+                    
+                    Logging
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.11" data-path="../advanced_usage/compare_pipelines.html">
+            
+                <a href="../advanced_usage/compare_pipelines.html">
+            
+                    
+                    Compare Builds
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.12" data-path="../advanced_usage/stage_duration_chart.html">
+            
+                <a href="../advanced_usage/stage_duration_chart.html">
+            
+                    
+                    Graphs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.13" data-path="../advanced_usage/command_repository.html">
+            
+                <a href="../advanced_usage/command_repository.html">
+            
+                    
+                    Command Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.14" data-path="../advanced_usage/one_click_backup.html">
+            
+                <a href="../advanced_usage/one_click_backup.html">
+            
+                    
+                    Backup GoCD Server
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.15" data-path="../advanced_usage/config_repo.html">
+            
+                <a href="../advanced_usage/config_repo.html">
+            
+                    
+                    Config Repository
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.16" data-path="../advanced_usage/other_config_options.html">
+            
+                <a href="../advanced_usage/other_config_options.html">
+            
+                    
+                    Other Config Options
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.17" data-path="../advanced_usage/agent-health-check-api.html">
+            
+                <a href="../advanced_usage/agent-health-check-api.html">
+            
+                    
+                    Agent Health Check API
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7" data-path="../integration/">
+            
+                <a href="../integration/">
+            
+                    
+                    Integrating GoCD With Other Tools
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8" data-path="../extension_points/">
+            
+                <a href="../extension_points/">
+            
+                    
+                    Extension Points Of GoCD
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.8.1" data-path="../extension_points/plugin_user_guide.html">
+            
+                <a href="../extension_points/plugin_user_guide.html">
+            
+                    
+                    Plugin User Guide
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.2" data-path="../extension_points/package_repository_extension.html">
+            
+                <a href="../extension_points/package_repository_extension.html">
+            
+                    
+                    Package Repository Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.3" data-path="../extension_points/yum_repository_poller.html">
+            
+                <a href="../extension_points/yum_repository_poller.html">
+            
+                    
+                    Yum Repository Poller
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.4" data-path="../extension_points/scm_extension.html">
+            
+                <a href="../extension_points/scm_extension.html">
+            
+                    
+                    SCM Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.5" data-path="../extension_points/task_extension.html">
+            
+                <a href="../extension_points/task_extension.html">
+            
+                    
+                    Task Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.6" data-path="../extension_points/notification_extension.html">
+            
+                <a href="../extension_points/notification_extension.html">
+            
+                    
+                    Notification Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.8.7" data-path="../extension_points/configrepo_extension.html">
+            
+                <a href="../extension_points/configrepo_extension.html">
+            
+                    
+                    Configuration repository Extension
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9" data-path="../gocd_on_kubernetes/">
+            
+                <a href="../gocd_on_kubernetes/">
+            
+                    
+                    GoCD on Kubernetes
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.1" data-path="../gocd_on_kubernetes/introduction.html">
+            
+                <a href="../gocd_on_kubernetes/introduction.html">
+            
+                    
+                    Introduction
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2" data-path="../gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.html">
+            
+                <a href="../gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.html">
+            
+                    
+                    Setup and configuration
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.2.1" data-path="../gocd_on_kubernetes/gocd_helm_chart/setup.html">
+            
+                <a href="../gocd_on_kubernetes/gocd_helm_chart/setup.html">
+            
+                    
+                    Setup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.2" data-path="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">
+            
+                <a href="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">
+            
+                    
+                    Configure your Kubernetes Cluster
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.2.3" data-path="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">
+            
+                <a href="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">
+            
+                    
+                    Install the GoCD Helm chart
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3" data-path="../gocd_on_kubernetes/designing_a_cd_pipeline/">
+            
+                <a href="../gocd_on_kubernetes/designing_a_cd_pipeline/">
+            
+                    
+                    Designing a CD Pipeline
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.9.3.1" data-path="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">
+            
+                <a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">
+            
+                    
+                    Create a pipeline to build application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.2" data-path="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html">
+            
+                <a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html">
+            
+                    
+                    Create a pipeline to test the built application
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.3" data-path="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html">
+            
+                <a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html">
+            
+                    
+                    Create a pipeline to deploy on Kubernetes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.4" data-path="../gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html">
+            
+                <a href="../gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html">
+            
+                    
+                    Docker workflows
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.3.5" data-path="../gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html">
+            
+                <a href="../gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html">
+            
+                    
+                    Configure the Kubernetes Elastic Agent plugin
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.9.4" data-path="../gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html">
+            
+                <a href="../gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html">
+            
+                    
+                    Troubleshooting
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10" data-path="../faq/">
+            
+                <a href="../faq/">
+            
+                    
+                    FAQ/Troubleshooting
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.10.1" data-path="../faq/ordering_of_pipelines.html">
+            
+                <a href="../faq/ordering_of_pipelines.html">
+            
+                    
+                    Ordering of Pipelines
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.2" data-path="../faq/stage_old_config.html">
+            
+                <a href="../faq/stage_old_config.html">
+            
+                    
+                    Historical Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.3" data-path="../faq/concurrent_config_modifications.html">
+            
+                <a href="../faq/concurrent_config_modifications.html">
+            
+                    
+                    Concurrent Modifications to Config
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.4" data-path="../faq/dev_understand_why_build_broken.html">
+            
+                <a href="../faq/dev_understand_why_build_broken.html">
+            
+                    
+                    Why the Build is Broken?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.5" data-path="../faq/dev_see_artifact_as_tab.html">
+            
+                <a href="../faq/dev_see_artifact_as_tab.html">
+            
+                    
+                    See artifacts as sub-tabs
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.6" data-path="../faq/dev_save_properties.html">
+            
+                <a href="../faq/dev_save_properties.html">
+            
+                    
+                    Save Properties for a Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.7" data-path="../faq/environment_variables.html">
+            
+                <a href="../faq/environment_variables.html">
+            
+                    
+                    Using Environment variables
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.8" data-path="../faq/rm_deploy_to_environment.html">
+            
+                <a href="../faq/rm_deploy_to_environment.html">
+            
+                    
+                    Deploy to an environment
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.9" data-path="../faq/tester_what_has_changed.html">
+            
+                <a href="../faq/tester_what_has_changed.html">
+            
+                    
+                    See changes in new binary
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.10" data-path="../faq/dependency_management.html">
+            
+                <a href="../faq/dependency_management.html">
+            
+                    
+                    Run Tests against new Builds
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.11" data-path="../faq/rm_what_is_deployed.html">
+            
+                <a href="../faq/rm_what_is_deployed.html">
+            
+                    
+                    Check What's Deployed
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.12" data-path="../faq/deploy_a_specific_build_to_an_environment.html">
+            
+                <a href="../faq/deploy_a_specific_build_to_an_environment.html">
+            
+                    
+                    Deploy a Specific Build
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.13" data-path="../faq/agent_guid_issue.html">
+            
+                <a href="../faq/agent_guid_issue.html">
+            
+                    
+                    Clone/Copy an Existing Agents
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.14" data-path="../faq/oauth_overview.html">
+            
+                <a href="../faq/oauth_overview.html">
+            
+                    
+                    OAuth Overview
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.15" data-path="../faq/what_is_oauth.html">
+            
+                <a href="../faq/what_is_oauth.html">
+            
+                    
+                    What is OAuth?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.16" data-path="../faq/job_rerun.html">
+            
+                <a href="../faq/job_rerun.html">
+            
+                    
+                    How do I re-run jobs?
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.17" data-path="../faq/material_update_hung.html">
+            
+                <a href="../faq/material_update_hung.html">
+            
+                    
+                    Go unable to poll for changes
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.18" data-path="../faq/artifact_integrity.html">
+            
+                <a href="../faq/artifact_integrity.html">
+            
+                    
+                    Artifact integrity verification
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.19" data-path="../faq/notifications_page.html">
+            
+                <a href="../faq/notifications_page.html">
+            
+                    
+                    Email Notifications
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.10.20" data-path="../faq/admin_out_of_disk_space.html">
+            
+                <a href="../faq/admin_out_of_disk_space.html">
+            
+                    
+                    Running out of Disk Space
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.11" data-path="../beta/">
+            
+                <a href="../beta/">
+            
+                    
+                    Beta features
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.11.1" data-path="../beta/comment_on_pipeline_run.html">
+            
+                <a href="../beta/comment_on_pipeline_run.html">
+            
+                    
+                    Comment on a pipeline run
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.12" data-path="../release_history/">
+            
+                <a href="../release_history/">
+            
+                    
+                    Release History
+            
+                </a>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.12.1" data-path="../release_history/whats_new_in_go.html">
+            
+                <a href="../release_history/whats_new_in_go.html">
+            
+                    
+                    What's New in Go
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13" >
+            
+                <span>
+            
+                    
+                    Gitbook - Internal
+            
+                </span>
+            
+
+            
+            <ul class="articles">
+                
+    
+        <li class="chapter " data-level="1.13.1" data-path="../installation/troubleshoot_installer.html">
+            
+                <a href="../installation/troubleshoot_installer.html">
+            
+                    
+                    Ignore this
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.13.2" data-path="../faq/dev_use_current_revision_in_build.html">
+            
+                <a href="../faq/dev_use_current_revision_in_build.html">
+            
+                    
+                    Ignore this
+            
+                </a>
+            
+
+            
+        </li>
+    
+
+            </ul>
+            
+        </li>
+    
+
+    
+
+    <li class="divider"></li>
+
+    <li>
+        <a href="https://www.gitbook.com" target="blank" class="gitbook-link">
+            Published with GitBook
+        </a>
+    </li>
+</ul>
+
+
+                </nav>
+            
+        
+    </div>
+
+    <div class="book-body">
+        
+            <div class="body-inner">
+                
+                    
+
+<div class="book-header" role="navigation">
+    
+
+    <!-- Title -->
+    <h1>
+        <i class="fa fa-circle-o-notch fa-spin"></i>
+        <a href=".." >Concepts in GoCD</a>
+    </h1>
+</div>
+
+
+
+
+                    <div class="page-wrapper" tabindex="-1" role="main">
+                        <div class="page-inner">
+                            
+<div id="book-search-results">
+    <div class="search-noresults">
+    
+                                <section class="normal markdown-section">
+                                
+                                <h1 id="introduction-to-gocd"><a name="introduction-to-gocd" class="plugin-anchor" href="#introduction-to-gocd"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction to GoCD</h1>
+<p>This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and
+Continuous Delivery, in general, you can refer to Martin Fowler&apos;s articles on the subject: <a href="http://martinfowler.com/articles/continuousIntegration.html" target="_blank">Continuous
+Integration</a> and <a href="http://martinfowler.com/bliki/ContinuousDelivery.html" target="_blank">Continuous
+Delivery</a>.</p>
+<p>If you&apos;re very new to GoCD, the <a href="https://www.gocd.org/getting-started/part-1/" target="_blank">Getting Started Guide</a> is a good
+starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.</p>
+<h3 id="index"><a name="index" class="plugin-anchor" href="#index"><i class="fa fa-link" aria-hidden="true"></i></a>Index</h3>
+<ul>
+<li><a href="#task">Task</a></li>
+<li><a href="#job">Job</a></li>
+<li><a href="#stage">Stage</a></li>
+<li><a href="#pipeline">Pipeline</a></li>
+<li><a href="#materials">Materials</a></li>
+<li><a href="#pipeline_dependency">Pipeline Dependencies</a></li>
+<li><a href="#fan_in_out">Fan-in and fan-out</a></li>
+<li><a href="#vsm">Value Stream Map</a></li>
+<li><a href="#artifacts">Artifacts</a><ul>
+<li><a href="#fetch_artifact">Fetching artifacts</a></li>
+</ul>
+</li>
+<li><a href="#agent">Agent</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#environment_variables">Environment Variables</a></li>
+<li><a href="#templates">Templates</a></li>
+</ul>
+<p><a id="task"></a></p>
+<h1 id="task"><a name="task" class="plugin-anchor" href="#task"><i class="fa fa-link" aria-hidden="true"></i></a>Task</h1>
+<p>A task, or a build task, is an action that needs to be performed. Usually, it is a single command.</p>
+<p>The task shown in the image below is set to run the command <code>ant -Dmodule=A compile</code>, when executed by GoCD.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/01_task.png" alt="Figure 1: Task" id="image_task" class="small_image">
+  <figcaption>Figure 1: Task</figcaption>
+</figure>
+
+<p><a id="job"></a></p>
+<h1 id="job"><a name="job" class="plugin-anchor" href="#job"><i class="fa fa-link" aria-hidden="true"></i></a>Job</h1>
+<p>A job consists of multiple tasks, each of which will be run in order. If a task in a job fails, then the job is considered failed, and unless
+specified otherwise, the rest of the tasks in the job will not be run.</p>
+<p>The job shown in the image below has three tasks. The <code>ant</code> task will be run first, followed by the <code>rake</code> task and finally, the shell script is run.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/02_job.png" alt="Figure 2: Job" id="image_job" class="small_image">
+  <figcaption>Figure 2: Job</figcaption>
+</figure>
+
+<p>Every task in a job is run as an independent program, and so, changes made by a task to any of its environment variables will not affect subsequent
+tasks. Any changes made by a task on the filesystem will be visible to subsequent tasks.</p>
+<p><a id="stage"></a></p>
+<h1 id="stage"><a name="stage" class="plugin-anchor" href="#stage"><i class="fa fa-link" aria-hidden="true"></i></a>Stage</h1>
+<p>A stage consists of multiple jobs, each of which can run independently of the others. This means that GoCD can and does parallelize the execution of
+jobs in a stage. If a job fails, then the stage is considered failed. However, since jobs are independent of each other, the other jobs in the
+stage will be run to completion.</p>
+<p>The stage shown in the image below has two jobs, one which builds module A and another which builds module B. The success or failure of the first
+job cannot affect the success or failure of the second.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/03_stage.png" alt="Figure 3: Stage" id="image_stage" class="small_image">
+  <figcaption>Figure 3: Stage</figcaption>
+</figure>
+
+<p><a id="pipeline"></a></p>
+<h1 id="pipeline"><a name="pipeline" class="plugin-anchor" href="#pipeline"><i class="fa fa-link" aria-hidden="true"></i></a>Pipeline</h1>
+<p>A pipeline consists of multiple stages, each of which will be run in order. If a stage fails, then the pipeline is considered failed and the following
+stages will not be started.</p>
+<p>The pipeline shown in the image below has three stages, the first with two jobs, the second with three and the third with one. If the first stage fails,
+then the second and third stages will not be run.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/04_pipeline.png" alt="Figure 4: Pipeline" id="image_pipeline">
+  <figcaption>Figure 4: Pipeline</figcaption>
+</figure>
+
+<p>Since an image of a pipeline can get quite big, the rest of this document will use a slightly smaller representation of a pipeline, which hides the jobs
+and tasks. This representation is shown below.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/05_pipeline_small.png" alt="Figure 5: Pipeline (small representation)" id="image_pipeline_small" class="small_image">
+  <figcaption>Figure 5: Pipeline (small representation)</figcaption>
+</figure>
+
+
+<p><a id="materials"></a></p>
+<h1 id="materials-and-triggers-or-when-do-these-tasks-jobs-stages-and-pipelines-run"><a name="materials-and-triggers-or-when-do-these-tasks-jobs-stages-and-pipelines-run" class="plugin-anchor" href="#materials-and-triggers-or-when-do-these-tasks-jobs-stages-and-pipelines-run"><i class="fa fa-link" aria-hidden="true"></i></a>Materials and triggers <span class="header smaller">(or &quot;<em>When</em> do these tasks, jobs, stages and pipelines run?&quot;)</span></h1>
+<p>A material is a cause for a pipeline to run. Often, it is a source code material repository (Git, SVN, Mercurial, etc). The GoCD Server
+continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or &quot;triggered&quot;.</p>
+<p>There are different kinds of materials. Here&apos;s an example of a Git material. When a commit is made to the repository configured in the Git material,
+the pipeline gets triggered.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/06_material_git.png" alt="Figure 6: Material - git" id="image_material_git" class="medium_image">
+  <figcaption>Figure 6: Material - git</figcaption>
+</figure>
+
+<p>Similarly, an SVN material is shown below. GoCD has support for many different kinds of source code materials, as well as a plugin endpoint for
+extending the kinds of materials it supports.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/07_material_svn.png" alt="Figure 7: Material - SVN" id="image_material_svn" class="medium_image">
+  <figcaption>Figure 7: Material - SVN</figcaption>
+</figure>
+
+<p>A &quot;timer trigger&quot; is a special kind of material that triggers a pipeline at a specified time, or at specified intervals.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/08_timer_trigger.png" alt="Figure 8: Timer trigger" id="image_timer_trigger" class="medium_image">
+  <figcaption>Figure 8: Timer trigger</figcaption>
+</figure>
+
+<p>A pipeline can even be configured with multiple materials. The pipeline shown below is configured with a Git material and an SVN material. When either
+repository has a new commit, the pipeline is triggered.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/09_multiple_materials.png" alt="Figure 9: Multiple materials" id="image_multiple_materials" class="medium_image">
+  <figcaption>Figure 9: Multiple materials</figcaption>
+</figure>
+
+
+<p><a id="pipeline_dependency"></a></p>
+<h1 id="pipeline-dependency-material"><a name="pipeline-dependency-material" class="plugin-anchor" href="#pipeline-dependency-material"><i class="fa fa-link" aria-hidden="true"></i></a>Pipeline dependency material</h1>
+<p>Materials really start becoming powerful when a stage in a pipeline is used as a material for another pipeline.</p>
+<p>In the image shown below, Stage 2 of Pipeline 1 is configured as a material for Pipeline 2. Whenever Stage 2 of Pipeline 1 finishes
+successfully, Pipeline 2 triggers. In a setup such as this, Pipeline 1 is called the Upstream Pipeline and Pipeline 2 is called the
+Downstream Pipeline. Stage 2 of Pipeline 1 is called the Upstream Dependency of Pipeline 2.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/11_pipeline_deps_2.png" alt="Figure 10: Pipeline dependency - Last stage" id="image_pipeline_deps_2">
+  <figcaption>Figure 10: Pipeline dependency - Last stage</figcaption>
+</figure>
+
+<p>Any stage of a pipeline can be used as a material. In the image shown below, as soon as Stage 1 of Pipeline 1 finishes successfully, Pipeline 2
+will trigger and start. Now, both Stage 2 of Pipeline 1 and Stage 1 of Pipeline 2 can run simultaneously.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/12_pipeline_deps_3.png" alt="Figure 11: Pipeline dependency - Any stage" id="image_pipeline_deps_3">
+  <figcaption>Figure 11: Pipeline dependency - Any stage</figcaption>
+</figure>
+
+
+<p><a id="fan_in_out"></a></p>
+<h1 id="fan-out-and-fan-in"><a name="fan-out-and-fan-in" class="plugin-anchor" href="#fan-out-and-fan-in"><i class="fa fa-link" aria-hidden="true"></i></a>Fan-out and fan-in</h1>
+<p>A material is said to &quot;fan-out&quot; to downstream pipelines, when the material&apos;s completion causes multiple downstream pipelines to trigger, as is shown
+in the image below. The cause of a fan-out need not always be a pipeline dependency material. It can be any material.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/14_fanout.png" alt="Figure 12: Fan-out" id="image_fanout">
+  <figcaption>Figure 12: Fan-out</figcaption>
+</figure>
+
+<p>A &quot;fan-in&quot; is when multiple upstream materials are needed to trigger a downstream pipeline, as shown in the image below. One important and interesting
+aspect of fan-in is that GoCD will ensure that the revisions of upstream pipelines are consistent, before triggering a downstream pipeline.</p>
+<p>In the image shown below, this means that if Stage 2 of Pipeline 1 is slow and Stage 1 of Pipeline 2 is quick, Pipeline 3 will wait for Pipeline 1
+to finish before triggering. It will not trigger with an inconsistent or old revision of Pipeline 1, just because Pipeline 2 finished quickly.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/13_fanin.png" alt="Figure 13: Fan-in" id="image_fanin">
+  <figcaption>Figure 13: Fan-in</figcaption>
+</figure>
+
+<p><a id="vsm"></a></p>
+<h1 id="value-stream-map-vsm"><a name="value-stream-map-vsm" class="plugin-anchor" href="#value-stream-map-vsm"><i class="fa fa-link" aria-hidden="true"></i></a>Value Stream Map (VSM)</h1>
+<p>The Value Stream Map (VSM) is an end-to-end view of a pipeline, its upstream dependencies and the downstream pipelines it triggers. When deciding which
+pipelines to trigger, GoCD&apos;s fan-in and fan-out resolution will take care of all the dependencies consistently.</p>
+<p>For instance, in the image below, when a new commit is found in Repo 1 (git), GoCD will not trigger Pipeline 5 immediately. It will wait for Pipeline 1 to
+trigger and finish successfully, then it will wait for Pipeline 4 to trigger and finish successfully. Finally, it will trigger Pipeline 5 with the same
+revision of Repo 1 that was used with Pipeline 1.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/15_vsm.png" alt="Figure 14: VSM" id="image_vsm">
+  <figcaption>Figure 14: VSM</figcaption>
+</figure>
+
+<p><a id="artifacts"></a></p>
+<h1 id="artifacts"><a name="artifacts" class="plugin-anchor" href="#artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>Artifacts</h1>
+<p>Every <a href="#job">job</a> in Go can optionally publish &quot;Artifacts&quot;, which are files or directories. After the job is run, GoCD will ensure that the specified artifacts are
+published and made available to the user, and other downstream stages and pipelines.</p>
+<p>A representation of artifacts is shown below. As shown, every job can have artifacts. In this case, the job on the top has two files and a directory as
+its artifacts and the job below it has two directories and a file as its artifacts.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/20_artifacts.png" alt="Figure 15: Artifacts" id="image_artifacts" class="small_image">
+  <figcaption>Figure 15: Artifacts</figcaption>
+</figure>
+
+<p><a id="fetch_artifact"></a></p>
+<h3 id="fetching-artifacts"><a name="fetching-artifacts" class="plugin-anchor" href="#fetching-artifacts"><i class="fa fa-link" aria-hidden="true"></i></a>Fetching artifacts</h3>
+<p>GoCD provides a special task called a &quot;Fetch Artifact Task&quot;, which allows artifacts to be fetched and used, from any ancestor pipeline - that is, any
+pipeline that is upstream of the current pipeline. GoCD will ensure that the correct version of the artifact is fetched, irrespective of anything else
+that might be going on in the system.</p>
+<p>In the image shown below, the jobs in Stage 1 of Pipeline 1 publish some artifacts. In Stage 2, a Fetch Artifact Task fetches the artifact published in
+Stage 1. Then, in Pipeline 2, a Fetch Artifact Task fetches an artifact published in Pipeline 1. Finally, in Pipeline 3, which is further downstream,
+a Fetch Artifact Task fetches an artifact from Pipeline 1, through Pipeline 2.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/21_fetch_artifacts.png" alt="Figure 16: Fetch Artifact Task" id="image_fetch_artifacts">
+  <figcaption>Figure 16: Fetch Artifact Task</figcaption>
+</figure>
+
+<p><a id="agent"></a></p>
+<h1 id="agent-or-where-do-these-tasks-jobs-stages-and-pipelines-run"><a name="agent-or-where-do-these-tasks-jobs-stages-and-pipelines-run" class="plugin-anchor" href="#agent-or-where-do-these-tasks-jobs-stages-and-pipelines-run"><i class="fa fa-link" aria-hidden="true"></i></a>Agent <span class="header smaller">(or &quot;<em>Where</em> do these tasks, jobs, stages and pipelines run?&quot;)</span></h1>
+<p>GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents. The GoCD Server polls for changes in material (this
+happens on the GoCD Server itself) and then, when a change is detected and a pipeline needs to be triggered, the corresponding jobs are assigned to the
+agents, for them to execute the tasks.</p>
+<p>Agents pick up <a href="#job">jobs</a> which are assigned to them, execute the <a href="#task">tasks</a> in the job and report the status of the job to the GoCD Server. Then,
+the GoCD Server collates all the information from the different jobs and then decides on the status of the stage.</p>
+<p>An agent is represented by a monitor in the image below.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/16_agent.png" alt="Figure 17: Agent" id="image_agent" class="very_small_image">
+  <figcaption>Figure 17: Agent</figcaption>
+</figure>
+
+
+<p><a id="resources"></a></p>
+<h1 id="resources"><a name="resources" class="plugin-anchor" href="#resources"><i class="fa fa-link" aria-hidden="true"></i></a>Resources</h1>
+<p>Agents and <a href="#job">jobs</a> can be enhanced with &quot;Resources&quot;. Resources are free-form tags, that help Go decide which agents are capable of picking up specific jobs.</p>
+<p>In the image below, the Firefox&#xAE; and Tux icons represent resources on the agent. The resources can be thought of as the agent broadcasting its
+capabilities. Resources are defined by administrators and can mean anything the administrators wants them to mean. In this case, it might be an indication that this
+agent has Firefox installed for running functional tests and it is a Linux box.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/18_resources.png" alt="Figure 18: Resources on an agent" id="image_resources" class="very_small_image">
+  <figcaption>Figure 18: Resources on an agent</figcaption>
+</figure>
+
+<p>Resources become very useful, when jobs are assigned resources. In the case of jobs, resources can be thought of as the capabilities they need in an
+agent, for them to be run successfully.</p>
+<p>In the image below, Job 1 claims that it needs an agent with the Firefox&#xAE; resource. Job 2 claims that it needs an agent with the Linux&#xAE;
+resource. Job 3 claims that it needs an agent with <em>both</em> Firefox&#xAE; and Linux&#xAE; resources. Job 4 claims that it doesn&apos;t need any resources.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/19_agents_jobs_resources.png" alt="Figure 19: Agents, jobs and resources" id="image_agents_jobs_resources">
+  <figcaption>Figure 19: Agents, jobs and resources</figcaption>
+</figure>
+
+<p>In the case of the image above:</p>
+<ol>
+<li><p>Job 1 can be assigned to either Agents 1 or 3, by the GoCD Server.</p>
+</li>
+<li><p>Job 2 can be assigned only to Agent 1 (since it is the only agent to provide the Linux resource).</p>
+</li>
+<li><p>Job 3 can be assigned only to Agent 1 (since it is the only agent to provide <em>both</em> those resources).</p>
+</li>
+<li><p>Job 4 can be assigned to any of the three agents, since that job needs no special resource matching.</p>
+</li>
+</ol>
+<p>Note that the fact that Agent 3 has an Apple&#xAE; resource does not stop it from being assigned a job. It just happens to be a resource which is not
+needed by any of the jobs shown.</p>
+<p><a id="environment"></a></p>
+<h1 id="environments"><a name="environments" class="plugin-anchor" href="#environments"><i class="fa fa-link" aria-hidden="true"></i></a>Environments</h1>
+<p>An &quot;Environment&quot; in GoCD is a way to group and isolate pipelines and agents. The rules of an environment are:</p>
+<ol>
+<li><p>A pipeline can be associated with a maximum of one environment.</p>
+</li>
+<li><p>An agent can be associated with multiple environments or no environments.</p>
+</li>
+<li><p>An agent can only pick up jobs belonging to pipelines in environments that it is associated with.</p>
+</li>
+<li><p>An agent which is associated with an environment cannot pick up jobs in pipelines which are not associated with any environment.</p>
+</li>
+</ol>
+<p>In the image below representing environments, Environment 1 is composed of Pipeline 1, Pipeline 2, Agent 1, Agent 2 and Agent 3. Environment 2
+is composed of Pipeline 3, Pipeline 4, Agent 3 and Agent 4. Pipelines 5, 6 and 7 and Agent 5 do not belong to any environment.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/22_environment.png" alt="Figure 20: Environments" id="image_environments">
+  <figcaption>Figure 20: Environments</figcaption>
+</figure>
+
+<p>In a case such as the image shown above:</p>
+<ol>
+<li><p>Jobs in Pipelines 1 and 2 can only be picked up by Agents 1, 2 and 3.</p>
+</li>
+<li><p>Jobs in Pipelines 3 and 4 can only be picked up by Agents 3 and 4.</p>
+</li>
+<li><p>Jobs in Pipelines 5, 6 and 7 can only be picked up Agent 5.</p>
+</li>
+</ol>
+<p>In addition to the restrictions related to matching of Environments, resources need to match between the agents and jobs, as detailed in the section
+on <a href="#resources">Resources</a>.</p>
+<p><a id="environment_variables"></a></p>
+<h1 id="environment-variables"><a name="environment-variables" class="plugin-anchor" href="#environment-variables"><i class="fa fa-link" aria-hidden="true"></i></a>Environment Variables</h1>
+<p>Environment variables are often confused with &quot;Environments&quot;. They&apos;re not directly related. In GoCD, &quot;Environment Variables&quot; are user-defined variables that
+are defined in the configuration. These environment variables are made available to tasks just like other environment variables available to processes
+when they run in an operation system.</p>
+<p>Environment variables can be defined at multiple levels: Within environments, within pipelines, within stages and within jobs. They follow a cascading system
+where environment variables defined at the &quot;Environment&quot; level get overridden by environment variables defined at the pipeline level and so on.</p>
+<p>In the image shown below, there are 4 environment variables defined at the environment level, 3 at the pipeline level and 2 each at the stage and job levels.
+The environment variable, <code>ENV_ENV</code> has been set to a value of 1 at the environment level, <code>ENV_STG</code> has been set to 2 at stage level and so on.</p>
+<figure class="concept_image">
+  <img src="../resources/images/concepts/23_env_vars.png" alt="Figure 21: Environment Variables" id="image_env_vars" class="small_image">
+  <figcaption>Figure 21: Environment Variables</figcaption>
+</figure>
+
+<p>The environment variables provided to every task in this job will be:</p>
+<pre><code>ENV_ENV =&gt; 1
+ENV_PIP =&gt; 2
+ENV_STG =&gt; 3
+ENV_JOB =&gt; 4
+MY_VAR  =&gt; 4
+</code></pre><p>For instance: <code>ENV_PIP</code> set at the environment level (to a value of 1) is overridden by <code>ENV_PIP</code> set at the pipeline level (to a value of 2). Since <code>ENV_PIP</code>
+is not defined at the stage and job levels, the value of <code>ENV_PIP</code> will be 2. The other environment variables can be reasoned about in the same way.</p>
+<p><a id="templates"></a></p>
+<h1 id="templates"><a name="templates" class="plugin-anchor" href="#templates"><i class="fa fa-link" aria-hidden="true"></i></a>Templates</h1>
+<p>This section is a work in progress.</p>
+<h3 id="image-attributions"><a name="image-attributions" class="plugin-anchor" href="#image-attributions"><i class="fa fa-link" aria-hidden="true"></i></a>Image attributions</h3>
+<ul>
+<li><a href="https://commons.wikimedia.org/wiki/File:Git-logo.svg" target="_blank">Git logo - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Subversion-logo.svg" target="_blank">Subversion logo - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Reloj_10_10.svg" target="_blank">Clock face - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Crystal_128_konsole.svg" target="_blank">Console - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Mozilla_Firefox_logo_2013.svg" target="_blank">Firefox logo - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:NewTux.svg" target="_blank">Tux - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Apple_logo_black.svg" target="_blank">Apple logo (Black) - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Gnome-mime-text-x-copying.svg" target="_blank">Gnome text mime - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Blue_folder_seth_yastrov_01.svg" target="_blank">Blue folder - Wikimedia Commons</a></li>
+</ul>
+
+                                
+                                </section>
+                            
+    </div>
+    <div class="search-results">
+        <div class="has-results">
+            
+            <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+            <ul class="search-results-list"></ul>
+            
+        </div>
+        <div class="no-results">
+            
+            <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+            
+        </div>
+    </div>
+</div>
+
+                        </div>
+                    </div>
+                
+            </div>
+
+            
+                
+                <a href="./" class="navigation navigation-prev " aria-label="Previous page: Concepts In GoCD">
+                    <i class="fa fa-angle-left"></i>
+                </a>
+                
+                
+                <a href="../navigation/" class="navigation navigation-next " aria-label="Next page: GoCD Tour">
+                    <i class="fa fa-angle-right"></i>
+                </a>
+                
+            
+        
+    </div>
+
+    <script>
+        var gitbook = gitbook || [];
+        gitbook.push(function() {
+            gitbook.page.hasChanged({"page":{"description":"Introduction to GoCD, its underlying concepts, and get a good understanding of continuous delivery and continuous integration.","keywords":"introduction gocd, continuous delivery, continuous integration, martin fowler, gocd getting started, build pipelines, value stream map, build artifacts, fan in","title":"Concepts in GoCD","level":"1.2.1","depth":2,"next":{"title":"GoCD Tour","level":"1.3","depth":1,"path":"navigation/index.md","ref":"navigation/index.md","articles":[{"title":"Pipeline Dashboard","level":"1.3.1","depth":2,"path":"navigation/pipelines_dashboard_page.md","ref":"navigation/pipelines_dashboard_page.md","articles":[]},{"title":"Agents","level":"1.3.2","depth":2,"path":"navigation/agents_page.md","ref":"navigation/agents_page.md","articles":[]},{"title":"Agent Details","level":"1.3.3","depth":2,"path":"navigation/agent_details.md","ref":"navigation/agent_details.md","articles":[]},{"title":"Pipeline Activity","level":"1.3.4","depth":2,"path":"navigation/pipeline_activity_page.md","ref":"navigation/pipeline_activity_page.md","articles":[]},{"title":"Stage Details","level":"1.3.5","depth":2,"path":"navigation/stage_details_page.md","ref":"navigation/stage_details_page.md","articles":[]},{"title":"Job Details","level":"1.3.6","depth":2,"path":"navigation/job_details_page.md","ref":"navigation/job_details_page.md","articles":[]},{"title":"Administration","level":"1.3.7","depth":2,"path":"navigation/administration_page.md","ref":"navigation/administration_page.md","articles":[]},{"title":"Server Details","level":"1.3.8","depth":2,"path":"navigation/server_details_page.md","ref":"navigation/server_details_page.md","articles":[]},{"title":"Environments","level":"1.3.9","depth":2,"path":"navigation/environments_page.md","ref":"navigation/environments_page.md","articles":[]},{"title":"Value Stream Map","level":"1.3.10","depth":2,"path":"navigation/value_stream_map.md","ref":"navigation/value_stream_map.md","articles":[]}]},"previous":{"title":"Concepts In GoCD","level":"1.2","depth":1,"path":"introduction/index.md","ref":"introduction/index.md","articles":[{"title":"Concepts in GoCD","level":"1.2.1","depth":2,"path":"introduction/concepts_in_go.md","ref":"introduction/concepts_in_go.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"introduction/concepts_in_go.md","mtime":"2018-07-23T08:14:39.774Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-07-23T08:17:35.373Z"},"basePath":"..","book":{"language":""}});
+        });
+    </script>
+</div>
+
+        
+    <script src="../gitbook/gitbook.js"></script>
+    <script src="../gitbook/theme.js"></script>
+    
+        
+        <script src="../gitbook/gitbook-plugin-ga/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-edit-link/plugin.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search-engine.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-search/search.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/lunr.min.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-lunr/search-lunr.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-sharing/buttons.js"></script>
+        
+    
+        
+        <script src="../gitbook/gitbook-plugin-fontsettings/fontsettings.js"></script>
+        
+    
+
+    </body>
+</html>
+
