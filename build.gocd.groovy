@@ -8,7 +8,7 @@ def buildStage = {
         elasticProfileId = 'ecs-gocd-dev-build'
         tasks {
           bash {
-            commandString = "bundle install --path .bundle --jobe 4"
+            commandString = "bundle install --path .bundle --jobs 4"
           }
           bash {
             commandString = "bundle exec rake"
