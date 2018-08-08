@@ -104,7 +104,7 @@ GoCD.script { GoCD buildScript ->
   
   environments {
     environment("docs-website") {
-      pipelines = buildScript.pipelines.getNames()
+      pipelines = buildScript.pipelines.getNames().findAll {!it.toUpperCase().contains('PR')}
     }
   }
 }
