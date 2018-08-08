@@ -5,12 +5,13 @@ def buildStage = {
   new Stage("Build", {
     jobs {
       job("BuildWebsite") {
+        elasticProfileId = 'ecs-gocd-dev-build'
         tasks {
           bash {
-            commandString = "bundle install --path .bundle --jobe 4"
+            commandString = "bundle install --path .bundle --jobs 4"
           }
           bash {
-            commandString = "bundle exec rake"
+            commandString = "bundle exec rake build"
           }
         }
       }
@@ -22,6 +23,7 @@ def pushToGHPages = {
   new Stage("PushToGHPages", {
     jobs {
       job("PushToGHPages") {
+        elasticProfileId = 'ecs-gocd-dev-build'
         tasks {
           bash {
             commandString = "git remote add upstream 'https://\${BUILD_MAP_USER}:\${BUILD_MAP_PASSWORD}@github.com/gocd/docs.go.cd'"
@@ -38,7 +40,8 @@ def pushToGHPages = {
   })
 }
 
-GoCD.script {
+GoCD.script { GoCD buildScript ->
+
   pipelines {
 
     pipeline("docs.gocd.org-master") {
@@ -96,6 +99,12 @@ GoCD.script {
           add(pushToGHPages())
         }
       }
+    }
+  }
+  
+  environments {
+    environment("docs-website") {
+      pipelines = buildScript.pipelines.getNames()
     }
   }
 }
