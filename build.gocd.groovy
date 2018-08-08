@@ -5,6 +5,7 @@ def buildStage = {
   new Stage("Build", {
     jobs {
       job("BuildWebsite") {
+        elasticProfileId = 'ecs-gocd-dev-build'
         tasks {
           bash {
             commandString = "bundle install --path .bundle --jobe 4"
@@ -22,6 +23,7 @@ def pushToGHPages = {
   new Stage("PushToGHPages", {
     jobs {
       job("PushToGHPages") {
+        elasticProfileId = 'ecs-gocd-dev-build'
         tasks {
           bash {
             commandString = "git remote add upstream 'https://\${BUILD_MAP_USER}:\${BUILD_MAP_PASSWORD}@github.com/gocd/docs.go.cd'"
