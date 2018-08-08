@@ -40,7 +40,8 @@ def pushToGHPages = {
   })
 }
 
-GoCD.script {
+GoCD.script { GoCD buildScript ->
+
   pipelines {
 
     pipeline("docs.gocd.org-master") {
@@ -98,6 +99,12 @@ GoCD.script {
           add(pushToGHPages())
         }
       }
+    }
+  }
+  
+  environments {
+    environment("docs-website") {
+      pipelines = buildScript.pipelines.getNames()
     }
   }
 }
