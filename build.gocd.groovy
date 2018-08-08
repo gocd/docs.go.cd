@@ -11,7 +11,7 @@ def buildStage = {
             commandString = "bundle install --path .bundle --jobs 4"
           }
           bash {
-            commandString = "bundle exec rake"
+            commandString = "bundle exec rake build"
           }
         }
       }
