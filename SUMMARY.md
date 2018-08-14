@@ -127,8 +127,6 @@ This is the summary of user documentation.
     * [Check What's Deployed](faq/rm_what_is_deployed.md)
     * [Deploy a Specific Build](faq/deploy_a_specific_build_to_an_environment.md)
     * [Clone/Copy an Existing Agents](faq/agent_guid_issue.md)
-    * [OAuth Overview](faq/oauth_overview.md)
-    * [What is OAuth?](faq/what_is_oauth.md)
     * [How do I re-run jobs?](faq/job_rerun.md)
     * [Go unable to poll for changes](faq/material_update_hung.md)
     * [Artifact integrity verification](faq/artifact_integrity.md)
