@@ -172,6 +172,40 @@ Then follow the instructions on the [README](https://github.com/logstash/logstas
   </root>
 </included>
 ```
+## Override Existing logback.xml
+
+If you'd like to completely override the packaged `logback.xml`, create a `CONFIG_DIR\logback.xml` file. If such a file is present, GoCD will use the loggers and file appender provided in the file for logging.
+
+The following is a sample `logback.xml` users can use to override logging for GoCD root logger.
+
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+  <appender name="CustomFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+    <file><user-defined-log-location>/gocd-server.log</file>
+    <encoder>
+      <pattern>
+        %date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n
+      </pattern>
+    </encoder>
+
+    <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+      <fileNamePattern><user-defined-log-location>/go-server.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+      <maxFileSize>10 MB</maxFileSize>
+      <maxHistory>50</maxHistory>
+      <totalSizeCap>512 MB</totalSizeCap>
+    </rollingPolicy>
+  </appender>
+
+  <root level="WARN">
+    <appender-ref ref="CustomFileAppender}"/>
+  </root>
+
+</configuration>
+
+```
+* Please note while overriding the logging for your GoCD server, redirect all logs to appropriate files in order to avoid any loss of logs.
 
 ### Example gelf setup
 
