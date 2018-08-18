@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Notifications · GoCD User Documentation</title>
+        <title>Elastic Agents · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD notifications">
+        <meta name="description" content="Managing elastic agents with GoCD">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,8 +43,8 @@
     
 
         
-<meta content="GoCD configuration, email notifications, status change, build events" name="keywords" />
-    <link rel="canonical" href="https://docs.gocd.org/current/configuration/dev_notifications.html"/>
+<meta content="GoCD configuration, elastic agents, docker, ecs, cloud" name="keywords" />
+    <link rel="canonical" href="https://docs.gocd.org/current/configuration/elastic_agents.html"/>
     <script async src="resources/javascripts/_gdpr-banner.js" type="text/javascript"></script>
 
     </head>
@@ -826,7 +826,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.17" data-path="elastic_agents.html">
+        <li class="chapter active" data-level="1.5.17" data-path="elastic_agents.html">
             
                 <a href="elastic_agents.html">
             
@@ -1008,7 +1008,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.5.31" data-path="dev_notifications.html">
+        <li class="chapter " data-level="1.5.31" data-path="dev_notifications.html">
             
                 <a href="dev_notifications.html">
             
@@ -2020,7 +2020,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Notifications</a>
+        <a href=".." >Elastic Agents</a>
     </h1>
 </div>
 
@@ -2035,82 +2035,42 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="notifications"><a name="notifications" class="plugin-anchor" href="#notifications"><i class="fa fa-link" aria-hidden="true"></i></a>Notifications</h1>
-<p>It is often useful to receive an email when certain status changes occur in a stage. For example, a developer might want to know when their own check-in has broken the build. Alternatively, a manager might want an email whenever a project is deployed into production. Both of these scenarios can be covered by Notification Filters</p>
-<p>Notifications will only work if <a href="dev_authentication.html">Security</a> is enabled and <a href="admin_mailhost_info.html">mailhost information</a> is correct.</p>
-<h2 id="example-usage"><a name="example-usage" class="plugin-anchor" href="#example-usage"><i class="fa fa-link" aria-hidden="true"></i></a>Example usage</h2>
-<p><strong>Usage: As a developer, I want to be notified when I break a build on &quot;acceptance&quot; pipeline.</strong></p>
+                                <h1 id="gocd-elastic-agents"><a name="gocd-elastic-agents" class="plugin-anchor" href="#gocd-elastic-agents"><i class="fa fa-link" aria-hidden="true"></i></a>GoCD Elastic Agents</h1>
+<!-- toc -->
 <ul>
-<li><p>Click on the <strong>Preferences</strong> tab</p>
-<p>  <img src="../resources/images/topnav_preferences.png" alt=""></p>
-</li>
-<li><p>Click &quot;Edit&quot; and enter the email address, and make sure &quot;Enable email notification&quot; is checked</p>
-</li>
-<li>When I check in, my source control log in will be either &quot;User&quot; or &quot;username&quot;, so enter both of those into the &quot;My check-in aliases&quot; box</li>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#why-elastic-agents">Why elastic agents?</a></li>
+<li><a href="#concepts">Concepts</a><ul>
+<li><a href="#plugin-settings">Plugin Settings</a></li>
+<li><a href="#elastic-agent-profile">Elastic Agent Profile</a></li>
 </ul>
-<p><img src="../resources/images/3_email_and_matcher.png" alt=""></p>
-<ul>
-<li><p>Click &quot;Save&quot; to store these values</p>
 </li>
-<li><p>Add a filter for the &quot;twist-plugins&quot; stage of &quot;acceptance&quot; pipeline to notify me when a check-in of mine breaks the build</p>
-</li>
+<li><a href="#configuration-of-elastic-agents">Configuration of elastic agents</a></li>
 </ul>
-<p><img src="../resources/images/4_add_filter.png" alt=""></p>
-<h3 id="events"><a name="events" class="plugin-anchor" href="#events"><i class="fa fa-link" aria-hidden="true"></i></a>Events</h3>
-<p>You can set up notifications for different events</p>
-<ul>
-<li>All - all the runs for the stage</li>
-<li>Passes - the passed runs for the stage</li>
-<li>Fails - the stage run that continues to fail</li>
-<li>Breaks - the stage run that broke the build</li>
-<li>Fixed - the stage run that fixed the previous failure</li>
-<li>Cancelled - the stage run that was cancelled</li>
-</ul>
-<p><strong>Previous state influences Event type</strong></p>
-<p>The table below shows how the previous state can influence the triggered event:</p>
-<table>
-<thead>
-<tr>
-<th><strong>Previous state</strong></th>
-<th><strong>Current state</strong></th>
-<th><strong>Event</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pass</td>
-<td>Fail</td>
-<td>Breaks</td>
-</tr>
-<tr>
-<td>Fail</td>
-<td>Fail</td>
-<td>Fails</td>
-</tr>
-<tr>
-<td>Fail</td>
-<td>Pass</td>
-<td>Fixed</td>
-</tr>
-<tr>
-<td>Pass</td>
-<td>Pass</td>
-<td>Passes</td>
-</tr>
-</tbody>
-</table>
-<p><img src="../resources/images/5_added_filter.png" alt=""></p>
-<blockquote>
-<p>I&apos;ll be emailed whenever the &quot;twist-plugins&quot; stage of &quot;acceptance&quot; pipeline breaks due to my check-in</p>
-<p>I&apos;ll be emailed whenever the &quot;build&quot; stage of &quot;plugins&quot; pipeline fails due to my check-in</p>
-<p>I&apos;ll be emailed whenever the &quot;upload-installers&quot; stage of &quot;distributions-all&quot; pipeline passes for any check-in</p>
-<p>I&apos;ll be emailed on all events for any stage of &quot;regression&quot; pipeline for my check-in</p>
-</blockquote>
-<p>Users can also select to get notifications for a particular (or all) event on any stage of any pipeline.</p>
-<p><img src="../resources/images/6_added_filter_any_pipeline.png" alt=""></p>
-<blockquote>
-<p>I&apos;ll be emailed whenever any stage of any pipeline fails due to my check-in</p>
-</blockquote>
+<!-- toc stop -->
+<h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
+<p>Elastic Agents is an extension-point in GoCD that allows for on-demand agents which are created and provisioned by an elastic-agent plugin when there are jobs to be executed, and terminated when the agents are running idle. These agents can be in a data center or in the cloud or both, and may be physical or virtual.</p>
+<p>Developers can start building their own elastic-agent plugins by forking the <a href="https://github.com/gocd-contrib/elastic-agent-skeleton-plugin" target="_blank">skeleton plugin</a> and looking at a sample <a href="https://github.com/gocd-contrib/docker-elastic-agents" target="_blank">docker plugin</a>, <a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents" target="_blank">docker swarm plugin</a> as an example reference implementation.</p>
+<h2 id="why-elastic-agents"><a name="why-elastic-agents" class="plugin-anchor" href="#why-elastic-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Why elastic agents?</h2>
+<p>A feature like this can allow for more efficient use of agent machines, can allow flexible scaling and in many cases, can reduce the cost of running agents. Imagine an automated performance test which runs occasionally and needs a lot of machines. These machines can be started at the beginning of the performance test, possibly using some cloud service, and then brought down when not needed. This feature should enable a more flexible and dynamic build grid.</p>
+<h2 id="concepts"><a name="concepts" class="plugin-anchor" href="#concepts"><i class="fa fa-link" aria-hidden="true"></i></a>Concepts</h2>
+<p>There are a few basic concepts to understanding the elastic agent plugins in GoCD:</p>
+<h3 id="plugin-settings"><a name="plugin-settings" class="plugin-anchor" href="#plugin-settings"><i class="fa fa-link" aria-hidden="true"></i></a>Plugin Settings</h3>
+<p>Plugin settings will usually contain the connection settings so that the GoCD server can connect to the elastic provider. An elastic provider depending on the plugin may be a docker server, or a kubernetes cluster.</p>
+<p><img src="../resources/images/configuration/elastic-agents/plugin-settings.png" alt=""></p>
+<h3 id="elastic-agent-profile"><a name="elastic-agent-profile" class="plugin-anchor" href="#elastic-agent-profile"><i class="fa fa-link" aria-hidden="true"></i></a>Elastic Agent Profile</h3>
+<p>An elastic agent profile will usually contain the configuration for your agent. Depending on the plugin used, this may contain the machine image (ami, docker image), size of the CPU/memory/disk, network settings among other things.</p>
+<p><img src="../resources/images/configuration/elastic-agents/profile.png" alt=""></p>
+<p>Once an elastic agent profile is defined, it should then be associated with a particular <a href="admin_add_job.html">job</a>. It&apos;s possible to define several profiles for different types jobs.</p>
+<p><img src="../resources/images/configuration/elastic-agents/configure-job.png" alt=""></p>
+<h2 id="configuration-of-elastic-agents"><a name="configuration-of-elastic-agents" class="plugin-anchor" href="#configuration-of-elastic-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration of elastic agents</h2>
+<p>Using GoCD elastic agents requires downloading and installing one of the available <a href="https://www.gocd.org/plugins/#elastic-agents" target="_blank">elastic agents plugin</a>.</p>
+<p>Once the plugin is downloaded and installed, make sure to:</p>
+<ol>
+<li>Setup and configure the plugin from the plugin settings page (<strong><em>Admin &gt; Plugins</em></strong>).</li>
+<li>Configure an elastic agent profile (<strong><em>Admin &gt; Elastic Agent Profiles</em></strong>).</li>
+<li>Associate the elastic agent profile with one or more jobs.</li>
+</ol>
 
                                 
                                 </section>
@@ -2138,12 +2098,12 @@
 
             
                 
-                <a href="admin_mailhost_info.html" class="navigation navigation-prev " aria-label="Previous page: Mailhost Information">
+                <a href="pipeline_templates.html" class="navigation navigation-prev " aria-label="Previous page: Pipeline Templates">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="tfs_config.html" class="navigation navigation-next " aria-label="Next page: TFS Material configuration">
+                <a href="dev_choose_when_stage_runs.html" class="navigation navigation-next " aria-label="Next page: Choose When a Stage Runs">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2154,7 +2114,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD notifications","keywords":"GoCD configuration, email notifications, status change, build events","title":"Notifications","level":"1.5.31","depth":2,"next":{"title":"TFS Material configuration","level":"1.5.32","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"previous":{"title":"Mailhost Information","level":"1.5.30","depth":2,"path":"configuration/admin_mailhost_info.md","ref":"configuration/admin_mailhost_info.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/dev_notifications.md","mtime":"2018-08-18T13:43:00.193Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-18T13:44:25.496Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Managing elastic agents with GoCD","keywords":"GoCD configuration, elastic agents, docker, ecs, cloud","title":"Elastic Agents","level":"1.5.17","depth":2,"next":{"title":"Choose When a Stage Runs","level":"1.5.18","depth":2,"path":"configuration/dev_choose_when_stage_runs.md","ref":"configuration/dev_choose_when_stage_runs.md","articles":[]},"previous":{"title":"Pipeline Templates","level":"1.5.16","depth":2,"path":"configuration/pipeline_templates.md","ref":"configuration/pipeline_templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/elastic_agents.md","mtime":"2018-08-18T13:43:00.193Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-18T13:44:25.496Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
