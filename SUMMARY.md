@@ -54,6 +54,7 @@ This is the summary of user documentation.
     * [Add job to Existing Stage](configuration/admin_add_job.md)
     * [Add task to Existing Job](configuration/admin_add_task.md)
     * [Pipeline Templates](configuration/pipeline_templates.md)
+    * [Elastic Agents](configuration/elastic_agents.md)
     * [Choose When a Stage Runs](configuration/dev_choose_when_stage_runs.md)
     * [Timer Trigger](configuration/admin_timer.md)
     * [Job Timeout](configuration/job_timeout.md)
