@@ -17,6 +17,16 @@ Developers can start building their own elastic-agent plugins by forking the [sk
 
 A feature like this can allow for more efficient use of agent machines, can allow flexible scaling and in many cases, can reduce the cost of running agents. Imagine an automated performance test which runs occasionally and needs a lot of machines. These machines can be started at the beginning of the performance test, possibly using some cloud service, and then brought down when not needed. This feature should enable a more flexible and dynamic build grid.
 
+## Configuration of elastic agents
+
+Using GoCD elastic agents requires downloading and installing one of the available [elastic agents plugin](https://www.gocd.org/plugins/#elastic-agents).
+
+Once the plugin is downloaded and installed, make sure to:
+
+1. Setup and configure the plugin from the plugin settings page (**_Admin > Plugins_**).
+2. Configure an elastic agent profile (**_Admin > Elastic Agent Profiles_**).
+3. Associate the elastic agent profile with one or more jobs.
+
 ## Concepts
 
 There are a few basic concepts to understanding the elastic agent plugins in GoCD:
@@ -37,14 +47,3 @@ An elastic agent profile will usually contain the configuration for your agent. 
 Once an elastic agent profile is defined, it should then be associated with a particular [job](admin_add_job.md). It's possible to define several profiles for different types jobs.
 
 ![](../resources/images/configuration/elastic-agents/configure-job.png)
-
-
-## Configuration of elastic agents
-
-Using GoCD elastic agents requires downloading and installing one of the available [elastic agents plugin](https://www.gocd.org/plugins/#elastic-agents).
-
-Once the plugin is downloaded and installed, make sure to:
-
-1. Setup and configure the plugin from the plugin settings page (**_Admin > Plugins_**).
-2. Configure an elastic agent profile (**_Admin > Elastic Agent Profiles_**).
-3. Associate the elastic agent profile with one or more jobs.
