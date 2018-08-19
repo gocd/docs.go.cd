@@ -54,6 +54,7 @@
 <url> <loc>https://docs.gocd.org/current/configuration/admin_add_job.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/configuration/admin_add_task.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/configuration/pipeline_templates.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://docs.gocd.org/current/configuration/elastic_agents.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/configuration/dev_choose_when_stage_runs.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/configuration/admin_timer.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/configuration/job_timeout.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
