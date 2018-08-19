@@ -2040,12 +2040,12 @@
 <ul>
 <li><a href="#introduction">Introduction</a></li>
 <li><a href="#why-elastic-agents">Why elastic agents?</a></li>
+<li><a href="#configuration-of-elastic-agents">Configuration of elastic agents</a></li>
 <li><a href="#concepts">Concepts</a><ul>
 <li><a href="#plugin-settings">Plugin Settings</a></li>
 <li><a href="#elastic-agent-profile">Elastic Agent Profile</a></li>
 </ul>
 </li>
-<li><a href="#configuration-of-elastic-agents">Configuration of elastic agents</a></li>
 </ul>
 <!-- toc stop -->
 <h2 id="introduction"><a name="introduction" class="plugin-anchor" href="#introduction"><i class="fa fa-link" aria-hidden="true"></i></a>Introduction</h2>
@@ -2053,6 +2053,14 @@
 <p>Developers can start building their own elastic-agent plugins by forking the <a href="https://github.com/gocd-contrib/elastic-agent-skeleton-plugin" target="_blank">skeleton plugin</a> and looking at a sample <a href="https://github.com/gocd-contrib/docker-elastic-agents" target="_blank">docker plugin</a>, <a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents" target="_blank">docker swarm plugin</a> as an example reference implementation.</p>
 <h2 id="why-elastic-agents"><a name="why-elastic-agents" class="plugin-anchor" href="#why-elastic-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Why elastic agents?</h2>
 <p>A feature like this can allow for more efficient use of agent machines, can allow flexible scaling and in many cases, can reduce the cost of running agents. Imagine an automated performance test which runs occasionally and needs a lot of machines. These machines can be started at the beginning of the performance test, possibly using some cloud service, and then brought down when not needed. This feature should enable a more flexible and dynamic build grid.</p>
+<h2 id="configuration-of-elastic-agents"><a name="configuration-of-elastic-agents" class="plugin-anchor" href="#configuration-of-elastic-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration of elastic agents</h2>
+<p>Using GoCD elastic agents requires downloading and installing one of the available <a href="https://www.gocd.org/plugins/#elastic-agents" target="_blank">elastic agents plugin</a>.</p>
+<p>Once the plugin is downloaded and installed, make sure to:</p>
+<ol>
+<li>Setup and configure the plugin from the plugin settings page (<strong><em>Admin &gt; Plugins</em></strong>).</li>
+<li>Configure an elastic agent profile (<strong><em>Admin &gt; Elastic Agent Profiles</em></strong>).</li>
+<li>Associate the elastic agent profile with one or more jobs.</li>
+</ol>
 <h2 id="concepts"><a name="concepts" class="plugin-anchor" href="#concepts"><i class="fa fa-link" aria-hidden="true"></i></a>Concepts</h2>
 <p>There are a few basic concepts to understanding the elastic agent plugins in GoCD:</p>
 <h3 id="plugin-settings"><a name="plugin-settings" class="plugin-anchor" href="#plugin-settings"><i class="fa fa-link" aria-hidden="true"></i></a>Plugin Settings</h3>
@@ -2063,14 +2071,6 @@
 <p><img src="../resources/images/configuration/elastic-agents/profile.png" alt=""></p>
 <p>Once an elastic agent profile is defined, it should then be associated with a particular <a href="admin_add_job.html">job</a>. It&apos;s possible to define several profiles for different types jobs.</p>
 <p><img src="../resources/images/configuration/elastic-agents/configure-job.png" alt=""></p>
-<h2 id="configuration-of-elastic-agents"><a name="configuration-of-elastic-agents" class="plugin-anchor" href="#configuration-of-elastic-agents"><i class="fa fa-link" aria-hidden="true"></i></a>Configuration of elastic agents</h2>
-<p>Using GoCD elastic agents requires downloading and installing one of the available <a href="https://www.gocd.org/plugins/#elastic-agents" target="_blank">elastic agents plugin</a>.</p>
-<p>Once the plugin is downloaded and installed, make sure to:</p>
-<ol>
-<li>Setup and configure the plugin from the plugin settings page (<strong><em>Admin &gt; Plugins</em></strong>).</li>
-<li>Configure an elastic agent profile (<strong><em>Admin &gt; Elastic Agent Profiles</em></strong>).</li>
-<li>Associate the elastic agent profile with one or more jobs.</li>
-</ol>
 
                                 
                                 </section>
@@ -2114,7 +2114,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"Managing elastic agents with GoCD","keywords":"GoCD configuration, elastic agents, docker, ecs, cloud","title":"Elastic Agents","level":"1.5.17","depth":2,"next":{"title":"Choose When a Stage Runs","level":"1.5.18","depth":2,"path":"configuration/dev_choose_when_stage_runs.md","ref":"configuration/dev_choose_when_stage_runs.md","articles":[]},"previous":{"title":"Pipeline Templates","level":"1.5.16","depth":2,"path":"configuration/pipeline_templates.md","ref":"configuration/pipeline_templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/elastic_agents.md","mtime":"2018-08-18T13:43:00.193Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-18T13:44:25.496Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Managing elastic agents with GoCD","keywords":"GoCD configuration, elastic agents, docker, ecs, cloud","title":"Elastic Agents","level":"1.5.17","depth":2,"next":{"title":"Choose When a Stage Runs","level":"1.5.18","depth":2,"path":"configuration/dev_choose_when_stage_runs.md","ref":"configuration/dev_choose_when_stage_runs.md","articles":[]},"previous":{"title":"Pipeline Templates","level":"1.5.16","depth":2,"path":"configuration/pipeline_templates.md","ref":"configuration/pipeline_templates.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/elastic_agents.md","mtime":"2018-08-19T05:43:49.643Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-19T05:45:03.327Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
