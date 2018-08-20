@@ -174,16 +174,16 @@ Then follow the instructions on the [README](https://github.com/logstash/logstas
 ```
 ## Override Existing logback.xml
 
-If you'd like to completely override the packaged `logback.xml`, create a `CONFIG_DIR\logback.xml` file. If such a file is present, GoCD will use the loggers and file appender provided in the file for logging.
+If you'd like to completely override the packaged `logback.xml`, create a `CONFIG_DIR\logback.xml` file. If such a file is present, GoCD will use the loggers and file appender provided in the file for logging. You can read more about logback configuration in the [logback configuration documentation](https://logback.qos.ch/manual/configuration.html)
 
-The following is a sample `logback.xml` users can use to override logging for GoCD root logger.
+The following is a sample `logback.xml` users can use to override logging for GoCD root logger. The example uses a user defined directory for writing logs.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
   <appender name="CustomFileAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file><user-defined-log-location>/gocd-server.log</file>
+    <file>logs/production_server/gocd-server.log</file>
     <encoder>
       <pattern>
         %date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n
@@ -191,7 +191,7 @@ The following is a sample `logback.xml` users can use to override logging for Go
     </encoder>
 
     <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
-      <fileNamePattern><user-defined-log-location>/go-server.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+      <fileNamePattern>logs/production_server/gocd-server.log.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
       <maxFileSize>10 MB</maxFileSize>
       <maxHistory>50</maxHistory>
       <totalSizeCap>512 MB</totalSizeCap>
@@ -199,7 +199,7 @@ The following is a sample `logback.xml` users can use to override logging for Go
   </appender>
 
   <root level="WARN">
-    <appender-ref ref="CustomFileAppender}"/>
+    <appender-ref ref="CustomFileAppender"/>
   </root>
 
 </configuration>
