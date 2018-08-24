@@ -2033,6 +2033,9 @@
 <li><a href="#example-enable-web-request-logs">Example: Enable web-request logs</a></li>
 <li><a href="#advanced-logging-features">Advanced logging features</a><ul>
 <li><a href="#example-logstash-setup">Example logstash setup</a></li>
+</ul>
+</li>
+<li><a href="#override-existing-logbackxml">Override Existing logback.xml</a><ul>
 <li><a href="#example-gelf-setup">Example gelf setup</a></li>
 </ul>
 </li>
@@ -2316,6 +2319,37 @@ Refer to the <a href="https://docs.gocd.org/current/advanced_usage/other_config_
   <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">included</span>&gt;</span>
 </code></pre>
+<h2 id="override-existing-logbackxml"><a name="override-existing-logbackxml" class="plugin-anchor" href="#override-existing-logbackxml"><i class="fa fa-link" aria-hidden="true"></i></a>Override Existing logback.xml</h2>
+<p>If you&apos;d like to completely override the packaged <code>logback.xml</code>, create a <code>CONFIG_DIR\logback.xml</code> file. If such a file is present, GoCD will use the loggers and file appender provided in the file for logging. You can read more about logback configuration in the <a href="https://logback.qos.ch/manual/configuration.html" target="_blank">logback configuration documentation</a></p>
+<p>The following is a sample <code>logback.xml</code> users can use to override logging for GoCD root logger. The example uses a user defined directory for writing logs.</p>
+<pre><code class="lang-xml"><span class="php"><span class="hljs-meta">&lt;?</span>xml version=<span class="hljs-string">&quot;1.0&quot;</span> encoding=<span class="hljs-string">&quot;UTF-8&quot;</span><span class="hljs-meta">?&gt;</span></span>
+<span class="hljs-tag">&lt;<span class="hljs-name">configuration</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">appender</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;CustomFileAppender&quot;</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.RollingFileAppender&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">file</span>&gt;</span>logs/production_server/gocd-server.log<span class="hljs-tag">&lt;/<span class="hljs-name">file</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">encoder</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">pattern</span>&gt;</span>
+        %date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n
+      <span class="hljs-tag">&lt;/<span class="hljs-name">pattern</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">encoder</span>&gt;</span>
+
+    <span class="hljs-tag">&lt;<span class="hljs-name">rollingPolicy</span> <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&quot;</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">fileNamePattern</span>&gt;</span>logs/production_server/gocd-server.log.%d{yyyy-MM-dd}.%i.gz<span class="hljs-tag">&lt;/<span class="hljs-name">fileNamePattern</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">maxFileSize</span>&gt;</span>10 MB<span class="hljs-tag">&lt;/<span class="hljs-name">maxFileSize</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">maxHistory</span>&gt;</span>50<span class="hljs-tag">&lt;/<span class="hljs-name">maxHistory</span>&gt;</span>
+      <span class="hljs-tag">&lt;<span class="hljs-name">totalSizeCap</span>&gt;</span>512 MB<span class="hljs-tag">&lt;/<span class="hljs-name">totalSizeCap</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">rollingPolicy</span>&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">appender</span>&gt;</span>
+
+  <span class="hljs-tag">&lt;<span class="hljs-name">root</span> <span class="hljs-attr">level</span>=<span class="hljs-string">&quot;WARN&quot;</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">appender-ref</span> <span class="hljs-attr">ref</span>=<span class="hljs-string">&quot;CustomFileAppender&quot;</span>/&gt;</span>
+  <span class="hljs-tag">&lt;/<span class="hljs-name">root</span>&gt;</span>
+
+<span class="hljs-tag">&lt;/<span class="hljs-name">configuration</span>&gt;</span>
+</code></pre>
+<ul>
+<li>Please note while overriding the logging for your GoCD server, redirect all logs to appropriate files in order to avoid any loss of logs.</li>
+</ul>
 <h3 id="example-gelf-setup"><a name="example-gelf-setup" class="plugin-anchor" href="#example-gelf-setup"><i class="fa fa-link" aria-hidden="true"></i></a>Example gelf setup</h3>
 <p>Another example setup using GELF (Graylog Extended Log Format) using <a href="https://github.com/osiegmar/logback-gelf" target="_blank">logback-gelf</a>:</p>
 <p>Download <code>logback-gelf-1.1.0.jar</code> and place it in <code>libs</code> directory.
@@ -2393,7 +2427,7 @@ An example logging over UDP could look like this:</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2018-08-19T05:30:58.541Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-19T05:32:11.919Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Logging","level":"1.6.10","depth":2,"next":{"title":"Compare Builds","level":"1.6.11","depth":2,"path":"advanced_usage/compare_pipelines.md","ref":"advanced_usage/compare_pipelines.md","articles":[]},"previous":{"title":"Properties","level":"1.6.9","depth":2,"path":"advanced_usage/properties.md","ref":"advanced_usage/properties.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/logging.md","mtime":"2018-08-24T07:35:24.761Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-08-24T07:36:59.822Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
