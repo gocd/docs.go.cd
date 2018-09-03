@@ -28,7 +28,7 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 
 #### Supported Operating Systems
 
-* **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
+* **Windows** - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
 * **Debian**  - Debian 6.0 (squeeze) and above
 * **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
@@ -53,7 +53,7 @@ build agents.
 
 #### Supported Operating Systems
 
-* **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
+* **Windows** - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
 * **Debian**  - Debian 6.0 (squeeze) and above
 * **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
