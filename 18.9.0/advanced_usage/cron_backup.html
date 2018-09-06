@@ -4,9 +4,9 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Trigger With Options · GoCD User Documentation</title>
+        <title>Timer Based GoCD Server Backup · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="description" content="GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).">
+        <meta name="description" content="Perform a scheduled backup of the GoCD server">
         <meta name="generator" content="GitBook 3.2.2">
         
         
@@ -43,8 +43,8 @@
     
 
         
-<meta content="Pipeline trigger, pipeline material, pipeline label, Trigger with options" name="keywords" />
-    <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/trigger_with_options.html"/>
+<meta content="GoCD server, GoCD backup, timer scheduled, administration interface, backup" name="keywords" />
+    <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/cron_backup.html"/>
     <script async src="resources/javascripts/_gdpr-banner.js" type="text/javascript"></script>
 
     </head>
@@ -1157,7 +1157,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.7" data-path="trigger_with_options.html">
+        <li class="chapter " data-level="1.6.7" data-path="trigger_with_options.html">
             
                 <a href="trigger_with_options.html">
             
@@ -1261,7 +1261,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.15" data-path="cron_backup.html">
+        <li class="chapter active" data-level="1.6.15" data-path="cron_backup.html">
             
                 <a href="cron_backup.html">
             
@@ -2020,7 +2020,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Trigger With Options</a>
+        <a href=".." >Timer Based GoCD Server Backup</a>
     </h1>
 </div>
 
@@ -2035,38 +2035,45 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="trigger-with-a-different-revision-of-material"><a name="trigger-with-a-different-revision-of-material" class="plugin-anchor" href="#trigger-with-a-different-revision-of-material"><i class="fa fa-link" aria-hidden="true"></i></a>Trigger with a different revision of material</h1>
-<p>GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).</p>
-<h2 id="trigger-with-options"><a name="trigger-with-options" class="plugin-anchor" href="#trigger-with-options"><i class="fa fa-link" aria-hidden="true"></i></a>Trigger with options</h2>
-<p><img src="../resources/images/trigger_with_options.png" alt="Trigger with options"></p>
-<h2 id="information"><a name="information" class="plugin-anchor" href="#information"><i class="fa fa-link" aria-hidden="true"></i></a>Information</h2>
-<p>The following information are displayed for the last 5 revisions. For an SCM material, the following information is shown</p>
-<ul>
-<li>Revision hash or pipeline label</li>
-<li>Committer</li>
-<li>Check-in comment for the revision</li>
-<li>Check-in time of the revision</li>
-</ul>
-<p>For a pipeline material, the pipeline label and the corresponding run time is shown</p>
-<h3 id="choosing-the-revision"><a name="choosing-the-revision" class="plugin-anchor" href="#choosing-the-revision"><i class="fa fa-link" aria-hidden="true"></i></a>Choosing the revision</h3>
-<p>You can choose one of the revisions and then click on Trigger Pipeline button.</p>
-<p>If you want to trigger with a revision other than the 5 that is displayed, you can specify information related to this in the text box provided. You can search for all or part of</p>
-<ul>
-<li>revision hash/pipeline label</li>
-<li>committer name</li>
-<li>check-in comment</li>
-</ul>
-<p>GoCD will find matches and display the same. One of the matches can be chosen and the build triggered.</p>
-<p><img src="../resources/images/trigger_with_options_search.png" alt="Trigger with options search"></p>
-<h3 id="environment-and-secure-variables"><a name="environment-and-secure-variables" class="plugin-anchor" href="#environment-and-secure-variables"><i class="fa fa-link" aria-hidden="true"></i></a>Environment and secure variables</h3>
-<p>If the pipeline has environment and/or secure variables configured, additional tabs will be displayed to allow you to override these values.</p>
-<p><img src="../resources/images/trigger_with_options_environment.png" alt="Trigger with options and environment variables"></p>
-<h4 id="also-see"><a name="also-see" class="plugin-anchor" href="#also-see"><i class="fa fa-link" aria-hidden="true"></i></a>Also see...</h4>
-<ul>
-<li><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a specific build to an environment</a></li>
-<li><a href="../navigation/pipelines_dashboard_page.html">Pipeline dashboard</a></li>
-<li><a href="../faq/ordering_of_pipelines.html">Ordering of pipelines</a></li>
-</ul>
+                                <h1 id="perform-gocd-server-backups-on-a-schedule"><a name="perform-gocd-server-backups-on-a-schedule" class="plugin-anchor" href="#perform-gocd-server-backups-on-a-schedule"><i class="fa fa-link" aria-hidden="true"></i></a>Perform GoCD server backups on a schedule</h1>
+<p>To run a GoCD server backup at a given time, use a timer. Timers understand a cron-like specification for when to perform a backup. The GoCD server can be optionally configured to invoke a post-backup script to allow you to copy the backup to an external machine or service (like AWS&apos; S3).</p>
+<h1 id="the-post-backup-script"><a name="the-post-backup-script" class="plugin-anchor" href="#the-post-backup-script"><i class="fa fa-link" aria-hidden="true"></i></a>The post backup script</h1>
+<p>The post backup script, if configured, will be invoked regardless of success or failure of the script, and will receive the following environment variables:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>GOCD_BACKUP_STATUS</code></td>
+<td style="text-align:left">The status of the backup. Can be <code>failure</code> or <code>success</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GOCD_BACKUP_INITIATED_VIA</code></td>
+<td style="text-align:left">If the backup was initiated via a timer, this will contain the value <code>timer</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GOCD_BACKUP_INITIATED_BY_USER</code></td>
+<td style="text-align:left">If the backup was initiated by a user, the login name of the user that triggered the backup.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GOCD_BACKUP_TIMESTAMP</code></td>
+<td style="text-align:left">The ISO8601 formatted timestamp when the backup was attempted. E.g. <code>2018-08-29T14:00:35Z</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GOCD_BACKUP_BASE_DIR</code></td>
+<td style="text-align:left">If the status was <code>success</code>, this variable will contain the backup base directory. E.g. <code>/var/lib/go-server/artifacts/serverBackups</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>GOCD_BACKUP_PATH</code></td>
+<td style="text-align:left">If the status was <code>success</code>, this variable will contain the directory where the current backup snapshot was stored. E.g. <code>/var/lib/go-server/artifacts/serverBackups/backup_20180829-140035</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>For more information see <a href="../configuration/configuration_reference.html#backup">&lt; backup &gt;</a></p>
 
                                 
                                 </section>
@@ -2094,12 +2101,12 @@
 
             
                 
-                <a href="dev_conditional_task_execution.html" class="navigation navigation-prev " aria-label="Previous page: Conditional Task Execution">
+                <a href="one_click_backup.html" class="navigation navigation-prev " aria-label="Previous page: Backup GoCD Server">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="fan_in.html" class="navigation navigation-next " aria-label="Next page: Fan In">
+                <a href="config_repo.html" class="navigation navigation-next " aria-label="Next page: Config Repository">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2110,7 +2117,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).","keywords":"Pipeline trigger, pipeline material, pipeline label, Trigger with options","title":"Trigger With Options","level":"1.6.7","depth":2,"next":{"title":"Fan In","level":"1.6.8","depth":2,"path":"advanced_usage/fan_in.md","ref":"advanced_usage/fan_in.md","articles":[]},"previous":{"title":"Conditional Task Execution","level":"1.6.6","depth":2,"path":"advanced_usage/dev_conditional_task_execution.md","ref":"advanced_usage/dev_conditional_task_execution.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/trigger_with_options.md","mtime":"2018-09-06T10:56:48.670Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-06T10:57:54.974Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"Perform a scheduled backup of the GoCD server","keywords":"GoCD server, GoCD backup, timer scheduled, administration interface, backup","title":"Timer Based GoCD Server Backup","level":"1.6.15","depth":2,"next":{"title":"Config Repository","level":"1.6.16","depth":2,"path":"advanced_usage/config_repo.md","ref":"advanced_usage/config_repo.md","articles":[]},"previous":{"title":"Backup GoCD Server","level":"1.6.14","depth":2,"path":"advanced_usage/one_click_backup.md","ref":"advanced_usage/one_click_backup.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/cron_backup.md","mtime":"2018-09-06T10:56:48.670Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-06T10:57:54.974Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

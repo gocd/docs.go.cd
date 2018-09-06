@@ -1261,7 +1261,20 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.15" data-path="../advanced_usage/config_repo.html">
+        <li class="chapter " data-level="1.6.15" data-path="../advanced_usage/cron_backup.html">
+            
+                <a href="../advanced_usage/cron_backup.html">
+            
+                    
+                    Timer Based GoCD Server Backup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.16" data-path="../advanced_usage/config_repo.html">
             
                 <a href="../advanced_usage/config_repo.html">
             
@@ -1274,7 +1287,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.16" data-path="../advanced_usage/other_config_options.html">
+        <li class="chapter " data-level="1.6.17" data-path="../advanced_usage/other_config_options.html">
             
                 <a href="../advanced_usage/other_config_options.html">
             
@@ -1287,7 +1300,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.17" data-path="../advanced_usage/agent-health-check-api.html">
+        <li class="chapter " data-level="1.6.18" data-path="../advanced_usage/agent-health-check-api.html">
             
                 <a href="../advanced_usage/agent-health-check-api.html">
             
@@ -2055,6 +2068,7 @@
             <a href="#admins">&lt;/admins&gt;</a>
         <a href="#security">&lt;/security&gt;</a>
         <a href="#mailhost">&lt;mailhost/&gt;</a>
+        <a href="#backup">&lt;backup/&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
     <a href="#elastic">&lt;elastic&gt;</a>
         <a href="#profiles">&lt;profiles&gt;</a>
@@ -2451,6 +2465,219 @@
 <h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
 <pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">mailhost</span> <span class="hljs-attr">hostname</span>=<span class="hljs-string">&quot;mailhost.yourcompany.com&quot;</span> <span class="hljs-attr">port</span>=<span class="hljs-string">&quot;25&quot;</span> <span class="hljs-attr">username</span>=<span class="hljs-string">&quot;go-user&quot;</span> <span class="hljs-attr">password</span>=<span class="hljs-string">&quot;crs123&quot;</span> <span class="hljs-attr">tls</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">from</span>=<span class="hljs-string">&quot;go@yourcompany.com&quot;</span> <span class="hljs-attr">admin</span>=<span class="hljs-string">&quot;goadministrator@yourcompany.com&quot;</span> /&gt;</span>
 </code></pre>
+<p><a href="#top">top</a></p>
+<h2 id="backup"><a name="backup" class="plugin-anchor" href="#backup"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;backup&gt; </h2>
+<p>The <code>&lt;backup&gt;</code> element is used to configure backups.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Attribute</th>
+<th style="text-align:left">Required</th>
+<th style="text-align:left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">schedule</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The cron-like specification to perform a backup.</td>
+</tr>
+<tr>
+<td style="text-align:left">postBackupScript</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See <a href="../advanced_usage/cron_backup.html">cron backups</a> for details about this script.</td>
+</tr>
+<tr>
+<td style="text-align:left">emailOnSuccess</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Boolean indicating whether email should be sent on a successful backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
+</tr>
+<tr>
+<td style="text-align:left">emailOnFailure</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Boolean indicating whether email should be sent on a failed backup backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>For example: to perform a backup once a night at 10pm on weekdays and call the <code>/usr/local/bin/upload-to-s3</code> script after the backup is done.</p>
+<pre><code class="lang-xml"><span class="hljs-tag">&lt;<span class="hljs-name">server</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">backup</span> <span class="hljs-attr">schedule</span>=<span class="hljs-string">&quot;0 0 22 ? * MON-FRI&quot;</span> <span class="hljs-attr">postBackupScript</span>=<span class="hljs-string">&quot;/usr/local/bin/upload-to-s3&quot;</span> <span class="hljs-attr">emailOnSuccess</span>=<span class="hljs-string">&quot;false&quot;</span> <span class="hljs-attr">emailOnFailure</span>=<span class="hljs-string">&quot;true&quot;</span>/&gt;</span>
+  ...
+<span class="hljs-tag">&lt;/<span class="hljs-name">server</span>&gt;</span>
+</code></pre>
+<p>Go uses the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/quick-start" target="_blank">Quartz</a> scheduler internally. For convenience we reproduce the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger" target="_blank">Quartz cron documentation</a> here:</p>
+<h3 id="format"><a name="format" class="plugin-anchor" href="#format"><i class="fa fa-link" aria-hidden="true"></i></a>Format</h3>
+<p>A cron expression is a string comprised of 6 or 7 fields separated by white space. Fields can contain any of the allowed values, along with
+various combinations of the allowed special characters for that field. The fields are as follows:</p>
+<table>
+<thead>
+<tr>
+<th>Field Name</th>
+<th>Mandatory?</th>
+<th>Allowed Values</th>
+<th>Allowed Special Characters</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Seconds</td>
+<td>YES</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>Minutes</td>
+<td>YES</td>
+<td>0-59</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>Hours</td>
+<td>YES</td>
+<td>0-23</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>Day of month</td>
+<td>YES</td>
+<td>1-31</td>
+<td>, - * ? / L W\</td>
+</tr>
+<tr>
+<td>Month</td>
+<td>YES</td>
+<td>1-12 or JAN-DEC</td>
+<td>, - * /</td>
+</tr>
+<tr>
+<td>Day of week</td>
+<td>YES</td>
+<td>1-7 or SUN-SAT</td>
+<td>, - * ? / L #</td>
+</tr>
+<tr>
+<td>Year</td>
+<td>NO</td>
+<td>empty, 1970-2099</td>
+<td>, - * /</td>
+</tr>
+</tbody>
+</table>
+<p>So cron expressions can be as simple as this: <code>* * * * * ?</code> or more complex, like this: <code>0 15 10 ? * 6L 2002-2005</code></p>
+<h3 id="special-characters"><a name="special-characters" class="plugin-anchor" href="#special-characters"><i class="fa fa-link" aria-hidden="true"></i></a>Special characters</h3>
+<ul>
+<li><p><code>*</code> (<em>&quot;all values&quot;</em>) - used to select all values within a field. For example, &quot;*&quot; in the minute field means <em>&quot;every minute&quot;</em>.</p>
+</li>
+<li><p><code>?</code> (<em>&quot;no specific value&quot;</em>) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don&apos;t care what day of the week that happens to be, I would put &quot;10&quot; in the day-of-month field, and &quot;?&quot; in the day-of-week field. See the examples below for clarification.</p>
+</li>
+<li><p><code>-</code> - used to specify ranges. For example, &quot;10-12&quot; in the hour field means <em>&quot;the hours 10, 11 and 12&quot;</em>.</p>
+</li>
+<li><p><code>,</code> - used to specify additional values. For example, &quot;MON,WED,FRI&quot; in the day-of-week field means <em>&quot;the days Monday, Wednesday, and Friday&quot;</em>.</p>
+</li>
+<li><p><code>/</code> - used to specify increments. For example, &quot;0/15&quot; in the seconds field means <em>&quot;the seconds 0, 15, 30, and 45&quot;</em>. And &quot;5/15&quot; in the seconds field means <em>&quot;the seconds 5, 20, 35, and 50&quot;</em>. You can also specify &apos;/&apos; after the &apos;<strong>&apos; character - in this case &apos;</strong>&apos; is equivalent to having &apos;0&apos; before the &apos;/&apos;. &apos;1/3&apos; in the day-of-month field means <em>&quot;fire every 3 days starting on the first day of the month&quot;</em>.</p>
+</li>
+<li><p><code>L</code> (<em>&quot;last&quot;</em>) - has different meaning in each of the two fields in which it is allowed. For example, the value &quot;L&quot; in the day-of-month field means <em>&quot;the last day of the month&quot;</em> - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means &quot;7&quot; or &quot;SAT&quot;. But if used in the day-of-week field after another value, it means <em>&quot;the last xxx day of the month&quot;</em> - for example &quot;6L&quot; means <em>&quot;the last friday of the month&quot;</em>. When using the &apos;L&apos; option, it is important not to specify lists, or ranges of values, as you&apos;ll get confusing results.</p>
+</li>
+<li><p><code>W</code> (<em>&quot;weekday&quot;</em>) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify &quot;15W&quot; as the value for the day-of-month field, the meaning is: <em>&quot;the nearest weekday to the 15th of the month&quot;</em>. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify &quot;1W&quot; as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not &apos;jump&apos; over the boundary of a month&apos;s days. The &apos;W&apos; character can only be specified when the day-of-month is a single day, not a range or list of days. The &apos;L&apos; and &apos;W&apos; characters can also be combined in the day-of-month field to yield &apos;LW&apos;, which translates to <em>&quot;last weekday of the month&quot;</em>.</p>
+</li>
+<li><p><code>#</code> - used to specify &quot;the nth&quot; XXX day of the month. For example, the value of &quot;6#3&quot; in the day-of-week field means <em>&quot;the third Friday of the month&quot;</em> (day 6 = Friday and &quot;#3&quot; = the 3rd one in the month). Other examples: &quot;2#1&quot; = the first Monday of the month and &quot;4#5&quot; = the fifth Wednesday of the month. Note that if you specify &quot;#5&quot; and there is not 5 of the given day-of-week in the month, then no firing will occur that month. The legal characters and the names of months and days of the week are not case sensitive. <code>MON</code> is the same as <code>mon</code>.</p>
+</li>
+</ul>
+<h3 id="examples"><a name="examples" class="plugin-anchor" href="#examples"><i class="fa fa-link" aria-hidden="true"></i></a>Examples</h3>
+<p>Here are some full examples:</p>
+<table>
+<thead>
+<tr>
+<th>Expression</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>0 0 12 * * ?</code></td>
+<td>Fire at 12pm (noon) every day</td>
+</tr>
+<tr>
+<td><code>0 15 10 ? * *</code></td>
+<td>Fire at 10:15am every day</td>
+</tr>
+<tr>
+<td><code>0 15 10 * * ?</code></td>
+<td>Fire at 10:15am every day</td>
+</tr>
+<tr>
+<td><code>0 15 10 * * ? *</code></td>
+<td>Fire at 10:15am every day</td>
+</tr>
+<tr>
+<td><code>0 15 10 * * ? 2005</code></td>
+<td>Fire at 10:15am every day during the year 2005</td>
+</tr>
+<tr>
+<td><code>0 * 14 * * ?</code></td>
+<td>Fire every minute starting at 2pm and ending at 2:59pm, every day</td>
+</tr>
+<tr>
+<td><code>0 0/5 14 * * ?</code></td>
+<td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, every day</td>
+</tr>
+<tr>
+<td><code>0 0/5 14,18 * * ?</code></td>
+<td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day</td>
+</tr>
+<tr>
+<td><code>0 0-5 14 * * ?</code></td>
+<td>Fire every minute starting at 2pm and ending at 2:05pm, every day</td>
+</tr>
+<tr>
+<td><code>0 10,44 14 ? 3 WED</code></td>
+<td>Fire at 2:10pm and at 2:44pm every Wednesday in the month of March.</td>
+</tr>
+<tr>
+<td><code>0 15 10 ? * MON-FRI</code></td>
+<td>Fire at 10:15am every Monday, Tuesday, Wednesday, Thursday and Friday</td>
+</tr>
+<tr>
+<td><code>0 15 10 15 * ?</code></td>
+<td>Fire at 10:15am on the 15th day of every month</td>
+</tr>
+<tr>
+<td><code>0 15 10 L * ?</code></td>
+<td>Fire at 10:15am on the last day of every month</td>
+</tr>
+<tr>
+<td><code>0 15 10 ? * 6L</code></td>
+<td>Fire at 10:15am on the last Friday of every month</td>
+</tr>
+<tr>
+<td><code>0 15 10 ? * 6L</code></td>
+<td>Fire at 10:15am on the last Friday of every month</td>
+</tr>
+<tr>
+<td><code>0 15 10 ? * 6L 2002-2005</code></td>
+<td>Fire at 10:15am on every last friday of every month during the years 2002, 2003, 2004 and 2005</td>
+</tr>
+<tr>
+<td><code>0 15 10 ? * 6#3</code></td>
+<td>Fire at 10:15am on the third Friday of every month</td>
+</tr>
+<tr>
+<td><code>0 0 12 1/5 * ?</code></td>
+<td>Fire at 12pm (noon) every 5 days every month, starting on the first day of the month.</td>
+</tr>
+<tr>
+<td><code>0 11 11 11 11 ?</code></td>
+<td>Fire every November 11th at 11:11am.</td>
+</tr>
+</tbody>
+</table>
+<p>Pay attention to the effects of &apos;?&apos; and &apos;*&apos; in the day-of-week and day-of-month fields!</p>
+<h3 id="notes"><a name="notes" class="plugin-anchor" href="#notes"><i class="fa fa-link" aria-hidden="true"></i></a>Notes</h3>
+<ul>
+<li>Support for specifying both a day-of-week and a day-of-month value is not complete (you must currently use the &apos;?&apos; character in one of these fields).</li>
+<li>Be careful when setting fire times between mid-night and 1:00 AM - &quot;daylight savings&quot; can cause a skip or a repeat depending on whether the time moves back or jumps forward.</li>
+</ul>
 <p><a href="#top">top</a></p>
 <h2 id="ldap"><a name="ldap" class="plugin-anchor" href="#ldap"><i class="fa fa-link" aria-hidden="true"></i></a>&lt;ldap&gt;  [<em>Deprecated</em>]</h2>
 <p>The <code>&lt;ldap&gt;</code> element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.</p>
@@ -5728,7 +5955,7 @@ allow certain variable names and/or values.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.33","depth":2,"next":{"title":"Schema","level":"1.5.34","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.32","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2018-09-04T12:10:05.609Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-04T12:11:13.109Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD configuration reference index","keywords":"GoCD configuration, reference index","title":"Reference","level":"1.5.33","depth":2,"next":{"title":"Schema","level":"1.5.34","depth":2,"path":"configuration/schema.md","ref":"configuration/schema.md","articles":[]},"previous":{"title":"TFS Material configuration","level":"1.5.32","depth":2,"path":"configuration/tfs_config.md","ref":"configuration/tfs_config.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/configuration_reference.md","mtime":"2018-09-06T10:56:48.674Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-06T10:57:54.974Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
