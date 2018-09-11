@@ -79,7 +79,7 @@ GoCD.script { GoCD buildScript ->
       }
     }
 
-    ['17.8.0', '17.9.0', '17.10.0', '17.11.0', '17.12.0', '18.1.0', '18.2.0', '18.3.0', '18.4.0', '18.5.0', '18.6.0', '18.7.0', '18.8.0'].reverse().each { String releaseVersion ->
+    ['17.8.0', '17.9.0', '17.10.0', '17.11.0', '17.12.0', '18.1.0', '18.2.0', '18.3.0', '18.4.0', '18.5.0', '18.6.0', '18.7.0', '18.8.0', '18.9.0'].reverse().each { String releaseVersion ->
       pipeline("docs.gocd.org-${releaseVersion}") {
         group = "gocd-help-docs"
         materials {
