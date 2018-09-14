@@ -164,4 +164,4 @@ To access the agent status report,
 
 Once the pipeline has run successfully, you can go to your DockerHub account to verify if the image has been published.
 
-In the [next section](creating_a_deploy_pipeline.md), we'll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.
+In the [next section](creating_a_test_pipeline.md), we'll look at how to configure a pipeline to test our sample application's docker image.
