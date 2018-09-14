@@ -47,6 +47,8 @@ To pull our application docker image artifact from Docker Hub and run tests, fol
      
 7. Add the `Fetch External Artifact task` to pull the built image from Docker Hub.
 
+    ![](../../resources/images/gocd-helm-chart/test_application_fetch_task.png)
+
 8. Reorder the tasks as shown as we want to first fetch the image before running any tests.
 
    ![](../../resources/images/gocd-helm-chart/test_application_tasks.png)   
@@ -95,3 +97,5 @@ Once you’ve associated the job to the profile, you’re ready to run the pipel
 Now that the test pipeline is configured, we can run it to verify that the tests have been run.
 
 To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes in the source git repository get picked up automatically when the pipeline is triggered.
+
+In the [next section](creating_a_deploy_pipeline.md), we'll look at how to configure a pipeline to deploy our sample application onto a Kubernetes cluster.
