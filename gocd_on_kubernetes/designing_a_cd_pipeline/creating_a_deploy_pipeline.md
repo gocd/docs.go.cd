@@ -28,7 +28,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 5. Create the initial job `deploy_to_cluster`. The initial task argument is
 
-    `PLUGIN_FILENAME=cd.go.artifact.docker.registry.json rake create_json`
+    `PLUGIN_FILENAME=cd.go.artifact.docker.registry.json ./create_json.sh`
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_job.png)
 
@@ -55,7 +55,17 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
     ![](../../resources/images/gocd-helm-chart/env_vars_deploy.png)
     
 8. Configure a `Fetch Artifact Task` to fetch the plugin json file. This is the file that is present in the upstream `build_and_publish_image` which stores the information about the image that's been published.
-   
+    
+    Specify the pipeline as `build_and_publish_image/test_application`.
+
+    Specify the stage as `build_and_publish_image`.
+
+    Specify the job as `build_and_publish_image`.
+
+    Specify the source as `pluggable-artifact-metadata/cd.go.artifact.docker.registry.json`
+
+    Check the box that indicates `Source is a file (not a directory)`.
+
     ![](../../resources/images/gocd-helm-chart/deploy_fetch_task.png)
 
 9. Configure a task to call the `./app-deployment.sh` script.
