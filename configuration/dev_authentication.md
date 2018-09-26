@@ -11,7 +11,9 @@ Support for in-built Password-File based and LDAP authentication has been disabl
 
 By default, GoCD does not require users to authenticate. However, users can be forced to authenticate by installing and configuring any of the [Authorization plugins](https://plugin-api.gocd.org/current/authorization/). GoCD comes bundled with a [Password File based](https://github.com/gocd/filebased-authentication-plugin) and [LDAP/AD](https://github.com/gocd/gocd-ldap-authentication-plugin) authentication plugins.
 
-You should be able to configure any number of Authorization plugins, GoCD would attempt authenticating the user with each plugin (in no specific order) until a successful authentication.
+You should be able to configure any number of Authorization plugins, GoCD would attempt authenticating the user with each plugin until a successful authentication.
+
+**Note:** GoCD will try to authenticate the user based on the plugin order (top to bottom fashion) configured. For example, if the authentication plugins are ordered `passwordfile` before `ldap` authentication, the user request will be sent to password file first and then it attempts to authenticate from the next LDAP authentication plugin.
 
 GoCD forces a perodic re-authentication of users, this is to ensure any changes like removing of users or roles in the external authorization server are reflected in GoCD. The re-authentication interval is controlled by the system property `go.security.reauthentication.interval` which is defaulted to 30 minutes. The plugins could potentially be written in a way to detect such changes in the external system, and [notify](https://plugin-api.gocd.org/current/authorization/#invalidate-users-cache) GoCD server to force a reauthentication of users.
 
