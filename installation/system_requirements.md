@@ -30,8 +30,10 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 
 * **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
-* **Debian**  - Debian 6.0 (squeeze) and above
-* **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
+* **Debian**  - Debian 8.0 and above
+* **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
+* **Ubuntu** - Ubuntu 14 and above
+* **Alpine Linux** - Alpine Linux 3.5 and above
 
 #### Dependencies
 
@@ -55,8 +57,10 @@ build agents.
 
 * **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
-* **Debian**  - Debian 6.0 (squeeze) and above
-* **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
+* **Debian**  - Debian 8.0 and above
+* **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
+* **Ubuntu** - Ubuntu 14 and above
+* **Alpine Linux** - Alpine Linux 3.5 and above
 
 #### Hardware
 
