@@ -2023,13 +2023,40 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="authentication"><a name="authentication" class="plugin-anchor" href="#authentication"><i class="fa fa-link" aria-hidden="true"></i></a>Authentication</h1>
-<p>GoCD was built from the bottom up with security in mind. GoCD server provides both an http service and an https service by default. The http service listens on port 8153 and the https service listens on port 8154.</p>
-<p>Support for in-built Password-File based and LDAP authentication has been disabled. Alternatively, GoCD provides extensions through <a href="https://plugin-api.gocd.org/current/authorization/" target="_blank">Authorization Endpoints</a> using which plugins can provide authentication and authorization services backed by any authorization service providers like LDAP, Google, Github etc.</p>
-<p>By default, GoCD does not require users to authenticate. However, users can be forced to authenticate by installing and configuring any of the <a href="https://plugin-api.gocd.org/current/authorization/" target="_blank">Authorization plugins</a>. GoCD comes bundled with a <a href="https://github.com/gocd/filebased-authentication-plugin" target="_blank">Password File based</a> and <a href="https://github.com/gocd/gocd-ldap-authentication-plugin" target="_blank">LDAP/AD</a> authentication plugins.</p>
-<p>You should be able to configure any number of Authorization plugins, GoCD would attempt authenticating the user with each plugin (in no specific order) until a successful authentication.</p>
-<p>GoCD forces a perodic re-authentication of users, this is to ensure any changes like removing of users or roles in the external authorization server are reflected in GoCD. The re-authentication interval is controlled by the system property <code>go.security.reauthentication.interval</code> which is defaulted to 30 minutes. The plugins could potentially be written in a way to detect such changes in the external system, and <a href="https://plugin-api.gocd.org/current/authorization/#invalidate-users-cache" target="_blank">notify</a> GoCD server to force a reauthentication of users.</p>
-<h5 id="session-configuration"><a name="session-configuration" class="plugin-anchor" href="#session-configuration"><i class="fa fa-link" aria-hidden="true"></i></a>Session configuration</h5>
-<p>You could use one or more of the below to tweak the session config:</p>
+<p>A newly installed GoCD server does not require users to authenticate. This is great for a trial. However, it is one of the first things you should change, as soon as you decide to use GoCD more widely.</p>
+<p>GoCD has two methods of authentication built into it: Password-file based authentication and LDAP/Active Directory authentication. You can also choose from a collection of <a href="https://www.gocd.org/plugins/#authorization" target="_blank">community-maintained plugins</a> for other methods of authentication, such as using Google or GitHub OAuth.</p>
+<p>You can even write your own plugins for authentication (as in username/password combination) or authorization (as in deciding which GoCD roles a user should be allowed into) by using the <a href="https://plugin-api.gocd.org/current/authorization/" target="_blank">authorization plugin endpoint</a>.</p>
+<p>&quot;Authorization configuration&quot; is the term used in GoCD for the configuration which allows a GoCD administrator to configure the kind of authentication and authorization used by it. GoCD can be setup to use multiple authorization configurations at the same time.</p>
+<p>Note: The order of the configurations matters. They will be tried from the first one to the last one and each authorization configuration will be given a chance to authenticate a user, when a user tries to log in. If the user is successfully allowed by one of the configurations, then the following configurations will not be used.</p>
+<p>Consider the example image below:</p>
+<p><img src="../resources/images/user_authentication_multiple_configurations.png" alt="Shows two authorization configurations"></p>
+<p>In this example, the password file authentication method will be tried first. If that succeeds, the user will be allowed to log in. If not, the LDAP authentication method will be tried next. If that succeeds, the user will be allowed to log in. If not, the user will be disallowed from logging in.</p>
+<h2 id="built-in-methods-of-authentication"><a name="built-in-methods-of-authentication" class="plugin-anchor" href="#built-in-methods-of-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>Built-in methods of authentication</h2>
+<h3 id="password-file-authentication"><a name="password-file-authentication" class="plugin-anchor" href="#password-file-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>Password-file authentication</h3>
+<ol>
+<li><p>Create an authorization configuration, by going to the &quot;Admin&quot; menu and then into &quot;Security&quot; and then &quot;Authorization Configuration&quot;.</p>
+</li>
+<li><p>Click on &quot;Add&quot; and provide any identifier (ID) for the configuration and then choose &quot;Password File Authentication Plugin for GoCD&quot;.</p>
+</li>
+<li><p>Provide the path to a password file on the GoCD server.</p>
+</li>
+</ol>
+<p>The <a href="https://github.com/gocd/gocd-filebased-authentication-plugin/blob/master/README.md" target="_blank">password file plugin&apos;s documentation</a> has information about the values that can go into a password file.</p>
+<p><img src="../resources/images/user_authentication_password_file.png" alt="User authentication using password file"></p>
+<h3 id="ldapad-authentication"><a name="ldapad-authentication" class="plugin-anchor" href="#ldapad-authentication"><i class="fa fa-link" aria-hidden="true"></i></a>LDAP/AD authentication</h3>
+<ol>
+<li><p>Create an authorization configuration, by going to the &quot;Admin&quot; menu and then into &quot;Security&quot; and then &quot;Authorization Configuration&quot;.</p>
+</li>
+<li><p>Click on &quot;Add&quot; and provide any identifier (ID) for the configuration and then choose &quot;LDAP Authentication Plugin for GoCD&quot;.</p>
+</li>
+<li><p>Provide the appropriate values for your LDAP server. You might need to talk to the LDAP/AD server administrator at your organization to get the right values.</p>
+</li>
+</ol>
+<p>The <a href="https://github.com/gocd/gocd-ldap-authentication-plugin/blob/master/README.md" target="_blank">LDAP authentication plugin&apos;s documentation</a> has more information about the configuration.</p>
+<p><img src="../resources/images/user_authentication_ldap.png" alt="User authentication using LDAP"></p>
+<p>It you&apos;ve installed any other plugins, they will also be available at the &quot;Authorization Configuration&quot; page, ready to be setup.</p>
+<h2 id="configurable-properties"><a name="configurable-properties" class="plugin-anchor" href="#configurable-properties"><i class="fa fa-link" aria-hidden="true"></i></a>Configurable properties</h2>
+<p>You can use one or more of the below to tweak settings such as the session configuration:</p>
 <table>
 <thead>
 <tr>
@@ -2054,13 +2081,19 @@
 <td><code>N</code></td>
 <td>Set this to <code>Y</code> to allow a session cookie to be set only if the request was made over HTTPS. Do not set this property if the users access GoCD via HTTP url</td>
 </tr>
+<tr>
+<td><code>go.security.reauthentication.interval</code></td>
+<td><code>1800000</code> (30 mins in milliseconds)</td>
+<td>GoCD forces a perodic re-authentication of users, this is to ensure any changes like removing of users or roles in the external authorization server are reflected in GoCD. The re-authentication interval is controlled by this property.</td>
+</tr>
 </tbody>
 </table>
+<p>See <a href="../advanced_usage/other_config_options.html">the &quot;Other config options&quot; page</a> for instructions around setting these system property values.</p>
 <h2 id="controlling-user-access"><a name="controlling-user-access" class="plugin-anchor" href="#controlling-user-access"><i class="fa fa-link" aria-hidden="true"></i></a>Controlling User Access</h2>
 <p>GoCD checks if an authenticated user is an existing user or a new user (logging in for the first time). For new users, there are two behaviors GoCD can operate under:</p>
 <ul>
 <li>Automatically register the new user in GoCD and continue with the login process.</li>
-<li>Deny access to the user if not already a registered GoCD user. New users will have to be explicitly added by an admin.</li>
+<li>Deny access to the user if not already a registered GoCD user. New users will have to be <a href="managing_users.html#adding-users">explicitly added</a> by an admin.</li>
 </ul>
 <p>To switch the mode in which the GoCD Server operates:</p>
 <ol>
@@ -2113,7 +2146,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"GoCD Authentication","keywords":"GoCD configuration, authentication, https, ldap, ldap authentication, authorization plugins, user access, passwords, logins, authorization endpoints, GoCD security","title":"Authentication","level":"1.5.22","depth":2,"next":{"title":"Authorizing Users","level":"1.5.23","depth":2,"path":"configuration/dev_authorization.md","ref":"configuration/dev_authorization.md","articles":[]},"previous":{"title":"Managing Users","level":"1.5.21","depth":2,"path":"configuration/managing_users.md","ref":"configuration/managing_users.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/dev_authentication.md","mtime":"2018-09-28T22:38:43.470Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-09-28T22:39:42.594Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"GoCD Authentication","keywords":"GoCD configuration, authentication, https, ldap, ldap authentication, authorization plugins, user access, passwords, logins, authorization endpoints, GoCD security","title":"Authentication","level":"1.5.22","depth":2,"next":{"title":"Authorizing Users","level":"1.5.23","depth":2,"path":"configuration/dev_authorization.md","ref":"configuration/dev_authorization.md","articles":[]},"previous":{"title":"Managing Users","level":"1.5.21","depth":2,"path":"configuration/managing_users.md","ref":"configuration/managing_users.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"configuration/dev_authentication.md","mtime":"2018-10-01T21:05:59.626Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-10-01T21:07:06.539Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
