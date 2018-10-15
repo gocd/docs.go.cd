@@ -84,6 +84,21 @@ You can also include parameters into the pipeline label:
 
 ```
 
+## Using Pipeline Level Environment Variables
+
+From GoCD v18.10.0, you can also include pipeline level environment variables into the pipeline label:
+
+```xml
+<pipeline name="main" labeltemplate="18.10.0.${COUNT}-${env:var}">
+    <environmentvariables>
+        <variable name="var">
+          <value>default</value>
+        </variable>
+    </environmentvariables>
+   ...
+</pipeline>
+```
+
 #### Also see...
 
 -   [Use parameters in configuration](admin_use_parameters_in_configuration.md)
