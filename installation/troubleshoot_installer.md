@@ -14,6 +14,7 @@ This page is mainly for newer users of GoCD, to help with troubleshooting issues
 - [Unrecognized VM option "MaxMetaSpaceSize"](#upgrade-issues)
 - [Unsupported major.minor version 52.0](#upgrade-issues)
 - [GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)](#ajax-polling-interval)
+- [Port 8153 (HTTP) or 8154 (HTTPS) could not be opened](#ports-in-use)
 
 <a id="agent_registration"></a>
 ### GoCD Agent not registering with the GoCD Server
@@ -313,3 +314,17 @@ The AJAX API request has a timeout set to 5000 milliseconds, if the server does 
 
 Resolution: If this is happening, consider increase the timeout period by specifying the [go.spa.timeout](../advanced_usage/other_config_options.md#go-spa-timeout) 
 
+<a name="ports-in-use"></a>
+### Port 8153 (HTTP) or 8154 (HTTPS) could not be opened
+
+This issue shows up an error when starting GoCD Server:
+
+    Port 8153 could not be opened. Please Check if it is available
+    Port 8154 could not be opened. Please Check if it is available
+
+This could be happening if port 8153 or 8154 are already used. In order to change default ports, edit `/etc/default/go-server` if you installed GoCD Server, or `go-server.default` located in root directory if you run it via zip:
+
+```
+GO_SERVER_PORT=8153
+GO_SERVER_SSL_PORT=8154 
+```
