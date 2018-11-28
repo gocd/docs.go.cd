@@ -11,12 +11,19 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 
 ### Client (browser) requirements
 
-#### GoCD works on the following browsers:
+GoCD supports the two most recent versions of the following browsers:
 
 - Google Chrome
 - Mozilla Firefox
-- Apple Safari 11+
-- Microsoft Internet Explorer 11+
+- Microsoft Edge
+- Apple Safari
+
+In addition, GoCD will provide partial support for the following browsers:
+
+- Internet Explorer (Microsoft): all versions
+- Mobile browsers
+
+With the partially supported browsers, only core features will work, and visual bugs can appear.
 
 ### GoCD Server requirements
 
@@ -33,11 +40,11 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 * **Debian**  - Debian 8.0 and above
 * **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
 * **Ubuntu** - Ubuntu 14 and above
-* **Alpine Linux** - Alpine Linux 3.5 and above
+* **Alpine Linux** - Alpine Linux 3.6 and above
 
 #### Dependencies
 
-* Java Runtime Environment (JRE) version 8
+* Java Runtime Environment (JRE) version 8 (JRE 11 and above recommended)
 
 #### Additional requirements for GoCD server
 
@@ -60,7 +67,7 @@ build agents.
 * **Debian**  - Debian 8.0 and above
 * **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
 * **Ubuntu** - Ubuntu 14 and above
-* **Alpine Linux** - Alpine Linux 3.5 and above
+* **Alpine Linux** - Alpine Linux 3.6 and above
 
 #### Hardware
 
@@ -69,7 +76,7 @@ build agents.
 
 #### Dependencies
 
-* The agent needs to be on the same Java version as the GoCD server. In this case, `Java Runtime Environment (JRE) version 8`
+* Java Runtime Environment (JRE) version 8 (JRE 11 and above recommended)
 
 #### Additional requirements for GoCD Agent
 
