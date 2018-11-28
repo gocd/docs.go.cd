@@ -18,13 +18,6 @@ GoCD supports the two most recent versions of the following browsers:
 - Microsoft Edge
 - Apple Safari
 
-In addition, GoCD will provide partial support for the following browsers:
-
-- Internet Explorer (Microsoft): all versions
-- Mobile browsers
-
-With the partially supported browsers, only core features will work, and visual bugs can appear.
-
 ### GoCD Server requirements
 
 #### Hardware
