@@ -11,12 +11,12 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 
 ### Client (browser) requirements
 
-#### GoCD works on the following browsers:
+GoCD supports the two most recent versions of the following browsers:
 
 - Google Chrome
 - Mozilla Firefox
-- Apple Safari 11+
-- Microsoft Internet Explorer 11+
+- Microsoft Edge
+- Apple Safari
 
 ### GoCD Server requirements
 
@@ -28,14 +28,16 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 
 #### Supported Operating Systems
 
-* **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
+* **Windows** - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
-* **Debian**  - Debian 6.0 (squeeze) and above
-* **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
+* **Debian**  - Debian 8.0 and above
+* **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
+* **Ubuntu** - Ubuntu 14 and above
+* **Alpine Linux** - Alpine Linux 3.6 and above
 
 #### Dependencies
 
-* Java Runtime Environment (JRE) version 8
+* Java Runtime Environment (JRE) version 8 (JRE 11 and above recommended)
 
 #### Additional requirements for GoCD server
 
@@ -53,10 +55,12 @@ build agents.
 
 #### Supported Operating Systems
 
-* **Windows** - Windows Server 2003, Windows Server 2008 and Windows 7
+* **Windows** - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10
 * **Mac OSX** - 10.7 (Lion) and above with Intel processor
-* **Debian**  - Debian 6.0 (squeeze) and above
-* **CentOS/RedHat** - CentOS/RedHat version 5.0 and above
+* **Debian**  - Debian 8.0 and above
+* **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
+* **Ubuntu** - Ubuntu 14 and above
+* **Alpine Linux** - Alpine Linux 3.6 and above
 
 #### Hardware
 
@@ -65,7 +69,7 @@ build agents.
 
 #### Dependencies
 
-* The agent needs to be on the same Java version as the GoCD server. In this case, `Java Runtime Environment (JRE) version 8`
+* Java Runtime Environment (JRE) version 8 (JRE 11 and above recommended)
 
 #### Additional requirements for GoCD Agent
 

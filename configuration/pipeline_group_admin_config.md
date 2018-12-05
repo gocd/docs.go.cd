@@ -25,7 +25,7 @@ The pipeline group administrator will be able to manage the templates from the t
 
 ![](../resources/images/group_admin_template.png)
 
-## Administration using Pakcage Repository
+## Administration using Package Repository
 
 The administrator will be able to add new package repositories. They can also use the existing package repositories that are configured by the GoCD system administrator. 
 

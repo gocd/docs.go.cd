@@ -15,7 +15,7 @@ You can create a custom label by setting the **Label Template** field on your pi
 
 ![](../resources/images/pipeline_labelling.png)
 
-Power users can still edit the config xml to achieve the same. The xml snippet to configure **labelTempalte** is below.
+Power users can still edit the config xml to achieve the same. The xml snippet to configure **labelTemplate** is below.
 
 ```xml
 <pipeline name="my-pipeline" labeltemplate="1.2.${COUNT}">
