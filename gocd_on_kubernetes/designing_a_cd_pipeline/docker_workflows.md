@@ -14,9 +14,9 @@ Docker in Docker involves setting up a docker binary and running an isolated doc
 
 As explained by [jpetazzo in his blogpost](http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/), there are some cases where DinD may not work for you. Additionally, there is a security risk of running a container in privileged mode as well.
 
-## Docker Out of Docker (DooD)
+## Docker Outside of Docker (DooD)
 
-Docker out of Docker involves volume mounting the host's docker socket onto the GoCD agent container and use the host's docker daemon to execute the docker related commands from the CI.
+Docker outside of Docker involves volume mounting the host's docker socket onto the GoCD agent container and use the host's docker daemon to execute docker related commands from the CI.
 
 This can be achieved by doing:
 ```bash
@@ -26,7 +26,7 @@ $ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e GO_SERVER_URL="
 **Drawbacks:**
 
 - Name conflicts may occur if there are two containers with the same name that the GoCD agents bring up.
-- Consider the cleanup of the containers after a build completes. The GoCD agent container is brought up and down by an elastic agent plugin. However containers brought up by these ephemeral GoCD agents for build and test are not automatically terminated up by the plugin at the end of a build. They must be explicitly cleaned up before the GoCD agent is brought down. In addition, layers of images are cached and reused. Build isolation is lost.
+- Consider the cleanup of the containers after a build completes. The GoCD agent container is brought up and down by an elastic agent plugin. However containers brought up by these ephemeral GoCD agents for build and test are not automatically terminated by the plugin at the end of a build. They must be explicitly cleaned up before the GoCD agent is brought down. In addition, layers of images are cached and reused. Build isolation is lost.
 - The containers brought up this way are outside of the helm scope and not easily accessible.
 
 ## Using a single docker GoCD agent image
