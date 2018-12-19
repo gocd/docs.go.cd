@@ -35,6 +35,7 @@ This is the summary of user documentation.
       * [Customizing Ciphers](installation/ssl_tls/setting_up_ciphers.md)
       * [Change SSL Certificates](installation/ssl_tls/custom_server_certificate.md)
       * [End to end transport security](installation/ssl_tls/end_to_end_transport_security.md)
+      * [Configuring HSTS Header](installation/ssl_tls/configuring_hsts_header.md)
     * [Performance Tuning](installation/performance_tuning.md)
     * [Hardware Specifications](installation/hardware_specifications.md)
     * [Troubleshooting](installation/troubleshooting.md)
