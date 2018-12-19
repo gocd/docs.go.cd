@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>End to end transport security · GoCD User Documentation</title>
+        <title>Configuring HSTS Header · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
         <meta name="generator" content="GitBook 3.2.2">
@@ -44,7 +44,7 @@
 
         
 <meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
-    <link rel="canonical" href="https://docs.gocd.org/current/installation/ssl_tls/end_to_end_transport_security.html"/>
+    <link rel="canonical" href="https://docs.gocd.org/current/installation/ssl_tls/configuring_hsts_header.html"/>
     <script async src="resources/javascripts/_gdpr-banner.js" type="text/javascript"></script>
 
     </head>
@@ -542,7 +542,7 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.8.3" data-path="end_to_end_transport_security.html">
+        <li class="chapter " data-level="1.4.8.3" data-path="end_to_end_transport_security.html">
             
                 <a href="end_to_end_transport_security.html">
             
@@ -555,7 +555,7 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8.4" data-path="configuring_hsts_header.html">
+        <li class="chapter active" data-level="1.4.8.4" data-path="configuring_hsts_header.html">
             
                 <a href="configuring_hsts_header.html">
             
@@ -2033,7 +2033,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >End to end transport security</a>
+        <a href="../.." >Configuring HSTS Header</a>
     </h1>
 </div>
 
@@ -2048,77 +2048,39 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <!-- toc -->
-<ul>
-<li><a href="#configure-end-to-end-transport-security">Configure end-to-end transport security</a><ul>
-<li><a href="#the-rootcertfile-option">The <code>-rootCertFile</code> option</a></li>
-<li><a href="#the-sslverificationmode-option">The <code>-sslVerificationMode</code> option</a></li>
-</ul>
-</li>
-<li><a href="#configuring-the-agent">Configuring the agent</a><ul>
-<li><a href="#windows">Windows</a><ul>
-<li><a href="#if-youre-running-the-gocd-agent-as-a-windows-service">If you&apos;re running the GoCD agent as a windows service</a></li>
-<li><a href="#if-youre-running-the-gocd-agent-via-a-batch-file">If you&apos;re running the GoCD agent via a batch file</a></li>
-</ul>
-</li>
-<li><a href="#linux">Linux</a><ul>
-<li><a href="#if-youre-running-the-gocd-agent-as-a-service">If you&apos;re running the GoCD agent as a service</a></li>
-<li><a href="#if-youre-running-the-gocd-agent-from-the-command-line">If you&apos;re running the GoCD agent from the command line</a></li>
-</ul>
-</li>
-</ul>
-</li>
-</ul>
-<!-- toc stop -->
-<h1 id="configure-end-to-end-transport-security"><a name="configure-end-to-end-transport-security" class="plugin-anchor" href="#configure-end-to-end-transport-security"><i class="fa fa-link" aria-hidden="true"></i></a>Configure end-to-end transport security</h1>
-<p><strong>Note:</strong> To ensure end-to-end transport encryption, please ensure that both your GoCD server and agent are running on atleast version 16.7.0</p>
-<p>This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.</p>
-<p>The GoCD agent allows for some configuration to be able to configure and secure the end-to-end transport security to varying security levels.</p>
-<p>The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you&apos;d like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.</p>
-<p><code>java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST]</code></p>
-<h2 id="the--rootcertfile-option"><a name="the--rootcertfile-option" class="plugin-anchor" href="#the--rootcertfile-option"><i class="fa fa-link" aria-hidden="true"></i></a>The <code>-rootCertFile</code> option</h2>
-<p>The <code>-rootCertFile</code> option must point to the root certificate from the GoCD server (If you&apos;re using a certificate signed by a known CA, you may not need to pass the rootCertFile if the root certificate is present in the default JVM trust store). You can export it from firefox using the <a href="https://support.mozilla.org/en-US/kb/page-info-window-view-technical-details-about-page#w_security" target="_blank">page info window</a> by clicking &quot;export&quot; from the certificate details page as shown below: </p>
-<p><img src="../../resources/images/agent_tls_cert_export_from_firefox.png" alt="Download TLS certificate from GoCD server using Firefox"></p>
-<p>If you have the openssl binary available then you can also run the command below to export the root certificate from the GoCD server:</p>
-<pre><code>openssl s_client -showcerts -connect HOSTNAME:PORT &lt;/dev/null 2&gt;/dev/null|openssl x509 -outform PEM
-</code></pre><h2 id="the--sslverificationmode-option"><a name="the--sslverificationmode-option" class="plugin-anchor" href="#the--sslverificationmode-option"><i class="fa fa-link" aria-hidden="true"></i></a>The <code>-sslVerificationMode</code> option</h2>
-<p>The <code>-sslVerificationMode</code> option allows you to choose the level of verification you&apos;d want.</p>
-<ul>
-<li><code>NONE</code> (the default) will disable all SSL/TLS verification.</li>
-<li><code>NO_VERIFY_HOST</code> will perform certificate check, but ignore verification of the server hostname.</li>
-<li><code>FULL</code> will perform complete certificate validation.</li>
-</ul>
-<h1 id="configuring-the-agent"><a name="configuring-the-agent" class="plugin-anchor" href="#configuring-the-agent"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring the agent</h1>
-<h2 id="windows"><a name="windows" class="plugin-anchor" href="#windows"><i class="fa fa-link" aria-hidden="true"></i></a>Windows</h2>
-<h3 id="if-youre-running-the-gocd-agent-as-a-windows-service"><a name="if-youre-running-the-gocd-agent-as-a-windows-service" class="plugin-anchor" href="#if-youre-running-the-gocd-agent-as-a-windows-service"><i class="fa fa-link" aria-hidden="true"></i></a>If you&apos;re running the GoCD agent as a windows service</h3>
-<p>Edit the file (if it already does not exist) <code>GO_AGENT_INSTALL_DIR/config/wrapper-properties.conf</code> and add the following properties to it</p>
-<pre><code class="lang-shell"># config/wrapper-properties.conf
-
-# set the ssl verification mode
-wrapper.app.parameter.4=-sslVerificationMode
-wrapper.app.parameter.5=FULL
-
-# set the ssl root cert path (if the server is using a certificate that is not signed by a well known certificate-authority)
-wrapper.app.parameter.6=-rootCertFile
-wrapper.app.parameter.7=C:\Path\To\root-cert.pem
-</code></pre>
-<h3 id="if-youre-running-the-gocd-agent-via-a-batch-file"><a name="if-youre-running-the-gocd-agent-via-a-batch-file" class="plugin-anchor" href="#if-youre-running-the-gocd-agent-via-a-batch-file"><i class="fa fa-link" aria-hidden="true"></i></a>If you&apos;re running the GoCD agent via a batch file</h3>
-<p>Setup the system environment <code>AGENT_BOOTSTRAPPER_ARGS</code> before running the batch file. You may either <code>set</code> it from the command line, or if you&apos;d like to make the change permanent, you may choose to set it from the &quot;<strong>Advanced system settings</strong>&quot; dialog from &quot;<strong>Control Panel</strong>&quot;.</p>
-<pre><code class="lang-bash">C:\&gt; <span class="hljs-built_in">set</span> AGENT_BOOTSTRAPPER_ARGS=-rootCertFile C:\Path\To\root-cert.pem -sslVerificationMode FULL
-C:\&gt; agent.cmd
-</code></pre>
-<h2 id="linux"><a name="linux" class="plugin-anchor" href="#linux"><i class="fa fa-link" aria-hidden="true"></i></a>Linux</h2>
-<h3 id="if-youre-running-the-gocd-agent-as-a-service"><a name="if-youre-running-the-gocd-agent-as-a-service" class="plugin-anchor" href="#if-youre-running-the-gocd-agent-as-a-service"><i class="fa fa-link" aria-hidden="true"></i></a>If you&apos;re running the GoCD agent as a service</h3>
-<p>Edit the file <code>/etc/default/go-agent</code> and add the following lines to it</p>
-<pre><code class="lang-bash"><span class="hljs-comment"># /etc/default/go-agent</span>
-
-AGENT_BOOTSTRAPPER_ARGS=<span class="hljs-string">&quot;-rootCertFile /path/to/root-cert.pem -sslVerificationMode FULL&quot;</span>
-</code></pre>
-<h3 id="if-youre-running-the-gocd-agent-from-the-command-line"><a name="if-youre-running-the-gocd-agent-from-the-command-line" class="plugin-anchor" href="#if-youre-running-the-gocd-agent-from-the-command-line"><i class="fa fa-link" aria-hidden="true"></i></a>If you&apos;re running the GoCD agent from the command line</h3>
-<pre><code class="lang-bash">$ <span class="hljs-built_in">export</span> GO_SERVER_URL=<span class="hljs-string">&apos;https://ci.example.com:8154/go&apos;</span>
-$ <span class="hljs-built_in">export</span> AGENT_BOOTSTRAPPER_ARGS=<span class="hljs-string">&quot;-rootCertFile /path/to/root-cert.pem -sslVerificationMode FULL&quot;</span>
-$ ./agent.sh
-</code></pre>
+                                <h1 id="configuring-the-hsts-header"><a name="configuring-the-hsts-header" class="plugin-anchor" href="#configuring-the-hsts-header"><i class="fa fa-link" aria-hidden="true"></i></a>Configuring the HSTS header</h1>
+<p>The <code>Strict-Transport-Security</code> (HSTS) header can be enabled and configured using the following System Properties</p>
+<table>
+<thead>
+<tr>
+<th><em>Key</em></th>
+<th style="text-align:center"><em>Default value</em></th>
+<th><em>Description</em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>gocd.enable.hsts.header</code></td>
+<td style="text-align:center">false</td>
+<td>A boolean value indicating whether the HSTS header should be enabled</td>
+</tr>
+<tr>
+<td><code>gocd.hsts.header.max.age</code></td>
+<td style="text-align:center">31536000</td>
+<td>The <code>max-age</code> value of the header. Defaults to one year</td>
+</tr>
+<tr>
+<td><code>gocd.hsts.header.include.subdomains</code></td>
+<td style="text-align:center">false</td>
+<td>Whether the <code>include-subdomains</code> flag should be set on the header</td>
+</tr>
+<tr>
+<td><code>gocd.hsts.header.preload</code></td>
+<td style="text-align:center">false</td>
+<td>Whether the <code>preload</code> flag should be set on the header</td>
+</tr>
+</tbody>
+</table>
 
                                 
                                 </section>
@@ -2146,12 +2108,12 @@ $ ./agent.sh
 
             
                 
-                <a href="custom_server_certificate.html" class="navigation navigation-prev " aria-label="Previous page: Change SSL Certificates">
+                <a href="end_to_end_transport_security.html" class="navigation navigation-prev " aria-label="Previous page: End to end transport security">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="configuring_hsts_header.html" class="navigation navigation-next " aria-label="Next page: Configuring HSTS Header">
+                <a href="../performance_tuning.html" class="navigation navigation-next " aria-label="Next page: Performance Tuning">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -2162,7 +2124,7 @@ $ ./agent.sh
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"End to end transport security","level":"1.4.8.3","depth":3,"next":{"title":"Configuring HSTS Header","level":"1.4.8.4","depth":3,"path":"installation/ssl_tls/configuring_hsts_header.md","ref":"installation/ssl_tls/configuring_hsts_header.md","articles":[]},"previous":{"title":"Change SSL Certificates","level":"1.4.8.2","depth":3,"path":"installation/ssl_tls/custom_server_certificate.md","ref":"installation/ssl_tls/custom_server_certificate.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/ssl_tls/end_to_end_transport_security.md","mtime":"2018-12-19T09:53:16.248Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-19T09:54:15.365Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Configuring HSTS Header","level":"1.4.8.4","depth":3,"next":{"title":"Performance Tuning","level":"1.4.9","depth":2,"path":"installation/performance_tuning.md","ref":"installation/performance_tuning.md","articles":[]},"previous":{"title":"End to end transport security","level":"1.4.8.3","depth":3,"path":"installation/ssl_tls/end_to_end_transport_security.md","ref":"installation/ssl_tls/end_to_end_transport_security.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"installation/ssl_tls/configuring_hsts_header.md","mtime":"2018-12-19T09:53:16.248Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2018-12-19T09:54:15.365Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

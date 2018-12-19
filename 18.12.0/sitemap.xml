@@ -34,6 +34,7 @@
 <url> <loc>https://docs.gocd.org/current/installation/ssl_tls/setting_up_ciphers.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/installation/ssl_tls/custom_server_certificate.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/installation/ssl_tls/end_to_end_transport_security.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://docs.gocd.org/current/installation/ssl_tls/configuring_hsts_header.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/installation/performance_tuning.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/installation/hardware_specifications.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/installation/troubleshooting.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
