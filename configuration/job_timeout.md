@@ -14,6 +14,8 @@ GoCD can be configured to automatically cancel jobs that do not generate any con
 
 When a job is timed out, the onCancel task for the job will be triggered.
 
+*Note: GoCD will use this property and cancel jobs that are in `Building` state only.*
+
 ## Configuration
 
 ### Specify default job timeout at the server level
