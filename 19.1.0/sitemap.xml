@@ -133,6 +133,7 @@
 <url> <loc>https://docs.gocd.org/current/faq/artifact_integrity.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/faq/notifications_page.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/faq/admin_out_of_disk_space.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://docs.gocd.org/current/faq/docker_container_ssh_keys.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/beta/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/beta/comment_on_pipeline_run.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/release_history/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
