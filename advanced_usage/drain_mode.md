@@ -30,8 +30,8 @@ Drain mode is a maintenance mode which can be utilized by the GoCD system admini
   - Indicate when a server is safe to restart or upgrade (finished draining).
 
 ### In Progress Drain Mode:
-After enabling drain mode, several sub-systems of GoCD might still be in progress. Example: scheduled jobs, building jobs, material updates, etc. 
-In such cases, GoCD Administrators can choose to cancel building, scheduled jobs or wait for its completion.
+After initiating drain mode, several sub-systems of GoCD might still be in progress. Example: scheduled jobs, building jobs, material updates, etc. 
+In such cases, GoCD Administrators can choose to cancel building, scheduled jobs or wait for there completion.
   
 Cancelling in-progress material updates might cause repository corruption due to partial clone and have side effects on pipeline scheduling. 
 Hence, GoCD does not allow cancellation of MDUs even during drain mode. GoCD administrators should wait until all material updates are completed.
