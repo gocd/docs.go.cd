@@ -44,7 +44,13 @@ Bitbucket: https://confluence.atlassian.com/bitbucket/set-up-an-ssh-key-72813807
 Gitlab: https://docs.gitlab.com/ee/gitlab-basics/create-your-ssh-keys.html
 
 - Once the public key has been added to your account, try accessing a private repository by doing `git clone` on the private repository using the SSH protocol. Most SCMs provide the command to clone with SSH when you access the repository on the browser.
-A prompt appears when you execute the git clone command for the first time. Choose yes and continue with the cloning. This will create a file called `known_hosts` in `/home/go/.ssh` .
+A prompt appears when you execute the git clone command for the first time. Choose yes and continue with the cloning. This will create a file called `known_hosts` in `/home/go/.ssh` . Alternatively use the `ssh-keyscan` command to create `known_hosts`.
+
+```bash
+ssh-keyscan [host] > /home/go/.ssh/known_hosts
+```
+
+where [host] can be github.com, bitbucket.com, gitlab.com etc.
 
 - The ownership and permissions of files in `/home/go/.ssh` is:
 ```bash
