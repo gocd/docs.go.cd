@@ -93,6 +93,7 @@ This is the summary of user documentation.
     * [Config Repository](advanced_usage/config_repo.md)
     * [Other Config Options](advanced_usage/other_config_options.md)
     * [Agent Health Check API](advanced_usage/agent-health-check-api.md)
+    * [Drain Mode](advanced_usage/drain_mode.md)
 * [Integrating GoCD With Other Tools](integration/index.md)
 * [Extension Points Of GoCD](extension_points/index.md)
     * [Plugin User Guide](extension_points/plugin_user_guide.md)
