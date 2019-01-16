@@ -18,7 +18,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
     ![](../../resources/images/gocd-helm-chart/pipeline_wizard_deploy_pipeline.png)
 
-3. Specify the git material with URL `https://github.com/gocd-demo/node-bulletin-board.git`. The deploy scripts are present in the same repository as the application source.
+3. Specify a git material with URL `https://github.com/gocd-demo/node-bulletin-board.git`. The deploy scripts are present in the same repository as the application source.
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_material.png)
 
@@ -28,7 +28,7 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
 5. Create the initial job `deploy_to_cluster`. The initial task argument is
 
-    `PLUGIN_FILENAME=cd.go.artifact.docker.registry.json ./create_json.sh`
+    `./app-deployment.sh`
 
     ![](../../resources/images/gocd-helm-chart/deploy_add_job.png)
 
@@ -54,23 +54,24 @@ In this section, we’ll learn to design a deployment pipeline to deploy to Kube
 
     ![](../../resources/images/gocd-helm-chart/env_vars_deploy.png)
     
-8. Configure a `Fetch Artifact Task` to fetch the plugin json file. This is the file that is present in the upstream `build_and_publish_image` which stores the information about the image that's been published.
-    
+8. Configure a `Fetch Artifact Task` to fetch the docker image name. The docker image is the artifact that was published in upstream `build_and_publish_image`.
+
+    Choose Artifact Type `External`
+
     Specify the pipeline as `build_and_publish_image/test_application`.
 
     Specify the stage as `build_and_publish_image`.
 
     Specify the job as `build_and_publish_image`.
 
-    Specify the source as `pluggable-artifact-metadata/cd.go.artifact.docker.registry.json`
+    Specify the artifact id configured in `build_and_publish_image`. In the [earlier](creating_a_build_pipeline.md#publish-your-application-image-to-docker-hub) section, we configured the artifact id as `bulletin-board`.
 
-    Check the box that indicates `Source is a file (not a directory)`.
+    When the plugin view appears for `Artifact plugin for docker`, check `Skip Image Pulling`. We want to reference the image in our script to deploy onto the Kubernetes cluster, but we do not want to pull the image on the agent itself.
 
-    ![](../../resources/images/gocd-helm-chart/deploy_fetch_task.png)
+    ![](../../resources/images/gocd-helm-chart/deploy_fetch_task_1.png)
 
-9. Configure a task to call the `./app-deployment.sh` script.
+    ![](../../resources/images/gocd-helm-chart/deploy_fetch_task_2.png)
 
-    ![](../../resources/images/gocd-helm-chart/deploy_add_task.png)
     
 10.  Reorder the tasks as shown as we want to first fetch the image before running any tests.
 
