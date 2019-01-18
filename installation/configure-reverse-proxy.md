@@ -78,6 +78,10 @@ NameVirtualHost nnn.nnn.nnn.nnn:80
 ## GoCD with NGINX
 
 ```nginx
+upstream gocd {
+  server localhost:8153;
+}
+
 server {
   # Redirect any http requests to https
   listen         80;
@@ -104,8 +108,9 @@ server {
     proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header        X-Forwarded-Proto $scheme;
     proxy_http_version      1.1;
-    proxy_set_header 	    Upgrade $http_upgrade;
-    proxy_set_header 	    Connection $connection_upgrade;
+    proxy_set_header 	      Upgrade $http_upgrade;
+    proxy_set_header 	      Connection $connection_upgrade;
+    proxy_pass              http://gocd;
   }
 }
 ```
