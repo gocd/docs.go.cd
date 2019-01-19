@@ -2085,14 +2085,14 @@
 <li><p>Specify the pipeline name as <code>deploy_app_to_cluster</code>.</p>
 <p> <img src="../../resources/images/gocd-helm-chart/pipeline_wizard_deploy_pipeline.png" alt=""></p>
 </li>
-<li><p>Specify the git material with URL <code>https://github.com/gocd-demo/node-bulletin-board.git</code>. The deploy scripts are present in the same repository as the application source.</p>
+<li><p>Specify a git material with URL <code>https://github.com/gocd-demo/node-bulletin-board.git</code>. The deploy scripts are present in the same repository as the application source.</p>
 <p> <img src="../../resources/images/gocd-helm-chart/deploy_add_material.png" alt=""></p>
 </li>
 <li><p>Create a stage named <code>deploy_to_cluster</code>.</p>
 <p> <img src="../../resources/images/gocd-helm-chart/deploy_add_stage.png" alt=""></p>
 </li>
 <li><p>Create the initial job <code>deploy_to_cluster</code>. The initial task argument is</p>
-<p> <code>PLUGIN_FILENAME=cd.go.artifact.docker.registry.json ./create_json.sh</code></p>
+<p> <code>./app-deployment.sh</code></p>
 <p> <img src="../../resources/images/gocd-helm-chart/deploy_add_job.png" alt=""></p>
 </li>
 <li><p>Introduce the pipeline <code>test_application</code> as a material called <code>test</code>. </p>
@@ -2111,17 +2111,18 @@
 </code></pre>
 <p> <img src="../../resources/images/gocd-helm-chart/env_vars_deploy.png" alt=""></p>
 </li>
-<li><p>Configure a <code>Fetch Artifact Task</code> to fetch the plugin json file. This is the file that is present in the upstream <code>build_and_publish_image</code> which stores the information about the image that&apos;s been published.</p>
+<li><p>Configure a <code>Fetch Artifact Task</code> to fetch the docker image name. The docker image is the artifact that was published in upstream <code>build_and_publish_image</code>.</p>
+<p> Choose Artifact Type <code>External</code></p>
 <p> Specify the pipeline as <code>build_and_publish_image/test_application</code>.</p>
 <p> Specify the stage as <code>build_and_publish_image</code>.</p>
 <p> Specify the job as <code>build_and_publish_image</code>.</p>
-<p> Specify the source as <code>pluggable-artifact-metadata/cd.go.artifact.docker.registry.json</code></p>
-<p> Check the box that indicates <code>Source is a file (not a directory)</code>.</p>
-<p> <img src="../../resources/images/gocd-helm-chart/deploy_fetch_task.png" alt=""></p>
+<p> Specify the artifact id configured in <code>build_and_publish_image</code>. In the <a href="creating_a_build_pipeline.html#publish-your-application-image-to-docker-hub">earlier</a> section, we configured the artifact id as <code>bulletin-board</code>.</p>
+<p> When the plugin view appears for <code>Artifact plugin for docker</code>, check <code>Skip Image Pulling</code>. We want to reference the image in our script to deploy onto the Kubernetes cluster, but we do not want to pull the image on the agent itself.</p>
+<p> <img src="../../resources/images/gocd-helm-chart/deploy_fetch_task_1.png" alt=""></p>
+<p> <img src="../../resources/images/gocd-helm-chart/deploy_fetch_task_2.png" alt=""></p>
 </li>
-<li><p>Configure a task to call the <code>./app-deployment.sh</code> script.</p>
-<p> <img src="../../resources/images/gocd-helm-chart/deploy_add_task.png" alt=""></p>
-</li>
+</ol>
+<ol>
 <li><p>Reorder the tasks as shown as we want to first fetch the image before running any tests.</p>
 <p><img src="../../resources/images/gocd-helm-chart/deploy_tasks.png" alt=""></p>
 </li>
@@ -2210,7 +2211,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.3","depth":3,"next":{"title":"Docker workflows","level":"1.9.3.4","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},"previous":{"title":"Create a pipeline to test the built application","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","mtime":"2019-01-15T18:31:02.253Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-15T18:32:01.368Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"description":"The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.","keywords":"gocd helm chart, cd pipeline","title":"Create a pipeline to deploy on Kubernetes","level":"1.9.3.3","depth":3,"next":{"title":"Docker workflows","level":"1.9.3.4","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md","articles":[]},"previous":{"title":"Create a pipeline to test the built application","level":"1.9.3.2","depth":3,"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.md","ref":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md","mtime":"2019-01-19T03:43:35.059Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-19T03:44:33.525Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
