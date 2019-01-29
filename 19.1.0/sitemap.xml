@@ -92,7 +92,7 @@
 <url> <loc>https://docs.gocd.org/current/advanced_usage/config_repo.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/advanced_usage/other_config_options.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/advanced_usage/agent-health-check-api.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
-<url> <loc>https://docs.gocd.org/current/advanced_usage/drain_mode.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
+<url> <loc>https://docs.gocd.org/current/advanced_usage/maintenance_mode.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/integration/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/extension_points/</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>
 <url> <loc>https://docs.gocd.org/current/extension_points/plugin_user_guide.html</loc> <changefreq>weekly</changefreq> <priority>0.5</priority> </url>

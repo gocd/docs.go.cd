@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-        <title>Drain Mode · GoCD User Documentation</title>
+        <title>Maintenance Mode · GoCD User Documentation</title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.">
         <meta name="generator" content="GitBook 3.2.2">
@@ -44,7 +44,7 @@
 
         
 <meta content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" name="keywords" />
-    <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/drain_mode.html"/>
+    <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/maintenance_mode.html"/>
     <script async src="resources/javascripts/_gdpr-banner.js" type="text/javascript"></script>
 
     </head>
@@ -1326,12 +1326,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.19" data-path="drain_mode.html">
+        <li class="chapter active" data-level="1.6.19" data-path="maintenance_mode.html">
             
-                <a href="drain_mode.html">
+                <a href="maintenance_mode.html">
             
                     
-                    Drain Mode
+                    Maintenance Mode
             
                 </a>
             
@@ -2059,7 +2059,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href=".." >Drain Mode</a>
+        <a href=".." >Maintenance Mode</a>
     </h1>
 </div>
 
@@ -2074,12 +2074,12 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="drain-mode"><a name="drain-mode" class="plugin-anchor" href="#drain-mode"><i class="fa fa-link" aria-hidden="true"></i></a><strong>Drain Mode</strong></h1>
+                                <h1 id="maintenance-mode"><a name="maintenance-mode" class="plugin-anchor" href="#maintenance-mode"><i class="fa fa-link" aria-hidden="true"></i></a><strong>Maintenance Mode</strong></h1>
 <p><strong>Note: </strong>Using this feature requires atleast version <code>19.1.0</code>  of the GoCD server.</p>
-<p>The GoCD system includes a lot of internal subsystems and processes, which continuously do work. 
+<p>The GoCD system includes a lot of internal subsystems and processes, which continuously do work.
 Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.</p>
-<p>Drain mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up.</p>
-<h3 id="the-drain-mode-implementation"><a name="the-drain-mode-implementation" class="plugin-anchor" href="#the-drain-mode-implementation"><i class="fa fa-link" aria-hidden="true"></i></a>The drain mode implementation:</h3>
+<p>Maintenance mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up.</p>
+<h3 id="the-maintenance-mode-implementation"><a name="the-maintenance-mode-implementation" class="plugin-anchor" href="#the-maintenance-mode-implementation"><i class="fa fa-link" aria-hidden="true"></i></a>The maintenance mode implementation:</h3>
 <ul>
 <li>Stops the material subsystem so that no new materials are polled.</li>
 <li>Waits for currently polling materials to finish.</li>
@@ -2097,29 +2097,29 @@ Some examples include the material subsystem which takes care of polling for mat
 </li>
 <li><p>Allows all agents currently busy running jobs to finish.</p>
 </li>
-<li><p>Provides a single location to put GoCD into or bring it out of drain mode.</p>
+<li><p>Provides a single location to put GoCD into or bring it out of maintenance mode.</p>
 </li>
-<li>Provides a single location to see the status of all the subsystems, when in drain mode.</li>
-<li>Provides an API call to put GoCD into or bring it out of drain mode.</li>
+<li>Provides a single location to see the status of all the subsystems, when in maintenance mode.</li>
+<li>Provides an API call to put GoCD into or bring it out of maintenance mode.</li>
 <li>Shows state of materials which are being polled currently.</li>
 <li>Shows state of agents which are currently running jobs.</li>
-<li>Shows a banner near the footer of all pages which tells everyone that the server is in drain mode.</li>
-<li>Indicate when a server is safe to restart or upgrade (finished draining).</li>
+<li>Shows a banner near the footer of all pages which tells everyone that the server is in maintenance mode.</li>
+<li>Indicate when a server is safe to restart or upgrade (finished maintenanceing).</li>
 </ul>
-<h3 id="in-progress-drain-mode"><a name="in-progress-drain-mode" class="plugin-anchor" href="#in-progress-drain-mode"><i class="fa fa-link" aria-hidden="true"></i></a>In Progress Drain Mode:</h3>
-<p>After initiating drain mode, several sub-systems of GoCD might still be in progress. Example: scheduled jobs, building jobs, material updates, etc. 
+<h3 id="in-progress-maintenance-mode"><a name="in-progress-maintenance-mode" class="plugin-anchor" href="#in-progress-maintenance-mode"><i class="fa fa-link" aria-hidden="true"></i></a>In Progress Maintenance Mode:</h3>
+<p>After initiating maintenance mode, several sub-systems of GoCD might still be in progress. Example: scheduled jobs, building jobs, material updates, etc.
 In such cases, GoCD Administrators can choose to cancel building, scheduled jobs or wait for there completion.</p>
-<p>Cancelling in-progress material updates might cause repository corruption due to partial clone and have side effects on pipeline scheduling. 
-Hence, GoCD does not allow cancellation of MDUs even during drain mode. GoCD administrators should wait until all material updates are completed.</p>
-<p><img src="../resources/images/advanced_usage/drain_mode/in_progress_drain_mode.png" alt="">
-<img src="../resources/images/advanced_usage/drain_mode/running_stages.png" alt="">
-<img src="../resources/images/advanced_usage/drain_mode/running_mdus.png" alt="">
-<img src="../resources/images/advanced_usage/drain_mode/scheduled_stages.png" alt=""></p>
-<h3 id="drain-mode-completion"><a name="drain-mode-completion" class="plugin-anchor" href="#drain-mode-completion"><i class="fa fa-link" aria-hidden="true"></i></a>Drain Mode Completion:</h3>
-<p>After all the sub-systems of GoCD are stopped during drain mode, GoCD server can be considered completely drained and is ready for a restart or an upgrade. </p>
-<p><img src="../resources/images/advanced_usage/drain_mode/completed_drain_mode.png" alt=""></p>
-<p><strong>NOTE: </strong> <code>Upon a restart, the GoCD server will no longer be in drain mode and will start all subsystems.</code></p>
-<p>The <a href="https://api.gocd.org/current/#drain-mode" target="_blank">drain mode API</a> allows GoCD Administrators to enable, disable and monitor the server drain mode state.</p>
+<p>Cancelling in-progress material updates might cause repository corruption due to partial clone and have side effects on pipeline scheduling.
+Hence, GoCD does not allow cancellation of MDUs even during maintenance mode. GoCD administrators should wait until all material updates are completed.</p>
+<p><img src="../resources/images/advanced_usage/maintenance_mode/in_progress_maintenance_mode.png" alt="">
+<img src="../resources/images/advanced_usage/maintenance_mode/running_stages.png" alt="">
+<img src="../resources/images/advanced_usage/maintenance_mode/running_mdus.png" alt="">
+<img src="../resources/images/advanced_usage/maintenance_mode/scheduled_stages.png" alt=""></p>
+<h3 id="maintenance-mode-completion"><a name="maintenance-mode-completion" class="plugin-anchor" href="#maintenance-mode-completion"><i class="fa fa-link" aria-hidden="true"></i></a>Maintenance Mode Completion:</h3>
+<p>After all the sub-systems of GoCD are stopped during maintenance mode, GoCD server can be considered completely maintenanceed and is ready for a restart or an upgrade.</p>
+<p><img src="../resources/images/advanced_usage/maintenance_mode/completed_maintenance_mode.png" alt=""></p>
+<p><strong>NOTE: </strong> <code>Upon a restart, the GoCD server will no longer be in maintenance mode and will start all subsystems.</code></p>
+<p>The <a href="https://api.gocd.org/current/#maintenance-mode" target="_blank">maintenance mode API</a> allows GoCD Administrators to enable, disable and monitor the server maintenance mode state.</p>
 
                                 
                                 </section>
@@ -2163,7 +2163,7 @@ Hence, GoCD does not allow cancellation of MDUs even during drain mode. GoCD adm
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Drain Mode","level":"1.6.19","depth":2,"next":{"title":"Integrating GoCD With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"previous":{"title":"Agent Health Check API","level":"1.6.18","depth":2,"path":"advanced_usage/agent-health-check-api.md","ref":"advanced_usage/agent-health-check-api.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/drain_mode.md","mtime":"2019-01-25T19:13:23.481Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-25T19:14:26.009Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Maintenance Mode","level":"1.6.19","depth":2,"next":{"title":"Integrating GoCD With Other Tools","level":"1.7","depth":1,"path":"integration/index.md","ref":"integration/index.md","articles":[]},"previous":{"title":"Agent Health Check API","level":"1.6.18","depth":2,"path":"advanced_usage/agent-health-check-api.md","ref":"advanced_usage/agent-health-check-api.md","articles":[]},"dir":"ltr"},"config":{"plugins":["highlight@2.0.3","anchors@0.7.1","ga@1.0.1","include@0.1.0","toc@0.0.1","redirect@0.0.7","edit-link@2.0.2","sitemap-general@0.1.1"],"styles":{"website":"resources/stylesheets/website.css"},"pluginsConfig":{"include":{},"toc":{"addClass":true,"className":"toc"},"search":{},"lunr":{"maxIndexSize":1000000,"ignoreSpecialCharacters":false},"sitemap-general":{"prefix":"https://docs.gocd.org/current/"},"fontsettings":{"theme":"white","family":"sans","size":2},"highlight":{},"ga":{"configuration":{"allowLinker":true},"token":"UA-48357651-1"},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"redirect":{},"edit-link":{"label":"Edit This Page","base":"https://github.com/gocd/docs.go.cd/tree/master"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false},"anchors":{}},"currentBaseUrl":"https://docs.gocd.org/current","theme":"default","pdf":{"pageNumbers":false,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56},"toc":true},"structure":{"langs":"LANGS.md","readme":"INTRO.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"GoCD User Documentation","links":{"sidebar":{"Back to GoCD.org":"https://www.gocd.org","Contribute":"https://github.com/gocd/docs.go.cd/"},"sharing":{"google":"https://www.gocd.org","facebook":"https://www.gocd.org","twitter":"https://www.gocd.org","all":"https://www.gocd.org"}},"gitbook":"3.2.2","description":"Help documentation for GoCD."},"file":{"path":"advanced_usage/maintenance_mode.md","mtime":"2019-01-29T05:24:18.998Z","type":"markdown"},"gitbook":{"version":"3.2.2","time":"2019-01-29T05:25:22.502Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
