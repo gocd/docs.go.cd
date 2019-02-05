@@ -19,8 +19,6 @@ Plugins allow users to extend the functionality of GoCD. Each plugin is assigned
 
 You need access to the GoCD server machine to be able to install/uninstall a plugin. To install a plugin, drop the plugin jar under the external plugin directory ( `<server installation directory>/plugins/external` ) and restart GoCD server. To uninstall a plugin, remove the plugin jar from the external plugin directory ( `<server installation directory>/plugins/external` ) and restart GoCD server.
 
-You may also use [this](../beta/plugin_upload.html) beta feature to quick load plugins without restarting GoCD server.
-
 ## Plugins Tab
 
 Plugins tab can be found under GoCD server Administration. Plugins tab shows all the plugins that have been loaded currently along with its details and status. If a plugin is marked invalid or incompatible, the reasons for the same would be reported here.
