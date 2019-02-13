@@ -1,5 +1,5 @@
 desc "publish the documentation"
-task :publish => :build do
+task :publish => :compile do
   def env(key, default=nil)
     value = ENV[key].to_s.strip
     if default
@@ -22,9 +22,12 @@ task :publish => :build do
   sh("git clone #{repo_url} build --branch gh-pages --depth 1 --quiet")
   cd "build" do
     rm_rf GOCD_VERSION
-    cp_r '../_book', GOCD_VERSION
-    sh("git add --all .")
-    sh("git commit -m 'Updating site to latest commit (#{git_short_sha})'")
-    sh("git push")
+    cp_r '../public', GOCD_VERSION
+    response = %x[git status]
+    unless response.include?('nothing to commit')
+      sh("git add --all .")
+      sh("git commit -m 'Updating site to latest commit (#{git_short_sha})'")
+      sh("git push")
+    end
   end
 end

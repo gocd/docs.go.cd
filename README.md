@@ -1,48 +1,52 @@
 # Documentation for GoCD - Continuous Delivery server
-
-This repository contains the user documentation for [GoCD](https://www.gocd.org/).
-
-## Contributing
-
-### Install and configure [gitbook-cli](https://github.com/GitbookIO/gitbook-cli)
-
-```
-$ yarn install
-```
-
-### Serve the documentation locally
-
-```
-$ yarn run init-gitbook
-$ yarn run serve
-```
-
-Point your browser to [http://localhost:4000/](http://localhost:4000/)
-
-### Generating the static website
-
-```
-$ yarn run build
-```
-
-### Generating the documentation in other formats
-
-```
-$ gitbook [pdf|epub|mobi] build [output]
-```
-
-### Publishing changes
-
-The contents of the `_book` directory needs to be pushed out to the *[gh-pages](https://github.com/gocd/docs.go.cd/tree/gh-pages)* branch of the repository.
+This repository contains the source code for the user documentation for [GoCD](https://www.gocd.org/). The documentation is available at https://docs.gocd.org/current/.
 
 ## Contributing
 
-We encourage you to contribute to Go. For information on contributing to this project, please see our [contributor's guide](https://www.gocd.org/contribute).
-A lot of useful information like links to user documentation, design documentation, mailing lists etc. can be found in the [resources](https://www.gocd.org/community/resources.html) section.
+We encourage you to contribute to GoCD. For information on contributing to GoCD, please see our [contributor's guide](https://www.gocd.org/contribute). A lot of useful information like links to user documentation, design documentation, mailing lists etc. can be found in the [resources](https://www.gocd.org/community/resources.html) section.
+
+To make changes to GoCD's documentation, you can do this:
+
+1. Install all dependencies
+
+    The dependencies for building the documentation are:
+  
+    - nodejs (known to work with v8.9.4)
+    - yarn (known to work with 1.13.0)
+    - Ruby (known to work with 2.3.6)
+    - Bundler gem (known to work with 1.17.2)
+    
+    Then run this to get all the dependent gems:
+  
+    ```shell
+    bundle install --jobs 4 --path .bundle --clean
+    ```
+
+2. Run the documentation on the local server (defaults to http://localhost:1313)
+
+    ```shell
+    yarn run serve
+    ```
+
+### Publishing to GitHub pages
+
+The contents of the `public` directory needs to be pushed out to the *[gh-pages](https://github.com/gocd/docs.go.cd/tree/gh-pages)* branch of the repository.
+
+```shell
+bundle exec rake publish
+```
+
+Check the latest changes deployed [here](https://gocd.github.io/docs.go.cd/).
+
+#### To run hugo with different arguments
+
+```shell
+yarn run hugo [arguments]
+```
 
 ### Releasing a new version of the documentation
 
-Assuming current stable is `17.4.0`, you are about to release `17.5.0` and the next version is going to be `17.6.0`, you would execute —
+Assuming current stable is `17.4.0`, you are about to release `17.5.0` and the next version is going to be `17.6.0`, you would execute -
 
 ```
 CURRENT_VERSION=17.4.0 VERSION_TO_RELEASE=17.5.0  NEXT_VERSION=17.6.0 REMOTE_NAME=upstream rake bump_version
@@ -51,7 +55,7 @@ CURRENT_VERSION=17.4.0 VERSION_TO_RELEASE=17.5.0  NEXT_VERSION=17.6.0 REMOTE_NAM
 ## License
 
 ```plain
-Copyright 2018 ThoughtWorks, Inc.
+Copyright 2019 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
