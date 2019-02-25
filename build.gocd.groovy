@@ -73,6 +73,11 @@ GoCD.script { GoCD buildScript ->
           shallowClone = true
         }
       }
+      secureEnvironmentVariables = [
+          S3_BUCKET: 'AES:mL2zKhw4ubTrkW6VpSeyzA==:18KxKvOYTeRz1Q66Ku4wR5OudnR/fg242hnV9U/xluvkgXZfJKilC/fTrAbeEvg1',
+          AWS_ACCESS_KEY_ID: 'AES:Fg2eF3OOL7HT/9i44QRkcQ==:LYBNfjX8iKms0SY134E9OYmJgnUmtoi1YQF2v02Q7ig=',
+          AWS_SECRET_ACCESS_KEY: 'AES:xDx9e28nKpnGNBi1FIsVLw==:LBfSbRxTzuA3zeatXKUkI6B1ytDQJ/5X+foL4pZPTKBCg/eXuQIk6jMXZaA5ivhz'
+      ]
 
       trackingTool {
         link = 'https://github.com/gocd/docs.go.cd/issues/${ID}'
