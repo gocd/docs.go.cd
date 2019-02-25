@@ -1,0 +1,32 @@
+baseURL = ""
+languageCode = "en-us"
+title = "GoCD User Documentation"
+uglyUrls = true
+theme = "hugo-book"
+relativeURLs = true
+googleAnalytics = "UA-48357651-1"
+pygmentsCodefences = true
+pygmentsStyle = "emacs"
+
+[params]
+  # (Optional, default true) Show or hide table of contents globally
+  # You can also specify this parameter per page in front matter
+  BookShowToC = true
+  BookEnableJS = true
+
+  # (Optional, default none) Set leaf bundle to render as side menu
+  # When not specified file structure and weights will be used
+  BookMenuBundle = "/menu"
+
+  # (Optional, default docs) Specify section of content to render as menu
+  # You can also set value to "*" to render all sections to menu
+  BookSection = "*"
+  currentBaseURL = "http://localhost:1313/current"
+
+  # Set source repository location.
+  # Used for 'Last Modified' and 'Edit this page' links.
+  BookRepo = "https://github.com/gocd/docs.go.cd"
+
+  # Enable "Edit this page" links for 'doc' page type.
+  # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
+  BookEditPath = "edit/master/content"

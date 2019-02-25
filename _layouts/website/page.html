@@ -1,9 +1,0 @@
-{% extends template.self %}
-
-{% block description %}{{ page.description | default("GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation.") }}{% endblock %}
-
-{% block head %}
-<meta content="{{ page.keywords|default("continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques") }}" name="keywords" />
-    <link rel="canonical" href="{{ config.currentBaseUrl }}/{{file.path | replace('index.html.md','') | replace('INTRO.md','') | replace('README.md','') | replace('readme.md','') | replace('.md','.html') | replace('.adoc','.html')}}"/>
-    <script async src="resources/javascripts/_gdpr-banner.js" type="text/javascript"></script>
-{% endblock %}

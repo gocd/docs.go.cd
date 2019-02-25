@@ -1,0 +1,16 @@
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{- template "title" . }} | {{ .Site.Title -}}</title>
+
+<meta name="description" content="{{.Params.description | default "GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation." }}"/>
+<meta name="keywords" content="{{ .Params.keywords | default "continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" }}"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="canonical" href="{{ .Site.Params.CurrentBaseURL }}/{{ .File.Path | replaceRE "_index.md" "" | replaceRE "index.html.md" "" | replaceRE "_index.html" "" | replaceRE "README.md" "" |  replaceRE "readme.md" "" |  replaceRE ".md" ".html" |  replaceRE ".adoc" ".html" }}"/>
+<script src="{{ "javascripts/_gdpr-banner.js" | relURL }}" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+<link rel="stylesheet" href="{{ "normalize.min.css" | relURL }}"/>
+<link rel="stylesheet" href="{{ "stylesheets/website.css" | relURL }}"/>
+{{ $styles := resources.Get "book.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}"/>
+{{ template "_internal/google_analytics_async.html" . }}

@@ -1,0 +1,9 @@
+[params]
+  currentBaseURL = "https://docs.gocd.org/current"
+  # Set source repository location.
+  # Used for 'Last Modified' and 'Edit this page' links.
+  BookRepo = "https://github.com/gocd/docs.go.cd"
+
+  # Enable "Edit this page" links for 'doc' page type.
+  # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
+  BookEditPath = "edit/master/content"

@@ -1,6 +1,10 @@
 source 'https://rubygems.org'
 
-gem 'aws-sdk'
+gem 'rake'
+gem 'nokogiri'
+gem 'html-proofer'
+gem 'htmlentities'
+gem 'aws-sdk-s3'
+gem 'aws-sdk-s3control'
 gem 'parallel'
 gem 'mime-types'
-gem 'rake', '~> 10.4.2'

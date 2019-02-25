@@ -1,9 +1,9 @@
-.DS_Store
-.idea/
 *.iml
-*.ipr
-*.iws
-_book/*
-node_modules/
-.bundle/
-vendor/bundle/
+.bundle
+.DS_Store
+.idea
+bin
+build
+node_modules
+public
+resources
