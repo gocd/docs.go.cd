@@ -12,15 +12,6 @@
     
     <item>
       <title></title>
-      <link>/extension_points/notification_extension.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/extension_points/notification_extension.html</guid>
-      <description>!REDIRECT https://plugin-api.gocd.org/current/notifications</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/faq/dev_use_current_revision_in_build.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
