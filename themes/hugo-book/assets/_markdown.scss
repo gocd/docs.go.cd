@@ -106,17 +106,3 @@ $block-border-radius: 0.15rem;
     -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
   }
 }
-
-.book-menu::after {  
-  content: '';
-  position: fixed;
-  height: 40px;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  background: linear-gradient(to top, rgba(255, 255 , 255, 1) 0%, rgba(255, 255, 255, 0) 100%);
-  @media (min-width: 759px){
-    width: 22%;
-  }
-  display: none;
-}
