@@ -12,24 +12,6 @@
     
     <item>
       <title></title>
-      <link>/faq/dev_use_current_revision_in_build.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/dev_use_current_revision_in_build.html</guid>
-      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/faq/environment_variables.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/environment_variables.html</guid>
-      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/installation/configure_proxy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -1268,6 +1250,15 @@ Windows The first step is to disable the GoCD agent service. To do this:
       <guid>/installation/upgrading_go.html</guid>
       <description>Upgrading GoCD To upgrade from a previous version of GoCD, it is only necessary to upgrade the Server. It is not necessary to stop or backup the GoCD Agents. Agents will automatically update to the correct version of GoCD.
 Before you start Since Cruise 1.1 (legacy version of GoCD), we do not include a bundled version of the Subversion version control system. This means that if you use Subversion for your projects the server and all agents need to have Subversion installed and available on the system path.</description>
+    </item>
+    
+    <item>
+      <title>Using environment variables</title>
+      <link>/faq/environment_variables.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/environment_variables.html</guid>
+      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
     </item>
     
     <item>

@@ -11,24 +11,6 @@
     
     
     <item>
-      <title></title>
-      <link>/faq/dev_use_current_revision_in_build.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/dev_use_current_revision_in_build.html</guid>
-      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/faq/environment_variables.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/environment_variables.html</guid>
-      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
-    </item>
-    
-    <item>
       <title>Artifact integrity verification</title>
       <link>/faq/artifact_integrity.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -196,6 +178,15 @@ Example usage  Suppose we have configured GoCD to upload a flash video and html 
       <guid>/faq/tester_what_has_changed.html</guid>
       <description>What has changed in the current GOCD version? When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
 Example usage For this example, we&amp;rsquo;ll assume that there is a manual &amp;ldquo;UAT&amp;rdquo; stage will automatically deploy and install an executable on your user acceptance testing machine.</description>
+    </item>
+    
+    <item>
+      <title>Using environment variables</title>
+      <link>/faq/environment_variables.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/environment_variables.html</guid>
+      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
     </item>
     
     <item>

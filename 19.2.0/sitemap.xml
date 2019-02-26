@@ -19,14 +19,6 @@
   </url>
   
   <url>
-    <loc>/faq/dev_use_current_revision_in_build.html</loc>
-  </url>
-  
-  <url>
-    <loc>/faq/environment_variables.html</loc>
-  </url>
-  
-  <url>
     <loc>/gocd_on_kubernetes.html</loc>
   </url>
   
@@ -558,6 +550,10 @@
   
   <url>
     <loc>/installation/upgrading_go.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/environment_variables.html</loc>
   </url>
   
   <url>
