@@ -1,6 +1,8 @@
 ---
 headless: true
 ---
+{{< include file="search/search.html" markdown="false" >}}
+
 - [**Back to GoCD.org**](https://www.gocd.org/)
 - [**Contribute**](https://github.com/gocd/docs.go.cd/)
 _____

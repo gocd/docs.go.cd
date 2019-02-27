@@ -9,6 +9,7 @@ task :init do
 end
 
 task :run_hugo do
+  sh('yarn run index')
   sh('yarn run hugo')
 end
 

@@ -1,3 +1,12 @@
+{{ define "search-results" }}
+<div class="has-results">
+  <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+  Your query search resulted in no results.
+</div>
+{{ end }}
+
 {{ define "main" }}
 <article class="markdown">
     {{- .Content -}}

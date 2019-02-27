@@ -8,6 +8,8 @@
 <link rel="canonical" href="{{ .Site.Params.CurrentBaseURL }}/{{ .File.Path | replaceRE "_index.md" "" | replaceRE "index.html.md" "" | replaceRE "_index.html" "" | replaceRE "README.md" "" |  replaceRE "readme.md" "" |  replaceRE ".md" ".html" |  replaceRE ".adoc" ".html" }}"/>
 <script src="{{ "javascripts/_gdpr-banner.js" | relURL }}" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.5/lunr.min.js"></script>
+<script type="text/javascript" src="{{ "javascripts/search/search.js" | relURL }}"></script>
 
 <link rel="stylesheet" href="{{ "normalize.min.css" | relURL }}"/>
 <link rel="stylesheet" href="{{ "stylesheets/website.css" | relURL }}"/>

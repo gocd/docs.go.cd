@@ -17,6 +17,7 @@
 
     <div class="book-page">
       {{ partial "docs/mobile-header" . }}
+      {{ template "search-results" . }}
       {{ template "main" . }}
       {{ partial "docs/git-footer" . }}
     </div>
