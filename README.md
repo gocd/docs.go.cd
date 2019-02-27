@@ -27,6 +27,7 @@ To make changes to GoCD's documentation, you can do this:
     ```
 3. Run the documentation on the local server (defaults to http://localhost:1313)
     ```shell
+    yarn run index
     yarn run serve
     ```
 
@@ -39,6 +40,11 @@ bundle exec rake publish
 ```
 
 Check the latest changes deployed [here](https://gocd.github.io/docs.go.cd/).
+
+#### To build search index
+```shell
+yarn run index
+```
 
 #### To run hugo with different arguments
 

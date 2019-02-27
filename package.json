@@ -7,12 +7,17 @@
   "scripts": {
     "hugo" : "npx hugo",
     "local-build" : "npx hugo --environment=development",
-    "serve" : "npx hugo serve -D"
+    "serve" : "npx hugo serve -D",
+    "index" : "npx grunt lunr-index"
   },
   "author": "ThoughtWorks, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "hugo-bin": "^0.41.0"
+    "hugo-bin": "^0.41.0",
+    "grunt": "^1.0.3",
+    "string": "^3.3.3",
+    "yamljs": "^0.3.0",
+    "lunr": "^2.3.5"
   },
   "hugo-bin": {
     "buildTags": "extended"
