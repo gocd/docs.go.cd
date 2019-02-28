@@ -82,7 +82,19 @@ $block-border-radius: 0.15rem;
 
   img {
     max-width: 90%;
+    transition: all 0.25s;
+    cursor: zoom-in;
   }
+}
+
+.img-zoom {
+  transform: scale(2);
+  z-index: 10;
+  cursor: zoom-out !important;
+}
+
+.fixed-bar-zindex {
+  z-index: -1;
 }
 
 .book-page {
