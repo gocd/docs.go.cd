@@ -393,7 +393,7 @@ For example: to perform a backup once a night at 10pm on weekdays and call the `
 </server>
 ```
 
-Go uses the [Quartz](http://www.quartz-scheduler.org/documentation/quartz-2.x/quick-start) scheduler internally. For convenience we reproduce the [Quartz cron documentation](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger) here:
+Go uses the [Quartz](http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/quick-start-guide.html) scheduler internally. For convenience we reproduce the [Quartz cron documentation](http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/tutorials/tutorial-lesson-06.html) here:
 
 **Format**
 
@@ -1634,7 +1634,7 @@ For example to run a pipeline once a night at 10pm on weekdays:
 </pipeline>
 ```
 
-Go uses the [Quartz](http://www.quartz-scheduler.org/documentation/quartz-2.x/quick-start) scheduler internally. For convenience we reproduce the [Quartz cron documentation](http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger) here:
+Go uses the [Quartz](http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/quick-start-guide.html) scheduler internally. For convenience we reproduce the [Quartz cron documentation](http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/tutorials/tutorial-lesson-06.html) here:
 
 **Format**
 

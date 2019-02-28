@@ -21,9 +21,11 @@ To make changes to GoCD's documentation, you can do this:
     ```shell
     bundle install --jobs 4 --path .bundle --clean
     ```
-
-2. Run the documentation on the local server (defaults to http://localhost:1313)
-
+2. To install yarn dependencies
+    ```bash
+    yarn install
+    ```
+3. Run the documentation on the local server (defaults to http://localhost:1313)
     ```shell
     yarn run serve
     ```
