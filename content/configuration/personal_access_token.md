@@ -63,7 +63,12 @@ curl 'https://ci.example.com/go/api/pipelines/pipeline1/status' \
 !["revoked access token"][7]
 
 ## Usage instructions
-1. A token can be used to access GoCD APIs and `cctray.xml` by passing it in API header(`Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070`).
+1. A token can be used to access GoCD APIs and `cctray.xml` by passing it in API header.
+
+    ```bash
+    curl 'https://ci.example.com/go/api/pipelines/pipeline1/status' \
+           -H 'Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070'
+    ```
 2. A token can not be used to create or access any access token related API(s).
 3. Login using access token is not allowed through web UI. 
 4. Once token is revoke, the user will not be able to activate it again.
