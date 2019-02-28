@@ -71,7 +71,7 @@ curl 'https://ci.example.com/go/api/pipelines/pipeline1/status' \
     ```
 2. A token can not be used to create or access any access token related API(s).
 3. Login using access token is not allowed through web UI. 
-4. Once token is revoke, the user will not be able to activate it again.
+4. Once a token is revoked, the user will not be able to activate it again.
 5. All tokens belonging to a user will be revoked automatically as soon as the user is deleted from GoCD.
     - Note: These tokens will not be visible again even if the same user is added back to GoCD.
 
