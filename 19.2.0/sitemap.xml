@@ -420,6 +420,10 @@
   </url>
   
   <url>
+    <loc>/configuration/personal_access_token.html</loc>
+  </url>
+  
+  <url>
     <loc>/navigation/pipeline_activity_page.html</loc>
   </url>
   

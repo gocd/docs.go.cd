@@ -932,6 +932,18 @@ Scaling GoCD As the number of pipelines, agents and concurrent users increase in
     </item>
     
     <item>
+      <title>Personal access token</title>
+      <link>/configuration/personal_access_token.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/personal_access_token.html</guid>
+      <description>Personal Access Token From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
+ Before 19.2.0
+ curl &amp;#39;https://ci.example.com/go/api/pipelines/pipeline1/status&amp;#39; \  -u &amp;#39;username:password&amp;#39;  Going forward
+ curl &amp;#39;https://ci.example.com/go/api/pipelines/pipeline1/status&amp;#39; \  -H &amp;#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&amp;#39; Create a token  Login into your GoCD server.</description>
+    </item>
+    
+    <item>
       <title>Pipeline Activity</title>
       <link>/navigation/pipeline_activity_page.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

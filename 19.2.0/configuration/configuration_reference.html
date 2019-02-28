@@ -163,6 +163,7 @@ if (!doNotTrack) {
 <li><a href="../configuration/job_timeout.html">Job Timeout</a></li>
 <li><a href="../configuration/managing_users.html">Managing Users</a></li>
 <li><a href="../configuration/dev_authentication.html">Authentication</a></li>
+<li><a href="../configuration/personal_access_token.html">Personal Access Token</a></li>
 <li><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
 <li><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
 <li><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
@@ -806,7 +807,7 @@ if (!doNotTrack) {
   <span style="color:#008000;font-weight:bold">&lt;backup</span> <span style="color:#b44">schedule=</span><span style="color:#b44">&#34;0 0 22 ? * MON-FRI&#34;</span> <span style="color:#b44">postBackupScript=</span><span style="color:#b44">&#34;/usr/local/bin/upload-to-s3&#34;</span> <span style="color:#b44">emailOnSuccess=</span><span style="color:#b44">&#34;false&#34;</span> <span style="color:#b44">emailOnFailure=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span></code></pre></div>
-<p>Go uses the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/quick-start">Quartz</a> scheduler internally. For convenience we reproduce the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger">Quartz cron documentation</a> here:</p>
+<p>Go uses the <a href="http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/quick-start-guide.html">Quartz</a> scheduler internally. For convenience we reproduce the <a href="http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/tutorials/tutorial-lesson-06.html">Quartz cron documentation</a> here:</p>
 
 <p><strong>Format</strong></p>
 
@@ -2587,7 +2588,7 @@ box as a link. When you click it, Go will take you to the web page &lsquo;<a hre
   <span style="color:#008000;font-weight:bold">&lt;timer&gt;</span>0 0 22 ? * MON-FRI<span style="color:#008000;font-weight:bold">&lt;/timer&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<p>Go uses the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/quick-start">Quartz</a> scheduler internally. For convenience we reproduce the <a href="http://www.quartz-scheduler.org/documentation/quartz-2.x/tutorials/crontrigger">Quartz cron documentation</a> here:</p>
+<p>Go uses the <a href="http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/quick-start-guide.html">Quartz</a> scheduler internally. For convenience we reproduce the <a href="http://www.quartz-scheduler.org/documentation/2.4.0-SNAPSHOT/tutorials/tutorial-lesson-06.html">Quartz cron documentation</a> here:</p>
 
 <p><strong>Format</strong></p>
 

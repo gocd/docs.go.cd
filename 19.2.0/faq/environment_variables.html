@@ -163,6 +163,7 @@ if (!doNotTrack) {
 <li><a href="../configuration/job_timeout.html">Job Timeout</a></li>
 <li><a href="../configuration/managing_users.html">Managing Users</a></li>
 <li><a href="../configuration/dev_authentication.html">Authentication</a></li>
+<li><a href="../configuration/personal_access_token.html">Personal Access Token</a></li>
 <li><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
 <li><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
 <li><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
@@ -407,27 +408,131 @@ puts &quot;Environment variable ENV_VAR_1 has the value: #{ENV['ENV_VAR_1']}&quo
 <p>The examples above mention a custom environment variable set at the job level. However, there are some standard
 environment variables available during every job run, set by GoCD. They are:</p>
 
-<p>| Environment Variable | Description | Example contents
-|&mdash;&mdash;&mdash;&mdash;|&mdash;&mdash;&mdash;&ndash;|&mdash;&mdash;|&mdash;&mdash;&mdash;&mdash;-
-| GO_SERVER_URL | Base URL for the GoCD server (including the context root)|<code>https://127.0.0.1:8154/go</code>
-| GO_ENVIRONMENT_NAME | The name of the current environment. This is only set if the environment is specified. Otherwise the variable is not set. | <code>Development</code>
-| GO_PIPELINE_NAME | Name of the current pipeline being run | <code>main</code>
-| GO_PIPELINE_COUNTER | How many times the current pipeline has been run. | <code>2345</code>
-| GO_PIPELINE_LABEL | Label for the current pipeline. By default, this is set to the pipeline count (this can be set to a <a href="../configuration/build_labelling.html">custom pipeline label</a>) | <code>1.1.2345</code>
-| GO_STAGE_NAME | Name of the current stage being run | <code>dev</code>
-| GO_STAGE_COUNTER | How many times the current stage has been run | <code>1</code>
-| GO_JOB_NAME | Name of the current job being run | <code>linux-firefox</code>
-| GO_TRIGGER_USER | Username of the user that triggered the build. This will have one of three possible values<ul><li>anonymous - if there is no security</li><li>username of the user, who triggered the build</li><li>changes, if SCM changes auto-triggered the build</li><li>timer, if the pipeline is triggered at a scheduled time</li></ul> | <code>changes</code>
-| GO_DEPENDENCY_LABEL_${pipeline name} | The label of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>) | <code>1.0.3456</code>
-| GO_DEPENDENCY_LOCATOR_${pipeline name} | The locator of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>), which can be used to create the URL for RESTful API calls | <code>upstream/1.0.3456/dev/1</code>
-| GO_REVISION | The current source control revision being run (when using only one material) | <code>123</code>
-| GO_REVISION_${material name or dest} | If you are using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;). | <code>123</code>
-| GO_TO_REVISION | If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the latest revision (when using only one material). This is always same as GO_REVISION. | <code>123</code>
-| GO_TO_REVISION_${material name or dest} | If you are using more than one material in your pipeline, the &lsquo;to&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;). | <code>123</code>
-| GO_FROM_REVISION | If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the oldest revision (when using only one material) | <code>121</code>
-| GO_FROM_REVISION_${material name or dest} | If you are using more than one material in your pipeline, the &lsquo;from&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;). | <code>121</code>
-| GO_MATERIAL_HAS_CHANGED | A boolean value indicating if the material revision has changed since the previous run (when using only one material) | <code>true</code>
-| GO_MATERIAL_${material name or dest}_HAS_CHANGED | When more than one material is configured for your pipeline, a flag would be available for each of the materials available to denote if the corresponding material&rsquo;s revision has changed since the previous run. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;). | <code>false</code></p>
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Description</th>
+<th>Example contents</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>GO_SERVER_URL</td>
+<td>Base URL for the GoCD server (including the context root)</td>
+<td><code>https://127.0.0.1:8154/go</code></td>
+</tr>
+
+<tr>
+<td>GO_ENVIRONMENT_NAME</td>
+<td>The name of the current environment. This is only set if the environment is specified. Otherwise the variable is not set.</td>
+<td><code>Development</code></td>
+</tr>
+
+<tr>
+<td>GO_PIPELINE_NAME</td>
+<td>Name of the current pipeline being run</td>
+<td><code>main</code></td>
+</tr>
+
+<tr>
+<td>GO_PIPELINE_COUNTER</td>
+<td>How many times the current pipeline has been run.</td>
+<td><code>2345</code></td>
+</tr>
+
+<tr>
+<td>GO_PIPELINE_LABEL</td>
+<td>Label for the current pipeline. By default, this is set to the pipeline count (this can be set to a <a href="../configuration/build_labelling.html">custom pipeline label</a>)</td>
+<td><code>1.1.2345</code></td>
+</tr>
+
+<tr>
+<td>GO_STAGE_NAME</td>
+<td>Name of the current stage being run</td>
+<td><code>dev</code></td>
+</tr>
+
+<tr>
+<td>GO_STAGE_COUNTER</td>
+<td>How many times the current stage has been run</td>
+<td><code>1</code></td>
+</tr>
+
+<tr>
+<td>GO_JOB_NAME</td>
+<td>Name of the current job being run</td>
+<td><code>linux-firefox</code></td>
+</tr>
+
+<tr>
+<td>GO_TRIGGER_USER</td>
+<td>Username of the user that triggered the build. This will have one of three possible values<ul><li>anonymous - if there is no security</li><li>username of the user, who triggered the build</li><li>changes, if SCM changes auto-triggered the build</li><li>timer, if the pipeline is triggered at a scheduled time</li></ul></td>
+<td><code>changes</code></td>
+</tr>
+
+<tr>
+<td>GO_DEPENDENCY_LABEL_${pipeline name}</td>
+<td>The label of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>)</td>
+<td><code>1.0.3456</code></td>
+</tr>
+
+<tr>
+<td>GO_DEPENDENCY_LOCATOR_${pipeline name}</td>
+<td>The locator of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>), which can be used to create the URL for RESTful API calls</td>
+<td><code>upstream/1.0.3456/dev/1</code></td>
+</tr>
+
+<tr>
+<td>GO_REVISION</td>
+<td>The current source control revision being run (when using only one material)</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_REVISION_${material name or dest}</td>
+<td>If you are using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_TO_REVISION</td>
+<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the latest revision (when using only one material). This is always same as GO_REVISION.</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_TO_REVISION_${material name or dest}</td>
+<td>If you are using more than one material in your pipeline, the &lsquo;to&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_FROM_REVISION</td>
+<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the oldest revision (when using only one material)</td>
+<td><code>121</code></td>
+</tr>
+
+<tr>
+<td>GO_FROM_REVISION_${material name or dest}</td>
+<td>If you are using more than one material in your pipeline, the &lsquo;from&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>121</code></td>
+</tr>
+
+<tr>
+<td>GO_MATERIAL_HAS_CHANGED</td>
+<td>A boolean value indicating if the material revision has changed since the previous run (when using only one material)</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
+<td>GO_MATERIAL_${material name or dest}_HAS_CHANGED</td>
+<td>When more than one material is configured for your pipeline, a flag would be available for each of the materials available to denote if the corresponding material&rsquo;s revision has changed since the previous run. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
 
 <h2 id="use-current-revision-in-a-build">Use current revision in a build</h2>
 
