@@ -124,7 +124,7 @@ The examples above mention a custom environment variable set at the job level. H
 environment variables available during every job run, set by GoCD. They are:
 
 | Environment Variable | Description | Example contents
-|------------|-----------|------|-------------
+|----------------------|------|-------------
 | GO\_SERVER\_URL | Base URL for the GoCD server (including the context root)|`https://127.0.0.1:8154/go`
 | GO\_ENVIRONMENT\_NAME | The name of the current environment. This is only set if the environment is specified. Otherwise the variable is not set. | `Development`
 | GO\_PIPELINE\_NAME | Name of the current pipeline being run | `main`
