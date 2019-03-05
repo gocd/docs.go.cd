@@ -1,4 +1,4 @@
-require 'aws-sdk'
+require 'aws-sdk-s3'
 require 'json'
 require 'parallel'
 require 'mime/types'
@@ -20,11 +20,12 @@ task :upload_to_s3 do
   s3_client = Aws::S3::Client.new(region: 'us-east-1')
   last_key = nil
   objects = []
-  begin
+  new_objects = s3_client.list_objects(bucket: S3_BUCKET, marker: last_key)
+  while !new_objects.contents.empty?
     new_objects = s3_client.list_objects(bucket: S3_BUCKET, marker: last_key)
     objects += new_objects.contents
     last_key = objects.last.key
-  end while !new_objects.contents.empty?
+  end
 
   objects_from_s3 = {}
   objects.each do |object|
@@ -53,7 +54,7 @@ task :upload_to_s3 do
       end
     end
 
-    local_files = Dir.glob('**/*', File::FNM_DOTMATCH).reject {|fn| File.directory?(fn) }
+    local_files = Dir.glob('**{,/*/**}/*').uniq.reject {|fn| File.directory?(fn) }
     need_to_be_created = local_files.select {|object_to_be_created| !objects_from_s3.include?(object_to_be_created);}
 
     puts "Creating..."

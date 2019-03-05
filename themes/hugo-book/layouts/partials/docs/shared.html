@@ -1,0 +1,30 @@
+<!-- These templates contains some more complex logic and shared between partials-->
+{{ define "title" }}
+  {{- if .Pages -}}
+    {{ $sections := split (trim .Dir "/") "/" }}
+    {{ $title := index ($sections | last 1) 0 | humanize | title }}
+    {{- default $title .Title -}}
+  {{- else -}}
+    {{ $title :=  .File | humanize | title }}
+    {{- default $title .Title -}}
+  {{- end -}}
+{{ end }}
+
+{{ define "jsmenu" }}
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+{{ end }}

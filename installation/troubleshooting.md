@@ -1,1 +1,0 @@
-troubleshoot_installer.md
