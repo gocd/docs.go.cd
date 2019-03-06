@@ -6,12 +6,12 @@
 <head>
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Personal access token | GoCD User Documentation</title>
+<title>Access tokens | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD personal access token"/>
-<meta name="keywords" content="[GoCD configuration, authentication, access token, token, personal access token, security]"/>
+<meta name="keywords" content="[GoCD configuration, authentication, access token, token, personal access token, security, admin access token, manage access tokens]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="canonical" href="https://docs.gocd.org/current/configuration/personal_access_token.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/configuration/access_tokens.html"/>
 <script src="../javascripts/_gdpr-banner.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="../javascripts/_img-zoom.js" type="text/javascript"></script>
@@ -66,7 +66,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2f configuration\2fpersonal_access_token.html"] {
+  nav ul a[href$="\2f configuration\2f access_tokens.html"] {
   color: #004ed0;
   }
 </style>
@@ -163,7 +163,7 @@ if (!doNotTrack) {
 <li><a href="../configuration/job_timeout.html">Job Timeout</a></li>
 <li><a href="../configuration/managing_users.html">Managing Users</a></li>
 <li><a href="../configuration/dev_authentication.html">Authentication</a></li>
-<li><a href="../configuration/personal_access_token.html">Personal Access Token</a></li>
+<li><a href="../configuration/access_tokens.html">Access Tokens</a></li>
 <li><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
 <li><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
 <li><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
@@ -286,15 +286,20 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>Personal access token</strong>
+  <strong>Access tokens</strong>
 </header>
 
       
 <article class="markdown">
 
-<h1 id="personal-access-token">Personal Access Token</h1>
+<h1 id="access-tokens">Access Tokens</h1>
 
 <p>From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp; password) as a part of API request headers.</p>
+
+<h2 id="usage-instructions">Usage instructions</h2>
+
+<ol>
+<li><p>A token can be used to access GoCD APIs and <code>cctray.xml</code> by passing it in API header.</p>
 
 <blockquote>
 <p>Before 19.2.0</p>
@@ -305,13 +310,27 @@ if (!doNotTrack) {
 <p>Going forward</p>
 </blockquote>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>       -H <span style="color:#b44">&#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&#39;</span></code></pre></div>
+</span><span style="color:#b62;font-weight:bold"></span>       -H <span style="color:#b44">&#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&#39;</span></code></pre></div></li>
+
+<li><p>A token can not be used to create or access any access token related API(s).</p></li>
+
+<li><p>Login using access token is not allowed through web UI.</p></li>
+
+<li><p>Once a token is revoked, the user will not be able to activate it again.</p></li>
+
+<li><p>All tokens belonging to a user will be revoked automatically as soon as the user is deleted from GoCD.</p>
+
+<ul>
+<li>Note: These tokens will not be visible again even if the same user is added back to GoCD.</li>
+</ul></li>
+</ol>
+
 <h2 id="create-a-token">Create a token</h2>
 
 <ol>
 <li>Login into your GoCD server.</li>
 
-<li><p>Go to user menu &rarr; Personal Access Tokens.
+<li><p>Go to user menu &rarr; <strong>Personal Access Tokens</strong>.
 <img src="../images/configuration/access-tokens/1_navigate_to_personal_access_token.png" alt="&quot;Navigate to personal access token&quot;" /></p></li>
 
 <li><p>Click on <code>Generate Token</code> button.
@@ -331,12 +350,12 @@ if (!doNotTrack) {
 <p><img src="../images/configuration/access-tokens/4_newly_generated_token.png" alt="&quot;Newly generated token&quot;" /></p></li>
 </ol>
 
-<h2 id="revoke-a-token">Revoke a token</h2>
+<h2 id="revoke-a-personal-token">Revoke a personal token</h2>
 
 <ol>
 <li>Login into your GoCD server.</li>
 
-<li><p>Go to user menu &rarr; Personal Access Tokens.
+<li><p>Go to user menu &rarr; <strong>Personal Access Tokens</strong>.
 <img src="../images/configuration/access-tokens/1_navigate_to_personal_access_token.png" alt="&quot;Navigate to personal access token&quot;" /></p></li>
 
 <li><p>Find the token which you wish to revoke in <code>ACTIVE TOKENS</code> tab.
@@ -353,24 +372,47 @@ if (!doNotTrack) {
 <img src="../images/configuration/access-tokens/7_revoked_access_tokens.png" alt="&quot;revoked access token&quot;" /></p></li>
 </ol>
 
-<h2 id="usage-instructions">Usage instructions</h2>
+<h2 id="manage-access-tokens-admin-only">Manage access tokens (admin only)</h2>
 
 <ol>
-<li><p>A token can be used to access GoCD APIs and <code>cctray.xml</code> by passing it in API header.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>       -H <span style="color:#b44">&#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&#39;</span></code></pre></div></li>
+<li>Login into your GoCD server.</li>
 
-<li><p>A token can not be used to create or access any access token related API(s).</p></li>
+<li><p>Go to <strong>Admin</strong> menu &rarr; Security &rarr; <strong>Access Tokens Management</strong>.
+<img src="../images/configuration/access-tokens/8_navigate_to_admin_access_token.png" alt="&quot;Navigate to admin access token&quot;" /></p></li>
 
-<li><p>Login using access token is not allowed through web UI.</p></li>
-
-<li><p>Once a token is revoked, the user will not be able to activate it again.</p></li>
-
-<li><p>All tokens belonging to a user will be revoked automatically as soon as the user is deleted from GoCD.</p>
+<li><p>The admin will be able to see all the tokens created by all the users</p>
 
 <ul>
-<li>Note: These tokens will not be visible again even if the same user is added back to GoCD.</li>
+<li><p>Active tokens
+<img src="../images/configuration/access-tokens/10_admin_active_tokens.png" alt="&quot;active access tokens&quot;" /></p></li>
+
+<li><p>Revoked tokens
+<img src="../images/configuration/access-tokens/11_admin_revoked_tokens.png" alt="&quot;revoked access tokens&quot;" /></p></li>
 </ul></li>
+
+<li><p>The admin can use the search box on the top-right to search tokens on the basis of <code>Created By</code> and <code>Description</code>.</p></li>
+</ol>
+
+<h2 id="revoke-token">Revoke token</h2>
+
+<ol>
+<li>Login into your GoCD server.</li>
+
+<li><p>Go to <strong>Admin</strong> menu &rarr; Security &rarr; <strong>Access Tokens Management</strong>.
+<img src="../images/configuration/access-tokens/8_navigate_to_admin_access_token.png" alt="&quot;Navigate to admin access token&quot;" /></p></li>
+
+<li><p>Find the token which you wish to revoke in <code>ACTIVE TOKENS</code> tab.
+<img src="../images/configuration/access-tokens/10_admin_active_tokens.png" alt="&quot;active access tokens&quot;" /></p></li>
+
+<li><p>Click on the <code>Revoke</code> button.</p></li>
+
+<li><p>Optionally, add a reason for revoking the token.
+<img src="../images/configuration/access-tokens/6_revoke_cause.png" alt="&quot;revoke access token cause&quot;" /></p></li>
+
+<li><p>Click on <code>Revoke Token</code> button.</p></li>
+
+<li><p>On success, the token just revoked will be shown in <code>REVOKED TOKENS</code> tab.
+<img src="../images/configuration/access-tokens/9_admin_revoke_access_token.png" alt="&quot;revoked access tokens&quot;" /></p></li>
 </ol>
 </article>
 
@@ -379,7 +421,7 @@ if (!doNotTrack) {
   
   
   <div>
-    <a href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/personal_access_token.md" target="_blank" rel="noopener">
+    <a href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/access_tokens.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Edit this page
     </a>
   </div>
@@ -395,11 +437,13 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#personal-access-token">Personal Access Token</a>
+<li><a href="#access-tokens">Access Tokens</a>
 <ul>
-<li><a href="#create-a-token">Create a token</a></li>
-<li><a href="#revoke-a-token">Revoke a token</a></li>
 <li><a href="#usage-instructions">Usage instructions</a></li>
+<li><a href="#create-a-token">Create a token</a></li>
+<li><a href="#revoke-a-personal-token">Revoke a personal token</a></li>
+<li><a href="#manage-access-tokens-admin-only">Manage access tokens (admin only)</a></li>
+<li><a href="#revoke-token">Revoke token</a></li>
 </ul></li>
 </ul>
 </nav>

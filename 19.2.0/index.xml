@@ -67,6 +67,18 @@
     </item>
     
     <item>
+      <title>Access tokens</title>
+      <link>/configuration/access_tokens.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/access_tokens.html</guid>
+      <description>Access Tokens From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
+Usage instructions  A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
+ Before 19.2.0
+ curl &amp;#39;https://ci.</description>
+    </item>
+    
+    <item>
       <title>Add Material to Existing Pipeline</title>
       <link>/configuration/admin_add_material.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -929,18 +941,6 @@ Defining and using a parameter Parameter values are defined in the &amp;lt;param
       <description>GoCD Performance Tuning Capacity Planning This section provides recommendations to evaluate server hardware and memory requirements for your GoCD server. It also highlights some configurations which need to be taken care of when scaling GoCD.
 Minimum server requirements The minimum requirements for a GoCD server can be found here
 Scaling GoCD As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.</description>
-    </item>
-    
-    <item>
-      <title>Personal access token</title>
-      <link>/configuration/personal_access_token.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/personal_access_token.html</guid>
-      <description>Personal Access Token From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
- Before 19.2.0
- curl &amp;#39;https://ci.example.com/go/api/pipelines/pipeline1/status&amp;#39; \  -u &amp;#39;username:password&amp;#39;  Going forward
- curl &amp;#39;https://ci.example.com/go/api/pipelines/pipeline1/status&amp;#39; \  -H &amp;#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&amp;#39; Create a token  Login into your GoCD server.</description>
     </item>
     
     <item>
