@@ -66,7 +66,7 @@ _____
     - [Job Timeout]({{< relref "configuration/job_timeout.md" >}})
     - [Managing Users]({{< relref "configuration/managing_users.md" >}})
     - [Authentication]({{< relref "configuration/dev_authentication.md" >}})
-    - [Personal Access Token]({{< relref "configuration/personal_access_token.md" >}})
+    - [Access Tokens]({{< relref "configuration/access_tokens.md" >}})
     - [Authorizing Users]({{< relref "configuration/dev_authorization.md" >}})
     - [Delegating Group Administration]({{< relref "configuration/delegating_group_administration.md" >}})
     - [Pipeline Group Administration]({{< relref "configuration/pipeline_group_admin_config.md" >}})
