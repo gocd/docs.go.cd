@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GoCD User Documentation</title>
+    <link>/release_history.html</link>
+    <description>Recent content on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/release_history/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Release History</title>
+      <link>/release_history/whats_new_in_go.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/release_history/whats_new_in_go.html</guid>
+      <description>What&amp;rsquo;s new in GoCD GoCD has changed its release naming convention from the previous practice of major.minor.bugfix nomenclature. The major version will now be the year of release (YY). The minor version n will indicate the nth release for the year. For ex: 13.2 will be the second release in 2013.</description>
+    </item>
+    
+  </channel>
+</rss>
