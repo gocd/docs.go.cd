@@ -2,18 +2,21 @@ var lunrIndex,
     $results,
     pagesIndex;
 
-function getVersion(){
+function getVersion() {
     var pageURL = $(location).attr("href");
+    if (pageURL.indexOf("localhost") >= 0) {
+        return "";
+    }
     var element = $('<a>', {
         href: pageURL
     });
-    return element.prop('pathname').split("/")[1];
+    return "/" + element.prop('pathname').split("/")[1];
 }
 
 function initLunr() {
-    var version = getVersion();
-    $.getJSON(`/${version}/javascripts/search/lunr/PagesIndex.json`)
-        .done(function(index) {
+    let indexJsonPath = window.location.origin + `${getVersion()}/javascripts/search/lunr/PagesIndex.json`;
+    $.getJSON(indexJsonPath)
+        .done(function (index) {
             pagesIndex = index;
             lunrIndex = lunr(function () {
                 this.field("title", {
@@ -30,7 +33,7 @@ function initLunr() {
                 }
             });
         })
-        .fail(function(jqxhr, textStatus, error) {
+        .fail(function (jqxhr, textStatus, error) {
             var err = textStatus + ", " + error;
             console.error("Error getting Hugo index file:", err);
         });
@@ -39,7 +42,7 @@ function initLunr() {
 function initUI() {
     $results = $("#results");
     content = $(document).find("article");
-    $("#search").keyup(function() {
+    $("#search").keyup(function () {
         $results.empty();
 
         var query = $(this).val();
@@ -58,32 +61,34 @@ function initUI() {
 }
 
 function search(query) {
-    return lunrIndex.search(query).map(function(result) {
-        return pagesIndex.filter(function(page) {
+    return lunrIndex.search(query).map(function (result) {
+        return pagesIndex.filter(function (page) {
             return page.href === result.ref;
         })[0];
     });
 }
 
 function renderResults(results) {
+    let $noResultDiv = $(".no-results");
     if (!results.length) {
-        $(".no-results").show();
+        $noResultDiv.show();
         return;
     }
 
-    results.slice(0, 20).forEach(function(result) {
+    $noResultDiv.hide();
+    results.slice(0, 20).forEach(function (result) {
         var $result = $("<li>");
         $result.append($("<a>", {
-            href: "/" + getVersion() + result.href,
+            href: getVersion() + result.href,
             text: "» " + result.title
         }));
-        $result.append($("<div>" + result.content.slice(0,500)+ "..." +"</div>"));
+        $result.append($("<div>" + result.content.slice(0, 500) + "..." + "</div>"));
         $results.append($result);
     });
 }
 
 initLunr();
 
-$(document).ready(function() {
+$(document).ready(function () {
     initUI();
 });

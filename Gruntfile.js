@@ -1,5 +1,6 @@
 var yaml = require("yamljs");
 var S = require("string");
+var markdown = require("markdown-it")
 
 var CONTENT_PATH_PREFIX = "content";
 
@@ -65,12 +66,13 @@ module.exports = function (grunt) {
                 href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).ensureRight(".html").s;
             }
 
+            var md = new markdown();
             // Build Lunr index for this page
             pageIndex = {
                 title: frontMatter.title,
                 tags: frontMatter.tags,
                 href: href,
-                content: S(content[2]).trim().stripTags().stripPunctuation().s
+                content: S(md.render(content[2])).trim().stripTags().stripPunctuation().s
             };
 
             return pageIndex;
