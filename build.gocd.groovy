@@ -41,9 +41,6 @@ def pushToGHPages = {
 
 def publishToS3 = {
   new Stage("S3Sync", {
-    approval {
-      type = 'manual'
-    }
     jobs {
       job("upload") {
         elasticProfileId = 'azure-plugin-ubuntu-with-ruby'
