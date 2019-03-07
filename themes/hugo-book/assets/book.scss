@@ -296,9 +296,9 @@ pre::-webkit-scrollbar {
     padding:0;
   }
 
-  nav  ul  > li{ 
+  nav  ul  > li{
     margin-bottom:10px;
-  
+
     a{
     font-size:16px;
   }
@@ -306,29 +306,42 @@ pre::-webkit-scrollbar {
   }
   nav  ul  > li ul li {
     margin: 10px 0;
-  
+
     a{
     font-size:13px;
   }
-  
-  }  
-  
+
+  }
+
     nav  ul  > li ul li ul >li {
     font-weight:600;
     margin: 5px 0;
     font-size:13px;
-  }  
-  
+  }
+
   nav  ul  > li ul li ul > li >ul li a {
     font-weight:normal;
     font-size:13px;
     margin-bottom:10px;
-  }    
+  }
   nav  ul  > li ul li ul > li >ul  {
 
     font-weight:normal;
     margin-left:20px;
-    
-  }      
+
+  }
 }
 
+
+.navigation {
+  position: fixed;
+  top: 2%;
+}
+
+.navigation-prev {
+  left: 18%;
+}
+
+.navigation-next {
+  right: 1%;
+}
