@@ -35,9 +35,28 @@ make it more declarative, depending on the plugin and possibly give more control
 
 Pipelines can currently be stored using JSON or YAML.
 
+
+Since GoCD 18.12.0 release, a new Config repositories page was added. This page lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.
+
+![Pipelines as code page](../images/advanced_usage/config-repo-page.png)
+
 ### Storing pipeline configuration in JSON
 
 The setup needed to allow this is:
+
+##### Configuring config repo via UI
+
+- Goto "Admin -> Config repositories".
+
+![Config repositories](../images/advanced_usage/config-repositories.png)
+
+- Click on the "Add" button available on the top right corner and select "JSON configuration Plugin" as plugin ID.
+
+![Config repo json](../images/advanced_usage/config-repo-json.png)
+
+Once you click on save, give it a minute or so to display the pipelines on the dashboard.
+
+##### Configuring config repo via config XML
 
 1. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
 
@@ -65,6 +84,20 @@ The setup needed to allow this is:
 
 Tomasz [announced](https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion) a Yaml plugin. The setup needed to allow this is:
 
+##### Configuring config repo via UI
+
+- Goto "Admin -> Config repositories".
+
+![Config repositories](../images/advanced_usage/config-repositories.png)
+
+- Click on the "Add" button available on the top right corner and select "YAML configuration Plugin" as plugin ID.
+
+![Config repo yaml](../images/advanced_usage/config-repo-yml.png)
+
+Once you click on save, give it a minute or so to display the pipelines on the dashboard.
+
+##### Configuring config repo via config XML.
+
 1. After starting the server, open the config XML ("Admin -> Config XML") and add a config repository for the server to poll. This tag should be added just after the "`<server>`" tag, at the top level, as a child of "`<cruise>`":
 
       ```xml
@@ -86,3 +119,9 @@ Tomasz [announced](https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/dis
    red box).
 
 3. You can even have multiple repositories. Just repeat the `<config-repo>` tag and make sure that there are no duplicate pipelines.
+
+### Pipeline export feature
+
+In GoCD release 19.1.0, we introduced ability to export pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). Users can later check in these pipeline definitions to a repository and remove them from GoCD's config.
+
+![Config repo yaml](../images/advanced_usage/pipeline-export.gif)

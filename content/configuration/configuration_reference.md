@@ -1020,10 +1020,10 @@ You must install Mercurial 1.5 or above on the Go Server. Go does not ship with 
 
 ```xml
 <config-repo pluginId="json.config.plugin" id="repo1">
-    <hg url="http://username:password@your-hg##branch_name"/>
+    <hg url="http://username:password@your-hg#branch_name"/>
 </config-repo>
 ```
-Note that \# needs to be escaped with another \# - hence the \#\# in the url above.
+Note: Do not use **configrepo** material type for config-repo pipeline material configuration when using mercurial branch as it will result in merge error.
 
 [top](#top)
 
