@@ -1721,9 +1721,9 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span></code></pre></div>
 <p>#<strong>Specifying a mercurial branch.</strong></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://username:password@your-hg##branch_name&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://username:password@your-hg#branch_name&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span></code></pre></div>
-<p>Note that # needs to be escaped with another # - hence the ## in the url above.</p>
+<p>Note: Do not use <strong>configrepo</strong> material type for config-repo pipeline material configuration when using mercurial branch as it will result in merge error.</p>
 
 <p><a href="#top">top</a></p>
 

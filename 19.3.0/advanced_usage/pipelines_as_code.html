@@ -322,9 +322,31 @@ make it more declarative, depending on the plugin and possibly give more control
 
 <p>Pipelines can currently be stored using JSON or YAML.</p>
 
+<p>Since GoCD 18.12.0 release, a new Config repositories page was added. This page lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.</p>
+
+<p><img src="../images/advanced_usage/config-repo-page.png" alt="Pipelines as code page" /></p>
+
 <h3 id="storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</h3>
 
 <p>The setup needed to allow this is:</p>
+
+<h5 id="configuring-config-repo-via-ui">Configuring config repo via UI</h5>
+
+<ul>
+<li>Goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
+</ul>
+
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
+
+<ul>
+<li>Click on the &ldquo;Add&rdquo; button available on the top right corner and select &ldquo;JSON configuration Plugin&rdquo; as plugin ID.</li>
+</ul>
+
+<p><img src="../images/advanced_usage/config-repo-json.png" alt="Config repo json" /></p>
+
+<p>Once you click on save, give it a minute or so to display the pipelines on the dashboard.</p>
+
+<h5 id="configuring-config-repo-via-config-xml">Configuring config repo via config XML</h5>
 
 <ol>
 <li><p>After starting the server, open the config XML (&ldquo;Admin -&gt; Config XML&rdquo;) and add a config repository for the server to poll. This tag should be added just after the &ldquo;<code>&lt;server&gt;</code>&rdquo; tag, at the top level, as a child of &ldquo;<code>&lt;cruise&gt;</code>&ldquo;:</p>
@@ -350,6 +372,24 @@ red box).</p></li>
 
 <p>Tomasz <a href="https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion">announced</a> a Yaml plugin. The setup needed to allow this is:</p>
 
+<h5 id="configuring-config-repo-via-ui-1">Configuring config repo via UI</h5>
+
+<ul>
+<li>Goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
+</ul>
+
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
+
+<ul>
+<li>Click on the &ldquo;Add&rdquo; button available on the top right corner and select &ldquo;YAML configuration Plugin&rdquo; as plugin ID.</li>
+</ul>
+
+<p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml" /></p>
+
+<p>Once you click on save, give it a minute or so to display the pipelines on the dashboard.</p>
+
+<h5 id="configuring-config-repo-via-config-xml-1">Configuring config repo via config XML.</h5>
+
 <ol>
 <li><p>After starting the server, open the config XML (&ldquo;Admin -&gt; Config XML&rdquo;) and add a config repository for the server to poll. This tag should be added just after the &ldquo;<code>&lt;server&gt;</code>&rdquo; tag, at the top level, as a child of &ldquo;<code>&lt;cruise&gt;</code>&ldquo;:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;config-repos&gt;</span>
@@ -369,6 +409,12 @@ red box).</p></li>
 
 <li><p>You can even have multiple repositories. Just repeat the <code>&lt;config-repo&gt;</code> tag and make sure that there are no duplicate pipelines.</p></li>
 </ol>
+
+<h3 id="pipeline-export-feature">Pipeline export feature</h3>
+
+<p>In GoCD release 19.1.0, we introduced ability to export pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). Users can later check in these pipeline definitions to a repository and remove them from GoCD&rsquo;s config.</p>
+
+<p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml" /></p>
 </article>
 
       
@@ -396,8 +442,23 @@ red box).</p></li>
 <ul>
 <li><a href="#currently-available-plugins-for-storing-pipelines-as-code">Currently available plugins for storing pipelines as code</a>
 <ul>
-<li><a href="#storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</a></li>
-<li><a href="#storing-pipeline-configuration-in-yaml">Storing pipeline configuration in YAML</a></li>
+<li><a href="#storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</a>
+<ul>
+<li>
+<ul>
+<li><a href="#configuring-config-repo-via-ui">Configuring config repo via UI</a></li>
+<li><a href="#configuring-config-repo-via-config-xml">Configuring config repo via config XML</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#storing-pipeline-configuration-in-yaml">Storing pipeline configuration in YAML</a>
+<ul>
+<li>
+<ul>
+<li><a href="#configuring-config-repo-via-ui-1">Configuring config repo via UI</a></li>
+<li><a href="#configuring-config-repo-via-config-xml-1">Configuring config repo via config XML.</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#pipeline-export-feature">Pipeline export feature</a></li>
 </ul></li>
 </ul></li>
 </ul>
