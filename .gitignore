@@ -8,3 +8,4 @@ node_modules
 public
 resources
 _book
+static/javascripts/search/lunr/PagesIndex.json

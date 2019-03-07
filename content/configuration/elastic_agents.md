@@ -6,8 +6,6 @@ title: Elastic Agents
 
 # GoCD Elastic Agents
 
-<!-- toc -->
-
 ## Introduction
 
 Elastic Agents is an extension-point in GoCD that allows for on-demand agents which are created and provisioned by an elastic-agent plugin when there are jobs to be executed, and terminated when the agents are running idle. These agents can be in a data center or in the cloud or both, and may be physical or virtual.

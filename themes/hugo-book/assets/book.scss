@@ -27,6 +27,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   box-sizing: border-box;
+
   * {
     box-sizing: inherit;
   }
@@ -98,14 +99,14 @@ ul.pagination {
   flex: 0 0 $menu-width;
   font-size: $font-size-14;
   padding: 0 20px;
-  
+
 
   nav {
     width: $menu-width;
     padding: $padding-16;
     @include fixed;
 
-    @media (min-width: 44rem){
+    @media (min-width: 44rem) {
       left: 12px;
       border-right: 1px solid $gray-600;
     }
@@ -117,7 +118,8 @@ ul.pagination {
 .book-page {
   min-width: $body-min-width;
   padding: $padding-16;
-  a{
+
+  a {
     font-weight: 600;
   }
 }
@@ -217,19 +219,53 @@ aside nav,
   }
 }
 
-img.icon{
+img.icon {
   width: 200px;
   height: 150px;
 }
 
-h1,h2,h3{
+h1, h2, h3 {
   padding-top: 20px;
 }
 
-h3{
+h3 {
   font-weight: bold;
 }
 
 pre::-webkit-scrollbar {
   height: 8px;
+}
+
+.search-input-container {
+  padding: 6px;
+  transition: top .5s ease;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .07);
+  margin-bottom: 10px;
+  margin-right: 1rem;
+
+  input {
+    width: 100%;
+    background: 0 0;
+    border: 1px solid transparent;
+    box-shadow: none;
+    outline: 0;
+    padding: 7px 7px;
+    color: inherit;
+  }
+}
+
+.has-results {
+  ul {
+    list-style: none;
+
+    li {
+      margin-bottom: 20px;
+
+      div {
+        margin-top: 5px;
+        line-height: 22px;
+      }
+    }
+  }
 }
