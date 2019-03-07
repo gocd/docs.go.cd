@@ -61,7 +61,16 @@ function initUI() {
 }
 
 function search(query) {
-    return lunrIndex.search(query).map(function (result) {
+    let searchResults = doSearch(query);
+    if (searchResults.length === 0) {
+        let partialMatchQuery = query + "*";
+        return doSearch(partialMatchQuery);
+    }
+    return searchResults;
+}
+
+function doSearch(searchQuery) {
+    return lunrIndex.search(searchQuery).map(function (result) {
         return pagesIndex.filter(function (page) {
             return page.href === result.ref;
         })[0];
