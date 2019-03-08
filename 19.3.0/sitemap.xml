@@ -23,10 +23,6 @@
   </url>
   
   <url>
-    <loc>/faq/environment_variables.html</loc>
-  </url>
-  
-  <url>
     <loc>/gocd_on_kubernetes.html</loc>
   </url>
   
@@ -40,10 +36,6 @@
   
   <url>
     <loc>/installation/ssl_tls/custom_certificate.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/troubleshoot_installer.html</loc>
   </url>
   
   <url>
