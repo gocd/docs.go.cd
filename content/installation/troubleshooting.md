@@ -1,6 +1,7 @@
 ---
 description: Troubleshooting GoCD server and agent installation errors.
 keywords: gocd troubleshooting, installation errors gocd, agent not registering, ssl error
+title: GoCD Troubleshooting issues
 aliases:
     - /installation/troubleshoot_installer.html
 ---
