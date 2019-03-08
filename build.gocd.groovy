@@ -120,6 +120,7 @@ GoCD.script { GoCD buildScript ->
         stages {
           add(buildStage())
           add(pushToGHPages())
+          add(publishToS3())
         }
       }
     }
