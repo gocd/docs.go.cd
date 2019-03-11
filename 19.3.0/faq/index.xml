@@ -20,6 +20,15 @@
     </item>
     
     <item>
+      <title></title>
+      <link>/faq/environment_variables.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/environment_variables.html</guid>
+      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
+    </item>
+    
+    <item>
       <title>Artifact integrity verification</title>
       <link>/faq/artifact_integrity.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
