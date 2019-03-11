@@ -1,7 +1,7 @@
 baseURL = ""
 languageCode = "en-us"
 title = "GoCD User Documentation"
-uglyUrls = true
+uglyUrls = false
 theme = "hugo-book"
 relativeURLs = true
 googleAnalytics = "UA-48357651-1"
