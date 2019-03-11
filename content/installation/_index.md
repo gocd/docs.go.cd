@@ -2,6 +2,7 @@
 description: GoCD installation instructions for both server and agent.
 keywords: install gocd, open source cd tool, free cd tool, gocd agents, gocd server, jenkins
 title: Installing GoCD
+url: /installation/
 ---
 
 

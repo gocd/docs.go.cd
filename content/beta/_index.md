@@ -1,3 +1,7 @@
+---
+title: Beta features 
+url: /beta/
+---
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

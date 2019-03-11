@@ -129,7 +129,7 @@ _____
     - [Why the Build is Broken?]({{< relref "faq/dev_understand_why_build_broken.md" >}})
     - [See artifacts as sub-tabs]({{< relref "faq/dev_see_artifact_as_tab.md" >}})
     - [Save Properties for a Build]({{< relref "faq/dev_save_properties.md" >}})
-    - [Using Environment variables]({{< relref "faq/environment_variables.md" >}})
+    - [Using Environment variables]({{< relref "faq/dev_use_current_revision_in_build.md" >}})
     - [Deploy to an environment]({{< relref "faq/rm_deploy_to_environment.md" >}})
     - [See changes in new binary]({{< relref "faq/tester_what_has_changed.md" >}})
     - [Run Tests against new Builds]({{< relref "faq/dependency_management.md" >}})
