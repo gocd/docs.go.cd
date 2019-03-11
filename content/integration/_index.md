@@ -2,6 +2,7 @@
 description: Integrate external tools with GoCD
 keywords: gocd integrations, tool integrations, cctray, mingle project management, configure tracking tool
 title: Integrating GoCD With Other Tools
+url: /integration/
 ---
 
 # GoCD Integration with external tools

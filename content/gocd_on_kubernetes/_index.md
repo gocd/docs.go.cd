@@ -1,3 +1,7 @@
+---
+title: Getting Started with GoCD on Kubernetes 
+url: /gocd_on_kubernetes/
+---
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

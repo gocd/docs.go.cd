@@ -1,3 +1,7 @@
+---
+title: Navigation 
+url: /navigation/
+---
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

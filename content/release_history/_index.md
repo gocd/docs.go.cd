@@ -1,3 +1,8 @@
+---
+title: Release history 
+url: /release_history/
+---
+
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

@@ -1,3 +1,7 @@
+---
+title: Advanced usage 
+url: /advanced_usage/
+---
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

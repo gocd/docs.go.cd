@@ -1,3 +1,7 @@
+---
+title: Configuring Go 
+url: /configuration/
+---
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

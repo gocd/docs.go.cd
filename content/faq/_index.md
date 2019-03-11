@@ -1,3 +1,7 @@
+---
+title: FAQ 
+url: /faq/
+---
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

@@ -1,5 +1,6 @@
 ---
 title: Concepts In GoCD
+url: /introduction/
 ---
 
 <html>

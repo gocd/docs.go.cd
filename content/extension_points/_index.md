@@ -2,6 +2,7 @@
 description: Available extension points for GoCD, including GoCD plugin user guide.
 keywords: gocd plugins, gocd extension points, task extension, configuration repository, elastic agent, scm, yum
 title: Extension Points Of GoCD
+url: /extension_points/
 ---
 
 # GoCD Plugin User Guide
