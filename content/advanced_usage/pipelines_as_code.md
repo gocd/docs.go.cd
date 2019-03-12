@@ -33,7 +33,7 @@ make it more declarative, depending on the plugin and possibly give more control
 
 ## Currently available plugins for storing pipelines as code
 
-Pipelines can currently be stored using JSON or YAML. Read more [here](https://github.com/tomzo/gocd-json-config-plugin) and [here](https://github.com/tomzo/gocd-yaml-config-plugin) about what goes in these JSON or YAML files respectively.
+Pipelines can currently be stored using JSON or YAML. Please refer to [JSON file configuration](https://github.com/tomzo/gocd-json-config-plugin#configuration-files) and [YAML file configuration](https://github.com/tomzo/gocd-yaml-config-plugin#setup) for more information about the format of the files.
 
 
 The config repositories page (Admin -> Config Repositories) lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.
