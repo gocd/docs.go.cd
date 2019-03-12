@@ -33,16 +33,16 @@ make it more declarative, depending on the plugin and possibly give more control
 
 ## Currently available plugins for storing pipelines as code
 
-Pipelines can currently be stored using JSON or YAML.
+Pipelines can currently be stored using JSON or YAML. Read more [here](https://github.com/tomzo/gocd-json-config-plugin) and [here](https://github.com/tomzo/gocd-yaml-config-plugin) about what goes in these JSON or YAML files respectively.
 
 
-GoCD (18.12.0 release) now have a new Config repositories page. This page lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.
+The config repositories page (Admin -> Config Repositories) lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.
 
 ![Pipelines as code page](../images/advanced_usage/config-repo-page.png)
 
 ### Storing pipeline configuration in JSON
 
-The setup needed to allow this is:
+The setup needed to tell GoCD where to find the pipeline configuration files is:
 
 - After starting the server, goto "Admin -> Config repositories".
 
@@ -52,13 +52,12 @@ The setup needed to allow this is:
 
 ![Config repo json](../images/advanced_usage/config-repo-json.png)
 
-Give it a minute or so for the polling to happen. Once that happens, you should see new pipelines on the pipeline dashboard.
+Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.
 
-You can even have multiple repositories by adding them from this page. Please make sure that there are no duplicate pipelines.
 
 ### Storing pipeline configuration in YAML
 
-The setup needed to allow this is:
+The setup needed to tell GoCD where to find the pipeline configuration files is:
 
 - After starting the server, goto "Admin -> Config repositories".
 
@@ -68,9 +67,7 @@ The setup needed to allow this is:
 
 ![Config repo yaml](../images/advanced_usage/config-repo-yml.png)
 
-Give it a minute or so for the polling to happen. Once that happens, you should see new pipelines on the pipeline dashboard.
-
-You can even have multiple repositories by adding them from this page. Please make sure that there are no duplicate pipelines.
+Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.
 
 
 ### Pipeline export feature
