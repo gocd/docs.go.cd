@@ -335,20 +335,18 @@ make it more declarative, depending on the plugin and possibly give more control
 
 <h2 id="currently-available-plugins-for-storing-pipelines-as-code">Currently available plugins for storing pipelines as code</h2>
 
-<p>Pipelines can currently be stored using JSON or YAML.</p>
+<p>Pipelines can currently be stored using JSON or YAML. Please refer to <a href="https://github.com/tomzo/gocd-json-config-plugin#configuration-files">JSON file configuration</a> and <a href="https://github.com/tomzo/gocd-yaml-config-plugin#setup">YAML file configuration</a> for more information about the format of the files.</p>
 
-<p>Since GoCD 18.12.0 release, a new Config repositories page was added. This page lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.</p>
+<p>The config repositories page (Admin -&gt; Config Repositories) lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.</p>
 
 <p><img src="../images/advanced_usage/config-repo-page.png" alt="Pipelines as code page" /></p>
 
 <h3 id="storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</h3>
 
-<p>The setup needed to allow this is:</p>
-
-<h5 id="configuring-config-repo-via-ui">Configuring config repo via UI</h5>
+<p>The setup needed to tell GoCD where to find the pipeline configuration files is:</p>
 
 <ul>
-<li>Goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
+<li>After starting the server, goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
 </ul>
 
 <p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
@@ -359,38 +357,14 @@ make it more declarative, depending on the plugin and possibly give more control
 
 <p><img src="../images/advanced_usage/config-repo-json.png" alt="Config repo json" /></p>
 
-<p>Once you click on save, give it a minute or so to display the pipelines on the dashboard.</p>
-
-<h5 id="configuring-config-repo-via-config-xml">Configuring config repo via config XML</h5>
-
-<ol>
-<li><p>After starting the server, open the config XML (&ldquo;Admin -&gt; Config XML&rdquo;) and add a config repository for the server to poll. This tag should be added just after the &ldquo;<code>&lt;server&gt;</code>&rdquo; tag, at the top level, as a child of &ldquo;<code>&lt;cruise&gt;</code>&ldquo;:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;config-repos&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;gocd-demo-config-repo-json&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;https://github.com/arvindsv/gocd-demo-config-repo-json.git&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/config-repos&gt;</span></code></pre></div>
-<p>You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
-to see what happens. Any file ending in &ldquo;.gopipeline.json&rdquo; is picked up by the plugin. Documentation of what is
-possible in the JSON is <a href="https://github.com/tomzo/gocd-json-config-plugin">here</a>.</p></li>
-
-<li><p>Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
-dashboard, as a part of the &ldquo;demo&rdquo; pipeline group. You can make some changes to the JSON (change a group, add a
-stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
-config. Remember that, if you make any changes and make a mistake, you&rsquo;ll see an error at the bottom right corner (a
-red box).</p></li>
-
-<li><p>You can even have multiple repositories. Just repeat the <code>&lt;config-repo&gt;</code> tag and make sure that there are no duplicate pipelines.</p></li>
-</ol>
+<p>Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.</p>
 
 <h3 id="storing-pipeline-configuration-in-yaml">Storing pipeline configuration in YAML</h3>
 
-<p>Tomasz <a href="https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion">announced</a> a Yaml plugin. The setup needed to allow this is:</p>
-
-<h5 id="configuring-config-repo-via-ui-1">Configuring config repo via UI</h5>
+<p>The setup needed to tell GoCD where to find the pipeline configuration files is:</p>
 
 <ul>
-<li>Goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
+<li>After starting the server, goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
 </ul>
 
 <p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
@@ -401,29 +375,7 @@ red box).</p></li>
 
 <p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml" /></p>
 
-<p>Once you click on save, give it a minute or so to display the pipelines on the dashboard.</p>
-
-<h5 id="configuring-config-repo-via-config-xml-1">Configuring config repo via config XML.</h5>
-
-<ol>
-<li><p>After starting the server, open the config XML (&ldquo;Admin -&gt; Config XML&rdquo;) and add a config repository for the server to poll. This tag should be added just after the &ldquo;<code>&lt;server&gt;</code>&rdquo; tag, at the top level, as a child of &ldquo;<code>&lt;cruise&gt;</code>&ldquo;:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;config-repos&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;yaml.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;gocd-yaml-config-example&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;https://github.com/tomzo/gocd-yaml-config-example.git&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/config-repos&gt;</span></code></pre></div>
-<p>You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
-to see what happens. Any file ending in &ldquo;.gocd.yaml&rdquo; is picked up by the plugin. Documentation of what is
-possible in the YAML file is <a href="https://github.com/tomzo/gocd-yaml-config-plugin">here</a>.</p></li>
-
-<li><p>Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
-dashboard, as a part of the &ldquo;demo&rdquo; pipeline group. You can make some changes to the YAML (change a group, add a
-stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
-config. Remember that, if you make any changes and make a mistake, you&rsquo;ll see an error at the bottom right corner (a
-red box).</p></li>
-
-<li><p>You can even have multiple repositories. Just repeat the <code>&lt;config-repo&gt;</code> tag and make sure that there are no duplicate pipelines.</p></li>
-</ol>
+<p>Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.</p>
 
 <h3 id="pipeline-export-feature">Pipeline export feature</h3>
 
@@ -457,22 +409,8 @@ red box).</p></li>
 <ul>
 <li><a href="#currently-available-plugins-for-storing-pipelines-as-code">Currently available plugins for storing pipelines as code</a>
 <ul>
-<li><a href="#storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</a>
-<ul>
-<li>
-<ul>
-<li><a href="#configuring-config-repo-via-ui">Configuring config repo via UI</a></li>
-<li><a href="#configuring-config-repo-via-config-xml">Configuring config repo via config XML</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#storing-pipeline-configuration-in-yaml">Storing pipeline configuration in YAML</a>
-<ul>
-<li>
-<ul>
-<li><a href="#configuring-config-repo-via-ui-1">Configuring config repo via UI</a></li>
-<li><a href="#configuring-config-repo-via-config-xml-1">Configuring config repo via config XML.</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</a></li>
+<li><a href="#storing-pipeline-configuration-in-yaml">Storing pipeline configuration in YAML</a></li>
 <li><a href="#pipeline-export-feature">Pipeline export feature</a></li>
 </ul></li>
 </ul></li>
