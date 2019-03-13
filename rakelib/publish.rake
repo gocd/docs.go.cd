@@ -13,16 +13,17 @@ task :publish => :compile do
     value
   end
 
-  git_short_sha=`git log -1 --format=%h`.strip
-  remote_name = env('REMOTE_NAME', 'origin')
+  git_short_sha = `git log -1 --format=%h`.strip
+  remote_name   = env('REMOTE_NAME', 'origin')
 
   repo_url = `git config --get remote.#{remote_name}.url`.strip
 
   rm_rf "build"
   sh("git clone #{repo_url} build --branch gh-pages --depth 1 --quiet")
+  build_version = ENV['GOCD_VERSION'] || GOCD_VERSION
   cd "build" do
-    rm_rf GOCD_VERSION
-    cp_r '../public', GOCD_VERSION
+    rm_rf build_version
+    cp_r '../public', build_version
     response = %x[git status]
     unless response.include?('nothing to commit')
       sh("git add --all .")

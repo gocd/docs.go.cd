@@ -116,6 +116,9 @@ GoCD.script { GoCD buildScript ->
                         shallowClone = true
                     }
                 }
+                environmentVariables = [
+                    'GOCD_VERSION': releaseVersion
+                ]
                 secureEnvironmentVariables = secureEnvironmentVariable
                 trackingTool {
                     link = 'https://github.com/gocd/docs.go.cd/issues/${ID}'
