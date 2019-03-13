@@ -21,15 +21,6 @@
     
     <item>
       <title></title>
-      <link>/faq/environment_variables.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/environment_variables.html</guid>
-      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
-    </item>
-    
-    <item>
-      <title></title>
       <link>/installation/configure_proxy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
@@ -44,16 +35,6 @@
       
       <guid>/installation/ssl_tls/custom_certificate.html</guid>
       <description>  Redirecting   Redirecting...  This page has moved to custom_server_certificate.html.  Click here if you are not redirected.  window.location.href = &#34;custom_server_certificate.html&#34;;    </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/installation/troubleshoot_installer.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/troubleshoot_installer.html</guid>
-      <description>GoCD Troubleshooting issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
- GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
     </item>
     
     <item>

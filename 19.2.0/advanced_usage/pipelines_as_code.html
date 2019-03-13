@@ -14,11 +14,14 @@
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html"/>
 <script src="../javascripts/_gdpr-banner.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.5/lunr.min.js"></script>
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+
 <script src="../javascripts/_img-zoom.js" type="text/javascript"></script>
 <link rel="stylesheet" href="../normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../book.min.e73e7dc6b4783d9b2e4b1398d9d17b9cec0f0fb43660f079c93e3449f28c6be9.css"/>
+<link rel="stylesheet" href="../book.min.5e6fb59ed78af063451fd39b66f2736b1be0062aa7b2a03ff91aee7f959f808a.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -71,6 +74,10 @@ if (!doNotTrack) {
   }
 </style>
 
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
 <ul>
 <li><a href="https://www.gocd.org/"><strong>Back to GoCD.org</strong></a></li>
 
@@ -80,13 +87,13 @@ if (!doNotTrack) {
 
 <li><p><a href="../"><strong>Introduction</strong></a></p></li>
 
-<li><p><a href="../introduction.html"><strong>Concepts In GoCD</strong></a></p>
+<li><p><a href="../introduction/"><strong>Concepts In GoCD</strong></a></p>
 
 <ul>
 <li><a href="../introduction/concepts_in_go.html">Concepts In GoCD</a></li>
 </ul></li>
 
-<li><p><a href="../navigation.html"><strong>GoCD Tour</strong></a></p>
+<li><p><a href="../navigation/"><strong>GoCD Tour</strong></a></p>
 
 <ul>
 <li><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
@@ -101,7 +108,7 @@ if (!doNotTrack) {
 <li><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
 </ul></li>
 
-<li><p><a href="../installation.html"><strong>Installing GoCD</strong></a></p>
+<li><p><a href="../installation/"><strong>Installing GoCD</strong></a></p>
 
 <ul>
 <li><a href="../installation/system_requirements.html">System requirements</a></li>
@@ -138,7 +145,7 @@ if (!doNotTrack) {
 <li><a href="../installation/troubleshooting.html">Troubleshooting</a></li>
 </ul></li>
 
-<li><p><a href="../configuration.html"><strong>Configuration</strong></a></p>
+<li><p><a href="../configuration/"><strong>Configuration</strong></a></p>
 
 <ul>
 <li><a href="../configuration/quick_pipeline_setup.html">Setup a New Pipeline</a></li>
@@ -178,7 +185,7 @@ if (!doNotTrack) {
 <li><a href="../configuration/schema.html">Schema</a></li>
 </ul></li>
 
-<li><p><a href="../advanced_usage.html"><strong>Advanced Usage</strong></a></p>
+<li><p><a href="../advanced_usage/"><strong>Advanced Usage</strong></a></p>
 
 <ul>
 <li><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
@@ -202,9 +209,9 @@ if (!doNotTrack) {
 <li><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a><br /></li>
 </ul></li>
 
-<li><p><a href="../integration.html"><strong>Integrating GoCD With Other Tools</strong></a></p></li>
+<li><p><a href="../integration/"><strong>Integrating GoCD With Other Tools</strong></a></p></li>
 
-<li><p><a href="../extension_points.html"><strong>Extension Points Of GoCD</strong></a></p>
+<li><p><a href="../extension_points/"><strong>Extension Points Of GoCD</strong></a></p>
 
 <ul>
 <li><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
@@ -215,7 +222,7 @@ if (!doNotTrack) {
 <li><a href="../extension_points/configrepo_extension.html">Configuration repository Extension</a></li>
 </ul></li>
 
-<li><p><a href="../gocd_on_kubernetes.html"><strong>GoCD on Kubernetes</strong></a></p>
+<li><p><a href="../gocd_on_kubernetes/"><strong>GoCD on Kubernetes</strong></a></p>
 
 <ul>
 <li><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
@@ -238,7 +245,7 @@ if (!doNotTrack) {
 <li><a href="../gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html">Troubleshooting</a></li>
 </ul></li>
 
-<li><p><a href="../faq.html"><strong>FAQ/Troubleshooting</strong></a></p>
+<li><p><a href="../faq/"><strong>FAQ/Troubleshooting</strong></a></p>
 
 <ul>
 <li><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
@@ -247,7 +254,7 @@ if (!doNotTrack) {
 <li><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
 <li><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
 <li><a href="../faq/dev_save_properties.html">Save Properties for a Build</a></li>
-<li><a href="../faq/environment_variables.html">Using Environment variables</a></li>
+<li><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
 <li><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
 <li><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
 <li><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
@@ -262,13 +269,13 @@ if (!doNotTrack) {
 <li><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
 </ul></li>
 
-<li><p><a href="../beta.html"><strong>Beta features</strong></a></p>
+<li><p><a href="../beta/"><strong>Beta features</strong></a></p>
 
 <ul>
 <li><a href="../beta/comment_on_pipeline_run.html">Comment on a pipeline run</a><br /></li>
 </ul></li>
 
-<li><p><a href="../release_history.html"><strong>Release History</strong></a></p>
+<li><p><a href="../release_history/"><strong>Release History</strong></a></p>
 
 <ul>
 <li><a href="../release_history/whats_new_in_go.html">What&rsquo;s New in Go</a><br /></li>
@@ -288,6 +295,14 @@ if (!doNotTrack) {
   </label>
   <strong>Pipelines as code</strong>
 </header>
+
+      
+<div class="has-results">
+  <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+  Your query search resulted in no results.
+</div>
 
       
 <article class="markdown">
@@ -320,55 +335,53 @@ make it more declarative, depending on the plugin and possibly give more control
 
 <h2 id="currently-available-plugins-for-storing-pipelines-as-code">Currently available plugins for storing pipelines as code</h2>
 
-<p>Pipelines can currently be stored using JSON or YAML.</p>
+<p>Pipelines can currently be stored using JSON or YAML. Please refer to <a href="https://github.com/tomzo/gocd-json-config-plugin#configuration-files">JSON file configuration</a> and <a href="https://github.com/tomzo/gocd-yaml-config-plugin#setup">YAML file configuration</a> for more information about the format of the files.</p>
+
+<p>The config repositories page (Admin -&gt; Config Repositories) lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.</p>
+
+<p><img src="../images/advanced_usage/config-repo-page.png" alt="Pipelines as code page" /></p>
 
 <h3 id="storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</h3>
 
-<p>The setup needed to allow this is:</p>
+<p>The setup needed to tell GoCD where to find the pipeline configuration files is:</p>
 
-<ol>
-<li><p>After starting the server, open the config XML (&ldquo;Admin -&gt; Config XML&rdquo;) and add a config repository for the server to poll. This tag should be added just after the &ldquo;<code>&lt;server&gt;</code>&rdquo; tag, at the top level, as a child of &ldquo;<code>&lt;cruise&gt;</code>&ldquo;:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;config-repos&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;gocd-demo-config-repo-json&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;https://github.com/arvindsv/gocd-demo-config-repo-json.git&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/config-repos&gt;</span></code></pre></div>
-<p>You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
-to see what happens. Any file ending in &ldquo;.gopipeline.json&rdquo; is picked up by the plugin. Documentation of what is
-possible in the JSON is <a href="https://github.com/tomzo/gocd-json-config-plugin">here</a>.</p></li>
+<ul>
+<li>After starting the server, goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
+</ul>
 
-<li><p>Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
-dashboard, as a part of the &ldquo;demo&rdquo; pipeline group. You can make some changes to the JSON (change a group, add a
-stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
-config. Remember that, if you make any changes and make a mistake, you&rsquo;ll see an error at the bottom right corner (a
-red box).</p></li>
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
 
-<li><p>You can even have multiple repositories. Just repeat the <code>&lt;config-repo&gt;</code> tag and make sure that there are no duplicate pipelines.</p></li>
-</ol>
+<ul>
+<li>Click on the &ldquo;Add&rdquo; button available on the top right corner and select &ldquo;JSON configuration Plugin&rdquo; as plugin ID.</li>
+</ul>
+
+<p><img src="../images/advanced_usage/config-repo-json.png" alt="Config repo json" /></p>
+
+<p>Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.</p>
 
 <h3 id="storing-pipeline-configuration-in-yaml">Storing pipeline configuration in YAML</h3>
 
-<p>Tomasz <a href="https://groups.google.com/forum/#!topic/go-cd/bAFYdWOQLEs/discussion">announced</a> a Yaml plugin. The setup needed to allow this is:</p>
+<p>The setup needed to tell GoCD where to find the pipeline configuration files is:</p>
 
-<ol>
-<li><p>After starting the server, open the config XML (&ldquo;Admin -&gt; Config XML&rdquo;) and add a config repository for the server to poll. This tag should be added just after the &ldquo;<code>&lt;server&gt;</code>&rdquo; tag, at the top level, as a child of &ldquo;<code>&lt;cruise&gt;</code>&ldquo;:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;config-repos&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;yaml.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;gocd-yaml-config-example&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;https://github.com/tomzo/gocd-yaml-config-example.git&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/config-repos&gt;</span></code></pre></div>
-<p>You can fork the repository mentioned above to your own GitHub account or locally, so that you can make some changes
-to see what happens. Any file ending in &ldquo;.gocd.yaml&rdquo; is picked up by the plugin. Documentation of what is
-possible in the YAML file is <a href="https://github.com/tomzo/gocd-yaml-config-plugin">here</a>.</p></li>
+<ul>
+<li>After starting the server, goto &ldquo;Admin -&gt; Config repositories&rdquo;.</li>
+</ul>
 
-<li><p>Give it a minute or so for the polling to happen. Once that happens, you should see three new pipelines on your
-dashboard, as a part of the &ldquo;demo&rdquo; pipeline group. You can make some changes to the YAML (change a group, add a
-stage, etc), and upon the next poll, the server will see those changes and apply them to the pipeline
-config. Remember that, if you make any changes and make a mistake, you&rsquo;ll see an error at the bottom right corner (a
-red box).</p></li>
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
 
-<li><p>You can even have multiple repositories. Just repeat the <code>&lt;config-repo&gt;</code> tag and make sure that there are no duplicate pipelines.</p></li>
-</ol>
+<ul>
+<li>Click on the &ldquo;Add&rdquo; button available on the top right corner and select &ldquo;YAML configuration Plugin&rdquo; as plugin ID.</li>
+</ul>
+
+<p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml" /></p>
+
+<p>Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.</p>
+
+<h3 id="pipeline-export-feature">Pipeline export feature</h3>
+
+<p>In GoCD release 19.1.0, we introduced ability to export pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). Users can later check in these pipeline definitions to a repository and remove them from GoCD&rsquo;s config.</p>
+
+<p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml" /></p>
 </article>
 
       
@@ -398,6 +411,7 @@ red box).</p></li>
 <ul>
 <li><a href="#storing-pipeline-configuration-in-json">Storing pipeline configuration in JSON</a></li>
 <li><a href="#storing-pipeline-configuration-in-yaml">Storing pipeline configuration in YAML</a></li>
+<li><a href="#pipeline-export-feature">Pipeline export feature</a></li>
 </ul></li>
 </ul></li>
 </ul>
