@@ -3,34 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/advanced_usage.html</loc>
-  </url>
-  
-  <url>
-    <loc>/beta.html</loc>
-  </url>
-  
-  <url>
-    <loc>/configuration.html</loc>
-  </url>
-  
-  <url>
-    <loc>/faq.html</loc>
-  </url>
-  
-  <url>
-    <loc>/faq/dev_use_current_revision_in_build.html</loc>
-  </url>
-  
-  <url>
-    <loc>/faq/environment_variables.html</loc>
-  </url>
-  
-  <url>
-    <loc>/gocd_on_kubernetes.html</loc>
-  </url>
-  
-  <url>
     <loc>/gocd_on_kubernetes/designing_a_cd_pipeline.html</loc>
   </url>
   
@@ -40,22 +12,6 @@
   
   <url>
     <loc>/installation/ssl_tls/custom_certificate.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/troubleshoot_installer.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/troubleshooting.html</loc>
-  </url>
-  
-  <url>
-    <loc>/navigation.html</loc>
-  </url>
-  
-  <url>
-    <loc>/release_history.html</loc>
   </url>
   
   <url>
@@ -80,6 +36,10 @@
   
   <url>
     <loc>/navigation/administration_page.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/</loc>
   </url>
   
   <url>
@@ -116,6 +76,10 @@
   
   <url>
     <loc>/advanced_usage/one_click_backup.html</loc>
+  </url>
+  
+  <url>
+    <loc>/beta/</loc>
   </url>
   
   <url>
@@ -160,7 +124,7 @@
   </url>
   
   <url>
-    <loc>/introduction.html</loc>
+    <loc>/introduction/</loc>
   </url>
   
   <url>
@@ -201,6 +165,10 @@
   
   <url>
     <loc>/gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/</loc>
   </url>
   
   <url>
@@ -268,7 +236,11 @@
   </url>
   
   <url>
-    <loc>/extension_points.html</loc>
+    <loc>/extension_points/</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/</loc>
   </url>
   
   <url>
@@ -284,7 +256,15 @@
   </url>
   
   <url>
+    <loc>/gocd_on_kubernetes/</loc>
+  </url>
+  
+  <url>
     <loc>/faq/material_update_hung.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/troubleshooting.html</loc>
   </url>
   
   <url>
@@ -308,7 +288,7 @@
   </url>
   
   <url>
-    <loc>/installation.html</loc>
+    <loc>/installation/</loc>
   </url>
   
   <url>
@@ -320,7 +300,7 @@
   </url>
   
   <url>
-    <loc>/integration.html</loc>
+    <loc>/integration/</loc>
   </url>
   
   <url>
@@ -400,6 +380,10 @@
   </url>
   
   <url>
+    <loc>/navigation/</loc>
+  </url>
+  
+  <url>
     <loc>/configuration/dev_notifications.html</loc>
   </url>
   
@@ -469,6 +453,10 @@
   
   <url>
     <loc>/release_history/whats_new_in_go.html</loc>
+  </url>
+  
+  <url>
+    <loc>/release_history/</loc>
   </url>
   
   <url>
@@ -562,6 +550,10 @@
   
   <url>
     <loc>/installation/upgrading_go.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/dev_use_current_revision_in_build.html</loc>
   </url>
   
   <url>
