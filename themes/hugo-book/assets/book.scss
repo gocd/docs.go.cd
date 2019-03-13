@@ -105,10 +105,11 @@ ul.pagination {
     width: $menu-width;
     padding: $padding-16;
     @include fixed;
+    background:$gray-100;
 
     @media (min-width: 44rem) {
       left: 12px;
-      border-right: 1px solid $gray-600;
+      border-right: 1px solid $gray-200;
     }
   }
 
@@ -116,8 +117,8 @@ ul.pagination {
 }
 
 .book-page {
-  min-width: $body-min-width;
-  padding: $padding-16;
+  // min-width: $body-min-width;
+  padding: 0 50px;
 
   a {
     font-weight: 600;
@@ -212,7 +213,7 @@ aside nav,
 
 // Extra space for big screens
 @media screen and (min-width: $container-max-width) {
-  .book-page,
+  // .book-page,
   .book-menu nav,
   .book-toc nav {
     padding: $padding-16 * 2 0 $padding-16 * 2 $padding-16;
@@ -269,3 +270,65 @@ pre::-webkit-scrollbar {
     }
   }
 }
+
+//new styles
+
+
+.main-container{
+  display:flex;
+}
+
+.book-page{
+  max-width:800px;
+  padding:0 50px 50px;
+}
+
+.book-toc{
+
+  a{
+    color:#333;
+    text-decoration: none;
+  }
+
+  ul{
+    list-style-type: none;
+    margin:0;
+    padding:0;
+  }
+
+  nav  ul  > li{ 
+    margin-bottom:10px;
+  
+    a{
+    font-size:16px;
+  }
+
+  }
+  nav  ul  > li ul li {
+    margin: 10px 0;
+  
+    a{
+    font-size:13px;
+  }
+  
+  }  
+  
+    nav  ul  > li ul li ul >li {
+    font-weight:600;
+    margin: 5px 0;
+    font-size:13px;
+  }  
+  
+  nav  ul  > li ul li ul > li >ul li a {
+    font-weight:normal;
+    font-size:13px;
+    margin-bottom:10px;
+  }    
+  nav  ul  > li ul li ul > li >ul  {
+
+    font-weight:normal;
+    margin-left:20px;
+    
+  }      
+}
+
