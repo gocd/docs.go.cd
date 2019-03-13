@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/faq/dev_use_current_revision_in_build.html</loc>
-  </url>
-  
-  <url>
     <loc>/gocd_on_kubernetes/designing_a_cd_pipeline.html</loc>
   </url>
   
@@ -16,10 +12,6 @@
   
   <url>
     <loc>/installation/ssl_tls/custom_certificate.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/troubleshooting.html</loc>
   </url>
   
   <url>
@@ -269,6 +261,10 @@
   
   <url>
     <loc>/faq/material_update_hung.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/troubleshooting.html</loc>
   </url>
   
   <url>
@@ -554,6 +550,10 @@
   
   <url>
     <loc>/installation/upgrading_go.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/dev_use_current_revision_in_build.html</loc>
   </url>
   
   <url>
