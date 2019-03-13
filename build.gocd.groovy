@@ -9,6 +9,7 @@ def secureEnvironmentVariable = [
 
 def buildStage = {
     new Stage("Build", {
+        cleanWorkingDir = true
         jobs {
             job("BuildWebsite") {
                 elasticProfileId = 'azure-plugin-ubuntu-with-ruby'
@@ -27,6 +28,7 @@ def buildStage = {
 
 def pushToGHPages = {
     new Stage("PushToGHPages", {
+        cleanWorkingDir = true
         jobs {
             job("PushToGHPages") {
                 elasticProfileId = 'azure-plugin-ubuntu-with-ruby'
@@ -48,6 +50,7 @@ def pushToGHPages = {
 
 def publishToS3 = {
     new Stage("S3Sync", {
+        cleanWorkingDir = true    
         jobs {
             job("upload") {
                 elasticProfileId = 'azure-plugin-ubuntu-with-ruby'
