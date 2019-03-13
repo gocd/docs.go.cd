@@ -20,7 +20,7 @@ task :publish => :compile do
 
   rm_rf "build"
   sh("git clone #{repo_url} build --branch gh-pages --depth 1 --quiet")
-  build_version = ENV['GOCD_VERSION'] || GOCD_VERSION
+  build_version = env('GOCD_VERSION', GOCD_VERSION)
   cd "build" do
     rm_rf build_version
     cp_r '../public', build_version
