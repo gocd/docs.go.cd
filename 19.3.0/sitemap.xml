@@ -3,7 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>/advanced_usage.html</loc>
+  </url>
+  
+  <url>
+    <loc>/beta.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq.html</loc>
+  </url>
+  
+  <url>
     <loc>/faq/dev_use_current_revision_in_build.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/environment_variables.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes.html</loc>
   </url>
   
   <url>
@@ -19,7 +43,19 @@
   </url>
   
   <url>
+    <loc>/installation/troubleshoot_installer.html</loc>
+  </url>
+  
+  <url>
     <loc>/installation/troubleshooting.html</loc>
+  </url>
+  
+  <url>
+    <loc>/navigation.html</loc>
+  </url>
+  
+  <url>
+    <loc>/release_history.html</loc>
   </url>
   
   <url>
@@ -44,10 +80,6 @@
   
   <url>
     <loc>/navigation/administration_page.html</loc>
-  </url>
-  
-  <url>
-    <loc>/advanced_usage/</loc>
   </url>
   
   <url>
@@ -84,10 +116,6 @@
   
   <url>
     <loc>/advanced_usage/one_click_backup.html</loc>
-  </url>
-  
-  <url>
-    <loc>/beta/</loc>
   </url>
   
   <url>
@@ -132,7 +160,7 @@
   </url>
   
   <url>
-    <loc>/introduction/</loc>
+    <loc>/introduction.html</loc>
   </url>
   
   <url>
@@ -173,10 +201,6 @@
   
   <url>
     <loc>/gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html</loc>
-  </url>
-  
-  <url>
-    <loc>/configuration/</loc>
   </url>
   
   <url>
@@ -244,11 +268,7 @@
   </url>
   
   <url>
-    <loc>/extension_points/</loc>
-  </url>
-  
-  <url>
-    <loc>/faq/</loc>
+    <loc>/extension_points.html</loc>
   </url>
   
   <url>
@@ -261,10 +281,6 @@
   
   <url>
     <loc>/installation/install/server/zip.html</loc>
-  </url>
-  
-  <url>
-    <loc>/gocd_on_kubernetes/</loc>
   </url>
   
   <url>
@@ -292,7 +308,7 @@
   </url>
   
   <url>
-    <loc>/installation/</loc>
+    <loc>/installation.html</loc>
   </url>
   
   <url>
@@ -304,7 +320,7 @@
   </url>
   
   <url>
-    <loc>/integration/</loc>
+    <loc>/integration.html</loc>
   </url>
   
   <url>
@@ -384,10 +400,6 @@
   </url>
   
   <url>
-    <loc>/navigation/</loc>
-  </url>
-  
-  <url>
     <loc>/configuration/dev_notifications.html</loc>
   </url>
   
@@ -457,10 +469,6 @@
   
   <url>
     <loc>/release_history/whats_new_in_go.html</loc>
-  </url>
-  
-  <url>
-    <loc>/release_history/</loc>
   </url>
   
   <url>

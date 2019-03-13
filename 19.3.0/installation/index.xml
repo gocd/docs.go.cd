@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Installing GoCD on GoCD User Documentation</title>
-    <link>/installation/</link>
+    <link>/installation.html</link>
     <description>Recent content in Installing GoCD on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
@@ -26,6 +26,16 @@
       
       <guid>/installation/ssl_tls/custom_certificate.html</guid>
       <description>  Redirecting   Redirecting...  This page has moved to custom_server_certificate.html.  Click here if you are not redirected.  window.location.href = &#34;custom_server_certificate.html&#34;;    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/installation/troubleshoot_installer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/troubleshoot_installer.html</guid>
+      <description>GoCD Troubleshooting issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
+ GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
     </item>
     
     <item>
