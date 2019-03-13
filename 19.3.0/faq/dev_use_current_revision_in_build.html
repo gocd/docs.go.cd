@@ -488,8 +488,8 @@ environment variables available during every job run, set by GoCD. They are:</p>
 </tr>
 
 <tr>
-<td>GO_DEPENDENCY_LABEL_${pipeline name}</td>
-<td>The label of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>)</td>
+<td>GO_DEPENDENCY_LABEL_${pipeline name or material name}</td>
+<td>The label of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>). Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;). For example, upstream pipeline &ldquo;pipeline-foo&rdquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO. In case material name is specified, for example material &ldquo;foo&rdquo; becomes: GO_DEPENDENCY_LABEL_FOO</td>
 <td><code>1.0.3456</code></td>
 </tr>
 
