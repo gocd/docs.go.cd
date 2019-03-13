@@ -2,7 +2,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Integrating GoCD With Other Tools on GoCD User Documentation</title>
-    <link>/integration/</link>
+    <link>/integration.html</link>
     <description>Recent content in Integrating GoCD With Other Tools on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>

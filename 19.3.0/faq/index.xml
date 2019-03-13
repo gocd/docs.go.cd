@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>FAQ on GoCD User Documentation</title>
-    <link>/faq/</link>
-    <description>Recent content in FAQ on GoCD User Documentation</description>
+    <title>GoCD User Documentation</title>
+    <link>/faq.html</link>
+    <description>Recent content on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     
@@ -16,6 +16,15 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/faq/dev_use_current_revision_in_build.html</guid>
+      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/faq/environment_variables.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/environment_variables.html</guid>
       <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
     </item>
     
