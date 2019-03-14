@@ -1,11 +1,7 @@
 $(document).ready(function () {
+    var pathname = getPathname();
     var ul = $("nav[role='navigation'] ul").eq(0);
-    var currentHref = $(location).attr("href");
-    var element = $('<a>', {
-        href: currentHref
-    });
 
-    var pathname = element.prop('pathname');
     var allMenu = ul.find("li").find("a");
     allMenu.splice(0, 2);
 
@@ -21,6 +17,19 @@ $(document).ready(function () {
     updateNavigationLink($(".navigation-next"), nextRef);
 
 });
+
+function getPathname() {
+    var currentHref = $(location).attr("href");
+    var element = $('<a>', {
+        href: currentHref
+    });
+
+    var pathname = element.prop('pathname');
+    if (currentHref.indexOf("localhost:1313") >= 0) {
+        return pathname;
+    }
+    return pathname.replace("/" + element.prop('pathname').split("/")[1], "")
+}
 
 function updateNavigationLink(linkToUpdate, refElem) {
     if (refElem) {
