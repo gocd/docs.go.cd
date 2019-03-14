@@ -4,7 +4,7 @@ var lunrIndex,
 
 function getVersion() {
     var pageURL = $(location).attr("href");
-    if (pageURL.indexOf("localhost") >= 0) {
+    if (pageURL.indexOf("localhost:1313") >= 0) {
         return "";
     }
     var element = $('<a>', {
