@@ -35,7 +35,7 @@ Before installing GoCD, you need to setup a Kubernetes cluster. You can do this 
 
 - Option 3: Kubernetes Operations on AWS/GCE or kops ([setup guide](https://github.com/kubernetes/kops#readme))
 
-  ##### Other References
+  #### Other References
 
   - [Manage Kubernetes Clusters on AWS Using Kops](https://aws.amazon.com/blogs/compute/kubernetes-clusters-aws-kops/)
   - [Installing Kubernetes on AWS with kops](https://kubernetes.io/docs/getting-started-guides/kops/)
