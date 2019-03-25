@@ -81,3 +81,10 @@ of source control.
 Client software for your source code control tool (Git, SVN, etc) needs to be installed on all build agents. Also, any
 other software required to build your application (if not accessed directly from the project source checked out from
 source control) needs to be installed (for instance, Maven or Rake).
+
+### Supported Source Control Tools
+* **Git** >= 1.9
+* **Mercurial** >= 2.2.2
+* **Subversion** >= 1.6.11
+* **TFS** SDK 14.0.3 (TFS 2012, 2013, 2015 and Visual Studio Team Services are supported by GoCD)
+* **Perforce** >= 2016.1
