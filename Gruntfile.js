@@ -1,8 +1,15 @@
-var yaml = require("yamljs");
-var S = require("string");
-var markdown = require("markdown-it")
+const GrayMatter = require('gray-matter');
+const S = require("string");
+const Markdown = require("markdown-it");
+const He = require('he');
+const lunr = require('lunr')
 
-var CONTENT_PATH_PREFIX = "content";
+const CONTENT_PATH_PREFIX = "content";
+const md = new Markdown();
+
+function sanitizeInput(content) {
+    return S(content).trim().stripTags().s;
+}
 
 module.exports = function (grunt) {
 
@@ -10,8 +17,8 @@ module.exports = function (grunt) {
 
         grunt.log.writeln("Build pages index");
 
-        var indexPages = function () {
-            var pagesIndex = [];
+        const indexPages = function () {
+            const pagesIndex = [];
             grunt.file.recurse(CONTENT_PATH_PREFIX, function (abspath, rootdir, subdir, filename) {
                 if (!S(filename).contains("index.md")) {
                     grunt.verbose.writeln("Parse file:", abspath);
@@ -22,8 +29,8 @@ module.exports = function (grunt) {
             return pagesIndex;
         };
 
-        var processFile = function (abspath, filename) {
-            var pageIndex;
+        const processFile = function (abspath, filename) {
+            let pageIndex;
 
             if (S(filename).endsWith(".html")) {
                 pageIndex = processHTMLFile(abspath, filename);
@@ -34,11 +41,10 @@ module.exports = function (grunt) {
             return pageIndex;
         };
 
-        var processHTMLFile = function (abspath, filename) {
-            var content = grunt.file.read(abspath);
-            var pageName = S(filename).chompRight(".html").s;
-            var href = S(abspath)
-                .chompLeft(CONTENT_PATH_PREFIX).s;
+        const processHTMLFile = function (abspath, filename) {
+            const content = grunt.file.read(abspath);
+            const pageName = S(filename).chompRight(".html").s;
+            const href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).s;
             return {
                 title: pageName,
                 href: href,
@@ -46,39 +52,70 @@ module.exports = function (grunt) {
             };
         };
 
-        var processMDFile = function (abspath, filename) {
+        const processMDFile = function (abspath, filename) {
             console.log("Reading from :", abspath);
 
-            var content = grunt.file.read(abspath);
-            var pageIndex;
-            // First separate the Front Matter from the content and parse it
-            content = content.split("---");
-            var frontMatter;
+            let content = grunt.file.read(abspath);
+            let pageIndex;
+            let frontMatter;
+
             try {
-                frontMatter = yaml.parse(content[1].trim());
+                // First separate the Front Matter from the content and parse it
+                content = GrayMatter(content);
+                frontMatter = content.data;
             } catch (e) {
                 console.log(e.message);
             }
 
-            var href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(".md").ensureRight(".html").s;
+            let href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(".md").ensureRight(".html").s;
             // href for index.md files stops at the folder name
-            if (filename === "index.md") {
-                href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).ensureRight(".html").s;
+            if (S(filename).contains("index.md")) {
+                href = S(abspath).chompLeft(CONTENT_PATH_PREFIX).chompRight(filename).s;
             }
 
-            var md = new markdown();
             // Build Lunr index for this page
             pageIndex = {
                 title: frontMatter.title,
-                tags: frontMatter.tags,
+                description: frontMatter.description,
+                keywords: frontMatter.keywords,
                 href: href,
-                content: S(md.render(content[2])).trim().stripTags().stripPunctuation().s
+                content: He.decode(sanitizeInput(md.render(sanitizeInput(content.content)))
+                    .replace(/[(\n)]+/ig, ' ').trim())
             };
 
             return pageIndex;
         };
 
-        grunt.file.write("static/javascripts/search/lunr/PagesIndex.json", JSON.stringify(indexPages()));
+        const docs = indexPages();
+        grunt.file.write("static/javascripts/search/lunr/PagesIndex.json", JSON.stringify({
+            index: lunr(function () {
+                this.use(stopWords);
+                this.ref("href");
+                this.field("keywords", {
+                    boost: 15
+                });
+                this.field("title", {
+                    boost: 10
+                });
+                this.field("description", {
+                    boost: 5
+                });
+                this.field("content");
+                this.pipeline.remove(lunr.stemmer);
+                for (let i = 0; i < docs.length; ++i) {
+                    this.add(docs[i]);
+                }
+            }),
+            store: docs
+        }));
         grunt.log.ok("Index built");
     });
 };
+
+function stopWords(builder) {
+    // Register the pipeline function so the index can be serialised
+    // lunr.Pipeline.registerFunction(lunr.stopWordFilter, 'stopWordFilter');
+
+    builder.pipeline.before(lunr.stemmer, lunr.stopWordFilter);
+    builder.searchPipeline.before(lunr.stemmer, lunr.stopWordFilter);
+}
