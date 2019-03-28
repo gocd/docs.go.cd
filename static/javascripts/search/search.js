@@ -1,5 +1,16 @@
+const enumValue = (name) => Object.freeze({toString: () => name});
+
+const SearchStatus = Object.freeze({
+    init: enumValue("init"),
+    noResults: enumValue("empty"),
+    publishResults: enumValue("results")
+});
+
 let lunrIndex,
     $results,
+    $searchResultTitle,
+    $content,
+    $noResultDiv,
     pagesIndex;
 
 function getVersion() {
@@ -28,21 +39,22 @@ function initLunr() {
 
 function initUI() {
     $results = $("#results");
-    let content = $(document).find("article");
+    $searchResultTitle = $("#searchResultTitle");
+    $noResultDiv = $(".no-results");
+    $content = $(document).find("article");
+
+    searchUI(SearchStatus.init);
+
     $("#search").keyup(function () {
-        $results.empty();
 
         const query = $(this).val();
 
         if (query.length < 2) {
-            $(content).show();
-            $(".no-results").hide();
+            searchUI(SearchStatus.init);
             return;
         }
 
-        $(content).hide();
         const results = search(query);
-
         renderResults(query, results);
     });
 }
@@ -65,14 +77,11 @@ function doSearch(searchQuery) {
 }
 
 function renderResults(query, results) {
-    let $noResultDiv = $(".no-results");
     if (!results.length) {
-        $noResultDiv.show();
+        searchUI(SearchStatus.noResults);
         return;
     }
-
-    $noResultDiv.hide();
-    $results.append(`<h1 class="search-results-title">${results.length} results matching "${query}".</h1>`);
+    searchUI(SearchStatus.publishResults, `${results.length} results matching : <span class="search-query">${query}</span>`);
     results.slice(0, 20).forEach(function (result) {
         let $result = $("<li>");
         $result.append($("<a>", {
@@ -89,3 +98,25 @@ initLunr();
 $(document).ready(function () {
     initUI();
 });
+
+function searchUI(searchStatus, searchTitle) {
+    $results.empty();
+    switch (searchStatus) {
+        default:
+        case SearchStatus.init:
+            $content.show();
+            $searchResultTitle.hide();
+            break;
+        case SearchStatus.noResults:
+            $content.hide();
+            $noResultDiv.show();
+            $searchResultTitle.hide();
+            break;
+        case SearchStatus.publishResults:
+            $content.hide();
+            $noResultDiv.hide();
+            $searchResultTitle.show();
+            $searchResultTitle.html(searchTitle);
+            break;
+    }
+}

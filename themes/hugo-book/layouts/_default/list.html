@@ -1,9 +1,10 @@
 {{ define "search-results" }}
 <div class="has-results">
-  <ul id="results"></ul>
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
 </div>
 <div class="no-results hide">
-  Your query search resulted in no results.
+    Your query search resulted in no results.
 </div>
 {{ end }}
 
@@ -14,5 +15,5 @@
 {{ end }}
 
 {{ define "toc" }}
-  {{ partial "docs/toc" . }}
+{{ partial "docs/toc" . }}
 {{ end }}
