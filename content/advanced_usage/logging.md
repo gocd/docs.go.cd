@@ -4,8 +4,6 @@ title: Logging
 ---
 # Logging
 
-<!-- toc -->
-
 ## Introduction
 
 You can turn on additional logging to diagnose and troubleshoot issues with the GoCD server and agent.

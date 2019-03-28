@@ -1,13 +1,13 @@
-var lunrIndex,
+let lunrIndex,
     $results,
     pagesIndex;
 
 function getVersion() {
-    var pageURL = $(location).attr("href");
+    const pageURL = $(location).attr("href");
     if (pageURL.indexOf("localhost:1313") >= 0) {
         return "";
     }
-    var element = $('<a>', {
+    let element = $('<a>', {
         href: pageURL
     });
     return "/" + element.prop('pathname').split("/")[1];
@@ -17,35 +17,22 @@ function initLunr() {
     let indexJsonPath = window.location.origin + `${getVersion()}/javascripts/search/lunr/PagesIndex.json`;
     $.getJSON(indexJsonPath)
         .done(function (index) {
-            pagesIndex = index;
-            lunrIndex = lunr(function () {
-                this.field("title", {
-                    boost: 10
-                });
-                this.field("tags", {
-                    boost: 5
-                });
-                this.field("content");
-
-                this.ref("href");
-                for (var i = 0; i < pagesIndex.length; ++i) {
-                    this.add(pagesIndex[i]);
-                }
-            });
+            pagesIndex = index.store;
+            lunrIndex = lunr.Index.load(index.index);
         })
         .fail(function (jqxhr, textStatus, error) {
-            var err = textStatus + ", " + error;
+            let err = textStatus + ", " + error;
             console.error("Error getting Hugo index file:", err);
         });
 }
 
 function initUI() {
     $results = $("#results");
-    content = $(document).find("article");
+    let content = $(document).find("article");
     $("#search").keyup(function () {
         $results.empty();
 
-        var query = $(this).val();
+        const query = $(this).val();
 
         if (query.length < 2) {
             $(content).show();
@@ -54,9 +41,9 @@ function initUI() {
         }
 
         $(content).hide();
-        var results = search(query);
+        const results = search(query);
 
-        renderResults(results);
+        renderResults(query, results);
     });
 }
 
@@ -77,7 +64,7 @@ function doSearch(searchQuery) {
     });
 }
 
-function renderResults(results) {
+function renderResults(query, results) {
     let $noResultDiv = $(".no-results");
     if (!results.length) {
         $noResultDiv.show();
@@ -85,8 +72,9 @@ function renderResults(results) {
     }
 
     $noResultDiv.hide();
+    $results.append(`<h1 class="search-results-title">${results.length} results matching "${query}".</h1>`);
     results.slice(0, 20).forEach(function (result) {
-        var $result = $("<li>");
+        let $result = $("<li>");
         $result.append($("<a>", {
             href: getVersion() + result.href,
             text: "» " + result.title

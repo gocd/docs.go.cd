@@ -15,10 +15,11 @@
   "dependencies": {
     "grunt": "^1.0.3",
     "hugo-bin": "^0.41.0",
-    "lunr": "^2.3.5",
+    "lunr": "2.3.6",
     "markdown-it": "^8.4.2",
     "string": "^3.3.3",
-    "yamljs": "^0.3.0"
+    "gray-matter": "^4.0.2",
+    "he": "^1.2.0"
   },
   "hugo-bin": {
     "buildTags": "extended"
