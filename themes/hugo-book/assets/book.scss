@@ -106,7 +106,7 @@ ul.pagination {
     padding: $padding-16;
     @include fixed;
     z-index: 11;
-    background:$gray-100;
+    background: $gray-100;
 
     @media (min-width: 44rem) {
       //left: 12px;
@@ -277,60 +277,62 @@ pre::-webkit-scrollbar {
 //new styles
 
 
-.main-container{
-  display:flex;
+.main-container {
+  display: flex;
 }
 
-.book-page{
-  max-width:800px;
-  padding:0 50px 50px;
+.book-page {
+  max-width: 800px;
+  padding: 0 50px 50px;
 }
 
-.book-toc{
+.book-toc {
 
-  a{
-    color:#333;
+  a {
+    color: #333;
     text-decoration: none;
   }
 
-  ul{
+  ul {
     list-style-type: none;
-    margin:0;
-    padding:0;
+    margin: 0;
+    padding: 0;
   }
 
-  nav  ul  > li{
-    margin-bottom:10px;
+  nav ul > li {
+    margin-bottom: 10px;
 
-    a{
-    font-size:16px;
+    a {
+      font-size: 16px;
+    }
+
   }
 
-  }
-  nav  ul  > li ul li {
+  nav ul > li ul li {
     margin: 10px 0;
 
-    a{
-    font-size:13px;
-  }
+    a {
+      font-size: 13px;
+    }
 
   }
 
-    nav  ul  > li ul li ul >li {
-    font-weight:600;
+  nav ul > li ul li ul > li {
+    font-weight: 600;
     margin: 5px 0;
-    font-size:13px;
+    font-size: 13px;
   }
 
-  nav  ul  > li ul li ul > li >ul li a {
-    font-weight:normal;
-    font-size:13px;
-    margin-bottom:10px;
+  nav ul > li ul li ul > li > ul li a {
+    font-weight: normal;
+    font-size: 13px;
+    margin-bottom: 10px;
   }
-  nav  ul  > li ul li ul > li >ul  {
 
-    font-weight:normal;
-    margin-left:20px;
+  nav ul > li ul li ul > li > ul {
+
+    font-weight: normal;
+    margin-left: 20px;
 
   }
 }
@@ -344,11 +346,26 @@ pre::-webkit-scrollbar {
   padding: 5px 2rem 5px 2rem;
   z-index: 10;
   justify-content: space-between;
-  @media (min-width:$desktop){
+  @media (min-width: $desktop) {
     padding: 5px 2rem 5px 23rem;
   }
 }
+
 a.navigation {
   color: #333;
   font-size: $font-size-14;
+}
+
+.search-results-title {
+  text-align: left;
+  font-weight: 200;
+  margin: 0 0 35px 40px;
+  font-size: 20px;
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+}
+
+.search-query {
+  font-weight: 600;
+  font-size: 22px;
 }

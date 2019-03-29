@@ -1,3 +1,6 @@
+---
+title: GoCD on Kubernetes
+---
 <html>
     <body>
     <div style="text-align:center;" class="my-block">

@@ -18,7 +18,7 @@ desc 'Check for title property on every md file'
 task :check_for_title do
   missing_title = []
   Dir['content/**/*.md'].select {|file|
-    if file.exclude? 'index.md'
+    if file.exclude? 'menu/index.md'
       begin
         thing = YAML.load_file(file)
         title = thing['title']
