@@ -1,13 +1,24 @@
-var lunrIndex,
+const enumValue = (name) => Object.freeze({toString: () => name});
+
+const SearchStatus = Object.freeze({
+    init: enumValue("init"),
+    noResults: enumValue("empty"),
+    publishResults: enumValue("results")
+});
+
+let lunrIndex,
     $results,
+    $searchResultTitle,
+    $content,
+    $noResultDiv,
     pagesIndex;
 
 function getVersion() {
-    var pageURL = $(location).attr("href");
+    const pageURL = $(location).attr("href");
     if (pageURL.indexOf("localhost:1313") >= 0) {
         return "";
     }
-    var element = $('<a>', {
+    let element = $('<a>', {
         href: pageURL
     });
     return "/" + element.prop('pathname').split("/")[1];
@@ -17,46 +28,34 @@ function initLunr() {
     let indexJsonPath = window.location.origin + `${getVersion()}/javascripts/search/lunr/PagesIndex.json`;
     $.getJSON(indexJsonPath)
         .done(function (index) {
-            pagesIndex = index;
-            lunrIndex = lunr(function () {
-                this.field("title", {
-                    boost: 10
-                });
-                this.field("tags", {
-                    boost: 5
-                });
-                this.field("content");
-
-                this.ref("href");
-                for (var i = 0; i < pagesIndex.length; ++i) {
-                    this.add(pagesIndex[i]);
-                }
-            });
+            pagesIndex = index.store;
+            lunrIndex = lunr.Index.load(index.index);
         })
         .fail(function (jqxhr, textStatus, error) {
-            var err = textStatus + ", " + error;
+            let err = textStatus + ", " + error;
             console.error("Error getting Hugo index file:", err);
         });
 }
 
 function initUI() {
     $results = $("#results");
-    content = $(document).find("article");
-    $("#search").keyup(function () {
-        $results.empty();
+    $searchResultTitle = $("#searchResultTitle");
+    $noResultDiv = $(".no-results");
+    $content = $(document).find("article");
 
-        var query = $(this).val();
+    searchUI(SearchStatus.init);
+
+    $("#search").keyup(function () {
+
+        const query = $(this).val();
 
         if (query.length < 2) {
-            $(content).show();
-            $(".no-results").hide();
+            searchUI(SearchStatus.init);
             return;
         }
 
-        $(content).hide();
-        var results = search(query);
-
-        renderResults(results);
+        const results = search(query);
+        renderResults(query, results);
     });
 }
 
@@ -77,16 +76,14 @@ function doSearch(searchQuery) {
     });
 }
 
-function renderResults(results) {
-    let $noResultDiv = $(".no-results");
+function renderResults(query, results) {
     if (!results.length) {
-        $noResultDiv.show();
+        searchUI(SearchStatus.noResults);
         return;
     }
-
-    $noResultDiv.hide();
+    searchUI(SearchStatus.publishResults, `${results.length} results matching : <span class="search-query">${query}</span>`);
     results.slice(0, 20).forEach(function (result) {
-        var $result = $("<li>");
+        let $result = $("<li>");
         $result.append($("<a>", {
             href: getVersion() + result.href,
             text: "» " + result.title
@@ -101,3 +98,25 @@ initLunr();
 $(document).ready(function () {
     initUI();
 });
+
+function searchUI(searchStatus, searchTitle) {
+    $results.empty();
+    switch (searchStatus) {
+        default:
+        case SearchStatus.init:
+            $content.show();
+            $searchResultTitle.hide();
+            break;
+        case SearchStatus.noResults:
+            $content.hide();
+            $noResultDiv.show();
+            $searchResultTitle.hide();
+            break;
+        case SearchStatus.publishResults:
+            $content.hide();
+            $noResultDiv.hide();
+            $searchResultTitle.show();
+            $searchResultTitle.html(searchTitle);
+            break;
+    }
+}

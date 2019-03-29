@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>GoCD User Documentation</title>
+    <title>GoCD on Kubernetes on GoCD User Documentation</title>
     <link>/gocd_on_kubernetes/designing_a_cd_pipeline.html</link>
-    <description>Recent content on GoCD User Documentation</description>
+    <description>Recent content in GoCD on Kubernetes on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     

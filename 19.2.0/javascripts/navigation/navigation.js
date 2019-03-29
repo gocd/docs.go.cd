@@ -9,10 +9,6 @@ $(document).ready(function () {
     var prevRef = (pathname === "/" || indexOfCurrentMenu === 0) ? null : allMenu.eq(indexOfCurrentMenu - 1);
     var nextRef = (indexOfCurrentMenu === allMenu.length - 1) ? null : allMenu.eq(indexOfCurrentMenu + 1);
 
-    console.log(indexOfCurrentMenu);
-    console.log("Previous", prevRef ? prevRef.attr("href") : null);
-    console.log("Next", nextRef ? nextRef.attr("href") : null);
-
     updateNavigationLink($(".navigation-prev"), prevRef);
     updateNavigationLink($(".navigation-next"), nextRef);
 
@@ -35,9 +31,9 @@ function updateNavigationLink(linkToUpdate, refElem) {
     if (refElem) {
         linkToUpdate.attr("href", refElem.attr("href"));
         linkToUpdate.attr("aria-label", refElem.text());
-        linkToUpdate.show();
+        linkToUpdate.css('visibility', 'visible');
     } else {
-        linkToUpdate.hide();
+        linkToUpdate.css('visibility', 'hidden');
     }
 }
 
