@@ -3,10 +3,6 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/gocd_on_kubernetes/designing_a_cd_pipeline.html</loc>
-  </url>
-  
-  <url>
     <loc>/installation/configure_proxy.html</loc>
   </url>
   
@@ -265,6 +261,10 @@
   
   <url>
     <loc>/installation/troubleshooting.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/designing_a_cd_pipeline.html</loc>
   </url>
   
   <url>
