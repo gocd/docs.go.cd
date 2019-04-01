@@ -412,8 +412,9 @@ if (!doNotTrack) {
     <span style="color:#a2f;font-weight:bold">proxy_set_header</span>        <span style="color:#b44">X-Forwarded-For</span> <span style="color:#b8860b">$proxy_add_x_forwarded_for</span>;
     <span style="color:#a2f;font-weight:bold">proxy_set_header</span>        <span style="color:#b44">X-Forwarded-Proto</span> <span style="color:#b8860b">$scheme</span>;
     <span style="color:#a2f;font-weight:bold">proxy_http_version</span>      <span style="color:#666">1</span><span style="color:#b44">.1</span>;
-    <span style="color:#a2f;font-weight:bold">proxy_set_header</span> 	    <span style="color:#b44">Upgrade</span> <span style="color:#b8860b">$http_upgrade</span>;
-    <span style="color:#a2f;font-weight:bold">proxy_set_header</span> 	    <span style="color:#b44">Connection</span> <span style="color:#b8860b">$connection_upgrade</span>;
+    <span style="color:#a2f;font-weight:bold">proxy_set_header</span> 	      <span style="color:#b44">Upgrade</span> <span style="color:#b8860b">$http_upgrade</span>;
+    <span style="color:#a2f;font-weight:bold">proxy_set_header</span> 	      <span style="color:#b44">Connection</span> <span style="color:#b8860b">$connection_upgrade</span>;
+    <span style="color:#a2f;font-weight:bold">proxy_pass</span>              <span style="color:#b44">http://localhost:8153/</span>;
   }
 }</code></pre></div>
 <p><a id="agents-and-custom-ssl-ports"></a></p>
