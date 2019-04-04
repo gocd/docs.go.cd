@@ -369,3 +369,36 @@ a.navigation {
   font-weight: 600;
   font-size: 22px;
 }
+
+a.header-anchor {
+  display: none;
+  margin-left: -15px;
+  cursor: pointer;
+  position: absolute;
+  top: 20px;
+  left: 0;
+  bottom: 0;
+}
+
+h2, h3 {
+  a.header-anchor {
+    margin-left: -10px;
+  }
+}
+
+h4, h5, h6 {
+  a.header-anchor {
+    margin-left: -8px;
+    top: 0;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  a.header-anchor {
+    display: inline-block;
+  }
+}
