@@ -13,7 +13,7 @@ GoCD allows you to link your commit messages with bug tracking and story managem
 
 The following shows an example of tracking cards on Mingle by card numbers starting with a "\#" (e.g: \#4618):
 
-![Configure tracking tool](./images/pipeline_tracking_tool.png)
+![Configure tracking tool](../images/pipeline_tracking_tool.png)
 
 The pattern has an extra "\#" because it is an escape character for a parameter. [More information...](../configuration/admin_use_parameters_in_configuration.html)
 
@@ -28,7 +28,7 @@ For power users, here's how you'd do it from Config XML:
 
 Now, when a user commits code with comments like "\#4618 - Make sure the TrackingToolConfig and...", GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:
 
-![](./images/pipeline_activity_tracking_tool.png)
+![](../images/pipeline_activity_tracking_tool.png)
 
 ## Monitoring your builds with client tools
 
