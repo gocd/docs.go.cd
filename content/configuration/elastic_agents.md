@@ -24,7 +24,7 @@ Using GoCD elastic agents requires downloading and installing one of the availab
 
 Once the plugin is downloaded and installed, make sure to:
 
-1. Configure an cluster profile (**_Admin > Elastic Profiles_**).
+1. Configure a cluster profile (**_Admin > Elastic Profiles_**).
 2. Configure an elastic agent profile (**_Admin > Elastic Profiles_**).
 3. Associate the elastic agent profile with one or more jobs.
 
