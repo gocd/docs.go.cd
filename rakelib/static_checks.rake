@@ -18,13 +18,13 @@ namespace :static_checks do
       :allow_hash_href      => true,
       :allow_missing_href   => true,
       :href_ignore          => ['/https:\/\/www\.youtube\.com\/.*/'],
-      :check_html           => false,
       :validation           => {
           :report_invalid_tags  => false,
           :report_script_embeds => false,
           :report_missing_names => false ,
       },
       :external_only        => true,
+      :check_html           => false,
       :typhoeus => {
           :ssl_verifypeer => false,
       },
