@@ -6,41 +6,67 @@ title: Mac OS X
 
 <!-- toc -->
 
+> **Note:** Installation of GoCD server on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this [document](https://docs.gocd.org/19.2.0/installation/install/server/osx.html)
+
 ## Installation
 
-1.  Double-click the file downloaded from the [downloads page](https://www.gocd.org/download/) to unzip the contents.
-2.  Drag the GoCD server application to the Applications folder.
-3.  Double-click on the ```Go Server.app``` icon to open the launcher.
-4.  While the GoCD server is starting up, you'll see a progress bar in the top left of your screen.
+1.   Download the Mac OSX installer for GoCD server from [downloads page](https://www.gocd.org/download/)
+2.   Unzip the installer in a folder of your choice. It creates a subfolder with the name ```go-server-${version}```
+3.   Open a command prompt and go to the folder
+4.   To start the server, run:
 
-    ![GoCD server OSX startup](../../../images/cruise_server_osx_startup.png)
+     ```shell
+      bin/go-server start
+     ```
 
-5.  Once the GoCD server has started, it will open your default browser to the GoCD dashboard page (defaults to: <a href="http://localhost:8153">http://localhost:8153</a>).
-6.  To get back to the GoCD dashboard page when the server is running, click on the link in the About box of the GoCD server.
+{{< include file="installation/install/server/_tanuki_commands.md" markdown="true" >}}
 
-## Override environment variables (Mac OSX installer)
+## Overriding default startup arguments and environment
 
-You can override default environment variables by:
-
-1. Overriding them during startup when starting from the terminal
+-   Open the file ```go-server-${version}/conf/wrapper-properties.conf.example```
+-   Copy any specific properties, or add new properties from ```go-server-${version}/conf/wrapper.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
+-   For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.100` -
     ```bash
-    PATH=$PATH:/usr/local/bin open /Applications/Go\ Server.app
+    # config/wrapper-properties.conf
+    wrapper.java.additional.100=-Xmx12g
     ```
-
-2. Overriding them using a file ```~/Library/Application Support/Go Server/overrides.env```. This file is sourced during server startup, and it can be setup to change environment variables.
+-   To append additional JVM args to the server
     ```bash
-    PATH=$PATH:/usr/local/bin
+    # conf/wrapper.conf
+    # We recommend you begin with index 100 for  "wrapper.java.additional"
+    wrapper.java.additional.100=-Dcruise.config.foo=bar
     ```
+-   Each property must be configured separately
+
+    ```bash
+    # Having a single property for multiple configurations is invalid, e.g
+    wrapper.java.additional.100="-Dcruise.config.foo='bar' -Dcruise.config.other='baz'"
+
+    Valid properties,
+    wrapper.java.additional.100=-Dcruise.config.foo=bar
+    wrapper.java.additional.101=-Dcruise.config.other=baz
+    ```
+     **Please note** : If the `bin/go-server` as an application is run by any user, then this user needs to have these required permissions to the `go-server-${version}` folder, i.e. modify, read and execute, list folder contents and read permissions.
+-   Rename the said file to remove the `.example` extension.    
 
 ## Location of GoCD server files
 
-The GoCD server installs its files in the following locations on your filesystem:
+All the files for the GoCD server are under the `go-server-${version}` folder.
 
-```bash
-/Applications/Go Server.app             # The GoCD server application
-~/Library/Application Support/Go Server # The server directory
-```
 
-Some logging information is also written to ```/var/log/system.log```
+## Copying existing config to a new GoCD Server instance
 
-{{< include file="installation/install/server/_install_server_footer.md" markdown="true" >}}
+You can replicate a GoCD server with all the pipeline, stage, job, tasks and materials definitions/configuration intact.
+
+To do this, the administrator should copy ```cruise-config.xml``` from the config directory (`go-server-${version}/config`) to the new server and clear `serverId` attribute of `server` tag.
+
+> **Note:** Copying just the ```cruise-config.xml``` file will not migrate the historical pipeline data and
+> artifacts. Please see the page on [backing up the GoCD Server](../../../advanced_usage/one_click_backup.html) to fully
+> migrate an existing GoCD server.
+
+**Also see...**
+
+- [Installing GoCD agents](../../installing_go_agent.html)
+- [Configuring server details](../../configuring_server_details.html)
+- [Configure GoCD to work with a proxy](../../configure-reverse-proxy.html)
+- [Backing up a GoCD server](../../../advanced_usage/one_click_backup.html)

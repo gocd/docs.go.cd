@@ -5,45 +5,51 @@ title: Mac OS X
 # Installing GoCD agent on Mac OS X
 
 <!-- toc -->
+> **Note:** Installation of GoCD agent on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this [document](https://docs.gocd.org/19.2.0/installation/install/agent/osx.html)
 
 ## Installation
 
-1.  Double-click the file downloaded from the [downloads page](https://www.gocd.org/download/) to unzip the contents.
-2.  Drag the ```Go Agent.app``` icon to the Applications folder.
-3.  Double-click on the ```Go Agent.app``` icon to open the launcher.
-4.  The very first time you run the GoCD agent on your machine you will be prompted for the hostname or IP address of your
-    GoCD server. By default it will try connecting to the local machine. Click the OK button to continue.
-
-    ![GoCD Agent OSX Config](../../../images/cruise_agent_osx_config.png)
+1.  Download the Mac OSX installer for GoCD Agent from the [downloads page](https://www.gocd.org/download/).
+2.  Unzip the contents. It creates a subfolder with the name ```go-agent-${version}```
+2.  Open a command prompt and go to the folder.
+3.  To start the server, run:
+    
+    ```shell
+     bin/go-agent start -serverUrl https://your-server-host:8154/go
+    ```
+    
+{{< include file="installation/install/agent/_tanuki_commands.md" markdown="true" >}}
 
 ## Overriding default startup arguments and environment
 
-You can override default environment variables by:
-
-1. Overriding them during startup when starting from the terminal
+-   Open the file ```go-agent-${version}/conf/wrapper-properties.conf.example```
+-   Copy any specific properties, or add new properties from ```go-agent-${version}/conf/wrapper.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
+-   For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.100` -
     ```bash
-    PATH=$PATH:/usr/local/bin open /Applications/Go\ Agent.app
+    # config/wrapper-properties.conf
+    wrapper.java.additional.100=-Xmx12g
     ```
-
-2. Overriding them using a file ```~/Library/Application Support/Go Agent/overrides.env```. This file is sourced during agent startup, and it can be setup to change environment variables.
+-   To append additional JVM args to the agent
     ```bash
-    PATH=$PATH:/usr/local/bin
+    # conf/wrapper.conf
+    # We recommend you begin with index 100 for  "wrapper.java.additional"
+    wrapper.java.additional.100=-Dcruise.config.foo=bar
     ```
+-   Each property must be configured separately
 
-## Location of GoCD agent files
+    ```bash
+    # Having a single property for multiple configurations is invalid, e.g
+    wrapper.java.additional.100="-Dcruise.config.foo='bar' -Dcruise.config.other='baz'"
 
-The GoCD agent installs its files in the following locations on your filesystem:
+    Valid properties,
+    wrapper.java.additional.100=-Dcruise.config.foo=bar
+    wrapper.java.additional.101=-Dcruise.config.other=baz
+    ```
+     **Please note** : If the `bin/go-agent` as an application is run by any user, then this user needs to have these required permissions to the `go-agent-${version}` folder, i.e. modify, read and execute, list folder contents and read permissions.
+-   Rename the said file to remove the `.example` extension.    
 
-```bash
-/Applications/Go Agent.app                                                  # The go agent application
-~/Library/Preferences/com.thoughtworks.go.agent.properties                  # The agent properties (host and port are saved here)
-~/Library/Application Support/Go Agent                                      # The agent directory
-```
+## Location of GoCD Agent files
 
-You can find logs in `~/Library/Application Support/Go Agent`. The `osx-app.log` file contains the info used to bootstrap the agent jar.
-
-## Setting the server location without the GUI
-
-You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI ([be aware that this might not always work as you expect](../../configure-reverse-proxy.html#agents-and-reverse-proxies)). The properties file is located in `~/Library/Preferences/com.thoughtworks.go.agent.properties`, and has a `serverUrl` and a `sslVerificationMode` property.
+All the files for the GoCD agent are under the `go-agent-${version}` folder.
 
 {{< include file="installation/install/agent/_register_with_server.md" markdown="true" >}}
