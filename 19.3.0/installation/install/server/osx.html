@@ -323,47 +323,75 @@ if (!doNotTrack) {
 
 <!-- toc -->
 
+<blockquote>
+<p><strong>Note:</strong> Installation of GoCD server on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this <a href="https://docs.gocd.org/19.2.0/installation/install/server/osx.html">document</a></p>
+</blockquote>
+
 <h2 id="installation">Installation</h2>
 
 <ol>
-<li>Double-click the file downloaded from the <a href="https://www.gocd.org/download/">downloads page</a> to unzip the contents.</li>
-<li>Drag the GoCD server application to the Applications folder.</li>
-<li>Double-click on the <code>Go Server.app</code> icon to open the launcher.</li>
+<li>Download the Mac OSX installer for GoCD server from <a href="https://www.gocd.org/download/">downloads page</a></li>
+<li>Unzip the installer in a folder of your choice. It creates a subfolder with the name <code>go-server-${version}</code></li>
+<li>Open a command prompt and go to the folder</li>
 
-<li><p>While the GoCD server is starting up, you&rsquo;ll see a progress bar in the top left of your screen.</p>
-
-<p><img src="../../../images/cruise_server_osx_startup.png" alt="GoCD server OSX startup" /></p></li>
-
-<li><p>Once the GoCD server has started, it will open your default browser to the GoCD dashboard page (defaults to: <a href="http://localhost:8153">http://localhost:8153</a>).</p></li>
-
-<li><p>To get back to the GoCD dashboard page when the server is running, click on the link in the About box of the GoCD server.</p></li>
+<li><p>To start the server, run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  bin/go-server start</code></pre></div></li>
 </ol>
 
-<h2 id="override-environment-variables-mac-osx-installer">Override environment variables (Mac OSX installer)</h2>
+<h4 id="commands">Commands</h4>
 
-<p>You can override default environment variables by:</p>
+<p>Start the server:
+<pre>
+console         : The server will be started in the current console.
+start           : The server will start in the background as a daemon
+                  process.
+restart         : The server will stop if running and a fresh instance
+                  will start.
+</pre></p>
 
-<ol>
-<li><p>Overriding them during startup when starting from the terminal</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">PATH</span><span style="color:#666">=</span><span style="color:#b8860b">$PATH</span>:/usr/local/bin open /Applications/Go<span style="color:#b62;font-weight:bold">\ </span>Server.app</code></pre></div></li>
+<p>Stop the server:
+<pre>
+stop            : Stops the server if it is running as a daemon or in
+                  console.
+</pre></p>
 
-<li><p>Overriding them using a file <code>~/Library/Application Support/Go Server/overrides.env</code>. This file is sourced during server startup, and it can be setup to change environment variables.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">PATH</span><span style="color:#666">=</span><span style="color:#b8860b">$PATH</span>:/usr/local/bin</code></pre></div></li>
-</ol>
+
+<h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
+
+<ul>
+<li>Open the file <code>go-server-${version}/conf/wrapper-properties.conf.example</code></li>
+<li>Copy any specific properties, or add new properties from <code>go-server-${version}/conf/wrapper.conf</code> into this file. Be sure to increment the property index if you&rsquo;re adding any new properties.</li>
+
+<li><p>For e.g. to override the <code>-Xmx</code> to <code>12GB</code>, override <code>wrapper.java.additional.100</code> -</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Xmx12g</code></pre></div></li>
+
+<li><p>To append additional JVM args to the server</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># conf/wrapper.conf</span>
+<span style="color:#080;font-style:italic"># We recommend you begin with index 100 for  &#34;wrapper.java.additional&#34;</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar</code></pre></div></li>
+
+<li><p>Each property must be configured separately</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
+wrapper.java.additional.100<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
+
+Valid properties,
+wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
+wrapper.java.additional.101<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
+<p><strong>Please note</strong> : If the <code>bin/go-server</code> as an application is run by any user, then this user needs to have these required permissions to the <code>go-server-${version}</code> folder, i.e. modify, read and execute, list folder contents and read permissions.</p></li>
+
+<li><p>Rename the said file to remove the <code>.example</code> extension.</p></li>
+</ul>
 
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
 
-<p>The GoCD server installs its files in the following locations on your filesystem:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/Applications/Go Server.app             <span style="color:#080;font-style:italic"># The GoCD server application</span>
-~/Library/Application Support/Go Server <span style="color:#080;font-style:italic"># The server directory</span></code></pre></div>
-<p>Some logging information is also written to <code>/var/log/system.log</code></p>
+<p>All the files for the GoCD server are under the <code>go-server-${version}</code> folder.</p>
 
 <h2 id="copying-existing-config-to-a-new-gocd-server-instance">Copying existing config to a new GoCD Server instance</h2>
 
 <p>You can replicate a GoCD server with all the pipeline, stage, job, tasks and materials definitions/configuration intact.</p>
 
-<p>To do this, the administrator should copy <code>/etc/go/cruise-config.xml</code> from the config directory (<code>/etc/go</code>) to the new server and clear
-<code>serverId</code> attribute of <code>server</code> tag.</p>
+<p>To do this, the administrator should copy <code>cruise-config.xml</code> from the config directory (<code>go-server-${version}/config</code>) to the new server and clear <code>serverId</code> attribute of <code>server</code> tag.</p>
 
 <blockquote>
 <p><strong>Note:</strong> Copying just the <code>cruise-config.xml</code> file will not migrate the historical pipeline data and
@@ -379,7 +407,6 @@ migrate an existing GoCD server.</p>
 <li><a href="../../configure-reverse-proxy.html">Configure GoCD to work with a proxy</a></li>
 <li><a href="../../../advanced_usage/one_click_backup.html">Backing up a GoCD server</a></li>
 </ul>
-
 </article>
 
       
@@ -406,8 +433,9 @@ migrate an existing GoCD server.</p>
 <li><a href="#installing-gocd-server-on-mac-os-x">Installing GoCD server on Mac OS X</a>
 <ul>
 <li><a href="#installation">Installation</a></li>
-<li><a href="#override-environment-variables-mac-osx-installer">Override environment variables (Mac OSX installer)</a></li>
+<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
 <li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
+<li><a href="#copying-existing-config-to-a-new-gocd-server-instance">Copying existing config to a new GoCD Server instance</a></li>
 </ul></li>
 </ul>
 </nav>

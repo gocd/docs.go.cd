@@ -321,16 +321,9 @@ if (!doNotTrack) {
 
 <h1 id="pipelines-as-code">Pipelines as code</h1>
 
-<p>GoCD supports storing pipeline configuration in a source code repository, either with your application code or in a
-separate repository all on its own. It allows you to move it out of GoCD so that you can modify, control and version it
-externally. Such modifications will be seen by a periodic poller in the GoCD server and it will merge those pipeline
-configurations into the pipelines it finds in the main configuration XML file. You can see a quick preview video of this
-feature <a href="https://www.youtube.com/watch?v=1AfBxCWRqD8&amp;feature=youtu.be">here</a>.</p>
+<p>GoCD can store pipeline definitions in a source code repository, either in your application&rsquo;s repository, or in a separate repository. With this feature, you can move your pipeline definitions out of GoCD to keep them under version control and manage them externally. A poller in the GoCD server will periodically check for modifications to your pipeline definitions and merge them with the pipeline data already present in GoCD&rsquo;s main XML configuration file. For a quick overview of this feature, see this <a href="https://www.youtube.com/watch?v=1AfBxCWRqD8&amp;feature=youtu.be">video</a>.</p>
 
-<p>It is important to note that not all pipelines need to be external to the config (any existing config, in any existing
-GoCD server will be valid). It is also important to note that this feature includes the ability for GoCD to monitor and
-merge external pipelines defined in multiple &ldquo;config repositories&rdquo;. It is also possible for a pipeline defined in a
-config repository to be dependent on a pipeline defined in the main config XML of the GoCD server.</p>
+<p><em>Pipelines as code</em> is an optional feature. Any existing config in any GoCD server will remain valid. This feature also allows GoCD to monitor and merge in external pipeline definitions located in multiple &ldquo;config repositories&rdquo;. Pipelines defined in a config repository may depend on a pipeline defined in GoCD&rsquo;s main XML configuration file.</p>
 
 <p>This ability is exposed as a plugin endpoint and so, anyone can write a plugin for a config repository, to store the configuration in any manner you choose.</p>
 
@@ -391,7 +384,7 @@ make it more declarative, depending on the plugin and possibly give more control
 
 <h3 id="pipeline-export-feature">Pipeline export feature</h3>
 
-<p>In GoCD release 19.1.0, we introduced ability to export pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). Users can later check in these pipeline definitions to a repository and remove them from GoCD&rsquo;s config.</p>
+<p>As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD&rsquo;s config.</p>
 
 <p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml" /></p>
 </article>

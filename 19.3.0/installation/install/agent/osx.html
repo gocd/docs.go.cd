@@ -323,42 +323,69 @@ if (!doNotTrack) {
 
 <!-- toc -->
 
+<blockquote>
+<p><strong>Note:</strong> Installation of GoCD agent on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this <a href="https://docs.gocd.org/19.2.0/installation/install/agent/osx.html">document</a></p>
+</blockquote>
+
 <h2 id="installation">Installation</h2>
 
 <ol>
-<li>Double-click the file downloaded from the <a href="https://www.gocd.org/download/">downloads page</a> to unzip the contents.</li>
-<li>Drag the <code>Go Agent.app</code> icon to the Applications folder.</li>
-<li>Double-click on the <code>Go Agent.app</code> icon to open the launcher.</li>
+<li>Download the Mac OSX installer for GoCD Agent from the <a href="https://www.gocd.org/download/">downloads page</a>.</li>
+<li>Unzip the contents. It creates a subfolder with the name <code>go-agent-${version}</code></li>
+<li>Open a command prompt and go to the folder.</li>
 
-<li><p>The very first time you run the GoCD agent on your machine you will be prompted for the hostname or IP address of your
-GoCD server. By default it will try connecting to the local machine. Click the OK button to continue.</p>
-
-<p><img src="../../../images/cruise_agent_osx_config.png" alt="GoCD Agent OSX Config" /></p></li>
+<li><p>To start the server, run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"> bin/go-agent start -serverUrl https://your-server-host:8154/go</code></pre></div></li>
 </ol>
+
+<h4 id="commands">Commands</h4>
+
+<p>Start the agent:
+<pre>
+console {JavaAppArgs}   : The agent will be started in the current console
+start {JavaAppArgs}     : The agent will start in the background as a
+                          daemon process.
+restart {JavaAppArgs}   : The agent will stop if running and a fresh
+                          instance will started.
+</pre></p>
+
+<p>Stop the agent:
+<pre>
+stop                    : Stops the agent if it is running as a daemon or
+                          in console.
+</pre></p>
+
 
 <h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
 
-<p>You can override default environment variables by:</p>
+<ul>
+<li>Open the file <code>go-agent-${version}/conf/wrapper-properties.conf.example</code></li>
+<li>Copy any specific properties, or add new properties from <code>go-agent-${version}/conf/wrapper.conf</code> into this file. Be sure to increment the property index if you&rsquo;re adding any new properties.</li>
 
-<ol>
-<li><p>Overriding them during startup when starting from the terminal</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">PATH</span><span style="color:#666">=</span><span style="color:#b8860b">$PATH</span>:/usr/local/bin open /Applications/Go<span style="color:#b62;font-weight:bold">\ </span>Agent.app</code></pre></div></li>
+<li><p>For e.g. to override the <code>-Xmx</code> to <code>12GB</code>, override <code>wrapper.java.additional.100</code> -</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Xmx12g</code></pre></div></li>
 
-<li><p>Overriding them using a file <code>~/Library/Application Support/Go Agent/overrides.env</code>. This file is sourced during agent startup, and it can be setup to change environment variables.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">PATH</span><span style="color:#666">=</span><span style="color:#b8860b">$PATH</span>:/usr/local/bin</code></pre></div></li>
-</ol>
+<li><p>To append additional JVM args to the agent</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># conf/wrapper.conf</span>
+<span style="color:#080;font-style:italic"># We recommend you begin with index 100 for  &#34;wrapper.java.additional&#34;</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar</code></pre></div></li>
 
-<h2 id="location-of-gocd-agent-files">Location of GoCD agent files</h2>
+<li><p>Each property must be configured separately</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
+wrapper.java.additional.100<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
 
-<p>The GoCD agent installs its files in the following locations on your filesystem:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/Applications/Go Agent.app                                                  <span style="color:#080;font-style:italic"># The go agent application</span>
-~/Library/Preferences/com.thoughtworks.go.agent.properties                  <span style="color:#080;font-style:italic"># The agent properties (host and port are saved here)</span>
-~/Library/Application Support/Go Agent                                      <span style="color:#080;font-style:italic"># The agent directory</span></code></pre></div>
-<p>You can find logs in <code>~/Library/Application Support/Go Agent</code>. The <code>osx-app.log</code> file contains the info used to bootstrap the agent jar.</p>
+Valid properties,
+wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
+wrapper.java.additional.101<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
+<p><strong>Please note</strong> : If the <code>bin/go-agent</code> as an application is run by any user, then this user needs to have these required permissions to the <code>go-agent-${version}</code> folder, i.e. modify, read and execute, list folder contents and read permissions.</p></li>
 
-<h2 id="setting-the-server-location-without-the-gui">Setting the server location without the GUI</h2>
+<li><p>Rename the said file to remove the <code>.example</code> extension.</p></li>
+</ul>
 
-<p>You can specify the server location in the GUI, but you can also modify the properties file itself (when the Go agent app is not running). This allows you to set a custom port number, which is not possible in the GUI (<a href="../../configure-reverse-proxy.html#agents-and-reverse-proxies">be aware that this might not always work as you expect</a>). The properties file is located in <code>~/Library/Preferences/com.thoughtworks.go.agent.properties</code>, and has a <code>serverUrl</code> and a <code>sslVerificationMode</code> property.</p>
+<h2 id="location-of-gocd-agent-files">Location of GoCD Agent files</h2>
+
+<p>All the files for the GoCD agent are under the <code>go-agent-${version}</code> folder.</p>
 
 <h2 id="registering-your-agent-with-the-server">Registering your agent with the server</h2>
 
@@ -396,8 +423,7 @@ GoCD server. By default it will try connecting to the local machine. Click the O
 <ul>
 <li><a href="#installation">Installation</a></li>
 <li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
-<li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
-<li><a href="#setting-the-server-location-without-the-gui">Setting the server location without the GUI</a></li>
+<li><a href="#location-of-gocd-agent-files">Location of GoCD Agent files</a></li>
 </ul></li>
 </ul>
 </nav>

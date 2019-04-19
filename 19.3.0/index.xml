@@ -745,7 +745,8 @@ Note: The system property deals with configuring the log location for the GoCD s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/install/agent/osx.html</guid>
-      <description>Installing GoCD agent on Mac OS X Installation  Double-click the file downloaded from the downloads page to unzip the contents. Drag the Go Agent.app icon to the Applications folder. Double-click on the Go Agent.app icon to open the launcher. The very first time you run the GoCD agent on your machine you will be prompted for the hostname or IP address of your GoCD server. By default it will try connecting to the local machine.</description>
+      <description>Installing GoCD agent on Mac OS X  Note: Installation of GoCD agent on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this document
+ Installation  Download the Mac OSX installer for GoCD Agent from the downloads page. Unzip the contents. It creates a subfolder with the name go-agent-${version} Open a command prompt and go to the folder. To start the server, run:</description>
     </item>
     
     <item>
@@ -754,8 +755,8 @@ Note: The system property deals with configuring the log location for the GoCD s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/install/server/osx.html</guid>
-      <description>Installing GoCD server on Mac OS X Installation  Double-click the file downloaded from the downloads page to unzip the contents. Drag the GoCD server application to the Applications folder. Double-click on the Go Server.app icon to open the launcher. While the GoCD server is starting up, you&amp;rsquo;ll see a progress bar in the top left of your screen.
- Once the GoCD server has started, it will open your default browser to the GoCD dashboard page (defaults to: http://localhost:8153).</description>
+      <description>Installing GoCD server on Mac OS X  Note: Installation of GoCD server on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this document
+ Installation  Download the Mac OSX installer for GoCD server from downloads page Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version} Open a command prompt and go to the folder To start the server, run:</description>
     </item>
     
     <item>
@@ -982,7 +983,7 @@ Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following f
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/pipelines_as_code.html</guid>
-      <description>Pipelines as code GoCD supports storing pipeline configuration in a source code repository, either with your application code or in a separate repository all on its own. It allows you to move it out of GoCD so that you can modify, control and version it externally. Such modifications will be seen by a periodic poller in the GoCD server and it will merge those pipeline configurations into the pipelines it finds in the main configuration XML file.</description>
+      <description>Pipelines as code GoCD can store pipeline definitions in a source code repository, either in your application&amp;rsquo;s repository, or in a separate repository. With this feature, you can move your pipeline definitions out of GoCD to keep them under version control and manage them externally. A poller in the GoCD server will periodically check for modifications to your pipeline definitions and merge them with the pipeline data already present in GoCD&amp;rsquo;s main XML configuration file.</description>
     </item>
     
     <item>
