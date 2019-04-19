@@ -8,7 +8,7 @@ title: Pipelines as code
 
 GoCD can store pipeline definitions in a source code repository, either in your application's repository, or in a separate repository. With this feature, you can move your pipeline definitions out of GoCD to keep them under version control and manage them externally. A poller in the GoCD server will periodically check for modifications to your pipeline definitions and merge them with the pipeline data already present in GoCD's main XML configuration file. For a quick overview of this feature, see this [video](https://www.youtube.com/watch?v=1AfBxCWRqD8&feature=youtu.be).
 
-_Pipelines as code_ is an optional feature. Any existing config in any GoCD server will remain valid. This feature also allows GoCD to monitor and merge in external pipeline definitions located in multiple “config repositories”. Pipelines defined in a config repository may depend on a pipeline defined in GoCD's main XML configuration file.
+_Pipelines as code_ is an optional feature. Any existing config in any GoCD server will remain valid. This feature also allows GoCD to monitor and merge in external pipeline definitions located in multiple "config repositories". Pipelines defined in a config repository may depend on a pipeline defined in GoCD's main XML configuration file.
 
 This ability is exposed as a plugin endpoint and so, anyone can write a plugin for a config repository, to store the configuration in any manner you choose.
 
@@ -65,6 +65,6 @@ Once you add the config repository, you should see new pipelines on the pipeline
 
 ### Pipeline export feature
 
-As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD’s config.
+As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD's config.
 
 ![Config repo yaml](../images/advanced_usage/pipeline-export.gif)
