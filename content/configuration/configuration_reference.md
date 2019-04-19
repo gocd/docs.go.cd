@@ -50,6 +50,9 @@ title: Reference
                 <a href="#property">&lt;/property&gt;</a>
             <a href="#profile">&lt;/profile&gt;</a>
         <a href="#profiles">&lt;/profiles&gt;</a>
+        <a href="#clusterProfiles">&lt;clusterProfiles&gt;</a>
+            <a href="#clusterProfile">&lt;clusterProfile/&gt;</a>
+        <a href="#clusterProfiles">&lt;/clusterProfiles&gt;</a>
     <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#repositories">&lt;repositories&gt;</a>
         <a href="#repository">&lt;repository&gt;</a>
@@ -841,7 +844,7 @@ There can be zero or more profiles.
 
 ```xml
 <profiles>
-  <profile id="aws.small" pluginId="aws">
+  <profile id="aws.small" pluginId="aws" clusterProfileId="cluster-profile-id" >
     ...
   </profile>
 </profiles>
@@ -852,19 +855,20 @@ There can be zero or more profiles.
 ## &lt;profile&gt; {#profile}
 
 `<profile>` specifies the [configuration](#property) to be used to to create an elastic-agent instance.
-A profile should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute.
+A profile should have a unique `id` attribute, should be associated with a cluster via `clusterProfileId` attribute and with plugin through the `pluginId` attribute.
 
 **Attributes**
 
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| id       | Yes | Unique Id of profile.           |
-| pluginId | Yes | The Id of elastic-agent plugin. |
+| Attribute        | Required   | Description                     |
+| -----------      | ---------- | -------------                   |
+| id               | Yes        | Unique Id of profile.           |
+| pluginId         | Yes        | The Id of elastic-agent plugin. |
+| clusterProfileId | Yes        | The Id of cluster profile.      |
 
 **Example:**
 
 ```xml
-<profile id="ec2.small-us-east" pluginId="com.example.ec2">
+<profile id="ec2.small-us-east" pluginId="com.example.ec2" clusterProfileId="cluster-profile-id">
   <property>
     <key>ami-id</key>
     <value>ami-6ac7408f</value>
@@ -872,6 +876,54 @@ A profile should have a unique `id` attribute and should be associated to plugin
   <property>
     <key>region</key>
     <value>us-east-1</value>
+  </property>
+</profile>
+```
+
+[top](#top)
+
+
+## &lt;clusterProfiles&gt; {#clusterProfiles}
+
+`<clusterProfiles>` element specifies the profiles to configure clusters.
+
+There can be zero or more cluster profile.
+
+**Examples**
+
+```xml
+<clusterProfiles>
+  <clusterProfile id="cluster.small" pluginId="aws">
+    ...
+  </clusterProfile>
+</clusterProfiles>
+```
+
+[top](#top)
+
+## &lt;clusterProfile&gt; {#clusterProfile}
+
+`<clusterProfile>` specifies the [configuration](#property) to be used to to create/manage a cluster.
+A cluster profile should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute.
+
+**Attributes**
+
+| Attribute   | Required   | Description                     |
+| ----------- | ---------- | -----------                     |
+| id          | Yes        | Unique Id of cluster profile.   |
+| pluginId    | Yes        | The Id of elastic-agent plugin. |
+
+**Example:**
+
+```xml
+<clusterProfile id="cluster-us-east" pluginId="com.example.ec2">
+  <property>
+    <key>GoServerUrl</key>
+    <value>https://your-server-host:8154/go</value>
+  </property>
+  <property>
+    <key>ClusterName</key>
+    <value>Cluster</value>
   </property>
 </profile>
 ```
