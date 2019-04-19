@@ -163,7 +163,7 @@ How to set these options Environment variables If an option specified below is o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/pipelines_as_code.html</guid>
-      <description>Pipelines as code GoCD supports storing pipeline configuration in a source code repository, either with your application code or in a separate repository all on its own. It allows you to move it out of GoCD so that you can modify, control and version it externally. Such modifications will be seen by a periodic poller in the GoCD server and it will merge those pipeline configurations into the pipelines it finds in the main configuration XML file.</description>
+      <description>Pipelines as code GoCD can store pipeline definitions in a source code repository, either in your application&amp;rsquo;s repository, or in a separate repository. With this feature, you can move your pipeline definitions out of GoCD to keep them under version control and manage them externally. A poller in the GoCD server will periodically check for modifications to your pipeline definitions and merge them with the pipeline data already present in GoCD&amp;rsquo;s main XML configuration file.</description>
     </item>
     
     <item>
