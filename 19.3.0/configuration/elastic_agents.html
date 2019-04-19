@@ -333,29 +333,35 @@ if (!doNotTrack) {
 
 <h2 id="configuration-of-elastic-agents">Configuration of elastic agents</h2>
 
+<blockquote>
+<p><strong>Note:</strong> GoCD version 19.3.0 introduces the concept of cluster profile. The plugin settings are being removed from elastic agent extension in the favour of cluster profiles. If you are on an older version of GoCD, please refer <a href="https://docs.gocd.org/19.2.0/configuration/elastic_agents.html">this</a>.</p>
+</blockquote>
+
 <p>Using GoCD elastic agents requires downloading and installing one of the available <a href="https://www.gocd.org/plugins/#elastic-agents">elastic agents plugin</a>.</p>
 
 <p>Once the plugin is downloaded and installed, make sure to:</p>
 
 <ol>
-<li>Setup and configure the plugin from the plugin settings page (<strong><em>Admin &gt; Plugins</em></strong>).</li>
-<li>Configure an elastic agent profile (<strong><em>Admin &gt; Elastic Agent Profiles</em></strong>).</li>
+<li>Configure a cluster profile (<strong><em>Admin &gt; Elastic Profiles</em></strong>).</li>
+<li>Configure an elastic agent profile (<strong><em>Admin &gt; Elastic Profiles</em></strong>).</li>
 <li>Associate the elastic agent profile with one or more jobs.</li>
 </ol>
 
 <h2 id="concepts">Concepts</h2>
 
-<p>There are a few basic concepts to understanding the elastic agent plugins in GoCD:</p>
+<p>There are a few basic concepts to understand the elastic agent plugins in GoCD:</p>
 
-<h3 id="plugin-settings">Plugin Settings</h3>
+<h3 id="cluster-profile">Cluster Profile</h3>
 
-<p>Plugin settings will usually contain the connection settings so that the GoCD server can connect to the elastic provider. An elastic provider depending on the plugin may be a docker server, or a kubernetes cluster.</p>
+<p>In most cases, a single GoCD instance is being utilized by multiple teams. Each team can have their own build environments e.g. development, staging, production. Earlier, with <a href="https://docs.gocd.org/19.2.0/configuration/elastic_agents.html#plugin-settings">plugin settings</a>, GoCD could only support one environment at a time. Now teams can leverage their own build environment by utilizing cluster profiles.</p>
 
-<p><img src="../images/configuration/elastic-agents/plugin-settings.png" alt="" /></p>
+<p>Cluster profile usually contains the connection settings (endpoints, credentials) so that the GoCD server can connect to the elastic provider. An elastic provider depending on the plugin may be a docker server, AWS, azure, or a kubernetes cluster.</p>
+
+<p><img src="../images/configuration/elastic-agents/cluster-profile.png" alt="" /></p>
 
 <h3 id="elastic-agent-profile">Elastic Agent Profile</h3>
 
-<p>An elastic agent profile will usually contain the configuration for your agent. Depending on the plugin used, this may contain the machine image (ami, docker image), size of the CPU/memory/disk, network settings among other things.</p>
+<p>An elastic agent profile usually contains the configuration for your agent. Depending on the plugin used, this may contain the machine image (ami, docker image), size of the CPU/memory/disk, network settings among other things.</p>
 
 <p><img src="../images/configuration/elastic-agents/profile.png" alt="" /></p>
 
@@ -392,7 +398,7 @@ if (!doNotTrack) {
 <li><a href="#configuration-of-elastic-agents">Configuration of elastic agents</a></li>
 <li><a href="#concepts">Concepts</a>
 <ul>
-<li><a href="#plugin-settings">Plugin Settings</a></li>
+<li><a href="#cluster-profile">Cluster Profile</a></li>
 <li><a href="#elastic-agent-profile">Elastic Agent Profile</a></li>
 </ul></li>
 </ul></li>

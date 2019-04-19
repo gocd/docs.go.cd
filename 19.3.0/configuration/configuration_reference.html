@@ -365,6 +365,9 @@ if (!doNotTrack) {
                 <a href="#property">&lt;/property&gt;</a>
             <a href="#profile">&lt;/profile&gt;</a>
         <a href="#profiles">&lt;/profiles&gt;</a>
+        <a href="#clusterProfiles">&lt;clusterProfiles&gt;</a>
+            <a href="#clusterProfile">&lt;clusterProfile/&gt;</a>
+        <a href="#clusterProfiles">&lt;/clusterProfiles&gt;</a>
     <a href="#elastic">&lt;/elastic&gt;</a>
     <a href="#repositories">&lt;repositories&gt;</a>
         <a href="#repository">&lt;repository&gt;</a>
@@ -1493,7 +1496,7 @@ the directory from which the LDAP search begins.</p>
 
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;profiles&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;profile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;profile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span> <span style="color:#008000;font-weight:bold">&gt;</span>
     ...
   <span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/profiles&gt;</span></code></pre></div>
@@ -1502,7 +1505,7 @@ the directory from which the LDAP search begins.</p>
 <h2 id="profile">&lt;profile&gt;</h2>
 
 <p><code>&lt;profile&gt;</code> specifies the <a href="#property">configuration</a> to be used to to create an elastic-agent instance.
-A profile should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
+A profile should have a unique <code>id</code> attribute, should be associated with a cluster via <code>clusterProfileId</code> attribute and with plugin through the <code>pluginId</code> attribute.</p>
 
 <p><strong>Attributes</strong></p>
 
@@ -1527,11 +1530,17 @@ A profile should have a unique <code>id</code> attribute and should be associate
 <td>Yes</td>
 <td>The Id of elastic-agent plugin.</td>
 </tr>
+
+<tr>
+<td>clusterProfileId</td>
+<td>Yes</td>
+<td>The Id of cluster profile.</td>
+</tr>
 </tbody>
 </table>
 
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;profile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ec2.small-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;profile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ec2.small-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>ami-id<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>ami-6ac7408f<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -1539,6 +1548,64 @@ A profile should have a unique <code>id</code> attribute and should be associate
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>region<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>us-east-1<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="clusterProfiles">&lt;clusterProfiles&gt;</h2>
+
+<p><code>&lt;clusterProfiles&gt;</code> element specifies the profiles to configure clusters.</p>
+
+<p>There can be zero or more cluster profile.</p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;clusterProfiles&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;cluster.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    ...
+  <span style="color:#008000;font-weight:bold">&lt;/clusterProfile&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/clusterProfiles&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="clusterProfile">&lt;clusterProfile&gt;</h2>
+
+<p><code>&lt;clusterProfile&gt;</code> specifies the <a href="#property">configuration</a> to be used to to create/manage a cluster.
+A cluster profile should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
+
+<p><strong>Attributes</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>Unique Id of cluster profile.</td>
+</tr>
+
+<tr>
+<td>pluginId</td>
+<td>Yes</td>
+<td>The Id of elastic-agent plugin.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;cluster-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>GoServerUrl<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>https://your-server-host:8154/go<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>ClusterName<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>Cluster<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
@@ -4955,6 +5022,8 @@ allow certain variable names and/or values.</p>
 <li><a href="#elastic">&lt;elastic&gt;</a></li>
 <li><a href="#profiles">&lt;profiles&gt;</a></li>
 <li><a href="#profile">&lt;profile&gt;</a></li>
+<li><a href="#clusterProfiles">&lt;clusterProfiles&gt;</a></li>
+<li><a href="#clusterProfile">&lt;clusterProfile&gt;</a></li>
 <li><a href="#config-repos">&lt;config-repos&gt;</a></li>
 <li><a href="#config-repo">&lt;config-repo&gt;</a></li>
 <li><a href="#config-repo-svn">&lt;svn&gt;</a></li>
