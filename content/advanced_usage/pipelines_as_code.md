@@ -8,10 +8,7 @@ title: Pipelines as code
 
 GoCD can store pipeline definitions in a source code repository, either in your application's repository, or in a separate repository. With this feature, you can move your pipeline definitions out of GoCD to keep them under version control and manage them externally. A poller in the GoCD server will periodically check for modifications to your pipeline definitions and merge them with the pipeline data already present in GoCD's main XML configuration file. For a quick overview of this feature, see this [video](https://www.youtube.com/watch?v=1AfBxCWRqD8&feature=youtu.be).
 
-It is important to note that not all pipelines need to be external to the config (any existing config, in any existing
-GoCD server will be valid). It is also important to note that this feature includes the ability for GoCD to monitor and
-merge external pipelines defined in multiple "config repositories". It is also possible for a pipeline defined in a
-config repository to be dependent on a pipeline defined in the main config XML of the GoCD server.
+_Pipelines as code_ is an optional feature. Any existing config in any GoCD server will remain valid. This feature also allows GoCD to monitor and merge in external pipeline definitions located in multiple “config repositories”. Pipelines defined in a config repository may depend on a pipeline defined in GoCD's main XML configuration file.
 
 This ability is exposed as a plugin endpoint and so, anyone can write a plugin for a config repository, to store the configuration in any manner you choose.
 
