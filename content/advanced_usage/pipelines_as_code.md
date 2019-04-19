@@ -72,6 +72,6 @@ Once you add the config repository, you should see new pipelines on the pipeline
 
 ### Pipeline export feature
 
-In GoCD release 19.1.0, we introduced ability to export pipeline to a format which can be used by the config repository plugins (for instance, YAML or JSON plugins). Users can later check in these pipeline definitions to a repository and remove them from GoCD's config.
+As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD’s config.
 
 ![Config repo yaml](../images/advanced_usage/pipeline-export.gif)
