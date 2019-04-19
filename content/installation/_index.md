@@ -15,9 +15,9 @@ since agents are the real builders or work executors in the system.
 Since installation instructions vary per operating system, the installation instruction pages linked below will ask you
 to choose your operating system and then provide you instructions for that operating system.
 
-##### Go to: [GoCD Server installation instructions](installation/installing_go_server.html)
+##### Go to: [GoCD Server installation instructions](installing_go_server.html)
 
-##### Also, go to: [GoCD Agent installation instructions](installation/installing_go_agent.html)
+##### Also, go to: [GoCD Agent installation instructions](installing_go_agent.html)
 
 Whatever operating systems you install the GoCD server and (at least one) GoCD agent on, the default ports used by the
 server are 8153 (HTTP port) and 8154 (HTTPS port). So, after installation you should be able to access either
