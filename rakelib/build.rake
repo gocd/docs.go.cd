@@ -48,7 +48,7 @@ task :check_for_non_ascii_chars do
     end
   }
   if non_allowed_char_files.length > 0
-    raise "Failed!!! Following files have non-ASCII chars in them. Please fix it." + "\n" + non_allowed_char_files.join('\n')
+    puts "Warning!!! Following files have non-ASCII chars in them. Please rectify them!" + "\n" + non_allowed_char_files.join('\n')
   else
     puts "No non-ASCII chars found!!!"
   end
