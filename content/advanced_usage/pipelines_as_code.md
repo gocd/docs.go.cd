@@ -1,70 +1,72 @@
 ---
-description: "GoCD supports storing pipeline configuration in a source code repository, either with your application code or in a separate repository all on its own."
+description: "Store pipeline configuration data for GoCD in a source code repository, either with your application code or in a separate repository."
 keywords: pipeline as code, pipeline configuration, JSON, YAML
 title: Pipelines as code
 ---
 
 # Pipelines as code
 
-GoCD can store pipeline definitions in a source code repository, either in your application's repository, or in a separate repository. With this feature, you can move your pipeline definitions out of GoCD to keep them under version control and manage them externally. A poller in the GoCD server will periodically check for modifications to your pipeline definitions and merge them with the pipeline data already present in GoCD's main XML configuration file. For a quick overview of this feature, see this [video](https://www.youtube.com/watch?v=1AfBxCWRqD8&feature=youtu.be).
+GoCD can store pipeline definitions in a source code repository (either in your application's repository, or in a separate repository). This way, you can keep your pipeline definitions out of GoCD and under version control, and manage them externally. A poller in the GoCD server will check periodically for modifications to your external pipeline definitions, and merge them with the pipeline data already present in GoCD's main XML configuration file. For a quick overview of this feature, see this [video](https://www.youtube.com/watch?v=1AfBxCWRqD8&feature=youtu.be).
 
-_Pipelines as code_ is an optional feature. Any existing config in any GoCD server will remain valid. This feature also allows GoCD to monitor and merge in external pipeline definitions located in multiple "config repositories". Pipelines defined in a config repository may depend on a pipeline defined in GoCD's main XML configuration file.
+_Pipelines as code_ is an optional feature. Any existing config in any GoCD server will remain valid.
 
-This ability is exposed as a plugin endpoint and so, anyone can write a plugin for a config repository, to store the configuration in any manner you choose.
+_Pipelines as code_ allows GoCD to monitor and merge in external pipeline definitions located in multiple "config repositories". Pipelines from a config repository may depend on a pipeline defined in GoCD's main XML configuration file.
 
-Here's an image which shows the relationship between the different pieces of a setup such as this:
+_Pipelines as code_ is exposed as a plugin endpoint, and so, you can write a plugin for a config repository to store pipeline configuration data in any manner you choose.
+
+The following diagram shows how GoCD combines pipeline configuration data from multiple sources:
 
 ![Pipelines as code](../images/advanced_usage/pipelines_as_code.png)
 
-A quick note about "Infrastructure as code": Many people seem to associate only being able to check in configuration to
-a repository as a part of "Infrastructure as code". However, the ability to configure the GoCD server through code has
-existed in various forms. For instance, [gomatic](https://github.com/SpringerSBM/gomatic), using
-[GoCD APIs](https://api.gocd.org/current/), [yagocd](https://github.com/grundic/yagocd),
-[gocd-cli](https://github.com/gaqzi/py-gocd), etc. This is another way of doing the same. In this case, it's possible to
-make it more declarative, depending on the plugin and possibly give more control to others.
+### A note about "Infrastructure as code"
+
+"Infrastructure as code" is often equated exclusively to checking in configuration data to a source code repository. However, GoCD has always allowed configuration through code in various forms. For instance, [gomatic](https://github.com/SpringerSBM/gomatic), using [GoCD APIs](https://api.gocd.org/current/), [yagocd](https://github.com/grundic/yagocd), [gocd-cli](https://github.com/gaqzi/py-gocd), and more. _Pipelines as code_ is simply one more option. It makes pipeline definition more declarative, depending on the plugin, and may give more control to external mantainers.
 
 
-## Currently available plugins for storing pipelines as code
+## Available plugins for storing pipelines as code
 
-Pipelines can currently be stored using JSON or YAML. Please refer to [JSON file configuration](https://github.com/tomzo/gocd-json-config-plugin#configuration-files) and [YAML file configuration](https://github.com/tomzo/gocd-yaml-config-plugin#setup) for more information about the format of the files.
+JSON and YAML are the two formats supported currently. Refer to [JSON file configuration](https://github.com/tomzo/gocd-json-config-plugin#configuration-files) and [YAML file configuration](https://github.com/tomzo/gocd-yaml-config-plugin#setup) for more information about the file format.
 
-
-The config repositories page (Admin -> Config Repositories) lists existing config repos and allows CRUD (Create-Read-Update-Delete) operations for a config repo. This page also show errors and allows users to force a check of the repository.
+The config repositories page (Admin → Config Repositories) lists existing config repositories, and allows CRUD (Create-Read-Update-Delete) operations on them. This page also shows errors and allows you to request a check of a config repository.
 
 ![Pipelines as code page](../images/advanced_usage/config-repo-page.png)
 
-### Storing pipeline configuration in JSON
+### Pipeline configuration in JSON
 
-The setup needed to tell GoCD where to find the pipeline configuration files is:
+To tell GoCD where to find the pipeline configuration files:
 
-- After starting the server, goto "Admin -> Config repositories".
+- Start the server
+- Go to "Admin → Config repositories"
 
 ![Config repositories](../images/advanced_usage/config-repositories.png)
 
-- Click on the "Add" button available on the top right corner and select "JSON configuration Plugin" as plugin ID.
+- Click on the "Add" button at the top right corner
+- Select "JSON configuration Plugin" as the plugin ID
 
 ![Config repo json](../images/advanced_usage/config-repo-json.png)
 
-Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.
+Once you've added a config repository, you'll see new pipelines in the pipeline dashboard. If there are any errors, you'll see them on the "Config repositories" page mentioned above.
 
 
-### Storing pipeline configuration in YAML
+### Pipeline configuration in YAML
 
-The setup needed to tell GoCD where to find the pipeline configuration files is:
+To tell GoCD where to find the pipeline configuration files:
 
-- After starting the server, goto "Admin -> Config repositories".
+- Start the server
+- Go to "Admin → Config repositories"
 
 ![Config repositories](../images/advanced_usage/config-repositories.png)
 
-- Click on the "Add" button available on the top right corner and select "YAML configuration Plugin" as plugin ID.
+- Click on the "Add" button at the top right corner
+- Select "YAML configuration Plugin" as the plugin ID
 
 ![Config repo yaml](../images/advanced_usage/config-repo-yml.png)
 
-Once you add the config repository, you should see new pipelines on the pipeline dashboard. If there are any errors, you should see it on this page.
+Once you've added a config repository, you'll see new pipelines in the pipeline dashboard. If there are any errors, you'll see them on the "Config repositories" page mentioned above.
 
 
-### Pipeline export feature
+### Exporting pipeline configuration data
 
-As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD's config.
+As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD's main XML configuration file.
 
 ![Config repo yaml](../images/advanced_usage/pipeline-export.gif)
