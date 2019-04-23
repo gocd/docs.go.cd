@@ -42,14 +42,14 @@ title: Reference
         <a href="#backup">&lt;backup/&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
     <a href="#elastic">&lt;elastic&gt;</a>
-        <a href="#profiles">&lt;profiles&gt;</a>
-            <a href="#profile">&lt;profile&gt;</a>
+        <a href="#agentProfiles">&lt;agentProfiles&gt;</a>
+            <a href="#agentProfile">&lt;agentProfile&gt;</a>
                 <a href="#property">&lt;property&gt;</a>
                     <a href="#key">&lt;key/&gt;</a>
                     <a href="#value">&lt;value/&gt;</a>
                 <a href="#property">&lt;/property&gt;</a>
-            <a href="#profile">&lt;/profile&gt;</a>
-        <a href="#profiles">&lt;/profiles&gt;</a>
+            <a href="#agentProfile">&lt;/agentProfile&gt;</a>
+        <a href="#agentProfiles">&lt;/agentProfiles&gt;</a>
         <a href="#clusterProfiles">&lt;clusterProfiles&gt;</a>
             <a href="#clusterProfile">&lt;clusterProfile/&gt;</a>
         <a href="#clusterProfiles">&lt;/clusterProfiles&gt;</a>
@@ -823,38 +823,38 @@ The `<elastic>` element is used to provide configurations for the elastic agents
 
 ```xml
 <elastic jobStarvationTimeout="10">
-  <profiles>
-    <profile id="aws.small" pluginId="aws">
+  <agentProfiles>
+    <agentProfile id="aws.small" pluginId="aws">
       ...
-    </profile>
-  </profiles>
+    </agentProfile>
+  </agentProfiles>
 </elastic>
 ```
 
 [top](#top)
 
 
-## &lt;profiles&gt; {#profiles}
+## &lt;agentProfiles&gt; {#agentProfiles}
 
-`<profiles>` element specifies the profiles to configure elastic agents.
+`<agentProfiles>` element specifies the profiles to configure elastic agents.
 
 There can be zero or more profiles.
 
 **Examples**
 
 ```xml
-<profiles>
-  <profile id="aws.small" pluginId="aws" clusterProfileId="cluster-profile-id" >
+<agentProfiles>
+  <agentProfile id="aws.small" pluginId="aws" clusterProfileId="cluster-profile-id" >
     ...
-  </profile>
-</profiles>
+  </agentProfile>
+</agentProfiles>
 ```
 
 [top](#top)
 
-## &lt;profile&gt; {#profile}
+## &lt;agentProfile&gt; {#agentProfile}
 
-`<profile>` specifies the [configuration](#property) to be used to to create an elastic-agent instance.
+`<agentProfile>` specifies the [configuration](#property) to be used to create an elastic-agent instance.
 A profile should have a unique `id` attribute, should be associated with a cluster via `clusterProfileId` attribute and with plugin through the `pluginId` attribute.
 
 **Attributes**
@@ -868,7 +868,7 @@ A profile should have a unique `id` attribute, should be associated with a clust
 **Example:**
 
 ```xml
-<profile id="ec2.small-us-east" pluginId="com.example.ec2" clusterProfileId="cluster-profile-id">
+<agentProfile id="ec2.small-us-east" pluginId="com.example.ec2" clusterProfileId="cluster-profile-id">
   <property>
     <key>ami-id</key>
     <value>ami-6ac7408f</value>
@@ -877,7 +877,7 @@ A profile should have a unique `id` attribute, should be associated with a clust
     <key>region</key>
     <value>us-east-1</value>
   </property>
-</profile>
+</agentProfile>
 ```
 
 [top](#top)
@@ -2284,7 +2284,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 | runOnAllAgents | No | If set to 'true' then the Job will run on all agents that can run the job. |
 | runInstanceCount | No | If set to 'x' (integer) then 'x' instances of Job will be spawned during scheduling. Environment variables `GO_JOB_RUN_INDEX` (with values 1-x for every Job) and `GO_JOB_RUN_COUNT` (with value x for each Job) will be exposed to each task of Job. |
 | timeout | No | A job can be configured to time out if it does not generate any console output for a period of time. Use this attribute to define the timeout value in minutes. Define timeout as 0 if the job should never time out. If the attribute is not defined, the default `<server>` level timeout behaviour will apply. |
-| elasticProfileId | No | A job can be configured to run on an elastic agent by specifying this attribute, which maps to the id of an existing [`<profile>`](#profile). MUST NOT be specified along with `resources`.|
+| elasticProfileId | No | A job can be configured to run on an elastic agent by specifying this attribute, which maps to the id of an existing [`<agentProfile>`](#agentProfile). MUST NOT be specified along with `resources`.|
 
 **Examples**
 
