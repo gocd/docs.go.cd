@@ -357,14 +357,14 @@ if (!doNotTrack) {
         <a href="#backup">&lt;backup/&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
     <a href="#elastic">&lt;elastic&gt;</a>
-        <a href="#profiles">&lt;profiles&gt;</a>
-            <a href="#profile">&lt;profile&gt;</a>
+        <a href="#agentProfiles">&lt;agentProfiles&gt;</a>
+            <a href="#agentProfile">&lt;agentProfile&gt;</a>
                 <a href="#property">&lt;property&gt;</a>
                     <a href="#key">&lt;key/&gt;</a>
                     <a href="#value">&lt;value/&gt;</a>
                 <a href="#property">&lt;/property&gt;</a>
-            <a href="#profile">&lt;/profile&gt;</a>
-        <a href="#profiles">&lt;/profiles&gt;</a>
+            <a href="#agentProfile">&lt;/agentProfile&gt;</a>
+        <a href="#agentProfiles">&lt;/agentProfiles&gt;</a>
         <a href="#clusterProfiles">&lt;clusterProfiles&gt;</a>
             <a href="#clusterProfile">&lt;clusterProfile/&gt;</a>
         <a href="#clusterProfiles">&lt;/clusterProfiles&gt;</a>
@@ -1480,31 +1480,31 @@ the directory from which the LDAP search begins.</p>
 
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;elastic</span> <span style="color:#b44">jobStarvationTimeout=</span><span style="color:#b44">&#34;10&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;profiles&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;profile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;agentProfiles&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       ...
-    <span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/profiles&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/agentProfile&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/agentProfiles&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/elastic&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
-<h2 id="profiles">&lt;profiles&gt;</h2>
+<h2 id="agentProfiles">&lt;agentProfiles&gt;</h2>
 
-<p><code>&lt;profiles&gt;</code> element specifies the profiles to configure elastic agents.</p>
+<p><code>&lt;agentProfiles&gt;</code> element specifies the profiles to configure elastic agents.</p>
 
 <p>There can be zero or more profiles.</p>
 
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;profiles&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;profile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span> <span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;agentProfiles&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span> <span style="color:#008000;font-weight:bold">&gt;</span>
     ...
-  <span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/profiles&gt;</span></code></pre></div>
+  <span style="color:#008000;font-weight:bold">&lt;/agentProfile&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/agentProfiles&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
-<h2 id="profile">&lt;profile&gt;</h2>
+<h2 id="agentProfile">&lt;agentProfile&gt;</h2>
 
-<p><code>&lt;profile&gt;</code> specifies the <a href="#property">configuration</a> to be used to to create an elastic-agent instance.
+<p><code>&lt;agentProfile&gt;</code> specifies the <a href="#property">configuration</a> to be used to create an elastic-agent instance.
 A profile should have a unique <code>id</code> attribute, should be associated with a cluster via <code>clusterProfileId</code> attribute and with plugin through the <code>pluginId</code> attribute.</p>
 
 <p><strong>Attributes</strong></p>
@@ -1540,7 +1540,7 @@ A profile should have a unique <code>id</code> attribute, should be associated w
 </table>
 
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;profile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ec2.small-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ec2.small-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>ami-id<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>ami-6ac7408f<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -1549,7 +1549,7 @@ A profile should have a unique <code>id</code> attribute, should be associated w
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>region<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>us-east-1<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/profile&gt;</span></code></pre></div>
+<span style="color:#008000;font-weight:bold">&lt;/agentProfile&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
 <h2 id="clusterProfiles">&lt;clusterProfiles&gt;</h2>
@@ -3682,7 +3682,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <tr>
 <td>elasticProfileId</td>
 <td>No</td>
-<td>A job can be configured to run on an elastic agent by specifying this attribute, which maps to the id of an existing <a href="#profile"><code>&lt;profile&gt;</code></a>. MUST NOT be specified along with <code>resources</code>.</td>
+<td>A job can be configured to run on an elastic agent by specifying this attribute, which maps to the id of an existing <a href="#agentProfile"><code>&lt;agentProfile&gt;</code></a>. MUST NOT be specified along with <code>resources</code>.</td>
 </tr>
 </tbody>
 </table>
@@ -5020,8 +5020,8 @@ allow certain variable names and/or values.</p>
 <li><a href="#user">&lt;user&gt;</a></li>
 <li><a href="#role">&lt;role&gt;</a></li>
 <li><a href="#elastic">&lt;elastic&gt;</a></li>
-<li><a href="#profiles">&lt;profiles&gt;</a></li>
-<li><a href="#profile">&lt;profile&gt;</a></li>
+<li><a href="#agentProfiles">&lt;agentProfiles&gt;</a></li>
+<li><a href="#agentProfile">&lt;agentProfile&gt;</a></li>
 <li><a href="#clusterProfiles">&lt;clusterProfiles&gt;</a></li>
 <li><a href="#clusterProfile">&lt;clusterProfile&gt;</a></li>
 <li><a href="#config-repos">&lt;config-repos&gt;</a></li>
