@@ -25,7 +25,7 @@ This shows the current activity in the system. You can see all the instances of 
 10.  The "Changes" shows you the modifications to materials that have been built in this instance. The "!" indicates that the changes are being built for the first time.
 11. Click the pipeline VSM to see the [value stream map](../navigation/value_stream_map.html) of that instance of the pipeline.
 12. Click the pipeline history to see [pipeline activity](../navigation/pipeline_activity_page.html) for that pipeline.
-13. Pipeline analytics icon provides insights into pipeline runs. It provides information about build time and wait time over all the runs of a pipeline. It also shows aggregate metrics such as “Mean Time To Recovery” and “Failure Rate”. The GoCD Analytics plugin is part of enterprise add-ons. For additional information on our analytics plugin, [visit here](https://www.gocd.org/analytics.html).
+13. Pipeline analytics icon provides insights into pipeline runs. It provides information about build time and wait time over all the runs of a pipeline. It also shows aggregate metrics such as "Mean Time To Recovery" and "Failure Rate". The GoCD Analytics plugin is part of enterprise add-ons. For additional information on our analytics plugin, [visit here](https://www.gocd.org/analytics.html).
 14. "triggered by [user name] on [time]" gives you a quick look at who activated this pipeline and when this was triggered.
 15. Lets you search for any pipeline configured to be visible on your pipeline dashboard.
 16. Lets you to add new pipeline within the pipeline group.
