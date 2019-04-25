@@ -26,6 +26,25 @@ def buildStage = {
     })
 }
 
+def buildStageForPR = {
+    new Stage("Build", {
+        cleanWorkingDir = true
+        jobs {
+            job("BuildWebsite") {
+                elasticProfileId = 'azure-plugin-ubuntu-with-ruby'
+                tasks {
+                    bash {
+                        commandString = "bundle install --path .bundle --jobs 4"
+                    }
+                    bash {
+                        commandString = "RUN_EXTERNAL_CHECKS=true bundle exec rake build_pr"
+                    }
+                }
+            }
+        }
+    })
+}
+
 def pushToGHPages = {
     new Stage("PushToGHPages", {
         cleanWorkingDir = true
@@ -105,7 +124,7 @@ GoCD.script { GoCD buildScript ->
                 regex = ~/##(\\d+)/
             }
             stages {
-                add(buildStage())
+                add(buildStageForPR())
             }
         }
 

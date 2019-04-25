@@ -27,7 +27,7 @@ The following diagram shows how GoCD combines pipeline configuration data from m
 
 JSON and YAML are the two formats supported currently. Refer to [JSON file configuration](https://github.com/tomzo/gocd-json-config-plugin#configuration-files) and [YAML file configuration](https://github.com/tomzo/gocd-yaml-config-plugin#setup) for more information about the file format.
 
-The config repositories page (Admin → Config Repositories) lists existing config repositories, and allows CRUD (Create-Read-Update-Delete) operations on them. This page also shows errors and allows you to request a check of a config repository.
+The config repositories page (Admin &rarr; Config Repositories) lists existing config repositories, and allows CRUD (Create-Read-Update-Delete) operations on them. This page also shows errors and allows you to request a check of a config repository.
 
 ![Pipelines as code page](../images/advanced_usage/config-repo-page.png)
 
@@ -36,7 +36,7 @@ The config repositories page (Admin → Config Repositories) lists existing conf
 To tell GoCD where to find the pipeline configuration files:
 
 - Start the server
-- Go to "Admin → Config repositories"
+- Go to "Admin &rarr; Config repositories"
 
 ![Config repositories](../images/advanced_usage/config-repositories.png)
 
@@ -53,7 +53,7 @@ Once you've added a config repository, you'll see new pipelines in the pipeline 
 To tell GoCD where to find the pipeline configuration files:
 
 - Start the server
-- Go to "Admin → Config repositories"
+- Go to "Admin &rarr; Config repositories"
 
 ![Config repositories](../images/advanced_usage/config-repositories.png)
 
