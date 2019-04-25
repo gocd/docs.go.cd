@@ -16,7 +16,7 @@ Welcome to GoCD - an open-source Continuous Integration and Continuous Delivery 
 
 Need a quick start? Setup your first GoCD pipeline, while learning all the concepts, by following the
 ["Getting Started" guide](https://www.gocd.org/getting-started/part-1/). Make sure you've
-[installed](https://docs.gocd.org/current/installation/) the GoCD Server and at least one GoCD Agent.
+[installed](installation/index.html) the GoCD Server and at least one GoCD Agent.
 
 
 [Read this](gocd_on_kubernetes/introduction.html) to setup GoCD pipelines on a Kubernetes cluster. 
