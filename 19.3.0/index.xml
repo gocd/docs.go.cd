@@ -1158,7 +1158,7 @@ GoCD will run the Job on all agents that match the environment and resources spe
       
       <guid>/navigation/stage_details_page.html</guid>
       <description>Stage Details in GoCD The &amp;ldquo;Stage Details&amp;rdquo; page displays details of a specific stage.
-Key  Name of the stage. The jobs in this stage are grouped by status: Passed, Failed, Cancelled, In Progress. Expand these sections to see the jobs. Cancelled job. Click the job name to view job details for that job. Failed jobs: Click the job name to view details for that job. Displays a graphical visualization of the pipeline dependency chain.</description>
+Key  Name of the stage. The jobs in this stage are grouped by status: Passed, Failed, Cancelled, In Progress. Expand these sections to see the jobs. Click the job name to view job details for that job. Lists all the material changes that were part of the build in this stage. Details of a specific stage run: run number, status, when it was triggered, who triggered it and duration of the stage.</description>
     </item>
     
     <item>

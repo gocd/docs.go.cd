@@ -330,69 +330,13 @@ if (!doNotTrack) {
 <ol>
 <li>Name of the stage.</li>
 <li>The jobs in this stage are grouped by status: Passed, Failed, Cancelled, In Progress. Expand these sections to see the jobs.</li>
-<li>Cancelled job. Click the job name to view <a href="../navigation/job_details_page.html">job details</a> for that job.</li>
-<li>Failed jobs: Click the job name to view <a href="../navigation/job_details_page.html"> details</a> for that job.</li>
-<li>Displays a graphical visualization of the pipeline dependency chain.</li>
-<li>Details of a specific stage run: run number, status, when it was triggered, who triggered it and duration of the stage.</li>
+<li>Click the job name to view <a href="../navigation/job_details_page.html">job details</a> for that job.</li>
 <li>Lists all the material changes that were part of the build in this stage.</li>
+<li>Details of a specific stage run: run number, status, when it was triggered, who triggered it and duration of the stage.</li>
 <li>Displays detailed information about the jobs in this stage.</li>
-<li>Shows the failed build history for tests failing in the stage.</li>
 <li>&ldquo;Stage History&rdquo; shows the status and the pipeline label in which this stage has run. The latest 10 are shown by default. The rest are paginated, the user can select to view the details of this particular stage in any of the pipeline instances. This will indicate if the stage was a re-run and show the stage counter. Click on the stage instance in the stage history section to view the stage details page for that stage.</li>
 <li>RSS feed for the stage in Atom format.</li>
 </ol>
-
-<h2 id="failed-build-history">Failed Build History</h2>
-
-<p>Results of test runs from jobs within a stage are aggregated up to the stage level. Failures are listed under the relevant pipeline instance label. Tests listed are ones that are failing in the stage instance currently being viewed. The tests are grouped by pipeline instance in which they started to fail (and are still failing). This gives you information about which users&rsquo; checkins are responsible for test failures. On clicking the &ldquo;Changes&rdquo; link next to the Pipeline Label, the popup shows you the modifications to materials that are built in this instance of the pipeline. All the stage instances till the time this stage was last seen green are listed in the failed build history. The pipelines are sorted by <a href="../faq/ordering_of_pipelines.html">natural ordering</a>.</p>
-
-<h3 id="test-failures-in-the-current-stage">Test Failures in the current stage</h3>
-
-<p>Other information that the &ldquo;Tests&rdquo; tab on the &ldquo;Stage Details&rdquo; page shows: (Image not annotated)</p>
-
-<p><img src="../images/failed_build_history_1.png" alt="Tests Tab" /></p>
-
-<ol>
-<li>Total number of tests run</li>
-<li>Total number of failures</li>
-<li>Total number of errors</li>
-<li>Failing test names grouped by the test suites in which they ran</li>
-<li>Details link next to each of the job names which gives a popup with the failure/error message with a stack trace caused by the test</li>
-<li>Users whose check-ins are responsible for the failing test in a given instance.</li>
-<li>Pipeline labels where the currently failing tests started failing and are still failing in the instance being viewed.</li>
-<li>The names of the jobs in which the test ran. Clicking on the job name will take you to the job details page.</li>
-<li>Shows modifications which caused the stage instance to be triggered.</li>
-<li>Shows the failure message and stack trace for the test failure/error for that job.</li>
-</ol>
-
-<h3 id="example-1">Example 1</h3>
-
-<p>You are viewing stage &lsquo;Dev&rsquo; of pipeline label &lsquo;60&rsquo;. The pipeline has been failing since label &lsquo;59&rsquo;. There are currently 4 failing tests. This is how they are listed.</p>
-
-<p><img src="../images/failed_build_history_2.png" alt="Tests Tab Example 1" /></p>
-
-<ul>
-<li>60 has 3 failing test all of which started failing in 60</li>
-<li>59 and 58 are listed because the &lsquo;dev&rsquo; stage failed but none of the currently failing tests started failing because of the changes in 59 or 58. This could be because the tests that were failing in 59 got fixed by the checkins in 60. But these check-ins broke other tests. Or this could be because none of the test ran in 59 and 58, an error occurred before the tests started running.</li>
-<li>The pipeline instances are listed in <a href="../faq/ordering_of_pipelines.html">natural order</a>. In this case the schedule and natural order are the same.</li>
-</ul>
-
-<h3 id="example-2">Example 2</h3>
-
-<p>You are viewing stage &lsquo;Dev&rsquo; of pipeline label &lsquo;59&rsquo;. The pipeline has been failing since label &lsquo;65&rsquo;. There are currently 6 failing tests. This is how they are listed.</p>
-
-<p><img src="../images/failed_build_history_3.png" alt="Tests Tab Example 2" /></p>
-
-<ul>
-<li>The natural order of pipelines is 61, 60, 65, 59, 58, 57, 56, 55. This is the order in which they are listed.</li>
-<li>65&rsquo;s changes caused 2 failing test which are still failing in 61 (instance being viewed).</li>
-<li>60 had 1 new failing test which is still failing in 61.</li>
-<li>61 has 3 newly failing tests.</li>
-<li>None of the currently failing tests started failing in 59, 58. 57, 56 or 55.</li>
-</ul>
-
-<p>If there are no tests configured in the stage or GoCD is still computing results, this is the message that is displayed.</p>
-
-<p><img src="../images/no_tests_configured.png" alt="" /></p>
 
 <h4 id="also-see">Also See&hellip;</h4>
 
@@ -428,13 +372,7 @@ if (!doNotTrack) {
 <ul>
 <li>
 <ul>
-<li><a href="#key">Key</a></li>
-</ul></li>
-<li><a href="#failed-build-history">Failed Build History</a>
-<ul>
-<li><a href="#test-failures-in-the-current-stage">Test Failures in the current stage</a></li>
-<li><a href="#example-1">Example 1</a></li>
-<li><a href="#example-2">Example 2</a>
+<li><a href="#key">Key</a>
 <ul>
 <li><a href="#also-see">Also See&hellip;</a></li>
 </ul></li>
