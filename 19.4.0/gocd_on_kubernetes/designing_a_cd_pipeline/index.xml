@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>GoCD on Kubernetes on GoCD User Documentation</title>
+    <link>/gocd_on_kubernetes/designing_a_cd_pipeline.html</link>
+    <description>Recent content in GoCD on Kubernetes on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/gocd_on_kubernetes/designing_a_cd_pipeline/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Create a pipeline to build application</title>
+      <link>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html</guid>
+      <description>Create a pipeline to build and publish your application image In this section, we&amp;rsquo;ll go over how to design CD pipelines that build and publish an application image. As an example, we&amp;rsquo;ve used a sample nodejs application called &amp;lsquo;Bulletin Board&amp;rsquo;.
+Prerequisites We&amp;rsquo;ll be building our application as a docker image artifact and publishing it to Docker Hub. To do this, make sure you have a Docker Hub account.
+Quick links  Getting started with GoCD  Build an application artifact  Click on the Pipelines link on the top menu to create your first pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Create a pipeline to deploy on Kubernetes</title>
+      <link>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html</guid>
+      <description>Create a pipeline to deploy the published artifact In this section, we&amp;rsquo;ll learn to design a deployment pipeline to deploy to Kubernetes. After you&amp;rsquo;ve designed and run the build pipeline, you&amp;rsquo;ll see that for every successful build, a new image gets created with a new tag. To create a pipeline to deploy the published artifact, follow these steps:
+Quick Links Modeling Deployment Pipelines
+Deploy application to Kubernetes  Navigate to Admin -&amp;gt; Pipelines and click on Create a pipeline within this group.</description>
+    </item>
+    
+    <item>
+      <title>Create a pipeline to test the built application</title>
+      <link>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html</guid>
+      <description>Create a pipeline to test the built application image In the previous section, we built and pushed a docker image to Docker Hub. In this section, we will look at how to pull the built docker image and runs tests against it.
+Quick links  Getting started with GoCD  Test the application artifact To pull our application docker image artifact from Docker Hub and run tests, follow these steps.</description>
+    </item>
+    
+    <item>
+      <title>Docker workflows</title>
+      <link>/gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html</guid>
+      <description>Docker workflows Using docker containers to execute docker commands can be done in the following ways. This section identifies the approaches and the drawbacks to keep in mind when using these approaches.
+Docker in Docker (DinD) Docker in Docker involves setting up a docker binary and running an isolated docker daemon inside the container. This requires that the host docker container be run in privileged mode. The privileged flag enables the host container to do almost all of the things that the underlying host machine can do.</description>
+    </item>
+    
+  </channel>
+</rss>
