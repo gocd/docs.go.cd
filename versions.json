@@ -1,13 +1,17 @@
 [
   {
-    "version": "19.3.0",
-    "location": "https://docs.go.cd/19.3.0/",
+    "version": "19.4.0",
+    "location": "https://docs.go.cd/19.4.0/",
     "type": "next"
   },
   {
-    "version": "19.2.0",
-    "location": "https://docs.go.cd/19.2.0/",
+    "version": "19.3.0",
+    "location": "https://docs.go.cd/19.3.0/",
     "type": "latest"
+  },
+  {
+    "version": "19.2.0",
+    "location": "https://docs.go.cd/19.2.0/"
   },
   {
     "version": "19.1.0",
