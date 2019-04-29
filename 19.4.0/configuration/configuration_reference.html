@@ -4,13 +4,13 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Reference | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD configuration reference index"/>
 <meta name="keywords" content="[GoCD configuration, reference index]"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/configuration_reference.html"/>
 <script src="../javascripts/_gdpr-banner.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -234,7 +234,7 @@ if (!doNotTrack) {
 <li><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">Configure your Kubernetes Cluster</a></li>
 <li><a href="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">Install the GoCD Helm chart</a></li>
 </ul></li>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline.html">Designing a CD Pipeline</a>
+<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/">Designing a CD Pipeline</a>
 
 <ul>
 <li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">Create a pipeline to build application</a></li>
@@ -420,10 +420,10 @@ if (!doNotTrack) {
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
             <a href="#group_admins">&lt;/admins&gt;</a>
-            <a href="#group_view">&lt;view&gt;</a>
+            <a href="#view">&lt;view&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#group_view">&lt;/view&gt;</a>
+            <a href="#view">&lt;/view&gt;</a>
             <a href="#group_operate">&lt;operate&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
@@ -562,7 +562,7 @@ if (!doNotTrack) {
 <a href="#cruise">&lt;/cruise&gt;</a>
 </pre></big></p>
 
-<p><a href="#go-configuration-reference">top</a></p>
+<p><a href="#gocd-configuration-reference">top</a></p>
 
 <h1 id="configuration-reference">Configuration reference</h1>
 
@@ -570,7 +570,7 @@ if (!doNotTrack) {
 
 <p>The <code>&lt;cruise&gt;</code> element is the root element of the configuration.</p>
 
-<p><a href="#go-configuration-reference">top</a></p>
+<p><a href="#gocd-configuration-reference">top</a></p>
 
 <h2 id="server">&lt;server&gt;</h2>
 
@@ -639,7 +639,7 @@ if (!doNotTrack) {
 <tr>
 <td>agentAutoRegisterKey</td>
 <td>No</td>
-<td>The key specified here is used by agents for <a href="../../advanced_usage/agent_auto_register.html">auto-registration</a>.</td>
+<td>The key specified here is used by agents for <a href="../advanced_usage/agent_auto_register.html">auto-registration</a>.</td>
 </tr>
 </tbody>
 </table>
@@ -813,7 +813,7 @@ if (!doNotTrack) {
 <tr>
 <td align="left">postBackupScript</td>
 <td align="left">No</td>
-<td align="left">A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See <a href="../../advanced_usage/cron_backup.html">cron backups</a> for details about this script.</td>
+<td align="left">A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See <a href="../advanced_usage/cron_backup.html">cron backups</a> for details about this script.</td>
 </tr>
 
 <tr>
@@ -2438,7 +2438,7 @@ directory where the .ssh/ directory is located.</p>
 
 <p>The <code>&lt;operate&gt;</code> element specifies who can operate the pipelines under the pipeline group. You can define roles and users.</p>
 
-<p><strong>Note:</strong>Any users/roles that are not listed under the <a href="#group_view"><code>&lt;view&gt;</code></a> tag will be unable to see this pipeline group (even if they are listed as being allowed to <code>&lt;operate&gt;</code> that pipeline group)</p>
+<p><strong>Note:</strong>Any users/roles that are not listed under the <a href="#view"><code>&lt;view&gt;</code></a> tag will be unable to see this pipeline group (even if they are listed as being allowed to <code>&lt;operate&gt;</code> that pipeline group)</p>
 
 <p><strong>Examples</strong></p>
 
@@ -3637,10 +3637,10 @@ would be:</p>
 <p>A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.</p>
 
-<p>A job can also be associated with a set of <a href="#resources"><code>&lt;resources&gt;</code></a> or an <a href="#profile"><code>elastic profile</code></a> through the elasticProfileId attribute.
+<p>A job can also be associated with a set of <a href="#resources"><code>&lt;resources&gt;</code></a> or an <a href="#agentProfile"><code>elastic profile</code></a> through the elasticProfileId attribute.
 Resources are used to match a Job to an Agent. ElasticProfileId is used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or elasticProfileId that the Job specifies.</p>
 
-<p>A job cannot have both <a href="#resources">resources</a> as well as <a href="#profile">elasticProfileId</a>.
+<p>A job cannot have both <a href="#resources">resources</a> as well as <a href="#agentProfile">elasticProfileId</a>.
 If a Job has no resources then it can be built by any Agent (But not by an elastic agent)</p>
 
 <p><strong>Attributes</strong></p>
