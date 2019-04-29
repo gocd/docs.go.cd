@@ -21,13 +21,13 @@ Please go through [Go Plugin User Guide](plugin_user_guide.html) before using Go
 
 # Package Repository Extension
 
-Please follow [link](extension_points/package_repository_extension.html) for package material extension point details.
+Please follow [link](package_repository_extension.html) for package material extension point details.
 
 GoCD bundles a Yum repository poller extension, along with the server. You can find out more details about it [here](yum_repository_poller.html).
 
 # Task Extension
 
-See [this](extension_points/task_extension.html) for details about the task extension point. GoCD does not have a bundled task extension. You can see [Curl task extension](https://github.com/gocd/sample-plugins/tree/master/curl-plugin) for reference.
+See [this](task_extension.html) for details about the task extension point. GoCD does not have a bundled task extension. You can see [Curl task extension](https://github.com/gocd/sample-plugins/tree/master/curl-plugin) for reference.
 
 # Notification Extension
 
@@ -35,7 +35,7 @@ See [this](https://plugin-api.gocd.org/current/notifications) for details about 
 
 # Configuration repository Extension
 
-See [this](extension_points/configrepo_extension.html) for details about the configuration repository extension point. You can see [JSON config plugin](https://github.com/tomzo/gocd-json-config-example) for reference.
+See [this](configrepo_extension.html) for details about the configuration repository extension point. You can see [JSON config plugin](https://github.com/tomzo/gocd-json-config-example) for reference.
 
 # Authorization Extension
 
@@ -43,7 +43,7 @@ See [this](https://plugin-api.gocd.org/current/authorization/) for details about
 
 # SCM Extension
 
-See [this](extension_points/scm_extension.html) for details about the scm extension point. GoCD does not have a bundled plugin for scm extension. You can see [Github Pull Requests Builder](https://github.com/ashwanthkumar/gocd-build-github-pull-requests) for reference.
+See [this](scm_extension.html) for details about the scm extension point. GoCD does not have a bundled plugin for scm extension. You can see [Github Pull Requests Builder](https://github.com/ashwanthkumar/gocd-build-github-pull-requests) for reference.
 
 # Elastic Agent Extension
 

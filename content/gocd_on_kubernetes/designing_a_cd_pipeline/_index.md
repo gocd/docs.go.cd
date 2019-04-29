@@ -1,5 +1,6 @@
 ---
-title: GoCD on Kubernetes
+title: GoCD on Kubernetes  
+url: /gocd_on_kubernetes/designing_a_cd_pipeline/
 ---
 <html>
     <body>
