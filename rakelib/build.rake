@@ -38,29 +38,15 @@ task :check_for_title do
 end
 
 desc 'Check for non-ascii chars in the md files'
-def files_with_non_ascii_chars(non_allowed_char_files)
+task :exit_if_non_ascii_file_found do
+  error_files = []
   Dir['content/**/*.md'].select {|filename|
     contents   = File.read(filename)
     ascii_only = contents.ascii_only?
     unless ascii_only
-      non_allowed_char_files.push(filename)
+      error_files.push(filename)
     end
   }
-end
-
-task :check_for_non_ascii_chars do
-  non_allowed_char_files = []
-  files_with_non_ascii_chars(non_allowed_char_files)
-  if non_allowed_char_files.length > 0
-    warn "Warning!!! Following files have non-ASCII chars in them. Please rectify them!" + "\n" + non_allowed_char_files.join('\n')
-  else
-    puts "No non-ASCII chars found!!!"
-  end
-end
-
-task :exit_if_non_ascii_file_found do
-  error_files = []
-  files_with_non_ascii_chars(error_files)
   if error_files.length > 0
     raise "Warning!!! Following files have non-ASCII chars in them. Please rectify them!" + "\n" + error_files.join('\n')
   else
@@ -69,10 +55,10 @@ task :exit_if_non_ascii_file_found do
 end
 
 desc "build the documentation"
-task :compile => [:clean, :init, :check_for_title, :check_for_non_ascii_chars, :run_hugo]
-task :build => [:compile, "static_checks:all"]
+task :compile => [:clean, :init]
+task :run_pre_tests => [:compile, :check_for_title, :exit_if_non_ascii_file_found]
+task :build => [:compile, :run_hugo]
+task :run_post_tests => ["static_checks:all"]
 
-desc 'extra tasks for PR to be approved'
-task :compile_pr => [:clean, :init, :check_for_title, :exit_if_non_ascii_file_found, :run_hugo]
-task :build_pr => [:compile_pr, "static_checks:all"]
+task :complete_build => [:run_pre_tests, :run_hugo, :run_post_tests]
 
