@@ -34,8 +34,6 @@ The backup directory will be named **backup\_{TIMESTAMP}** where the **{TIMESTAM
 
 ### What is not backed up?
 
-> Please refer to the [this](../installation/installing_go_server.html#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
-
 The following are not backed up as a part of the GoCD backup process. Please ensure that these are manually backed up regularly.
 
 -   Artifacts - Please refer to [this section](../faq/admin_out_of_disk_space.html#move-the-artifact-repository-to-a-new-larger-drive) to find out how to deal with artifacts
@@ -58,8 +56,6 @@ rsync -avzP {ARTIFACT_LOCATION} {BACKUP_LOCATION}
 This makes sure that only the files and directories that got newly added will be synced to the {BACKUP\_LOCATION} and not the entire contents.
 
 ### Restoring GoCD using backup
-
-> Please refer to the [this](../installation/installing_go_server.html#location-of-files-after-installation-of-go-server) page to see what the {SERVER\_INSTALLATION\_DIR} location is on different platforms.
 
 The restoration process is not automated and needs to be done manually. Please refer to the previous sections about the contents of the backup.
 

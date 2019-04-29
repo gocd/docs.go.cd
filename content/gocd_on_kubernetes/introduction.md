@@ -13,5 +13,5 @@ GoCD gives you the flexibility to effectively represent CD pipelines that suit y
 With this documentation guide, you'll be able to
 
 - [Setup and configure](gocd_helm_chart/setup_and_configuration.html) an instance of GoCD on a Kubernetes cluster.
-- [Design a continuous delivery pipeline](designing_a_cd_pipeline/index.html) to deploy a sample application to Kubernetes.
+- [Design a continuous delivery pipeline](designing_a_cd_pipeline) to deploy a sample application to Kubernetes.
 - [Publish to](designing_a_cd_pipeline/creating_a_build_pipeline.html#publish-your-application-image-on-docker-hub) and [fetch artifacts from](designing_a_cd_pipeline/creating_a_test_pipeline.html) an external respository like Docker Hub Registry .

@@ -114,8 +114,7 @@ See also: Sister property - [cruise.server.port](#cruise-server-port).
 - Restrictions: Should be the directory, writeable by the Go Server process
 
 Though not used often, this property can be used to change the location of the
-Go Server's config directory. The default value of this property is specified
-[here](../installation/installing_go_server.html#location-of-files-after-installation-of-go-server).
+Go Server's config directory.
 
 Changing this could have an impact on the ability to upgrade the Go Server, and
 so, it's not recommended to change this.
