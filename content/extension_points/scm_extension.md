@@ -79,7 +79,7 @@ Note: Change to the SCM definition causes all dependent pipelines to schedule.
 
 ### Polling
 
-Even if no pipelines use a SCM, GoCD polls for newer revisions every minute. This may be turned off at a SCM level by setting [`autoUpdate`](../configuration/configuration_reference.html#scm) to false via the config xml (GoCD admins only). `autoUpdate` is turned on by default. When a newer revision is found for a SCM, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.html) is on). Also see [API scheduling](https://api.gocd.org/current/#scheduling-pipelines).
+Even if no pipelines use a SCM, GoCD polls for newer revisions every minute. This may be turned off at a SCM level by setting [`autoUpdate`](../configuration/configuration_reference.html#config-repo-scm) to false via the config xml (GoCD admins only). `autoUpdate` is turned on by default. When a newer revision is found for a SCM, the pipelines for which it is a material get scheduled (assuming [auto scheduling of pipelines](../configuration/pipeline_scheduling.html) is on). Also see [API scheduling](https://api.gocd.org/current/#scheduling-pipelines).
 
 *Filters:* At times you may not want GoCD to trigger pipelines for every commit. e.g. you might not want to 'build' if its a 'documentation' change. You can setup a [filter](../configuration/configuration_reference.html#filter) at pipeline level asking GoCD to skip pipeline scheduling if commit contains only files that match a pattern.
 
