@@ -105,10 +105,10 @@ title: Reference
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
             <a href="#group_admins">&lt;/admins&gt;</a>
-            <a href="#group_view">&lt;view&gt;</a>
+            <a href="#view">&lt;view&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
-            <a href="#group_view">&lt;/view&gt;</a>
+            <a href="#view">&lt;/view&gt;</a>
             <a href="#group_operate">&lt;operate&gt;</a>
                 <a href="#user">&lt;user/&gt;</a>
                 <a href="#role">&lt;role/&gt;</a>
@@ -247,7 +247,7 @@ title: Reference
 <a href="#cruise">&lt;/cruise&gt;</a>
 </pre></big>
 
-[top](#go-configuration-reference)
+[top](#gocd-configuration-reference)
 
 # Configuration reference
 
@@ -255,7 +255,7 @@ title: Reference
 
 The `<cruise>` element is the root element of the configuration.
 
-[top](#go-configuration-reference)
+[top](#gocd-configuration-reference)
 
 ## &lt;server&gt; {#server}
 
@@ -273,7 +273,7 @@ The `<server>` element can be used to define information and attributes of the G
 | jobTimeout | No | This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for "jobTimeout" minutes. If the attribute is not specified jobTimeout defaults to 60 minutes. |
 | commandRepositoryLocation | Yes (auto-generated) | Specifies the location of the [command repository]() relative to `go-server_install_root/db/command_repository`. The bundled repository is in a directory named default. |
 | serverId | Yes (auto-generated) | This value uniquely identifies a Go server installation. It may be used by features that require unique names/identifiers across different Go server installations. This attribute need not be specified for a new server. In case no value is given, server auto-generates a random UUID an assigns it as serverId. This value should never be changed for an existing server. Administrator should clear this attribute before copying configuration to a different installation. |
-| agentAutoRegisterKey | No | The key specified here is used by agents for [auto-registration](../../advanced_usage/agent_auto_register.html). |
+| agentAutoRegisterKey | No | The key specified here is used by agents for [auto-registration](../advanced_usage/agent_auto_register.html). |
 
 **Notes:**
 
@@ -381,7 +381,7 @@ The `<backup>` element is used to configure backups.
 | Attribute        | Required | Description                                                                                                                                                                                  |
 |:-----------------|:---------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | schedule         | No       | The cron-like specification to perform a backup.                                                                                                                                             |
-| postBackupScript | No       | A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See [cron backups](../../advanced_usage/cron_backup.html) for details about this script. |
+| postBackupScript | No       | A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See [cron backups](../advanced_usage/cron_backup.html) for details about this script. |
 | emailOnSuccess   | No       | Boolean indicating whether email should be sent on a successful backup. Requires that [mailhost](#mailhost) config be setup.                                                                 |
 | emailOnFailure   | No       | Boolean indicating whether email should be sent on a failed backup backup. Requires that [mailhost](#mailhost) config be setup.                                                              |
 
@@ -1500,7 +1500,7 @@ Given the following configuration only administrators can operate the pipeline g
 
 The `<operate>` element specifies who can operate the pipelines under the pipeline group. You can define roles and users.
 
-**Note:**Any users/roles that are not listed under the [`<view>`](#group_view) tag will be unable to see this pipeline group (even if they are listed as being allowed to `<operate>` that pipeline group)
+**Note:**Any users/roles that are not listed under the [`<view>`](#view) tag will be unable to see this pipeline group (even if they are listed as being allowed to `<operate>` that pipeline group)
 
 **Examples**
 
@@ -2270,10 +2270,10 @@ The `<jobs>` element specify the set of jobs for a stage.
 A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.
 
-A job can also be associated with a set of [`<resources>`](#resources) or an [`elastic profile`](#profile) through the elasticProfileId attribute.
+A job can also be associated with a set of [`<resources>`](#resources) or an [`elastic profile`](#agentProfile) through the elasticProfileId attribute.
 Resources are used to match a Job to an Agent. ElasticProfileId is used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or elasticProfileId that the Job specifies.
 
-A job cannot have both [resources](#resources) as well as [elasticProfileId](#profile).
+A job cannot have both [resources](#resources) as well as [elasticProfileId](#agentProfile).
 If a Job has no resources then it can be built by any Agent (But not by an elastic agent)
 
 **Attributes**

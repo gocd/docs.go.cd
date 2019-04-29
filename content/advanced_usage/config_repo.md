@@ -66,7 +66,7 @@ be made non-aggressive by setting this value to `N`. It is recommended to set th
 * Default value: `0 0 7 ? * SUN`
 
 Cron expression to specify garbage collector execution time with default set to *7:00 am on sundays*. Check
-[documentation](../configuration/configuration_reference.html#format) for help on cron syntax. For linux users, while
+[documentation](../configuration/configuration_reference.html#timer) for help on cron syntax. For linux users, while
 overriding `go.config.repo.gc.cron` you need to escape special shell characters such `*` using a backward-slash. For
 example:
 
