@@ -37,7 +37,28 @@ task :check_for_title do
   end
 end
 
+desc 'Check for non-ascii chars in the md files'
+task :exit_if_non_ascii_file_found do
+  error_files = []
+  Dir['content/**/*.md'].select {|filename|
+    contents   = File.read(filename)
+    ascii_only = contents.ascii_only?
+    unless ascii_only
+      error_files.push(filename)
+    end
+  }
+  if error_files.length > 0
+    raise "Warning!!! Following files have non-ASCII chars in them. Please rectify them!" + "\n" + error_files.join('\n')
+  else
+    puts "No non-ASCII chars found!!!"
+  end
+end
+
 desc "build the documentation"
-task :compile => [:clean, :init, :check_for_title, :run_hugo]
-task :build => [:compile, "static_checks:all"]
+task :compile => [:clean, :init]
+task :run_pre_tests => [:compile, :check_for_title, :exit_if_non_ascii_file_found]
+task :build => [:compile, :run_hugo]
+task :run_post_tests => ["static_checks:all"]
+
+task :complete_build => [:run_pre_tests, :run_hugo, :run_post_tests]
 

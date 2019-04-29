@@ -18,7 +18,7 @@ def buildStage = {
                         commandString = "bundle install --path .bundle --jobs 4"
                     }
                     bash {
-                        commandString = "RUN_EXTERNAL_CHECKS=true bundle exec rake build"
+                        commandString = "RUN_EXTERNAL_CHECKS=true bundle exec rake complete_build"
                     }
                 }
             }
@@ -109,7 +109,7 @@ GoCD.script { GoCD buildScript ->
             }
         }
 
-        ['18.3.0', '18.4.0', '18.5.0', '18.6.0', '18.7.0', '18.8.0', '18.9.0', '18.10.0', '18.11.0', '18.12.0', '19.1.0', '19.2.0'].reverse().each { String releaseVersion ->
+        ['18.4.0', '18.5.0', '18.6.0', '18.7.0', '18.8.0', '18.9.0', '18.10.0', '18.11.0', '18.12.0', '19.1.0', '19.2.0', '19.3.0'].reverse().each { String releaseVersion ->
             pipeline("docs.gocd.org-${releaseVersion}") {
                 group = "gocd-help-docs"
                 materials {
