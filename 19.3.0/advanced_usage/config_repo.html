@@ -4,13 +4,13 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Config Repository | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD&#39;s configuration is version controlled in a local git repository. It allows auditing of all changes made to the configuration."/>
 <meta name="keywords" content="[GoCD configuration repository, garbage collection, config repo,]"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/config_repo.html"/>
 <script src="../javascripts/_gdpr-banner.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -234,7 +234,7 @@ if (!doNotTrack) {
 <li><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">Configure your Kubernetes Cluster</a></li>
 <li><a href="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">Install the GoCD Helm chart</a></li>
 </ul></li>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline.html">Designing a CD Pipeline</a>
+<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/">Designing a CD Pipeline</a>
 
 <ul>
 <li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">Create a pipeline to build application</a></li>
@@ -386,7 +386,7 @@ be made non-aggressive by setting this value to <code>N</code>. It is recommende
 </ul>
 
 <p>Cron expression to specify garbage collector execution time with default set to <em>7:00 am on sundays</em>. Check
-<a href="../configuration/configuration_reference.html#format">documentation</a> for help on cron syntax. For linux users, while
+<a href="../configuration/configuration_reference.html#timer">documentation</a> for help on cron syntax. For linux users, while
 overriding <code>go.config.repo.gc.cron</code> you need to escape special shell characters such <code>*</code> using a backward-slash. For
 example:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b8860b">$GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#b44"> -Dgo.config.repo.gc.cron=&#39;0 0 7 1/1 \* \?&#39;&#34;</span></code></pre></div>
