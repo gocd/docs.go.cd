@@ -2218,10 +2218,10 @@ The `<jobs>` element specify the set of jobs for a stage.
 A job is the basic unit of work. It is executed on an agent. A job can fetch artifacts from Go Server, execute tasks and publish artifacts back
 to Go Server.
 
-A job can also be associated with a set of [`<resources>`](#resources) or an [`elastic profile`](#agentProfile) through the elasticProfileId attribute.
+A job can also be associated with a set of [`<resources>`](#resources) or an [`elastic profile`](#profile) through the elasticProfileId attribute.
 Resources are used to match a Job to an Agent. ElasticProfileId is used to match a job to an Elastic Agent. An Agent can run a Job if it has all the resources or elasticProfileId that the Job specifies.
 
-A job cannot have both [resources](#resources) as well as [elasticProfileId](#agentProfile).
+A job cannot have both [resources](#resources) as well as [elasticProfileId](#profile).
 If a Job has no resources then it can be built by any Agent (But not by an elastic agent)
 
 **Attributes**

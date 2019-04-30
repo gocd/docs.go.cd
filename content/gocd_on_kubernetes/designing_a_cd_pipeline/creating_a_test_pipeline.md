@@ -59,7 +59,7 @@ To pull our application docker image artifact from Docker Hub and run tests, fol
 
 ### Quick links
 
-- [What are elastic profiles?](../../configuration/configuration_reference.html#agentProfile)
+- [What are elastic profiles?](../../configuration/configuration_reference.html#profile)
 
 We have created a sample elastic profile `demo-app` for the helm release by default. Before associating elastic profile to a job, you'll need to verify that the elastic profile and plugin settings are set up.
 
