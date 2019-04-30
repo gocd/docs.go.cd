@@ -4,13 +4,13 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Plugin User Guide | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD plugins allow users to extend the functionality of GoCD&#39;s continuous delivery server."/>
 <meta name="keywords" content="[gocd plugins, jenkins plugins, gocd plugins installation, gocd plugins uninstallation]"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/extension_points/plugin_user_guide.html"/>
 <script src="../javascripts/_gdpr-banner.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -234,7 +234,7 @@ if (!doNotTrack) {
 <li><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">Configure your Kubernetes Cluster</a></li>
 <li><a href="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">Install the GoCD Helm chart</a></li>
 </ul></li>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline.html">Designing a CD Pipeline</a>
+<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/">Designing a CD Pipeline</a>
 
 <ul>
 <li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">Create a pipeline to build application</a></li>
@@ -336,8 +336,6 @@ if (!doNotTrack) {
 <h2 id="installing-and-uninstalling-of-plugins">Installing and Uninstalling of plugins</h2>
 
 <p>You need access to the GoCD server machine to be able to install/uninstall a plugin. To install a plugin, drop the plugin jar under the external plugin directory ( <code>&lt;server installation directory&gt;/plugins/external</code> ) and restart GoCD server. To uninstall a plugin, remove the plugin jar from the external plugin directory ( <code>&lt;server installation directory&gt;/plugins/external</code> ) and restart GoCD server.</p>
-
-<p>You may also use <a href="../beta/plugin_upload.html">this</a> beta feature to quick load plugins without restarting GoCD server.</p>
 
 <h2 id="plugins-tab">Plugins Tab</h2>
 
