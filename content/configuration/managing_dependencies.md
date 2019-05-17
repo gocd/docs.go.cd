@@ -33,9 +33,7 @@ Power users can also configure this via the **Config XML** tab on the Admin sect
 
 ```
 
-Now, when the stage "AutoStage1" of "upstream\_pipeline" completes, the pipeline "downstream\_pipeline" will start building. The Pipeline Dependency visualization shows you all the downstream instances that were triggered off the upstream instance (label 14) currently being viewed.
-
-![](../images/dependent_build.png)
+Now, when the stage "AutoStage1" of "upstream\_pipeline" completes, the pipeline "downstream\_pipeline" will start building.
 
 If you want to view the materials that are associated with "downstream\_pipeline", the pipeline details page for that specific instance of the downstream pipeline will show you all this information.
 
