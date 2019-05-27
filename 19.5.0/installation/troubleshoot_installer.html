@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>/installation/troubleshooting.html</title>
+    <link rel="canonical" href=""/>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <meta http-equiv="refresh" content="10"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script type="application/javascript">
+        function getVersion() {
+            let pageURL = window.location.href;
+            if (pageURL.indexOf("localhost:1313") >= 0) {
+                return "";
+            }
+            let element = $('<a>', {
+                href: pageURL
+            });
+            return "/" + element.prop('pathname').split("/")[1];
+        }
+
+        let metaTag = document.getElementsByTagName("meta")[1];
+        const validUrl = getVersion() + "\/installation\/troubleshooting.html";
+        metaTag.setAttribute("content", "0;url=" + validUrl);
+
+        let linkTag = document.getElementsByTagName("link")[0];
+        linkTag.setAttribute("href", validUrl);
+    </script>
+</head>
+</html>

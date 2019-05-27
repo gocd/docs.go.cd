@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Navigation on GoCD User Documentation</title>
+    <link>/navigation/</link>
+    <description>Recent content in Navigation on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/navigation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Administration</title>
+      <link>/navigation/administration_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/administration_page.html</guid>
+      <description>GoCD Administration There are four ways to configure pipelines etc.
+ Via the Admin UI described below Direct XML edit via the Admin UI&amp;rsquo;s Config XML tab Configuration is possible via Config API Direct XML edit via the file system. By default, Go server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin &amp;gt; Config XML tab.</description>
+    </item>
+    
+    <item>
+      <title>Agent Details</title>
+      <link>/navigation/agent_details.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/agent_details.html</guid>
+      <description>Details of a single agent GoCD now provides a page that shows the details of a single agent. This page provides details about the agent configuration and the history of all the jobs that ran on that agent.
+Agent Details tab This tab shows the configuration and runtime information of an agent. For example, this tab shows the free space available on the agent, the IP Address and the OS of the agent.</description>
+    </item>
+    
+    <item>
+      <title>Agents</title>
+      <link>/navigation/agents_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/agents_page.html</guid>
+      <description>Agents on GoCD The Agents page lists all the agents available to the server and their current status.
+When an Agent first connects to the Server it is &amp;lsquo;Pending&amp;rsquo;. An administrator must enable the Agent before GoCD will schedule work on that agent.
+Administrators can also disable agents. GoCD will not schedule work for a disabled Agent. If a job is building on the agent when it is disabled, that job will be completed; the agent is then disabled.</description>
+    </item>
+    
+    <item>
+      <title>Environments</title>
+      <link>/navigation/environments_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/environments_page.html</guid>
+      <description>Environments on GoCD The &amp;ldquo;Environments&amp;rdquo; page displays all environments along with it&amp;rsquo;s associated pipelines and materials.
+Key  Name of the environment Name of each pipeline associated with the environment A graphical icon informing you if there are new revisions The label name running in the environment for each pipeline, when the label was deployed and stage information A graphical status bar of each pipleline broken down by stage and state A collapsable list of all materials associated with each pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Job Details</title>
+      <link>/navigation/job_details_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/job_details_page.html</guid>
+      <description>Job Details in GoCD The &amp;ldquo;Job Details&amp;rdquo; page shows the details of a job within a specific stage.
+Key  The &amp;ldquo;Console&amp;rdquo; Tab shows the console output of the agent running the job in near-real time The &amp;ldquo;Tests&amp;rdquo; Tab shows junit compliant test output. (After you upload test reports) The &amp;ldquo;Failures&amp;rdquo; Tab shows any test, server, compilation or network error associated with a failed job run The &amp;ldquo;Artifacts&amp;rdquo; Tab shows a collapsible list of the job&amp;rsquo;s artifacts The &amp;ldquo;Materials&amp;rdquo; Tab shows what activated the pipeline through a list of comments and revisions The &amp;ldquo;Properties&amp;rdquo; Tab shows the list of properties for the job.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Activity</title>
+      <link>/navigation/pipeline_activity_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/pipeline_activity_page.html</guid>
+      <description>Pipeline Activity in GoCD The &amp;ldquo;Pipeline Activity&amp;rdquo; page shows the history of stages for each pipeline label over the life of a specific pipeline.
+Key  The revision number and &amp;ldquo;Triggered by&amp;rdquo; provide a quick look at who activated this pipeline and why. Click &amp;ldquo;Triggered by&amp;rdquo; to show a list of comments and revisions. Hover over a stage in the pipeline configuration box to see info and stage re-run icon (see points 4 &amp;amp; 5 for further details).</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Dashboard</title>
+      <link>/navigation/pipelines_dashboard_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/pipelines_dashboard_page.html</guid>
+      <description>Pipelines Dashboard in GoCD This shows the current activity in the system. You can see all the instances of a given pipeline that are currently in progress.
+Key  The pipelines are listed under the pipeline group that they belong to. You can also edit pipeline group by clicking on settings icon. Pipeline instance label defaults to the number of times a pipeline has run. Click on each stage segment to see stage details for that stage instance.</description>
+    </item>
+    
+    <item>
+      <title>Server Details</title>
+      <link>/navigation/server_details_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/server_details_page.html</guid>
+      <description>GoCD Server Details The &amp;ldquo;Server Details&amp;rdquo; page describes the GoCD server version and environment.
+This box lists all the server Information.</description>
+    </item>
+    
+    <item>
+      <title>Stage Details</title>
+      <link>/navigation/stage_details_page.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/stage_details_page.html</guid>
+      <description>Stage Details in GoCD The &amp;ldquo;Stage Details&amp;rdquo; page displays details of a specific stage.
+Key  Name of the stage. The jobs in this stage are grouped by status: Passed, Failed, Cancelled, In Progress. Expand these sections to see the jobs. Click the job name to view job details for that job. Lists all the material changes that were part of the build in this stage. Details of a specific stage run: run number, status, when it was triggered, who triggered it and duration of the stage.</description>
+    </item>
+    
+    <item>
+      <title>Value Stream Map</title>
+      <link>/navigation/value_stream_map.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/value_stream_map.html</guid>
+      <description>GoCD Value Stream Map Introduction Value Stream Map helps you visualize your CI/CD workflow. With a single click, it allows you to trace a commit from when it is checked in up to when it is deployed.
+A value stream map can be drawn for every instance of a pipeline. It provides you with the ability to:
+ See what caused the current pipeline to be triggered. See what downstream pipelines were triggered by the current pipeline.</description>
+    </item>
+    
+  </channel>
+</rss>
