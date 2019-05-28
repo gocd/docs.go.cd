@@ -83,6 +83,8 @@ source control) needs to be installed (for instance, Maven or Rake).
 
 ### Java Dependencies for GoCD (Server and Agent)
 
-Starting September 2019, GoCD will support the **last 3 versions** of Java release. All the docker images and installers for Windows and OSX are bundled with the supported Java version.
+> Please refer this [blogpost](https://www.gocd.org/2019/05/21/official-stance-on-java/) for our official stance on supported Java versions going forward.
 
-Please refer this [blogpost](https://www.gocd.org/2019/05/21/official-stance-on-java/) for our official stance on supported Java versions going forward.
+GoCD requires Java Runtime Environment (JRE) version 9 (JRE 11 and above recommended). All the docker images and installers for Windows and OSX are bundled with the supported Java version.
+
+
