@@ -1,5 +1,7 @@
 import cd.go.contrib.plugins.configrepo.groovy.dsl.*
 
+def olderReleases = ['18.4.0', '18.5.0', '18.6.0', '18.7.0', '18.8.0', '18.9.0', '18.10.0', '18.11.0', '18.12.0', '19.1.0', '19.2.0', '19.3.0', '19.4.0']
+
 def secureEnvironmentVariable = [
         S3_BUCKET            : 'AES:mL2zKhw4ubTrkW6VpSeyzA==:18KxKvOYTeRz1Q66Ku4wR5OudnR/fg242hnV9U/xluvkgXZfJKilC/fTrAbeEvg1',
         AWS_ACCESS_KEY_ID    : 'AES:Fg2eF3OOL7HT/9i44QRkcQ==:LYBNfjX8iKms0SY134E9OYmJgnUmtoi1YQF2v02Q7ig=',
@@ -109,7 +111,7 @@ GoCD.script { GoCD buildScript ->
             }
         }
 
-        ['18.4.0', '18.5.0', '18.6.0', '18.7.0', '18.8.0', '18.9.0', '18.10.0', '18.11.0', '18.12.0', '19.1.0', '19.2.0', '19.3.0','19.4.0'].reverse().each { String releaseVersion ->
+        olderReleases.reverse().each { String releaseVersion ->
             pipeline("docs.gocd.org-${releaseVersion}") {
                 group = "gocd-help-docs"
                 materials {
