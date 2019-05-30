@@ -97,6 +97,7 @@ initLunr();
 
 $(document).ready(function () {
     initUI();
+    anchoriseHeaders();
 });
 
 function searchUI(searchStatus, searchTitle) {
@@ -119,4 +120,33 @@ function searchUI(searchStatus, searchTitle) {
             $searchResultTitle.html(searchTitle);
             break;
     }
+}
+
+function anchoriseHeaders() {
+    for (let level = 1; level <= 6; level++) {
+        const headers = document.getElementsByTagName("h" + level);
+        for (let i = 0; i < headers.length; i++) {
+            const header = headers[i];
+            const id = header.id;
+            if (id.indexOf("searchResultTitle") < 0) {   // the search result title doesn't need anchor
+                header.appendChild(anchorForId(id));
+            }
+        }
+    }
+}
+
+function anchorForId(id) {
+    // const link = document.createElement("i");
+    // link.className = "fa fa-link";
+    // link.setAttribute("aria-hidden", "true");
+
+    const link = document.createElement("img");
+    link.setAttribute("src", window.location.origin + "/images/link.png");
+
+    const anchor = document.createElement("a");
+    anchor.className = "header-anchor";
+    anchor.href = "#" + id;
+    anchor.appendChild(link);
+
+    return anchor;
 }

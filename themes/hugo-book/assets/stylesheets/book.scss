@@ -443,3 +443,23 @@ a.navigation {
   }
 
 }
+
+a.header-anchor {
+  display: none;
+  cursor: pointer;
+
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+
+h1:hover, h2:hover, h3:hover, h4:hover, h5:hover, h6:hover {
+  a.header-anchor {
+    display: inline-block;
+  }
+}
