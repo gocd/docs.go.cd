@@ -36,10 +36,6 @@ GoCD supports the two most recent versions of the following browsers:
 * **Ubuntu** - Ubuntu 14 and above
 * **Alpine Linux** - Alpine Linux 3.6 and above
 
-#### Dependencies
-
-* Java Runtime Environment (JRE) version 8 (JRE 11 and above recommended)
-
 #### Additional requirements for GoCD server
 
 The host that runs your GoCD server should have a separate disk partition to store GoCD artifacts. The artifact repository
@@ -68,10 +64,6 @@ build agents.
 * **RAM** - minimum 128MB, 256MB recommended
 * **CPU** - minimum 2GHz
 
-#### Dependencies
-
-* Java Runtime Environment (JRE) version 8 (JRE 11 and above recommended)
-
 #### Additional requirements for GoCD Agent
 
 GoCD agent, on its own, does not require much memory or CPU. However, you need to ensure that the nodes deployed as
@@ -88,3 +80,11 @@ source control) needs to be installed (for instance, Maven or Rake).
 * **Subversion** >= 1.6.11
 * **TFS** SDK 14.0.3 (TFS 2012, 2013, 2015 and Visual Studio Team Services are supported by GoCD)
 * **Perforce** >= 2016.1
+
+### Java Dependencies for GoCD (Server and Agent)
+
+This version of GoCD works with Java Runtime Environment (JRE) versions 8, 10, 11 and 12.
+
+Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer this [blogpost](https://www.gocd.org/2019/05/21/official-stance-on-java/) for our official stance on supported Java versions.
+
+
