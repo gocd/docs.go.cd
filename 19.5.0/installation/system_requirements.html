@@ -335,6 +335,8 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 <li>Apple Safari</li>
 </ul>
 
+<hr>
+
 <h3 id="gocd-server-requirements">GoCD Server requirements</h3>
 
 <h4 id="hardware">Hardware</h4>
@@ -368,6 +370,8 @@ repository.</p>
 <p>Client software for your source code control tool (Git, SVN, etc) must be installed on both the GoCD server and all GoCD
 build agents.</p>
 
+<hr>
+
 <h3 id="gocd-agent-requirements">GoCD Agent requirements</h3>
 
 <h4 id="supported-operating-systems-1">Supported Operating Systems</h4>
@@ -398,6 +402,8 @@ of source control.</p>
 other software required to build your application (if not accessed directly from the project source checked out from
 source control) needs to be installed (for instance, Maven or Rake).</p>
 
+<hr>
+
 <h3 id="supported-source-control-tools">Supported Source Control Tools</h3>
 
 <ul>
@@ -408,11 +414,23 @@ source control) needs to be installed (for instance, Maven or Rake).</p>
 <li><strong>Perforce</strong> &gt;= 2016.1</li>
 </ul>
 
+<hr>
+
+<h3 id="supported-network-file-systems">Supported network file systems</h3>
+
+<p>This part is applicable only if using a network file system for GoCD&rsquo;s working directory. The latency of network file systems can directly affect the GoCD server&rsquo;s performance. It is recommended to use local storage instead of network storage.</p>
+
+<p>GoCD is tested with its working directory on <strong>AWS EFS (NFS v4)</strong> , <strong>GCP Filestore (NFS v3)</strong> and <strong>Azure Files service (SMB 3.0)</strong>. While it works out of the box on AWS EFS and GCP Filestore, Azure Files service needs a workaround as explained in this <a href="https://github.com/gocd/gocd/issues/5631#issuecomment-460945202">issue</a>. This is needed due to this jgit <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=544164">issue</a> and some <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service">features not supported</a> in Azure Files service.</p>
+
+<p>These are the only network file systems GoCD is officially tested on. If you find an issue with any other file systems, please <a href="https://github.com/gocd/gocd/issues/new">open a GoCD issue</a>.</p>
+
+<hr>
+
 <h3 id="java-dependencies-for-gocd-server-and-agent">Java Dependencies for GoCD (Server and Agent)</h3>
 
 <p>This version of GoCD works with Java Runtime Environment (JRE) versions 8, 10, 11 and 12.</p>
 
-<p>Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blogpost</a> for our official stance on supported Java versions.</p>
+<p>Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer to this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog post</a> for GoCD&rsquo;s official stance on supported Java versions.</p>
 </article>
 
       
@@ -454,6 +472,7 @@ source control) needs to be installed (for instance, Maven or Rake).</p>
 <li><a href="#additional-requirements-for-gocd-agent">Additional requirements for GoCD Agent</a></li>
 </ul></li>
 <li><a href="#supported-source-control-tools">Supported Source Control Tools</a></li>
+<li><a href="#supported-network-file-systems">Supported network file systems</a></li>
 <li><a href="#java-dependencies-for-gocd-server-and-agent">Java Dependencies for GoCD (Server and Agent)</a></li>
 </ul></li>
 </ul></li>
