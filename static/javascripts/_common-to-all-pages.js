@@ -1,3 +1,4 @@
+// START: GDPR banner
 (function() {
   "use strict";
 
@@ -77,3 +78,14 @@
     }
   }
 })();
+
+
+// START: Image zoom
+$(document).ready(function(){
+  $('.markdown img').on('click', function(){
+    if ($(window).width() > 1020) {
+      $(this).toggleClass('img-zoom');
+      $('.fixed').toggleClass('fixed-bar-zindex');
+   }
+  });
+});
