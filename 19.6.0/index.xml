@@ -1169,7 +1169,7 @@ Key  Name of the stage. The jobs in this stage are grouped by status: Passed, Fa
       <guid>/installation/system_requirements.html</guid>
       <description>GoCD System requirements These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
 Client (browser) requirements GoCD supports the two most recent versions of the following browsers:
- Google Chrome Mozilla Firefox Microsoft Edge Apple Safari  GoCD Server requirements Hardware  RAM - minimum 1GB, 2GB recommended CPU - minimum 2 cores, 2GHz Disk - minimum 1GB free space  Supported Operating Systems  Windows - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10 Mac OSX - 10.</description>
+ Google Chrome Mozilla Firefox Microsoft Edge Apple Safari   GoCD Server requirements Hardware  RAM - minimum 1GB, 2GB recommended CPU - minimum 2 cores, 2GHz Disk - minimum 1GB free space  Supported Operating Systems  Windows - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10 Mac OSX - 10.</description>
     </item>
     
     <item>
