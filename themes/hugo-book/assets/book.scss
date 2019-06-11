@@ -54,6 +54,10 @@ img {
   vertical-align: middle;
 }
 
+img#main-page-cd-image {
+  width: $main-column-max-width * 0.8;
+}
+
 aside nav ul {
   padding: 0;
   margin: 0;
@@ -282,8 +286,12 @@ pre::-webkit-scrollbar {
 }
 
 .book-page {
-  max-width: 800px;
+  max-width: $main-column-max-width;
   padding: 0 50px 50px;
+
+  &.toc-hidden {
+    max-width: $main-column-max-width + $toc-width;
+  }
 }
 
 .book-toc {
@@ -368,4 +376,24 @@ a.navigation {
 .search-query {
   font-weight: 600;
   font-size: 22px;
+}
+
+.main-page-toc-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  .main-page-toc-column {
+    width: 50%;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+
+    @media screen and (max-width: $md-breakpoint) {
+      width: 100%;
+      display: block;
+    }
+  }
+
 }

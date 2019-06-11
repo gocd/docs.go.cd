@@ -1,6 +1,6 @@
 ---
 title: Setup and configuration
-bookshowtoc: false
+BookShowToC: false
 ---
 ## Getting Started with GoCD on Kubernetes
 

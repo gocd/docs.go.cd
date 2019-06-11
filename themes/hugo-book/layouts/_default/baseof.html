@@ -15,8 +15,9 @@
       {{ partial "docs/menu" . }}
     </aside>
 
+    {{ $showToC := default (default true .Site.Params.BookShowToC) .Params.BookShowToC }}
     {{ partial "docs/page-navigation" . }}
-    <div class="book-page">
+    <div class="book-page {{ if not $showToC }}toc-hidden{{ end }}">
       {{ partial "docs/mobile-header" . }}
       {{ template "search-results" . }}
       {{ template "main" . }}
