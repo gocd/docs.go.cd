@@ -19,6 +19,8 @@ GoCD supports the two most recent versions of the following browsers:
 - Microsoft Edge
 - Apple Safari
 
+<hr>
+
 ### GoCD Server requirements
 
 #### Hardware
@@ -48,6 +50,8 @@ repository.
 Client software for your source code control tool (Git, SVN, etc) must be installed on both the GoCD server and all GoCD
 build agents.
 
+<hr>
+
 ### GoCD Agent requirements
 
 #### Supported Operating Systems
@@ -74,21 +78,30 @@ Client software for your source code control tool (Git, SVN, etc) needs to be in
 other software required to build your application (if not accessed directly from the project source checked out from
 source control) needs to be installed (for instance, Maven or Rake).
 
+<hr>
+
 ### Supported Source Control Tools
+
 * **Git** >= 1.9
 * **Mercurial** >= 2.2.2
 * **Subversion** >= 1.6.11
 * **TFS** SDK 14.0.3 (TFS 2012, 2013, 2015 and Visual Studio Team Services are supported by GoCD)
 * **Perforce** >= 2016.1
 
-### Supported File servers
-GoCD is tested on **AWS EFS(NFS v4)** , **GCP Filestore(NFS v3)** and **Azure File service(SMB 3.0)** as working directory. While it works out of the box on AWS EFS and GCP Filestore, Azure file service needs a workaround as explained in this [issue](https://github.com/gocd/gocd/issues/5631#issuecomment-460945202). This is needed due to this jgit [issue](https://bugs.eclipse.org/bugs/show_bug.cgi?id=544164) and some [features not supported](https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service) in AFS
+<hr>
 
-These are the only file servers GoCD is officially tested on. If found issue with any other file servers, please report [here](https://github.com/gocd/gocd)
+### Supported network file systems
 
+This part is applicable only if using a network file system for GoCD's working directory. The latency of network file systems can directly affect the GoCD server's performance. It is recommended to use local storage instead of network storage.
+
+GoCD is tested with its working directory on **AWS EFS (NFS v4)** , **GCP Filestore (NFS v3)** and **Azure Files service (SMB 3.0)**. While it works out of the box on AWS EFS and GCP Filestore, Azure Files service needs a workaround as explained in this [issue](https://github.com/gocd/gocd/issues/5631#issuecomment-460945202). This is needed due to this jgit [issue](https://bugs.eclipse.org/bugs/show_bug.cgi?id=544164) and some [features not supported](https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service) in Azure Files service.
+
+These are the only network file systems GoCD is officially tested on. If you find an issue with any other file systems, please [open a GoCD issue](https://github.com/gocd/gocd/issues/new).
+
+<hr>
 
 ### Java Dependencies for GoCD (Server and Agent)
 
 This version of GoCD works with Java Runtime Environment (JRE) versions 8, 10, 11 and 12.
 
-Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer this [blogpost](https://www.gocd.org/2019/05/21/official-stance-on-java/) for our official stance on supported Java versions.
+Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer to this [blog post](https://www.gocd.org/2019/05/21/official-stance-on-java/) for GoCD's official stance on supported Java versions.
