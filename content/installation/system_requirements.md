@@ -81,10 +81,14 @@ source control) needs to be installed (for instance, Maven or Rake).
 * **TFS** SDK 14.0.3 (TFS 2012, 2013, 2015 and Visual Studio Team Services are supported by GoCD)
 * **Perforce** >= 2016.1
 
+### Supported File servers
+GoCD is tested on **AWS EFS(NFS v4)** , **GCP Filestore(NFS v3)** and **Azure File service(SMB 3.0)** as working directory. While it works out of the box on AWS EFS and GCP Filestore, Azure file service needs a workaround as explained in this [issue](https://github.com/gocd/gocd/issues/5631#issuecomment-460945202). This is needed due to this jgit [issue](https://bugs.eclipse.org/bugs/show_bug.cgi?id=544164) and some [features not supported](https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service) in AFS
+
+These are the only file servers GoCD is officially tested on. If found issue with any other file servers, please report [here](https://github.com/gocd/gocd)
+
+
 ### Java Dependencies for GoCD (Server and Agent)
 
 This version of GoCD works with Java Runtime Environment (JRE) versions 8, 10, 11 and 12.
 
 Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer this [blogpost](https://www.gocd.org/2019/05/21/official-stance-on-java/) for our official stance on supported Java versions.
-
-
