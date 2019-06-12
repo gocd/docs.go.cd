@@ -5,10 +5,7 @@ headless: true
 
 <ul>
   <li class="level1">
-    <a href="https://www.gocd.org/"><b>Back to GoCD.org</b></a>
-  </li>
-  <li class="level1">
-    <a href="https://github.com/gocd/docs.go.cd/"><b>Contribute</b></a>
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
 
