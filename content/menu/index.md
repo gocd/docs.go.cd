@@ -19,13 +19,11 @@ headless: true
     <a href="{{< relref "/" >}}"><b>Introduction</b></a>
   </li>
 
-  <li class="level1">
-    <a href="{{< relref "introduction/concepts_in_go.md" >}}"><b>Concepts In GoCD</b></a>
-  </li>
 
   <li class="level1 has-children">
-    <a href="{{< relref "navigation/_index.md" >}}"><b>GoCD Tour</b></a>
+    <a href="#"><b>GoCD Tour</b></a>
     <ul>
+      <li class="level2"><a href="{{< relref "introduction/concepts_in_go.md" >}}">Concepts in GoCD</a></li>
       <li class="level2"><a href="{{< relref "navigation/pipelines_dashboard_page.md" >}}">Pipeline Dashboard</a></li>
       <li class="level2"><a href="{{< relref "navigation/agents_page.md" >}}">Agents</a></li>
       <li class="level2"><a href="{{< relref "navigation/agent_details.md" >}}">Agent Details</a></li>
@@ -40,8 +38,9 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="{{< relref "installation/_index.md" >}}"><b>Installing GoCD</b></a>
+    <a href="#"><b>Installation</b></a>
     <ul>
+      <li class="level2"><a href="{{< relref "installation/_index.md" >}}">Installing GoCD</a></li>
       <li class="level2"><a href="{{< relref "installation/system_requirements.md" >}}">System requirements</a></li>
       <li class="level2"><a href="{{< relref "installation/installing_go_server.md" >}}">Installing GoCD Server</a>
         <ul>
@@ -78,7 +77,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="{{< relref "configuration/_index.md" >}}"><b>Configuration</b></a>
+    <a href="#"><b>Configuration</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "configuration/quick_pipeline_setup.md" >}}">Setup a New Pipeline</a></li>
       <li class="level2"><a href="{{< relref "configuration/managing_pipelines.md" >}}">Managing Pipelines</a></li>
@@ -119,7 +118,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="{{< relref "advanced_usage/_index.md" >}}"><b>Advanced Usage</b></a>
+    <a href="#"><b>Advanced Usage</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "advanced_usage/pipelines_as_code.md" >}}">Pipelines as code</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/agent_auto_register.md" >}}">Auto Register a Remote Agent</a></li>
@@ -140,16 +139,14 @@ headless: true
       <li class="level2"><a href="{{< relref "advanced_usage/other_config_options.md" >}}">Other Config Options</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/agent-health-check-api.md" >}}">Agent Health Check API</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/maintenance_mode.md" >}}">Maintenance Mode</a></li>
+      <li class="level2"><a href="{{< relref "integration/_index.md" >}}">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
 
-  <li class="level1">
-    <a href="{{< relref "integration/_index.md" >}}"><b>Integrating GoCD With Other Tools</b></a>
-  </li>
-
   <li class="level1 has-children">
-    <a href="{{< relref "extension_points/_index.md" >}}"><b>Extension Points Of GoCD</b></a>
+    <a href="#"><b>Extension Points Of GoCD</b></a>
     <ul>
+      <li class="level2"><a href="{{< relref "extension_points/_index.md" >}}">Available extension points</a></li>
       <li class="level2"><a href="{{< relref "extension_points/plugin_user_guide.md" >}}">Plugin User Guide</a></li>
       <li class="level2"><a href="{{< relref "extension_points/package_repository_extension.md" >}}">Package Repository Extension</a></li>
       <li class="level2"><a href="{{< relref "extension_points/yum_repository_poller.md" >}}">Yum Repository Poller</a></li>
@@ -160,7 +157,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="{{< relref "gocd_on_kubernetes/_index.md" >}}"><b>GoCD on Kubernetes</b></a>
+    <a href="#"><b>GoCD on Kubernetes</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/introduction.md" >}}">Introduction</a></li>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.md" >}}">Setup and configuration</a>
@@ -184,7 +181,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="{{< relref "faq/_index.md" >}}"><b>FAQ/Troubleshooting</b></a>
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "faq/ordering_of_pipelines.md" >}}">Ordering of Pipelines</a></li>
       <li class="level2"><a href="{{< relref "faq/stage_old_config.md" >}}">Historical Configuration</a></li>
@@ -209,16 +206,9 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="{{< relref "beta/_index.md" >}}"><b>Beta features</b></a>
+    <a href="#"><b>Beta features</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "beta/comment_on_pipeline_run.md" >}}">Comment on a pipeline run</a></li>
-    </ul>
-  </li>
-
-  <li class="level1 has-children">
-    <a href="{{< relref "release_history/_index.md" >}}"><b>Release History</b></a>
-    <ul>
-      <li class="level2"><a href="{{< relref "release_history/whats_new_in_go.md" >}}">What's New in Go</a></li>
     </ul>
   </li>
 </ul>
