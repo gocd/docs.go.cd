@@ -141,19 +141,6 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="#"><b>Extension Points Of GoCD</b></a>
-    <ul>
-      <li class="level2"><a href="{{< relref "extension_points/_index.md" >}}">Available extension points</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/plugin_user_guide.md" >}}">Plugin User Guide</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/package_repository_extension.md" >}}">Package Repository Extension</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/yum_repository_poller.md" >}}">Yum Repository Poller</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/scm_extension.md" >}}">SCM Extension</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/task_extension.md" >}}">Task Extension</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/configrepo_extension.md" >}}">Configuration repository Extension</a></li>
-    </ul>
-  </li>
-
-  <li class="level1 has-children">
     <a href="#"><b>GoCD on Kubernetes</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/introduction.md" >}}">Introduction</a></li>
@@ -174,6 +161,19 @@ headless: true
         </ul>
       </li>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/troubleshooting.md" >}}">Troubleshooting</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <a href="#"><b>Extension Points Of GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="{{< relref "extension_points/_index.md" >}}">Available extension points</a></li>
+      <li class="level2"><a href="{{< relref "extension_points/plugin_user_guide.md" >}}">Plugin User Guide</a></li>
+      <li class="level2"><a href="{{< relref "extension_points/package_repository_extension.md" >}}">Package Repository Extension</a></li>
+      <li class="level2"><a href="{{< relref "extension_points/yum_repository_poller.md" >}}">Yum Repository Poller</a></li>
+      <li class="level2"><a href="{{< relref "extension_points/scm_extension.md" >}}">SCM Extension</a></li>
+      <li class="level2"><a href="{{< relref "extension_points/task_extension.md" >}}">Task Extension</a></li>
+      <li class="level2"><a href="{{< relref "extension_points/configrepo_extension.md" >}}">Configuration repository Extension</a></li>
     </ul>
   </li>
 
