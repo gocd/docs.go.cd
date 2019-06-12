@@ -112,6 +112,26 @@ ul.pagination {
     z-index: 11;
     background: $gray-100;
 
+    li.level1 {
+      margin-left: 14px;
+
+      &.has-children {
+        margin-left: 0px;
+
+        & .menu-arrow {
+          width: 10px;
+        }
+
+        &.active .menu-arrow {
+          transform: rotate(90deg);
+        }
+      }
+
+      & > a {
+        display: inline-block;
+      }
+    }
+
     @media (min-width: 44rem) {
       border-right: 1px solid $gray-200;
     }

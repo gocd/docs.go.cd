@@ -93,8 +93,12 @@ $(document).ready(function(){
 
 // START: Menu collapse
 (function() {
+  var addArrowsToAllTopLevelItems = function() {
+    $(".book-menu nav li.level1.has-children").prepend('<img class="menu-arrow" src="/images/arrow.png">');
+  };
+
   var showOnlyTopLevelItems = function() {
-    $(".book-menu nav li.level1 > ul").removeClass("active").hide();
+    $(".book-menu nav li.level1").removeClass("active").children("ul").hide();
   };
 
   var scrollToCurrentPageLinkInMenu = function(currentPageLink) {
@@ -112,7 +116,8 @@ $(document).ready(function(){
       return;
     }
 
-    currentPageLinksInMenu.parents("ul").addClass("active").show();
+    currentPageLinksInMenu.parents("li.level1").addClass("active");
+    currentPageLinksInMenu.parents("ul").show();
     scrollToCurrentPageLinkInMenu(currentPageLinksInMenu[0]);
   };
 
@@ -121,20 +126,21 @@ $(document).ready(function(){
 
     showOnlyTopLevelItems();
     if (menuForThisLevelIsClosedBeforeHidingEverything) {
-      menuElement.addClass("active").show();
+      menuElement.addClass("active").children("ul").show();
     }
   };
 
 
   $(document).ready(function() {
+    addArrowsToAllTopLevelItems();
     showOnlyTopLevelItems();
     openParentListOfLinkOfCurrentPageInMenu();
 
-    $('.book-menu nav li.level1 > a').on('click', function(e) {
+    $('.book-menu nav li.level1.has-children > a, .book-menu nav li.level1.has-children > .menu-arrow').on('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
 
-      toggleMenu($(e.target).parents("li.level1").children("ul"));
+      toggleMenu($(e.target).parents("li.level1"));
     });
   });
 })();

@@ -15,15 +15,15 @@ headless: true
 <hr>
 
 <ul>
-  <li>
+  <li class="level1">
     <a href="{{< relref "/" >}}"><b>Introduction</b></a>
   </li>
 
-  <li>
+  <li class="level1">
     <a href="{{< relref "introduction/concepts_in_go.md" >}}"><b>Concepts In GoCD</b></a>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "navigation/_index.md" >}}"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "navigation/pipelines_dashboard_page.md" >}}">Pipeline Dashboard</a></li>
@@ -39,7 +39,7 @@ headless: true
     </ul>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "installation/_index.md" >}}"><b>Installing GoCD</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "installation/system_requirements.md" >}}">System requirements</a></li>
@@ -77,7 +77,7 @@ headless: true
     </ul>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "configuration/_index.md" >}}"><b>Configuration</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "configuration/quick_pipeline_setup.md" >}}">Setup a New Pipeline</a></li>
@@ -118,7 +118,7 @@ headless: true
     </ul>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "advanced_usage/_index.md" >}}"><b>Advanced Usage</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "advanced_usage/pipelines_as_code.md" >}}">Pipelines as code</a></li>
@@ -143,11 +143,11 @@ headless: true
     </ul>
   </li>
 
-  <li>
+  <li class="level1">
     <a href="{{< relref "integration/_index.md" >}}"><b>Integrating GoCD With Other Tools</b></a>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "extension_points/_index.md" >}}"><b>Extension Points Of GoCD</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "extension_points/plugin_user_guide.md" >}}">Plugin User Guide</a></li>
@@ -159,7 +159,7 @@ headless: true
     </ul>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "gocd_on_kubernetes/_index.md" >}}"><b>GoCD on Kubernetes</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/introduction.md" >}}">Introduction</a></li>
@@ -183,7 +183,7 @@ headless: true
     </ul>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "faq/_index.md" >}}"><b>FAQ/Troubleshooting</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "faq/ordering_of_pipelines.md" >}}">Ordering of Pipelines</a></li>
@@ -208,14 +208,14 @@ headless: true
     </ul>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "beta/_index.md" >}}"><b>Beta features</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "beta/comment_on_pipeline_run.md" >}}">Comment on a pipeline run</a></li>
     </ul>
   </li>
 
-  <li class="level1">
+  <li class="level1 has-children">
     <a href="{{< relref "release_history/_index.md" >}}"><b>Release History</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "release_history/whats_new_in_go.md" >}}">What's New in Go</a></li>
