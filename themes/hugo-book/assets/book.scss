@@ -405,6 +405,16 @@ a.navigation {
   flex-wrap: wrap;
   flex-direction: row;
 
+  & a[href^='http']:after {
+    content: url('/images/external-link-ltr-icon.png');
+    margin-left: 3px;
+    position: absolute;
+  }
+
+  & ul.noindent {
+    margin-left: -24px;
+  }
+
   .main-page-toc-column {
     width: 50%;
     display: inline-block;
