@@ -113,7 +113,6 @@ ul.pagination {
     background: $gray-100;
 
     @media (min-width: 44rem) {
-      //left: 12px;
       border-right: 1px solid $gray-200;
     }
   }
@@ -122,7 +121,6 @@ ul.pagination {
 }
 
 .book-page {
-  // min-width: $body-min-width;
   padding: 0 50px;
 
   a {

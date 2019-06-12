@@ -89,3 +89,52 @@ $(document).ready(function(){
    }
   });
 });
+
+
+// START: Menu collapse
+(function() {
+  var showOnlyTopLevelItems = function() {
+    $(".book-menu nav li.level1 > ul").removeClass("active").hide();
+  };
+
+  var scrollToCurrentPageLinkInMenu = function(currentPageLink) {
+    currentPageLink.scrollIntoView({block: "end"});
+
+    var currentScrollLocation = $(".book-menu nav").scrollTop();
+    $(".book-menu nav").scrollTop(currentScrollLocation + 50);
+  };
+
+  var openParentListOfLinkOfCurrentPageInMenu = function() {
+    var currentPagePermalink = $("body").data("rel-permalink");
+    var currentPageLinksInMenu = $('.book-menu nav li > a[href$="' + currentPagePermalink + '"]');
+
+    if (currentPagePermalink === "" || currentPagePermalink === "/" || currentPageLinksInMenu.length <= 0) {
+      return;
+    }
+
+    currentPageLinksInMenu.parents("ul").addClass("active").show();
+    scrollToCurrentPageLinkInMenu(currentPageLinksInMenu[0]);
+  };
+
+  var toggleMenu = function(menuElement) {
+    var menuForThisLevelIsClosedBeforeHidingEverything = !menuElement.hasClass("active");
+
+    showOnlyTopLevelItems();
+    if (menuForThisLevelIsClosedBeforeHidingEverything) {
+      menuElement.addClass("active").show();
+    }
+  };
+
+
+  $(document).ready(function() {
+    showOnlyTopLevelItems();
+    openParentListOfLinkOfCurrentPageInMenu();
+
+    $('.book-menu nav li.level1 > a').on('click', function(e) {
+      e.stopPropagation();
+      e.preventDefault();
+
+      toggleMenu($(e.target).parents("li.level1").children("ul"));
+    });
+  });
+})();

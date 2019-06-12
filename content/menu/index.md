@@ -15,11 +15,11 @@ headless: true
 <hr>
 
 <ul>
-  <li class="level1">
+  <li>
     <a href="{{< relref "/" >}}"><b>Introduction</b></a>
   </li>
 
-  <li class="level1">
+  <li>
     <a href="{{< relref "introduction/concepts_in_go.md" >}}"><b>Concepts In GoCD</b></a>
   </li>
 
@@ -143,7 +143,7 @@ headless: true
     </ul>
   </li>
 
-  <li class="level1">
+  <li>
     <a href="{{< relref "integration/_index.md" >}}"><b>Integrating GoCD With Other Tools</b></a>
   </li>
 
