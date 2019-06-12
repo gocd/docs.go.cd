@@ -364,6 +364,7 @@ pre::-webkit-scrollbar {
 }
 
 .navigation-bar {
+  visibility: hidden;
   background: $white;
   display: flex;
   position: fixed;

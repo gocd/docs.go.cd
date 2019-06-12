@@ -3,6 +3,7 @@
     for (var choiceFnIndex in possibleChoicesForNavigation) {
       var choice = possibleChoicesForNavigation[choiceFnIndex]();
       if (choice.length > 0) {
+        $('.navigation-bar').css('visibility', 'visible');
         linkToUpdate.attr("href", choice.attr("href"));
         linkToUpdate.attr("aria-label", choice.text());
         linkToUpdate.attr("title", choice.text());
