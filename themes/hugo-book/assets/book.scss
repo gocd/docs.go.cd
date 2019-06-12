@@ -172,7 +172,7 @@ ul.pagination {
 
 .book-git-footer {
   display: flex;
-  margin-top: $padding-16;
+  margin-top: 4 * $padding-16;
   font-size: $font-size-14;
   align-items: baseline;
 
@@ -364,7 +364,7 @@ pre::-webkit-scrollbar {
 }
 
 .navigation-bar {
-  background: $gray-200;
+  background: $white;
   display: flex;
   position: fixed;
   top: 0;
@@ -380,6 +380,9 @@ pre::-webkit-scrollbar {
 a.navigation {
   color: #333;
   font-size: $font-size-14;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: 4px;
 }
 
 .search-results-title {
