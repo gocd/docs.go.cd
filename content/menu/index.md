@@ -165,7 +165,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
-    <a href="#"><b>Extension Points Of GoCD</b></a>
+    <a href="#"><b>Plugins in GoCD</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "extension_points/_index.md" >}}">Available extension points</a></li>
       <li class="level2"><a href="{{< relref "extension_points/plugin_user_guide.md" >}}">Plugin User Guide</a></li>
