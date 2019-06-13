@@ -3,6 +3,7 @@ description: GoCD installation instructions for both server and agent.
 keywords: install gocd, open source cd tool, free cd tool, gocd agents, gocd server, jenkins
 title: Installing GoCD
 url: /installation/
+BookShowToc: false
 ---
 
 
@@ -15,9 +16,13 @@ since agents are the real builders or work executors in the system.
 Since installation instructions vary per operating system, the installation instruction pages linked below will ask you
 to choose your operating system and then provide you instructions for that operating system.
 
-##### Go to: [GoCD Server installation instructions](installing_go_server.html)
+<div id="go-to-gocd-server-installation-instructions-installing-go-server-html">
+  Go to: <a href="installing_go_server.html">GoCD Server installation instructions</a>
+</div>
 
-##### Also, go to: [GoCD Agent installation instructions](installing_go_agent.html)
+<div id="also-go-to-gocd-agent-installation-instructions-installing-go-agent-html">
+  Also, go to: <a href="installing_go_agent.html">GoCD Agent installation instructions</a>
+</div>
 
 Whatever operating systems you install the GoCD server and (at least one) GoCD agent on, the default ports used by the
 server are 8153 (HTTP port) and 8154 (HTTPS port). So, after installation you should be able to access either
