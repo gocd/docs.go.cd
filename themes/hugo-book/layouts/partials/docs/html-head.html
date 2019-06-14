@@ -13,8 +13,8 @@
 <script type="text/javascript" src="{{ "javascripts/navigation/navigation.js" | relURL }}"></script>
 <script src="{{ "javascripts/_common-to-all-pages.js" | relURL }}" type="text/javascript"></script>
 
-<link rel="stylesheet" href="{{ "normalize.min.css" | relURL }}"/>
+<link rel="stylesheet" href="{{ "stylesheets/normalize.min.css" | relURL }}"/>
 <link rel="stylesheet" href="{{ "stylesheets/website.css" | relURL }}"/>
-{{ $styles := resources.Get "book.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+{{ $styles := resources.Get "stylesheets/book.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
 <link rel="stylesheet" href="{{ $styles.RelPermalink }}"/>
 {{ template "_internal/google_analytics_async.html" . }}
