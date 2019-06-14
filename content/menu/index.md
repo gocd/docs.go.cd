@@ -18,6 +18,7 @@ headless: true
 
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "introduction/concepts_in_go.md" >}}">Concepts in GoCD</a></li>
@@ -35,6 +36,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>Installation</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "installation/_index.md" >}}">Installing GoCD</a></li>
@@ -74,6 +76,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>Configuration</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "configuration/quick_pipeline_setup.md" >}}">Setup a New Pipeline</a></li>
@@ -115,6 +118,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>Advanced Usage</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "advanced_usage/pipelines_as_code.md" >}}">Pipelines as code</a></li>
@@ -141,6 +145,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>GoCD on Kubernetes</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/introduction.md" >}}">Introduction</a></li>
@@ -165,6 +170,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>Plugins in GoCD</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "extension_points/_index.md" >}}">Available extension points</a></li>
@@ -178,6 +184,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>FAQ/Troubleshooting</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "faq/artifact_integrity.md" >}}">Artifact integrity verification</a></li>
@@ -203,6 +210,7 @@ headless: true
   </li>
 
   <li class="level1 has-children">
+    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>Beta features</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "beta/comment_on_pipeline_run.md" >}}">Comment on a pipeline run</a></li>

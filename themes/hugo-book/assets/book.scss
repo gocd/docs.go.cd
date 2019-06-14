@@ -113,16 +113,22 @@ ul.pagination {
     background: $gray-100;
 
     li.level1 {
-      margin-left: 14px;
+      margin-left: 16px;
 
       &.has-children {
         margin-left: 0px;
 
-        & .menu-arrow {
-          width: 10px;
+        figure.menu-arrow {
+          margin: 0;
+          display: inline-block;
+
+          img {
+            margin-right: 2px;
+            width: 10px;
+          }
         }
 
-        &.active .menu-arrow {
+        &.active figure.menu-arrow img {
           transform: rotate(90deg);
         }
       }
