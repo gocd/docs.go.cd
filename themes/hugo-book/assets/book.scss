@@ -407,7 +407,7 @@ a.navigation {
   flex-direction: row;
 
   & a[href^='http']:after {
-    content: url('{{ "images/external-link-ltr-icon.png" | relURL }}');
+    content: url('/images/external-link-ltr-icon.png');
     margin-left: 3px;
     position: absolute;
   }
