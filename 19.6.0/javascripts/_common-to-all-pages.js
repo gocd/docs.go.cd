@@ -94,7 +94,7 @@ $(document).ready(function(){
 // START: Menu collapse
 (function() {
   var addArrowsToAllTopLevelItems = function() {
-    $(".book-menu nav li.level1.has-children").prepend('<img class="menu-arrow" src="/images/arrow.png">');
+    $(".book-menu nav li.level1.has-children").prepend('<img class="menu-arrow" src="images/arrow.png">');
   };
 
   var showOnlyTopLevelItems = function() {
