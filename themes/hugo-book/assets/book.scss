@@ -54,6 +54,10 @@ img {
   vertical-align: middle;
 }
 
+img#main-page-cd-image {
+  width: $main-column-max-width * 0.8;
+}
+
 aside nav ul {
   padding: 0;
   margin: 0;
@@ -108,8 +112,27 @@ ul.pagination {
     z-index: 11;
     background: $gray-100;
 
+    li.level1 {
+      margin-left: 14px;
+
+      &.has-children {
+        margin-left: 0px;
+
+        & .menu-arrow {
+          width: 10px;
+        }
+
+        &.active .menu-arrow {
+          transform: rotate(90deg);
+        }
+      }
+
+      & > a {
+        display: inline-block;
+      }
+    }
+
     @media (min-width: 44rem) {
-      //left: 12px;
       border-right: 1px solid $gray-200;
     }
   }
@@ -118,7 +141,6 @@ ul.pagination {
 }
 
 .book-page {
-  // min-width: $body-min-width;
   padding: 0 50px;
 
   a {
@@ -150,7 +172,7 @@ ul.pagination {
 
 .book-git-footer {
   display: flex;
-  margin-top: $padding-16;
+  margin-top: 4 * $padding-16;
   font-size: $font-size-14;
   align-items: baseline;
 
@@ -282,8 +304,12 @@ pre::-webkit-scrollbar {
 }
 
 .book-page {
-  max-width: 800px;
+  max-width: $main-column-max-width;
   padding: 0 50px 50px;
+
+  &.toc-hidden {
+    max-width: $main-column-max-width + $toc-width;
+  }
 }
 
 .book-toc {
@@ -338,7 +364,8 @@ pre::-webkit-scrollbar {
 }
 
 .navigation-bar {
-  background: $gray-200;
+  visibility: hidden;
+  background: $white;
   display: flex;
   position: fixed;
   top: 0;
@@ -354,6 +381,10 @@ pre::-webkit-scrollbar {
 a.navigation {
   color: #333;
   font-size: $font-size-14;
+  border: 0.5px solid black;
+  border-radius: 5px;
+  padding: 4px;
+  visibility: hidden;
 }
 
 .search-results-title {
@@ -368,4 +399,34 @@ a.navigation {
 .search-query {
   font-weight: 600;
   font-size: 22px;
+}
+
+.main-page-toc-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+
+  & a[href^='http']:after {
+    content: url('/images/external-link-ltr-icon.png');
+    margin-left: 3px;
+    position: absolute;
+  }
+
+  & ul.noindent {
+    margin-left: -24px;
+  }
+
+  .main-page-toc-column {
+    width: 50%;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    justify-content: space-between;
+
+    @media screen and (max-width: $md-breakpoint) {
+      width: 100%;
+      display: block;
+    }
+  }
+
 }

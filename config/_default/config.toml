@@ -30,3 +30,5 @@ pygmentsStyle = "emacs"
   # Enable "Edit this page" links for 'doc' page type.
   # Disabled by default. Uncomment to enable. Requires 'BookRepo' param.
   BookEditPath = "edit/master/content"
+
+  ShowNavigationButtonsInFooter = true

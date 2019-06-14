@@ -5,7 +5,7 @@ title: Concepts in GoCD
 ---
 
 
-# Introduction to GoCD
+# Concepts in GoCD
 
 This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and
 Continuous Delivery, in general, you can refer to Martin Fowler's articles on the subject: [Continuous

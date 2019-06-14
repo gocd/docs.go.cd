@@ -3,39 +3,83 @@ description: Welcome to GoCD. More information on concepts, managing pipelines, 
 keywords: gocd, continuous delivery, continuous integration, quick start guide, cd pipelines, build pipelines, gocd tutorials, gocd videos, install gocd
 type: docs
 title: Introduction
+BookShowToC: false
 ---
 
 
-# GoCD User Documentation
+<h1>GoCD User Documentation</h1>
 
-Welcome to GoCD - an open-source Continuous Integration and Continuous Delivery system.
+Welcome to <a href="https://www.gocd.org" target="_blank" rel="noopener">GoCD</a> - an open-source Continuous Integration and Continuous Delivery system.
 
-![Start using GoCD](images/home-image1.svg)
+<img src="images/home-image1.svg" alt="Start using GoCD" id="main-page-cd-image">
 
-## Quick help
+<div class="main-page-toc-container">
 
-Need a quick start? Setup your first GoCD pipeline, while learning all the concepts, by following the
-["Getting Started" guide](https://www.gocd.org/getting-started/part-1/). Make sure you've
-[installed](./installation/index.html) the GoCD Server and at least one GoCD Agent.
+<div class="main-page-toc-column">
+
+  <h2>Get started</h2>
+
+  <span class="subtitle">Get hands-on with GoCD.</span>
+
+  <ul class="noindent">
+    <li><a href="https://www.gocd.org/test-drive-gocd/" target="_blank" rel="noopener">GoCD test drive - try it easily</a></li>
+    <li><a href="{{< relref "introduction/concepts_in_go.md" >}}">Understand concepts in GoCD</a></li>
+    <li><a href="https://www.gocd.org/getting-started/part-1/" target="_blank" rel="noopener">Step-by-step guide to your first pipeline</a></li>
+    <li><a href="{{< relref "installation/_index.md" >}}">Installing GoCD for real</a></li>
+    <li><a href="{{< relref "navigation/pipelines_dashboard_page.md" >}}">Tour of the main areas of the GoCD UI</a></li>
+  </ul>
+
+</div>
 
 
-[Read this](gocd_on_kubernetes/introduction.html) to setup GoCD pipelines on a Kubernetes cluster. 
+<div class="main-page-toc-column">
 
-### More information and guides
+  <h2>Next steps</h2>
 
-- [Basic concepts in GoCD](introduction/concepts_in_go.html) - Review basic concepts in GoCD. Understand how GoCD sees the world.
-- [System requirements](installation/system_requirements.html) - Find out system requirements for installing GoCD.
-- [Managing pipelines](configuration/managing_pipelines.html) - Release Management with GoCD.
-- [Managing a build cloud](configuration/managing_a_build_cloud.html) - How to set up and scale your build cloud.
-- [Managing artifacts and reports](configuration/managing_artifacts_and_reports.html) - Keep your test reports, binaries and other artifacts in GoCD's central repository.
-- [Running GoCD on Kubernetes](gocd_on_kubernetes/introduction.html) - Learn how to setup GoCD on a Kubernetes cluster. 
+  <span class="subtitle">Dive deeper into GoCD.</span>
 
-### See GoCD in use
+  <ul class="noindent">
+    <li><a href="{{< relref "navigation/value_stream_map.md" >}}">Understanding the Value Stream Map (VSM)</a></li>
+    <li><a href="{{< relref "advanced_usage/pipelines_as_code.md" >}}">Configure GoCD using Pipelines As Code</a></li>
+    <li><a href="{{< relref "gocd_on_kubernetes/introduction.md" >}}">Use GoCD on Kubernetes</a></li>
+    <li><a href="{{< relref "configuration/managing_a_build_cloud.md" >}}">Managing GoCD Agents</a></li>
+    <li><a href="{{< relref "configuration/elastic_agents.md" >}}">GoCD's dynamic (elastic) agents</a></li>
+  </ul>
 
-[Watch tutorials on some common GoCD concepts and tasks](https://www.gocd.org/videos/)
+</div>
 
-## Contributing to this documentation
 
-The code for this help documentation is hosted [here](https://github.com/gocd/docs.go.cd/tree/master). If you think something can be improved and/or added to the documentation, please send a [pull request](https://help.github.com/articles/creating-a-pull-request/) for the same.
+<div class="main-page-toc-column">
 
-We're using [Hugo](https://github.com/gohugoio/hugo) for generating our HTML Docs from markdown files. You can read more about it [here](https://gohugo.io/getting-started/).
+  <h2>Modeling pipelines in GoCD</h2>
+
+  <span>Understand more about modeling concepts in GoCD.</span>
+
+  <ul class="noindent">
+    <li><a href="https://www.gocd.org/tags/cd-101.html" target="_blank" rel="noopener">[Blog series] Introduction to Continuous Delivery (CD)</a></li>
+    <li><a href="https://www.gocd.org/tags/are-you-ready-for-continuous-delivery.html" target="_blank" rel="noopener">[Blog series] Are you ready for CD?</a></li>
+    <li><a href="https://www.gocd.org/tags/modeling-deployment-pipelines.html" target="_blank" rel="noopener">[Blog series] Modeling CD pipelines</a></li>
+    <li><a href="https://www.gocd.org/tags/continuous-deployment-strategies.html" target="_blank" rel="noopener">[Blog series] Continuous Deployment Strategies</a></li>
+    <li><a href="https://www.gocd.org/tags/cd-for-microservices.html" target="_blank" rel="noopener">[Blog series] CD for Microservices</a></li>
+  </ul>
+
+</div>
+
+
+<div class="main-page-toc-column">
+
+  <h2>Other GoCD documentation</h2>
+
+  <span>Other useful information and documentation.</span>
+
+  <ul class="noindent">
+    <li><a href="https://api.gocd.org/" target="_blank" rel="noopener">GoCD API documentation</a></li>
+    <li><a href="https://plugin-api.gocd.org/" target="_blank" rel="noopener">GoCD Plugin API documentation</a></li>
+    <li><a href="https://extensions-docs.gocd.org/" target="_blank" rel="noopener">GoCD commercial extensions documentation</a></li>
+    <li><a href="https://www.gocd.org/plugins/" target="_blank" rel="noopener">GoCD plugins listing page</a></li>
+    <li><a href="https://www.gocd.org/releases/" target="_blank" rel="noopener">GoCD release notes</a></li>
+  </ul>
+
+</div>
+
+</div>
