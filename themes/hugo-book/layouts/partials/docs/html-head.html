@@ -11,10 +11,12 @@
 
 <script type="text/javascript" src="{{ "javascripts/search/search.js" | relURL }}"></script>
 <script type="text/javascript" src="{{ "javascripts/navigation/navigation.js" | relURL }}"></script>
-<script src="{{ "javascripts/_common-to-all-pages.js" | relURL }}" type="text/javascript"></script>
+
+{{ $javascript := resources.Get "javascripts/_common-to-all-pages.js" | resources.ExecuteAsTemplate "main.js" . }}
+<script src="{{ $javascript.RelPermalink }}" type="text/javascript"></script>
 
 <link rel="stylesheet" href="{{ "normalize.min.css" | relURL }}"/>
 <link rel="stylesheet" href="{{ "stylesheets/website.css" | relURL }}"/>
-{{ $styles := resources.Get "book.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
-<link rel="stylesheet" href="{{ $styles.RelPermalink }}"/>
+{{ $styles := resources.Get "book.scss" | resources.ExecuteAsTemplate "main.scss" . | resources.ToCSS | resources.Minify | resources.Fingerprint }}
+<link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
 {{ template "_internal/google_analytics_async.html" . }}
