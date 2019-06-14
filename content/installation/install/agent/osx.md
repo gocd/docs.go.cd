@@ -14,39 +14,44 @@ title: Mac OS X
 2.  Open a command prompt and go to the folder.
 3.  To start the server, run:
     
-    ```shell
+    {{< highlight shell >}}
      bin/go-agent start -serverUrl https://your-server-host:8154/go
-    ```
+{{< / highlight >}}
     
 {{< include file="installation/install/agent/_tanuki_commands.md" markdown="true" >}}
 
 ## Overriding default startup arguments and environment
 
--   Open the file ```go-agent-${version}/conf/wrapper-properties.conf.example```
--   Copy any specific properties, or add new properties from ```go-agent-${version}/conf/wrapper.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
--   For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.100` -
-    ```bash
+- Open the file ```go-agent-${version}/conf/wrapper-properties.conf.example```
+- Copy any specific properties, or add new properties from ```go-agent-${version}/conf/wrapper.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
+- For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.100` -
+
+    {{< highlight bash >}}
     # config/wrapper-properties.conf
     wrapper.java.additional.100=-Xmx12g
-    ```
--   To append additional JVM args to the agent
-    ```bash
+{{< / highlight >}}
+- To append additional JVM args to the agent
+
+    {{< highlight bash >}}
     # conf/wrapper.conf
     # We recommend you begin with index 100 for  "wrapper.java.additional"
     wrapper.java.additional.100=-Dcruise.config.foo=bar
-    ```
--   Each property must be configured separately
+{{< / highlight >}}
 
-    ```bash
+- Each property must be configured separately
+
+    {{< highlight bash >}}
     # Having a single property for multiple configurations is invalid, e.g
     wrapper.java.additional.100="-Dcruise.config.foo='bar' -Dcruise.config.other='baz'"
 
     Valid properties,
     wrapper.java.additional.100=-Dcruise.config.foo=bar
     wrapper.java.additional.101=-Dcruise.config.other=baz
-    ```
+{{< / highlight >}}
+
      **Please note** : If the `bin/go-agent` as an application is run by any user, then this user needs to have these required permissions to the `go-agent-${version}` folder, i.e. modify, read and execute, list folder contents and read permissions.
--   Rename the said file to remove the `.example` extension.    
+
+- Rename the said file to remove the `.example` extension.
 
 ## Location of GoCD Agent files
 

@@ -2413,21 +2413,21 @@ All paths specified are relative to the pipeline working directory.
 
 **Examples**
 
--   Invoke Ant, specifying a set of targets to run:
+- Invoke Ant, specifying a set of targets to run:
 
-    ```xml
-    <tasks>
-      <ant target="-Drun=all clean.ivy.localivy clean ft.long_running"/>
-    </tasks>
-    ```
+    {{< highlight xml >}}
+<tasks>
+  <ant target="-Drun=all clean.ivy.localivy clean ft.long_running"/>
+</tasks>
+{{< / highlight >}}
 
 -   Invoke Ant in a specific working directory with a set of targets:
 
-    ```xml
-    <tasks>
-      <ant workingdir="build" buildfile="mybuild.xml" target="-Drun=all clean.ivy.localivy clean ft.long_running"/>
-    </tasks>
-    ```
+    {{< highlight xml >}}
+<tasks>
+  <ant workingdir="build" buildfile="mybuild.xml" target="-Drun=all clean.ivy.localivy clean ft.long_running"/>
+</tasks>
+{{< / highlight >}}
 
 [top](#top)
 
@@ -2447,13 +2447,13 @@ All paths specified are relative to the pipeline working directory.
 
 **Examples**
 
--   Invoke ruby, specifying the working directory as **tools/my-ruby-tool** and executing the ruby script **backup.rb**.
+- Invoke ruby, specifying the working directory as **tools/my-ruby-tool** and executing the ruby script **backup.rb**.
 
-    ```xml
-    <tasks>
-      <exec command="/usr/local/bin/ruby" args="backup.rb" workingdir="tools/my-ruby-tool"/>
-    </tasks>
-    ```
+    {{< highlight xml >}}
+<tasks>
+  <exec command="/usr/local/bin/ruby" args="backup.rb" workingdir="tools/my-ruby-tool"/>
+</tasks>
+{{< / highlight >}}
 
 [top](#top)
 
@@ -2470,25 +2470,25 @@ On Windows you should specify the full name of your script file such as "mybuild
 
 **Examples**
 
--   Echo something on Windows:
+- Echo something on Windows:
 
-    ```xml
-    <exec command="cmd">
-      <arg>/c</arg>
-      <arg>echo</arg>
-      <arg>something to print out</arg>
-    </exec>
-    ```
+    {{< highlight xml >}}
+<exec command="cmd">
+  <arg>/c</arg>
+  <arg>echo</arg>
+  <arg>something to print out</arg>
+</exec>
+{{< / highlight >}}
 
--   Run command with pipe character in arguments:
+- Run command with pipe character in arguments:
 
-    ```xml
-    <exec command="MsBuild">
-      <arg>D:\projects\project\project-8.sln</arg>
-      <arg>/REBUILD</arg>
-      <arg>/CFG="Release_99|Win32"</arg>
-    </exec>
-    ```
+    {{< highlight xml >}}
+<exec command="MsBuild">
+  <arg>D:\projects\project\project-8.sln</arg>
+  <arg>/REBUILD</arg>
+  <arg>/CFG="Release_99|Win32"</arg>
+</exec>
+{{< / highlight >}}
 
 [top](#top)
 
@@ -2576,89 +2576,89 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 
 **Example:**
 
-1.  Fetch all artifacts in the directory 'pkg' from the previous stage in the same pipeline and put them under the directory 'lib'
+1. Fetch all artifacts in the directory 'pkg' from the previous stage in the same pipeline and put them under the directory 'lib'
 
-    ```xml
-    <pipelines>
-      <pipeline name="go">
-        ...
-        <stage name="dev">
-          <jobs>
-        <job name="unit">
-          <artifacts>
-            <artifact type="build" src="target/deployable.jar" dest="pkg"/>
-            <artifact type="external" id="artifact_jar" storeId="dummy-s3">
-              <configuration>
-                <property>
-                  <key>Filename</key>
-                  <value>target/deployable.jar</value>
-                </property>
-              </configuration>
-            </artifact>
-          </artifacts>
-        </job>
-          </jobs>
-        </stage>
-        <stage name="ft">
-          <jobs>
-        <job name="functional">
-          <tasks>
-            <fetchartifact artifactOrigin="gocd" stage="dev" job="unit" srcdir="pkg" dest="lib"/>
-            <fetchartifact artifactOrigin="external" stage="dev" job="unit" artifactId="artifact_jar">
-              <configuration>
-                <property>
-                  <key>dest_on_agent</key>
-                  <value>release_candidate.jar</value>
-                </property>
-              </configuration>
-            </fetchartifact>
-          </tasks>
-        </job>
-          </jobs>
-        </stage>
-      </pipeline>
-    </pipelines>
-    ```
+    {{< highlight xml >}}
+<pipelines>
+  <pipeline name="go">
+    ...
+    <stage name="dev">
+      <jobs>
+    <job name="unit">
+      <artifacts>
+        <artifact type="build" src="target/deployable.jar" dest="pkg"/>
+        <artifact type="external" id="artifact_jar" storeId="dummy-s3">
+          <configuration>
+            <property>
+              <key>Filename</key>
+              <value>target/deployable.jar</value>
+            </property>
+          </configuration>
+        </artifact>
+      </artifacts>
+    </job>
+      </jobs>
+    </stage>
+    <stage name="ft">
+      <jobs>
+    <job name="functional">
+      <tasks>
+        <fetchartifact artifactOrigin="gocd" stage="dev" job="unit" srcdir="pkg" dest="lib"/>
+        <fetchartifact artifactOrigin="external" stage="dev" job="unit" artifactId="artifact_jar">
+          <configuration>
+            <property>
+              <key>dest_on_agent</key>
+              <value>release_candidate.jar</value>
+            </property>
+          </configuration>
+        </fetchartifact>
+      </tasks>
+    </job>
+      </jobs>
+    </stage>
+  </pipeline>
+</pipelines>
+{{< / highlight >}}
 
-2.  Fetch a single artifact from a stage in the upstream pipeline 'framework' and put it under the directory 'lib'
+2. Fetch a single artifact from a stage in the upstream pipeline 'framework' and put it under the directory 'lib'
 
-    ```xml
-    <pipeline name="go">
-      <materials>
-        <pipeline name="framework" stage="ft"/>
-      </materials>
-      <stage name="dev">
-        <jobs>
-          <job name="unit">
-        <tasks>
-          <fetchartifact origin="gocd" pipeline="framework" stage="dev" job="unit"
-                 srcfile="pkg/deployable.jar" dest="lib" />
-        </tasks>
-          </job>
-        </jobs>
-      </stage>
-    </pipeline>
-    ```
+    {{< highlight xml >}}
+<pipeline name="go">
+  <materials>
+    <pipeline name="framework" stage="ft"/>
+  </materials>
+  <stage name="dev">
+    <jobs>
+      <job name="unit">
+    <tasks>
+      <fetchartifact origin="gocd" pipeline="framework" stage="dev" job="unit"
+              srcfile="pkg/deployable.jar" dest="lib" />
+    </tasks>
+      </job>
+    </jobs>
+  </stage>
+</pipeline>
+{{< / highlight >}}
 
-3.  Fetch a single artifact from a stage in an ancestor pipeline 'Build' and put it under the directory 'pkg'
+3. Fetch a single artifact from a stage in an ancestor pipeline 'Build' and put it under the directory 'pkg'
 
-    ```xml
-    <pipeline name="deploy">
-      <materials>
-        <pipeline name="acceptance" stage="ft"/>
-      </materials>
-      <stage name="deply-pkg">
-        <jobs>
-          <job name="deploy-win">
-        <tasks>
-          <fetchartifact origin="gocd" pipeline="build" stage="dist" job="create-installer"
-                 srcfile="installers/deployable-setup.exe" dest="installer" />
-        </tasks>
-          </job>
-        </jobs>
-      </stage>
-    </pipeline>
-    ```
+    {{< highlight xml >}}
+<pipeline name="deploy">
+  <materials>
+    <pipeline name="acceptance" stage="ft"/>
+  </materials>
+  <stage name="deply-pkg">
+    <jobs>
+      <job name="deploy-win">
+    <tasks>
+      <fetchartifact origin="gocd" pipeline="build" stage="dist" job="create-installer"
+              srcfile="installers/deployable-setup.exe" dest="installer" />
+    </tasks>
+      </job>
+    </jobs>
+  </stage>
+</pipeline>
+{{< / highlight >}}
 
 [top](#top)
 

@@ -39,29 +39,34 @@ C:\> go-server-16.1.0-1234-setup.exe /S /D=C:\go\server
 
 ## Overriding default startup arguments and environment
 
--   Create a file named ```config/wrapper-properties.conf``` where you installed the server
--   Copy any specific properties, or add new properties from ```config/wrapper-server.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
--   For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.2` -
-    ```bash
+- Create a file named ```config/wrapper-properties.conf``` where you installed the server
+- Copy any specific properties, or add new properties from ```config/wrapper-server.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
+- For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.2` -
+
+    {{< highlight bash >}}
     # config/wrapper-properties.conf
     wrapper.java.additional.2=-Xmx12g
-    ```
+{{< / highlight >}}
+
 -   To append additional JVM args to the server
-    ```bash
+
+    {{< highlight bash >}}
     # config/wrapper-properties.conf
     # since the last "wrapper.java.additional" index is 15, we use the next available index.
     wrapper.java.additional.16=-Dcruise.config.foo=bar
-    ```
--   Each property must be configured separately
+{{< / highlight >}}
 
-    ```bash
+- Each property must be configured separately
+
+    {{< highlight bash >}}
     # Having a single property for multiple configurations is invalid, e.g
     wrapper.java.additional.16="-Dcruise.config.foo='bar' -Dcruise.config.other='baz'"
 
     Valid properties,
     wrapper.java.additional.16=-Dcruise.config.foo=bar
     wrapper.java.additional.17=-Dcruise.config.other=baz
-    ```
+{{< / highlight >}}
+
      **Please note** : If the go-server as an application is run by any user, then this user needs to have these required permissions to the go-server folder, i.e. modify, read and execute, list folder contents and read permissions.
 
 ## Location of GoCD server files
