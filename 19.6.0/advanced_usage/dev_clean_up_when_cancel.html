@@ -12,17 +12,17 @@
 <meta name="keywords" content="[GoCD jobs, tasks, clean up,]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/dev_clean_up_when_cancel.html"/>
-<script src="../javascripts/_gdpr-banner.js" type="text/javascript"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+
 <script type="text/javascript" src="../javascripts/search/search.js"></script>
 <script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
 
-<script src="../javascripts/_img-zoom.js" type="text/javascript"></script>
 <link rel="stylesheet" href="../normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../book.min.86cefe6a0aaef02e0d1d6e16315000262fbd62f4b5d7465add7b42691d9ba054.css"/>
+<link rel="stylesheet" href="../book.min.83e099bc649d9ea40f544e34f314ef351eed1196b60145804bd50b03aa4cd9e9.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -35,10 +35,11 @@ if (!doNotTrack) {
 </script>
 <script async src='https://www.google-analytics.com/analytics.js'></script>
 
+
   
 </head>
 
-<body>
+<body data-rel-permalink="/advanced_usage/dev_clean_up_when_cancel.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -80,207 +81,210 @@ if (!doNotTrack) {
 </div>
 
 <ul>
-<li><a href="https://www.gocd.org/"><strong>Back to GoCD.org</strong></a></li>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
 
-<li><p><a href="https://github.com/gocd/docs.go.cd/"><strong>Contribute</strong></a></p>
-
-<hr /></li>
-
-<li><p><a href="../"><strong>Introduction</strong></a></p></li>
-
-<li><p><a href="../introduction/"><strong>Concepts In GoCD</strong></a></p>
+<hr>
 
 <ul>
-<li><a href="../introduction/concepts_in_go.html">Concepts In GoCD</a></li>
-</ul></li>
+  <li class="level1">
+    <a href="../"><b>Introduction</b></a>
+  </li>
 
-<li><p><a href="../navigation/"><strong>GoCD Tour</strong></a></p>
 
-<ul>
-<li><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-<li><a href="../navigation/agents_page.html">Agents</a></li>
-<li><a href="../navigation/agent_details.html">Agent Details</a></li>
-<li><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-<li><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-<li><a href="../navigation/job_details_page.html">Job Details</a></li>
-<li><a href="../navigation/administration_page.html">Administration</a></li>
-<li><a href="../navigation/server_details_page.html">Server Details</a></li>
-<li><a href="../navigation/environments_page.html">Environments</a></li>
-<li><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
-</ul></li>
+  <li class="level1 has-children">
+    <a href="#"><b>GoCD Tour</b></a>
+    <ul>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
+      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
+      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
+      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
+      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
+      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
+      <li class="level2"><a href="../navigation/administration_page.html">Administration</a></li>
+      <li class="level2"><a href="../navigation/server_details_page.html">Server Details</a></li>
+      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
 
-<li><p><a href="../installation/"><strong>Installing GoCD</strong></a></p>
+  <li class="level1 has-children">
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+      <li class="level2"><a href="../installation/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </li>
 
-<ul>
-<li><a href="../installation/system_requirements.html">System requirements</a></li>
-<li><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+  <li class="level1 has-children">
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/quick_pipeline_setup.html">Setup a New Pipeline</a></li>
+      <li class="level2"><a href="../configuration/managing_pipelines.html">Managing Pipelines</a></li>
+      <li class="level2"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a></li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/build_labelling.html">Pipeline Labelling</a></li>
+      <li class="level2"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+      <li class="level2"><a href="../configuration/admin_use_parameters_in_configuration.html">Parameterize a Pipeline</a></li>
+      <li class="level2"><a href="../configuration/admin_use_custom_pipeline_label.html">Customize a Pipeline Label</a></li>
+      <li class="level2"><a href="../configuration/admin_clone_pipeline.html">Clone a Pipeline</a></li>
+      <li class="level2"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+      <li class="level2"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+      <li class="level2"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+      <li class="level2"><a href="../configuration/admin_add_job.html">Add job to Existing Stage</a></li>
+      <li class="level2"><a href="../configuration/admin_add_task.html">Add task to Existing Job</a></li>
+      <li class="level2"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+      <li class="level2"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+      <li class="level2"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+      <li class="level2"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+      <li class="level2"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a></li>
+      <li class="level2"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+      <li class="level2"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+      <li class="level2"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+      <li class="level2"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+      <li class="level2"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+      <li class="level2"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+      <li class="level2"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+      <li class="level2"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+      <li class="level2"><a href="../configuration/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/tfs_config.html">TFS Material configuration</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+      <li class="level2"><a href="../configuration/schema.html">Schema</a></li>
+    </ul>
+  </li>
 
-<ul>
-<li><a href="../installation/install/server/linux.html">Linux</a></li>
-<li><a href="../installation/install/server/windows.html">Windows</a></li>
-<li><a href="../installation/install/server/osx.html">Mac OS X</a></li>
-<li><a href="../installation/install/server/zip.html">Generic Zip</a></li>
-</ul></li>
-<li><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+  <li class="level1 has-children">
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/properties.html">Properties</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
 
-<ul>
-<li><a href="../installation/install/agent/linux.html">Linux</a></li>
-<li><a href="../installation/install/agent/windows.html">Windows</a></li>
-<li><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
-<li><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
-</ul></li>
-<li><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
-<li><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
-<li><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
-<li><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
-<li><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+  <li class="level1 has-children">
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.html">Setup and configuration</a>
+        <ul>
+          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/setup.html">Setup</a></li>
+          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">Configure your Kubernetes Cluster</a></li>
+          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">Install the GoCD Helm chart</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/">Designing a CD Pipeline</a>
+        <ul>
+          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">Create a pipeline to build application</a></li>
+          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html">Create a pipeline to test the built application</a></li>
+          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html">Create a pipeline to deploy on Kubernetes</a></li>
+          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html">Docker workflows</a></li>
+          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html">Configure the Kubernetes Elastic Agent plugin</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html">Troubleshooting</a></li>
+    </ul>
+  </li>
 
-<ul>
-<li><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
-<li><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
-<li><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
-<li><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
-</ul></li>
-<li><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
-<li><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
-<li><a href="../installation/troubleshooting.html">Troubleshooting</a></li>
-</ul></li>
+  <li class="level1 has-children">
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+      <li class="level2"><a href="../extension_points/configrepo_extension.html">Configuration repository Extension</a></li>
+    </ul>
+  </li>
 
-<li><p><a href="../configuration/"><strong>Configuration</strong></a></p>
+  <li class="level1 has-children">
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/agent_guid_issue.html">Clone/Copy an Existing Agents</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/notifications_page.html">Email Notifications</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">Go unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_save_properties.html">Save Properties for a Build</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
 
-<ul>
-<li><a href="../configuration/quick_pipeline_setup.html">Setup a New Pipeline</a></li>
-<li><a href="../configuration/managing_pipelines.html">Managing Pipelines</a></li>
-<li><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
-<li><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a></li>
-<li><a href="../configuration/managing_environments.html">Managing Environments</a></li>
-<li><a href="../configuration/build_labelling.html">Pipeline Labelling</a></li>
-<li><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
-<li><a href="../configuration/admin_use_parameters_in_configuration.html">Parameterize a Pipeline</a></li>
-<li><a href="../configuration/admin_use_custom_pipeline_label.html">Customize a Pipeline Label</a></li>
-<li><a href="../configuration/admin_clone_pipeline.html">Clone a Pipeline</a></li>
-<li><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
-<li><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
-<li><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
-<li><a href="../configuration/admin_add_job.html">Add job to Existing Stage</a></li>
-<li><a href="../configuration/admin_add_task.html">Add task to Existing Job</a></li>
-<li><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
-<li><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
-<li><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
-<li><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
-<li><a href="../configuration/job_timeout.html">Job Timeout</a></li>
-<li><a href="../configuration/managing_users.html">Managing Users</a></li>
-<li><a href="../configuration/dev_authentication.html">Authentication</a></li>
-<li><a href="../configuration/access_tokens.html">Access Tokens</a></li>
-<li><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
-<li><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
-<li><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
-<li><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
-<li><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
-<li><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
-<li><a href="../configuration/ui_testing.html">UI Testing</a></li>
-<li><a href="../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
-<li><a href="../configuration/dev_notifications.html">Notifications</a></li>
-<li><a href="../configuration/tfs_config.html">TFS Material configuration</a></li>
-<li><a href="../configuration/configuration_reference.html">Reference</a></li>
-<li><a href="../configuration/schema.html">Schema</a></li>
-</ul></li>
-
-<li><p><a href="../advanced_usage/"><strong>Advanced Usage</strong></a></p>
-
-<ul>
-<li><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
-<li><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
-<li><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
-<li><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
-<li><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
-<li><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
-<li><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
-<li><a href="../advanced_usage/fan_in.html">Fan In</a></li>
-<li><a href="../advanced_usage/properties.html">Properties</a></li>
-<li><a href="../advanced_usage/logging.html">Logging</a></li>
-<li><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
-<li><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
-<li><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
-<li><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
-<li><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
-<li><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
-<li><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
-<li><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
-<li><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a><br /></li>
-</ul></li>
-
-<li><p><a href="../integration/"><strong>Integrating GoCD With Other Tools</strong></a></p></li>
-
-<li><p><a href="../extension_points/"><strong>Extension Points Of GoCD</strong></a></p>
-
-<ul>
-<li><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
-<li><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
-<li><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
-<li><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
-<li><a href="../extension_points/task_extension.html">Task Extension</a></li>
-<li><a href="../extension_points/configrepo_extension.html">Configuration repository Extension</a></li>
-</ul></li>
-
-<li><p><a href="../gocd_on_kubernetes/"><strong>GoCD on Kubernetes</strong></a></p>
-
-<ul>
-<li><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
-<li><a href="../gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.html">Setup and configuration</a>
-
-<ul>
-<li><a href="../gocd_on_kubernetes/gocd_helm_chart/setup.html">Setup</a></li>
-<li><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">Configure your Kubernetes Cluster</a></li>
-<li><a href="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">Install the GoCD Helm chart</a></li>
-</ul></li>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/">Designing a CD Pipeline</a>
-
-<ul>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">Create a pipeline to build application</a></li>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html">Create a pipeline to test the built application</a></li>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html">Create a pipeline to deploy on Kubernetes</a></li>
-<li><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html">Docker workflows</a></li>
-<li><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html">Configure the Kubernetes Elastic Agent plugin</a></li>
-</ul></li>
-<li><a href="../gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html">Troubleshooting</a></li>
-</ul></li>
-
-<li><p><a href="../faq/"><strong>FAQ/Troubleshooting</strong></a></p>
-
-<ul>
-<li><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
-<li><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
-<li><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
-<li><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
-<li><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
-<li><a href="../faq/dev_save_properties.html">Save Properties for a Build</a></li>
-<li><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
-<li><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
-<li><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
-<li><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
-<li><a href="../faq/rm_what_is_deployed.html">Check What&rsquo;s Deployed</a></li>
-<li><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
-<li><a href="../faq/agent_guid_issue.html">Clone/Copy an Existing Agents</a></li>
-<li><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
-<li><a href="../faq/material_update_hung.html">Go unable to poll for changes</a></li>
-<li><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
-<li><a href="../faq/notifications_page.html">Email Notifications</a></li>
-<li><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
-<li><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
-</ul></li>
-
-<li><p><a href="../beta/"><strong>Beta features</strong></a></p>
-
-<ul>
-<li><a href="../beta/comment_on_pipeline_run.html">Comment on a pipeline run</a><br /></li>
-</ul></li>
-
-<li><p><a href="../release_history/"><strong>Release History</strong></a></p>
-
-<ul>
-<li><a href="../release_history/whats_new_in_go.html">What&rsquo;s New in Go</a><br /></li>
-</ul></li>
+  <li class="level1 has-children">
+    <a href="#"><b>Beta features</b></a>
+    <ul>
+      <li class="level2"><a href="../beta/comment_on_pipeline_run.html">Comment on a pipeline run</a></li>
+    </ul>
+  </li>
 </ul>
 
 
@@ -289,6 +293,7 @@ if (!doNotTrack) {
 </nav>
     </aside>
 
+    
     <div class="navigation-bar">
     <a href="#" class="navigation navigation-prev">
         <i class="fa fa-angle-left"></i> &lt; Previous Page
@@ -299,7 +304,7 @@ if (!doNotTrack) {
     </a>
 </div>
 
-    <div class="book-page">
+    <div class="book-page ">
       <header class="align-center justify-between book-header">
   <label for="menu-control">
     <img src="../svg/menu.svg" />
@@ -360,15 +365,33 @@ if (!doNotTrack) {
 </article>
 
       
-<div class="align-center book-git-footer justify-end">
+<div class="align-center book-git-footer justify-between">
   
+
   
   <div>
-    <a href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/dev_clean_up_when_cancel.md" target="_blank" rel="noopener">
-      <img src="../svg/code-fork.svg" /> Edit this page
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
     </a>
   </div>
   
+
+  
+  <div>
+    <a href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/dev_clean_up_when_cancel.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
 </div>
 
 
