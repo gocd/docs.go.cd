@@ -29,7 +29,6 @@ headless: true
       <li class="level2"><a href="{{< relref "navigation/stage_details_page.md" >}}">Stage Details</a></li>
       <li class="level2"><a href="{{< relref "navigation/job_details_page.md" >}}">Job Details</a></li>
       <li class="level2"><a href="{{< relref "navigation/administration_page.md" >}}">Administration</a></li>
-      <li class="level2"><a href="{{< relref "navigation/server_details_page.md" >}}">Server Details</a></li>
       <li class="level2"><a href="{{< relref "navigation/environments_page.md" >}}">Environments</a></li>
       <li class="level2"><a href="{{< relref "navigation/value_stream_map.md" >}}">Value Stream Map</a></li>
     </ul>
