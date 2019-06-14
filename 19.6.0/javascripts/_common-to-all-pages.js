@@ -100,13 +100,13 @@ function getPathName() {
     if (currentHref.indexOf("localhost:1313") >= 0) {
         return "";
     }
-    return element.prop('pathname').split("/")[1]
+    return "/" + element.prop('pathname').split("/")[1]
 }
 
 // START: Menu collapse
 (function() {
   var addArrowsToAllTopLevelItems = function() {
-    $(".book-menu nav li.level1.has-children").prepend(`<img class="menu-arrow" src="/${getPathName()}/images/arrow.png">`);
+    $(".book-menu nav li.level1.has-children").prepend(`<img class="menu-arrow" src="${getPathName()}/images/arrow.png">`);
   };
 
   var showOnlyTopLevelItems = function() {
