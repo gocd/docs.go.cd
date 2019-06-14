@@ -90,11 +90,23 @@ $(document).ready(function(){
   });
 });
 
+function getPathName() {
+    const currentHref = $(location).attr("href");
+    const element = $('<a>', {
+        href: currentHref
+    });
+
+    let pathname = element.prop('pathname');
+    if (currentHref.indexOf("localhost:1313") >= 0) {
+        return "";
+    }
+    return element.prop('pathname').split("/")[1]
+}
 
 // START: Menu collapse
 (function() {
   var addArrowsToAllTopLevelItems = function() {
-    $(".book-menu nav li.level1.has-children").prepend('<img class="menu-arrow" src="images/arrow.png">');
+    $(".book-menu nav li.level1.has-children").prepend(`<img class="menu-arrow" src="/${getPathName()}/images/arrow.png">`);
   };
 
   var showOnlyTopLevelItems = function() {
