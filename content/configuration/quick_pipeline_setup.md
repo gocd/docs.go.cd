@@ -1,14 +1,23 @@
 ---
 description: GoCD pipeline setup
 keywords: GoCD configuration, pipeline setup, pipeline configuration, GoCD pipeline stages, stages, jobs, GoCD jobs, materials, create new pipeline
-title: Setup a New Pipeline
+title: Add a new Pipeline
+aliases:
+  - /configuration/admin_clone_pipeline.html
 ---
 
-# Setup a new pipeline
+# Add a New Pipeline
+
+There are many ways of creating pipelines in GoCD:
+
+1. You can create them by using [Pipelines as Code](../advanced_usage/pipelines_as_code.html), by adding pipeline definitions to a repository in formats such as Yaml, JSON, Groovy, etc.
+2. You can use GoCD's extensive APIs to create a pipeline. See [Pipeline Config API](https://api.gocd.org/current/#create-a-pipeline).
+3. You can use GoCD's UI to create a pipeline (see below).
+4. By [cloning an existing pipeline](#clone-an-existing-gocd-pipeline).
 
 ## New Pipeline Wizard
 
-After you've entered your license information, clicking on the **Pipelines** tab will take you to the "Add new pipeline" page. You can also add a pipeline by navigating to the Admin page and clicking on the "Create a new pipeline within a group" link. You can create a pipeline in 3 steps.
+Clicking on the **Admin** -> **Pipelines** menu item will take you to the pipelines administration page. Clicking on "Create a new pipeline within this group" button will take you to the "Add pipeline" page.
 
 ### Step 1: Basic Settings
 
@@ -70,6 +79,23 @@ For this option to work, Rake needs to be installed on the Go Agent(s) and the *
 In addition to the above tasks, GoCD allows you to run anything on the command line. You can use the [command repository](../advanced_usage/command_repository.html) to help you choose the command. Alternately you can specify a command on your own.
 
 You can see the complete configuration reference [here](configuration_reference.html).
+
+<a name="clone-an-existing-gocd-pipeline"></a>
+
+# Clone an existing GoCD pipeline
+
+Clone pipeline functionality helps you create a new pipeline from an existing pipeline by giving it a new name. Typically when setting up a pipeline for a new branch, it is very useful to take an existing pipeline and clone it.
+
+If the user is a pipeline group admin, they can clone the new pipeline into a group that they have access to. If the user is an admin they can clone the pipeline into any group or can create a new group by providing a new group name.
+
+- Navigate to the Admin tab
+- Locate the pipeline that needs to be cloned
+- In that row, click on the "Clone" icon.
+![](../images/clone_icon.png)
+- Fill in the name of the new pipeline
+![](../images/clone_pipeline.png)
+- Select a pipeline group. If you are an admin, you will be able to enter the name of the pipeline group using the auto suggest or enter a new group name
+- Click "Save"
 
 #### Also See
 

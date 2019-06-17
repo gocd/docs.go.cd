@@ -70,7 +70,6 @@ headless: true
       </li>
       <li class="level2"><a href="{{< relref "installation/performance_tuning.md" >}}">Performance Tuning</a></li>
       <li class="level2"><a href="{{< relref "installation/hardware_specifications.md" >}}">Hardware Specifications</a></li>
-      <li class="level2"><a href="{{< relref "installation/troubleshooting.md" >}}">Troubleshooting</a></li>
     </ul>
   </li>
 
@@ -78,41 +77,51 @@ headless: true
     {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>Configuration</b></a>
     <ul>
-      <li class="level2"><a href="{{< relref "configuration/quick_pipeline_setup.md" >}}">Setup a New Pipeline</a></li>
-      <li class="level2"><a href="{{< relref "configuration/managing_pipelines.md" >}}">Managing Pipelines</a></li>
-      <li class="level2"><a href="{{< relref "configuration/managing_dependencies.md" >}}">Managing Dependencies</a></li>
-      <li class="level2"><a href="{{< relref "configuration/managing_a_build_cloud.md" >}}">Managing Agents</a></li>
+      <li class="level2"><a href="{{< relref "configuration/pipelines.md" >}}">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="{{< relref "configuration/quick_pipeline_setup.md" >}}">Add a New Pipeline</a></li>
+          <li class="level3"><a href="{{< relref "configuration/admin_add_material.md" >}}">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="{{< relref "configuration/admin_add_stage.md" >}}">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="{{< relref "configuration/admin_add_job.md" >}}">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="{{< relref "configuration/admin_add_task.md" >}}">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="{{< relref "configuration/pipeline_templates.md" >}}">Pipeline Templates</a></li>
+          <li class="level3"><a href="{{< relref "configuration/admin_use_parameters_in_configuration.md" >}}">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="{{< relref "configuration/pipeline_labeling.md" >}}">Pipeline Labeling</a></li>
+          <li class="level3"><a href="{{< relref "configuration/pipeline_scheduling.md" >}}">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="{{< relref "configuration/dev_choose_when_stage_runs.md" >}}">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="{{< relref "configuration/admin_timer.md" >}}">Timer Trigger</a></li>
+          <li class="level3"><a href="{{< relref "configuration/admin_lock_pipelines.md" >}}">Lock a Pipeline</a></li>
+          <li class="level3"><a href="{{< relref "configuration/job_timeout.md" >}}">Job Timeout</a></li>
+          <li class="level3"><a href="{{< relref "configuration/deleting_pipelines.md" >}}">Deleting Pipelines</a></li>
+          <li class="level3"><a href="{{< relref "configuration/managing_dependencies.md" >}}">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="{{< relref "configuration/managing_a_build_cloud.md" >}}">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="{{< relref "configuration/elastic_agents.md" >}}">Elastic Agents</a></li>
+          <li class="level3"><a href="{{< relref "configuration/clone_existing_agents.md" >}}">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
       <li class="level2"><a href="{{< relref "configuration/managing_environments.md" >}}">Managing Environments</a></li>
-      <li class="level2"><a href="{{< relref "configuration/build_labelling.md" >}}">Pipeline Labelling</a></li>
-      <li class="level2"><a href="{{< relref "configuration/pipeline_scheduling.md" >}}">Pipeline Scheduling</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_use_parameters_in_configuration.md" >}}">Parameterize a Pipeline</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_use_custom_pipeline_label.md" >}}">Customize a Pipeline Label</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_clone_pipeline.md" >}}">Clone a Pipeline</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_lock_pipelines.md" >}}">Lock a Pipeline</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_add_material.md" >}}">Add Material to Existing Pipeline</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_add_stage.md" >}}">Add Stage to Existing Pipeline</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_add_job.md" >}}">Add job to Existing Stage</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_add_task.md" >}}">Add task to Existing Job</a></li>
-      <li class="level2"><a href="{{< relref "configuration/pipeline_templates.md" >}}">Pipeline Templates</a></li>
-      <li class="level2"><a href="{{< relref "configuration/elastic_agents.md" >}}">Elastic Agents</a></li>
-      <li class="level2"><a href="{{< relref "configuration/dev_choose_when_stage_runs.md" >}}">Choose When a Stage Runs</a></li>
-      <li class="level2"><a href="{{< relref "configuration/admin_timer.md" >}}">Timer Trigger</a></li>
-      <li class="level2"><a href="{{< relref "configuration/job_timeout.md" >}}">Job Timeout</a></li>
-      <li class="level2"><a href="{{< relref "configuration/managing_users.md" >}}">Managing Users</a></li>
-      <li class="level2"><a href="{{< relref "configuration/dev_authentication.md" >}}">Authentication</a></li>
-      <li class="level2"><a href="{{< relref "configuration/access_tokens.md" >}}">Access Tokens</a></li>
-      <li class="level2"><a href="{{< relref "configuration/dev_authorization.md" >}}">Authorizing Users</a></li>
-      <li class="level2"><a href="{{< relref "configuration/delegating_group_administration.md" >}}">Delegating Group Administration</a></li>
-      <li class="level2"><a href="{{< relref "configuration/pipeline_group_admin_config.md" >}}">Pipeline Group Administration</a></li>
-      <li class="level2"><a href="{{< relref "configuration/dev_upload_test_report.md" >}}">Publish Reports and Artifacts</a></li>
-      <li class="level2"><a href="{{< relref "configuration/managing_artifacts_and_reports.md" >}}">Managing Artifacts and Reports</a></li>
-      <li class="level2"><a href="{{< relref "configuration/delete_artifacts.md" >}}">Auto Delete Artifacts</a></li>
-      <li class="level2"><a href="{{< relref "configuration/ui_testing.md" >}}">UI Testing</a></li>
+      <li class="level2"><a href="{{< relref "configuration/managing_users.md" >}}">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="{{< relref "configuration/dev_authentication.md" >}}">Authentication</a></li>
+          <li class="level3"><a href="{{< relref "configuration/access_tokens.md" >}}">Access Tokens</a></li>
+          <li class="level3"><a href="{{< relref "configuration/dev_authorization.md" >}}">Authorizing Users</a></li>
+          <li class="level3"><a href="{{< relref "configuration/delegating_group_administration.md" >}}">Delegating Group Administration</a></li>
+          <li class="level3"><a href="{{< relref "configuration/pipeline_group_admin_config.md" >}}">Pipeline Group Administration</a></li>
+        </ul>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="{{< relref "configuration/dev_upload_test_report.md" >}}">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="{{< relref "configuration/managing_artifacts_and_reports.md" >}}">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="{{< relref "configuration/delete_artifacts.md" >}}">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
       <li class="level2"><a href="{{< relref "configuration/admin_mailhost_info.md" >}}">Mailhost Information</a></li>
       <li class="level2"><a href="{{< relref "configuration/dev_notifications.md" >}}">Notifications</a></li>
-      <li class="level2"><a href="{{< relref "configuration/tfs_config.md" >}}">TFS Material configuration</a></li>
       <li class="level2"><a href="{{< relref "configuration/configuration_reference.md" >}}">Reference</a></li>
-      <li class="level2"><a href="{{< relref "configuration/schema.md" >}}">Schema</a></li>
     </ul>
   </li>
 
@@ -130,6 +139,7 @@ headless: true
       <li class="level2"><a href="{{< relref "advanced_usage/fan_in.md" >}}">Fan In</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/properties.md" >}}">Properties</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/logging.md" >}}">Logging</a></li>
+      <li class="level2"><a href="{{< relref "advanced_usage/ui_testing.md" >}}">UI Testing</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/compare_pipelines.md" >}}">Compare Builds</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/stage_duration_chart.md" >}}">Graphs</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/command_repository.md" >}}">Command Repository</a></li>
@@ -178,7 +188,6 @@ headless: true
       <li class="level2"><a href="{{< relref "extension_points/yum_repository_poller.md" >}}">Yum Repository Poller</a></li>
       <li class="level2"><a href="{{< relref "extension_points/scm_extension.md" >}}">SCM Extension</a></li>
       <li class="level2"><a href="{{< relref "extension_points/task_extension.md" >}}">Task Extension</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/configrepo_extension.md" >}}">Configuration repository Extension</a></li>
     </ul>
   </li>
 
@@ -186,15 +195,14 @@ headless: true
     {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>FAQ/Troubleshooting</b></a>
     <ul>
+      <li class="level2"><a href="{{< relref "faq/fixing_common_issues.md" >}}">Fixing common issues</a></li>
       <li class="level2"><a href="{{< relref "faq/artifact_integrity.md" >}}">Artifact integrity verification</a></li>
       <li class="level2"><a href="{{< relref "faq/rm_what_is_deployed.md" >}}">Check What's Deployed</a></li>
-      <li class="level2"><a href="{{< relref "faq/agent_guid_issue.md" >}}">Clone/Copy an Existing Agents</a></li>
       <li class="level2"><a href="{{< relref "faq/concurrent_config_modifications.md" >}}">Concurrent Modifications to Config</a></li>
       <li class="level2"><a href="{{< relref "faq/docker_container_ssh_keys.md" >}}">Configure SSH Keys for dockerized GoCD</a></li>
       <li class="level2"><a href="{{< relref "faq/deploy_a_specific_build_to_an_environment.md" >}}">Deploy a Specific Build</a></li>
       <li class="level2"><a href="{{< relref "faq/rm_deploy_to_environment.md" >}}">Deploy to an environment</a></li>
-      <li class="level2"><a href="{{< relref "faq/notifications_page.md" >}}">Email Notifications</a></li>
-      <li class="level2"><a href="{{< relref "faq/material_update_hung.md" >}}">Go unable to poll for changes</a></li>
+      <li class="level2"><a href="{{< relref "faq/material_update_hung.md" >}}">GoCD unable to poll for changes</a></li>
       <li class="level2"><a href="{{< relref "faq/stage_old_config.md" >}}">Historical Configuration</a></li>
       <li class="level2"><a href="{{< relref "faq/job_rerun.md" >}}">How do I re-run jobs?</a></li>
       <li class="level2"><a href="{{< relref "faq/ordering_of_pipelines.md" >}}">Ordering of Pipelines</a></li>

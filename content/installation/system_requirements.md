@@ -10,6 +10,8 @@ title: System requirements
 These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or
 memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
 
+> Also see: [GoCD hardware specifications](./hardware_specifications.html)
+
 ### Client (browser) requirements
 
 GoCD supports the two most recent versions of the following browsers:

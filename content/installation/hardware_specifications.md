@@ -6,17 +6,15 @@ title: Hardware Specifications
 
 # GoCD hardware specifications
 
-<!-- toc -->
-
-> **Note**: This page is still a work in progress. Please report issues and provide feedback at https://github.com/gocd/docs.go.cd/issues/76
-
 The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.
 
-## Agent hardware requirements
+> Also see: [GoCD system requirements](./system_requirements.html)
+
+### Agent hardware requirements
 
 The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements). The agent will require an additional memory of about 500Mb. Although, you may run the agent on the same machine as the server, it is recommended that you use a separate machine (though, it may be virtual) for each build agent. If you chose to install several agents on the same machine, please consider possible CPU, disk, memory or network bottlenecks that might occur.
 
-## Server hardware requirements
+### Server hardware requirements
 
 The GoCD Server is responsible for performing a number of tasks and we describe how each of these tasks affects the specifications:
 
@@ -27,7 +25,7 @@ The GoCD Server is responsible for performing a number of tasks and we describe 
 * [Number of times each of the pipeline has run (pipeline history)](#number-of-times-each-of-the-pipeline-has-run-pipeline-history)
 * [Number and types of plugins that may be installed](#number-and-types-of-plugins-that-may-be-installed)
 
-### Number of web-requests to the server
+#### Number of web-requests to the server
 
 Web-requests to the server come from different kinds of sources
 
@@ -39,7 +37,7 @@ GoCD uses a shared thread-pool to manage a lot of web requests from several user
 
 You can find out the number of requests that your server is handling by turning on web-request logging.
 
-### Number of agents connected to a GoCD server, and how often they build
+#### Number of agents connected to a GoCD server, and how often they build
 
 Each GoCD agent that is connected to the server will poll the GoCD server every few seconds and to update its status on the server and check if there are any jobs that it should build.
 
@@ -55,7 +53,7 @@ To cope up with the number of agents, artifact uploads and downloads, ensure tha
 
 It helps with quicker artifact upload and download if the server and agents are geographically co-located. This will help reduce the latency between the agent and server.
 
-### Number of source control materials
+#### Number of source control materials
 
 GoCD uses up-to 10 processes (configurable) to check if updates are available for source control materials(SCM). Only materials that have polling turned on will be polled. Each material is checked approximately every minute for to see if there are updates available so that GoCD can trigger a build.
 
@@ -75,7 +73,7 @@ If you find that material updates are taking too much of your CPU time, you may 
 * notify the GoCD server of material updates, instead of polling it
 * investigate if upgrading the SCM software version resolves the issue
 
-### Type of source control materials, some types perform better than others
+#### Type of source control materials, some types perform better than others
 
 All SCMs need to connect to a remote SCM repository to check if updates are available. Some of them are more efficient at update checks than others.
 
@@ -83,40 +81,40 @@ SCMs like git and mercurial require a local clone to be able to check if there a
 
 On the other hand, SCMs like SVN and TFS don't require a local checkout to check for updates, so they may not have a disk IO overhead on the gocd server. However the number and frequency of since a material update check may cause a bottleneck on the network.
 
-### Number of times each of the pipeline has run (pipeline history)
+#### Number of times each of the pipeline has run (pipeline history)
 
 Each pipeline run (along with the stages and jobs in it) is recorded in the database for purpose of audits. To ensure optimal performance of your GoCD server we recommend that you run your database server on a separate instance
 
-### Number and types of plugins that may be installed
+#### Number and types of plugins that may be installed
 
 Each plugin that is installed on the server will consume additional memory on the memory and may have an impact on the CPU utilization of the server. Task plugins, will consume additional on the memory usage of the gocd agent process and may affect the CPU usage of the gocd agent process.
 
 This may require that users change the heap(`-Xmx`) and/or metaspace(`-XX:MaxMetaspaceSize`).
 
 
-## Definitions
+### Definitions
 
 For the purpose of the rest of this document, we would like to use the following definitions:
 
-### Cores
+#### Cores
 
 The number of physical compute units available to the server machine.
 
 > **A note about hyper-threading**: While hyper-threading makes a single physical core to look like 2 logical cores, the performance improvement, in most cases, the performance is somewhere around 15% of a single core.
 
-### Memory
+#### Memory
 
-#### JVM Memory
+##### JVM Memory
 
 The amount of memory available to the JVM running the GoCD server process (roughly the `-Xmx` JVM argument)
 
-#### RAM
+##### RAM
 
 The amount of memory available to the server machine. Generally speaking, the amount of RAM should be atleast 2-3GB more than the JVM memory to allow some headroom for the operating system.
 
 > **A note about swap**: Ensure that swap is turned off, because it negatively affects performance when the machine runs out of memory and begins swapping
 
-#### Buffer Cache
+##### Buffer Cache
 
 Reading from a disk is very slow as compared to reading from memory. Additionally, it is common to read the same part of a disk several times during relatively short periods of time. For example, consider how often the command `git` might be run on a GoCD server. By reading the information from disk only once and then keeping it in memory until no longer needed, one can speed up all but the first read. This is called disk buffering, and the memory used for the purpose is called the buffer cache.
 
@@ -132,10 +130,10 @@ Swap:            0          0          0
 
 In the example above, the first line says that the amount of free memory is "278" mb, this makes it look like the system is running short of memory. However the second line(`-/+ buffers/cache`) shows that in reality `2427` mb is actually free. This is because about 20+2128 megs of memory is buffers + cache, which the OS can purge if it is programs request for more memory.
 
-### IOPS
+#### IOPS
 
 The amount of input/output operations per seconds of your storage device.
 
-### IO throughput
+#### IO throughput
 
 Usually expressed as **Megabytes / Second (MB/s)**, indicates the amount of data that a server can read and/or write in a given amount of time. Usually, higher the *IOPS*, the higher the throughput.

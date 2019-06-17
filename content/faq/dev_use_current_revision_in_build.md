@@ -18,7 +18,7 @@ with the value `VALUE_1`.
 ### 1. Using an environment variable in a custom command on Unix/Linux
 
 A very common use case for environment variables is to use them as arguments for a custom command
-(["exec task" in GoCD](../configuration/managing_pipelines.html#add-a-new-task-to-an-existing-job)). Assuming
+(["exec task" in GoCD](../configuration/admin_add_task.html)). Assuming
 that you want to pass the environment variable `ENV_VAR_1` to the `ls` command, you might be tempted to try something
 like this:
 
