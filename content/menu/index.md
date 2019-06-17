@@ -205,7 +205,6 @@ headless: true
       <li class="level2"><a href="{{< relref "faq/docker_container_ssh_keys.md" >}}">Configure SSH Keys for dockerized GoCD</a></li>
       <li class="level2"><a href="{{< relref "faq/deploy_a_specific_build_to_an_environment.md" >}}">Deploy a Specific Build</a></li>
       <li class="level2"><a href="{{< relref "faq/rm_deploy_to_environment.md" >}}">Deploy to an environment</a></li>
-      <li class="level2"><a href="{{< relref "faq/notifications_page.md" >}}">Email Notifications</a></li>
       <li class="level2"><a href="{{< relref "faq/material_update_hung.md" >}}">Go unable to poll for changes</a></li>
       <li class="level2"><a href="{{< relref "faq/stage_old_config.md" >}}">Historical Configuration</a></li>
       <li class="level2"><a href="{{< relref "faq/job_rerun.md" >}}">How do I re-run jobs?</a></li>
