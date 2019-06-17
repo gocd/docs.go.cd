@@ -188,7 +188,6 @@ headless: true
       <li class="level2"><a href="{{< relref "extension_points/yum_repository_poller.md" >}}">Yum Repository Poller</a></li>
       <li class="level2"><a href="{{< relref "extension_points/scm_extension.md" >}}">SCM Extension</a></li>
       <li class="level2"><a href="{{< relref "extension_points/task_extension.md" >}}">Task Extension</a></li>
-      <li class="level2"><a href="{{< relref "extension_points/configrepo_extension.md" >}}">Configuration repository Extension</a></li>
     </ul>
   </li>
 
