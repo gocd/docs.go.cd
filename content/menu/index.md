@@ -77,10 +77,9 @@ headless: true
     {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>Configuration</b></a>
     <ul>
-      <li class="level2">Pipelines
+      <li class="level2"><a href="{{< relref "configuration/pipelines.md" >}}">Pipelines</a>
         <ul>
           <li class="level3"><a href="{{< relref "configuration/quick_pipeline_setup.md" >}}">Add a New Pipeline</a></li>
-          <li class="level3"><a href="{{< relref "configuration/admin_clone_pipeline.md" >}}">Clone a Pipeline</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_add_material.md" >}}">Add Material to Existing Pipeline</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_add_stage.md" >}}">Add Stage to Existing Pipeline</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_add_job.md" >}}">Add Job to Existing Stage</a></li>
