@@ -2,17 +2,20 @@
 description: Get started with GoCD. Configure pipelines and learn about pipeline templates.
 keywords: gocd get started, gocd configuration, build pipelines, jenkins, configure pipelines, config as code, pipeline templates
 title: Administration
+aliases:
+  - /navigation/administration_page.html
 ---
 
 
-# GoCD Administration
+# Pipeline configuration
 
-There are four ways to configure pipelines etc.
+There are many ways to configure pipelines etc.
 
-1.  Via the Admin UI described below
-2.  Direct XML edit via the Admin UI's Config XML tab
-3.  Configuration is possible via [Config API](https://api.gocd.org/current/#pipeline-config)
-4.  Direct XML edit via the file system. By default, Go server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin \> Config XML tab.
+1. Via the Admin UI described below.
+2. Using [pipelines as code](../advanced_usage/pipelines_as_code.html).
+3. Direct XML edit via the Admin UI's Config XML tab.
+4. Configuration is possible via [Config API](https://api.gocd.org/current/#pipeline-config).
+5. Direct XML edit via the file system. By default, GoCD server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin \> Config XML tab.
 
 ## Pipelines
 
