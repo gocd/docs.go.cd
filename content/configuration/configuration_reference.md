@@ -3127,17 +3127,19 @@ Specifies how a stage should be triggered. `<approval>` of type 'manual' or 'suc
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | type | Yes | Either 'manual' or 'success'. 'manual' means the stage needs to be approved manually. 'success' means the stage will be automatically triggered when the previous stage passes. |
+| allowOnlyOnSuccess | No | If the 'type' is set to 'manual', setting this attribute to 'true' will ensure that the stage can triggered only if the previous stage (if any) has succeeded. 
 
 **Notes:**
 
-- `<approval>` must be the first sub-element of [`<stage>`](#stage).
-- If an approval is not specified then the behavior is same as 'success' i.e. the stage will be automatically triggered when the previous stage passes.
+-   `<approval>` must be the first sub-element of [`<stage>`](#stage).
+-   If an approval is not specified then the behavior is same as 'success' i.e. the stage will be automatically triggered when the previous stage passes.
+-   If attribute `allowOnlyOnSuccess` is not specified, then the behaviour is same as `false`.
 
 **Example:**
 
 ```xml
 <stage name="ut">
-  <approval type="manual" />
+  <approval type="manual" allowOnlyOnSuccess="true"/>
   ...
 </stage>
 ```
