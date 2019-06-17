@@ -238,6 +238,12 @@ aside nav,
       opacity: 0.25;
     }
   }
+
+  .book-git-footer {
+    #suggest-edits {
+      display: none;
+    }
+  }
 }
 
 // Extra space for big screens

@@ -18,7 +18,7 @@
 
   {{ with .Site.Params.BookEditPath }}
   <div>
-    <a href="{{ $.Site.Params.BookRepo }}/{{ . }}/{{ $.File.Path }}" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="{{ $.Site.Params.BookRepo }}/{{ . }}/{{ $.File.Path }}" target="_blank" rel="noopener">
       <img src="{{ "svg/code-fork.svg" | relURL }}" /> Suggest edits to this page
     </a>
   </div>
