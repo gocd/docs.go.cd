@@ -70,22 +70,22 @@ Now, if you add this to a system [crontab](http://en.wikipedia.org/wiki/Cron), y
 
 If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it's artifact repository.
 
--   Find the location of the GoCD configuration file
--   Navigate to the [Admin](../navigation/administration_page.html) section
+- Find the location of the GoCD configuration file
+- Navigate to the [Admin](../navigation/administration_page.html) section
 ![](../images/topnav_admin.png)
--   Click on the "Config XML" tab
--   The location of the configuration file is listed here
+- Click on the "Config XML" tab
+- The location of the configuration file is listed here
 ![](../images/4_find_config_location.png)
--   Install the new drive
--   Shut down GoCD server
--   Copy all files from the original artifact repository location to the new drive
--   Change the artifact repository location in the configuration file
-```xml 
+- Install the new drive
+- Shut down GoCD server
+- Copy all files from the original artifact repository location to the new drive
+- Change the artifact repository location in the configuration file
+    ```
 <server artifactsDir="/path/to/new/artifacts">
     ...
 </server>
 ```
--   Start up GoCD server and verify you still have access to old artifacts
+- Start up GoCD server and verify you still have access to old artifacts
 
 ## Delete unused artifacts
 

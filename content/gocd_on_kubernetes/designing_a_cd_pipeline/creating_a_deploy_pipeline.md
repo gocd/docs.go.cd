@@ -48,10 +48,10 @@ In this section, we'll learn to design a deployment pipeline to deploy to Kubern
 
     *Note: The KUBE_TOKEN environment variable must be configured as a secure variable as shown in the image. This token should not be exposed.*
     
-    ```bash
+    {{< highlight bash >}}
     kubectl describe sa default --namespace kube-system // to obtain the secret name
     kubectl describe secrets <token_name> --namespace kube-system
-    ```
+{{< / highlight >}}
 
     ![](../../images/gocd-helm-chart/env_vars_deploy.png)
     
