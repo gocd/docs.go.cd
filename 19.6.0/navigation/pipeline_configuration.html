@@ -7,12 +7,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Server Details | GoCD User Documentation</title>
+<title>Administration | GoCD User Documentation</title>
 
-<meta name="description" content="Description of GoCD server version and environment."/>
-<meta name="keywords" content="[gocd server, gocd environment, jvm, os information gocd, artifacts repository, continuous delivery]"/>
+<meta name="description" content="Get started with GoCD. Configure pipelines and learn about pipeline templates."/>
+<meta name="keywords" content="[gocd get started, gocd configuration, build pipelines, jenkins, configure pipelines, config as code, pipeline templates]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/navigation/server_details_page.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/navigation/pipeline_configuration.html"/>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
 
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.d1855b055080e5da9f4775331f750c4e126a4ae8a5b5d9b2eec3294c2dd1a4e7.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a4c14036e1229d34bbe0f371749e686bdc7f526f181115a244174fcdee2e59ce.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -40,7 +40,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/navigation/server_details_page.html">
+<body data-rel-permalink="/navigation/pipeline_configuration.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -72,7 +72,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2fnavigation\2fserver_details_page.html"] {
+  nav ul a[href$="\2fnavigation\2fpipeline_configuration.html"] {
   color: #004ed0;
   }
 </style>
@@ -109,8 +109,7 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
       <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
       <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/administration_page.html">Administration</a></li>
-      <li class="level2"><a href="../navigation/server_details_page.html">Server Details</a></li>
+      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
       <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
@@ -342,7 +341,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>Server Details</strong>
+  <strong>Administration</strong>
 </header>
 
       
@@ -357,13 +356,52 @@ if (!doNotTrack) {
       
 <article class="markdown">
 
-<h1 id="gocd-server-details">GoCD Server Details</h1>
+<h1 id="pipeline-configuration">Pipeline configuration</h1>
 
-<p>The &ldquo;Server Details&rdquo; page describes the GoCD server version and environment.</p>
+<p>There are many ways to configure pipelines etc.</p>
 
-<p><img src="../images/ServerDetails.png" alt="Server Details Page" /></p>
+<ol>
+<li>Via the Admin UI described below.</li>
+<li>Using <a href="../advanced_usage/pipelines_as_code.html">pipelines as code</a>.</li>
+<li>Direct XML edit via the Admin UI&rsquo;s Config XML tab.</li>
+<li>Configuration is possible via <a href="https://api.gocd.org/current/#pipeline-config">Config API</a>.</li>
+<li>Direct XML edit via the file system. By default, GoCD server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin &gt; Config XML tab.</li>
+</ol>
 
-<p>This box lists all the server Information.</p>
+<h2 id="pipelines">Pipelines</h2>
+
+<p>The &ldquo;Pipelines&rdquo; tab allows you to configure pipelines grouped in pipeline groups.</p>
+
+<p><img src="../images/pipeline_groups.png" alt="" /></p>
+
+<h3 id="key">Key</h3>
+
+<ol>
+<li>Add a new pipeline group</li>
+<li>Edit the pipeline group name and permissions.</li>
+<li>Delete an empty pipeline group.</li>
+<li>Create a pipeline within a pipeline group</li>
+<li>Click the pipeline name to select a pipeline to view or edit.</li>
+<li>Click to view/edit a pipeline</li>
+<li>Move pipeline to another pipeline group.</li>
+<li>Delete a pipeline</li>
+</ol>
+
+<h2 id="pipeline-templates">Pipeline Templates</h2>
+
+<p>The &ldquo;Templates&rdquo; tab allows you to configure pipeline templates which can be used to templatize pipelines.</p>
+
+<p><img src="../images/pipeline_templates.png" alt="" /></p>
+
+<h3 id="key-1">Key</h3>
+
+<ol>
+<li>Add a new pipeline template</li>
+<li>Edit the pipeline template.</li>
+<li>As a GoCD Administrator, you can now edit permissions for the template to make users <a href="../configuration/dev_authorization.html#template-admin">Template Administrators</a>.</li>
+<li>Edit a pipeline using this pipeline template.</li>
+<li>Delete an unused pipeline template.</li>
+</ol>
 </article>
 
       
@@ -380,7 +418,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a href="https://github.com/gocd/docs.go.cd/edit/master/content/navigation/server_details_page.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/navigation/pipeline_configuration.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -405,7 +443,17 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#gocd-server-details">GoCD Server Details</a></li>
+<li><a href="#pipeline-configuration">Pipeline configuration</a>
+<ul>
+<li><a href="#pipelines">Pipelines</a>
+<ul>
+<li><a href="#key">Key</a></li>
+</ul></li>
+<li><a href="#pipeline-templates">Pipeline Templates</a>
+<ul>
+<li><a href="#key-1">Key</a></li>
+</ul></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

@@ -82,12 +82,12 @@ Usage instructions  A token can be used to access GoCD APIs and cctray.xml by pa
     
     <item>
       <title>Administration</title>
-      <link>/navigation/administration_page.html</link>
+      <link>/navigation/pipeline_configuration.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/navigation/administration_page.html</guid>
-      <description>GoCD Administration There are four ways to configure pipelines etc.
- Via the Admin UI described below Direct XML edit via the Admin UI&amp;rsquo;s Config XML tab Configuration is possible via Config API Direct XML edit via the file system. By default, Go server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin &amp;gt; Config XML tab.</description>
+      <guid>/navigation/pipeline_configuration.html</guid>
+      <description>Pipeline configuration There are many ways to configure pipelines etc.
+ Via the Admin UI described below. Using pipelines as code. Direct XML edit via the Admin UI&amp;rsquo;s Config XML tab. Configuration is possible via Config API. Direct XML edit via the file system. By default, GoCD server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin &amp;gt; Config XML tab.</description>
     </item>
     
     <item>
@@ -1090,16 +1090,6 @@ Example usage  Suppose we have configured GoCD to upload a flash video and html 
       <guid>/faq/tester_what_has_changed.html</guid>
       <description>What has changed in the current GOCD version? When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
 Example usage For this example, we&amp;rsquo;ll assume that there is a manual &amp;ldquo;UAT&amp;rdquo; stage will automatically deploy and install an executable on your user acceptance testing machine.</description>
-    </item>
-    
-    <item>
-      <title>Server Details</title>
-      <link>/navigation/server_details_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/server_details_page.html</guid>
-      <description>GoCD Server Details The &amp;ldquo;Server Details&amp;rdquo; page describes the GoCD server version and environment.
-This box lists all the server Information.</description>
     </item>
     
     <item>

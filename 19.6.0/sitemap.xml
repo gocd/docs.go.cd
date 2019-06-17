@@ -33,7 +33,7 @@
   </url>
   
   <url>
-    <loc>/navigation/administration_page.html</loc>
+    <loc>/navigation/pipeline_configuration.html</loc>
   </url>
   
   <url>
@@ -479,10 +479,6 @@
   
   <url>
     <loc>/faq/tester_what_has_changed.html</loc>
-  </url>
-  
-  <url>
-    <loc>/navigation/server_details_page.html</loc>
   </url>
   
   <url>

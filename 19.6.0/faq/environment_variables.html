@@ -2,29 +2,17 @@
 <html>
 <head>
     <title>/faq/dev_use_current_revision_in_build.html</title>
-    <link rel="canonical" href=""/>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
-    <meta http-equiv="refresh" content="10"/>
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
-            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
     <script type="application/javascript">
-        function getVersion() {
-            let pageURL = window.location.href;
-            if (pageURL.indexOf("localhost:1313") >= 0) {
-                return "";
-            }
-            let element = $('<a>', {
-                href: pageURL
-            });
-            return "/" + element.prop('pathname').split("/")[1];
-        }
+     var currentPage = window.location.href;
+     var relativeDestination = "\/faq\/dev_use_current_revision_in_build.html";
 
-        let metaTag = document.getElementsByTagName("meta")[1];
-        const validUrl = getVersion() + "\/faq\/dev_use_current_revision_in_build.html";
-        metaTag.setAttribute("content", "0;url=" + validUrl);
-
-        let linkTag = document.getElementsByTagName("link")[0];
-        linkTag.setAttribute("href", validUrl);
+     if (currentPage.includes("localhost")) {
+         window.location.href = relativeDestination;
+     } else {
+         var currentGoCDVersion = new URL(currentPage).pathname.split('/')[1];
+         window.location.href = '/' + currentGoCDVersion + relativeDestination;
+     }
     </script>
 </head>
 </html>
