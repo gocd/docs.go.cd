@@ -102,6 +102,7 @@ headless: true
       <li class="level2"><a href="{{< relref "configuration/managing_a_build_cloud.md" >}}">Managing Agents</a>
         <ul>
           <li class="level3"><a href="{{< relref "configuration/elastic_agents.md" >}}">Elastic Agents</a></li>
+          <li class="level3"><a href="{{< relref "configuration/clone_existing_agents.md" >}}">Clone/Copy Existing Agents</a></li>
         </ul>
       </li>
       <li class="level2"><a href="{{< relref "configuration/managing_environments.md" >}}">Managing Environments</a></li>
@@ -200,12 +201,11 @@ headless: true
     <ul>
       <li class="level2"><a href="{{< relref "faq/artifact_integrity.md" >}}">Artifact integrity verification</a></li>
       <li class="level2"><a href="{{< relref "faq/rm_what_is_deployed.md" >}}">Check What's Deployed</a></li>
-      <li class="level2"><a href="{{< relref "faq/agent_guid_issue.md" >}}">Clone/Copy an Existing Agents</a></li>
       <li class="level2"><a href="{{< relref "faq/concurrent_config_modifications.md" >}}">Concurrent Modifications to Config</a></li>
       <li class="level2"><a href="{{< relref "faq/docker_container_ssh_keys.md" >}}">Configure SSH Keys for dockerized GoCD</a></li>
       <li class="level2"><a href="{{< relref "faq/deploy_a_specific_build_to_an_environment.md" >}}">Deploy a Specific Build</a></li>
       <li class="level2"><a href="{{< relref "faq/rm_deploy_to_environment.md" >}}">Deploy to an environment</a></li>
-      <li class="level2"><a href="{{< relref "faq/material_update_hung.md" >}}">Go unable to poll for changes</a></li>
+      <li class="level2"><a href="{{< relref "faq/material_update_hung.md" >}}">GoCD unable to poll for changes</a></li>
       <li class="level2"><a href="{{< relref "faq/stage_old_config.md" >}}">Historical Configuration</a></li>
       <li class="level2"><a href="{{< relref "faq/job_rerun.md" >}}">How do I re-run jobs?</a></li>
       <li class="level2"><a href="{{< relref "faq/ordering_of_pipelines.md" >}}">Ordering of Pipelines</a></li>

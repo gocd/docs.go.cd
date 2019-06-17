@@ -2,6 +2,8 @@
 description: Setting up a new agent by cloning an existing agent in GoCD
 keywords: GoCD agent, setup agent, clone agent, remove agent
 title: Clone/Copy an Existing Agents
+aliases:
+  - /faq/agent_guid_issue.html
 ---
 
 # Setting up a new agent by cloning an existing agent in GoCD
