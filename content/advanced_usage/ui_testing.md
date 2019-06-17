@@ -2,6 +2,8 @@
 description: UI Testing
 keywords: GoCD configuration, UI testing, 
 title: UI Testing
+aliases:
+  - /configuration/ui_testing.html
 ---
 
 # UI testing
@@ -19,10 +21,10 @@ The first step is to disable the GoCD agent service. To do this:
 5.  Click 'Stop' to stop the service.
 6.  Click 'OK' to finish.
 
-The next step is to start the Go agent as an application.
+The next step is to start the GoCD agent as an application.
 
 1.  Click on Start &rarr; All Programs &rarr; Go Agent &rarr; Run Go Agent.
-2.  To get the Go agent to start every time you log in, copy the Run Go Agent shortcut to the Startup folder of your start menu.
+2.  To get the GoCD agent to start every time you log in, copy the Run Go Agent shortcut to the Startup folder of your start menu.
 
 ## Linux
 
@@ -34,7 +36,7 @@ There are many different ways to get a Linux build agent to interact with a UI. 
 4.  Edit your VNC config to use fvwm and not twm as the window manager. (replace twm with fvwm in \~/.vnc/xstartup)
 5.  Edit '/etc/default/go-agent' and change the line 'VNC=N' to 'VNC=Y'
 
-Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client. The default DISPLAY that Go uses is :3
+Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client. The default DISPLAY that GoCD uses is :3
 
 >- If there are any other environmental variables that need to be set for your UI testing tools, they correct place to set these is in your /etc/default/go-agent file. Don't forget to export them!
 >- You can connect to your session with vncviewer to see what's going on. Use vncviewer < agent-host-name >:3
