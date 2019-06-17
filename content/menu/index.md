@@ -92,7 +92,7 @@ headless: true
           <li class="level3"><a href="{{< relref "configuration/admin_timer.md" >}}">Timer Trigger</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_lock_pipelines.md" >}}">Lock a Pipeline</a></li>
           <li class="level3"><a href="{{< relref "configuration/job_timeout.md" >}}">Job Timeout</a></li>
-          <li class="level3"><a href="{{< relref "configuration/managing_pipelines.md" >}}">Managing Pipelines</a></li>
+          <li class="level3"><a href="{{< relref "configuration/deleting_pipelines.md" >}}">Deleting Pipelines</a></li>
           <li class="level3"><a href="{{< relref "configuration/managing_dependencies.md" >}}">Managing Dependencies</a></li>
         </ul>
       </li>

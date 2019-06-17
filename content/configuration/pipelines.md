@@ -2,6 +2,8 @@
 description: GoCD pipelines
 keywords: GoCD configuration, GoCD pipelines, pipeline templates, adding stages to pipelines, adding materials to pipelines, clone pipelines, blacklist, adding jobs to pipelines
 title: Managing Pipelines
+aliases:
+  - /configuration/managing_pipelines.html
 ---
 
 # Pipelines in GoCD
