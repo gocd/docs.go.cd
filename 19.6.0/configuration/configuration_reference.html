@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -3897,11 +3898,13 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 
 <ul>
 <li><p>Invoke Ant, specifying a set of targets to run:</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;-Drun=all clean.ivy.localivy clean ft.long_running&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span></code></pre></div></li>
 
 <li><p>Invoke Ant in a specific working directory with a set of targets:</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">workingdir=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">buildfile=</span><span style="color:#b44">&#34;mybuild.xml&#34;</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;-Drun=all clean.ivy.localivy clean ft.long_running&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span></code></pre></div></li>
@@ -3951,6 +3954,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 
 <ul>
 <li><p>Invoke ruby, specifying the working directory as <strong>tools/my-ruby-tool</strong> and executing the ruby script <strong>backup.rb</strong>.</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/usr/local/bin/ruby&#34;</span> <span style="color:#b44">args=</span><span style="color:#b44">&#34;backup.rb&#34;</span> <span style="color:#b44">workingdir=</span><span style="color:#b44">&#34;tools/my-ruby-tool&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span></code></pre></div></li>
@@ -3973,6 +3977,7 @@ use of any character required for making argument. For example, you can specify 
 
 <ul>
 <li><p>Echo something on Windows:</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;cmd&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>/c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>echo<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
@@ -3980,6 +3985,7 @@ use of any character required for making argument. For example, you can specify 
 <span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span></code></pre></div></li>
 
 <li><p>Run command with pipe character in arguments:</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;MsBuild&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>D:\projects\project\project-8.sln<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>/REBUILD<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
@@ -4176,6 +4182,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 
 <ol>
 <li><p>Fetch all artifacts in the directory &lsquo;pkg&rsquo; from the previous stage in the same pipeline and put them under the directory &lsquo;lib&rsquo;</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
@@ -4217,6 +4224,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 <span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span></code></pre></div></li>
 
 <li><p>Fetch a single artifact from a stage in the upstream pipeline &lsquo;framework&rsquo; and put it under the directory &lsquo;lib&rsquo;</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;framework&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;ft&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -4226,7 +4234,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
       <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">origin=</span><span style="color:#b44">&#34;gocd&#34;</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;framework&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;dev&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;unit&#34;</span>
-             <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;pkg/deployable.jar&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;lib&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+              <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;pkg/deployable.jar&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;lib&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
@@ -4234,6 +4242,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div></li>
 
 <li><p>Fetch a single artifact from a stage in an ancestor pipeline &lsquo;Build&rsquo; and put it under the directory &lsquo;pkg&rsquo;</p>
+
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;acceptance&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;ft&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -4243,7 +4252,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
       <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy-win&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">origin=</span><span style="color:#b44">&#34;gocd&#34;</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;dist&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;create-installer&#34;</span>
-             <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;installers/deployable-setup.exe&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;installer&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+              <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;installers/deployable-setup.exe&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;installer&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>

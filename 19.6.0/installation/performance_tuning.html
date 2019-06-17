@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -481,7 +482,8 @@ wrapper.java.additional.2<span style="color:#666">=</span>-Xmx1024m</code></pre>
 <li><p>To start profiling, run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port  start-cpu-sampling</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-monitor-profiling</code></pre></div>
 <p>If memory allocation profiling is also required:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-alloc-recording-adaptive</code></pre></div></li>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    $ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-alloc-recording-adaptive</code></pre></div></li>
 
 <li><p>Let the server run for some time till you start seeing performance problems. 30 mins of snapshot should give us enough data.</p></li>
 
@@ -493,12 +495,14 @@ wrapper.java.additional.2<span style="color:#666">=</span>-Xmx1024m</code></pre>
 <li><p>To stop profiling, run:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-cpu-profiling<span style="color:#b44">`</span></code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-monitor-profiling</code></pre></div>
 <p>If memory profiling was turned on,s top it using the following command</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-alloc-recording</code></pre></div></li>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    $ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-alloc-recording</code></pre></div></li>
 
 <li><p>Once you&rsquo;re done profiling, run the following so that on the next GoCD server restart, the agent is not loaded into the JVM.</p>
 
 <p>In case of linux, run the following command:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo rm /usr/lib/yourkit/libyjpagent.so</code></pre></div></li>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    $ sudo rm /usr/lib/yourkit/libyjpagent.so</code></pre></div></li>
 </ol>
 
 <p>In case of windows, delete the file <code>C:\yjpagent.dll</code>. If you were using the variable <code>YOURKIT_PATH</code>, then remove the environment variable.</p>

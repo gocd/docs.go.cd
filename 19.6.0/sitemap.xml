@@ -4,10 +4,12 @@
   
   <url>
     <loc>/installation/configure_proxy.html</loc>
+    <priority>0</priority>
   </url>
   
   <url>
     <loc>/installation/ssl_tls/custom_certificate.html</loc>
+    <priority>0</priority>
   </url>
   
   <url>

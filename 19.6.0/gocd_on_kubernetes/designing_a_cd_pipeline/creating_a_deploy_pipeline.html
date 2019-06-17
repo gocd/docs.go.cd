@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -403,8 +404,10 @@ For convenience, you can use the secret associated with the service account we u
 </blockquote>
 
 <p><em>Note: The KUBE_TOKEN environment variable must be configured as a secure variable as shown in the image. This token should not be exposed.</em></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl describe sa default --namespace kube-system // to obtain the secret name
-kubectl describe secrets &lt;token_name&gt; --namespace kube-system</code></pre></div>
+
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    kubectl describe sa default --namespace kube-system // to obtain the secret name
+    kubectl describe secrets &lt;token_name&gt; --namespace kube-system</code></pre></div>
+
 <p><img src="../../images/gocd-helm-chart/env_vars_deploy.png" alt="" /></p></li>
 
 <li><p>Configure a <code>Fetch Artifact Task</code> to fetch the docker image name. The docker image is the artifact that was published in upstream <code>build_and_publish_image</code>.</p>
