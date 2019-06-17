@@ -1,24 +1,33 @@
 ---
-description: Creating and using custom pipeline label in GoCD
-keywords: GoCD configuration, pipeline labels, custom pipeline labels, material revision, upstream pipeline labels
-title: Customize a Pipeline label
+description: GoCD pipeline labeling
+keywords: GoCD configuration, pipeline labeling, pipeline labels, customizing pipeline labels, pipeline identifier, environment variable, label template, VCS material, pipeline counter
+title: Pipeline Labelling
+aliases:
+  - /configuration/admin_use_custom_pipeline_label.html
+  - /configuration/build_labelling.html
 ---
 
-# Use a custom pipeline label
+# GoCD Pipeline Labeling
 
-When using GoCD to build your application, it is often useful to be able to include extra information in the label GoCD uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.
+GoCD maintains an internal counter to identify a pipeline. This number increases by 1 for each build. By default, GoCD will use this counter as the pipeline label. This label is also passed to your build as an environment variable: **GO\_PIPELINE\_COUNTER** . The pipeline counter increases even if a build fails.
 
--   Click on the [Administration](../navigation/administration_page.html) tab
-![](../images/topnav_admin.png)
--   Edit the pipeline
-![](../images/2_edit_pipeline.png)
--   Add the label template
-![](../images/3_add_label_ui.png)
--   Click save
+## Changing the default pipeline label
+
+You can create a custom label by setting the **Label Template** field on your pipeline. This will change the value that GoCD shows on its pages. It will also change the value of the **GO\_PIPELINE\_LABEL** environment variable that is passed to the jobs of the pipeline. You can refer to ${COUNT} or names of materials which are defined in the configuration of [materials](configuration_reference.html#git).
+
+![](../images/pipeline_labelling.png)
+
+The GoCD config XML snippet to configure **labeltemplate** is below:
+
+```xml
+<pipeline name="my-pipeline" labeltemplate="1.2.${COUNT}">
+  ...
+</pipeline>
+```
 
 ## Using material revisions
 
-You might also want to include material revision into the pipeline label so that it's easier to find a GoCD pipeline by material revision and vice versa. For example, you might have a pipeline with a svn material. The following example shows how to include svn material revision into pipeline label:
+You might also want to include material revision into the pipeline label so that it's easier to find a GoCD pipeline by material revision and vice versa. For example, you might have a pipeline with a Subversion material. The following example shows how to include svn material revision into pipeline label:
 
 ```xml
 <pipeline name="main" labeltemplate="1.3.${COUNT}-${svn}">
@@ -27,10 +36,9 @@ You might also want to include material revision into the pipeline label so that
   <materials>
   ...
 </pipeline>
-
 ```
 
-#### Using truncated material revisions
+## Using truncated material revisions
 
 You can optionally truncate a material revision.
 This can be useful when using Git materials as they have long revision numbers.
@@ -61,6 +69,7 @@ You can also include the revision of an upstream pipeline into the pipeline labe
     <materials>
   ...
 </pipeline>
+
 <pipeline name="downstream" labeltemplate="${upstream}">
     <materials>
         <pipeline pipelineName="upstream" stageName="dev" materialName="upstream" />

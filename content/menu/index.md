@@ -86,8 +86,7 @@ headless: true
           <li class="level3"><a href="{{< relref "configuration/admin_add_task.md" >}}">Add Task to Existing Job</a></li>
           <li class="level3"><a href="{{< relref "configuration/pipeline_templates.md" >}}">Pipeline Templates</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_use_parameters_in_configuration.md" >}}">Using parameters in Pipelines and Templates</a></li>
-          <li class="level3"><a href="{{< relref "configuration/build_labelling.md" >}}">Pipeline Labelling</a></li>
-          <li class="level3"><a href="{{< relref "configuration/admin_use_custom_pipeline_label.md" >}}">Customize a Pipeline Label</a></li>
+          <li class="level3"><a href="{{< relref "configuration/pipeline_labeling.md" >}}">Pipeline Labeling</a></li>
           <li class="level3"><a href="{{< relref "configuration/pipeline_scheduling.md" >}}">Pipeline Scheduling</a></li>
           <li class="level3"><a href="{{< relref "configuration/dev_choose_when_stage_runs.md" >}}">Choose When a Stage Runs</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_timer.md" >}}">Timer Trigger</a></li>
