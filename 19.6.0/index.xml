@@ -61,6 +61,16 @@ Usage instructions  A token can be used to access GoCD APIs and cctray.xml by pa
     </item>
     
     <item>
+      <title>Add a new Pipeline</title>
+      <link>/configuration/quick_pipeline_setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/quick_pipeline_setup.html</guid>
+      <description>Add a New Pipeline There are many ways of creating pipelines in GoCD:
+ You can create them by using Pipelines as Code, by adding pipeline definitions to a repository in formats such as Yaml, JSON, Groovy, etc. You can use GoCD&amp;rsquo;s extensive APIs to create a pipeline. See Pipeline Config API. You can use GoCD&amp;rsquo;s UI to create a pipeline (see below). By cloning an existing pipeline.  New Pipeline Wizard Clicking on the Admin -&amp;gt; Pipelines menu item will take you to the pipelines administration page.</description>
+    </item>
+    
+    <item>
       <title>Add job to Existing stage</title>
       <link>/configuration/admin_add_job.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -227,21 +237,11 @@ By default, GoCD will kill any currently running tasks . There are two other alt
     </item>
     
     <item>
-      <title>Clone a pipeline</title>
-      <link>/configuration/admin_clone_pipeline.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_clone_pipeline.html</guid>
-      <description>Clone an existing GoCD pipeline Clone pipeline functionality helps you create a new pipeline from an existing pipeline by giving it a new name. Typically when setting up a pipeline for a new branch, it is very useful to take an existing pipeline and clone it.
-If the user is a pipeline group admin, she can clone the new pipeline into a group that she has access to. If the user is an admin she can clone the pipeline into any group or give a new group name, in which case the group gets created.</description>
-    </item>
-    
-    <item>
       <title>Clone/Copy an Existing Agents</title>
-      <link>/faq/agent_guid_issue.html</link>
+      <link>/configuration/clone_existing_agents.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/faq/agent_guid_issue.html</guid>
+      <guid>/configuration/clone_existing_agents.html</guid>
       <description>Setting up a new agent by cloning an existing agent in GoCD Clone the agent An easy way to set up a new agent is to clone an existing one which is already set up and is known to work correctly. You can clone an agent in a couple different ways:
  Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).</description>
     </item>
@@ -315,16 +315,6 @@ Using XML configuration Usage: As a developer, I want to run a task only when th
       <guid>/advanced_usage/config_repo.html</guid>
       <description>GoCD Configuration repository GoCD&amp;rsquo;s configuration is version controlled in a local git repository - config.git hosted on the same machine as the GoCD server. The repo is available at &amp;lt;GoCD server installation directory&amp;gt;/db/config.git. Any changes to the config, either through file-system, API or GoCD configuration UI is saved as a new commit in this repo. This allows auditing of all changes made to the configuration.
 NOTE: This repo must not be altered externally as this will lead to errors in GoCD.</description>
-    </item>
-    
-    <item>
-      <title>Configuration repository Extension</title>
-      <link>/extension_points/configrepo_extension.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/extension_points/configrepo_extension.html</guid>
-      <description>Configuration repository Extension GoCD supports writing configuration plugins starting 16.7.
-It is a feature which allows you to move pipeline configurations out of GoCD and its cruise-config.xml file into one or more source-control repositories (e.g. git), so that you can modify them externally. Such modifications will be seen by a periodic poller in the GoCD server and it will merge those pipeline configurations into the pipelines it finds in the main configuration XML file.</description>
     </item>
     
     <item>
@@ -442,16 +432,6 @@ Quick links  Getting started with GoCD  Test the application artifact To pull ou
     </item>
     
     <item>
-      <title>Customize a Pipeline label</title>
-      <link>/configuration/admin_use_custom_pipeline_label.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_use_custom_pipeline_label.html</guid>
-      <description>Use a custom pipeline label When using GoCD to build your application, it is often useful to be able to include extra information in the label GoCD uses. For example, you might want to have your label contain a static major.minor version number in addition to the unique count of the pipeline.
- Click on the Administration tab  Edit the pipeline  Add the label template  Click save  Using material revisions You might also want to include material revision into the pipeline label so that it&amp;rsquo;s easier to find a GoCD pipeline by material revision and vice versa.</description>
-    </item>
-    
-    <item>
       <title>Customizing Ciphers</title>
       <link>/installation/ssl_tls/setting_up_ciphers.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -471,6 +451,18 @@ Configuring GoCD server Following system properties are exposed to override the 
       <description>Delegating Group Administration A GoCD Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section &amp;ldquo;Privileges of a Group Administrator&amp;rdquo;.
 Steps to assign Group Administrators To assign a user as a group administrator:
  Click on &amp;ldquo;Pipelines&amp;rdquo; tab on the Admin section Locate the group you want to assign a group administrator to Click the &amp;ldquo;Edit&amp;rdquo; link for that group Here, you can define permissions for users and roles  In the above screenshot, the GoCD admin has delegated group admin privileges to a user &amp;ldquo;jez&amp;rdquo; and all users defined under the role &amp;ldquo;groupAdminRole&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Deleting Pipelines</title>
+      <link>/configuration/deleting_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/deleting_pipelines.html</guid>
+      <description>Deleting Pipelines Deleting a pipeline removes an existing pipeline from the config.
+ Warning: Pipeline history is not removed from the database and artifacts are not removed from artifact storage, which may cause conflicts if a pipeline with the same name is later re-created.
+ To delete a pipeline:
+ Navigate to the &amp;ldquo;Admin&amp;rdquo; menu and click the &amp;ldquo;Pipelines&amp;rdquo; item. Locate the pipeline that needs to be deleted. In that row, click on the &amp;ldquo;Delete&amp;rdquo; icon.</description>
     </item>
     
     <item>
@@ -513,16 +505,6 @@ Developers can start building their own elastic-agent plugins by forking the ske
     </item>
     
     <item>
-      <title>Email Notifications</title>
-      <link>/faq/notifications_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/notifications_page.html</guid>
-      <description> Notifications on GoCD The Notifications page is to customize the email notifications for the current logged in user.
-Key  The email address to which email notification from GoCD will be sent. Tick to enable email notification for the current logged in user. &amp;lsquo;My check-in aliases&amp;rsquo; is a comma separated list of aliases used for check in.  </description>
-    </item>
-    
-    <item>
       <title>End to end transport security</title>
       <link>/installation/ssl_tls/end_to_end_transport_security.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -551,6 +533,16 @@ Key  Name of the environment Name of each pipeline associated with the environme
       
       <guid>/advanced_usage/fan_in.html</guid>
       <description>GoCD Fan-in Dependency Management GoCD supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Fixing common issues</title>
+      <link>/faq/fixing_common_issues.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/fixing_common_issues.html</guid>
+      <description>Fixing common issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
+ GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
     </item>
     
     <item>
@@ -585,16 +577,6 @@ svn log --non-interactive --xml -v -r HEAD:&amp;#39;revision&amp;#39; &amp;#39;r
     </item>
     
     <item>
-      <title>GoCD Troubleshooting issues</title>
-      <link>/installation/troubleshooting.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/troubleshooting.html</guid>
-      <description>GoCD Troubleshooting issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
- GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
-    </item>
-    
-    <item>
       <title>Graphs</title>
       <link>/advanced_usage/stage_duration_chart.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -610,9 +592,9 @@ To navigate to the Graphs:  Click on the stage bar of the relevant stage on the 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/hardware_specifications.html</guid>
-      <description>GoCD hardware specifications  Note: This page is still a work in progress. Please report issues and provide feedback at https://github.com/gocd/docs.go.cd/issues/76
- The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.
-Agent hardware requirements The agent hardware requirements are basically determined by the builds that are run.</description>
+      <description>GoCD hardware specifications The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.
+ Also see: GoCD system requirements
+ Agent hardware requirements The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements).</description>
     </item>
     
     <item>
@@ -823,12 +805,11 @@ Creating a new environment An Environment is a grouping of pipelines and agents.
     
     <item>
       <title>Managing Pipelines</title>
-      <link>/configuration/managing_pipelines.html</link>
+      <link>/configuration/pipelines.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/configuration/managing_pipelines.html</guid>
-      <description>Managing GoCD pipelines GoCD can be configured using Administration Tab. You can perform operations like add/edit Pipelines, Stages, Jobs, Tasks, Templates and Pipeline group. You can also configure GoCD by editing the full XML file if you wish, by clicking on the Config XML section of the Administration tab. GoCD will check the syntax of the configuration before it saves it again
-Creating a new pipeline To create a new pipeline, go to the Pipelines sub-tab of the Administration tab and click on the &amp;ldquo;Create a new pipeline within this group&amp;rdquo; link as shown in the screen shot below.</description>
+      <guid>/configuration/pipelines.html</guid>
+      <description>Pipelines in GoCD In this section, you can learn about some of the ways you can use and manipulate pipelines in GoCD. In case you&amp;rsquo;re not familiar with the concept of pipelines, please read the concepts page first.</description>
     </item>
     
     <item>
@@ -890,7 +871,7 @@ How to set these options Environment variables If an option specified below is o
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/extension_points/package_repository_extension.html</guid>
-      <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
+      <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards. Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
  jar, war or ear file in case of Java nuget/ chocolatey package in case of .</description>
     </item>
     
@@ -948,12 +929,12 @@ Administration using UI The administration page for a pipeline group administrat
     
     <item>
       <title>Pipeline Labelling</title>
-      <link>/configuration/build_labelling.html</link>
+      <link>/configuration/pipeline_labeling.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/configuration/build_labelling.html</guid>
+      <guid>/configuration/pipeline_labeling.html</guid>
       <description>GoCD Pipeline Labeling GoCD maintains an internal counter to identify a pipeline. This number increases by 1 for each build. By default, GoCD will use this counter as the pipeline label. This label is also passed to your build as an environment variable: GO_PIPELINE_COUNTER . The pipeline counter increases even if a build fails.
-The concept of pipeline counters was introduced in release 1.3.2. In order to maintain backward compatibility with historical data GoCD now uses negative values as counter for pipelines created by older releases of GoCD.</description>
+Changing the default pipeline label You can create a custom label by setting the Label Template field on your pipeline.</description>
     </item>
     
     <item>
@@ -1064,15 +1045,6 @@ Example usage Usage: As a developer, I want to save the average cyclomatic compl
     </item>
     
     <item>
-      <title>Schema</title>
-      <link>/configuration/schema.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/schema.html</guid>
-      <description> Schema  Configuration file schema : cruise-config.xsd  </description>
-    </item>
-    
-    <item>
       <title>See artifacts as sub-tabs</title>
       <link>/faq/dev_see_artifact_as_tab.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -1101,16 +1073,6 @@ Example usage For this example, we&amp;rsquo;ll assume that there is a manual &a
       <description>Setup Before you can get started with GoCD on Kubernetes, make sure that you have taken a look at the list below.
 1. Install kubectl The Kubernetes CLI kubectl is used for cluster management purposes. The Kubernetes install documentation provides various ways of installing kubectl for different platforms.
 2. Setup a Kubernetes Cluster Before installing GoCD, you need to setup a Kubernetes cluster. You can do this using any of the following tools:</description>
-    </item>
-    
-    <item>
-      <title>Setup a New Pipeline</title>
-      <link>/configuration/quick_pipeline_setup.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/quick_pipeline_setup.html</guid>
-      <description>Setup a new pipeline New Pipeline Wizard After you&amp;rsquo;ve entered your license information, clicking on the Pipelines tab will take you to the &amp;ldquo;Add new pipeline&amp;rdquo; page. You can also add a pipeline by navigating to the Admin page and clicking on the &amp;ldquo;Create a new pipeline within a group&amp;rdquo; link. You can create a pipeline in 3 steps.
-Step 1: Basic Settings  Fill in the pipeline name Fill in the pipeline group  Step 2: Material  Choose the material type.</description>
     </item>
     
     <item>
@@ -1149,19 +1111,9 @@ Key  Name of the stage. The jobs in this stage are grouped by status: Passed, Fa
       
       <guid>/installation/system_requirements.html</guid>
       <description>GoCD System requirements These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
-Client (browser) requirements GoCD supports the two most recent versions of the following browsers:
+ Also see: GoCD hardware specifications
+ Client (browser) requirements GoCD supports the two most recent versions of the following browsers:
  Google Chrome Mozilla Firefox Microsoft Edge Apple Safari   GoCD Server requirements Hardware  RAM - minimum 1GB, 2GB recommended CPU - minimum 2 cores, 2GHz Disk - minimum 1GB free space  Supported Operating Systems  Windows - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10 Mac OSX - 10.</description>
-    </item>
-    
-    <item>
-      <title>TFS Material configuration</title>
-      <link>/configuration/tfs_config.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/tfs_config.html</guid>
-      <description>TFS Material configuration You can use TFS SCM as a material for your pipeline. GoCD server and agent uses TFS Java SDK v14.0.3 by default. The TFS SDK is packaged with GoCD; no additional configuration is required. Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team Services.
-You will need to configure the following to add a TFS material:
- Material Name: An optional name for the material.</description>
     </item>
     
     <item>
@@ -1217,10 +1169,10 @@ Trigger with options Information The following information are displayed for the
     
     <item>
       <title>UI Testing</title>
-      <link>/configuration/ui_testing.html</link>
+      <link>/advanced_usage/ui_testing.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/configuration/ui_testing.html</guid>
+      <guid>/advanced_usage/ui_testing.html</guid>
       <description>UI testing Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&amp;rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&amp;rsquo;s how you do it.
 Windows The first step is to disable the GoCD agent service. To do this:
  Log in to your Windows machine as an Administrative user.</description>

@@ -7,12 +7,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Running out of Disk Space | GoCD User Documentation</title>
+<title>UI Testing | GoCD User Documentation</title>
 
-<meta name="description" content="When run of of space, GoCD stops scheduling new pipelines by compressing large files, attaching a larger hard drive, or by deleting unused artifacts."/>
-<meta name="keywords" content="[Disk space, schedule pipelines,]"/>
+<meta name="description" content="UI Testing"/>
+<meta name="keywords" content="[GoCD configuration, UI testing,]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/faq/admin_out_of_disk_space.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/ui_testing.html"/>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
 
@@ -40,7 +40,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/faq/admin_out_of_disk_space.html">
+<body data-rel-permalink="/advanced_usage/ui_testing.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -72,7 +72,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2f faq\2f admin_out_of_disk_space.html"] {
+  nav ul a[href$="\2f advanced_usage\2fui_testing.html"] {
   color: #004ed0;
   }
 </style>
@@ -349,7 +349,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>Running out of Disk Space</strong>
+  <strong>UI Testing</strong>
 </header>
 
       
@@ -364,109 +364,49 @@ if (!doNotTrack) {
       
 <article class="markdown">
 
-<h1 id="running-out-of-disk-space">Running out of disk space</h1>
+<h1 id="ui-testing">UI testing</h1>
 
-<p>After you&rsquo;ve had GoCD running for a while, you may notice the following warning box when browsing GoCD:</p>
+<p>Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&rsquo;s how you do it.</p>
 
-<p><img src="../images/1_low_disk_space_on_artifacts.png" alt="" /></p>
+<h2 id="windows">Windows</h2>
 
-<p>If you don&rsquo;t do anything about it, you&rsquo;ll end up seeing the following error:</p>
-
-<p><img src="../images/2_out_of_disk_space_on_artifacts.png" alt="" /></p>
-
-<p>GoCD will stop scheduling new pipelines until you make more room, either by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. You could also let GoCD manage artifact disk space by enabling auto purge of old artifacts.</p>
-
-<h2 id="auto-delete-artifacts">Auto delete artifacts</h2>
-
-<h3 id="introduction">Introduction</h3>
-
-<p>GoCD can be configured to automatically delete artifacts if the available disk space on the server is low. GoCD will purge artifacts when available disk space is lower than the given value. Artifacts will be purged upto the point when available disk space is greater than a defined value.</p>
-
-<h3 id="configuration">Configuration</h3>
-
-<h4 id="specify-artifact-purge-start-and-end-limits">Specify artifact purge start and end limits</h4>
-
-<blockquote>
-<p>You must be logged in as an admin user to configure this step.</p>
-</blockquote>
+<p>The first step is to disable the GoCD agent service. To do this:</p>
 
 <ol>
-<li>Navigate to the Admin section on the GoCD dashboard.</li>
-<li>Navigate to the Pipeline Management sub-section</li>
-<li>Specify when GoCD should begin to purge artifacts in the first edit box.</li>
-<li>Specify when GoCD should stop purging artifacts in the second edit box.</li>
+<li>Log in to your Windows machine as an Administrative user.</li>
+<li>Click on Start &rarr; Control Panel &rarr; Administrative Tools &rarr; Services.</li>
+<li>Double click on &lsquo;Go Agent&rsquo;.</li>
+<li>Change the Startup Type to &lsquo;Disabled&rsquo;.</li>
+<li>Click &lsquo;Stop&rsquo; to stop the service.</li>
+<li>Click &lsquo;OK&rsquo; to finish.</li>
 </ol>
 
-<p><img src="../images/pipeline_management.png" alt="Purge artifacts" /></p>
-
-<h4 id="never-delete-artifacts-for-a-stage">Never delete artifacts for a stage</h4>
-
-<blockquote>
-<p>You must be logged in as an admin user to configure this step.</p>
-</blockquote>
-
-<p>You can disallow deletion of artifacts from a particular stage so that those artifacts are excluded during deletion. This option can be set in the stage editor for a pipeline. This option can be set for stages that are important so that artifacts for the stage are preserved.</p>
+<p>The next step is to start the GoCD agent as an application.</p>
 
 <ol>
-<li>Navigate to the admin section on the GoCD dashboard.</li>
-<li>Navigate to the pipelines section and choose a pipeline to edit</li>
-<li>Navigate to the stage settings for the stage</li>
+<li>Click on Start &rarr; All Programs &rarr; Go Agent &rarr; Run Go Agent.</li>
+<li>To get the GoCD agent to start every time you log in, copy the Run Go Agent shortcut to the Startup folder of your start menu.</li>
 </ol>
 
-<p><img src="../images/artifact_disable_stage.png" alt="Disable artifact cleanup" /></p>
+<h2 id="linux">Linux</h2>
 
-<p>4.Check the box &lsquo;Never Cleanup Artifacts&rsquo;</p>
+<p>There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service to provide a dedicated X11 server to your agent. To do this:</p>
 
-<h3 id="also-see">Also see&hellip;</h3>
+<ol>
+<li>Install the VNC server and fvwm packages for your distribution. (aptitude install vnc4server fvwm / yum install vnc-server fvwm)</li>
+<li>Sudo to the &lsquo;go&rsquo; user (sudo su - go) and do the rest as that user</li>
+<li>Set a password for remote access to your VNC server with the command &lsquo;vncpasswd&rsquo;</li>
+<li>Edit your VNC config to use fvwm and not twm as the window manager. (replace twm with fvwm in ~/.vnc/xstartup)</li>
+<li>Edit &lsquo;/etc/default/go-agent&rsquo; and change the line &lsquo;VNC=N&rsquo; to &lsquo;VNC=Y&rsquo;</li>
+</ol>
 
-<ul>
-<li><a href="../configuration/managing_artifacts_and_reports.html">Managing artifacts and reports</a></li>
-<li><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean up after cancelling a task</a></li>
-</ul>
+<p>Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client. The default DISPLAY that GoCD uses is :3</p>
 
-<h2 id="compress-large-log-files">Compress large log files</h2>
-
-<p>In many cases, the easiest thing to do is compress some of the larger artifacts that you won&rsquo;t frequently have need for. For example, if you have a large log file named &lsquo;test.log&rsquo; and you&rsquo;re running GoCD server on a unix machine, the following script will gzip those files that haven&rsquo;t been modified in the last 10 days</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v <span style="color:#b44">&#39;{}&#39;</span> <span style="color:#b62;font-weight:bold">\;</span></code></pre></div>
-<p>Now, if you add this to a system <a href="http://en.wikipedia.org/wiki/Cron">crontab</a>, your server can compress large artifacts automatically.</p>
-
-<h2 id="move-the-artifact-repository-to-a-new-larger-drive">Move the artifact repository to a new (larger) drive</h2>
-
-<p>If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it&rsquo;s artifact repository.</p>
-
-<ul>
-<li>Find the location of the GoCD configuration file</li>
-<li>Navigate to the <a href="../navigation/administration_page.html">Admin</a> section
-<img src="../images/topnav_admin.png" alt="" /></li>
-<li>Click on the &ldquo;Config XML&rdquo; tab</li>
-<li>The location of the configuration file is listed here
-<img src="../images/4_find_config_location.png" alt="" /></li>
-<li>Install the new drive</li>
-<li>Shut down GoCD server</li>
-<li>Copy all files from the original artifact repository location to the new drive</li>
-
-<li><p>Change the artifact repository location in the configuration file</p>
-
-<pre><code>&lt;server artifactsDir=&quot;/path/to/new/artifacts&quot;&gt;
-...
-&lt;/server&gt;
-</code></pre></li>
-
-<li><p>Start up GoCD server and verify you still have access to old artifacts</p></li>
-</ul>
-
-<h2 id="delete-unused-artifacts">Delete unused artifacts</h2>
-
-<p>Another option for making more room is to remove unused (or easily recreatable) artifacts. You may also have old pipelines that you no longer need.</p>
-
-<p>The directory structure of the artifact repository makes selecting which artifacts are safe to delete easier. The format is:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>artifacts-dir<span style="color:#666">]</span>/pipelines/<span style="color:#666">[</span>pipelineName<span style="color:#666">]</span>/<span style="color:#666">[</span>pipelineLabel<span style="color:#666">]</span>/<span style="color:#666">[</span>stageName<span style="color:#666">]</span>/<span style="color:#666">[</span>stageCounter<span style="color:#666">]</span>/<span style="color:#666">[</span>jobName<span style="color:#666">]</span></code></pre></div>
 <blockquote>
-<p>Keep in mind that there are two files that GoCD needs in order to display the <a href="../navigation/job_details_page.html">Job</a> or <a href="../navigation/stage_details_page.html">Stage</a> details pages</p>
-
 <ul>
-<li>cruise-output/console.log</li>
-<li>cruise-output/log.xml</li>
+<li>If there are any other environmental variables that need to be set for your UI testing tools, they correct place to set these is in your /etc/default/go-agent file. Don&rsquo;t forget to export them!</li>
+<li>You can connect to your session with vncviewer to see what&rsquo;s going on. Use vncviewer &lt; agent-host-name &gt;:3</li>
+<li>If things appear to hang, chances are you forgot to replace twm with fvwm. twm requires you to place a window on the desktop when it starts up</li>
 </ul>
 </blockquote>
 </article>
@@ -485,7 +425,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/faq/admin_out_of_disk_space.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/ui_testing.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -510,21 +450,10 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#running-out-of-disk-space">Running out of disk space</a>
+<li><a href="#ui-testing">UI testing</a>
 <ul>
-<li><a href="#auto-delete-artifacts">Auto delete artifacts</a>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#configuration">Configuration</a>
-<ul>
-<li><a href="#specify-artifact-purge-start-and-end-limits">Specify artifact purge start and end limits</a></li>
-<li><a href="#never-delete-artifacts-for-a-stage">Never delete artifacts for a stage</a></li>
-</ul></li>
-<li><a href="#also-see">Also see&hellip;</a></li>
-</ul></li>
-<li><a href="#compress-large-log-files">Compress large log files</a></li>
-<li><a href="#move-the-artifact-repository-to-a-new-larger-drive">Move the artifact repository to a new (larger) drive</a></li>
-<li><a href="#delete-unused-artifacts">Delete unused artifacts</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#linux">Linux</a></li>
 </ul></li>
 </ul>
 </nav>

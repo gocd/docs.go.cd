@@ -7,12 +7,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>TFS Material configuration | GoCD User Documentation</title>
+<title>Managing Pipelines | GoCD User Documentation</title>
 
-<meta name="description" content="TFS material configuration"/>
-<meta name="keywords" content="[GoCD configuration, TFS, GoCD server, TFS server, pipeline materials]"/>
+<meta name="description" content="GoCD pipelines"/>
+<meta name="keywords" content="[GoCD configuration, GoCD pipelines, pipeline templates, adding stages to pipelines, adding materials to pipelines, clone pipelines, blacklist, adding jobs to pipelines]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/configuration/tfs_config.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/configuration/pipelines.html"/>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
 
@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a4c14036e1229d34bbe0f371749e686bdc7f526f181115a244174fcdee2e59ce.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -40,7 +40,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/configuration/tfs_config.html">
+<body data-rel-permalink="/configuration/pipelines.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -72,7 +72,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2f configuration\2ftfs_config.html"] {
+  nav ul a[href$="\2f configuration\2fpipelines.html"] {
   color: #004ed0;
   }
 </style>
@@ -154,7 +154,6 @@ if (!doNotTrack) {
       </li>
       <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
-      <li class="level2"><a href="../installation/troubleshooting.html">Troubleshooting</a></li>
     </ul>
   </li>
 
@@ -165,41 +164,51 @@ if (!doNotTrack) {
 
     <a href="#"><b>Configuration</b></a>
     <ul>
-      <li class="level2"><a href="../configuration/quick_pipeline_setup.html">Setup a New Pipeline</a></li>
-      <li class="level2"><a href="../configuration/managing_pipelines.html">Managing Pipelines</a></li>
-      <li class="level2"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
-      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a></li>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
       <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
-      <li class="level2"><a href="../configuration/build_labelling.html">Pipeline Labelling</a></li>
-      <li class="level2"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
-      <li class="level2"><a href="../configuration/admin_use_parameters_in_configuration.html">Parameterize a Pipeline</a></li>
-      <li class="level2"><a href="../configuration/admin_use_custom_pipeline_label.html">Customize a Pipeline Label</a></li>
-      <li class="level2"><a href="../configuration/admin_clone_pipeline.html">Clone a Pipeline</a></li>
-      <li class="level2"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
-      <li class="level2"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
-      <li class="level2"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
-      <li class="level2"><a href="../configuration/admin_add_job.html">Add job to Existing Stage</a></li>
-      <li class="level2"><a href="../configuration/admin_add_task.html">Add task to Existing Job</a></li>
-      <li class="level2"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
-      <li class="level2"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
-      <li class="level2"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
-      <li class="level2"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
-      <li class="level2"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
-      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a></li>
-      <li class="level2"><a href="../configuration/dev_authentication.html">Authentication</a></li>
-      <li class="level2"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
-      <li class="level2"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
-      <li class="level2"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
-      <li class="level2"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
-      <li class="level2"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
-      <li class="level2"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
-      <li class="level2"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
-      <li class="level2"><a href="../configuration/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+        </ul>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
       <li class="level2"><a href="../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
       <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
-      <li class="level2"><a href="../configuration/tfs_config.html">TFS Material configuration</a></li>
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
-      <li class="level2"><a href="../configuration/schema.html">Schema</a></li>
     </ul>
   </li>
 
@@ -220,6 +229,7 @@ if (!doNotTrack) {
       <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
       <li class="level2"><a href="../advanced_usage/properties.html">Properties</a></li>
       <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
       <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
       <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
       <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
@@ -274,7 +284,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
       <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
-      <li class="level2"><a href="../extension_points/configrepo_extension.html">Configuration repository Extension</a></li>
     </ul>
   </li>
 
@@ -285,15 +294,14 @@ if (!doNotTrack) {
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
     <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
       <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
       <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
-      <li class="level2"><a href="../faq/agent_guid_issue.html">Clone/Copy an Existing Agents</a></li>
       <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
       <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
       <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
       <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
-      <li class="level2"><a href="../faq/notifications_page.html">Email Notifications</a></li>
-      <li class="level2"><a href="../faq/material_update_hung.html">Go unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
       <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
       <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
       <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
@@ -341,7 +349,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>TFS Material configuration</strong>
+  <strong>Managing Pipelines</strong>
 </header>
 
       
@@ -356,44 +364,9 @@ if (!doNotTrack) {
       
 <article class="markdown">
 
-<h1 id="tfs-material-configuration">TFS Material configuration</h1>
+<h1 id="pipelines-in-gocd">Pipelines in GoCD</h1>
 
-<p>You can use TFS SCM as a material for your pipeline. GoCD server and agent uses <a href="https://www.microsoft.com/en-us/download/details.aspx?id=47727">TFS Java SDK v14.0.3</a> by default. The TFS SDK is packaged with GoCD; no additional configuration is required.
-Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team Services.</p>
-
-<p>You will need to configure the following to add a TFS material:</p>
-
-<ul>
-<li>Material Name: An optional name for the material. This name can be used to set the TFS revision in the pipeline label.</li>
-<li>URL: Set the url for the TFS collection. Ex: <code>http://41.42.43.44:8080/tfs/DefaultCollection</code></li>
-<li>Domain: Domain name for TFS authentication credentials. Should be domain for the TFS account. Ex: corporate_thoughtworks</li>
-<li>Username: The user has to be a collection administrator for the TFS collection used in URL.</li>
-<li>Password: Provide the password for the TFS account</li>
-<li>Project Path: Enter the project path within the collection. You can specify paths of sub folders to create materials for each component. Ex: $/test/component or $/my_application</li>
-<li>Check connection: You can use check connection to verify the TFS material configuration</li>
-</ul>
-
-<p><img src="../images/tfs_config.png" alt="tfs_config" /></p>
-
-<h5 id="notes">Notes:</h5>
-
-<ul>
-<li>GoCD will map TFS projects to destination folders within the GoCD agent installation directories. You can identify mappings by looking at the destination folders.</li>
-<li>In this release, GoCD does not delete any workspace it has created. Workspace names are generated internally.</li>
-<li>If possible, create a new user account on TFS which will be used for creating TFS materials in GoCD. You can use this account to easily identify TFS workspaces that GoCD created on the server and agents.</li>
-<li>If you are using the cross platform command line client, you cannot run the GoCD server and GoCD agent as a service on the local system account. You will need to run the service with a user account which has accepted the eula for the client.</li>
-<li>If at any point, you need to change the go server installation to a different location or machine, you will need to manually delete the old tfs mappings at the old GoCD server location.</li>
-</ul>
-
-<h3 id="known-caveats">Known Caveats</h3>
-
-<ul>
-<li>If TFS server is accessed using HTTPS and the SSL certificate is an untrusted certificate then the certificate must be added to the trust store of the Java installation used to launch the GoCD server and agents. Untrusted certificate will not be trusted by default GoCD server and agents.</li>
-<li>During the TFS checkout process, if one of the file paths exceeds 259 characters - checkout will fail.So care should be taken when specifying the destination directory so that the path limit is not exceeded. GoCD agent installation directory also plays a part in both cases where destination directory is specified and when its not.</li>
-<li>On all the agents prior to checkout from TFS, entire mapped directory is cleaned and -all option is used for checkout. As a result there is increased load on TFS server and network bandwidth consumption is high during the process. This is an issue that will be addressed in subsequent releases.</li>
-<li>Kerberos support for TFS authentication has not been verified.</li>
-<li>Currently, GoCD always does a tfs get to retrieve the latest changes on the agents.</li>
-</ul>
+<p>In this section, you can learn about some of the ways you can use and manipulate pipelines in GoCD. In case you&rsquo;re not familiar with the concept of pipelines, please read the <a href="../introduction/concepts_in_go.html">concepts page</a> first.</p>
 </article>
 
       
@@ -410,7 +383,7 @@ Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team 
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/tfs_config.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/pipelines.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -435,20 +408,7 @@ Users can continue to use GoCD with TFS 2012, 2013, 2015 and Visual Studio Team 
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#tfs-material-configuration">TFS Material configuration</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#notes">Notes:</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#known-caveats">Known Caveats</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#pipelines-in-gocd">Pipelines in GoCD</a></li>
 </ul>
 </nav>
   </aside>

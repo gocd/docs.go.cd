@@ -32,16 +32,6 @@ Example usage For this example, we will assume we have a stage name &amp;ldquo;p
     </item>
     
     <item>
-      <title>Clone/Copy an Existing Agents</title>
-      <link>/faq/agent_guid_issue.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/agent_guid_issue.html</guid>
-      <description>Setting up a new agent by cloning an existing agent in GoCD Clone the agent An easy way to set up a new agent is to clone an existing one which is already set up and is known to work correctly. You can clone an agent in a couple different ways:
- Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).</description>
-    </item>
-    
-    <item>
       <title>Concurrent Modifications to Config</title>
       <link>/faq/concurrent_config_modifications.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -81,13 +71,13 @@ Select specific revisions of materials to deploy Consider the case where a deplo
     </item>
     
     <item>
-      <title>Email Notifications</title>
-      <link>/faq/notifications_page.html</link>
+      <title>Fixing common issues</title>
+      <link>/faq/fixing_common_issues.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>/faq/notifications_page.html</guid>
-      <description> Notifications on GoCD The Notifications page is to customize the email notifications for the current logged in user.
-Key  The email address to which email notification from GoCD will be sent. Tick to enable email notification for the current logged in user. &amp;lsquo;My check-in aliases&amp;rsquo; is a comma separated list of aliases used for check in.  </description>
+      <guid>/faq/fixing_common_issues.html</guid>
+      <description>Fixing common issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
+ GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
     </item>
     
     <item>

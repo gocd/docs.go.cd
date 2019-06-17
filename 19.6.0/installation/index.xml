@@ -135,24 +135,14 @@ The agent by default trusts any and all certificates offered to it, which may po
     </item>
     
     <item>
-      <title>GoCD Troubleshooting issues</title>
-      <link>/installation/troubleshooting.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/troubleshooting.html</guid>
-      <description>GoCD Troubleshooting issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
- GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
-    </item>
-    
-    <item>
       <title>Hardware Specifications</title>
       <link>/installation/hardware_specifications.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/hardware_specifications.html</guid>
-      <description>GoCD hardware specifications  Note: This page is still a work in progress. Please report issues and provide feedback at https://github.com/gocd/docs.go.cd/issues/76
- The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.
-Agent hardware requirements The agent hardware requirements are basically determined by the builds that are run.</description>
+      <description>GoCD hardware specifications The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.
+ Also see: GoCD system requirements
+ Agent hardware requirements The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements).</description>
     </item>
     
     <item>
@@ -234,7 +224,8 @@ Scaling GoCD As the number of pipelines, agents and concurrent users increase in
       
       <guid>/installation/system_requirements.html</guid>
       <description>GoCD System requirements These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
-Client (browser) requirements GoCD supports the two most recent versions of the following browsers:
+ Also see: GoCD hardware specifications
+ Client (browser) requirements GoCD supports the two most recent versions of the following browsers:
  Google Chrome Mozilla Firefox Microsoft Edge Apple Safari   GoCD Server requirements Hardware  RAM - minimum 1GB, 2GB recommended CPU - minimum 2 cores, 2GHz Disk - minimum 1GB free space  Supported Operating Systems  Windows - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10 Mac OSX - 10.</description>
     </item>
     

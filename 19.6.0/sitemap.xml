@@ -25,6 +25,10 @@
   </url>
   
   <url>
+    <loc>/configuration/quick_pipeline_setup.html</loc>
+  </url>
+  
+  <url>
     <loc>/configuration/admin_add_job.html</loc>
   </url>
   
@@ -102,11 +106,7 @@
   </url>
   
   <url>
-    <loc>/configuration/admin_clone_pipeline.html</loc>
-  </url>
-  
-  <url>
-    <loc>/faq/agent_guid_issue.html</loc>
+    <loc>/configuration/clone_existing_agents.html</loc>
   </url>
   
   <url>
@@ -139,10 +139,6 @@
   
   <url>
     <loc>/advanced_usage/config_repo.html</loc>
-  </url>
-  
-  <url>
-    <loc>/extension_points/configrepo_extension.html</loc>
   </url>
   
   <url>
@@ -194,15 +190,15 @@
   </url>
   
   <url>
-    <loc>/configuration/admin_use_custom_pipeline_label.html</loc>
-  </url>
-  
-  <url>
     <loc>/installation/ssl_tls/setting_up_ciphers.html</loc>
   </url>
   
   <url>
     <loc>/configuration/delegating_group_administration.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/deleting_pipelines.html</loc>
   </url>
   
   <url>
@@ -219,10 +215,6 @@
   
   <url>
     <loc>/configuration/elastic_agents.html</loc>
-  </url>
-  
-  <url>
-    <loc>/faq/notifications_page.html</loc>
   </url>
   
   <url>
@@ -246,6 +238,10 @@
   </url>
   
   <url>
+    <loc>/faq/fixing_common_issues.html</loc>
+  </url>
+  
+  <url>
     <loc>/installation/install/agent/zip.html</loc>
   </url>
   
@@ -259,10 +255,6 @@
   
   <url>
     <loc>/faq/material_update_hung.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/troubleshooting.html</loc>
   </url>
   
   <url>
@@ -370,7 +362,7 @@
   </url>
   
   <url>
-    <loc>/configuration/managing_pipelines.html</loc>
+    <loc>/configuration/pipelines.html</loc>
   </url>
   
   <url>
@@ -422,7 +414,7 @@
   </url>
   
   <url>
-    <loc>/configuration/build_labelling.html</loc>
+    <loc>/configuration/pipeline_labeling.html</loc>
   </url>
   
   <url>
@@ -470,10 +462,6 @@
   </url>
   
   <url>
-    <loc>/configuration/schema.html</loc>
-  </url>
-  
-  <url>
     <loc>/faq/dev_see_artifact_as_tab.html</loc>
   </url>
   
@@ -483,10 +471,6 @@
   
   <url>
     <loc>/gocd_on_kubernetes/gocd_helm_chart/setup.html</loc>
-  </url>
-  
-  <url>
-    <loc>/configuration/quick_pipeline_setup.html</loc>
   </url>
   
   <url>
@@ -503,10 +487,6 @@
   
   <url>
     <loc>/installation/system_requirements.html</loc>
-  </url>
-  
-  <url>
-    <loc>/configuration/tfs_config.html</loc>
   </url>
   
   <url>
@@ -535,7 +515,7 @@
   </url>
   
   <url>
-    <loc>/configuration/ui_testing.html</loc>
+    <loc>/advanced_usage/ui_testing.html</loc>
   </url>
   
   <url>

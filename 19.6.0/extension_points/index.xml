@@ -11,22 +11,12 @@
     
     
     <item>
-      <title>Configuration repository Extension</title>
-      <link>/extension_points/configrepo_extension.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/extension_points/configrepo_extension.html</guid>
-      <description>Configuration repository Extension GoCD supports writing configuration plugins starting 16.7.
-It is a feature which allows you to move pipeline configurations out of GoCD and its cruise-config.xml file into one or more source-control repositories (e.g. git), so that you can modify them externally. Such modifications will be seen by a periodic poller in the GoCD server and it will merge those pipeline configurations into the pipelines it finds in the main configuration XML file.</description>
-    </item>
-    
-    <item>
       <title>Package Repository Extension</title>
       <link>/extension_points/package_repository_extension.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/extension_points/package_repository_extension.html</guid>
-      <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
+      <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards. Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
  jar, war or ear file in case of Java nuget/ chocolatey package in case of .</description>
     </item>
     

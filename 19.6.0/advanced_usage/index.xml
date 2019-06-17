@@ -207,5 +207,16 @@ Trigger with options Information The following information are displayed for the
  Revision hash or pipeline label Committer Check-in comment for the revision Check-in time of the revision  For a pipeline material, the pipeline label and the corresponding run time is shown</description>
     </item>
     
+    <item>
+      <title>UI Testing</title>
+      <link>/advanced_usage/ui_testing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/ui_testing.html</guid>
+      <description>UI testing Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&amp;rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&amp;rsquo;s how you do it.
+Windows The first step is to disable the GoCD agent service. To do this:
+ Log in to your Windows machine as an Administrative user.</description>
+    </item>
+    
   </channel>
 </rss>
