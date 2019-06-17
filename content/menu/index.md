@@ -70,7 +70,6 @@ headless: true
       </li>
       <li class="level2"><a href="{{< relref "installation/performance_tuning.md" >}}">Performance Tuning</a></li>
       <li class="level2"><a href="{{< relref "installation/hardware_specifications.md" >}}">Hardware Specifications</a></li>
-      <li class="level2"><a href="{{< relref "installation/troubleshooting.md" >}}">Troubleshooting</a></li>
     </ul>
   </li>
 
@@ -199,6 +198,7 @@ headless: true
     {{< figure src="/images/arrow.png" class="menu-arrow" >}}
     <a href="#"><b>FAQ/Troubleshooting</b></a>
     <ul>
+      <li class="level2"><a href="{{< relref "faq/fixing_common_issues.md" >}}">Fixing common issues</a></li>
       <li class="level2"><a href="{{< relref "faq/artifact_integrity.md" >}}">Artifact integrity verification</a></li>
       <li class="level2"><a href="{{< relref "faq/rm_what_is_deployed.md" >}}">Check What's Deployed</a></li>
       <li class="level2"><a href="{{< relref "faq/concurrent_config_modifications.md" >}}">Concurrent Modifications to Config</a></li>

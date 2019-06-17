@@ -1,12 +1,13 @@
 ---
-description: Troubleshooting GoCD server and agent installation errors.
-keywords: gocd troubleshooting, installation errors gocd, agent not registering, ssl error
-title: GoCD Troubleshooting issues
+description: Troubleshooting common GoCD server and agent errors.
+keywords: gocd troubleshooting, installation errors gocd, agent not registering, ssl error, common issues
+title: Fixing common issues
 aliases:
     - /installation/troubleshoot_installer.html
+    - /installation/troubleshooting.html
 ---
 
-# GoCD Troubleshooting issues
+# Fixing common issues
 
 This page is mainly for newer users of GoCD, to help with troubleshooting issues.
 
