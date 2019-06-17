@@ -27,7 +27,7 @@ This issue shows up either as an agent not showing up on the "Agents" page, or
 showing up with a status of "Missing". If this happens, start troubleshooting by
 looking at the agent log files.
 
-See the end of [the installation documentation page](installing_go_agent.html)
+See the end of [the installation documentation page](../installation/installing_go_agent.html)
 for your operating system to find the location of the log files. There will be
 log files for the agent, the agent-bootstrapper and agent-launcher. Any errors
 at the end of these files might be interesting. Some common errors are:
@@ -105,7 +105,7 @@ at the end of these files might be interesting. Some common errors are:
     connect using the correct certificate.
     
     If you're using full
-    [end-to-end transport security](ssl_tls/end_to_end_transport_security.html),
+    [end-to-end transport security](../installation/ssl_tls/end_to_end_transport_security.html),
     this error might mean that the server's certificate has changed and you need
     to provide the update certificate.
 
@@ -165,7 +165,7 @@ is correct.
     </figure>
 
     The GoCD server log, go-server.log (location can be found at the bottom of
-    [the installation documentation page](installing_go_server.html) for your
+    [the installation documentation page](../installation/installing_go_server.html) for your
     operating system) will have a message like this:
     <figure>
       <img src="../images/troubleshooting/error_3_git_not_found_log.png">
