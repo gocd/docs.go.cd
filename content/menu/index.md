@@ -83,7 +83,6 @@ headless: true
           <li class="level3"><a href="{{< relref "configuration/quick_pipeline_setup.md" >}}">Add a New Pipeline</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_clone_pipeline.md" >}}">Clone a Pipeline</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_add_material.md" >}}">Add Material to Existing Pipeline</a></li>
-          <li class="level3"><a href="{{< relref "configuration/tfs_config.md" >}}">TFS Material configuration</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_add_stage.md" >}}">Add Stage to Existing Pipeline</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_add_job.md" >}}">Add Job to Existing Stage</a></li>
           <li class="level3"><a href="{{< relref "configuration/admin_add_task.md" >}}">Add Task to Existing Job</a></li>
