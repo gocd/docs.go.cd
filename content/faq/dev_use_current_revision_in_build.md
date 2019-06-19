@@ -159,7 +159,7 @@ It is often useful to use the current version control revision number in your bu
 
 For this example, we are going to assume we are using a single [Subversion](http://subversion.tigris.org/) repository for our source control system and we have a job set up to call the ant target "dist".
 
-- Add the following target to your ant `build.xml`
+-   Add the following target to your ant `build.xml`
 
 ```xml
 <project name="test-build">
@@ -171,13 +171,13 @@ For this example, we are going to assume we are using a single [Subversion](http
 </project>
 ```
 
-- Now, when GoCD runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
+-   Now, when GoCD runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
 
-{{< highlight text >}}
+```
 deploy-123.txt
 
 Building pipeline my-app
-{{< / highlight >}}
+```
 
 #### Multiple materials
 
@@ -186,7 +186,7 @@ the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository co
 
 - Ensure the pipeline materials look like this
 
-{{< highlight xml >}}
+```xml
 <pipeline name="multiple-materials">
   <materials>
     <svn url="..." dest="code" />
@@ -194,11 +194,11 @@ the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository co
   </materials>
   ...
 </pipeline>
-{{< / highlight >}}
+```
 
-- Add the following target to your ant `build.xml`
+-   Add the following target to your ant `build.xml`
 
-{{< highlight xml >}}
+```xml
 <project name="my-app">
   <property environment="env" />
   <target name="dist">
@@ -209,16 +209,16 @@ the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository co
           append="true" />
   </target>
 </project>
-{{< / highlight >}}
+```
 
-- Now, when GoCD runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
+-   Now, when GoCD runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
 
-{{< highlight text >}}
+```
 deploy-123.txt
 
 Building pipeline my-app
 Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
-{{< / highlight >}}
+```
 
 ## Pass environment variables to a job
 

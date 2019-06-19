@@ -54,7 +54,7 @@ ssh-keyscan [host] > /home/go/.ssh/known_hosts
 where [host] can be github.com, bitbucket.com, gitlab.com etc.
 
 - The ownership and permissions of files in `/home/go/.ssh` is:
-    ```
+```bash
 -rw-------    1 go       go            3243 Jan 11 07:00 id_rsa
 -rw-r--r--    1 go       go             754 Jan 11 07:00 id_rsa.pub
 -rw-r--r--    1 go       go             407 Jan 11 07:01 known_hosts

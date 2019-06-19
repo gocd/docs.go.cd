@@ -15,42 +15,37 @@ title: Mac OS X
 3.   Open a command prompt and go to the folder
 4.   To start the server, run:
 
-     {{< highlight shell >}}
+     ```shell
       bin/go-server start
-{{< / highlight >}}
+     ```
 
 {{< include file="installation/install/server/_tanuki_commands.md" markdown="true" >}}
 
 ## Overriding default startup arguments and environment
 
-- Open the file ```go-server-${version}/conf/wrapper-properties.conf.example```
-- Copy any specific properties, or add new properties from ```go-server-${version}/conf/wrapper.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
-- For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.100` -
-
-    {{< highlight bash >}}
+-   Open the file ```go-server-${version}/conf/wrapper-properties.conf.example```
+-   Copy any specific properties, or add new properties from ```go-server-${version}/conf/wrapper.conf``` into this file. Be sure to increment the property index if you're adding any new properties.
+-   For e.g. to override the `-Xmx` to `12GB`, override `wrapper.java.additional.100` -
+    ```bash
     # config/wrapper-properties.conf
     wrapper.java.additional.100=-Xmx12g
-{{< / highlight >}}
-
+    ```
 -   To append additional JVM args to the server
-
-    {{< highlight bash >}}
+    ```bash
     # conf/wrapper.conf
     # We recommend you begin with index 100 for  "wrapper.java.additional"
     wrapper.java.additional.100=-Dcruise.config.foo=bar
-{{< / highlight >}}
-
+    ```
 -   Each property must be configured separately
 
-    {{< highlight bash >}}
+    ```bash
     # Having a single property for multiple configurations is invalid, e.g
     wrapper.java.additional.100="-Dcruise.config.foo='bar' -Dcruise.config.other='baz'"
 
     Valid properties,
     wrapper.java.additional.100=-Dcruise.config.foo=bar
     wrapper.java.additional.101=-Dcruise.config.other=baz
-{{< / highlight >}}
-
+    ```
      **Please note** : If the `bin/go-server` as an application is run by any user, then this user needs to have these required permissions to the `go-server-${version}` folder, i.e. modify, read and execute, list folder contents and read permissions.
 -   Rename the said file to remove the `.example` extension.    
 

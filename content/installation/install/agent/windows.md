@@ -49,31 +49,29 @@ C:\> go-agent-16.1.0-1234-setup.exe /S /SERVERURL=`"https://10.12.20.47:8154/go`
 
 -   Create a file named `config/wrapper-properties.conf` where you installed the agent
 -   Copy any specific properties, or add new properties from `config/wrapper-agent.conf` into this file. Be sure to increment the property index if you're adding any new properties.
-- For e.g. to override the loglevel to debug, override `wrapper.console.loglevel` -  
+-   For e.g. to override the loglevel to debug, override `wrapper.console.loglevel` -  
 
-    {{< highlight bash >}}
+    ```bash
     # config/wrapper-properties.conf
     wrapper.console.loglevel=DEBUG
-{{< / highlight >}}
+    ```
+-   To append additional JVM args to the agent  
 
-- To append additional JVM args to the agent
-
-    {{< highlight bash >}}
+    ```bash
     # config/wrapper-properties.conf
     # since the last "wrapper.java.additional" index is 2, we use the next available index.
     wrapper.java.additional.3=-Xmx512mb
-{{< / highlight >}}
+    ```
+-   Each property must be configured separately
 
-- Each property must be configured separately
-
-    {{< highlight bash >}}
+    ```bash
     # Having a single property for multiple configurations is invalid, e.g
     wrapper.java.additional.16="-Dcruise.config.foo='bar' -Dcruise.config.other='baz'"
 
     Valid properties,
     wrapper.java.additional.16=-Dcruise.config.foo=bar
     wrapper.java.additional.17=-Dcruise.config.other=baz
-{{< / highlight >}}
+    ```
 
     **Please note** : If the go-agent as an application is run by any user, then this user needs to have these required permissions to the go-agent folder, i.e. modify, read and execute, list folder contents and read permissions.
 

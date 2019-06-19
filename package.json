@@ -2,7 +2,7 @@
   "name": "gocd-docs",
   "repository": "https://github.com/gocd/docs.go.cd",
   "version": "1.0.0",
-  "description": "Welcome to GoCD - an open-source Continuous Integration and Continuous Delivery system. Please take a minute to understand [the basic concepts in GoCD](introduction/concepts_in_go.md) before you go any further.",
+  "description": "Welcome to Go - an Open Sourced Continuous Integration and Release Management system. Please take a minute to understand [the basic concepts in Go](introduction/concepts_in_go.md) before you go any further.",
   "main": "index.js",
   "scripts": {
     "hugo": "npx hugo",
@@ -13,13 +13,13 @@
   "author": "ThoughtWorks, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "gray-matter": "^4.0.2",
     "grunt": "^1.0.3",
-    "he": "^1.2.0",
-    "hugo-bin": "^0.43.6",
+    "hugo-bin": "^0.41.0",
     "lunr": "2.3.6",
     "markdown-it": "^8.4.2",
-    "string": "^3.3.3"
+    "string": "^3.3.3",
+    "gray-matter": "^4.0.2",
+    "he": "^1.2.0"
   },
   "hugo-bin": {
     "buildTags": "extended"

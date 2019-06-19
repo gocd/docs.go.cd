@@ -20,27 +20,26 @@ Following system properties are exposed to override the default SSL/TLS configur
 
 ### Setting it up:
 
-- Linux
+* Linux
 
-    This can be configured through `/etc/default/go-server`, such as:
+	This can be configured through `/etc/default/go-server`, such as:
 
-    {{< highlight shell >}}
+	``` shell
 export GO_SERVER_SYSTEM_PROPERTIES="-Dgo.ssl.ciphers.include='TLS_ECDHE.*' -Dgo.ssl.ciphers.exclude='.*NULL.*,.*RC4.*' -Dgo.ssl.protocols.include='TLSv1.2' -Dgo.ssl.protocols.exclude='SSLv3' -Dgo.ssl.renegotiation.allowed='N'"
-{{< / highlight >}}
+```
 
-- Windows
+* Windows
 
     Follow the [instructions](../install/server/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for Go server setup on windows, such as:
-  
-    {{< highlight shell >}}
+
+    ``` shell
 wrapper.java.additional.17="-Dgo.ssl.ciphers.include=TLS_ECDHE.*"
 wrapper.java.additional.18="-Dgo.ssl.ciphers.exclude=.*NULL.*,.*RC4.*"
 wrapper.java.additional.19="-Dgo.ssl.protocols.include=TLSv1.2"
 wrapper.java.additional.20="-Dgo.ssl.protocols.exclude=SSLv3"
 wrapper.java.additional.21="-Dgo.ssl.renegotiation.allowed=N"
-{{< / highlight >}}
-
-    Restart server for the changes to take effect.
+```
+	Restart server for the changes to take effect.
 
 ## Configuring GoCD agent
 
@@ -48,20 +47,19 @@ The default transport protocol that agent uses to communicate with Go server is 
 
 * Linux
 
-    This can be configured through `/etc/default/go-agent`, such as:
+	This can be configured through `/etc/default/go-agent`, such as:
 
-    {{< highlight shell >}}
+	``` shell
 export GO_AGENT_SYSTEM_PROPERTIES="-Dgo.ssl.agent.protocol='SSL'"
-{{< / highlight >}}
+```
 
 * Windows
 
     Follow the [instructions](../install/agent/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for Go agents setup on windows, such as:
 
-    {{< highlight shell >}}
+    ``` shell
 wrapper.java.additional.17="-Dgo.ssl.agent.protocol='SSL'"
-{{< / highlight >}}
-
-    Restart agent for the changes to take effect.
+```
+	Restart agent for the changes to take effect.
 
 Read [jetty's documentation](http://www.eclipse.org/jetty/documentation/current/configuring-ssl.html) to know more about SSL/TLS configuration.

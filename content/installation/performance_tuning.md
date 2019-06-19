@@ -151,9 +151,9 @@ Use the following steps to take profile the application and take snapshots. The 
 
     If memory allocation profiling is also required:
 
-    {{< highlight shell >}}
+    ```shell
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port start-alloc-recording-adaptive
-{{< / highlight >}}
+    ```
 
 2.  Let the server run for some time till you start seeing performance problems. 30 mins of snapshot should give us enough data.
 3.  To capture the snapshot - Run:
@@ -180,17 +180,17 @@ Use the following steps to take profile the application and take snapshots. The 
 
     If memory profiling was turned on,s top it using the following command
 
-    {{< highlight bash >}}
+    ```bash
     $ java -jar [yourkit_profiler_directory]/lib/yjp-controller-api-redist.jar hostname port stop-alloc-recording
-{{< / highlight >}}
+    ```
 
 5.  Once you're done profiling, run the following so that on the next GoCD server restart, the agent is not loaded into the JVM.
 
     In case of linux, run the following command:
 
-    {{< highlight bash >}}
+    ```bash
     $ sudo rm /usr/lib/yourkit/libyjpagent.so
-{{< / highlight >}}
+    ```
 
 In case of windows, delete the file ```C:\yjpagent.dll```. If you were using the variable ```YOURKIT_PATH```, then remove the environment variable.
 
@@ -200,22 +200,22 @@ These snapshots will be saved in the yourkit configured snapshots folder. They c
 
 If the GoCD server continues to behave poorly, send us the following data.
 
-1. Database file ```cruise.h2.db```. Stop the server and take a backup of the database. Location:
+1.  Database file ```cruise.h2.db```. Stop the server and take a backup of the database. Location:
 
     Linux: ```/var/lib/db/h2db/cruise.h2.db```
 
     Windows: ```[go_installation_dir]\db\h2db\cruise.h2.db```
 
-2. Log file ```go-server.log```. Location:
+2.  Log file ```go-server.log```. Location:
 
     Linux: ```/var/log/go-server/go-server.log```
 
     Windows: ```[go_installation_dir]\go-server.log```
 
-3. GoCD config file ```cruise-config.xml```. Location:
+3.  GoCD config file ```cruise-config.xml```. Location:
 
     Linux: ```/etc/go/cruise-config.xml```
 
     Windows: ```[go_installation_dir]\config\cruise-config.xml```
 
-4. If any Yourkit and jconsole snapshots as mentioned in the previous points, its useful if that can be sent too.
+4.  If any Yourkit and jconsole snapshots as mentioned in the previous points, its useful if that can be sent too.
