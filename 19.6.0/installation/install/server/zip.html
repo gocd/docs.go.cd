@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../../../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../../../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../../../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../../../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../../../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../../../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -363,42 +355,110 @@ if (!doNotTrack) {
       
 <article class="markdown">
 
-<h1 id="running-gocd-server-via-zip-without-installation">Running GoCD server via zip without installation</h1>
+<h1 id="advanced-installation-of-gocd-server-using-zip-installer">Advanced installation of GoCD server using zip installer</h1>
 
 <p>If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.</p>
 
 <ul>
 <li>Download the zip installer for GoCD server</li>
 <li>Unzip the installer in a folder of your choice. It creates a subfolder with the name <code>go-server-${version}</code></li>
-<li>Set <code>java</code> in path
-
-<ul>
-<li>If you are on a Windows system, set <code>GO_SERVER_JAVA_HOME</code> to the installation path of java on the system</li>
-<li>If you are on a Unix system, set <code>JAVA_HOME</code> to the installation path of java on the system</li>
-</ul></li>
-<li>Open a command prompt and go to the folder</li>
-<li>Start the server
-
-<ul>
-<li>If you are on a Windows system, run <code>start-server.bat</code></li>
-<li>If you are on a Unix system, run <code>server.sh</code>  (Ensure that <code>server.sh</code> is executable)</li>
-</ul></li>
+<li>Ensure that <code>java</code> executable is available on the <code>PATH</code> environment variable. If you have multiple versions of java, or want to use a version of java that is not available on <code>PATH</code> environment variable, edit the file <code>wrapper-config/wrapper-properties.conf</code> and change the variable <code>wrapper.java.command</code> to point to the java executable.</li>
 </ul>
 
-<h2 id="copying-existing-config-to-a-new-gocd-server-instance">Copying existing config to a new GoCD Server instance</h2>
+<h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 
-<p>You can replicate a GoCD server with all the pipeline, stage, job, tasks and materials definitions/configuration intact.</p>
+The GoCD server script must be run with one of the following arguments:</p>
 
-<p>To do this, the administrator should copy <code>/etc/go/cruise-config.xml</code> from the config directory (<code>/etc/go</code>) to the new server and clear
-<code>serverId</code> attribute of <code>server</code> tag.</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+</tr>
+</thead>
 
-<blockquote>
-<p><strong>Note:</strong> Copying just the <code>cruise-config.xml</code> file will not migrate the historical pipeline data and
-artifacts. Please see the page on <a href="../../../advanced_usage/one_click_backup.html">backing up the GoCD Server</a> to fully
-migrate an existing GoCD server.</p>
-</blockquote>
+<tbody>
+<tr>
+<td><code>./bin/go-server console</code></td>
+<td>The GoCD server will be started in the foreground</td>
+</tr>
 
-<p><strong>Also see&hellip;</strong></p>
+<tr>
+<td><code>./bin/go-server start</code></td>
+<td>The GoCD server will be started as a daemon in the background</td>
+</tr>
+
+<tr>
+<td><code>./bin/go-server stop</code></td>
+<td>The GoCD server will be stopped</td>
+</tr>
+
+<tr>
+<td><code>./bin/go-server restart</code></td>
+<td>The GoCD server will be restarted</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Once the GoCD server is started the GoCD server will be started and it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
+
+<h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
+
+The GoCD server installs its files in the following locations on your filesystem:</p>
+
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>${INSTALL_DIR}/db</code></td>
+<td>the GoCD server database</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/artifacts</code></td>
+<td>the GoCD server artifacts</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/plugins</code></td>
+<td>the GoCD server plugins</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/config</code></td>
+<td>the GoCD server configuration</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/logs</code></td>
+<td>the GoCD server log files</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/{lib,wrapper}</code></td>
+<td>the GoCD server binaries and startup scripts</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code></td>
+<td>the configuration file to alter GoCD server properties</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
+
+Users can override default startup arguments in a editing the file <code>./wrapper-config/wrapper-properties.conf</code>. See the file <code>./wrapper-config/wrapper-properties.conf.example</code> for example usage.
+
+<h3 id="also-see">Also see</h3>
 
 <ul>
 <li><a href="../../installing_go_agent.html">Installing GoCD agents</a></li>
@@ -448,7 +508,12 @@ migrate an existing GoCD server.</p>
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#running-gocd-server-via-zip-without-installation">Running GoCD server via zip without installation</a></li>
+<li><a href="#advanced-installation-of-gocd-server-using-zip-installer">Advanced installation of GoCD server using zip installer</a>
+<ul>
+<li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
+<li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
+<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

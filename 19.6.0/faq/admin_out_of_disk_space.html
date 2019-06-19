@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -435,16 +427,15 @@ if (!doNotTrack) {
 
 <ul>
 <li>Find the location of the GoCD configuration file</li>
-<li>Navigate to the <a href="../navigation/administration_page.html">Admin</a> section
+<li>Navigate to the <em>Admin &gt; Config XML</em> tab section
 <img src="../images/topnav_admin.png" alt="" /></li>
-<li>Click on the &ldquo;Config XML&rdquo; tab</li>
 <li>The location of the configuration file is listed here
 <img src="../images/4_find_config_location.png" alt="" /></li>
 <li>Install the new drive</li>
 <li>Shut down GoCD server</li>
 <li>Copy all files from the original artifact repository location to the new drive</li>
 <li>Change the artifact repository location in the configuration file
-<code>xml 
+<code>xml
 &lt;server artifactsDir=&quot;/path/to/new/artifacts&quot;&gt;
 ...
 &lt;/server&gt;
@@ -457,16 +448,7 @@ if (!doNotTrack) {
 <p>Another option for making more room is to remove unused (or easily recreatable) artifacts. You may also have old pipelines that you no longer need.</p>
 
 <p>The directory structure of the artifact repository makes selecting which artifacts are safe to delete easier. The format is:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>artifacts-dir<span style="color:#666">]</span>/pipelines/<span style="color:#666">[</span>pipelineName<span style="color:#666">]</span>/<span style="color:#666">[</span>pipelineLabel<span style="color:#666">]</span>/<span style="color:#666">[</span>stageName<span style="color:#666">]</span>/<span style="color:#666">[</span>stageCounter<span style="color:#666">]</span>/<span style="color:#666">[</span>jobName<span style="color:#666">]</span></code></pre></div>
-<blockquote>
-<p>Keep in mind that there are two files that GoCD needs in order to display the <a href="../navigation/job_details_page.html">Job</a> or <a href="../navigation/stage_details_page.html">Stage</a> details pages</p>
-
-<ul>
-<li>cruise-output/console.log</li>
-<li>cruise-output/log.xml</li>
-</ul>
-</blockquote>
-</article>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>artifacts-dir<span style="color:#666">]</span>/pipelines/<span style="color:#666">[</span>pipelineName<span style="color:#666">]</span>/<span style="color:#666">[</span>pipelineLabel<span style="color:#666">]</span>/<span style="color:#666">[</span>stageName<span style="color:#666">]</span>/<span style="color:#666">[</span>stageCounter<span style="color:#666">]</span>/<span style="color:#666">[</span>jobName<span style="color:#666">]</span></code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">

@@ -35,23 +35,11 @@
   </url>
   
   <url>
-    <loc>/navigation/pipeline_configuration.html</loc>
-  </url>
-  
-  <url>
     <loc>/advanced_usage/</loc>
   </url>
   
   <url>
-    <loc>/navigation/agent_details.html</loc>
-  </url>
-  
-  <url>
     <loc>/advanced_usage/agent-health-check-api.html</loc>
-  </url>
-  
-  <url>
-    <loc>/navigation/agents_page.html</loc>
   </url>
   
   <url>
@@ -220,10 +208,6 @@
   </url>
   
   <url>
-    <loc>/navigation/environments_page.html</loc>
-  </url>
-  
-  <url>
     <loc>/extension_points/</loc>
   </url>
   
@@ -292,6 +276,30 @@
   </url>
   
   <url>
+    <loc>/installation/install/agent/linux.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/agent/windows.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/server/linux.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/agent/osx.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/server/osx.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/server/windows.html</loc>
+  </url>
+  
+  <url>
     <loc>/integration/</loc>
   </url>
   
@@ -304,19 +312,7 @@
   </url>
   
   <url>
-    <loc>/navigation/job_details_page.html</loc>
-  </url>
-  
-  <url>
     <loc>/configuration/job_timeout.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/install/agent/linux.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/install/server/linux.html</loc>
   </url>
   
   <url>
@@ -325,14 +321,6 @@
   
   <url>
     <loc>/advanced_usage/logging.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/install/agent/osx.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/install/server/osx.html</loc>
   </url>
   
   <url>
@@ -397,14 +385,6 @@
   
   <url>
     <loc>/installation/performance_tuning.html</loc>
-  </url>
-  
-  <url>
-    <loc>/navigation/pipeline_activity_page.html</loc>
-  </url>
-  
-  <url>
-    <loc>/navigation/pipelines_dashboard_page.html</loc>
   </url>
   
   <url>
@@ -480,10 +460,6 @@
   </url>
   
   <url>
-    <loc>/navigation/stage_details_page.html</loc>
-  </url>
-  
-  <url>
     <loc>/installation/system_requirements.html</loc>
   </url>
   
@@ -530,14 +506,6 @@
   
   <url>
     <loc>/faq/dev_understand_why_build_broken.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/install/agent/windows.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/install/server/windows.html</loc>
   </url>
   
   <url>

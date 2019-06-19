@@ -182,7 +182,7 @@ If a pipeline is locked then GoCD will not allow any other instance of that pipe
       
       <guid>/configuration/admin_mailhost_info.html</guid>
       <description>Mailhost information In order to allow email notifications, you need to tell GoCD information about your mailhost.
- Click on the Administration tab  Click on the &amp;lsquo;Server Configuration&amp;rsquo; sub-tab Add your mailhost information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
+ Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your mailhost information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
     </item>
     
     <item>

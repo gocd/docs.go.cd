@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Linux | GoCD User Documentation</title>
+<title>Installing GoCD agent on Linux | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../../../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../../../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../../../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../../../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../../../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../../../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -348,7 +340,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../../svg/menu.svg" />
   </label>
-  <strong>Linux</strong>
+  <strong>Installing GoCD agent on Linux</strong>
 </header>
 
       
@@ -365,25 +357,19 @@ if (!doNotTrack) {
 
 <h1 id="installing-gocd-agent-on-linux">Installing GoCD agent on Linux</h1>
 
-<!-- toc -->
-
-<p>Installation of the GoCD agent using the package manager will require root access on the machine. You are also required to have a java version 8 (same version as the GoCD server) for the agent to run.</p>
-
-<p>The installer will create a user called <code>go</code> if one does not exist on the machine. The home directory will be set to <code>/var/go</code>. If you want to create your own <code>go</code> user, make sure you do it before you install the GoCD agent.</p>
+<p>Installation of the GoCD agent using the package manager will require <code>root</code> access on the machine.</p>
 
 <h2 id="rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 
 <p>The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
 
 <p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
-sudo yum install -y java-1.8.0-openjdk <span style="color:#080;font-style:italic">#atleast Java 8 is required, you may use other jre/jdk if you prefer</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo</code></pre></div>
 
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yum install -y go-agent</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-agent</code></pre></div>
 <p>Alternatively, if you have the agent RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yum install -y java-1.8.0-openjdk <span style="color:#080;font-style:italic">#atleast Java 8 is required, you may use other jre/jdk if you prefer</span>
-sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm</code></pre></div>
 <h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
 
 <p>The GoCD agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
@@ -392,54 +378,101 @@ sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span st
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
 curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
 sudo apt-get update</code></pre></div>
-<p>Note: The GoCD server and agent require Java 8 to be installed.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
-sudo apt-get install -y openjdk-8-jre</code></pre></div>
 
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install go-agent</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-agent</code></pre></div>
 <p>Alternatively, if you have the agent DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
-<h2 id="managing-the-go-agent-service-on-linux">Managing the go-agent service on linux</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
+<h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 
-<p>To manage the go-agent service, you may use the following commands -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo /etc/init.d/go-agent <span style="color:#666">[</span>start|stop|status|restart<span style="color:#666">]</span></code></pre></div>
-<h2 id="configuring-the-go-agent">Configuring the go-agent</h2>
+The GoCD agent script must be run with one of the following arguments:</p>
 
-<p>After installing the go-agent service, you must first configure the service with the hostname (or IP address) of your GoCD server, in order to do this -</p>
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+</tr>
+</thead>
 
-<ol>
-<li>Open <code>/etc/default/go-agent</code> in your favourite text editor.</li>
-<li>Change the IP address (127.0.0.1) in the line <code>GO_SERVER_URL=https://127.0.0.1:8154/go</code> to the hostname (or IP address) of your GoCD server.</li>
-<li>Save the file and exit your editor.</li>
-<li>Run <code>/etc/init.d/go-agent [start|restart]</code> to (re)start the agent.</li>
-</ol>
+<tbody>
+<tr>
+<td><code>/etc/init.d/go-agent console</code></td>
+<td>The GoCD agent will be started in the foreground</td>
+</tr>
 
-<blockquote>
-<p><strong>Note:</strong> You can override default environment for the GoCD agent by editing the file <code>/etc/defaults/go-agent</code></p>
-</blockquote>
+<tr>
+<td><code>/etc/init.d/go-agent start</code></td>
+<td>The GoCD agent will be started as a daemon in the background</td>
+</tr>
+
+<tr>
+<td><code>/etc/init.d/go-agent stop</code></td>
+<td>The GoCD agent will be stopped</td>
+</tr>
+
+<tr>
+<td><code>/etc/init.d/go-agent restart</code></td>
+<td>The GoCD agent will be restarted</td>
+</tr>
+</tbody>
+</table>
+
 
 <h2 id="location-of-gocd-agent-files">Location of GoCD agent files</h2>
 
 <p>The GoCD agent installs its files in the following locations on your filesystem:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/var/lib/go-agent      <span style="color:#080;font-style:italic">#contains the binaries</span>
-/usr/share/go-agent    <span style="color:#080;font-style:italic">#contains the start script</span>
-/var/log/go-agent      <span style="color:#080;font-style:italic">#contains the agent logs</span>
-/etc/default/go-agent  <span style="color:#080;font-style:italic">#contains all the environment variables with default values. These variable values can be changed as per requirement</span></code></pre></div>
-<h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
 
-<p>Users can override default startup arguments for a GoCD agent in a Linux machine by editing the file etc/default/go-agent.</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Description</th>
+</tr>
+</thead>
 
-<p>For e.g To enable Websocket communication between the server and agent, user can add the following GoCD agent system property</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> <span style="color:#a2f">export</span> <span style="color:#b8860b">GO_AGENT_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b8860b">$GO_AGENT_SYSTEM_PROPERTIES</span><span style="color:#b44"> -Dgo.agent.websocket.enabled=true&#34;</span></code></pre></div>
+<tbody>
+<tr>
+<td><code>/var/lib/go-agent</code></td>
+<td>the GoCD agent configuration and working directory</td>
+</tr>
+
+<tr>
+<td><code>/var/log/go-agent</code></td>
+<td>the GoCD agent log files</td>
+</tr>
+
+<tr>
+<td><code>/usr/share/go-agent</code></td>
+<td>the GoCD agent binaries and startup scripts</td>
+</tr>
+
+<tr>
+<td><code>/usr/share/go-agent/config/wrapper-properties.conf</code></td>
+<td>the configuration file to alter GoCD agent properties</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="configuring-the-gocd-agent">Configuring the GoCD agent</h2>
+
+After installing the GoCD agent, you must first configure the agent with the hostname (or IP address) of your GoCD server, in order to do this:</p>
+
+<ul>
+<li>Open <code>/usr/share/go-agent/wrapper-config/wrapper-properties.conf</code> in your favourite text editor.</li>
+<li>Follow the instructions in the file to configure the GoCD server url</li>
+<li>Save the file and exit your editor.</li>
+<li>Run <code>/etc/init.d/go-agent [start|restart]</code> to (re)start the agent.</li>
+</ul>
+
+
 <h2 id="registering-your-agent-with-the-server">Registering your agent with the server</h2>
 
-<p>For security reasons, all newly installed Go agents need to be enabled on the Go server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed Go agent, do the following:</p>
+<p>For security reasons, all newly installed GoCD agents need to be enabled on the GoCD server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed GoCD agent, do the following:</p>
 
 <ol>
-<li>Open the Go server dashboard</li>
-<li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The Go server will now schedule work for this agent.</li>
+<li>Open the GoCD server dashboard</li>
+<li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The GoCD server will now schedule work for this agent.</li>
 </ol>
 
 </article>
@@ -487,10 +520,9 @@ sudo apt-get install -y openjdk-8-jre</code></pre></div>
 <ul>
 <li><a href="#rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
 <li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
-<li><a href="#managing-the-go-agent-service-on-linux">Managing the go-agent service on linux</a></li>
-<li><a href="#configuring-the-go-agent">Configuring the go-agent</a></li>
+<li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
 <li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
-<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
+<li><a href="#configuring-the-gocd-agent">Configuring the GoCD agent</a></li>
 </ul></li>
 </ul>
 </nav>

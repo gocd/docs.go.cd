@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -386,7 +378,7 @@ if (!doNotTrack) {
 <p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &lsquo;ps waux | grep &lsquo;material-type&rdquo;</p>
 </blockquote></li>
 
-<li><p>Determine the process that&rsquo;s hung. The extra information like URL:&ldquo;<a href="https://test@bitbucket.org/test/git_repo.git&quot;">https://test@bitbucket.org/test/git_repo.git&quot;</a> in the warning information should help you with this.</p></li>
+<li><p>Determine the process that&rsquo;s hung. The extra information like URL: <code>https://test@bitbucket.org/test/git_repo.git</code> in the warning information should help you with this.</p></li>
 
 <li><p>On linux system, you should see lines like these:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go <span style="color:#666">31201</span> <span style="color:#666">1</span>  <span style="color:#666">0</span> Feb07 ?  <span style="color:#666">00</span>:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816</code></pre></div></li>

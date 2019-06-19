@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -385,89 +377,69 @@ threshold and displays a warning message. This is a cue for users to enable peri
 steps you need to follow (and in this order) to enable periodic GC for the config repository:</p>
 
 <ol>
-<li><p>Stop the GoCD server</p></li>
-
-<li><p>Take a backup of the whole <code>config.git</code> directory (rememeber, there is a hidden .git directory in it)</p></li>
-
-<li><p>Run <code>git gc</code> manually, once, in that directory as the user that the GoCD server runs under. On Unix/Linux, this is
-usually the &ldquo;go&rdquo; user. Do not run this as the root user. If you do, make sure that you run <code>chown -R go:go
-/path/to/config.git</code> to make sure that the ownership of that directory is proper.</p></li>
-
-<li><p>Once you&rsquo;ve done that, you can now set these system properties mentioned below, to change the behavior of the
+<li>Stop the GoCD server.</li>
+<li>Take a backup of the whole <code>config.git</code> directory (rememeber, there is a hidden .git directory in it)</li>
+<li>Run <code>git gc</code> manually, once, in that directory as the user that the GoCD server runs under. On Unix/Linux, this is
+usually the <code>go</code> user. Do not run this as the root user. If you do, make sure that you run <code>chown -R go:go
+/path/to/config.git</code> to make sure that the ownership of that directory is proper.</li>
+<li>Once you&rsquo;ve done that, you can now set these system properties mentioned below, to change the behavior of the
 periodic garbage collection. At the very least, you should set the <code>go.config.repo.gc.periodic</code> system property to
-<code>Y</code> so that it is enabled. You can refer to the documentation to find out how to set these arguments for your
-<a href="../installation/install/server/windows.html#overriding-default-startup-arguments-and-environment">Windows</a> and
-<a href="../advanced_usage/other_config_options.html#environment-variables">Linux</a> servers.</p></li>
-
-<li><p>Start the server and verify that the properties you&rsquo;ve set are reflected in the system. The section at the end of
-this page has details about it.</p></li>
+<code>Y</code> so that it is enabled.</li>
+<li>Start the server and verify that the properties you&rsquo;ve set are reflected in the system. The section at the end of
+this page has details about it.</li>
 </ol>
 
 <h2 id="system-properties-that-affect-periodic-garbage-collection">System properties that affect periodic garbage collection</h2>
 
-<h3 id="property-go-config-repo-gc-periodic">Property: go.config.repo.gc.periodic</h3>
+<table>
+<thead>
+<tr>
+<th>System property</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
 
-<ul>
-<li>Default value: <code>N</code></li>
-</ul>
+<tbody>
+<tr>
+<td><code>go.config.repo.gc.periodic</code></td>
+<td><code>false</code></td>
+<td>Flag that enables the periodic garbage collection of <code>config.git</code> repository.</td>
+</tr>
 
-<p>This enables the periodic garbage collection of <code>config.git</code> repo. To enable this feature - set the value to <code>Y</code></p>
+<tr>
+<td><code>go.config.repo.gc.aggressive</code></td>
+<td><code>true</code></td>
+<td>This will cause the GC to run more aggressively. For large repositories, this can take a significant amount of time. It is recommended to set this to <code>false</code> if the frequency of GC is very high.</td>
+</tr>
 
-<h3 id="property-go-config-repo-gc-aggressive">Property: go.config.repo.gc.aggressive</h3>
+<tr>
+<td><code>go.config.repo.gc.cron</code></td>
+<td><code>0 0 7 ? * SUN</code> (7 am on Sunday morning)</td>
+<td>The <a href="../configuration/configuration_reference.html#timer">cron expression</a> that describes when GC should happen.</td>
+</tr>
 
-<ul>
-<li>Default value: <code>Y</code></li>
-</ul>
+<tr>
+<td><code>go.config.repo.gc.warning.looseobject.threshold</code></td>
+<td><code>10000</code></td>
+<td>If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup.</td>
+</tr>
 
-<p>This option will cause GC to more aggressively optimize the repository at the expense of taking much more time. It can
-be made non-aggressive by setting this value to <code>N</code>. It is recommended to set this option to <code>N</code> if the system property
-<code>go.config.repo.gc.cron</code> is set up to run <code>git gc</code> frequently.</p>
+<tr>
+<td><code>go.config.repo.gc.expire</code></td>
+<td><code>24</code>  (in hours)</td>
+<td>Objects older than this period (in hours) will be pruned.</td>
+</tr>
 
-<h3 id="property-go-config-repo-gc-cron">Property: go.config.repo.gc.cron</h3>
+<tr>
+<td><code>go.config.repo.gc.check.interval</code></td>
+<td><code>28800000</code>  (in milliseconds)</td>
+<td>Frequency of checking for loose object count, specified in milliseconds with default set to <em>8 hours</em>.</td>
+</tr>
+</tbody>
+</table>
 
-<ul>
-<li>Default value: <code>0 0 7 ? * SUN</code></li>
-</ul>
-
-<p>Cron expression to specify garbage collector execution time with default set to <em>7:00 am on sundays</em>. Check
-<a href="../configuration/configuration_reference.html#timer">documentation</a> for help on cron syntax. For linux users, while
-overriding <code>go.config.repo.gc.cron</code> you need to escape special shell characters such <code>*</code> using a backward-slash. For
-example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b8860b">$GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#b44"> -Dgo.config.repo.gc.cron=&#39;0 0 7 1/1 \* \?&#39;&#34;</span></code></pre></div>
-<p>The above cron will set to run git gc at 7 am every day for every month.</p>
-
-<h3 id="property-go-config-repo-gc-warning-looseobject-threshold">Property: go.config.repo.gc.warning.looseobject.threshold</h3>
-
-<ul>
-<li>Default value: <code>10000</code></li>
-</ul>
-
-<p>If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup</p>
-
-<h3 id="property-go-config-repo-gc-expire">Property: go.config.repo.gc.expire</h3>
-
-<ul>
-<li>Default value <code>24 hours</code></li>
-</ul>
-
-<p>This option will specify the expiration time for git gc so that each unreferenced, loose object which has been
-created or modified after or at the time specified will not be pruned. Only older objects may be pruned.
-Specify this propery in hours.</p>
-
-<h3 id="property-go-config-repo-gc-check-interval">Property: go.config.repo.gc.check.interval</h3>
-
-<ul>
-<li>Default value: <code>28800000</code></li>
-</ul>
-
-<p>Frequency of checking for loose object count, specified in milliseconds with default set to <em>8 hours</em>.</p>
-
-<h2 id="verifying-that-these-properties-are-set">Verifying that these properties are set:</h2>
-
-<p>Once you&rsquo;ve set the properties with the values you want, you should verify that the values reflect accurately on the
-server, when it comes back up. As an administrator, if you access <code>/go/api/support</code> (meaning,
-<code>http://your-go-server/go/api/support</code>), then you should be able to find those properties in that page, with the values
-you set. If you don&rsquo;t see them, or see them with wrong values, you&rsquo;ll need to see whether you&rsquo;ve set them correctly.</p>
+<p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
 
       
@@ -512,16 +484,7 @@ you set. If you don&rsquo;t see them, or see them with wrong values, you&rsquo;l
 <li><a href="#gocd-configuration-repository">GoCD Configuration repository</a>
 <ul>
 <li><a href="#garbage-collection">Garbage collection</a></li>
-<li><a href="#system-properties-that-affect-periodic-garbage-collection">System properties that affect periodic garbage collection</a>
-<ul>
-<li><a href="#property-go-config-repo-gc-periodic">Property: go.config.repo.gc.periodic</a></li>
-<li><a href="#property-go-config-repo-gc-aggressive">Property: go.config.repo.gc.aggressive</a></li>
-<li><a href="#property-go-config-repo-gc-cron">Property: go.config.repo.gc.cron</a></li>
-<li><a href="#property-go-config-repo-gc-warning-looseobject-threshold">Property: go.config.repo.gc.warning.looseobject.threshold</a></li>
-<li><a href="#property-go-config-repo-gc-expire">Property: go.config.repo.gc.expire</a></li>
-<li><a href="#property-go-config-repo-gc-check-interval">Property: go.config.repo.gc.check.interval</a></li>
-</ul></li>
-<li><a href="#verifying-that-these-properties-are-set">Verifying that these properties are set:</a></li>
+<li><a href="#system-properties-that-affect-periodic-garbage-collection">System properties that affect periodic garbage collection</a></li>
 </ul></li>
 </ul>
 </nav>

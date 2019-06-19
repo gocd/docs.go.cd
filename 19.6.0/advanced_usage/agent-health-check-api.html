@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -363,7 +355,7 @@ if (!doNotTrack) {
       
 <article class="markdown">
 
-<h1 id="agent-health-check-api"><strong>Agent Health Check API</strong></h1>
+<h1 id="agent-health-check-api">Agent Health Check API</h1>
 
 <p><strong>Note:</strong> Using this feature requires atleast version <code>17.11.0</code>  of the GoCD server and agent.</p>
 
@@ -371,53 +363,37 @@ if (!doNotTrack) {
 
 <h2 id="configurations">Configurations</h2>
 
-<p>The API uses the following configurable <a href="../installation/configure-agent-proxy.html#configuring-an-agent-on-linux">agent system properties</a>.</p>
+<p>The API uses the following configurable agent system properties.</p>
 
 <table>
 <thead>
 <tr>
-<th align="center">Property</th>
-<th align="center">Values</th>
+<th>Property</th>
+<th>Values</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
-<td align="center">go.agent.status.api.enabled</td>
-<td align="center">Defaults to true. Set to false to disable health check api end-point</td>
+<td><code>go.agent.status.api.enabled</code></td>
+<td>Defaults to <code>true</code>. Set to <code>false</code> to disable health check api end-point</td>
 </tr>
 
 <tr>
-<td align="center">go.agent.status.api.bind.host</td>
-<td align="center">Defaults to localhost.Set to a specific ip address or hostname to bind to that host. Set to 0.0.0.0 to bind to all network interfaces.</td>
+<td><code>go.agent.status.api.bind.host</code></td>
+<td>Defaults to <code>localhost</code>. Set to a specific ip address or hostname to bind to that host. Set to <code>0.0.0.0</code> to bind to all network interfaces.</td>
 </tr>
 
 <tr>
-<td align="center">go.agent.status.api.bind.port</td>
-<td align="center">Defaults to 8152. Set to 0 to use an ephemeral port, which will be displayed in a log statement.</td>
+<td><code>go.agent.status.api.bind.port</code></td>
+<td>Defaults to <code>8152</code>. Set to <code>0</code> to use an ephemeral port, which will be displayed in a log statement.</td>
 </tr>
 </tbody>
 </table>
 
-<p>*In case the http server is unable to bind (usually because of port conflicts, or multiple agents running on the same machine), a warning will be emitted to the console log and agent startup will continue.</p>
+<p><strong>Note:</strong> In case the http server is unable to bind usually because of port conflicts, or multiple agents running on the same machine, a warning will be emitted to the console log and agent startup will continue.</p>
 
-<h3 id="configuring-health-api-for-multiple-agents-on-a-single-machine">Configuring Health API for multiple Agents on a Single Machine</h3>
-
-<p>In case of multiple agents running on a single machine, the user must explicitly configure the  <code>go.agent.status.api</code> properties for each of the agents.</p>
-
-<h4 id="on-linux-machine">On Linux Machine</h4>
-
-<p>To configure the properties on linux machine, edit the file corresponding to the agent at /etc/default/go-agent</p>
-
-<p><code>GO_AGENT_SYSTEM_PROPERTIES=-Dgo.agent.status.api.bind.port=8158</code></p>
-
-<p>Or have the following property set in the agent shell</p>
-
-<p><code>export GO_AGENT_SYSTEM_PROPERTIES=-Dgo.agent.status.api.bind.port=8158</code></p>
-
-<h4 id="on-windows-machine">On Windows Machine</h4>
-
-<p>Follow the <a href="../installation/install/server/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for GoCD agents setup on windows</p>
+<p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
 
       
@@ -459,16 +435,9 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#agent-health-check-api"><strong>Agent Health Check API</strong></a>
+<li><a href="#agent-health-check-api">Agent Health Check API</a>
 <ul>
-<li><a href="#configurations">Configurations</a>
-<ul>
-<li><a href="#configuring-health-api-for-multiple-agents-on-a-single-machine">Configuring Health API for multiple Agents on a Single Machine</a>
-<ul>
-<li><a href="#on-linux-machine">On Linux Machine</a></li>
-<li><a href="#on-windows-machine">On Windows Machine</a></li>
-</ul></li>
-</ul></li>
+<li><a href="#configurations">Configurations</a></li>
 </ul></li>
 </ul>
 </nav>

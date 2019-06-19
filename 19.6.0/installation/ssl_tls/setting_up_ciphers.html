@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -374,82 +366,52 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th><em>Key</em></th>
-<th align="center"><em>Default value</em></th>
-<th><em>Description</em></th>
+<th>System Property</th>
+<th align="center">Default value</th>
+<th>Description</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td><code>go.ssl.ciphers.include</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of cipher suite names (exact or regular expression) to be enabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.ciphers.exclude</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of cipher suite names (exact or regular expression) to be disabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.protocols.include</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of SSL/TLS protocols to be enabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.protocols.exclude</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of SSL/TLS protocols to be disabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.renegotiation.allowed</code></td>
-<td align="center">Y</td>
-<td>Flag to allow/dis-allow TLS renegotiation, accepts - <code>Y</code> and <code>N</code></td>
+<td align="center"><code>true</code></td>
+<td>Flag to allow/dis-allow TLS renegotiation, accepts - <code>true</code> and <code>false</code></td>
 </tr>
 </tbody>
 </table>
 
-<h3 id="setting-it-up">Setting it up:</h3>
-
-<ul>
-<li><p>Linux</p>
-
-<p>This can be configured through <code>/etc/default/go-server</code>, such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.include=&#39;TLS_ECDHE.*&#39; -Dgo.ssl.ciphers.exclude=&#39;.*NULL.*,.*RC4.*&#39; -Dgo.ssl.protocols.include=&#39;TLSv1.2&#39; -Dgo.ssl.protocols.exclude=&#39;SSLv3&#39; -Dgo.ssl.renegotiation.allowed=&#39;N&#39;&#34;</span></code></pre></div></li>
-
-<li><p>Windows</p>
-
-<p>Follow the <a href="../install/server/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for Go server setup on windows, such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.include=TLS_ECDHE.*&#34;</span>
-wrapper.java.additional.18<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.exclude=.*NULL.*,.*RC4.*&#34;</span>
-wrapper.java.additional.19<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.protocols.include=TLSv1.2&#34;</span>
-wrapper.java.additional.20<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.protocols.exclude=SSLv3&#34;</span>
-wrapper.java.additional.21<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.renegotiation.allowed=N&#34;</span></code></pre></div>
-<p>Restart server for the changes to take effect.</p></li>
-</ul>
+<p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 
 <h2 id="configuring-gocd-agent">Configuring GoCD agent</h2>
 
 <p>The default transport protocol that agent uses to communicate with Go server is <em>TLSv1.2</em>. This can be overridden by configuring property <code>go.ssl.agent.protocol</code> to a suitable value based on your requirements. If your JRE does not support TLSv1.2, set this property as follows:</p>
 
-<ul>
-<li><p>Linux</p>
-
-<p>This can be configured through <code>/etc/default/go-agent</code>, such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">export</span> <span style="color:#b8860b">GO_AGENT_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.agent.protocol=&#39;SSL&#39;&#34;</span></code></pre></div></li>
-
-<li><p>Windows</p>
-
-<p>Follow the <a href="../install/agent/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for Go agents setup on windows, such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.agent.protocol=&#39;SSL&#39;&#34;</span></code></pre></div>
-<p>Restart agent for the changes to take effect.</p></li>
-</ul>
-
-<p>Read <a href="http://www.eclipse.org/jetty/documentation/current/configuring-ssl.html">jetty&rsquo;s documentation</a> to know more about SSL/TLS configuration.</p>
+<p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> on the GoCD agent to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
 
       
@@ -493,10 +455,7 @@ wrapper.java.additional.21<span style="color:#666">=</span><span style="color:#b
 <ul>
 <li><a href="#configuring-ssl-tls-ciphers">Configuring SSL/TLS ciphers</a>
 <ul>
-<li><a href="#configuring-gocd-server">Configuring GoCD server</a>
-<ul>
-<li><a href="#setting-it-up">Setting it up:</a></li>
-</ul></li>
+<li><a href="#configuring-gocd-server">Configuring GoCD server</a></li>
 <li><a href="#configuring-gocd-agent">Configuring GoCD agent</a></li>
 </ul></li>
 </ul>

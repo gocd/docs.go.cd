@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -367,104 +359,7 @@ if (!doNotTrack) {
 
 <p>In order to fully utilize your hardware, it is often useful to install multiple agents on a single machine.</p>
 
-<p>Currently GoCD installers do not support this out of the box. The following sections describe how this can be done manually</p>
-
-<h2 id="windows">Windows</h2>
-
-<p>On Windows, multiple GoCD agents can be run in two ways - as Windows service or as a Windows command</p>
-
-<h3 id="running-as-windows-service">Running as Windows service</h3>
-
-<ul>
-<li><a href="../installation/installing_go_agent.html">Install your first agent with the installer to the default location</a></li>
-<li>Copy the installation folder (&ldquo;C:\Program Files\Go Agent&rdquo;) to &ldquo;C:\Program Files\Go Agent 2&rdquo;</li>
-<li>Delete the file C:\Program Files\Go Agent 2\config\guid.txt</li>
-<li>Delete the file C:\Program Files\Go Agent 2\.agent-bootstrapper.running</li>
-<li>Edit <strong>wrapper-agent.conf</strong> file to customise information related to <strong>Go Agent 2</strong>
-Just after the line #include ../conf/wrapper-license.conf, add
-
-<ul>
-<li>set.GO_AGENT_DIR=C:\Program Files\Go Agent 2</li>
-<li>set.GO_AGENT_JAVA_HOME=%GO_AGENT_DIR%\jre</li>
-</ul></li>
-
-<li><p>Run the following command</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sc create GoAgent2 <span style="color:#b8860b">binPath</span><span style="color:#666">=</span> <span style="color:#b44">&#34;\&#34;C:\Program Files\Go Agent 2\cruisewrapper.exe\&#34; -s \&#34;C:\Program Files\Go Agent 2\config\wrapper-agent.conf\&#34;&#34;</span></code></pre></div></li>
-
-<li><p>Start &ldquo;GoAgent2&rdquo; service</p></li>
-</ul>
-
-<h3 id="running-as-windows-command">Running as Windows command</h3>
-
-<ul>
-<li>Follow the instructions to <a href="../installation/install/agent/zip.html">run Go without installation on Windows</a></li>
-<li>Do the same steps on a different folder to set up another agent</li>
-</ul>
-
-<blockquote>
-<p>You should use a VNC application (such as <a href="http://www.tightvnc.com">TightVNC</a>) to keep windows user logged in. If the user logs out or the computer restarts, the agents will shutdown.</p>
-</blockquote>
-
-<h2 id="mac-osx">Mac OSX</h2>
-
-<ul>
-<li><a href="../installation/installing_go_agent.html">Install your first agent with the installer</a></li>
-<li>Assuming your first agent in at /Applications/Go Agent.app, copy that to another location, say
-/Applications/Go Agent 2.app. Once you do that, you can start the application like this:</li>
-</ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  <span style="color:#b8860b">GO_APPLICATION_NAME</span><span style="color:#666">=</span><span style="color:#b44">&#34;Go Agent 2&#34;</span> open /Applications/Go<span style="color:#b62;font-weight:bold">\ </span>Agent<span style="color:#b62;font-weight:bold">\ </span><span style="color:#666">2</span>.app</code></pre></div>
-<p>The logs and other files related to the second agent should be available at
-  &ldquo;<user-home>/Library/Application Support/Go Agent 2&rdquo; and the icon in the dock
-  will be called &ldquo;Go Agent 2&rdquo; as well.</p>
-
-<p>It is also possible to edit the file /Applications/Go\ Agent\ 2.app/Contents/Info.plist
-  to change the <code>CFBundleName</code> property. However, that is not recommended,
-  since it invalidates the signature of the application package, and could cause
-  Apple Gatekeeper to warn you that the new agent is an invalid application.</p>
-
-<h2 id="linux-rpm-and-deb">Linux (RPM and DEB)</h2>
-
-<ul>
-<li><a href="../installation/installing_go_agent.html">Install your first agent with the installer</a></li>
-
-<li><p>To create a second agent on the same host, run this as root:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">cp /etc/init.d/go-agent /etc/init.d/go-agent-1
-sed -i <span style="color:#b44">&#39;s/# Provides: go-agent$/# Provides: go-agent-1/g&#39;</span> /etc/init.d/go-agent-1
-ln -s /usr/share/go-agent /usr/share/go-agent-1
-cp -p /etc/default/go-agent /etc/default/go-agent-1
-mkdir /var/<span style="color:#666">{</span>lib,log<span style="color:#666">}</span>/go-agent-1
-chown go:go /var/<span style="color:#666">{</span>lib,log<span style="color:#666">}</span>/go-agent-1</code></pre></div></li>
-
-<li><p>To enable starting the go-agent service during system boot:</p>
-
-<ul>
-<li><p>on Debian:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">insserv go-agent-1</code></pre></div></li>
-
-<li><p>on Ubuntu:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">update-rc.d go-agent-1 defaults</code></pre></div></li>
-
-<li><p>on Centos and Redhat:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">chkconfig go-agent-1 on</code></pre></div></li>
-</ul></li>
-
-<li><p>You can now start or stop the second agent using /etc/init.d/go-agent-1
-(passing it the start or stop) arguments as usual. Logs will be written to
-/var/log/go-agent-1/.</p></li>
-
-<li><p>Repeat this process for more agents. Just change the suffix &ldquo;1&rdquo; to &ldquo;2&rdquo; and so
-on.</p></li>
-</ul>
-
-<h2 id="linux-non-rpm-non-deb-and-other-unixes">Linux (non-RPM, non-DEB and other UNIXes)</h2>
-
-<ul>
-<li><a href="../installation/installing_go_agent.html">Install your first agent with the installer</a></li>
-<li>Make an empty folder called /var/lib/go-agent-2</li>
-
-<li><p>In this folder, run</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">java -jar /usr/share/go-agent/agent-bootstrapper.jar -serverUrl https://127.0.0.1/go &amp;</code></pre></div></li>
-</ul>
+<p>See the file <code>README-running-multiple-agents.md</code> in your gocd agent installation for details on setting up multiple agents.</p>
 </article>
 
       
@@ -506,17 +401,7 @@ on.</p></li>
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#install-multiple-agents-on-the-same-machine">Install multiple agents on the same machine</a>
-<ul>
-<li><a href="#windows">Windows</a>
-<ul>
-<li><a href="#running-as-windows-service">Running as Windows service</a></li>
-<li><a href="#running-as-windows-command">Running as Windows command</a></li>
-</ul></li>
-<li><a href="#mac-osx">Mac OSX</a></li>
-<li><a href="#linux-rpm-and-deb">Linux (RPM and DEB)</a></li>
-<li><a href="#linux-non-rpm-non-deb-and-other-unixes">Linux (non-RPM, non-DEB and other UNIXes)</a></li>
-</ul></li>
+<li><a href="#install-multiple-agents-on-the-same-machine">Install multiple agents on the same machine</a></li>
 </ul>
 </nav>
   </aside>

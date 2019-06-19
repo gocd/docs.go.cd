@@ -91,26 +91,6 @@ Usage instructions  A token can be used to access GoCD APIs and cctray.xml by pa
     </item>
     
     <item>
-      <title>Administration</title>
-      <link>/navigation/pipeline_configuration.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/pipeline_configuration.html</guid>
-      <description>Pipeline configuration There are many ways to configure pipelines etc.
- Via the Admin UI described below. Using pipelines as code. Direct XML edit via the Admin UI&amp;rsquo;s Config XML tab. Configuration is possible via Config API. Direct XML edit via the file system. By default, GoCD server polls the filesystem every 5 seconds for changes to cruise-config.xml. The location of this file is indicated in the top right corner of the Admin &amp;gt; Config XML tab.</description>
-    </item>
-    
-    <item>
-      <title>Agent Details</title>
-      <link>/navigation/agent_details.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/agent_details.html</guid>
-      <description>Details of a single agent GoCD now provides a page that shows the details of a single agent. This page provides details about the agent configuration and the history of all the jobs that ran on that agent.
-Agent Details tab This tab shows the configuration and runtime information of an agent. For example, this tab shows the free space available on the agent, the IP Address and the OS of the agent.</description>
-    </item>
-    
-    <item>
       <title>Agent Health Check API</title>
       <link>/advanced_usage/agent-health-check-api.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -120,17 +100,6 @@ Agent Details tab This tab shows the configuration and runtime information of an
 The health check API allows users to monitor if the agent is connected to the server and is authorized to perform a build.
 Configurations The API uses the following configurable agent system properties.
    Property Values     go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point   go.</description>
-    </item>
-    
-    <item>
-      <title>Agents</title>
-      <link>/navigation/agents_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/agents_page.html</guid>
-      <description>Agents on GoCD The Agents page lists all the agents available to the server and their current status.
-When an Agent first connects to the Server it is &amp;lsquo;Pending&amp;rsquo;. An administrator must enable the Agent before GoCD will schedule work on that agent.
-Administrators can also disable agents. GoCD will not schedule work for a disabled Agent. If a job is building on the agent when it is disabled, that job will be completed; the agent is then disabled.</description>
     </item>
     
     <item>
@@ -212,7 +181,7 @@ Assuming that you have the certificate key (example.com.key) and X509 certificat
       <guid>/faq/rm_what_is_deployed.html</guid>
       <description> Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
 Example usage For this example, we will assume we have a stage name &amp;ldquo;production&amp;rdquo; that will automatically deploy a binary onto a production server
- Start at the Environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The Stage Details page will show every time GoCD has deployed your application  </description>
+ Start at the environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The stage details page will show every time GoCD has deployed your application  </description>
     </item>
     
     <item>
@@ -346,7 +315,7 @@ Assumptions:
       <guid>/installation/configure-agent-proxy.html</guid>
       <description>Configure a GoCD agent to connect to a server through a proxy server. Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
 Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions defined by the JVM:
- http.proxyHost (default: ) http.proxyPort (default: 80) http.nonProxyHosts (default: localhost|127.*|[::1]) https.proxyHost https.proxyPort socksProxyHost socksProxyPort (default: 1080) socksProxyVersion (default: 5)  If your proxy server is running on proxy.</description>
+ http.proxyHost http.proxyPort (default: 80) http.nonProxyHosts (default: localhost|127.*|[::1]) https.proxyHost https.proxyPort socksProxyHost socksProxyPort (default: 1080) socksProxyVersion (default: 5)  To configure an agent to use a proxy edit the wrapper-properties.</description>
     </item>
     
     <item>
@@ -439,7 +408,7 @@ Quick links  Getting started with GoCD  Test the application artifact To pull ou
       <guid>/installation/ssl_tls/setting_up_ciphers.html</guid>
       <description>Configuring SSL/TLS ciphers You can choose which ciphers and SSL/TLS protocols Go will use for communication with agents and users (and their browsers)
 Configuring GoCD server Following system properties are exposed to override the default SSL/TLS configuration for Go server:
-   Key Default value Description     go.ssl.ciphers.include null A comma-separated list of cipher suite names (exact or regular expression) to be enabled   go.</description>
+   System Property Default value Description     go.ssl.ciphers.include null A comma-separated list of cipher suite names (exact or regular expression) to be enabled   go.</description>
     </item>
     
     <item>
@@ -517,16 +486,6 @@ The agent by default trusts any and all certificates offered to it, which may po
     </item>
     
     <item>
-      <title>Environments</title>
-      <link>/navigation/environments_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/environments_page.html</guid>
-      <description>Environments on GoCD The &amp;ldquo;Environments&amp;rdquo; page displays all environments along with it&amp;rsquo;s associated pipelines and materials.
-Key  Name of the environment Name of each pipeline associated with the environment A graphical icon informing you if there are new revisions The label name running in the environment for each pipeline, when the label was deployed and stage information A graphical status bar of each pipleline broken down by stage and state A collapsable list of all materials associated with each pipeline.</description>
-    </item>
-    
-    <item>
       <title>Fan In</title>
       <link>/advanced_usage/fan_in.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -551,8 +510,8 @@ Key  Name of the environment Name of each pipeline associated with the environme
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/install/agent/zip.html</guid>
-      <description>Running GoCD agent via zip without installation If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
- Download the zip installer for GoCD agent Unzip the installer in a folder of your choice. It creates a subfolder with the name go-agent-${version} Set java in path  If you are on a Windows system, set GO_AGENT_JAVA_HOME to the installation path of java on the system If you are on a Unix system, set JAVA_HOME to the installation path of java on the system  Open a command prompt and go to the folder Start the agent  If you are on a Windows system, run start-agent.</description>
+      <description>Advanced installation of GoCD server using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
+ Download the zip installer for GoCD agent Unzip the installer in a folder of your choice. It creates a subfolder with the name go-agent-${version} Ensure that java executable is available on the PATH environment variable.</description>
     </item>
     
     <item>
@@ -561,8 +520,8 @@ Key  Name of the environment Name of each pipeline associated with the environme
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/install/server/zip.html</guid>
-      <description>Running GoCD server via zip without installation If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
- Download the zip installer for GoCD server Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version} Set java in path  If you are on a Windows system, set GO_SERVER_JAVA_HOME to the installation path of java on the system If you are on a Unix system, set JAVA_HOME to the installation path of java on the system  Open a command prompt and go to the folder Start the server  If you are on a Windows system, run start-server.</description>
+      <description>Advanced installation of GoCD server using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
+ Download the zip installer for GoCD server Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version} Ensure that java executable is available on the PATH environment variable.</description>
     </item>
     
     <item>
@@ -650,6 +609,70 @@ Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
     </item>
     
     <item>
+      <title>Installing GoCD agent on Linux</title>
+      <link>/installation/install/agent/linux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/linux.html</guid>
+      <description>Installing GoCD agent on Linux Installation of the GoCD agent using the package manager will require root access on the machine.
+RPM based distributions (ie RedHat/CentOS/Fedora) The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
+If you prefer to use the YUM repository and install via YUM, paste the following in your shell -
+sudo curl https://download.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD agent on Windows</title>
+      <link>/installation/install/agent/windows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/windows.html</guid>
+      <description>Installing GoCD agent on Windows You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.
+ Download a version of go-agent from the downloads page. Double-click the go-agent-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Linux</title>
+      <link>/installation/install/server/linux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/linux.html</guid>
+      <description>Installing GoCD server on Linux Installation of the GoCD server using the package manager will require root access on the machine.
+RPM based distributions (ie RedHat/CentOS/Fedora) The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
+If you prefer to use the YUM repository and install via YUM, paste the following in your shell -
+sudo curl https://download.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Mac OS X</title>
+      <link>/installation/install/agent/osx.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/osx.html</guid>
+      <description>Installing GoCD agent on Mac OS X  Download the Mac OSX installer for GoCD agent from downloads page Unzip the installer in a folder of your choice. It creates a subfolder with the name go-agent-${version}  Managing the GoCD agent process The GoCD agent script must be run with one of the following arguments:
+   Script Description     ./bin/go-agent console The GoCD agent will be started in the foreground   .</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Mac OS X</title>
+      <link>/installation/install/server/osx.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/osx.html</guid>
+      <description>Installing GoCD server on Mac OS X  Download the Mac OSX installer for GoCD server from downloads page Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version}  Managing the GoCD server process The GoCD server script must be run with one of the following arguments:
+   Script Description     ./bin/go-server console The GoCD server will be started in the foreground   .</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Windows</title>
+      <link>/installation/install/server/windows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/windows.html</guid>
+      <description>Installing GoCD server on Windows You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.
+ Download a version of go-server from the downloads page. Double-click the go-server-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</description>
+    </item>
+    
+    <item>
       <title>Introduction</title>
       <link>/gocd_on_kubernetes/introduction.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -661,16 +684,6 @@ With this documentation guide, you&amp;rsquo;ll be able to
     </item>
     
     <item>
-      <title>Job Details</title>
-      <link>/navigation/job_details_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/job_details_page.html</guid>
-      <description>Job Details in GoCD The &amp;ldquo;Job Details&amp;rdquo; page shows the details of a job within a specific stage.
-Key  The &amp;ldquo;Console&amp;rdquo; Tab shows the console output of the agent running the job in near-real time The &amp;ldquo;Tests&amp;rdquo; Tab shows junit compliant test output. (After you upload test reports) The &amp;ldquo;Failures&amp;rdquo; Tab shows any test, server, compilation or network error associated with a failed job run The &amp;ldquo;Artifacts&amp;rdquo; Tab shows a collapsible list of the job&amp;rsquo;s artifacts The &amp;ldquo;Materials&amp;rdquo; Tab shows what activated the pipeline through a list of comments and revisions The &amp;ldquo;Properties&amp;rdquo; Tab shows the list of properties for the job.</description>
-    </item>
-    
-    <item>
       <title>Job Timeout</title>
       <link>/configuration/job_timeout.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -678,26 +691,6 @@ Key  The &amp;ldquo;Console&amp;rdquo; Tab shows the console output of the agent
       <guid>/configuration/job_timeout.html</guid>
       <description>Job Timeout Introduction GoCD can be configured to automatically cancel jobs that do not generate any console output for a period of time. Default Job timeout options include:
  Never : Jobs will never be timed out by default. You can override this behavior when configuring the job in the job editor Timeout after a period of inactivity : A job will be cancelled if it did not have any console output for a period of time (in minutes)  When a job is timed out, the onCancel task for the job will be triggered.</description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>/installation/install/agent/linux.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/install/agent/linux.html</guid>
-      <description>Installing GoCD agent on Linux Installation of the GoCD agent using the package manager will require root access on the machine. You are also required to have a java version 8 (same version as the GoCD server) for the agent to run.
-The installer will create a user called go if one does not exist on the machine. The home directory will be set to /var/go. If you want to create your own go user, make sure you do it before you install the GoCD agent.</description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>/installation/install/server/linux.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/install/server/linux.html</guid>
-      <description>Installing GoCD server on Linux Installation of the GoCD server using the package manager will require root access on the machine. You are also required to have a java version 8 for the server to run.
-The installer will create a user called go if one does not exist on the machine. The home directory will be set to /var/go. If you want to create your own go user, make sure you do it before you install the GoCD server.</description>
     </item>
     
     <item>
@@ -722,33 +715,13 @@ Note: The system property deals with configuring the log location for the GoCD s
     </item>
     
     <item>
-      <title>Mac OS X</title>
-      <link>/installation/install/agent/osx.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/install/agent/osx.html</guid>
-      <description>Installing GoCD agent on Mac OS X  Note: Installation of GoCD agent on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this document
- Installation  Download the Mac OSX installer for GoCD Agent from the downloads page. Unzip the contents. It creates a subfolder with the name go-agent-${version} Open a command prompt and go to the folder. To start the server, run:</description>
-    </item>
-    
-    <item>
-      <title>Mac OS X</title>
-      <link>/installation/install/server/osx.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/install/server/osx.html</guid>
-      <description>Installing GoCD server on Mac OS X  Note: Installation of GoCD server on Mac OSX has been changed since GoCD version 19.3.0. If you are on an older version, please refer this document
- Installation  Download the Mac OSX installer for GoCD server from downloads page Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version} Open a command prompt and go to the folder To start the server, run:</description>
-    </item>
-    
-    <item>
       <title>Mailhost Information</title>
       <link>/configuration/admin_mailhost_info.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/configuration/admin_mailhost_info.html</guid>
       <description>Mailhost information In order to allow email notifications, you need to tell GoCD information about your mailhost.
- Click on the Administration tab  Click on the &amp;lsquo;Server Configuration&amp;rsquo; sub-tab Add your mailhost information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
+ Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your mailhost information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
     </item>
     
     <item>
@@ -830,9 +803,7 @@ Adding Users  Navigate to the Admin section Click on the &amp;ldquo;User Summary
       
       <guid>/advanced_usage/admin_install_multiple_agents.html</guid>
       <description>Install multiple agents on the same machine In order to fully utilize your hardware, it is often useful to install multiple agents on a single machine.
-Currently GoCD installers do not support this out of the box. The following sections describe how this can be done manually
-Windows On Windows, multiple GoCD agents can be run in two ways - as Windows service or as a Windows command
-Running as Windows service  Install your first agent with the installer to the default location Copy the installation folder (&amp;ldquo;C:\Program Files\Go Agent&amp;rdquo;) to &amp;ldquo;C:\Program Files\Go Agent 2&amp;rdquo; Delete the file C:\Program Files\Go Agent 2\config\guid.</description>
+See the file README-running-multiple-agents.md in your gocd agent installation for details on setting up multiple agents.</description>
     </item>
     
     <item>
@@ -862,7 +833,7 @@ Notifications will only work if Security is enabled and mailhost information is 
       
       <guid>/advanced_usage/other_config_options.html</guid>
       <description>Other config options This is a list of some of the more advanced configuration options available. These will typically need to be set before the start of the GoCD Server, unless specified.
-How to set these options Environment variables If an option specified below is of type &amp;ldquo;Environment Variable&amp;rdquo;, then it needs to be made available to the GoCD Server in a way that is specified by the operating system (or distribution).</description>
+System properties If an option specified below is of type &amp;ldquo;System property&amp;rdquo;, then it will be a Java system property, which needs to be provided to the GoCD Server, typically prefixed with -D unless otherwise stated. So, if the property is called my.</description>
     </item>
     
     <item>
@@ -895,26 +866,6 @@ Defining and using a parameter Parameter values are defined in the &amp;lt;param
       <description>GoCD Performance Tuning Capacity Planning This section provides recommendations to evaluate server hardware and memory requirements for your GoCD server. It also highlights some configurations which need to be taken care of when scaling GoCD.
 Minimum server requirements The minimum requirements for a GoCD server can be found here
 Scaling GoCD As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.</description>
-    </item>
-    
-    <item>
-      <title>Pipeline Activity</title>
-      <link>/navigation/pipeline_activity_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/pipeline_activity_page.html</guid>
-      <description>Pipeline Activity in GoCD The &amp;ldquo;Pipeline Activity&amp;rdquo; page shows the history of stages for each pipeline label over the life of a specific pipeline.
-Key  The revision number and &amp;ldquo;Triggered by&amp;rdquo; provide a quick look at who activated this pipeline and why. Click &amp;ldquo;Triggered by&amp;rdquo; to show a list of comments and revisions. Hover over a stage in the pipeline configuration box to see info and stage re-run icon (see points 4 &amp;amp; 5 for further details).</description>
-    </item>
-    
-    <item>
-      <title>Pipeline Dashboard</title>
-      <link>/navigation/pipelines_dashboard_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/pipelines_dashboard_page.html</guid>
-      <description>Pipelines Dashboard in GoCD This shows the current activity in the system. You can see all the instances of a given pipeline that are currently in progress.
-Key  The pipelines are listed under the pipeline group that they belong to. You can also edit pipeline group by clicking on settings icon. Pipeline instance label defaults to the number of times a pipeline has run. Click on each stage segment to see stage details for that stage instance.</description>
     </item>
     
     <item>
@@ -1051,7 +1002,7 @@ Example usage Usage: As a developer, I want to save the average cyclomatic compl
       
       <guid>/faq/dev_see_artifact_as_tab.html</guid>
       <description>See artifacts as sub-tabs in GoCD After uploading html reports, it is often useful to be able to easily view this information when trying to understand why the build is broken.
-Example usage  Suppose we have configured GoCD to upload a flash video and html file and display it as a tab Click on the Pipelines tab   Click on the stage you want to investigate   Click on the job you want to investigate   Click on the tab you created   Clicking on the tab will load the page, which will start the video!</description>
+Example usage  Suppose we have configured GoCD to upload a flash video and html file and display it as a tab Click on the Dashboard tab   Click on the stage you want to investigate   Click on the job you want to investigate   Click on the tab you created   Clicking on the tab will load the page, which will start the video!</description>
     </item>
     
     <item>
@@ -1092,16 +1043,6 @@ Example usage For this example, we&amp;rsquo;ll assume that there is a manual &a
       <guid>/advanced_usage/admin_spawn_multiple_jobs.html</guid>
       <description>Run a Job on a group of Agents Sometimes there is a particular job that you may wish to run on all agents in an environment, or in all agents that match a certain resource tag. For example you may want to run a system update on all linux agents, or install a new piece of software.
 GoCD will run the Job on all agents that match the environment and resources specified in the job.</description>
-    </item>
-    
-    <item>
-      <title>Stage Details</title>
-      <link>/navigation/stage_details_page.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/navigation/stage_details_page.html</guid>
-      <description>Stage Details in GoCD The &amp;ldquo;Stage Details&amp;rdquo; page displays details of a specific stage.
-Key  Name of the stage. The jobs in this stage are grouped by status: Passed, Failed, Cancelled, In Progress. Expand these sections to see the jobs. Click the job name to view job details for that job. Lists all the material changes that were part of the build in this stage. Details of a specific stage run: run number, status, when it was triggered, who triggered it and duration of the stage.</description>
     </item>
     
     <item>
@@ -1218,26 +1159,6 @@ A value stream map can be drawn for every instance of a pipeline. It provides yo
 Example usage Usage: As a developer, I want to understand why the build is broken.
 Let&amp;rsquo;s assume that in this case, we are on a java project using JUnit as our testing library.
  If we&amp;rsquo;re not already, we need to configure Go to upload JUnit xml reports Click on the Pipelines tab   Click on the failed stage you want to investigate   Click on the failed job   The &amp;ldquo;Failures&amp;rdquo; sub-tab should help you diagnose what is wrong with your build   If you need more information, the &amp;ldquo;Console&amp;rdquo; sub-tab contains everything that was written out to the console (including extra information from Go)  </description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>/installation/install/agent/windows.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/install/agent/windows.html</guid>
-      <description>Installing GoCD agent on Windows Installation You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.
- Download a version of go-agent from the downloads page. Double-click the go-agent-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</description>
-    </item>
-    
-    <item>
-      <title>Windows</title>
-      <link>/installation/install/server/windows.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/install/server/windows.html</guid>
-      <description>Installing GoCD server on Windows Installation You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.
- Download a version of go-server from the downloads page. Double-click the go-server-${version}.exe installer file and follow the prompts to install Go. During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</description>
     </item>
     
     <item>

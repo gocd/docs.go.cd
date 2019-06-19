@@ -142,9 +142,7 @@ Maintenance mode is a maintenance mode which can be utilized by the GoCD system 
       
       <guid>/advanced_usage/admin_install_multiple_agents.html</guid>
       <description>Install multiple agents on the same machine In order to fully utilize your hardware, it is often useful to install multiple agents on a single machine.
-Currently GoCD installers do not support this out of the box. The following sections describe how this can be done manually
-Windows On Windows, multiple GoCD agents can be run in two ways - as Windows service or as a Windows command
-Running as Windows service  Install your first agent with the installer to the default location Copy the installation folder (&amp;ldquo;C:\Program Files\Go Agent&amp;rdquo;) to &amp;ldquo;C:\Program Files\Go Agent 2&amp;rdquo; Delete the file C:\Program Files\Go Agent 2\config\guid.</description>
+See the file README-running-multiple-agents.md in your gocd agent installation for details on setting up multiple agents.</description>
     </item>
     
     <item>
@@ -154,7 +152,7 @@ Running as Windows service  Install your first agent with the installer to the d
       
       <guid>/advanced_usage/other_config_options.html</guid>
       <description>Other config options This is a list of some of the more advanced configuration options available. These will typically need to be set before the start of the GoCD Server, unless specified.
-How to set these options Environment variables If an option specified below is of type &amp;ldquo;Environment Variable&amp;rdquo;, then it needs to be made available to the GoCD Server in a way that is specified by the operating system (or distribution).</description>
+System properties If an option specified below is of type &amp;ldquo;System property&amp;rdquo;, then it will be a Java system property, which needs to be provided to the GoCD Server, typically prefixed with -D unless otherwise stated. So, if the property is called my.</description>
     </item>
     
     <item>

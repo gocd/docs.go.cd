@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../../../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../../../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../../../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../../../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../../../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../../../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -363,41 +355,63 @@ if (!doNotTrack) {
       
 <article class="markdown">
 
-<h1 id="running-gocd-agent-via-zip-without-installation">Running GoCD agent via zip without installation</h1>
+<h1 id="advanced-installation-of-gocd-server-using-zip-installer">Advanced installation of GoCD server using zip installer</h1>
 
 <p>If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.</p>
 
 <ul>
 <li>Download the zip installer for GoCD agent</li>
 <li>Unzip the installer in a folder of your choice. It creates a subfolder with the name <code>go-agent-${version}</code></li>
-<li>Set <code>java</code> in path
-
-<ul>
-<li>If you are on a Windows system, set <code>GO_AGENT_JAVA_HOME</code> to the installation path of java on the system</li>
-<li>If you are on a Unix system, set <code>JAVA_HOME</code> to the installation path of java on the system</li>
-</ul></li>
-<li>Open a command prompt and go to the folder</li>
-<li>Start the agent
-
-<ul>
-<li>If you are on a Windows system, run <code>start-agent.bat</code></li>
-<li>If you are on a Unix system, run <code>agent.sh</code>  (Ensure that <code>agent.sh</code> is executable)</li>
-</ul></li>
+<li>Ensure that <code>java</code> executable is available on the <code>PATH</code> environment variable. If you have multiple versions of java, or want to use a version of java that is not available on <code>PATH</code> environment variable, edit the file <code>wrapper-config/wrapper-properties.conf</code> and change the variable <code>wrapper.java.command</code> to point to the java executable.</li>
 </ul>
 
-<blockquote>
-<p><strong>Note:</strong> You can override default environment for the GoCD agent by editing the file <code>/etc/defaults/go-agent</code></p>
-</blockquote>
+<h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 
-<p>GoCD agent, by default, will attempt to connect to the GoCD server running on the same system. If you want it to connect to a different GoCD server, set the environment variable <code>GO_SERVER</code> or edit the startup scripts suitably</p>
+The GoCD agent script must be run with one of the following arguments:</p>
+
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>./bin/go-agent console</code></td>
+<td>The GoCD agent will be started in the foreground</td>
+</tr>
+
+<tr>
+<td><code>./bin/go-agent start</code></td>
+<td>The GoCD agent will be started as a daemon in the background</td>
+</tr>
+
+<tr>
+<td><code>./bin/go-agent stop</code></td>
+<td>The GoCD agent will be stopped</td>
+</tr>
+
+<tr>
+<td><code>./bin/go-agent restart</code></td>
+<td>The GoCD agent will be restarted</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
+
+Users can override default startup arguments in a editing the file <code>./wrapper-config/wrapper-properties.conf</code>. See the file <code>./wrapper-config/wrapper-properties.conf.example</code> for example usage.
 
 <h2 id="registering-your-agent-with-the-server">Registering your agent with the server</h2>
 
-<p>For security reasons, all newly installed Go agents need to be enabled on the Go server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed Go agent, do the following:</p>
+<p>For security reasons, all newly installed GoCD agents need to be enabled on the GoCD server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed GoCD agent, do the following:</p>
 
 <ol>
-<li>Open the Go server dashboard</li>
-<li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The Go server will now schedule work for this agent.</li>
+<li>Open the GoCD server dashboard</li>
+<li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The GoCD server will now schedule work for this agent.</li>
 </ol>
 
 </article>
@@ -441,7 +455,11 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#running-gocd-agent-via-zip-without-installation">Running GoCD agent via zip without installation</a></li>
+<li><a href="#advanced-installation-of-gocd-server-using-zip-installer">Advanced installation of GoCD server using zip installer</a>
+<ul>
+<li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
+<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
+</ul></li>
 </ul>
 </nav>
   </aside>

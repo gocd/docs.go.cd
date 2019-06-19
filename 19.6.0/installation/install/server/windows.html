@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Windows | GoCD User Documentation</title>
+<title>Installing GoCD server on Windows | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../../../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../../../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../../../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../../../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../../../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../../../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -348,7 +340,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../../svg/menu.svg" />
   </label>
-  <strong>Windows</strong>
+  <strong>Installing GoCD server on Windows</strong>
 </header>
 
       
@@ -365,25 +357,24 @@ if (!doNotTrack) {
 
 <h1 id="installing-gocd-server-on-windows">Installing GoCD server on Windows</h1>
 
-<!-- toc -->
-
-<h2 id="installation">Installation</h2>
-
 <p>You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.</p>
 
-<ol>
+<ul>
 <li>Download a version of go-server from the <a href="https://www.gocd.org/download/">downloads page</a>.</li>
-<li>Double-click the <code>go-server-${version}.exe</code> installer file and follow the prompts to install Go.</li>
+<li>Double-click the <code>go-server-${version}-setup.exe</code> installer file and follow the prompts to install Go.</li>
 <li>During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default</li>
 <li>You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</li>
 <li>At the end of the installation, GoCD server will register itself as a windows service owned by &lsquo;Local System&rsquo; and start running automatically</li>
 <li>Shortcuts to GoCD will be placed on your Desktop and in your Start Menu for convenience - double-click the shortcut to GoCD to the GoCD dashboard</li>
-</ol>
+</ul>
 
-<h1 id="silent-headless-installation">Silent (Headless) Installation</h1>
+<h2 id="silent-headless-installation">Silent (Headless) Installation</h2>
 
 <p>You may use this method if you would like to script the installation of the GoCD server.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>-setup.exe /S /GO_SERVER_JAVA_HOME<span style="color:#666">=</span>&lt;PATH_TO_JAVA_HOME&gt; /D<span style="color:#666">=</span>&lt;PATH_TO_SERVER_DIRECTORY&gt;</code></pre></div>
+
+<pre><code>go-server-${version}-setup.exe /S /D=&lt;PATH_TO_SERVER_DIRECTORY&gt;
+</code></pre>
+
 <table>
 <thead>
 <tr>
@@ -395,69 +386,85 @@ if (!doNotTrack) {
 
 <tbody>
 <tr>
-<td><code>GO_SERVER_JAVA_HOME</code></td>
+<td><code>/D</code></td>
 <td>No</td>
-<td>The path to a JRE (or JDK) that the server should run with. Defaults to the jre packaged with the server. Needs to be at-least Java 8.</td>
-</tr>
-
-<tr>
-<td><code>PATH_TO_SERVER_DIRECTORY</code></td>
-<td>No</td>
-<td>The path where the server should be installed. Defaults to <code>C:\Program Files(x86)\Go Server</code>.</td>
+<td>The path where the server should be installed. Defaults to <code>C:\Program Files(x86)\Go Server</code>. <strong>Must be the last parameter on the command line and must not contain quotes even if the path contains blank spaces.</strong></td>
 </tr>
 </tbody>
 </table>
 
 <p>For example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-server-16.1.0-1234-setup.exe /S /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\s</span>erver</code></pre></div>
+
+<pre><code>C:\&gt; go-server-16.1.0-1234-setup.exe /S /D=C:\go\server
+</code></pre>
+
 <p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 
 
-<h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
+<h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 
-<ul>
-<li>Create a file named <code>config/wrapper-properties.conf</code> where you installed the server</li>
-<li>Copy any specific properties, or add new properties from <code>config/wrapper-server.conf</code> into this file. Be sure to increment the property index if you&rsquo;re adding any new properties.</li>
-
-<li><p>For e.g. to override the <code>-Xmx</code> to <code>12GB</code>, override <code>wrapper.java.additional.2</code> -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-wrapper.java.additional.2<span style="color:#666">=</span>-Xmx12g</code></pre></div></li>
-
-<li><p>To append additional JVM args to the server</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-<span style="color:#080;font-style:italic"># since the last &#34;wrapper.java.additional&#34; index is 15, we use the next available index.</span>
-wrapper.java.additional.16<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar</code></pre></div></li>
-
-<li><p>Each property must be configured separately</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
-wrapper.java.additional.16<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
-
-Valid properties,
-wrapper.java.additional.16<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
-wrapper.java.additional.17<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
-<p><strong>Please note</strong> : If the go-server as an application is run by any user, then this user needs to have these required permissions to the go-server folder, i.e. modify, read and execute, list folder contents and read permissions.</p></li>
-</ul>
+<p>You can manage the GoCD server process from the windows service manager</p>
 
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
 
 <p>All the files for the GoCD server are under the root installation path on Windows. The default location is <code>C:\Program Files\Go Server</code>.</p>
 
-<h2 id="copying-existing-config-to-a-new-gocd-server-instance">Copying existing config to a new GoCD Server instance</h2>
+The GoCD server installs its files in the following locations on your filesystem:</p>
 
-<p>You can replicate a GoCD server with all the pipeline, stage, job, tasks and materials definitions/configuration intact.</p>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Description</th>
+</tr>
+</thead>
 
-<p>To do this, the administrator should copy <code>/etc/go/cruise-config.xml</code> from the config directory (<code>/etc/go</code>) to the new server and clear
-<code>serverId</code> attribute of <code>server</code> tag.</p>
+<tbody>
+<tr>
+<td><code>${INSTALL_DIR}/db</code></td>
+<td>the GoCD server database</td>
+</tr>
 
-<blockquote>
-<p><strong>Note:</strong> Copying just the <code>cruise-config.xml</code> file will not migrate the historical pipeline data and
-artifacts. Please see the page on <a href="../../../advanced_usage/one_click_backup.html">backing up the GoCD Server</a> to fully
-migrate an existing GoCD server.</p>
-</blockquote>
+<tr>
+<td><code>${INSTALL_DIR}/artifacts</code></td>
+<td>the GoCD server artifacts</td>
+</tr>
 
-<p><strong>Also see&hellip;</strong></p>
+<tr>
+<td><code>${INSTALL_DIR}/plugins</code></td>
+<td>the GoCD server plugins</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/config</code></td>
+<td>the GoCD server configuration</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/logs</code></td>
+<td>the GoCD server log files</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/{lib,wrapper}</code></td>
+<td>the GoCD server binaries and startup scripts</td>
+</tr>
+
+<tr>
+<td><code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code></td>
+<td>the configuration file to alter GoCD server properties</td>
+</tr>
+</tbody>
+</table>
+
+
+<h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
+
+Users can override default startup arguments in a editing the file <code>/wrapper-properties.conf</code>. See the file <code>/wrapper-properties.conf.example</code> for example usage.
+
+<h3 id="also-see">Also see</h3>
 
 <ul>
 <li><a href="../../installing_go_agent.html">Installing GoCD agents</a></li>
@@ -509,12 +516,10 @@ migrate an existing GoCD server.</p>
 <ul>
 <li><a href="#installing-gocd-server-on-windows">Installing GoCD server on Windows</a>
 <ul>
-<li><a href="#installation">Installation</a></li>
-</ul></li>
-<li><a href="#silent-headless-installation">Silent (Headless) Installation</a>
-<ul>
-<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
+<li><a href="#silent-headless-installation">Silent (Headless) Installation</a></li>
+<li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
 <li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
+<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
 </ul></li>
 </ul>
 </nav>

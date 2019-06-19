@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Linux | GoCD User Documentation</title>
+<title>Installing GoCD server on Linux | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../../../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../../../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../../../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../../../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../../../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../../../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -348,7 +340,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../../svg/menu.svg" />
   </label>
-  <strong>Linux</strong>
+  <strong>Installing GoCD server on Linux</strong>
 </header>
 
       
@@ -365,25 +357,19 @@ if (!doNotTrack) {
 
 <h1 id="installing-gocd-server-on-linux">Installing GoCD server on Linux</h1>
 
-<!-- toc -->
-
-<p>Installation of the GoCD server using the package manager will require root access on the machine. You are also required to have a java version 8 for the server to run.</p>
-
-<p>The installer will create a user called <code>go</code> if one does not exist on the machine. The home directory will be set to <code>/var/go</code>. If you want to create your own <code>go</code> user, make sure you do it before you install the GoCD server.</p>
+<p>Installation of the GoCD server using the package manager will require <code>root</code> access on the machine.</p>
 
 <h2 id="rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 
 <p>The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
 
 <p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
-sudo yum install -y java-1.8.0-openjdk <span style="color:#080;font-style:italic">#atleast Java 8 is required, you may use other jre/jdk if you prefer</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo</code></pre></div>
 
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yum install -y go-server</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-server</code></pre></div>
 <p>Alternatively, if you have the server RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo yum install -y java-1.8.0-openjdk <span style="color:#080;font-style:italic">#atleast Java 8 is required, you may use other jre/jdk if you prefer</span>
-sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm</code></pre></div>
 <h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
 
 <p>The GoCD server .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
@@ -392,52 +378,104 @@ sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span s
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
 curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
 sudo apt-get update</code></pre></div>
-<p>Note: The GoCD server and agent require Java 8 to be installed.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo add-apt-repository ppa:openjdk-r/ppa
-sudo apt-get update
-sudo apt-get install -y openjdk-8-jre</code></pre></div>
 
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt-get install go-server</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-server</code></pre></div>
 <p>Alternatively, if you have the server DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
-<h2 id="managing-the-go-server-service-on-linux">Managing the go-server service on linux</h2>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
+<h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 
-<p>To manage the go-server service, you may use the following commands -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo /etc/init.d/go-server <span style="color:#666">[</span>start|stop|status|restart<span style="color:#666">]</span></code></pre></div>
-<p>Once the installation is complete the GoCD server will be started and it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
+The GoCD server script must be run with one of the following arguments:</p>
+
+<table>
+<thead>
+<tr>
+<th>Script</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>/etc/init.d/go-server console</code></td>
+<td>The GoCD server will be started in the foreground</td>
+</tr>
+
+<tr>
+<td><code>/etc/init.d/go-server start</code></td>
+<td>The GoCD server will be started as a daemon in the background</td>
+</tr>
+
+<tr>
+<td><code>/etc/init.d/go-server stop</code></td>
+<td>The GoCD server will be stopped</td>
+</tr>
+
+<tr>
+<td><code>/etc/init.d/go-server restart</code></td>
+<td>The GoCD server will be restarted</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Once the GoCD server is started the GoCD server will be started and it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
 
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
 
 <p>The GoCD server installs its files in the following locations on your filesystem:</p>
 
-<pre><code>/var/lib/go-server       #contains the binaries and database
-/etc/go                  #contains the pipeline configuration files
-/var/log/go-server       #contains the server logs
-/usr/share/go-server     #contains the start script
-/etc/default/go-server   #contains all the environment variables with default values. These variable values can be changed as per requirement.
-</code></pre>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>/var/lib/go-server/db</code></td>
+<td>the GoCD server database</td>
+</tr>
+
+<tr>
+<td><code>/var/lib/go-server/artifacts</code></td>
+<td>the GoCD server artifacts</td>
+</tr>
+
+<tr>
+<td><code>/var/lib/go-server/plugins</code></td>
+<td>the GoCD server plugins</td>
+</tr>
+
+<tr>
+<td><code>/etc/go</code></td>
+<td>the GoCD server configuration</td>
+</tr>
+
+<tr>
+<td><code>/var/log/go-server</code></td>
+<td>the GoCD server log files</td>
+</tr>
+
+<tr>
+<td><code>/usr/share/go-server</code></td>
+<td>the GoCD server binaries and startup scripts</td>
+</tr>
+
+<tr>
+<td><code>/usr/share/go-server/wrapper-config/wrapper-properties.conf</code></td>
+<td>the configuration file to alter GoCD server properties</td>
+</tr>
+</tbody>
+</table>
 
 <h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
 
-<p>Users can override default startup arguments in a Linux machine by editing the file etc/default/go-server.</p>
+Users can override default startup arguments in a editing the file <code>/wrapper-properties.conf</code>. See the file <code>/wrapper-properties.conf.example</code> for example usage.
 
-<p>For e.g To reduce the session timeout from default 14 days to 60 seconds, user can set the following GoCD server system property</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"> <span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b8860b">$GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#b44"> -Dgo.server.session.timeout.seconds=60&#34;</span></code></pre></div>
-<h2 id="copying-existing-config-to-a-new-gocd-server-instance">Copying existing config to a new GoCD Server instance</h2>
-
-<p>You can replicate a GoCD server with all the pipeline, stage, job, tasks and materials definitions/configuration intact.</p>
-
-<p>To do this, the administrator should copy <code>/etc/go/cruise-config.xml</code> from the config directory (<code>/etc/go</code>) to the new server and clear
-<code>serverId</code> attribute of <code>server</code> tag.</p>
-
-<blockquote>
-<p><strong>Note:</strong> Copying just the <code>cruise-config.xml</code> file will not migrate the historical pipeline data and
-artifacts. Please see the page on <a href="../../../advanced_usage/one_click_backup.html">backing up the GoCD Server</a> to fully
-migrate an existing GoCD server.</p>
-</blockquote>
-
-<p><strong>Also see&hellip;</strong></p>
+<h3 id="also-see">Also see</h3>
 
 <ul>
 <li><a href="../../installing_go_agent.html">Installing GoCD agents</a></li>
@@ -491,7 +529,7 @@ migrate an existing GoCD server.</p>
 <ul>
 <li><a href="#rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
 <li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
-<li><a href="#managing-the-go-server-service-on-linux">Managing the go-server service on linux</a></li>
+<li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
 <li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
 <li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
 </ul></li>

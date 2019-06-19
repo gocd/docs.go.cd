@@ -28,7 +28,7 @@
       <guid>/faq/rm_what_is_deployed.html</guid>
       <description> Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
 Example usage For this example, we will assume we have a stage name &amp;ldquo;production&amp;rdquo; that will automatically deploy a binary onto a production server
- Start at the Environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The Stage Details page will show every time GoCD has deployed your application  </description>
+ Start at the environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The stage details page will show every time GoCD has deployed your application  </description>
     </item>
     
     <item>
@@ -157,7 +157,7 @@ Example usage Usage: As a developer, I want to save the average cyclomatic compl
       
       <guid>/faq/dev_see_artifact_as_tab.html</guid>
       <description>See artifacts as sub-tabs in GoCD After uploading html reports, it is often useful to be able to easily view this information when trying to understand why the build is broken.
-Example usage  Suppose we have configured GoCD to upload a flash video and html file and display it as a tab Click on the Pipelines tab   Click on the stage you want to investigate   Click on the job you want to investigate   Click on the tab you created   Clicking on the tab will load the page, which will start the video!</description>
+Example usage  Suppose we have configured GoCD to upload a flash video and html file and display it as a tab Click on the Dashboard tab   Click on the stage you want to investigate   Click on the job you want to investigate   Click on the tab you created   Clicking on the tab will load the page, which will start the video!</description>
     </item>
     
     <item>

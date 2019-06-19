@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -370,33 +362,25 @@ if (!doNotTrack) {
 <p>Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions <a href="https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html">defined by the JVM</a>:</p>
 
 <ul>
-<li><code>http.proxyHost</code> (default: <none>)</li>
+<li><code>http.proxyHost</code></li>
 <li><code>http.proxyPort</code> (default: <code>80</code>)</li>
 <li><code>http.nonProxyHosts</code> (default: <code>localhost|127.*|[::1]</code>)</li>
 <li><code>https.proxyHost</code></li>
 <li><code>https.proxyPort</code></li>
 <li><code>socksProxyHost</code></li>
-<li><code>socksProxyPort</code> (default: 1080)</li>
-<li><code>socksProxyVersion</code> (default: 5)</li>
+<li><code>socksProxyPort</code> (default: <code>1080</code>)</li>
+<li><code>socksProxyVersion</code> (default: <code>5</code>)</li>
 </ul>
 
-<p>If your proxy server is running on <code>proxy.example.com</code> port <code>3128</code>, you will need to setup the following system properties:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">-Dhttp.proxyHost<span style="color:#666">=</span>proxy.example.com -Dhttp.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span> -Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com -Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span> -Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost</code></pre></div>
-<p>To avoid using proxies for certain hosts, you may use <code>http.nonProxyHosts</code> which is a list of hostnames or ip addresses separated by a pipe character(<code>|</code>), you may include a wildcard character (<code>*</code>) for matching. For example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">-Dhttp.nonProxyHosts<span style="color:#666">=</span><span style="color:#b44">&#39;*.foo.com|localhost&#39;</span></code></pre></div>
-<p><strong>Note:</strong> that the pipe character (<code>|</code>) may wildcard (<code>*</code>) may need special escaping on Linux.</p>
+<p>To configure an agent to use a proxy edit the <code>wrapper-properties.conf</code> and add the following system properties. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># the proxy server</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com
+<span style="color:#080;font-style:italic"># the proxy port</span>
+wrapper.java.additional.101-Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span>
+<span style="color:#080;font-style:italic"># do not proxy connections to these hosts</span>
+wrapper.java.additional.102-Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com
 
-<h2 id="configuring-an-agent-on-linux">Configuring an agent on Linux</h2>
-
-<p>To setup the agent on linux, edit the file <code>/etc/default/go-agent</code> and add the following:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#b8860b">PROXY_SETTINGS</span><span style="color:#666">=</span><span style="color:#b44">&#34;-Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=&#39;localhost|*.department.acme.com&#39;&#34;</span>
-<span style="color:#b8860b">GO_AGENT_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">PROXY_SETTINGS</span><span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">&#34;</span>
-<span style="color:#b8860b">AGENT_BOOTSTRAPPER_JVM_ARGS</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">PROXY_SETTINGS</span><span style="color:#b68;font-weight:bold">}</span><span style="color:#b44">&#34;</span></code></pre></div>
-<h2 id="configuring-an-agent-on-windows">Configuring an agent on Windows</h2>
-
-<p>Follow the <a href="../installation/install/agent/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for GoCD agents setup on windows, such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=&#39;localhost|*.department.acme.com&#39;&#34;</span>
-set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>%AGENT_STARTUP_ARGS% -Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com -Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span> <span style="color:#b44">&#39;-Dhttp.nonProxyHosts=localhost|*.department.acme.com&#39;</span></code></pre></div></article>
+set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>%AGENT_STARTUP_ARGS% -Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com -Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span> -Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com</code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -437,11 +421,7 @@ set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>%AGENT_STARTUP_ARGS% -Dht
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#configure-a-gocd-agent-to-connect-to-a-server-through-a-proxy-server">Configure a GoCD agent to connect to a server through a proxy server.</a>
-<ul>
-<li><a href="#configuring-an-agent-on-linux">Configuring an agent on Linux</a></li>
-<li><a href="#configuring-an-agent-on-windows">Configuring an agent on Windows</a></li>
-</ul></li>
+<li><a href="#configure-a-gocd-agent-to-connect-to-a-server-through-a-proxy-server">Configure a GoCD agent to connect to a server through a proxy server.</a></li>
 </ul>
 </nav>
   </aside>

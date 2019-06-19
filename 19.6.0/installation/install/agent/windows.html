@@ -6,7 +6,7 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Windows | GoCD User Documentation</title>
+<title>Installing GoCD agent on Windows | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../../../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../../../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../../../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../../../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../../../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../../../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../../../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -348,7 +340,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../../svg/menu.svg" />
   </label>
-  <strong>Windows</strong>
+  <strong>Installing GoCD agent on Windows</strong>
 </header>
 
       
@@ -365,10 +357,6 @@ if (!doNotTrack) {
 
 <h1 id="installing-gocd-agent-on-windows">Installing GoCD agent on Windows</h1>
 
-<!-- toc -->
-
-<h2 id="installation">Installation</h2>
-
 <p>You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.</p>
 
 <ol>
@@ -376,14 +364,14 @@ if (!doNotTrack) {
 <li>Double-click the <code>go-agent-${version}-setup.exe</code> installer file and follow the prompts to install Go.</li>
 <li>During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</li>
 <li>You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</li>
-<li>After installing the files, the installer will prompt you for the hostname or IP address of the GoCD server. Leaving this blank it will default to <code>localhost</code>.</li>
+<li>After installing the files, the installer will prompt you for the hostname or IP address of the GoCD server. Leaving this blank it will default to <code>https://localhost:8154/go</code>.</li>
 <li>At the end of the installation, GoCD agent registers itself as a windows service and starts running automatically.</li>
 </ol>
 
 <h1 id="silent-headless-installation">Silent (Headless) Installation</h1>
 
 <p>You may use this method if you would like to script the installation of the GoCD agent.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>-setup.exe /S /START_AGENT<span style="color:#666">=</span>NO /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;&lt;SERVERURL&gt;&#34;</span> /GO_AGENT_JAVA_HOME<span style="color:#666">=</span>&lt;PATH_TO_JAVA_HOME&gt; /D<span style="color:#666">=</span>&lt;PATH_TO_AGENT_DIRECTORY&gt;</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>-setup.exe /S /START_AGENT<span style="color:#666">=</span>NO /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;&lt;SERVERURL&gt;&#34;</span> /D<span style="color:#666">=</span>&lt;PATH_TO_AGENT_DIRECTORY&gt;</code></pre></div>
 <table>
 <thead>
 <tr>
@@ -395,76 +383,47 @@ if (!doNotTrack) {
 
 <tbody>
 <tr>
-<td><code>SERVERURL</code></td>
+<td><code>/D</code></td>
 <td>No</td>
-<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>. The value must be surrounded by <code>&quot;</code> quotes. If using <code>powershell.exe</code>, the quotes must be escaped with backticks <code>`</code></td>
+<td>The path where the server should be installed. Defaults to <code>C:\Program Files(x86)\Go Server</code>. <strong>Must be the last parameter on the command line and must not contain quotes even if the path contains blank spaces.</strong></td>
 </tr>
 
 <tr>
-<td><code>START_AGENT</code></td>
+<td><code>/SERVERURL</code></td>
+<td>No</td>
+<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>.</td>
+</tr>
+
+<tr>
+<td><code>/START_AGENT</code></td>
 <td>No</td>
 <td>Whether the agent service should start after installation. Set to <code>NO</code> (case-sensitive) to disable starting up the service after installation.</td>
-</tr>
-
-<tr>
-<td><code>GO_AGENT_JAVA_HOME</code></td>
-<td>No</td>
-<td>The path to a JRE (or JDK) that the agent should run with. Defaults to the jre packaged with the agent. Needs to be at-least Java 8 (same version as the GoCD server).</td>
-</tr>
-
-<tr>
-<td><code>PATH_TO_AGENT_DIRECTORY</code></td>
-<td>No</td>
-<td>The path where the agent should be installed. Defaults to <code>C:\Program Files(x86)\Go Agent</code>.</td>
 </tr>
 </tbody>
 </table>
 
 <p>For example:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;https://10.12.20.47:8154/go&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent</code></pre></div>
-<p>In case you are using <code>powershell.exe</code> for the silent installation, the <code>SERVERURL</code> argument needs to be passed with quotes being escaped with backticks:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">`</span><span style="color:#b44">&#34;https://10.12.20.47:8154/go`&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent</code></pre></div>
 <p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 
 
-<h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
+<h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 
-<ul>
-<li>Create a file named <code>config/wrapper-properties.conf</code> where you installed the agent</li>
-<li>Copy any specific properties, or add new properties from <code>config/wrapper-agent.conf</code> into this file. Be sure to increment the property index if you&rsquo;re adding any new properties.</li>
-
-<li><p>For e.g. to override the loglevel to debug, override <code>wrapper.console.loglevel</code> -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-wrapper.console.loglevel<span style="color:#666">=</span>DEBUG</code></pre></div></li>
-
-<li><p>To append additional JVM args to the agent</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-<span style="color:#080;font-style:italic"># since the last &#34;wrapper.java.additional&#34; index is 2, we use the next available index.</span>
-wrapper.java.additional.3<span style="color:#666">=</span>-Xmx512mb</code></pre></div></li>
-
-<li><p>Each property must be configured separately</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
-wrapper.java.additional.16<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
-
-Valid properties,
-wrapper.java.additional.16<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
-wrapper.java.additional.17<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
-<p><strong>Please note</strong> : If the go-agent as an application is run by any user, then this user needs to have these required permissions to the go-agent folder, i.e. modify, read and execute, list folder contents and read permissions.</p></li>
-</ul>
+<p>You can manage the GoCD agent process from the windows service manager</p>
 
 <h2 id="location-of-gocd-agent-files">Location of GoCD agent files</h2>
 
-<p>All the files for the GoCD agent are under its root installation folder in Windows, the default location is <code>C:\Program Files\Go Agent</code>.</p>
+<p>All the files for the GoCD agent are under its root installation folder in Windows, the default location is <code>C:\Program Files (x86)\Go Agent</code>.</p>
 
 <h2 id="registering-your-agent-with-the-server">Registering your agent with the server</h2>
 
-<p>For security reasons, all newly installed Go agents need to be enabled on the Go server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed Go agent, do the following:</p>
+<p>For security reasons, all newly installed GoCD agents need to be enabled on the GoCD server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed GoCD agent, do the following:</p>
 
 <ol>
-<li>Open the Go server dashboard</li>
-<li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The Go server will now schedule work for this agent.</li>
+<li>Open the GoCD server dashboard</li>
+<li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The GoCD server will now schedule work for this agent.</li>
 </ol>
 
 </article>
@@ -508,13 +467,10 @@ wrapper.java.additional.17<span style="color:#666">=</span>-Dcruise.config.other
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#installing-gocd-agent-on-windows">Installing GoCD agent on Windows</a>
-<ul>
-<li><a href="#installation">Installation</a></li>
-</ul></li>
+<li><a href="#installing-gocd-agent-on-windows">Installing GoCD agent on Windows</a></li>
 <li><a href="#silent-headless-installation">Silent (Headless) Installation</a>
 <ul>
-<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
+<li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
 <li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
 </ul></li>
 </ul>

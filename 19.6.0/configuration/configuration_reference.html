@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.8a10e367596ad22b8cd9f16ed994fc1feb172ac352c2110b4ee2214df953f284.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -102,14 +102,6 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
-      <li class="level2"><a href="../navigation/pipelines_dashboard_page.html">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="../navigation/agents_page.html">Agents</a></li>
-      <li class="level2"><a href="../navigation/agent_details.html">Agent Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_activity_page.html">Pipeline Activity</a></li>
-      <li class="level2"><a href="../navigation/stage_details_page.html">Stage Details</a></li>
-      <li class="level2"><a href="../navigation/job_details_page.html">Job Details</a></li>
-      <li class="level2"><a href="../navigation/pipeline_configuration.html">Pipeline configuration</a></li>
-      <li class="level2"><a href="../navigation/environments_page.html">Environments</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
@@ -691,7 +683,7 @@ if (!doNotTrack) {
 <p><strong>Notes:</strong></p>
 
 <ul>
-<li>If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be <a href="http://your-go-server:8153">http://your-go-server:8153</a></li>
+<li>If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be <code>http://your-go-server:8153</code></li>
 <li>If only siteUrl is defined and is not HTTPS, Go URLs will be composed from the siteUrl entry. In this case, the secure pages of Go will not be navigable.</li>
 <li>If only siteUrl is defined and is HTTPS, Go URLs will be composed from the siteUrl entry and all pages will be HTTPS.</li>
 <li>If only secureSiteUrl is defined, Go URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the secureSiteUrl entry.</li>
@@ -2631,14 +2623,14 @@ can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue e
 
 <p><strong>Examples</strong></p>
 
-<p>Suppose you are using a Web Application to manage your tasks or bugs, and the link looks like <a href="http://your-trackingtool/yourproject/512">http://your-trackingtool/yourproject/512</a>, &lsquo;512&rsquo;
+<p>Suppose you are using a Web Application to manage your tasks or bugs, and the link looks like <code>http://your-trackingtool/yourproject/512</code>, &lsquo;512&rsquo;
 is your task ID. Your configuration would be:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://your-trackingtool/yourproject/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;evo-(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
 <p>If you check in some code with a commit message which includes the characters &lsquo;evo-512&rsquo; then that will appear in the modification pop-up
-box as a link. When you click it, Go will take you to the web page &lsquo;<a href="http://your-trackingtool/yourproject/512'">http://your-trackingtool/yourproject/512'</a>.</p>
+box as a link. When you click it, Go will take you to the web page <code>http://your-trackingtool/yourproject/512</code>.</p>
 
 <p>For example: If you use <a href="http://www.thoughtworks.com/products/mingle-agile-project-management/">Mingle</a> for your task manager, the configuration would be:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3112,7 +3104,7 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<p>Go Agent will check out source code from &lsquo;<a href="http://svn-server.com/framework'">http://svn-server.com/framework'</a> to &lsquo;/var/lib/go-agent/pipelines/myproduct/framwork&rsquo;, and from &lsquo;<a href="http://svn-server.com/componentOne'">http://svn-server.com/componentOne'</a> to &lsquo;/var/lib/go-agent/pipelines/myproduct/mycomponent&rsquo;.</p>
+<p>Go Agent will check out source code from <code>http://svn-server.com/framework</code> to <code>/var/lib/go-agent/pipelines/myproduct/framwork</code>, and from <code>http://svn-server.com/componentOne</code> to <code>/var/lib/go-agent/pipelines/myproduct/mycomponent</code>.</p>
 
 <p><a href="#top">top</a></p>
 
@@ -3809,7 +3801,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <tbody>
 <tr>
 <td><code>GO_SERVER_URL</code></td>
-<td>The base URL for the server, including &lsquo;/go&rsquo;. For example: <a href="https://localhost:8154/go">https://localhost:8154/go</a></td>
+<td>The base URL for the server, including &lsquo;/go&rsquo;. For example: <code>https://localhost:8154/go</code></td>
 </tr>
 
 <tr>
