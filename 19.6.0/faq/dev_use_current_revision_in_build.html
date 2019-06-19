@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 
-
 <html>
 
 <head>
@@ -630,9 +629,10 @@ environment variables available during every job run, set by GoCD. They are:</p>
 <li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline on revision 123, the file deploy-123.txt will be created, with the following content:</li>
 </ul>
 
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">deploy-123.txt
+<pre><code>deploy-123.txt
 
-Building pipeline my-app</code></pre></div>
+Building pipeline my-app
+</code></pre>
 
 <h4 id="multiple-materials">Multiple materials</h4>
 
@@ -642,7 +642,6 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
 <ul>
 <li>Ensure the pipeline materials look like this</li>
 </ul>
-
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;multiple-materials&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;...&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;code&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -650,11 +649,9 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-
 <ul>
 <li>Add the following target to your ant <code>build.xml</code></li>
 </ul>
-
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-app&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">environment=</span><span style="color:#b44">&#34;env&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;target</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dist&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -665,15 +662,15 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
           <span style="color:#b44">append=</span><span style="color:#b44">&#34;true&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/target&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
-
 <ul>
 <li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline with the code at revision &lsquo;123&rsquo; and the configuration at revision &lsquo;59cab75ccf231b9e338c96cff0f4adad5cb7d335&rsquo;, the file deploy-123.txt will be created with the following content:</li>
 </ul>
 
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">deploy-123.txt
+<pre><code>deploy-123.txt
 
 Building pipeline my-app
-Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335</code></pre></div>
+Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
+</code></pre>
 
 <h2 id="pass-environment-variables-to-a-job">Pass environment variables to a job</h2>
 

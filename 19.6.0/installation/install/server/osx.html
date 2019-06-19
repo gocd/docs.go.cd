@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 
-
 <html>
 
 <head>
@@ -380,8 +379,7 @@ if (!doNotTrack) {
 <li>Open a command prompt and go to the folder</li>
 
 <li><p>To start the server, run:</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">      bin/go-server start</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  bin/go-server start</code></pre></div></li>
 </ol>
 
 <h4 id="commands">Commands</h4>
@@ -409,25 +407,21 @@ stop            : Stops the server if it is running as a daemon or in
 <li>Copy any specific properties, or add new properties from <code>go-server-${version}/conf/wrapper.conf</code> into this file. Be sure to increment the property index if you&rsquo;re adding any new properties.</li>
 
 <li><p>For e.g. to override the <code>-Xmx</code> to <code>12GB</code>, override <code>wrapper.java.additional.100</code> -</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-    wrapper.java.additional.100<span style="color:#666">=</span>-Xmx12g</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Xmx12g</code></pre></div></li>
 
 <li><p>To append additional JVM args to the server</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#080;font-style:italic"># conf/wrapper.conf</span>
-    <span style="color:#080;font-style:italic"># We recommend you begin with index 100 for  &#34;wrapper.java.additional&#34;</span>
-    wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># conf/wrapper.conf</span>
+<span style="color:#080;font-style:italic"># We recommend you begin with index 100 for  &#34;wrapper.java.additional&#34;</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar</code></pre></div></li>
 
 <li><p>Each property must be configured separately</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
+wrapper.java.additional.100<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
 
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
-    wrapper.java.additional.100<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
-
-    Valid properties,
-    wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
-    wrapper.java.additional.101<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
-
+Valid properties,
+wrapper.java.additional.100<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
+wrapper.java.additional.101<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
 <p><strong>Please note</strong> : If the <code>bin/go-server</code> as an application is run by any user, then this user needs to have these required permissions to the <code>go-server-${version}</code> folder, i.e. modify, read and execute, list folder contents and read permissions.</p></li>
 
 <li><p>Rename the said file to remove the <code>.example</code> extension.</p></li>

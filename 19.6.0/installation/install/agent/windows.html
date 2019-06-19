@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 
-
 <html>
 
 <head>
@@ -437,25 +436,21 @@ if (!doNotTrack) {
 <li>Copy any specific properties, or add new properties from <code>config/wrapper-agent.conf</code> into this file. Be sure to increment the property index if you&rsquo;re adding any new properties.</li>
 
 <li><p>For e.g. to override the loglevel to debug, override <code>wrapper.console.loglevel</code> -</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-    wrapper.console.loglevel<span style="color:#666">=</span>DEBUG</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
+wrapper.console.loglevel<span style="color:#666">=</span>DEBUG</code></pre></div></li>
 
 <li><p>To append additional JVM args to the agent</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-    <span style="color:#080;font-style:italic"># since the last &#34;wrapper.java.additional&#34; index is 2, we use the next available index.</span>
-    wrapper.java.additional.3<span style="color:#666">=</span>-Xmx512mb</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
+<span style="color:#080;font-style:italic"># since the last &#34;wrapper.java.additional&#34; index is 2, we use the next available index.</span>
+wrapper.java.additional.3<span style="color:#666">=</span>-Xmx512mb</code></pre></div></li>
 
 <li><p>Each property must be configured separately</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
+wrapper.java.additional.16<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
 
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">    <span style="color:#080;font-style:italic"># Having a single property for multiple configurations is invalid, e.g</span>
-    wrapper.java.additional.16<span style="color:#666">=</span><span style="color:#b44">&#34;-Dcruise.config.foo=&#39;bar&#39; -Dcruise.config.other=&#39;baz&#39;&#34;</span>
-
-    Valid properties,
-    wrapper.java.additional.16<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
-    wrapper.java.additional.17<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
-
+Valid properties,
+wrapper.java.additional.16<span style="color:#666">=</span>-Dcruise.config.foo<span style="color:#666">=</span>bar
+wrapper.java.additional.17<span style="color:#666">=</span>-Dcruise.config.other<span style="color:#666">=</span>baz</code></pre></div>
 <p><strong>Please note</strong> : If the go-agent as an application is run by any user, then this user needs to have these required permissions to the go-agent folder, i.e. modify, read and execute, list folder contents and read permissions.</p></li>
 </ul>
 
@@ -471,6 +466,7 @@ if (!doNotTrack) {
 <li>Open the Go server dashboard</li>
 <li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The Go server will now schedule work for this agent.</li>
 </ol>
+
 </article>
 
       

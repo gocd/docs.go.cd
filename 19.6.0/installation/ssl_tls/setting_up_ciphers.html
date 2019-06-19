@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 
-
 <html>
 
 <head>
@@ -420,19 +419,16 @@ if (!doNotTrack) {
 <li><p>Linux</p>
 
 <p>This can be configured through <code>/etc/default/go-server</code>, such as:</p>
-
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.include=&#39;TLS_ECDHE.*&#39; -Dgo.ssl.ciphers.exclude=&#39;.*NULL.*,.*RC4.*&#39; -Dgo.ssl.protocols.include=&#39;TLSv1.2&#39; -Dgo.ssl.protocols.exclude=&#39;SSLv3&#39; -Dgo.ssl.renegotiation.allowed=&#39;N&#39;&#34;</span></code></pre></div></li>
 
 <li><p>Windows</p>
 
 <p>Follow the <a href="../install/server/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for Go server setup on windows, such as:</p>
-
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.include=TLS_ECDHE.*&#34;</span>
 wrapper.java.additional.18<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.exclude=.*NULL.*,.*RC4.*&#34;</span>
 wrapper.java.additional.19<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.protocols.include=TLSv1.2&#34;</span>
 wrapper.java.additional.20<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.protocols.exclude=SSLv3&#34;</span>
 wrapper.java.additional.21<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.renegotiation.allowed=N&#34;</span></code></pre></div>
-
 <p>Restart server for the changes to take effect.</p></li>
 </ul>
 
@@ -444,15 +440,12 @@ wrapper.java.additional.21<span style="color:#666">=</span><span style="color:#b
 <li><p>Linux</p>
 
 <p>This can be configured through <code>/etc/default/go-agent</code>, such as:</p>
-
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">export</span> <span style="color:#b8860b">GO_AGENT_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.agent.protocol=&#39;SSL&#39;&#34;</span></code></pre></div></li>
 
 <li><p>Windows</p>
 
 <p>Follow the <a href="../install/agent/windows.html#overriding-default-startup-arguments-and-environment">instructions</a> to add a new property for Go agents setup on windows, such as:</p>
-
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.agent.protocol=&#39;SSL&#39;&#34;</span></code></pre></div>
-
 <p>Restart agent for the changes to take effect.</p></li>
 </ul>
 

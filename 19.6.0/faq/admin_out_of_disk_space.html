@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 
-
 <html>
 
 <head>
@@ -444,15 +443,13 @@ if (!doNotTrack) {
 <li>Install the new drive</li>
 <li>Shut down GoCD server</li>
 <li>Copy all files from the original artifact repository location to the new drive</li>
-
-<li><p>Change the artifact repository location in the configuration file</p>
-
-<pre><code>&lt;server artifactsDir=&quot;/path/to/new/artifacts&quot;&gt;
+<li>Change the artifact repository location in the configuration file
+<code>xml 
+&lt;server artifactsDir=&quot;/path/to/new/artifacts&quot;&gt;
 ...
 &lt;/server&gt;
-</code></pre></li>
-
-<li><p>Start up GoCD server and verify you still have access to old artifacts</p></li>
+</code></li>
+<li>Start up GoCD server and verify you still have access to old artifacts</li>
 </ul>
 
 <h2 id="delete-unused-artifacts">Delete unused artifacts</h2>

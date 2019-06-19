@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 
 
-
 <html>
 
 <head>
@@ -390,8 +389,7 @@ if (!doNotTrack) {
 <li><p>Determine the process that&rsquo;s hung. The extra information like URL:&ldquo;<a href="https://test@bitbucket.org/test/git_repo.git&quot;">https://test@bitbucket.org/test/git_repo.git&quot;</a> in the warning information should help you with this.</p></li>
 
 <li><p>On linux system, you should see lines like these:</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    go <span style="color:#666">31201</span> <span style="color:#666">1</span>  <span style="color:#666">0</span> Feb07 ?  <span style="color:#666">00</span>:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go <span style="color:#666">31201</span> <span style="color:#666">1</span>  <span style="color:#666">0</span> Feb07 ?  <span style="color:#666">00</span>:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816</code></pre></div></li>
 
 <li><p>Kill the process and all its children (the whole process tree).</p></li>
 
@@ -408,9 +406,7 @@ if (!doNotTrack) {
 <li>GoCD server waits for 15 minutes (of no output) before it warns user about possible hung material update. User can modify this wait time using a System Property: &lsquo;material.update.inactive.timeout&rsquo;.</li>
 
 <li><p>On linux installations of GoCD server, add the following line to /etc/default/go-server.</p>
-
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">    <span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#39;-Dmaterial.update.inactive.timeout=20&#39;</span></code></pre></div>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#39;-Dmaterial.update.inactive.timeout=20&#39;</span></code></pre></div>
 <p>The above configuration sets the time that GoCD server uses to determine if a material update is possibly hung, to 20 minutes.</p></li>
 
 <li><p>On Windows, add the following line in the <em><a href="../installation/installing_go_server.html">wrapper-properties.conf</a></em> file in the config folder of the GoCD server installation where <strong>x</strong> is 1 more than the highest number in <em>wrapper-server.conf</em> and <em>wrapper-properties.conf</em> combined.</p>
