@@ -12,15 +12,11 @@ headless: true
 <hr>
 
 <ul>
-  <li class="level1">
-    <a href="{{< relref "/" >}}"><b>Introduction</b></a>
-  </li>
-
-
   <li class="level1 has-children">
     {{< figure src="/images/arrow.png" class="menu-arrow" >}}
-    <a href="#"><b>GoCD Tour</b></a>
+    <a href="#"><b>Welcome</b></a>
     <ul>
+      <li class="level2"><a href="{{< relref "/_index.md" >}}">Introduction</a></li>
       <li class="level2"><a href="{{< relref "introduction/concepts_in_go.md" >}}">Concepts in GoCD</a></li>
       <li class="level2"><a href="{{< relref "navigation/value_stream_map.md" >}}">Value Stream Map</a></li>
     </ul>

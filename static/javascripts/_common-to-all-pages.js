@@ -105,15 +105,12 @@ $(document).ready(function(){
 
   var openParentListOfLinkOfCurrentPageInMenu = function() {
     var currentPagePermalink = $("body").data("rel-permalink");
-    var currentPageLinksInMenu = $('.book-menu nav li > a[href$="' + currentPagePermalink + '"]');
+    var permalinkToSearchFor = (currentPagePermalink === '' || currentPagePermalink === '/') ? 'href="./"' : 'href$="' + currentPagePermalink + '"';
+    var currentPageLinkInMenu = $('.book-menu nav li > a[' + permalinkToSearchFor + ']').first();
 
-    if (currentPagePermalink === "" || currentPagePermalink === "/" || currentPageLinksInMenu.length <= 0) {
-      return;
-    }
-
-    currentPageLinksInMenu.parents("li.level1").addClass("active");
-    currentPageLinksInMenu.parents("ul").show();
-    scrollToCurrentPageLinkInMenu(currentPageLinksInMenu[0]);
+    currentPageLinkInMenu.parents("li.level1").addClass("active");
+    currentPageLinkInMenu.parents("ul").show();
+    scrollToCurrentPageLinkInMenu(currentPageLinkInMenu[0]);
   };
 
   var toggleMenu = function(menuElement) {
