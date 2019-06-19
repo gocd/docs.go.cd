@@ -13,9 +13,9 @@ GoCD provides a section on the stage details page to view the GoCD configuration
 
 **To navigate to the historical config:**
 
-1.  Click on the stage bar of the relevant stage on the pipelines dashboard.
-2.  Click on the tab 'Config'.
-3.  Choose the stage instance from the stage history widget on the right.
+1. Click on the stage bar of the relevant stage on the pipelines dashboard.
+2. Click on the tab 'Config'.
+3. Choose the stage instance from the stage history widget on the right.
 
 Note: This tab is available to admin users only.
 

@@ -12,9 +12,9 @@ Plugins allow users to extend the functionality of GoCD. Each plugin is assigned
 
 ## Bundled versus External
 
--   **Bundled Plugins:** As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These are developed and supported by Thoughtworks GoCD development team. Bundled plugins are located under `<server installation directory>/plugins/bundled` directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.
+- **Bundled Plugins:** As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These are developed and supported by Thoughtworks GoCD development team. Bundled plugins are located under `<server installation directory>/plugins/bundled` directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.
 
--   **External Plugins:** All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from `<server installation directory>/plugins/external` directory. [Listing of external plugins](https://www.gocd.org/community/plugins.html)
+- **External Plugins:** All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from `<server installation directory>/plugins/external` directory. [Listing of external plugins](https://www.gocd.org/community/plugins.html)
 
 ## Installing and Uninstalling of plugins
 
@@ -28,7 +28,7 @@ Plugins tab can be found under GoCD server Administration. Plugins tab shows all
 
 ### Notes
 
--   Add/delete/upgrade of a plugin will take effect only after a GoCD server restart.
--   Two plugins cannot have same **id** irrespective of whether it is a bundled or an external plugin.
--   If two external plugins with same **id** are available, only one of them will be loaded successfully in no specific order.
--   If a bundled and an external plugin with same **id** are available, only bundled plugin wll be loaded.
+- Add/delete/upgrade of a plugin will take effect only after a GoCD server restart.
+- Two plugins cannot have same **id** irrespective of whether it is a bundled or an external plugin.
+- If two external plugins with same **id** are available, only one of them will be loaded successfully in no specific order.
+- If a bundled and an external plugin with same **id** are available, only bundled plugin wll be loaded.

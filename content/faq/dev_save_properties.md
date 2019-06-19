@@ -14,15 +14,15 @@ Usage: As a developer, I want to save the average [cyclomatic complexity](http:/
 
 For this example, we're going to take the information out of "target/javancss/javancss\_metrics\_util.xml"
 
--   On the [Administration Tab](../navigation/administration_page.html), edit the job that should generate the properties
--   Ensure the following "properties" block is in the job configuration
+- On the [Administration Tab](../navigation/administration_page.html), edit the job that should generate the properties
+- Ensure the following "properties" block is in the job configuration
 
 ![](../images/2_properties_config.png)
 
--   Now, after that job has run, you should have extra properties information on the [Job Details](../navigation/job_details_page.html) page
+- Now, after that job has run, you should have extra properties information on the [Job Details](../navigation/job_details_page.html) page
 
 ![](../images/3_view_property.png)
 
--   You can export the property history as a CSV file
+- You can export the property history as a CSV file
 
 ![](../images/4_export_property.png)

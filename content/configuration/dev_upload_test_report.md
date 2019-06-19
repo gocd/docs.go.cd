@@ -26,11 +26,11 @@ Click on your pipeline
 
 For each job that runs JUnit:
 
--   Click on the job name to edit job config
--   ![](../images/3_click_edit_job.png)
--   Add the source of the test artifact. For tests, choose the type of artifact as Test artifact
--   ![](../images/4_add_test_artifacts_tag.png)
--   Click "Save"
+- Click on the job name to edit job config
+- ![](../images/3_click_edit_job.png)
+- Add the source of the test artifact. For tests, choose the type of artifact as Test artifact
+- ![](../images/4_add_test_artifacts_tag.png)
+- Click "Save"
 
 ### Uploading a flash video and displaying it as a sub-tab
 
@@ -46,11 +46,11 @@ Click on your pipeline
 
 For each job that creates a flash video
 
--   Click on the job name to edit the job config
--   ![](../images/3_click_edit_job.png)
--   Navigate to the "Artifacts". Add the source of the artifact. Choose the type of artifact as Build artifact. This will copy all files from the "target/reports" folder on the agent to the "Recording" folder on Go server
--   ![](../images/7_add_artifact_section.png)
--   Navigate to "Custom Tabs". Add the tab name and the source of the html file. This will create a tab called "Recording" that shows the html page found at "recording/twist-recording.html" on GoCD server.
--   ![](../images/8_add_tab_section.png)
--   Click "Save"
--   [Watch the flash video as a sub-tab on the Job Details page](../faq/dev_see_artifact_as_tab.html)
+- Click on the job name to edit the job config
+- ![](../images/3_click_edit_job.png)
+- Navigate to the "Artifacts". Add the source of the artifact. Choose the type of artifact as Build artifact. This will copy all files from the "target/reports" folder on the agent to the "Recording" folder on Go server
+- ![](../images/7_add_artifact_section.png)
+- Navigate to "Custom Tabs". Add the tab name and the source of the html file. This will create a tab called "Recording" that shows the html page found at "recording/twist-recording.html" on GoCD server.
+- ![](../images/8_add_tab_section.png)
+- Click "Save"
+- [Watch the flash video as a sub-tab on the Job Details page](../faq/dev_see_artifact_as_tab.html)

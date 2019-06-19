@@ -1,6 +1,6 @@
 ---
-description: When run of of space, GoCD stops scheduling new pipelines by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. 
-keywords: Disk space, schedule pipelines, 
+description: When run of of space, GoCD stops scheduling new pipelines by compressing large files, attaching a larger hard drive, or by deleting unused artifacts.
+keywords: Disk space, schedule pipelines,
 title: Running out of Disk Space
 ---
 
@@ -29,10 +29,10 @@ GoCD can be configured to automatically delete artifacts if the available disk s
 
 > You must be logged in as an admin user to configure this step.
 
-1.  Navigate to the Admin section on the GoCD dashboard.
-2.  Navigate to the Pipeline Management sub-section
-3.  Specify when GoCD should begin to purge artifacts in the first edit box.
-4.  Specify when GoCD should stop purging artifacts in the second edit box.
+1. Navigate to the Admin section on the GoCD dashboard.
+2. Navigate to the Pipeline Management sub-section
+3. Specify when GoCD should begin to purge artifacts in the first edit box.
+4. Specify when GoCD should stop purging artifacts in the second edit box.
 
 ![Purge artifacts](../images/pipeline_management.png)
 
@@ -53,8 +53,8 @@ You can disallow deletion of artifacts from a particular stage so that those art
 
 ### Also see...
 
--   [Managing artifacts and reports](../configuration/managing_artifacts_and_reports.html)
--   [Clean up after cancelling a task](../advanced_usage/dev_clean_up_when_cancel.html)
+- [Managing artifacts and reports](../configuration/managing_artifacts_and_reports.html)
+- [Clean up after cancelling a task](../advanced_usage/dev_clean_up_when_cancel.html)
 
 ## Compress large log files
 
@@ -70,22 +70,22 @@ Now, if you add this to a system [crontab](http://en.wikipedia.org/wiki/Cron), y
 
 If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it's artifact repository.
 
--   Find the location of the GoCD configuration file
--   Navigate to the [Admin](../navigation/administration_page.html) section
+- Find the location of the GoCD configuration file
+- Navigate to the [Admin](../navigation/administration_page.html) section
 ![](../images/topnav_admin.png)
--   Click on the "Config XML" tab
--   The location of the configuration file is listed here
+- Click on the "Config XML" tab
+- The location of the configuration file is listed here
 ![](../images/4_find_config_location.png)
--   Install the new drive
--   Shut down GoCD server
--   Copy all files from the original artifact repository location to the new drive
--   Change the artifact repository location in the configuration file
-```xml 
+- Install the new drive
+- Shut down GoCD server
+- Copy all files from the original artifact repository location to the new drive
+- Change the artifact repository location in the configuration file
+```xml
 <server artifactsDir="/path/to/new/artifacts">
     ...
 </server>
 ```
--   Start up GoCD server and verify you still have access to old artifacts
+- Start up GoCD server and verify you still have access to old artifacts
 
 ## Delete unused artifacts
 

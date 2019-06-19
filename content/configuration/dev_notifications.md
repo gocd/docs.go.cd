@@ -34,12 +34,12 @@ Notifications will only work if [Security](dev_authentication.html) is enabled a
 
 You can set up notifications for different events
 
--   All - all the runs for the stage
--   Passes - the passed runs for the stage
--   Fails - the stage run that continues to fail
--   Breaks - the stage run that broke the build
--   Fixed - the stage run that fixed the previous failure
--   Cancelled - the stage run that was cancelled
+- All - all the runs for the stage
+- Passes - the passed runs for the stage
+- Fails - the stage run that continues to fail
+- Breaks - the stage run that broke the build
+- Fixed - the stage run that fixed the previous failure
+- Cancelled - the stage run that was cancelled
 
 **Previous state influences Event type**
 

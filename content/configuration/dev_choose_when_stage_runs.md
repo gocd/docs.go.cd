@@ -14,11 +14,11 @@ You can create a manual pipeline by setting the first stage to manual.
 
 Usage: We need a manual 'dist' stage that will create the binaries used by later stages.
 
--   [Add a new stage](admin_add_stage.html) named 'dist' after a build stage
--   Set the Stage type to manual
+- [Add a new stage](admin_add_stage.html) named 'dist' after a build stage
+- Set the Stage type to manual
 
 ![Set stage type to "Manual"](../images/1_add_approval_tag.png)
 
--   Now, when the build stage 'build' is completed, you can manually cause GoCD to create the binary from the [Pipeline activity](../navigation/pipeline_activity_page.html) page
+- Now, when the build stage 'build' is completed, you can manually cause GoCD to create the binary from the [Pipeline activity](../navigation/pipeline_activity_page.html) page
 
 ![Manual gate](../images/2_click_manual.png)

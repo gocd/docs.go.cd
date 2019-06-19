@@ -25,14 +25,14 @@ The "Pipelines" tab allows you to configure pipelines grouped in pipeline groups
 
 ### Key
 
-1.  Add a new pipeline group
-2.  Edit the pipeline group name and permissions.
-3.  Delete an empty pipeline group.
-4.  Create a pipeline within a pipeline group
-5.  Click the pipeline name to select a pipeline to view or edit.
-6.  Click to view/edit a pipeline
-7.  Move pipeline to another pipeline group.
-8.  Delete a pipeline
+1. Add a new pipeline group
+2. Edit the pipeline group name and permissions.
+3. Delete an empty pipeline group.
+4. Create a pipeline within a pipeline group
+5. Click the pipeline name to select a pipeline to view or edit.
+6. Click to view/edit a pipeline
+7. Move pipeline to another pipeline group.
+8. Delete a pipeline
 
 ## Pipeline Templates
 
@@ -42,9 +42,9 @@ The "Templates" tab allows you to configure pipeline templates which can be used
 
 ### Key
 
-1.  Add a new pipeline template
-2.  Edit the pipeline template.
-3.  As a GoCD Administrator, you can now edit permissions for the template to make users [Template Administrators](../configuration/dev_authorization.html#template-admin).
-4.  Edit a pipeline using this pipeline template.
-5.  Delete an unused pipeline template.
+1. Add a new pipeline template
+2. Edit the pipeline template.
+3. As a GoCD Administrator, you can now edit permissions for the template to make users [Template Administrators](../configuration/dev_authorization.html#template-admin).
+4. Edit a pipeline using this pipeline template.
+5. Delete an unused pipeline template.
 

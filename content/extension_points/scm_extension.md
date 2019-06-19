@@ -87,11 +87,11 @@ Even if no pipelines use a SCM, GoCD polls for newer revisions every minute. Thi
 
 The following information is expected from the SCM material plugin (which in turn obtains it from the SCM metadata if available)
 
-1.  SCM revision
-2.  Commit time
-3.  Name of committer (if available)
-4.  Comment for the commit
-5.  Files in the commit along with action (added/modified/deleted)
+1. SCM revision
+2. Commit time
+3. Name of committer (if available)
+4. Comment for the commit
+5. Files in the commit along with action (added/modified/deleted)
 
 At the time of building the SCM, it is recommended to include as much of the above information as possible so that it is available for GoCD to display as below.
 

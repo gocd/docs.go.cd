@@ -13,15 +13,15 @@ When updating your testing environments to a new version, it is useful to know w
 
 For this example, we'll assume that there is a manual "UAT" stage will automatically deploy and install an executable on your user acceptance testing machine.
 
--   On the [Pipelines](../navigation/pipelines_dashboard_page.html) page, click on the name of your pipeline
+- On the [Pipelines](../navigation/pipelines_dashboard_page.html) page, click on the name of your pipeline
 
 ![](../images/1_click_pipeline_name.png)
 
--   Now that you're on the [pipeline Activity](../navigation/pipeline_activity_page.html) page, you can see exactly how far each check-in has gotten in your pipeline
--   Find the check-in that's currently in UAT. In this example, it has the pipeline label of **2.0.0.5077**
+- Now that you're on the [pipeline Activity](../navigation/pipeline_activity_page.html) page, you can see exactly how far each check-in has gotten in your pipeline
+- Find the check-in that's currently in UAT. In this example, it has the pipeline label of **2.0.0.5077**
 
 ![](../images/2_find_in_uat.png)
 
--   For every check-in earlier than the one in UAT, click to see the comments
+- For every check-in earlier than the one in UAT, click to see the comments
 
 ![](../images/3_click_modifications.png)

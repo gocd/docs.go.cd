@@ -23,14 +23,14 @@ Clicking on the **Admin** -> **Pipelines** menu item will take you to the pipeli
 
 ![](../images/new_pipeline_1.png)
 
-1.  Fill in the pipeline name
-2.  Fill in the pipeline group
+1. Fill in the pipeline name
+2. Fill in the pipeline group
 
 ### Step 2: Material
 
 ![](../images/new_pipeline_2.png)
 
-1.  Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a [package repository](../extension_points/package_repository_extension.html) (e.g. [yum](../extension_points/yum_repository_poller.html)). Currently Go supports the following SCMs:
+1. Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a [package repository](../extension_points/package_repository_extension.html) (e.g. [yum](../extension_points/yum_repository_poller.html)). Currently Go supports the following SCMs:
     1. Subversion
     2. Mercurial
     3. Git
@@ -39,7 +39,7 @@ Clicking on the **Admin** -> **Pipelines** menu item will take you to the pipeli
 
   and the package repository and material plugins.
 
-2.  Fill in settings specific to the material type.
+2. Fill in settings specific to the material type.
 
 ### Step 3: Stage and Job
 
@@ -47,10 +47,10 @@ Clicking on the **Admin** -> **Pipelines** menu item will take you to the pipeli
 
 A pipeline contains one or more stages. Define the first stage of your pipeline
 
-1.  Fill in the Stage name.
-2.  Fill in the Job name.
-3.  Fill in the task type and the command for the task.
-4.  If you use Ant, NAnt or Rake for scripting, Go provides convenience wrappers for these tools. To use any other scripting tool (e.g: Maven, msbuild, etc.), choose the "More..." option to use the [command repository](../advanced_usage/command_repository.html) or specify the command line syntax for that tool.
+1. Fill in the Stage name.
+2. Fill in the Job name.
+3. Fill in the task type and the command for the task.
+4. If you use Ant, NAnt or Rake for scripting, Go provides convenience wrappers for these tools. To use any other scripting tool (e.g: Maven, msbuild, etc.), choose the "More..." option to use the [command repository](../advanced_usage/command_repository.html) or specify the command line syntax for that tool.
 
 See the [Managing pipelines](managing_pipelines.html) documentation for editing these settings following the creation of your pipeline.
 
@@ -99,7 +99,7 @@ If the user is a pipeline group admin, they can clone the new pipeline into a gr
 
 #### Also See
 
--   [Adding a material to an existing pipeline](admin_add_material.html)
--   [Adding a stage to an existing pipeline](admin_add_stage.html)
--   [Adding a job to an existing pipeline](admin_add_job.html)
--   [Role-based authorization](dev_authorization.html)
+- [Adding a material to an existing pipeline](admin_add_material.html)
+- [Adding a stage to an existing pipeline](admin_add_stage.html)
+- [Adding a job to an existing pipeline](admin_add_job.html)
+- [Role-based authorization](dev_authorization.html)

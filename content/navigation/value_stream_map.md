@@ -15,10 +15,10 @@ Value Stream Map helps you visualize your CI/CD workflow. With a single click, i
 
 A value stream map can be drawn for every instance of a pipeline. It provides you with the ability to:
 
--   See what caused the current pipeline to be triggered.
--   See what downstream pipelines were triggered by the current pipeline.
--   See the status of the current pipeline and all its upstream and downstream dependencies.
--   See changes in dependencies of the pipeline across different runs of it.
+- See what caused the current pipeline to be triggered.
+- See what downstream pipelines were triggered by the current pipeline.
+- See the status of the current pipeline and all its upstream and downstream dependencies.
+- See changes in dependencies of the pipeline across different runs of it.
 
 Along with all this, it also allows you to easily debug problems when a dependency/configuration change caused your build-test-release setup to break.
 
@@ -77,8 +77,8 @@ You can access Value Stream Map for a commit in 2 ways:
 
 The permissions required to view a value stream map are as follows:
 
--   GoCD Administrators have access to the value stream maps of all the pipelines that are configured.
--   Users with view permissions for a pipeline will be able to view the value stream map for all instances of that pipeline.
+- GoCD Administrators have access to the value stream maps of all the pipelines that are configured.
+- Users with view permissions for a pipeline will be able to view the value stream map for all instances of that pipeline.
 
 However, there is one special case to be noted where the pipeline details might not be shown completely. If the user does not have view permissions for a pipeline in the Value Stream Map, its details, like the stages and instances run will not be shown.
 

@@ -12,8 +12,8 @@ GoCD provides a chart on the stage details page which can be used for trend anal
 
 #### To navigate to the Graphs:
 
-1.  Click on the stage bar of the relevant stage on the pipelines dashboard.
-2.  Click on the tab 'Graphs'.
+1. Click on the stage bar of the relevant stage on the pipelines dashboard.
+2. Click on the tab 'Graphs'.
 
 #### Features of the Graph
 
@@ -25,9 +25,9 @@ Selecting a part of the graph zooms into the selected area. Once zoomed, a link 
 
 **Key:**
 
-1.  The title shows the start and end dates of the range of the chart.
-2.  A tooltip giving the details of the stage run appears on hover over the points of the line graph.
-3.  Navigates to the Chart of older 300 runs.
-4.  Navigates to the Chart of newer 300 runs.
-5.  Toggles the line graph of the failed runs.
-6.  Toggles the line graph of the passed runs.
+1. The title shows the start and end dates of the range of the chart.
+2. A tooltip giving the details of the stage run appears on hover over the points of the line graph.
+3. Navigates to the Chart of older 300 runs.
+4. Navigates to the Chart of newer 300 runs.
+5. Toggles the line graph of the failed runs.
+6. Toggles the line graph of the passed runs.

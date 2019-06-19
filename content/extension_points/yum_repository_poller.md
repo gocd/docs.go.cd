@@ -49,19 +49,19 @@ epoch:name-ver-rel.arch
 
 The following [rpm metadata](http://ftp.rpm.org/max-rpm/s1-rpm-inside-tags.html) is accessed by the plugin
 
-1.  BuildTime (required, automatically set by rpmbuild) - Used by the plugin to validate if the package is newer than what was last seen by GoCD. GoCD displays this field as *Modified On*.
-2.  Packager - GoCD displays this field as *Modified By*. If not provided, it is shown as anonymous
-3.  URL - Displayed as a *Trackback URL* by GoCD. **Use this as a means to trace back to the job that published the package** (within GoCD or outside) to the yum repository.
-4.  BuildHost - Displayed by GoCD as *Comment: Built on \$BUILDHOST*
+1. BuildTime (required, automatically set by rpmbuild) - Used by the plugin to validate if the package is newer than what was last seen by GoCD. GoCD displays this field as *Modified On*.
+2. Packager - GoCD displays this field as *Modified By*. If not provided, it is shown as anonymous
+3. URL - Displayed as a *Trackback URL* by GoCD. **Use this as a means to trace back to the job that published the package** (within GoCD or outside) to the yum repository.
+4. BuildHost - Displayed by GoCD as *Comment: Built on \$BUILDHOST*
 
 ### Published Environment Variables
 
 The following information is made available as environment variables for tasks:
 
-1.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LABEL
-2.  GO\_REPO\_< REPO-NAME >\_< PACKAGE-NAME >\_REPO\_URL
-3.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_PACKAGE\_SPEC
-4.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LOCATION
+1. GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LABEL
+2. GO\_REPO\_< REPO-NAME >\_< PACKAGE-NAME >\_REPO\_URL
+3. GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_PACKAGE\_SPEC
+4. GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LOCATION
 
 Individual plugins may provide additional info via additional environment variables.
 
@@ -122,14 +122,14 @@ This would require that /etc/yum.repos.d contain the repository definitions.
 
 Although the support for package as material in GoCD isn't concerned with how the packages are created and published, here is a short set of pointers to information on the web.
 
--   [Building an RPM using rpmbuild and SPEC file](http://www.ibm.com/developerworks/library/l-rpm1/#first_rpm)
--   [Building using fpm](https://github.com/jordansissel/fpm/wiki)
--   [Tutorial](http://www.howtoforge.com/creating_a_local_yum_repository_centos) to set up a local yum repository using [createrepo](http://linux.die.net/man/8/createrepo). Publishing to a yum repo simply involves uploading/copying over a new package revision at the correct location and running createrepo --update
+- [Building an RPM using rpmbuild and SPEC file](http://www.ibm.com/developerworks/library/l-rpm1/#first_rpm)
+- [Building using fpm](https://github.com/jordansissel/fpm/wiki)
+- [Tutorial](http://www.howtoforge.com/creating_a_local_yum_repository_centos) to set up a local yum repository using [createrepo](http://linux.die.net/man/8/createrepo). Publishing to a yum repo simply involves uploading/copying over a new package revision at the correct location and running createrepo --update
 
 ### Notes
 
-1.  This plugin will detect at max one package revision per minute (the default interval at which GoCD materials poll). If multiple versions of a package get published to a repo in the time interval between two polls, GoCD will only register the latest version in that interval.
-2.  This plugin makes use of buildtime in rpm metadata to determine if a poll has returned a new result. If for some reason (e.g. timezone misconfiguration), the buildtime of pkg-1.1 is less than that of pkg-1.0, then the plugin will not register pkg-1.1 as a newer package.
-3.  The only way to update an rpm is to change the version or release. [Republishing](http://unix.stackexchange.com/questions/71288/does-yum-use-package-buildtime-to-decide-if-a-package-is-newer) a different file with the same name and different buildtime won't do.
-4.  Package groups are not supported.
-5.  The [GoCD command repository](https://github.com/gocd/go-command-repo/tree/master/package/rpm) has a bunch of commands related to rpm packages.
+1. This plugin will detect at max one package revision per minute (the default interval at which GoCD materials poll). If multiple versions of a package get published to a repo in the time interval between two polls, GoCD will only register the latest version in that interval.
+2. This plugin makes use of buildtime in rpm metadata to determine if a poll has returned a new result. If for some reason (e.g. timezone misconfiguration), the buildtime of pkg-1.1 is less than that of pkg-1.0, then the plugin will not register pkg-1.1 as a newer package.
+3. The only way to update an rpm is to change the version or release. [Republishing](http://unix.stackexchange.com/questions/71288/does-yum-use-package-buildtime-to-decide-if-a-package-is-newer) a different file with the same name and different buildtime won't do.
+4. Package groups are not supported.
+5. The [GoCD command repository](https://github.com/gocd/go-command-repo/tree/master/package/rpm) has a bunch of commands related to rpm packages.

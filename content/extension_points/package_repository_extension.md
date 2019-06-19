@@ -11,10 +11,10 @@ title: Package Repository Extension
 Poll from GoCD packages and more from GoCD 13.3 onwards.
 Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
 
-1.  jar, war or ear file in case of Java
-2.  [nuget](http://nuget.org/)/ [chocolatey](http://chocolatey.org/) package in case of .NET
-3.  [Linux system package](http://en.wikipedia.org/wiki/Package_management_system#Package_formats) (e.g rpm, deb) in case of any application platform
-4.  Other [application level package formats](http://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers) like gem, npm, [phar](http://php.net/manual/en/book.phar.php), [wheel](http://www.python.org/dev/peps/pep-0427/) etc.
+1. jar, war or ear file in case of Java
+2. [nuget](http://nuget.org/)/ [chocolatey](http://chocolatey.org/) package in case of .NET
+3. [Linux system package](http://en.wikipedia.org/wiki/Package_management_system#Package_formats) (e.g rpm, deb) in case of any application platform
+4. Other [application level package formats](http://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers) like gem, npm, [phar](http://php.net/manual/en/book.phar.php), [wheel](http://www.python.org/dev/peps/pep-0427/) etc.
 
 These files (packages) are often maintained in corresponding package repositories. **Such packages may be specified as materials for GoCD pipelines.**
 
@@ -32,9 +32,9 @@ A package material plugin lets pipeline group admins provide details of the corr
 
 ##### Note:
 
-1.  The repository name is not used by the package material plugin - it is used by Go to construct the material name.
-2.  Two package repositories cannot have the same name.
-3.  Use the check connection button to ensure that Go can work with this repository.
+1. The repository name is not used by the package material plugin - it is used by Go to construct the material name.
+2. Two package repositories cannot have the same name.
+3. Use the check connection button to ensure that Go can work with this repository.
 
 ![](../images/yum-repo.png)
 
@@ -94,12 +94,12 @@ Here is a XML view of an RPM package definition. Note the relation between repos
 
 Depending on whether GoCD is also publishing the package or just consuming it, there are two options for modeling a value stream that includes packages.
 
-1.  The first scenario is where the package is published from some pipeline in GoCD. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:
+1. The first scenario is where the package is published from some pipeline in GoCD. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:
     1.  Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this [tip](http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines) may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the [value stream map.](../navigation/value_stream_map.html)
     2.  Package material: Y adds P as a package material. Y no longer has to resolve P.
 
     It isn't advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option \#1 makes sense.
-2.  The second scenario is where GoCD does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. GoCD helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.
+2. The second scenario is where GoCD does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. GoCD helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.
 
 ### Permissions
 
@@ -113,12 +113,12 @@ Even if no pipelines use a package, GoCD polls for newer packages every minute. 
 
 The following information is expected from the package material plugin (which in turn obtains it from the package metadata if available)
 
-1.  Package revision (e.g. gcc-4.4.7-3.el6.x86_64)
-2.  Package build time
-3.  Name of package creator (if available)
-4.  Package comment
-5.  Trackback URL - Typically an absolute URL that indicates what job (in GoCD or otherwise) created the package.
-6.  Package - material name (i.e. repo-name:package-name)
+1. Package revision (e.g. gcc-4.4.7-3.el6.x86_64)
+2. Package build time
+3. Name of package creator (if available)
+4. Package comment
+5. Trackback URL - Typically an absolute URL that indicates what job (in GoCD or otherwise) created the package.
+6. Package - material name (i.e. repo-name:package-name)
 
 At the time of building the package, it is recommended to include as much of the above information as possible so that it is available for Go to display as below.
 
@@ -128,9 +128,9 @@ At the time of building the package, it is recommended to include as much of the
 
 The package isn't automatically downloaded on the agent and made available to the jobs. This is unlike VCS/SCM materials where a checkout is made by default. In case of packages, the GoCD Agent is typically not the target node for deployment, it is only orchestrating deployment to a remote node. So, instead of an automatic download, the following environment variables are made available:
 
-1.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LABEL
-2.  GO\_REPO\_< REPO-NAME >\_< PACKAGE-NAME >\_REPO\_URL
-3.  GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LOCATION
+1. GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LABEL
+2. GO\_REPO\_< REPO-NAME >\_< PACKAGE-NAME >\_REPO\_URL
+3. GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LOCATION
 
 Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let's say we set up a repository named ORA pointing to http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64 and define a package gcc with a spec of gcc-4.\* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:
 

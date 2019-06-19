@@ -9,7 +9,7 @@ In this section, we'll go over how to design CD pipelines that build and publish
 
 ### Prerequisites
 
-We'll be building our application as a docker image artifact and publishing it to Docker Hub. To do this, make sure you have a [Docker Hub](https://hub.docker.com) account. 
+We'll be building our application as a docker image artifact and publishing it to Docker Hub. To do this, make sure you have a [Docker Hub](https://hub.docker.com) account.
 
 ### Quick links
 
@@ -44,29 +44,29 @@ We'll be building our application as a docker image artifact and publishing it t
   *Note: This is the job that we have to associate with the elastic agent profile that we created earlier.*
 
   *Tip: Do not forget the `-c` option in the arguments section.*
-  
+
   ![](../../images/gocd-helm-chart/pipeline_wizard_add_job.png)
-  
+
   Click on the `Finish` button when you're done. This will take you to the pipeline settings page for additional configurations.
-  
+
 6. Navigate to Environment Variables tab. Configure the `DOCKERHUB_USERNAME` as an environment variable.
 
   ![](../../images/gocd-helm-chart/configure_env_vars.png)
-  
+
 
 ## Publish your application image to Docker Hub
 
 1. Create an artifact store
 
     Navigate to Admin > Artifact Stores to add the global artifact store
-        
+
     ![](../../images/gocd-helm-chart/artifact_store.png)
 
-    
-2.  Navigate to the pipeline settings for `build_and_publish_image`.
+
+2. Navigate to the pipeline settings for `build_and_publish_image`.
 
     *Tip: Use the tree on the left to navigate to the job `build_and_publish_image`. Once you're here, you can associate the profile ID under the Job Settings tab.*
-    
+
     Create an external artifact under the `build_and_publish_image` job.
 
     Specify the artifact id as `bulletin-board`
@@ -76,11 +76,11 @@ We'll be building our application as a docker image artifact and publishing it t
     Specify the `image` property as `${DOCKERHUB_USERNAME}/bulletin-board`
 
     Specify the `tag` property as `${GO_PIPELINE_LABEL}`
-    
+
     This will ensure that the image being built by the `build_and_publish_image` job is the one being published.
 
    *Note: You need to have an artifact store configured for this so that the plugin is aware of the credentials to use when publishing the artifact.*
-   
+
    ![](../../images/gocd-helm-chart/build_and_publish_image_artifacts.png)
 
 3. This is what the `Tasks` under the `build_and_publish_image` job should look like once you finish this configuration
@@ -127,7 +127,7 @@ Once you've associated the job to the profile `demo-app`, you're ready to run th
 
 ## Run your pipeline
 
-Now that the pipeline has been configured, we can run it and verify that the docker image has been pushed. 
+Now that the pipeline has been configured, we can run it and verify that the docker image has been pushed.
 
 To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes from the source git repository gets picked up automatically when the pipeline is triggered.
 
@@ -143,19 +143,19 @@ When the pipeline is running (signified by a yellow bar), you can take a look at
 
 - logs for the agents
 
-This can be useful to troubleshoot when an agent is not picking up the job. 
+This can be useful to troubleshoot when an agent is not picking up the job.
 
-To access the agent status report, 
+To access the agent status report,
 
-1. Click on a stage of your choice when the pipeline is being built. 
+1. Click on a stage of your choice when the pipeline is being built.
 
-2. You'll see the stage detail page with a list of jobs. Click on the job that you wish to see the agents of.   
+2. You'll see the stage detail page with a list of jobs. Click on the job that you wish to see the agents of.
 
-3. This is the job detail page which has a console log. Click on the button titled 'Check Agent Status'. 
+3. This is the job detail page which has a console log. Click on the button titled 'Check Agent Status'.
 
     ![](../../images/gocd-helm-chart/job_details.png)
 
-4. Clicking on this will take you to the Agent Status Report where you can see --- 
+4. Clicking on this will take you to the Agent Status Report where you can see ---
 
     ![](../../images/gocd-helm-chart/agent_status_report.png)
 

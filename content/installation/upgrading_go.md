@@ -1,6 +1,6 @@
 ---
 description: To upgrade from a previous version of GoCD, it is only necessary to upgrade the Server. Agents will automatically update to the correct version of GoCD.
-keywords: upgrade gocd, gocd server upgrade, configuration backup, database backup, build artifacts, 
+keywords: upgrade gocd, gocd server upgrade, configuration backup, database backup, build artifacts,
 title: Upgrading GoCD
 ---
 
@@ -21,8 +21,8 @@ Since Cruise 1.2 (legacy version of Go), we do not include a bundled version of 
 
 As part of the configuration two files need to be backed up:
 
--   GoCD's configuration is saved in the ```cruise-config.xml``` file
--   Cipher file for password encryption.
+- GoCD's configuration is saved in the ```cruise-config.xml``` file
+- Cipher file for password encryption.
 
 Based on the OS your GoCD server is running on, both these files can be found at:
 

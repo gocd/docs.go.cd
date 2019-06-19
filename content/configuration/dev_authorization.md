@@ -14,10 +14,10 @@ GoCD allows you to restrict the users who can perform certain functions. Adminis
 
 If administrators are specified, only they can perform the following actions:
 
--   Access the "administration" tab
--   Add/Edit Pipeline Templates
--   Enable agents
--   Add / remove agent resources
+- Access the "administration" tab
+- Add/Edit Pipeline Templates
+- Enable agents
+- Add / remove agent resources
 
 Users can be made administrators from the "User Summary" tab in the "Admin" section.
 
@@ -48,7 +48,7 @@ For power users, here's how you would configure roles via "Config XML":
           </users>
         </role>
         <role name="go_admin">
-          <users> 
+          <users>
             <user>jhumble</user>
             <user>qiao</user>
           </users>
@@ -175,4 +175,4 @@ For power users, here's how you would configure permissions via "Config XML":
 
 ### Also See
 
--   [Delegating group administration](delegating_group_administration.html)
+- [Delegating group administration](delegating_group_administration.html)

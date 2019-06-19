@@ -27,12 +27,12 @@ This tab shows a table of all the completed jobs that ran on this agent. A sampl
 
 For every job, the following columns are shown:
 
-1.  Pipeline: The pipeline to which the job belongs to
-2.  Stage: The stage to which the job belongs to
-3.  Job: The name of the job
-4.  Result: The result of the job - Passed, Failed, Cancelled or Rescheduled
-5.  Completed: The date when the Job completed
-6.  Duration: The duration that the Job took to finish - from scheduled till completed.
+1. Pipeline: The pipeline to which the job belongs to
+2. Stage: The stage to which the job belongs to
+3. Job: The name of the job
+4. Result: The result of the job - Passed, Failed, Cancelled or Rescheduled
+5. Completed: The date when the Job completed
+6. Duration: The duration that the Job took to finish - from scheduled till completed.
 
 The job listing table can be sorted on any column, except for the Duration column.
 
@@ -42,9 +42,9 @@ This page is useful to figure out if there are agent issues and hence a certain 
 
 Consider a job which runs functional tests for a web application that need a browser to be available. The job was passing so far and only recently it has started to fail intermittently. Here are the steps you can follow to figure out if this is an agent issue.
 
-1.  Navigate to the [Job Details page](../navigation/job_details_page.html) of the given job that failed.
-2.  Locate the "Agent" label and click on the link to the agent
-3.  Navigate to the "Job Run History" tab
-4.  Sort on the Job Name and locate the job that just navigated from
+1. Navigate to the [Job Details page](../navigation/job_details_page.html) of the given job that failed.
+2. Locate the "Agent" label and click on the link to the agent
+3. Navigate to the "Job Run History" tab
+4. Sort on the Job Name and locate the job that just navigated from
 
 You'd notice that the job started to fail recently. You can even see if there are other jobs that have started failing around the same time by now sorting on the Completed date.

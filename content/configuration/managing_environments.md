@@ -16,31 +16,31 @@ However, once an agent is associated with one or more environments, it is no lon
 
 You can create an environment in the admin UI through the following steps. This example creates a production environment, adding the deployment pipeline and the agent installed on the production server.
 
--   Click on the Environments tab
+- Click on the Environments tab
 
 ![](../images/topnav_environments.png)
 
--   Click on the "Add a new environment"
+- Click on the "Add a new environment"
 
 ![](../images/env_click_new.png)
 
--   Provide a name for the environment
+- Provide a name for the environment
 
 ![](../images/env_name.png)
 
--   Add one or more pipelines that need to run on the environment
+- Add one or more pipelines that need to run on the environment
 
 ![](../images/env_pipelines.png)
 
--   Add one or more agents associated with the environment
+- Add one or more agents associated with the environment
 
 ![](../images/env_agents.png)
 
--   Add one or more environment variables or secure environment variables that need to be passed.
+- Add one or more environment variables or secure environment variables that need to be passed.
 
 ![](../images/env_env_variables.png)
 
--   Click on finish
+- Click on finish
 
 Setting up an environment through the xml can be found in the [configuration reference](configuration_reference.html#environments)
 
@@ -48,8 +48,8 @@ Setting up an environment through the xml can be found in the [configuration ref
 
 You can do this very easily in the Agents tab. Just select the agents you want to add to your environment and click on the Environments button. All existing environments will appear in alphabetical order. Select one of three states for all environments you want to add and then click the "Apply" button.
 
--   An environment **with a check** will add the environment to all selected agents.
--   An environment **with a hyphen** means some of your selected agents are associated to it. No change will occur after clicking "Apply".
--   An environment **without a check** will remove the environment from all selected agents.
+- An environment **with a check** will add the environment to all selected agents.
+- An environment **with a hyphen** means some of your selected agents are associated to it. No change will occur after clicking "Apply".
+- An environment **without a check** will remove the environment from all selected agents.
 
 ![](../images/associate_agent_environment.png)

@@ -12,8 +12,8 @@ aliases:
 
 An easy way to set up a new agent is to clone an existing one which is already set up and is known to work correctly. You can clone an agent in a couple different ways:
 
--   Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).
--   If you use a virtual machine to run your agent, clone the entire VM.
+- Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).
+- If you use a virtual machine to run your agent, clone the entire VM.
 
 ## Remove duplicate GUID
 

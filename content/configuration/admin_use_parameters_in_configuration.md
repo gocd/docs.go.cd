@@ -88,19 +88,19 @@ While parameters are generally very flexible, there are some restrictions.
 
 **You cannot use a parameter to define:**
 
--   Pipeline name
--   Stage name
--   Job name
--   A Job's property name
--   The ```<runif>``` configuration for a job's task
--   Another parameter (i.e. you cannot define a parameter using another parameter)
--   Pipeline template name
--   Material name
--   Material passwords (however, for Git and Mercurial, passwords are not captured as separate attribute, hence can be parameterized)
--   Trigger-type for Stage
+- Pipeline name
+- Stage name
+- Job name
+- A Job's property name
+- The ```<runif>``` configuration for a job's task
+- Another parameter (i.e. you cannot define a parameter using another parameter)
+- Pipeline template name
+- Material name
+- Material passwords (however, for Git and Mercurial, passwords are not captured as separate attribute, hence can be parameterized)
+- Trigger-type for Stage
 
 **Other restrictions:**
 
--   Parameters can currently only be defined within a pipeline.
--   A parameter cannot be composed with another parameter i.e. \#{foo\#{bar}} will not be evaluated recursively.
--   If a parameter is referenced but is not defined, then the configuration is invalid (Go will not let you save an invalid configuration).
+- Parameters can currently only be defined within a pipeline.
+- A parameter cannot be composed with another parameter i.e. \#{foo\#{bar}} will not be evaluated recursively.
+- If a parameter is referenced but is not defined, then the configuration is invalid (Go will not let you save an invalid configuration).

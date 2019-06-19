@@ -1,6 +1,6 @@
 ---
 description: Using environment variables in GoCD
-keywords: environment variable, GoCD configuration, GoCD tasks, custom command, shell-script, ruby script, 
+keywords: environment variable, GoCD configuration, GoCD tasks, custom command, shell-script, ruby script,
 title: Use Environment Variables in GoCD
 aliases:
     - /faq/environment_variables.html
@@ -159,7 +159,7 @@ It is often useful to use the current version control revision number in your bu
 
 For this example, we are going to assume we are using a single [Subversion](http://subversion.tigris.org/) repository for our source control system and we have a job set up to call the ant target "dist".
 
--   Add the following target to your ant `build.xml`
+- Add the following target to your ant `build.xml`
 
 ```xml
 <project name="test-build">
@@ -171,7 +171,7 @@ For this example, we are going to assume we are using a single [Subversion](http
 </project>
 ```
 
--   Now, when GoCD runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
+- Now, when GoCD runs the 'my-app' pipeline on revision 123, the file deploy-123.txt will be created, with the following content:
 
 ```
 deploy-123.txt
@@ -196,7 +196,7 @@ the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository co
 </pipeline>
 ```
 
--   Add the following target to your ant `build.xml`
+- Add the following target to your ant `build.xml`
 
 ```xml
 <project name="my-app">
@@ -211,7 +211,7 @@ the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository co
 </project>
 ```
 
--   Now, when GoCD runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
+- Now, when GoCD runs the 'my-app' pipeline with the code at revision '123' and the configuration at revision '59cab75ccf231b9e338c96cff0f4adad5cb7d335', the file deploy-123.txt will be created with the following content:
 
 ```
 deploy-123.txt

@@ -45,11 +45,11 @@ You can change the artifacts directory location at any time using the method des
 
 If you decide to move your artifact repository, the safe way to do it is:
 
-1.  Pause all pipelines and wait until all active jobs on the agent grid has completed (all agents are in the state "idle")
-2.  Shut down GoCD server
-3.  Copy the artifact repository to the new location
-4.  Edit GoCD's configuration file manually as described above to tell GoCD where to find the artifacts
-5.  Restart GoCD server
+1. Pause all pipelines and wait until all active jobs on the agent grid has completed (all agents are in the state "idle")
+2. Shut down GoCD server
+3. Copy the artifact repository to the new location
+4. Edit GoCD's configuration file manually as described above to tell GoCD where to find the artifacts
+5. Restart GoCD server
 
 Even when all active jobs on the agent grid have stopped, users may still be uploading artifacts using the RESTful URLs. This is why we need to stop GoCD server completely in order to be safe.
 
@@ -75,5 +75,5 @@ Certain features in GoCD, such as Mingle integration, require an HTTPS(SSL) endp
 
 ### Also see...
 
--   [Installing GoCD agents](../installation/installing_go_agent.html)
--   [Configure GoCD to work with a proxy](../installation/configure-reverse-proxy.html)
+- [Installing GoCD agents](../installation/installing_go_agent.html)
+- [Configure GoCD to work with a proxy](../installation/configure-reverse-proxy.html)

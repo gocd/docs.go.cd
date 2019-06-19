@@ -70,18 +70,18 @@ sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent 2\cruisewrapper.exe\" -
     mkdir /var/{lib,log}/go-agent-1
     chown go:go /var/{lib,log}/go-agent-1
     ```
-    
+
 - To enable starting the go-agent service during system boot:
   - on Debian:
     ```bash
     insserv go-agent-1
     ```
-    
+
   - on Ubuntu:
     ```bash
     update-rc.d go-agent-1 defaults
     ```
-    
+
   - on Centos and Redhat:
     ```bash
     chkconfig go-agent-1 on
@@ -96,9 +96,9 @@ sc create GoAgent2 binPath= "\"C:\Program Files\Go Agent 2\cruisewrapper.exe\" -
 
 ## Linux (non-RPM, non-DEB and other UNIXes)
 
--   [Install your first agent with the installer](../installation/installing_go_agent.html)
--   Make an empty folder called /var/lib/go-agent-2
--   In this folder, run
+- [Install your first agent with the installer](../installation/installing_go_agent.html)
+- Make an empty folder called /var/lib/go-agent-2
+- In this folder, run
 
     ```bash
     java -jar /usr/share/go-agent/agent-bootstrapper.jar -serverUrl https://127.0.0.1/go &

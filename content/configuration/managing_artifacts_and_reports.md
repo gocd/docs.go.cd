@@ -1,6 +1,6 @@
 ---
 description: Managing artifacts and reports in GoCD
-keywords: GoCD configuration, artifacts, reports, publishing artifacts, artifact repository, test artifacts, 
+keywords: GoCD configuration, artifacts, reports, publishing artifacts, artifact repository, test artifacts,
 title: Managing Artifacts and Reports
 ---
 
@@ -14,11 +14,11 @@ The first step in using the artifact repository is to tell GoCD which files you 
 
 To configure an artifact:
 
--   Navigate to **Admin &rarr; Pipelines**
--   Edit the pipeline you want to configure artifacts for
--   Expand the left tree navigator and click on your job
--   Click on the **Artifacts** tab
--   Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
+- Navigate to **Admin &rarr; Pipelines**
+- Edit the pipeline you want to configure artifacts for
+- Expand the left tree navigator and click on your job
+- Click on the **Artifacts** tab
+- Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
 
 ![](../images/job_artifacts.png)
 
@@ -66,12 +66,12 @@ GoCD has support for publishing tests from JUnit or NUnit test reports.
 
 To configure a test artifact:
 
--   Navigate to **Admin &rarr; Pipelines**
--   Edit the pipeline you want to configure artifacts for
--   Expand the left tree navigator and click on your job
--   Click on the **Artifacts** tab
--   Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
--   From the **Type** dropdown, select **Test Artifact**
+- Navigate to **Admin &rarr; Pipelines**
+- Edit the pipeline you want to configure artifacts for
+- Expand the left tree navigator and click on your job
+- Click on the **Artifacts** tab
+- Enter the source (where the artifact will be found) and destination (where the artifact should be saved on the Go server)
+- From the **Type** dropdown, select **Test Artifact**
 
 ![](../images/job_test_artifacts.png)
 
@@ -85,10 +85,10 @@ For power users, here's how you would configure this via Config XML:
 
 GoCD will:
 
--   add a tab called Tests that lists the tests in the project
--   add a list of the failed tests to the Failures tab
--   set the properties associated with tests on the job. These include failed-test-count, ignored-test-count, test-time and total-test-count
--   copy the artifacts into the repository. In this case the test reports will be copied into a new directory test-reports in the artifact repository
+- add a tab called Tests that lists the tests in the project
+- add a list of the failed tests to the Failures tab
+- set the properties associated with tests on the job. These include failed-test-count, ignored-test-count, test-time and total-test-count
+- copy the artifacts into the repository. In this case the test reports will be copied into a new directory test-reports in the artifact repository
 
 ### RESTful API
 

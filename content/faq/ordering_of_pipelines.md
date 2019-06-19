@@ -9,8 +9,8 @@ title: Ordering of Pipelines
 
 In GoCD, we use two distinct types of ordering of pipelines:
 
--   Schedule order: Chronological order in which pipelines are scheduled.
--   Natural order: Chronological order of pipelines based on material modifications
+- Schedule order: Chronological order in which pipelines are scheduled.
+- Natural order: Chronological order of pipelines based on material modifications
 
 In most cases the schedule order and natural order match. The user checks in and builds incrementally so the order in which builds are scheduled is the same as the relative order in which changes are checked in. Now with the "Trigger with options" functionality, it is possible to trigger a pipeline with older materials. In this case, the changes to the material as reported by the repository and the order of pipelines containing these changes are not the same
 

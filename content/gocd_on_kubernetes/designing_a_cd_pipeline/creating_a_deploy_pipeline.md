@@ -5,14 +5,14 @@ title: Create a pipeline to deploy on Kubernetes
 ---
 # Create a pipeline to deploy the published artifact
 
-In this section, we'll learn to design a deployment pipeline to deploy to Kubernetes. After you've designed and run the build pipeline, you'll see that for every successful build, a new image gets created with a new tag. To create a pipeline to deploy the published artifact, follow these steps:   
+In this section, we'll learn to design a deployment pipeline to deploy to Kubernetes. After you've designed and run the build pipeline, you'll see that for every successful build, a new image gets created with a new tag. To create a pipeline to deploy the published artifact, follow these steps:
 
 ##### Quick Links
 
 [Modeling Deployment Pipelines](https://www.gocd.org/tags/modeling-deployment-pipelines.html)
 
 ## Deploy application to Kubernetes
- 
+
 1. Navigate to Admin -> Pipelines and click on `Create a pipeline within this group`.
 
 2. Specify the pipeline name as `deploy_app_to_cluster`.
@@ -33,28 +33,28 @@ In this section, we'll learn to design a deployment pipeline to deploy to Kubern
 
     ![](../../images/gocd-helm-chart/deploy_add_job.png)
 
-6. Introduce the pipeline `test_application` as a material called `test`. 
-    
+6. Introduce the pipeline `test_application` as a material called `test`.
+
     *Tip: Choose the option 'Pipeline' in the 'Add Material' dropdown under the Materials tab.*
 
-    We want to add the earlier pipeline to build the app as a dependency as we want this pipeline to run only after the docker image is built. 
-    
+    We want to add the earlier pipeline to build the app as a dependency as we want this pipeline to run only after the docker image is built.
+
     ![](../../images/gocd-helm-chart/deploy_add_pipeline_dep.png)
 
 7. Add the `NAMESPACE`, `DOCKERHUB_USERNAME` and `KUBE_TOKEN` environment variables.
 
     > The `KUBE_TOKEN` secure environment variable is needed when we make a Kubernetes API requests to create deployments, service and ingress.
-    For convenience, you can use the secret associated with the service account we used to start the `Tiller` pod: `kube-system:default`.  
+    For convenience, you can use the secret associated with the service account we used to start the `Tiller` pod: `kube-system:default`.
 
     *Note: The KUBE_TOKEN environment variable must be configured as a secure variable as shown in the image. This token should not be exposed.*
-    
+
     ```bash
     kubectl describe sa default --namespace kube-system // to obtain the secret name
     kubectl describe secrets <token_name> --namespace kube-system
     ```
 
     ![](../../images/gocd-helm-chart/env_vars_deploy.png)
-    
+
 8. Configure a `Fetch Artifact Task` to fetch the docker image name. The docker image is the artifact that was published in upstream `build_and_publish_image`.
 
     Choose Artifact Type `External`
@@ -73,8 +73,8 @@ In this section, we'll learn to design a deployment pipeline to deploy to Kubern
 
     ![](../../images/gocd-helm-chart/deploy_fetch_task_2.png)
 
-    
-10.  Reorder the tasks as shown as we want to first fetch the image before running any tests.
+
+10. Reorder the tasks as shown as we want to first fetch the image before running any tests.
 
     ![](../../images/gocd-helm-chart/deploy_tasks.png)
 
@@ -124,7 +124,7 @@ To run the pipeline, unpause the pipeline in the GoCD dashboard. The changes in 
 
 ## View the value stream map
 
-You can view the value stream map of your deployment by clicking on the 'VSM' link of the `deploy_app_to_cluster` pipeline in the Dashboard. 
+You can view the value stream map of your deployment by clicking on the 'VSM' link of the `deploy_app_to_cluster` pipeline in the Dashboard.
 
 ![](../../images/gocd-helm-chart/value_stream_map.png)
 

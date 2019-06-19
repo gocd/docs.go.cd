@@ -277,11 +277,11 @@ The `<server>` element can be used to define information and attributes of the G
 
 **Notes:**
 
--   If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be http://your-go-server:8153
--   If only siteUrl is defined and is not HTTPS, Go URLs will be composed from the siteUrl entry. In this case, the secure pages of Go will not be navigable.
--   If only siteUrl is defined and is HTTPS, Go URLs will be composed from the siteUrl entry and all pages will be HTTPS.
--   If only secureSiteUrl is defined, Go URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the secureSiteUrl entry.
--   If purgeStart and purgeUpto are not defined, artifacts will never be deleted.
+- If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be http://your-go-server:8153
+- If only siteUrl is defined and is not HTTPS, Go URLs will be composed from the siteUrl entry. In this case, the secure pages of Go will not be navigable.
+- If only siteUrl is defined and is HTTPS, Go URLs will be composed from the siteUrl entry and all pages will be HTTPS.
+- If only secureSiteUrl is defined, Go URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the secureSiteUrl entry.
+- If purgeStart and purgeUpto are not defined, artifacts will never be deleted.
 
 **Examples**
 
@@ -417,21 +417,21 @@ So cron expressions can be as simple as this: `* * * * * ?` or more complex, lik
 
 **Special characters**
 
--   `*` (*"all values"*) - used to select all values within a field. For example, "\*" in the minute field means *"every minute"*.
+- `*` (*"all values"*) - used to select all values within a field. For example, "\*" in the minute field means *"every minute"*.
 
--   `?` (*"no specific value"*) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don't care what day of the week that happens to be, I would put "10" in the day-of-month field, and "?" in the day-of-week field. See the examples below for clarification.
+- `?` (*"no specific value"*) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don't care what day of the week that happens to be, I would put "10" in the day-of-month field, and "?" in the day-of-week field. See the examples below for clarification.
 
--   `-` - used to specify ranges. For example, "10-12" in the hour field means *"the hours 10, 11 and 12"*.
+- `-` - used to specify ranges. For example, "10-12" in the hour field means *"the hours 10, 11 and 12"*.
 
--   `,` - used to specify additional values. For example, "MON,WED,FRI" in the day-of-week field means *"the days Monday, Wednesday, and Friday"*.
+- `,` - used to specify additional values. For example, "MON,WED,FRI" in the day-of-week field means *"the days Monday, Wednesday, and Friday"*.
 
--   `/` - used to specify increments. For example, "0/15" in the seconds field means *"the seconds 0, 15, 30, and 45"*. And "5/15" in the seconds field means *"the seconds 5, 20, 35, and 50"*. You can also specify '/' after the '**' character - in this case '**' is equivalent to having '0' before the '/'. '1/3' in the day-of-month field means *"fire every 3 days starting on the first day of the month"*.
+- `/` - used to specify increments. For example, "0/15" in the seconds field means *"the seconds 0, 15, 30, and 45"*. And "5/15" in the seconds field means *"the seconds 5, 20, 35, and 50"*. You can also specify '/' after the '**' character - in this case '**' is equivalent to having '0' before the '/'. '1/3' in the day-of-month field means *"fire every 3 days starting on the first day of the month"*.
 
--   `L` (*"last"*) - has different meaning in each of the two fields in which it is allowed. For example, the value "L" in the day-of-month field means *"the last day of the month"* - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means "7" or "SAT". But if used in the day-of-week field after another value, it means *"the last xxx day of the month"* - for example "6L" means *"the last friday of the month"*. When using the 'L' option, it is important not to specify lists, or ranges of values, as you'll get confusing results.
+- `L` (*"last"*) - has different meaning in each of the two fields in which it is allowed. For example, the value "L" in the day-of-month field means *"the last day of the month"* - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means "7" or "SAT". But if used in the day-of-week field after another value, it means *"the last xxx day of the month"* - for example "6L" means *"the last friday of the month"*. When using the 'L' option, it is important not to specify lists, or ranges of values, as you'll get confusing results.
 
--   `W` (*"weekday"*) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify "15W" as the value for the day-of-month field, the meaning is: *"the nearest weekday to the 15th of the month"*. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify "1W" as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not 'jump' over the boundary of a month's days. The 'W' character can only be specified when the day-of-month is a single day, not a range or list of days. The 'L' and 'W' characters can also be combined in the day-of-month field to yield 'LW', which translates to *"last weekday of the month"*.
+- `W` (*"weekday"*) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify "15W" as the value for the day-of-month field, the meaning is: *"the nearest weekday to the 15th of the month"*. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify "1W" as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not 'jump' over the boundary of a month's days. The 'W' character can only be specified when the day-of-month is a single day, not a range or list of days. The 'L' and 'W' characters can also be combined in the day-of-month field to yield 'LW', which translates to *"last weekday of the month"*.
 
--   `#` - used to specify "the nth" XXX day of the month. For example, the value of "6\#3" in the day-of-week field means *"the third Friday of the month"* (day 6 = Friday and "\#3" = the 3rd one in the month). Other examples: "2\#1" = the first Monday of the month and "4\#5" = the fifth Wednesday of the month. Note that if you specify "\#5" and there is not 5 of the given day-of-week in the month, then no firing will occur that month. The legal characters and the names of months and days of the week are not case sensitive. `MON` is the same as `mon`.
+- `#` - used to specify "the nth" XXX day of the month. For example, the value of "6\#3" in the day-of-week field means *"the third Friday of the month"* (day 6 = Friday and "\#3" = the 3rd one in the month). Other examples: "2\#1" = the first Monday of the month and "4\#5" = the fifth Wednesday of the month. Note that if you specify "\#5" and there is not 5 of the given day-of-week in the month, then no firing will occur that month. The legal characters and the names of months and days of the week are not case sensitive. `MON` is the same as `mon`.
 
 **Examples**
 
@@ -463,8 +463,8 @@ Pay attention to the effects of '?' and '\*' in the day-of-week and day-of-month
 
 **Notes**
 
--   Support for specifying both a day-of-week and a day-of-month value is not complete (you must currently use the '?' character in one of these fields).
--   Be careful when setting fire times between mid-night and 1:00 AM - "daylight savings" can cause a skip or a repeat depending on whether the time moves back or jumps forward.
+- Support for specifying both a day-of-week and a day-of-month value is not complete (you must currently use the '?' character in one of these fields).
+- Be careful when setting fire times between mid-night and 1:00 AM - "daylight savings" can cause a skip or a repeat depending on whether the time moves back or jumps forward.
 
 
 [top](#top)
@@ -552,8 +552,8 @@ The `<passwordFile>` element is used to specify a file which has a set of userna
 
 Suppose the password file is **admins.properties**, which is located in **/home/go**. You want to create two users as Administrators:
 
--   one username is **Jez**, the password encrypted with SHA1 is **ThmbShxAtJepX80c2JY1FzOEmUk=**
--   the other one is **lqiao**, the password encrypted with SHA1 is **TfkgShslgJepX80c2JY1trwEskT=**
+- one username is **Jez**, the password encrypted with SHA1 is **ThmbShxAtJepX80c2JY1FzOEmUk=**
+- the other one is **lqiao**, the password encrypted with SHA1 is **TfkgShslgJepX80c2JY1trwEskT=**
 
 The configuration could look like:
 
@@ -646,8 +646,8 @@ The `<role>` element is used to define a group of users who perform similar task
 
 **Notes:**
 
--   If you want to define roles, you must define an authentication method, either [`<ldap>`](#ldap) or [`<passwordFile>`](#passwordFile).
--   These roles are not associated with roles defined in LDAP; they only work within Go. For example, you can assign a role to the [manual-approval](#approval) in a stage, so that only the users in that role can approve the stage to run.
+- If you want to define roles, you must define an authentication method, either [`<ldap>`](#ldap) or [`<passwordFile>`](#passwordFile).
+- These roles are not associated with roles defined in LDAP; they only work within Go. For example, you can assign a role to the [manual-approval](#approval) in a stage, so that only the users in that role can approve the stage to run.
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
@@ -685,7 +685,7 @@ One `<user>` element defines a particular user in a role. You can add as many as
 
 **Notes:**
 
--   The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
+- The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 
 **Examples**
 
@@ -763,7 +763,7 @@ One `<role>` element in [`<admins>`](#admins) is used to specify a group as admi
 
 **Notes:**
 
--   The role must refer to [`<roles>`](#roles).
+- The role must refer to [`<roles>`](#roles).
 
 **Examples**
 
@@ -782,7 +782,7 @@ The users in role '**go-admin**' would be administrators.
 
 **Notes:**
 
--   The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
+- The user must be in your [LDAP](#ldap) or [passwordFile](#passwordFile).
 
 **Examples**
 
@@ -801,7 +801,7 @@ Two users would be administrators, they are **Jez** and **lqiao**.
 
 **Notes:**
 
--   The role must be defined in [`<roles>`](#roles).
+- The role must be defined in [`<roles>`](#roles).
 
 **Examples**
 
@@ -1100,8 +1100,8 @@ The config repo `<p4>` material element specifies the location of your code base
 
 Views consist of multiple mappings. Each mapping has two parts:
 
-1.  The left-hand side specifies one or more files in the depot and has the form: //depotname/file\_specification
-2.  The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file\_specification
+1. The left-hand side specifies one or more files in the depot and has the form: //depotname/file\_specification
+2. The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file\_specification
 
 Go creates a p4 client to check out files into its sandbox with the 'clobber' option set. All other options use default values as defined by Perforce. Client name is generated automatically by Go. Hence, you can use anything as 'clientname' on the right-hand side in view mapping. The client name format is: cruise-[hostname]-[config repo id]-[a random hash code], for example "cruise-myhostname-configrepo1-wOaJ9kjpfgOLQCncki19ikXt5Q".
 
@@ -1707,21 +1707,21 @@ So cron expressions can be as simple as this: `* * * * * ?` or more complex, lik
 
 **Special characters**
 
--   `*` (*"all values"*) - used to select all values within a field. For example, "\*" in the minute field means *"every minute"*.
+- `*` (*"all values"*) - used to select all values within a field. For example, "\*" in the minute field means *"every minute"*.
 
--   `?` (*"no specific value"*) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don't care what day of the week that happens to be, I would put "10" in the day-of-month field, and "?" in the day-of-week field. See the examples below for clarification.
+- `?` (*"no specific value"*) - useful when you need to specify something in one of the two fields in which the character is allowed, but not the other. For example, if I want my trigger to fire on a particular day of the month (say, the 10th), but don't care what day of the week that happens to be, I would put "10" in the day-of-month field, and "?" in the day-of-week field. See the examples below for clarification.
 
--   `-` - used to specify ranges. For example, "10-12" in the hour field means *"the hours 10, 11 and 12"*.
+- `-` - used to specify ranges. For example, "10-12" in the hour field means *"the hours 10, 11 and 12"*.
 
--   `,` - used to specify additional values. For example, "MON,WED,FRI" in the day-of-week field means *"the days Monday, Wednesday, and Friday"*.
+- `,` - used to specify additional values. For example, "MON,WED,FRI" in the day-of-week field means *"the days Monday, Wednesday, and Friday"*.
 
--   `/` - used to specify increments. For example, "0/15" in the seconds field means *"the seconds 0, 15, 30, and 45"*. And "5/15" in the seconds field means *"the seconds 5, 20, 35, and 50"*. You can also specify '/' after the '**' character - in this case '**' is equivalent to having '0' before the '/'. '1/3' in the day-of-month field means *"fire every 3 days starting on the first day of the month"*.
+- `/` - used to specify increments. For example, "0/15" in the seconds field means *"the seconds 0, 15, 30, and 45"*. And "5/15" in the seconds field means *"the seconds 5, 20, 35, and 50"*. You can also specify '/' after the '**' character - in this case '**' is equivalent to having '0' before the '/'. '1/3' in the day-of-month field means *"fire every 3 days starting on the first day of the month"*.
 
--   `L` (*"last"*) - has different meaning in each of the two fields in which it is allowed. For example, the value "L" in the day-of-month field means *"the last day of the month"* - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means "7" or "SAT". But if used in the day-of-week field after another value, it means *"the last xxx day of the month"* - for example "6L" means *"the last friday of the month"*. When using the 'L' option, it is important not to specify lists, or ranges of values, as you'll get confusing results.
+- `L` (*"last"*) - has different meaning in each of the two fields in which it is allowed. For example, the value "L" in the day-of-month field means *"the last day of the month"* - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means "7" or "SAT". But if used in the day-of-week field after another value, it means *"the last xxx day of the month"* - for example "6L" means *"the last friday of the month"*. When using the 'L' option, it is important not to specify lists, or ranges of values, as you'll get confusing results.
 
--   `W` (*"weekday"*) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify "15W" as the value for the day-of-month field, the meaning is: *"the nearest weekday to the 15th of the month"*. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify "1W" as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not 'jump' over the boundary of a month's days. The 'W' character can only be specified when the day-of-month is a single day, not a range or list of days. The 'L' and 'W' characters can also be combined in the day-of-month field to yield 'LW', which translates to *"last weekday of the month"*.
+- `W` (*"weekday"*) - used to specify the weekday (Monday-Friday) nearest the given day. As an example, if you were to specify "15W" as the value for the day-of-month field, the meaning is: *"the nearest weekday to the 15th of the month"*. So if the 15th is a Saturday, the trigger will fire on Friday the 14th. If the 15th is a Sunday, the trigger will fire on Monday the 16th. If the 15th is a Tuesday, then it will fire on Tuesday the 15th. However if you specify "1W" as the value for day-of-month, and the 1st is a Saturday, the trigger will fire on Monday the 3rd, as it will not 'jump' over the boundary of a month's days. The 'W' character can only be specified when the day-of-month is a single day, not a range or list of days. The 'L' and 'W' characters can also be combined in the day-of-month field to yield 'LW', which translates to *"last weekday of the month"*.
 
--   `#` - used to specify "the nth" XXX day of the month. For example, the value of "6\#3" in the day-of-week field means *"the third Friday of the month"* (day 6 = Friday and "\#3" = the 3rd one in the month). Other examples: "2\#1" = the first Monday of the month and "4\#5" = the fifth Wednesday of the month. Note that if you specify "\#5" and there is not 5 of the given day-of-week in the month, then no firing will occur that month. The legal characters and the names of months and days of the week are not case sensitive. `MON` is the same as `mon`.
+- `#` - used to specify "the nth" XXX day of the month. For example, the value of "6\#3" in the day-of-week field means *"the third Friday of the month"* (day 6 = Friday and "\#3" = the 3rd one in the month). Other examples: "2\#1" = the first Monday of the month and "4\#5" = the fifth Wednesday of the month. Note that if you specify "\#5" and there is not 5 of the given day-of-week in the month, then no firing will occur that month. The legal characters and the names of months and days of the week are not case sensitive. `MON` is the same as `mon`.
 
 **Examples**
 
@@ -1753,8 +1753,8 @@ Pay attention to the effects of '?' and '\*' in the day-of-week and day-of-month
 
 **Notes**
 
--   Support for specifying both a day-of-week and a day-of-month value is not complete (you must currently use the '?' character in one of these fields).
--   Be careful when setting fire times between mid-night and 1:00 AM - "daylight savings" can cause a skip or a repeat depending on whether the time moves back or jumps forward.
+- Support for specifying both a day-of-week and a day-of-month value is not complete (you must currently use the '?' character in one of these fields).
+- Be careful when setting fire times between mid-night and 1:00 AM - "daylight savings" can cause a skip or a repeat depending on whether the time moves back or jumps forward.
 
 [top](#top)
 
@@ -1827,9 +1827,9 @@ contain these files will not trigger a pipeline automatically.
 
 **Notes**
 
--   `<ignore>` can occur multiple times under [`<filter>`](#filter).
--   The pattern is relative to the root directory of the SCM repository, not the sandbox in the agent side or the materials URL.
--   Ignored files are still updated when other files are updated.
+- `<ignore>` can occur multiple times under [`<filter>`](#filter).
+- The pattern is relative to the root directory of the SCM repository, not the sandbox in the agent side or the materials URL.
+- Ignored files are still updated when other files are updated.
 
 **Examples:**
 
@@ -1980,8 +1980,8 @@ configuration, Go will overwrite them before running p4.
 
 Views consist of multiple mappings. Each mapping has two parts:
 
-1.  The left-hand side specifies one or more files in the depot and has the form: //depotname/file\_specification
-2.  The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file\_specification
+1. The left-hand side specifies one or more files in the depot and has the form: //depotname/file\_specification
+2. The right-hand side specifies one or more files in the client workspace and has the form: //clientname/file\_specification
 
 Go creates a p4 client to check out files into its sandbox with the 'clobber' option set. This means, during material update all writable-but-unopened files in the workspace would be overwritten on the agent. All other options use default values as defined by Perforce. Client name is generated automatically by Go. Hence, you can use anything as 'clientname' on the right-hand side in view mapping. The client name format is: cruise-[hostname]-[pipeline name]-[a random hash code], for example "cruise-myhostname-mypipelinename-wOaJ9kjpfgOLQCncki19ikXt5Q". THE GO\_P4\_CLIENT environment variable will have the client name used. This variable can be used in scripts to get the client name
 
@@ -2413,7 +2413,7 @@ All paths specified are relative to the pipeline working directory.
 
 **Examples**
 
--   Invoke Ant, specifying a set of targets to run:
+- Invoke Ant, specifying a set of targets to run:
 
     ```xml
     <tasks>
@@ -2421,7 +2421,7 @@ All paths specified are relative to the pipeline working directory.
     </tasks>
     ```
 
--   Invoke Ant in a specific working directory with a set of targets:
+- Invoke Ant in a specific working directory with a set of targets:
 
     ```xml
     <tasks>
@@ -2447,7 +2447,7 @@ All paths specified are relative to the pipeline working directory.
 
 **Examples**
 
--   Invoke ruby, specifying the working directory as **tools/my-ruby-tool** and executing the ruby script **backup.rb**.
+- Invoke ruby, specifying the working directory as **tools/my-ruby-tool** and executing the ruby script **backup.rb**.
 
     ```xml
     <tasks>
@@ -2470,7 +2470,7 @@ On Windows you should specify the full name of your script file such as "mybuild
 
 **Examples**
 
--   Echo something on Windows:
+- Echo something on Windows:
 
     ```xml
     <exec command="cmd">
@@ -2480,7 +2480,7 @@ On Windows you should specify the full name of your script file such as "mybuild
     </exec>
     ```
 
--   Run command with pipe character in arguments:
+- Run command with pipe character in arguments:
 
     ```xml
     <exec command="MsBuild">
@@ -2549,8 +2549,8 @@ Invoke rake, specifying a set of targets to run:
 
 Fetch artifacts from:
 
--   1\. previous stages in the same pipeline, or
--   2\. stages of pipelines that this pipeline depends on, directly or indirectly (ancestor pipelines).
+- 1\. previous stages in the same pipeline, or
+- 2\. stages of pipelines that this pipeline depends on, directly or indirectly (ancestor pipelines).
 
 When pointed to parent/ancestor pipeline, fetch task can pull artifacts from the upstream-stage or stages before it. This restriction has been
 introduced in 12.2. Stages after the upstream stage can not be fetched from, because they may not be complete when the fetch call executes.
@@ -2576,7 +2576,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 
 **Example:**
 
-1.  Fetch all artifacts in the directory 'pkg' from the previous stage in the same pipeline and put them under the directory 'lib'
+1. Fetch all artifacts in the directory 'pkg' from the previous stage in the same pipeline and put them under the directory 'lib'
 
     ```xml
     <pipelines>
@@ -2620,7 +2620,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
     </pipelines>
     ```
 
-2.  Fetch a single artifact from a stage in the upstream pipeline 'framework' and put it under the directory 'lib'
+2. Fetch a single artifact from a stage in the upstream pipeline 'framework' and put it under the directory 'lib'
 
     ```xml
     <pipeline name="go">
@@ -2640,7 +2640,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
     </pipeline>
     ```
 
-3.  Fetch a single artifact from a stage in an ancestor pipeline 'Build' and put it under the directory 'pkg'
+3. Fetch a single artifact from a stage in an ancestor pipeline 'Build' and put it under the directory 'pkg'
 
     ```xml
     <pipeline name="deploy">
@@ -2730,8 +2730,8 @@ If a job is cancelled during the preparing phase, preparing will complete, but n
 
 If a job is cancelled during the building phase:
 
--   If the currently running task **does not** have `<oncancel>` defined, the task will be killed
--   If the currently running task **does** have `<oncancel>` defined, the task defined within `<oncancel>` will execute immediately. As soon as both the original task and the `<oncancel>` task are completed, no other tasks will execute
+- If the currently running task **does not** have `<oncancel>` defined, the task will be killed
+- If the currently running task **does** have `<oncancel>` defined, the task defined within `<oncancel>` will execute immediately. As soon as both the original task and the `<oncancel>` task are completed, no other tasks will execute
 
 If a job is cancelled during the completing phase, the agent will ignore the request and complete as planned
 
@@ -2998,8 +2998,8 @@ Specifies how a stage should be triggered. `<approval>` of type 'manual' or 'suc
 
 **Notes:**
 
--   `<approval>` must be the first sub-element of [`<stage>`](#stage).
--   If an approval is not specified then the behavior is same as 'success' i.e. the stage will be automatically triggered when the previous stage passes.
+- `<approval>` must be the first sub-element of [`<stage>`](#stage).
+- If an approval is not specified then the behavior is same as 'success' i.e. the stage will be automatically triggered when the previous stage passes.
 
 **Example:**
 

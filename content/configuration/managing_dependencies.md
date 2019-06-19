@@ -12,12 +12,12 @@ Sometimes you need more complex triggers than a simple pipeline of stages and jo
 
 Say we have two pipelines - **upstream\_pipeline** and **downstream\_pipeline** . We want downstream\_pipeline to automatically trigger following the successful completion of the stage AutoStage1 in pipeline upstream\_pipeline. Here's how we'd achieve this:
 
--   Navigate to the **Admin** section.
--   On the Pipelines screen, locate the **downstream\_pipeline**    pipeline and **Edit** it.
--   Click on the **Materials** tab.
--   Add a new pipeline dependency material by clicking **Add Material** and then selecting **Pipeline** .
--   You'll be presented with an **Add Material** popup (see screenshot)
--   Enter **upstream\_pipeline [AutoStage1]** in the **Pipeline [stage]** field (it can also auto-complete)
+- Navigate to the **Admin** section.
+- On the Pipelines screen, locate the **downstream\_pipeline**    pipeline and **Edit** it.
+- Click on the **Materials** tab.
+- Add a new pipeline dependency material by clicking **Add Material** and then selecting **Pipeline** .
+- You'll be presented with an **Add Material** popup (see screenshot)
+- Enter **upstream\_pipeline [AutoStage1]** in the **Pipeline [stage]** field (it can also auto-complete)
 
 ![](../images/pipeline_add_material.png)
 

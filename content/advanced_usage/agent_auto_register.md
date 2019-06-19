@@ -8,7 +8,7 @@ title: Auto Register a Remote Agent
 
 As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.
 
--   Add an attribute named "agentAutoRegisterKey", for e.g., agentAutoRegisterKey="388b633a88de126531afa41eff9aa69e", in the server configuration fragment, in case it is not present.
+- Add an attribute named "agentAutoRegisterKey", for e.g., agentAutoRegisterKey="388b633a88de126531afa41eff9aa69e", in the server configuration fragment, in case it is not present.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -18,7 +18,7 @@ As a GoCD administrator, you can auto approve remote agents by using a shared ke
 </cruise>
 ```
 
--   On the remote GoCD Agent machine, create a file named `<agent_installation_directory>/config/autoregister.properties`.
+- On the remote GoCD Agent machine, create a file named `<agent_installation_directory>/config/autoregister.properties`.
 
     This file supports the following properties
 
@@ -44,4 +44,4 @@ agent.auto.register.elasticAgent.agentId=i-123456
 agent.auto.register.elasticAgent.pluginId=com.example.aws
 ```
 
--   Now, bringing up the remote agent should automatically register with the GoCD Server without the administrator having to 'Enable' the newly added agent and configure its resources and assign it to environments.
+- Now, bringing up the remote agent should automatically register with the GoCD Server without the administrator having to 'Enable' the newly added agent and configure its resources and assign it to environments.

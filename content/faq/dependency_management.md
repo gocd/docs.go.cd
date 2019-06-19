@@ -1,5 +1,5 @@
 ---
-description: How GoCD handles deployment pipeline dependency. 
+description: How GoCD handles deployment pipeline dependency.
 keywords: dependency pipeline, test, code,build, propagate material, dependency chain
 title: Run Tests against new Builds
 ---
@@ -21,15 +21,15 @@ Consider the following dependency chain:
 
 #### Legend
 
--   **SCM** : Repository
--   **rev1, rev2** : Check-ins to the repository
--   **A** : Pipeline for development build
--   dependent **B** : Pipeline for acceptance tests
+- **SCM** : Repository
+- **rev1, rev2** : Check-ins to the repository
+- **A** : Pipeline for development build
+- dependent **B** : Pipeline for acceptance tests
 
 #### How it works
 
--   Code is checked in to SCM (rev1)
--   Development build (A) is triggered by the check-in
--   There is another check-in to SCM (rev2)
--   Development build completes (with rev1) and triggers acceptance tests (B)
--   Here's where dependency management comes in. Go is smart enough detect that rev1 originally triggered the build and ensures that the acceptance tests check-out that revision (rev1) and not the latest revision (rev2). In this situation, Go ensures that the appropriate version of acceptance tests are run against the appropriate version of the development build.
+- Code is checked in to SCM (rev1)
+- Development build (A) is triggered by the check-in
+- There is another check-in to SCM (rev2)
+- Development build completes (with rev1) and triggers acceptance tests (B)
+- Here's where dependency management comes in. Go is smart enough detect that rev1 originally triggered the build and ensures that the acceptance tests check-out that revision (rev1) and not the latest revision (rev2). In this situation, Go ensures that the appropriate version of acceptance tests are run against the appropriate version of the development build.

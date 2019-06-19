@@ -1,6 +1,6 @@
 ---
 description: Properties provide a simple way of collecting metrics over time. GoCD sets standard properties. You can also set properties using the GoCD REST APIs.
-keywords: Properties, API, Standard properties 
+keywords: Properties, API, Standard properties
 title: Properties
 ---
 
@@ -19,7 +19,7 @@ GoCD allows you to download the history of properties that you have defined. Thi
 
 You can of course access these resources through standard URLs:
 
--   **CSV** --
+- **CSV** --
     `http://[server]/go/properties/[pipelineName]/[pipelineLabel]/[stageName]/[stageCounter]/[job]/[propertyName]`
 
 To open the property history in a spreadsheet application, you can click on the **Export property history to spreadsheet (csv)** link on the Properties tab of the job.
@@ -32,19 +32,19 @@ To open the property history in a spreadsheet application, you can click on the 
 
 The standard properties defined by GoCD are:
 
--   **cruise\_agent** -- the agent that is running the job
--   **cruise\_job\_duration** -- total time to run the job
--   **cruise\_job\_result** -- one of "passed" or "failed"
--   **cruise\_job\_id** -- the name of the folder that the artifacts of the job was stored in under the artifact repository on server side (on earlier versions of GoCD).
--   **cruise\_pipeline\_label** -- same as the value of the environment variable GO\_PIPELINE\_LABEL
--   **cruise\_pipeline\_counter** -- same as the value of the environment variable GO\_PIPELINE\_COUNTER
--   **cruise\_stage\_counter** -- same as the value of the environment variable GO\_STAGE\_COUNTER
--   **cruise\_timestamp\_01\_scheduled** -- time at which the job was scheduled
--   **cruise\_timestamp\_02\_assigned** -- time at which the job was assigned to the agent
--   **cruise\_timestamp\_03\_preparing** -- time at which the job entered the "preparing" state
--   **cruise\_timestamp\_04\_building** -- time at which the job started building
--   **cruise\_timestamp\_05\_completing** -- time at which the job entered the completing state
--   **cruise\_timestamp\_06\_completed** -- time at which the job completed
+- **cruise\_agent** -- the agent that is running the job
+- **cruise\_job\_duration** -- total time to run the job
+- **cruise\_job\_result** -- one of "passed" or "failed"
+- **cruise\_job\_id** -- the name of the folder that the artifacts of the job was stored in under the artifact repository on server side (on earlier versions of GoCD).
+- **cruise\_pipeline\_label** -- same as the value of the environment variable GO\_PIPELINE\_LABEL
+- **cruise\_pipeline\_counter** -- same as the value of the environment variable GO\_PIPELINE\_COUNTER
+- **cruise\_stage\_counter** -- same as the value of the environment variable GO\_STAGE\_COUNTER
+- **cruise\_timestamp\_01\_scheduled** -- time at which the job was scheduled
+- **cruise\_timestamp\_02\_assigned** -- time at which the job was assigned to the agent
+- **cruise\_timestamp\_03\_preparing** -- time at which the job entered the "preparing" state
+- **cruise\_timestamp\_04\_building** -- time at which the job started building
+- **cruise\_timestamp\_05\_completing** -- time at which the job entered the completing state
+- **cruise\_timestamp\_06\_completed** -- time at which the job completed
 
 ## Generating Properties from Artifacts
 
@@ -70,9 +70,9 @@ For example, to add support for the coverage tool "Emma", you might do this:
 
 If you define a tests artifact that contains the test reports, then GoCD will add some properties associated with the tests.
 
--   **tests\_failed\_count** -- number of failed tests
--   **tests\_ignored\_count** -- number of ignored tests
--   **tests\_total\_duration** -- total time taken for the tests
--   **tests\_total\_count** -- total number of tests
+- **tests\_failed\_count** -- number of failed tests
+- **tests\_ignored\_count** -- number of ignored tests
+- **tests\_total\_duration** -- total time taken for the tests
+- **tests\_total\_count** -- total number of tests
 
 ![](../images/properties-tests.png)

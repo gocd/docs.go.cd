@@ -16,4 +16,4 @@ Unchecking the "Automatic Pipeline Scheduling" checkbox above disables auto sche
 
 #### Also see...
 
--   [Different Types of Triggers for a Pipeline](http://support.thoughtworks.com/entries/23291981)
+- [Different Types of Triggers for a Pipeline](http://support.thoughtworks.com/entries/23291981)

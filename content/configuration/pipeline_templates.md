@@ -28,8 +28,8 @@ As an example, assume that there is a pipeline group called "my-app" and it cont
 
 ## Using Administration UI
 
--   Create a template "my-app-build" by extracting it from the pipeline "app-trunk", as shown in the previous section.
--   Create a new pipeline "app-1.0-branch" which defines SCM material with the branch url and uses the template "my-app-build".
+- Create a template "my-app-build" by extracting it from the pipeline "app-trunk", as shown in the previous section.
+- Create a new pipeline "app-1.0-branch" which defines SCM material with the branch url and uses the template "my-app-build".
 
 ## Using XML
 
@@ -83,11 +83,11 @@ Clicking on the icon indicated by arrow will display the following:
 
 The pop-up shows the extract of the template "Services-Template" configured for the pipeline "Service\_1".
 
-1.  Shows the details of the job "compile-job" configured for the stage "compile".
-2.  Indicates that the working directory set for the task is "go/service\_1", which is followed by the "\$" symbol and then the command.
-3.  If any "On Cancel Task" has been configured, it will be indicated like this.
-4.  Shows the "Run If Condition" for this task.
+1. Shows the details of the job "compile-job" configured for the stage "compile".
+2. Indicates that the working directory set for the task is "go/service\_1", which is followed by the "\$" symbol and then the command.
+3. If any "On Cancel Task" has been configured, it will be indicated like this.
+4. Shows the "Run If Condition" for this task.
 
 #### See also...
 
--   [Templates - Configuration Reference](configuration_reference.html#templates)
+- [Templates - Configuration Reference](configuration_reference.html#templates)

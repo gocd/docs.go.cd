@@ -14,14 +14,14 @@ This feature is an enhancement to [Custom Commands](http://support.thoughtworks.
 
 This feature can be used anywhere you need to specify a custom command.
 
--   Add a new pipeline
+- Add a new pipeline
 
     ![](../images/cmd_repo_wizard.png)
 
--   Add a new stage to a pipeline
--   Add a new job to a stage
--   Add a new task to a job
--   Edit a task
+- Add a new stage to a pipeline
+- Add a new job to a stage
+- Add a new task to a job
+- Edit a task
 
 > **Custom commands and agents**
 
@@ -102,9 +102,9 @@ From the Go server's point of view, the command repository is just a directory u
 
 ### Recommended process
 
-1.  Command author pushes/checks-in command to corporate version control system
-2.  Cron job on Go-server pulls/updates local repository/working copy in due course
-3.  Go Server caches the commands to improve response time. In case of changes in the command repository, new command gets into the cache in one of the following ways:
+1. Command author pushes/checks-in command to corporate version control system
+2. Cron job on Go-server pulls/updates local repository/working copy in due course
+3. Go Server caches the commands to improve response time. In case of changes in the command repository, new command gets into the cache in one of the following ways:
     1.  The default cache invalidation interval of 30 mins kicks in and the cache gets refreshed
     2.  Go server admin clicks on the **RELOAD CACHE** button
     3.  Go server admin uses the **reload API** through a cron job or otherwise to force a cache reload.
@@ -141,9 +141,9 @@ This is an example of valid command syntax. The command attribute is mandatory. 
 
 When you lookup a command, the following logic is used to sort the resulting suggestions:
 
-1.  Exact matches of name in command documentation (or filename if name missing)
-2.  Partial starts-with matches of name in command documentation (or filename if name missing)
-3.  Exact matches of keywords in command documentation
+1. Exact matches of name in command documentation (or filename if name missing)
+2. Partial starts-with matches of name in command documentation (or filename if name missing)
+3. Exact matches of keywords in command documentation
 
 Within each category, the sorting is alphabetical.
 
@@ -151,9 +151,9 @@ Within each category, the sorting is alphabetical.
 
 We welcome commands contributed by users. Simply,
 
-1.  [fork](https://help.github.com/articles/fork-a-repo) this [GitHub repo](https://github.com/gocd/go-command-repo)
-2.  Clone it locally
-3.  Commit and push your change
-4.  Send us a [pull request](https://help.github.com/articles/using-pull-requests)
+1. [fork](https://help.github.com/articles/fork-a-repo) this [GitHub repo](https://github.com/gocd/go-command-repo)
+2. Clone it locally
+3. Commit and push your change
+4. Send us a [pull request](https://help.github.com/articles/using-pull-requests)
 
 Accepted commands will be bundled into the next release.

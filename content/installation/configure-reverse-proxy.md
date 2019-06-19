@@ -14,8 +14,8 @@ An example of how to configure GoCD with Apache is shown below.
 
 **Assumptions:**
 
--   You have Apache with `mod_proxy` installed
--   The Apache server sits on the same machine as the GoCD server (localhost)
+- You have Apache with `mod_proxy` installed
+- The Apache server sits on the same machine as the GoCD server (localhost)
 
 ```apache
 Listen nnn.nnn.nnn.nnn:80
@@ -119,4 +119,4 @@ The GoCD server requires that the agents connect to it directly without any reve
 
 ## Also see...
 
--   [Configure site URLs](../installation/configuring_server_details.html#configure-site-urls)
+- [Configure site URLs](../installation/configuring_server_details.html#configure-site-urls)
