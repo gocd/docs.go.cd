@@ -26,7 +26,6 @@ Welcome to <a href="https://www.gocd.org" target="_blank" rel="noopener">GoCD</a
     <li><a href="{{< relref "introduction/concepts_in_go.md" >}}">Understand concepts in GoCD</a></li>
     <li><a href="https://www.gocd.org/getting-started/part-1/" target="_blank" rel="noopener">Step-by-step guide to your first pipeline</a></li>
     <li><a href="{{< relref "installation/_index.md" >}}">Installing GoCD for real</a></li>
-    <li><a href="{{< relref "navigation/pipelines_dashboard_page.md" >}}">Tour of the main areas of the GoCD UI</a></li>
   </ul>
 
 </div>

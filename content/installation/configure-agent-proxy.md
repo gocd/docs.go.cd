@@ -10,45 +10,24 @@ title: Configure an agent with proxy
 
 Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions [defined by the JVM](https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html):
 
-* `http.proxyHost` (default: <none>)
+* `http.proxyHost`
 * `http.proxyPort` (default: `80`)
 * `http.nonProxyHosts` (default: `localhost|127.*|[::1]`)
 * `https.proxyHost`
 * `https.proxyPort`
 * `socksProxyHost`
-* `socksProxyPort` (default: 1080)
-* `socksProxyVersion` (default: 5)
+* `socksProxyPort` (default: `1080`)
+* `socksProxyVersion` (default: `5`)
 
-If your proxy server is running on `proxy.example.com` port `3128`, you will need to setup the following system properties:
-
-```shell
--Dhttp.proxyHost=proxy.example.com -Dhttp.proxyPort=3128 -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost
-```
-
-To avoid using proxies for certain hosts, you may use `http.nonProxyHosts` which is a list of hostnames or ip addresses separated by a pipe character(`|`), you may include a wildcard character (`*`) for matching. For example:
+To configure an agent to use a proxy edit the `wrapper-properties.conf` and add the following system properties. See the installation documentation for the location of `wrapper-properties.conf` file.
 
 ```shell
--Dhttp.nonProxyHosts='*.foo.com|localhost'
-```
+# the proxy server
+wrapper.java.additional.100=-Dhttps.proxyHost=proxy.example.com
+# the proxy port
+wrapper.java.additional.101-Dhttps.proxyPort=3128
+# do not proxy connections to these hosts
+wrapper.java.additional.102-Dhttp.nonProxyHosts=localhost|*.department.acme.com
 
-**Note:** that the pipe character (`|`) may wildcard (`*`) may need special escaping on Linux.
-
-## Configuring an agent on Linux
-
-To setup the agent on linux, edit the file `/etc/default/go-agent` and add the following:
-
-```shell
-PROXY_SETTINGS="-Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts='localhost|*.department.acme.com'"
-GO_AGENT_SYSTEM_PROPERTIES="${PROXY_SETTINGS}"
-AGENT_BOOTSTRAPPER_JVM_ARGS="${PROXY_SETTINGS}"
-```
-
-## Configuring an agent on Windows
-
-
-Follow the [instructions](../installation/install/agent/windows.html#overriding-default-startup-arguments-and-environment) to add a new property for GoCD agents setup on windows, such as:
-
-```shell
-wrapper.java.additional.17="-Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts='localhost|*.department.acme.com'"
-set.AGENT_STARTUP_ARGS=%AGENT_STARTUP_ARGS% -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 '-Dhttp.nonProxyHosts=localhost|*.department.acme.com'
+set.AGENT_STARTUP_ARGS=%AGENT_STARTUP_ARGS% -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost|*.department.acme.com
 ```

@@ -31,7 +31,7 @@ For this example, we'll assume that there is already an ant task defined in your
 ```
 When you are ready to deploy something into the UAT environment...
 
-- Navigate to the [pipeline activity](../navigation/pipeline_activity_page.html) page
+- Navigate to the pipeline history page
 - Find the check-in you want to deploy
 - Click on the manual transition into the **UAT** stage
 
@@ -56,7 +56,7 @@ For this example, we'll assume that there is a known way to rollback to a previo
 When you are ready to deploy something into the production
 environment...
 
-- Navigate to the [pipeline activity](../navigation/pipeline_activity_page.html) page
+- Navigate to the pipeline history page
 - Find the check-in you want to deploy
 - Click on the details link of the **dist** stage
 

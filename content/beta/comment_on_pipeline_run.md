@@ -17,7 +17,7 @@ title: Comment on a pipeline run
   <div style="font-family: monospace; font-size: 70%; margin-top: -1em">curl --user username:password -d 'toggle_value=on' ...</div>
 </div>
 
-Each pipeline in the [pipeline activity](../navigation/pipeline_activity_page.html) page can now be annotated with a
+Each pipeline in the pipeline history page can now be annotated with a
 comment. This text can be seen by all other users who can access this page, for those pipelines.
 
 When this feature is turned on, the pipeline activity page looks like this:

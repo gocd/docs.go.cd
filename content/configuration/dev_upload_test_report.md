@@ -36,7 +36,7 @@ For each job that runs JUnit:
 
 We are going to assume that the flash file, and the html file referencing it, are being created in the "target/reports" folder.
 
-Click on the [Administration](../navigation/administration_page.html) tab
+Click on the _Admin > Pipelines_ tab tab
 
 ![](../images/topnav_admin.png)
 

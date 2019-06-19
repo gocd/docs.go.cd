@@ -46,5 +46,4 @@ If the pipeline has environment and/or secure variables configured, additional t
 #### Also see...
 
 - [Deploy a specific build to an environment](../faq/deploy_a_specific_build_to_an_environment.html)
-- [Pipeline dashboard](../navigation/pipelines_dashboard_page.html)
 - [Ordering of pipelines](../faq/ordering_of_pipelines.html)

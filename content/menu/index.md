@@ -22,14 +22,6 @@ headless: true
     <a href="#"><b>GoCD Tour</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "introduction/concepts_in_go.md" >}}">Concepts in GoCD</a></li>
-      <li class="level2"><a href="{{< relref "navigation/pipelines_dashboard_page.md" >}}">Pipeline Dashboard</a></li>
-      <li class="level2"><a href="{{< relref "navigation/agents_page.md" >}}">Agents</a></li>
-      <li class="level2"><a href="{{< relref "navigation/agent_details.md" >}}">Agent Details</a></li>
-      <li class="level2"><a href="{{< relref "navigation/pipeline_activity_page.md" >}}">Pipeline Activity</a></li>
-      <li class="level2"><a href="{{< relref "navigation/stage_details_page.md" >}}">Stage Details</a></li>
-      <li class="level2"><a href="{{< relref "navigation/job_details_page.md" >}}">Job Details</a></li>
-      <li class="level2"><a href="{{< relref "navigation/pipeline_configuration.md" >}}">Pipeline configuration</a></li>
-      <li class="level2"><a href="{{< relref "navigation/environments_page.md" >}}">Environments</a></li>
       <li class="level2"><a href="{{< relref "navigation/value_stream_map.md" >}}">Value Stream Map</a></li>
     </ul>
   </li>

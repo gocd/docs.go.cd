@@ -12,7 +12,7 @@ After [uploading html reports](../configuration/dev_upload_test_report.html), it
 ### Example usage
 
 - Suppose we have configured GoCD to [upload a flash video and html file and display it as a tab](../configuration/dev_upload_test_report.html)
-- Click on the [Pipelines](../navigation/pipelines_dashboard_page.html) tab
+- Click on the _Dashboard_ tab
 
 ![](../images/topnav_pipelines.png)
 

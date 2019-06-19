@@ -19,7 +19,7 @@ GoCD helps solve all of the above problems.
 
 ## How to use fan-in:
 
-- In cases where your SCM material is used throughout the process you will need to define the same URL for the material throughout. This will let GoCD know that it is a shared material and GoCD will enforce fan-in wherever applicable. For example: code, tests, environment configuration are in http://svn.company.com/code, http://svn.company.com/tests, and http://svn.company.com/config respectively. In this case ensure for pipelines that need these materials, the url is set to the same value. For example the pipelines Build, Acceptance and Deploy have the material url http://svn.company.com
+- In cases where your SCM material is used throughout the process you will need to define the same URL for the material throughout. This will let GoCD know that it is a shared material and GoCD will enforce fan-in wherever applicable. For example: code, tests, environment configuration are in `http://svn.company.com/code`, `http://svn.company.com/tests`, and `http://svn.company.com/config` respectively. In this case ensure for pipelines that need these materials, the url is set to the same value. For example the pipelines Build, Acceptance and Deploy have the material url `http://svn.company.com`
 - Pipelines where fan-in dependency resolution is required will need to have trigger type set as auto
 
 ## Example use cases for fan-in resolution
@@ -99,16 +99,8 @@ How to configure:
 
 ## Notes
 
-- Fan-in as a feature is enabled by default. In case you need pipelines to trigger with every version regardless of ancestor versions you can disable fan-in. To disable fan-in you will need to add a system property and restart the GoCD server. On linux add the following line to /etc/default/go-server
+- Fan-in as a feature is enabled by default. In case you need pipelines to trigger with every version regardless of ancestor versions you can disable fan-in. To disable fan-in you will need to set the system property `resolve.fanin.revisions` to `false` and restart the GoCD server.
 
-    ```shell
-    export GO_SERVER_SYSTEM_PROPERTIES='-Dresolve.fanin.revisions=N'
-    ```
-
-    On windows, in the config folder of the GoCD server installation, edit the wrapper-server.conf file, and add an additional property with the value '-Dresolve.fanin.revisions=N'. For example:
-
-    ```bash
-    wrapper.java.additional.17='-Dresolve.fanin.revisions=N'
-    ```
+    To configure the system properties, edit the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
 
 - GoCD will apply fan-in dependency resolution for pipelines that have auto trigger type only.

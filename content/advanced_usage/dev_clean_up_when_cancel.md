@@ -26,7 +26,7 @@ To perform a custom cleanup through the web interface, edit the desired **task c
 
 Usage: As a developer, I want to stop running my [Twist](http://www.thoughtworks.com/products/twist-agile-testing) tests and clean up the environment on each job when I cancel the stage.
 
-- On the [Administration Tab](../navigation/administration_page.html), edit the jobs that should handle canceling correctly
+- On the _Admin > Pipelines_ tab, edit the jobs that should handle canceling correctly
 - Ensure the following "task" block is in the job configuration
 - Now, whenever you cancel the stage while the jobs are running the ant "twist" target, the target "kill\_twist" will execute
 
@@ -34,6 +34,6 @@ Usage: As a developer, I want to stop running my [Twist](http://www.thoughtworks
 
 Usage: As a developer, I want to allow my database tests to not be halted when I cancel the stage.
 
-- On the [Administration Tab](../navigation/administration_page.html), edit the jobs that should handle canceling correctly
+- On the _Admin > Pipelines_ tab, edit the jobs that should handle canceling correctly
 - Ensure the following "task" block is in the job configuration
 - Now, whenever you cancel the stage while the jobs are running the rake "db-test" target, the agent will finish the task before picking up new work

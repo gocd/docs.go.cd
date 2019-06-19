@@ -26,7 +26,7 @@ to choose your operating system and then provide you instructions for that opera
 
 Whatever operating systems you install the GoCD server and (at least one) GoCD agent on, the default ports used by the
 server are 8153 (HTTP port) and 8154 (HTTPS port). So, after installation you should be able to access either
-http://localhost:8153 or http://your-server-installation-hostname:8153 and you should see a screen
+`http://localhost:8153` or `http://your-server-installation-hostname:8153` and you should see a screen
 such as this:
 
 ![Initial screen, upon installation](/images/gocd_new_installation_startup.png)

@@ -28,7 +28,7 @@ When you see warning messages like the one above
 - Identify the processes running as children of GoCD Server
 
     > On Windows, you can use tools like **Process Explorer** . On linux you could run 'ps waux | grep 'material-type''
-- Determine the process that's hung. The extra information like URL:"https://test@bitbucket.org/test/git_repo.git" in the warning information should help you with this.
+- Determine the process that's hung. The extra information like URL: `https://test@bitbucket.org/test/git_repo.git` in the warning information should help you with this.
 - On linux system, you should see lines like these:
 
     ```shell

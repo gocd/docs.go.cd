@@ -8,9 +8,7 @@ title: Mailhost Information
 
 In order to allow [email notifications](dev_notifications.html), you need to tell GoCD information about your mailhost.
 
-- Click on the [Administration](../navigation/administration_page.html) tab
-![](../images/topnav_admin.png)
-- Click on the 'Server Configuration' sub-tab
+- Click on the _Admin > Server Configuration_ link in the top navigation bar
 - Add your mailhost information (with username and password as required)
 ![](../images/3_add_mailhost_info.png)
 - Add an Administrator email address (this account will be emailed if the Go server is [running out of disk space](../faq/admin_out_of_disk_space.html))

@@ -19,6 +19,6 @@ Usage: We need a manual 'dist' stage that will create the binaries used by later
 
 ![Set stage type to "Manual"](../images/1_add_approval_tag.png)
 
-- Now, when the build stage 'build' is completed, you can manually cause GoCD to create the binary from the [Pipeline activity](../navigation/pipeline_activity_page.html) page
+- Now, when the build stage 'build' is completed, you can manually cause GoCD to create the binary from the pipeline history page
 
 ![Manual gate](../images/2_click_manual.png)

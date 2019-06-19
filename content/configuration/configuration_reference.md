@@ -277,7 +277,7 @@ The `<server>` element can be used to define information and attributes of the G
 
 **Notes:**
 
-- If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be http://your-go-server:8153
+- If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be `http://your-go-server:8153`
 - If only siteUrl is defined and is not HTTPS, Go URLs will be composed from the siteUrl entry. In this case, the secure pages of Go will not be navigable.
 - If only siteUrl is defined and is HTTPS, Go URLs will be composed from the siteUrl entry and all pages will be HTTPS.
 - If only secureSiteUrl is defined, Go URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the secureSiteUrl entry.
@@ -1613,7 +1613,7 @@ can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue e
 
 **Examples**
 
-Suppose you are using a Web Application to manage your tasks or bugs, and the link looks like http://your-trackingtool/yourproject/512, '512'
+Suppose you are using a Web Application to manage your tasks or bugs, and the link looks like `http://your-trackingtool/yourproject/512`, '512'
 is your task ID. Your configuration would be:
 
 ```xml
@@ -1624,7 +1624,7 @@ is your task ID. Your configuration would be:
 ```
 
 If you check in some code with a commit message which includes the characters 'evo-512' then that will appear in the modification pop-up
-box as a link. When you click it, Go will take you to the web page 'http://your-trackingtool/yourproject/512'.
+box as a link. When you click it, Go will take you to the web page `http://your-trackingtool/yourproject/512`.
 
 For example: If you use [Mingle](http://www.thoughtworks.com/products/mingle-agile-project-management/) for your task manager, the configuration would be:
 
@@ -1901,7 +1901,7 @@ For a Go Agent on linux with the following configuration:
 </pipeline>
 ```
 
-Go Agent will check out source code from 'http://svn-server.com/framework' to '/var/lib/go-agent/pipelines/myproduct/framwork', and from 'http://svn-server.com/componentOne' to '/var/lib/go-agent/pipelines/myproduct/mycomponent'.
+Go Agent will check out source code from `http://svn-server.com/framework` to `/var/lib/go-agent/pipelines/myproduct/framwork`, and from `http://svn-server.com/componentOne` to `/var/lib/go-agent/pipelines/myproduct/mycomponent`.
 
 [top](#top)
 
@@ -2375,7 +2375,7 @@ The following environment variables are set for all tasks:
 
 | Attribute | Description |
 |-----------|-------------|
-| `GO_SERVER_URL` | The base URL for the server, including '/go'. For example: https://localhost:8154/go |
+| `GO_SERVER_URL` | The base URL for the server, including '/go'. For example: `https://localhost:8154/go` |
 | `GO_PIPELINE_NAME` | The name of the pipeline to which the job belongs to |
 | `GO_PIPELINE_LABEL` | The label of the pipeline to which the job belongs to |
 | `GO_STAGE_NAME` | The name of the stage to which the job belongs to |
