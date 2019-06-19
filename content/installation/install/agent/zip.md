@@ -2,22 +2,20 @@
 title:    Generic Zip
 ---
 
-# Running GoCD agent via zip without installation
+# Advanced installation of GoCD server using zip installer
 
 If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
 
--   Download the zip installer for GoCD agent
--   Unzip the installer in a folder of your choice. It creates a subfolder with the name ```go-agent-${version}```
--   Set ```java``` in path
-    -   If you are on a Windows system, set ```GO_AGENT_JAVA_HOME``` to the installation path of java on the system
-    -   If you are on a Unix system, set ```JAVA_HOME``` to the installation path of java on the system
--   Open a command prompt and go to the folder
--   Start the agent
-    -   If you are on a Windows system, run ```start-agent.bat```
-    -   If you are on a Unix system, run ```agent.sh```  (Ensure that ```agent.sh``` is executable)
+- Download the zip installer for GoCD agent
+- Unzip the installer in a folder of your choice. It creates a subfolder with the name `go-agent-${version}`
+- Ensure that `java` executable is available on the `PATH` environment variable. If you have multiple versions of java, or want to use a version of java that is not available on `PATH` environment variable, edit the file `wrapper-config/wrapper-properties.conf` and change the variable `wrapper.java.command` to point to the java executable.
 
-> **Note:** You can override default environment for the GoCD agent by editing the file ```/etc/defaults/go-agent```
+## Managing the GoCD agent process
 
-GoCD agent, by default, will attempt to connect to the GoCD server running on the same system. If you want it to connect to a different GoCD server, set the environment variable ```GO_SERVER``` or edit the startup scripts suitably
+{{< include file="installation/install/_tanuki_commands.md" markdown="true" type="agent" prefix="./bin" >}}
+
+## Overriding default startup arguments and environment
+
+{{< include file="installation/install/_wrapper_configuration.md" markdown="true" prefix="./wrapper-config" >}}
 
 {{< include file="installation/install/agent/_register_with_server.md" markdown="true" >}}

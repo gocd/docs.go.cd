@@ -1,14 +1,10 @@
 ---
-title: Linux
+title: Installing GoCD server on Linux
 ---
 
 # Installing GoCD server on Linux
 
-<!-- toc -->
-
-Installation of the GoCD server using the package manager will require root access on the machine. You are also required to have a java version 8 for the server to run.
-
-The installer will create a user called ```go``` if one does not exist on the machine. The home directory will be set to ```/var/go```. If you want to create your own ```go``` user, make sure you do it before you install the GoCD server.
+Installation of the GoCD server using the package manager will require `root` access on the machine.
 
 ## RPM based distributions (ie RedHat/CentOS/Fedora)
 
@@ -18,14 +14,13 @@ The GoCD server RPM installer has been tested on RedHat Enterprise Linux and Cen
 
 Once you have the repository setup, execute
 
-``` bash
+```shell
 sudo yum install -y go-server
 ```
 
 Alternatively, if you have the server RPM [downloaded](https://www.gocd.org/download):
 
-``` bash
-sudo yum install -y java-1.8.0-openjdk #atleast Java 8 is required, you may use other jre/jdk if you prefer
+```shell
 sudo rpm -i go-server-${version}.noarch.rpm
 ```
 
@@ -37,47 +32,38 @@ The GoCD server .deb installer has been tested on Ubuntu. However it should work
 
 Once you have the repository setup, execute
 
-```bash
+```shell
 sudo apt-get install go-server
 ```
 
 Alternatively, if you have the server DEB [downloaded](https://www.gocd.org/download):
 
-```bash
+```shell
 sudo dpkg -i go-server-${version}.deb
 ```
 
-## Managing the go-server service on linux
+## Managing the GoCD server process
 
-To manage the go-server service, you may use the following commands -
+{{< include file="installation/install/_tanuki_commands.md" markdown="true" type="server" prefix="/etc/init.d" >}}
 
-```bash
-sudo /etc/init.d/go-server [start|stop|status|restart]
-```
-
-Once the installation is complete the GoCD server will be started and it will print out the URL for the Dashboard page. This will be ```http://localhost:8153/go```
+Once the GoCD server is started the GoCD server will be started and it will print out the URL for the Dashboard page. This will be `http://localhost:8153/go`
 
 ## Location of GoCD server files
 
 The GoCD server installs its files in the following locations on your filesystem:
 
-```
-/var/lib/go-server       #contains the binaries and database
-/etc/go                  #contains the pipeline configuration files
-/var/log/go-server       #contains the server logs
-/usr/share/go-server     #contains the start script
-/etc/default/go-server   #contains all the environment variables with default values. These variable values can be changed as per requirement.
-```
+| Location                                                      | Description                                            |
+| ------------------------------------------------------------- | ------------------------------------------------------ |
+| `/var/lib/go-server/db`                                       | the GoCD server database                               |
+| `/var/lib/go-server/artifacts`                                | the GoCD server artifacts                              |
+| `/var/lib/go-server/plugins`                                  | the GoCD server plugins                                |
+| `/etc/go`                                                     | the GoCD server configuration                          |
+| `/var/log/go-server`                                          | the GoCD server log files                              |
+| `/usr/share/go-server`                                        | the GoCD server binaries and startup scripts           |
+| `/usr/share/go-server/wrapper-config/wrapper-properties.conf` | the configuration file to alter GoCD server properties |
 
 ## Overriding default startup arguments and environment
 
-Users can override default startup arguments in a Linux machine by editing the file etc/default/go-server.
+{{< include file="installation/install/_wrapper_configuration.md" markdown="true" type="/usr/share/go-server/wrapper-config" >}}
 
-For e.g To reduce the session timeout from default 14 days to 60 seconds, user can set the following GoCD server system property
-
-```bash
- export GO_SERVER_SYSTEM_PROPERTIES="$GO_SERVER_SYSTEM_PROPERTIES -Dgo.server.session.timeout.seconds=60"
- ```
-
-{{< include file="installation/install/server/_install_server_footer.md" markdown="true" >}}
-
+{{< include file="installation/install/agent/_also_see.md" markdown="true" >}}

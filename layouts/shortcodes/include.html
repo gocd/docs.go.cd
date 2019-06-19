@@ -1,6 +1,6 @@
 {{$file := .Get "file"}}
 {{- if eq (.Get "markdown") "true" -}}
-{{- partial $file | markdownify -}}
+{{- partial $file . | markdownify -}}
 {{- else -}}
-{{ partial $file | safeHTML }}
+{{ partial $file . | safeHTML }}
 {{- end -}}

@@ -67,7 +67,7 @@ $block-border-radius: 0.15rem;
     border-collapse: collapse;
 
     td {
-      word-break: break-all;
+      word-break: break-word;
     }
 
     th{
@@ -98,7 +98,7 @@ $block-border-radius: 0.15rem;
 }
 
 .book-page {
-  width: 100% !important; 
+  width: 100% !important;
 }
 
 
@@ -106,7 +106,7 @@ $block-border-radius: 0.15rem;
   margin: 2rem 1rem;
 }
 
-@media (min-width: 759px){ 
+@media (min-width: 759px){
   ::-webkit-scrollbar {
     -webkit-appearance: none;
     width: 7px;
