@@ -64,6 +64,6 @@ The GoCD server installs its files in the following locations on your filesystem
 
 ## Overriding default startup arguments and environment
 
-{{< include file="installation/install/_wrapper_configuration.md" markdown="true" type="/usr/share/go-server/wrapper-config" >}}
+{{< include file="installation/install/_wrapper_configuration.md" markdown="true" prefix="/usr/share/go-server/wrapper-config" >}}
 
 {{< include file="installation/install/agent/_also_see.md" markdown="true" >}}

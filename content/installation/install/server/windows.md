@@ -44,6 +44,6 @@ All the files for the GoCD server are under the root installation path on Window
 
 ## Overriding default startup arguments and environment
 
-{{< include file="installation/install/_wrapper_configuration.md" markdown="true" type="${INSTALL_DIR}/wrapper-config" >}}
+{{< include file="installation/install/_wrapper_configuration.md" markdown="true" prefix="${INSTALL_DIR}/wrapper-config" >}}
 
 {{< include file="installation/install/agent/_also_see.md" markdown="true" >}}

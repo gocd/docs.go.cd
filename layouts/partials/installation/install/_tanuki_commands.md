@@ -1,3 +1,12 @@
+{{- if eq (.Get "prefix") "" -}}
+{{ errorf "prefix parameter not specified" }}
+{{- end -}}
+
+{{- if eq (.Get "type") "" -}}
+{{ errorf "type parameter not specified" }}
+{{- end -}}
+
+
 The GoCD {{(.Get "type")}} script must be run with one of the following arguments:
 
 | Script                                             | Description                                                              |
