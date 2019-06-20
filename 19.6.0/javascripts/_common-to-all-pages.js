@@ -92,7 +92,7 @@ $(document).ready(function(){
 
 // START: Menu collapse
 (function() {
-  var showOnlyTopLevelItems = function() {
+  var collapseAllMenuItems = function() {
     $(".book-menu nav li.level1").removeClass("active").children("ul").hide();
   };
 
@@ -103,35 +103,33 @@ $(document).ready(function(){
     $(".book-menu nav").scrollTop(currentScrollLocation + 50);
   };
 
-  var openParentListOfLinkOfCurrentPageInMenu = function() {
+  var getCurrentPageLinkInMenu = function() {
     var currentPagePermalink = $("body").data("rel-permalink");
     var permalinkToSearchFor = (currentPagePermalink === '' || currentPagePermalink === '/') ? 'href="./"' : 'href$="' + currentPagePermalink + '"';
-    var currentPageLinkInMenu = $('.book-menu nav li > a[' + permalinkToSearchFor + ']').first();
-
-    currentPageLinkInMenu.parents("li.level1").addClass("active");
-    currentPageLinkInMenu.parents("ul").show();
-    scrollToCurrentPageLinkInMenu(currentPageLinkInMenu[0]);
+    return $('.book-menu nav li > a[' + permalinkToSearchFor + ']').first();
   };
 
-  var toggleMenu = function(menuElement) {
-    var menuForThisLevelIsClosedBeforeHidingEverything = !menuElement.hasClass("active");
-
-    showOnlyTopLevelItems();
-    if (menuForThisLevelIsClosedBeforeHidingEverything) {
+  var openOrCloseMenu = function(menuElement, expectedFinalActiveState) {
+    if (expectedFinalActiveState) {
       menuElement.addClass("active").children("ul").show();
+    } else {
+      menuElement.removeClass("active").children("ul").hide();
     }
   };
 
-
   $(document).ready(function() {
-    showOnlyTopLevelItems();
-    openParentListOfLinkOfCurrentPageInMenu();
+    var currentPageLinkInMenu = getCurrentPageLinkInMenu();
+
+    collapseAllMenuItems ();
+    openOrCloseMenu(currentPageLinkInMenu.parents("li.level1"), true);
+    scrollToCurrentPageLinkInMenu(currentPageLinkInMenu[0]);
 
     $('.book-menu nav li.level1.has-children > a, .book-menu nav li.level1.has-children > .menu-arrow').on('click', function(e) {
       e.stopPropagation();
       e.preventDefault();
 
-      toggleMenu($(e.target).parents("li.level1"));
+      var menuElement = $(e.target).parents("li.level1");
+      openOrCloseMenu(menuElement, !menuElement.hasClass("active"));
     });
   });
 })();
