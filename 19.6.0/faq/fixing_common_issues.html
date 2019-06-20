@@ -193,7 +193,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
         </ul>
       </li>
-      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
       <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
@@ -354,17 +354,6 @@ if (!doNotTrack) {
 <h1 id="fixing-common-issues">Fixing common issues</h1>
 
 <p>This page is mainly for newer users of GoCD, to help with troubleshooting issues.</p>
-
-<ul>
-<li><a href="#agent_registration">GoCD Agent not registering with the GoCD Server</a></li>
-<li><a href="#path_issues">Command not found (git, svn, mvn, ant or others)</a></li>
-<li><a href="#agent_assignment">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</a></li>
-<li><a href="#mac_java">Mac OS X - Message related to Java 1.7</a></li>
-<li><a href="#upgrade-issues">Unrecognized VM option &ldquo;MaxMetaSpaceSize&rdquo;</a></li>
-<li><a href="#upgrade-issues">Unsupported major.minor version 52.0</a></li>
-<li><a href="#ajax-polling-interval">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
-<li><a href="#ports-in-use">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
-</ul>
 
 <p><a id="agent_registration"></a></p>
 
@@ -590,85 +579,6 @@ config). If it is, then any agent that can pick up a job from that pipeline
 needs to be a part of that environment as well.</p></li>
 </ol>
 
-<p><a id="mac_java"></a></p>
-
-<h3 id="mac-os-x-message-related-to-java-1-7">Mac OS X - Message related to Java 1.7</h3>
-
-<p>If you were greeted with a message such as this, when trying to use GoCD on Mac OSX:</p>
-
-<figure class="small_image">
-  <img src="../images/troubleshooting/troubleshoot_mac_installer.png"
-    alt="Mac installer - Java 1.7+ message" title="Mac installer - Java 1.7+ message"/>
-</figure>
-
-<p>you might have a Java installation in either a non-standard location or older
-than Java 1.7. The GoCD Mac application tries to find the correct Java
-installation to use, using this command:</p>
-
-<pre><code>/usr/libexec/java_home -v &quot;1.7+&quot;
-</code></pre>
-
-<p>If that fails, then you see the message shown above.</p>
-
-<p>In case you are sure that you have Java 1.7 or newer installed, and the
-application cannot find it at all, then the application can be forced to use a
-Java installation of your choosing, using the <code>GO_JAVA_HOME</code> environment
-variable. Suppose the <code>Go Server.app</code> file is in /Applications, and the Java
-installation you want GoCD to use is at: <code>/Library/MY_Java/Contents/Home</code>,
-then you can start the GoCD Server with that Java using this (in a terminal
-emulator):</p>
-
-<pre><code>GO_JAVA_HOME=&quot;/Library/MY_Java/Contents/Home&quot; open &quot;/Applications/Go Server.app&quot;
-</code></pre>
-
-<p>Please note that this is used to set the Java home, and not the path to the</p>
-
-<pre><code>java
-</code></pre>
-
-<p>executable. Usually, GO_JAVA_HOME/bin/java will need to be a working
-Java 1.7+ executable.</p>
-
-<style type="text/css">
-  figure.small_image img { width: 50%; margin-left: 25%; }
-</style>
-
-<p><a id="upgrade-issues"></a></p>
-
-<h3 id="incompatible-java-version-while-upgrading-to-17-x-version">Incompatible java version while upgrading to 17.x version</h3>
-
-<p>Java 7 support is removed as part of 17.1 release.
-This implies an existing installation of GoCD will stop working after an upgrade
-if it is configured to run with Java 7.</p>
-
-<p>In such cases, one of the following error messages would be seen in the logs:</p>
-
-<pre><code>Unrecognized VM option &quot;MaxMetaSpaceSize=256m&quot;
-</code></pre>
-
-<p>or</p>
-
-<pre><code>Unsupported major.minor version 52.0
-</code></pre>
-
-<p>On Windows:</p>
-
-<p>This error will be logged, in <code>&lt;GO_INSTALLATION_DIR&gt;/go-server-wrapper.log</code> on server and
-<code>&lt;GO_INSTALLATION_DIR&gt;/go-agent-bootstrapper-wrapper.log</code> on agent, if startup failed due to incompatible version of Java.</p>
-
-<p>Resolution: Update the environment variable <code>GO_SERVER_JAVA_HOME</code>, <code>GO_AGENT_JAVA_HOME</code>
-to the Java 8 path and restart the GoCD server/agent.</p>
-
-<p>On Linux:</p>
-
-<p>This error will be logged, in <code>&lt;GO_LOG_DIR&gt;/go-server.out.log</code> on server and
-<code>&lt;GO_LOG_DIR&gt;/go-agent-bootstrapper.log</code> on agent, if startup failed due to incompatible version of Java.</p>
-
-<p>Resolution: Update the environment variable JAVA_HOME set in <code>/etc/default/go-server</code>, <code>/etc/default/go-agent</code>
-to Java 8 path, and restart the GoCD server/agent.</p>
-
-<p><a id="ajax-polling-interval"></a></p>
-
 <h3 id="gocd-spa-pages-there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</h3>
 
 <p>The GoCD SPA page periodically makes AJAX API calls to fetch the current state of the entity and refreshes the page, this is done to ensure the information on the page is not stale.</p>
@@ -691,11 +601,7 @@ to Java 8 path, and restart the GoCD server/agent.</p>
 Port 8154 could not be opened. Please Check if it is available
 </code></pre>
 
-<p>This could be happening if port 8153 or 8154 are already used. In order to change default ports, edit <code>/etc/default/go-server</code> if you installed GoCD Server, or <code>go-server.default</code> located in root directory if you run it via zip:</p>
-
-<pre><code>GO_SERVER_PORT=8153
-GO_SERVER_SSL_PORT=8154 
-</code></pre>
+<p>This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties <code>cruise.server.port</code> and <code>cruise.server.ssl.port</code> to appropriate values. These system properties can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
 
       
@@ -744,8 +650,6 @@ GO_SERVER_SSL_PORT=8154
 <li><a href="#gocd-agent-not-registering-with-the-gocd-server">GoCD Agent not registering with the GoCD Server</a></li>
 <li><a href="#command-not-found-git-svn-mvn-ant-or-others">Command not found (git, svn, mvn, ant or others)</a></li>
 <li><a href="#agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</a></li>
-<li><a href="#mac-os-x-message-related-to-java-1-7">Mac OS X - Message related to Java 1.7</a></li>
-<li><a href="#incompatible-java-version-while-upgrading-to-17-x-version">Incompatible java version while upgrading to 17.x version</a></li>
 <li><a href="#gocd-spa-pages-there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
 <li><a href="#port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
 </ul></li>

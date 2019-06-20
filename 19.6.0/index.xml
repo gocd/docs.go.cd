@@ -158,8 +158,10 @@ Configuration Specify artifact purge start and end limits You must be logged in 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/one_click_backup.html</guid>
-      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform the backup using the API.
-Steps to initiate backup  On the GoCD Administration page, click on the Backup tab.  Click on &amp;ldquo;BACKUP&amp;rdquo;  Click &amp;ldquo;PROCEED&amp;rdquo; &amp;gt;GoCD will be unusable during the backup process. Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle.</description>
+      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform a backup using the API.
+Steps to initiate backup  After you are logged into gocd, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
+ Note: GoCD will be unusable during the backup process.
+ Backup time is proportional to the database and configuration size.</description>
     </item>
     
     <item>
@@ -474,6 +476,16 @@ Developers can start building their own elastic-agent plugins by forking the ske
     </item>
     
     <item>
+      <title>Email server configuration</title>
+      <link>/configuration/admin_mailhost_info.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_mailhost_info.html</guid>
+      <description>Email server configuration In order to allow email notifications, you need to tell GoCD information about your email server.
+ Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your email server information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
+    </item>
+    
+    <item>
       <title>End to end transport security</title>
       <link>/installation/ssl_tls/end_to_end_transport_security.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -501,7 +513,9 @@ The agent by default trusts any and all certificates offered to it, which may po
       
       <guid>/faq/fixing_common_issues.html</guid>
       <description>Fixing common issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
- GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
+
+GoCD Agent not registering with the GoCD Server This issue shows up either as an agent not showing up on the &amp;ldquo;Agents&amp;rdquo; page, or showing up with a status of &amp;ldquo;Missing&amp;rdquo;. If this happens, start troubleshooting by looking at the agent log files.
+See the end of the installation documentation page for your operating system to find the location of the log files.</description>
     </item>
     
     <item>
@@ -712,16 +726,6 @@ If a pipeline is locked then GoCD will not allow any other instance of that pipe
       <description>Logging Introduction You can turn on additional logging to diagnose and troubleshoot issues with the GoCD server and agent.
 Log location To change where the GoCD server logs or GoCD agent logs are stored, use the system properties gocd.server.log.dir and gocd.agent.log.dir respectively. Refer to the system properties documentation to find out how to set the system property on the gocd server or agent.
 Note: The system property deals with configuring the log location for the GoCD server or agent related logs and not the plugin logs.</description>
-    </item>
-    
-    <item>
-      <title>Mailhost Information</title>
-      <link>/configuration/admin_mailhost_info.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_mailhost_info.html</guid>
-      <description>Mailhost information In order to allow email notifications, you need to tell GoCD information about your mailhost.
- Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your mailhost information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
     </item>
     
     <item>

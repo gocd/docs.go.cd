@@ -6,10 +6,10 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Mailhost Information | GoCD User Documentation</title>
+<title>Email server configuration | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD mailhost information and email notifications"/>
-<meta name="keywords" content="[GoCD configuration, mailhost, mailhost configuration, email notifications, SMTPS, TLS]"/>
+<meta name="keywords" content="[GoCD configuration, mailhost, email server configuration, email notifications, SMTPS, TLS]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/admin_mailhost_info.html"/>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -193,7 +193,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
         </ul>
       </li>
-      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
       <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
@@ -336,7 +336,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>Mailhost Information</strong>
+  <strong>Email server configuration</strong>
 </header>
 
       
@@ -351,13 +351,13 @@ if (!doNotTrack) {
       
 <article class="markdown">
 
-<h1 id="mailhost-information">Mailhost information</h1>
+<h1 id="email-server-configuration">Email server configuration</h1>
 
-<p>In order to allow <a href="dev_notifications.html">email notifications</a>, you need to tell GoCD information about your mailhost.</p>
+<p>In order to allow <a href="dev_notifications.html">email notifications</a>, you need to tell GoCD information about your email server.</p>
 
 <ul>
 <li>Click on the <em>Admin &gt; Server Configuration</em> link in the top navigation bar</li>
-<li>Add your mailhost information (with username and password as required)
+<li>Add your email server information (with username and password as required)
 <img src="../images/3_add_mailhost_info.png" alt="" /></li>
 <li>Add an Administrator email address (this account will be emailed if the Go server is <a href="../faq/admin_out_of_disk_space.html">running out of disk space</a>)</li>
 <li>Click &lsquo;Send test email&rsquo; to verify the configuration is working correctly</li>
@@ -372,7 +372,7 @@ if (!doNotTrack) {
 
 <p>To make GoCD change the protocol to use SMTPS, while connecting to the email server, just enable the &ldquo;Use SMTPS&rdquo; setting shown in the image above. Most often, but not always, this setting is used in conjunction with port 465.</p>
 
-<p>If your email server uses STARTTLS, then you need to pass in the <code>mail.smtp.starttls.enable</code> Java system property to GoCD, to enable support for it. This is done by providing the command-line argument <code>-Dmail.smtp.starttls.enable=true</code> during startup (into the GO_SERVER_SYSTEM_PROPERTIES part of /etc/default/go-server, for instance). Most often, but not always, this setting is used in conjunction with port 587, and with the &ldquo;Use SMTPS&rdquo; option turned off.</p>
+<p>If your email server uses STARTTLS, then you need to set the system property <code>mail.smtp.starttls.enable</code> to <code>true</code>. Most often, but not always, this setting is used in conjunction with port 587, and with the &ldquo;Use SMTPS&rdquo; option turned off. To configure the system properties, edit the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 
 <h4 id="references">References:</h4>
 
@@ -420,7 +420,7 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
 <ul>
-<li><a href="#mailhost-information">Mailhost information</a></li>
+<li><a href="#email-server-configuration">Email server configuration</a></li>
 <li><a href="#smtps-and-tls">SMTPS and TLS</a>
 <ul>
 <li>

@@ -38,8 +38,10 @@ Configurations The API uses the following configurable agent system properties.
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/one_click_backup.html</guid>
-      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform the backup using the API.
-Steps to initiate backup  On the GoCD Administration page, click on the Backup tab.  Click on &amp;ldquo;BACKUP&amp;rdquo;  Click &amp;ldquo;PROCEED&amp;rdquo; &amp;gt;GoCD will be unusable during the backup process. Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle.</description>
+      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform a backup using the API.
+Steps to initiate backup  After you are logged into gocd, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
+ Note: GoCD will be unusable during the backup process.
+ Backup time is proportional to the database and configuration size.</description>
     </item>
     
     <item>

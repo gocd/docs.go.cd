@@ -204,6 +204,10 @@
   </url>
   
   <url>
+    <loc>/configuration/admin_mailhost_info.html</loc>
+  </url>
+  
+  <url>
     <loc>/installation/ssl_tls/end_to_end_transport_security.html</loc>
   </url>
   
@@ -321,10 +325,6 @@
   
   <url>
     <loc>/advanced_usage/logging.html</loc>
-  </url>
-  
-  <url>
-    <loc>/configuration/admin_mailhost_info.html</loc>
   </url>
   
   <url>

@@ -77,7 +77,9 @@ Select specific revisions of materials to deploy Consider the case where a deplo
       
       <guid>/faq/fixing_common_issues.html</guid>
       <description>Fixing common issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
- GoCD Agent not registering with the GoCD Server Command not found (git, svn, mvn, ant or others) Agent is not being assigned or &amp;ldquo;Nothing gets built&amp;rdquo; Mac OS X - Message related to Java 1.7 Unrecognized VM option &amp;ldquo;MaxMetaSpaceSize&amp;rdquo; Unsupported major.minor version 52.0 GoCD SPA Pages - There was an unknown error performing the operation.</description>
+
+GoCD Agent not registering with the GoCD Server This issue shows up either as an agent not showing up on the &amp;ldquo;Agents&amp;rdquo; page, or showing up with a status of &amp;ldquo;Missing&amp;rdquo;. If this happens, start troubleshooting by looking at the agent log files.
+See the end of the installation documentation page for your operating system to find the location of the log files.</description>
     </item>
     
     <item>

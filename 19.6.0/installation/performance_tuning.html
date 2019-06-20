@@ -193,7 +193,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
         </ul>
       </li>
-      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
       <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
@@ -371,15 +371,15 @@ if (!doNotTrack) {
 
 <p>Do not run any other CPU intensive applications on the same box as the GoCD Server.</p>
 
-<p>When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are <code>-Xms512m</code> (minimum) and <code>-Xmx1024m</code> (maximum). These values can be increased by setting the environment variables <code>SERVER_MEM</code> (for minimum) and <code>SERVER_MAX_MEM</code> (for maximum).</p>
-
-<p>On linux, these can be added/updated in /etc/default/go-server. On Windows, copy the following lines in <em><a href="installing_go_server.html">wrapper-properties.conf</a></em> and change it to desired value.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">wrapper.java.additional.1<span style="color:#666">=</span>-Xms512m
-wrapper.java.additional.2<span style="color:#666">=</span>-Xmx1024m</code></pre></div>
-<p>For linux/unix users: If more than 100 agents are being used, an exception might be seen in <code>go-server.log</code> mentioning &ldquo;Too many open files&rdquo;. This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command <code>ulimit -n</code> can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:</p>
+<p>When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are <code>-Xms512m</code> (minimum) and <code>-Xmx1024m</code> (maximum). To utilize more heap space, set the JVM option <code>-Xmx</code> to a higher value (for e.g. to use 8 GB heap, set the flag <code>-Xmx8g</code>). This flag can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># use minimum JVM heap of 4gb</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Xms4g
+<span style="color:#080;font-style:italic"># use maximum JVM heap of 8gb</span>
+wrapper.java.additional.2<span style="color:#666">=</span>-Xmx8g</code></pre></div>
+<p>For linux/unix users running large setups, an exception might be seen in <code>go-server.log</code> mentioning &ldquo;Too many open files&rdquo;. This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command <code>ulimit -n</code> can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:</p>
 
 <ol>
-<li>Edit <code>/etc/security/limits.conf</code> and add the lines:<code>soft nofile 1024 * hard nofile 65535</code></li>
+<li>Edit <code>/etc/security/limits.conf</code> and add the lines: <code>soft nofile 1024 * hard nofile 65535</code></li>
 <li>Edit <code>/etc/pam.d/login</code>, adding the line: <code>session required /lib/security/pam_limits.so</code></li>
 <li>The system file descriptor limit can be increased by setting <code>fs.file-max</code> in the file <code>/etc/sysctl.conf</code>. To set the limit to <code>65535</code> use <code>echo &quot;fs.file-max = 65535&quot; &gt;&gt; /etc/sysctl.conf</code></li>
 </ol>

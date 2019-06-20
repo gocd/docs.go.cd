@@ -193,7 +193,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
         </ul>
       </li>
-      <li class="level2"><a href="../../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
+      <li class="level2"><a href="../../configuration/admin_mailhost_info.html">Email server configuration</a></li>
       <li class="level2"><a href="../../configuration/dev_notifications.html">Notifications</a></li>
       <li class="level2"><a href="../../configuration/configuration_reference.html">Reference</a></li>
     </ul>
@@ -381,39 +381,14 @@ if (!doNotTrack) {
 <li><code>FULL</code> will perform complete certificate validation.</li>
 </ul>
 
-<h1 id="configuring-the-agent">Configuring the agent</h1>
+<h2 id="configuring-the-agent">Configuring the agent</h2>
 
-<h2 id="windows">Windows</h2>
-
-<h3 id="if-you-re-running-the-gocd-agent-as-a-windows-service">If you&rsquo;re running the GoCD agent as a windows service</h3>
-
-<p>Edit the file (if it already does not exist) <code>GO_AGENT_INSTALL_DIR/config/wrapper-properties.conf</code> and add the following properties to it</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># config/wrapper-properties.conf</span>
-
-<span style="color:#080;font-style:italic"># set the ssl verification mode</span>
-wrapper.app.parameter.4<span style="color:#666">=</span>-sslVerificationMode
-wrapper.app.parameter.5<span style="color:#666">=</span>FULL
-
-<span style="color:#080;font-style:italic"># set the ssl root cert path (if the server is using a certificate that is not signed by a well known certificate-authority)</span>
-wrapper.app.parameter.6<span style="color:#666">=</span>-rootCertFile
-wrapper.app.parameter.7<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\P</span>ath<span style="color:#b62;font-weight:bold">\T</span>o<span style="color:#b62;font-weight:bold">\r</span>oot-cert.pem</code></pre></div>
-<h3 id="if-you-re-running-the-gocd-agent-via-a-batch-file">If you&rsquo;re running the GoCD agent via a batch file</h3>
-
-<p>Setup the system environment <code>AGENT_BOOTSTRAPPER_ARGS</code> before running the batch file. You may either <code>set</code> it from the command line, or if you&rsquo;d like to make the change permanent, you may choose to set it from the &ldquo;<strong>Advanced system settings</strong>&rdquo; dialog from &ldquo;<strong>Control Panel</strong>&rdquo;.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">C:<span style="color:#b62;font-weight:bold">\&gt;</span> <span style="color:#a2f">set</span> <span style="color:#b8860b">AGENT_BOOTSTRAPPER_ARGS</span><span style="color:#666">=</span>-rootCertFile C:<span style="color:#b62;font-weight:bold">\P</span>ath<span style="color:#b62;font-weight:bold">\T</span>o<span style="color:#b62;font-weight:bold">\r</span>oot-cert.pem -sslVerificationMode FULL
-C:<span style="color:#b62;font-weight:bold">\&gt;</span> agent.cmd</code></pre></div>
-<h2 id="linux">Linux</h2>
-
-<h3 id="if-you-re-running-the-gocd-agent-as-a-service">If you&rsquo;re running the GoCD agent as a service</h3>
-
-<p>Edit the file <code>/etc/default/go-agent</code> and add the following lines to it</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># /etc/default/go-agent</span>
-
-<span style="color:#b8860b">AGENT_BOOTSTRAPPER_ARGS</span><span style="color:#666">=</span><span style="color:#b44">&#34;-rootCertFile /path/to/root-cert.pem -sslVerificationMode FULL&#34;</span></code></pre></div>
-<h3 id="if-you-re-running-the-gocd-agent-from-the-command-line">If you&rsquo;re running the GoCD agent from the command line</h3>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_URL</span><span style="color:#666">=</span><span style="color:#b44">&#39;https://ci.example.com:8154/go&#39;</span>
-$ <span style="color:#a2f">export</span> <span style="color:#b8860b">AGENT_BOOTSTRAPPER_ARGS</span><span style="color:#666">=</span><span style="color:#b44">&#34;-rootCertFile /path/to/root-cert.pem -sslVerificationMode FULL&#34;</span>
-$ ./agent.sh</code></pre></div></article>
+<p>Edit the file <code>wrapper-properties.conf</code> and add the following lines to it. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># wrapper-properties.conf</span>
+wrapper.app.parameter.103<span style="color:#666">=</span>-rootCertFile
+wrapper.app.parameter.104<span style="color:#666">=</span>/path/to/root-cert.pem
+wrapper.app.parameter.105<span style="color:#666">=</span>-sslVerificationMode
+wrapper.app.parameter.106<span style="color:#666">=</span>FULL</code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -458,19 +433,7 @@ $ ./agent.sh</code></pre></div></article>
 <ul>
 <li><a href="#the-rootcertfile-option">The <code>-rootCertFile</code> option</a></li>
 <li><a href="#the-sslverificationmode-option">The <code>-sslVerificationMode</code> option</a></li>
-</ul></li>
-<li><a href="#configuring-the-agent">Configuring the agent</a>
-<ul>
-<li><a href="#windows">Windows</a>
-<ul>
-<li><a href="#if-you-re-running-the-gocd-agent-as-a-windows-service">If you&rsquo;re running the GoCD agent as a windows service</a></li>
-<li><a href="#if-you-re-running-the-gocd-agent-via-a-batch-file">If you&rsquo;re running the GoCD agent via a batch file</a></li>
-</ul></li>
-<li><a href="#linux">Linux</a>
-<ul>
-<li><a href="#if-you-re-running-the-gocd-agent-as-a-service">If you&rsquo;re running the GoCD agent as a service</a></li>
-<li><a href="#if-you-re-running-the-gocd-agent-from-the-command-line">If you&rsquo;re running the GoCD agent from the command line</a></li>
-</ul></li>
+<li><a href="#configuring-the-agent">Configuring the agent</a></li>
 </ul></li>
 </ul>
 </nav>

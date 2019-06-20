@@ -193,7 +193,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
         </ul>
       </li>
-      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Mailhost Information</a></li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
       <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
@@ -353,33 +353,33 @@ if (!doNotTrack) {
 
 <h1 id="backup-gocd-server">Backup GoCD Server</h1>
 
-<p>You can use GoCD&rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform the backup <a href="https://api.gocd.org/#backups">using the API</a>.</p>
+<p>You can use GoCD&rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform a backup <a href="https://api.gocd.org/#backups">using the API</a>.</p>
 
 <h2 id="steps-to-initiate-backup">Steps to initiate backup</h2>
 
 <ul>
-<li>On the GoCD Administration page, click on the Backup tab.
-<img src="../images/backup_tab.png" alt="" /></li>
-<li>Click on &ldquo;BACKUP&rdquo;
-<img src="../images/backup_button.png" alt="" /></li>
-<li>Click &ldquo;PROCEED&rdquo;
-<img src="../images/backup_proceed.png" alt="" />
-&gt;GoCD will be unusable during the backup process.</li>
-<li>Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.</li>
-<li>If you are using PostgreSQL Addon please refer to our documentation <a href="https://extensions-docs.gocd.org/postgresql/current/backup-restore-database">here</a> for back and restore process.</li>
+<li><p>After you are logged into gocd, click on the <em>Admin &gt; Backup</em> link, and click the <em>Perform Backup</em> button.</p>
+
+<blockquote>
+<p><strong>Note:</strong> GoCD will be unusable during the backup process.</p>
+</blockquote></li>
+
+<li><p>Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.</p></li>
+
+<li><p>If you are using PostgreSQL Addon please refer to our documentation <a href="https://extensions-docs.gocd.org/postgresql/current/backup-restore-database">here</a> for back and restore process.</p></li>
 </ul>
 
 <h3 id="what-is-backed-up">What is backed up?</h3>
 
-<p>The backup will be performed into the <strong>{ARTIFACT_REPOSITORY_LOCATION}/serverBackups</strong> directory. {ARTIFACT_REPOSITORY_LOCATION} for your server can be found as mentioned <a href="../installation/configuring_server_details.html#artifact-repository-configuration">here</a>.</p>
+<p>The backup will be performed into the <code>${ARTIFACT_REPOSITORY_LOCATION}/serverBackups</code> directory. <code>${ARTIFACT_REPOSITORY_LOCATION}</code> for your server can be found as mentioned <a href="../installation/configuring_server_details.html#artifact-repository-configuration">here</a>.</p>
 
-<p>The backup directory will be named <strong>backup_{TIMESTAMP}</strong> where the <strong>{TIMESTAMP}</strong> is the time when the backup was initiated.</p>
+<p>The backup directory will be named <code>backup_{TIMESTAMP}</code> where the <code>${TIMESTAMP}</code> is the time when the backup was initiated.</p>
 
 <ul>
-<li>Database - This is in a zip called <strong>db.zip</strong> . The zip has a single DB file called <strong>cruise.h2.db</strong></li>
-<li>Configuration - This is in a zip called <strong>config-dir.zip</strong> . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD&rsquo;s internal configurations.</li>
-<li>XML Configuration Version Repo - This is in a zip called <strong>config-repo.zip</strong> . This zip contains the Git repository of the XML configuration file.</li>
-<li>GoCD version - This is a file called <strong>version.txt</strong> . This file contains the version of the GoCD server when the backup was initiated</li>
+<li>Database - This is in a zip called <code>db.zip</code> . The zip has a single DB file called <code>cruise.h2.db</code></li>
+<li>Configuration - This is in a zip called <code>config-dir.zip</code> . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD&rsquo;s internal configurations.</li>
+<li>XML Configuration Version Repo - This is in a zip called <code>config-repo.zip</code> . This zip contains the Git repository of the XML configuration file.</li>
+<li>GoCD version - This is a file called <code>version.txt</code> . This file contains the version of the GoCD server when the backup was initiated</li>
 </ul>
 
 <h3 id="what-is-not-backed-up">What is not backed up?</h3>
@@ -388,20 +388,18 @@ if (!doNotTrack) {
 
 <ul>
 <li>Artifacts - Please refer to <a href="../faq/admin_out_of_disk_space.html#move-the-artifact-repository-to-a-new-larger-drive">this section</a> to find out how to deal with artifacts</li>
-<li>Test Reporting Data - This is found at the location <strong>{SERVER_INSTALLATION_DIR}/db/shine</strong> . This contains the data used in the Failed Test History reporting</li>
-<li>Environment Variables - On Windows the environment variables that might be set for the user and on Linux the changes made to <strong>/etc/default/go-server</strong> are not backed up.</li>
 <li>Log Files</li>
-<li>Plugins - These are found at <strong>{SERVER_INSTALLATION_DIR}/plugins/</strong>. This contains both the external and bundled plugins.</li>
-<li>Addons - These are found at <strong>{SERVER_INSTALLATION_DIR}/addons/</strong>. This contains installed addons.</li>
+<li>Plugins - These are found at <code>${SERVER_INSTALLATION_DIR}/plugins/</code>. This contains both the external and bundled plugins.</li>
+<li>Addons - These are found at <code>${SERVER_INSTALLATION_DIR}/addons/</code>. This contains installed addons.</li>
 </ul>
 
 <h4 id="strategy-to-backup-artifacts-and-test-reporting-data">Strategy to backup Artifacts and Test Reporting Data</h4>
 
-<p>Artifacts and the Test Reporting Data keep getting new files and directories added to them. So, it is a good idea to use <strong>rsync</strong> to copy the contents of these two into a backup location.</p>
+<p>Artifacts and the Test Reporting Data keep getting new files and directories added to them. So, it is a good idea to use <code>rsync</code> to copy the contents of these two into a backup location.</p>
 
 <p><em>For Instance:</em> Lets say you have a copy of all the files till 12-02-2012 in a location. On 20-02-2012, you can do something like:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rsync -avzP <span style="color:#666">{</span>ARTIFACT_LOCATION<span style="color:#666">}</span> <span style="color:#666">{</span>BACKUP_LOCATION<span style="color:#666">}</span></code></pre></div>
-<p>This makes sure that only the files and directories that got newly added will be synced to the {BACKUP_LOCATION} and not the entire contents.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rsync -avzP <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">ARTIFACT_LOCATION</span><span style="color:#b68;font-weight:bold">}</span> <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">BACKUP_LOCATION</span><span style="color:#b68;font-weight:bold">}</span></code></pre></div>
+<p>This makes sure that only the files and directories that got newly added will be synced to the <code>${BACKUP_LOCATION}</code> and not the entire contents.</p>
 
 <h3 id="restoring-gocd-using-backup">Restoring GoCD using backup</h3>
 
@@ -415,21 +413,22 @@ if (!doNotTrack) {
 <li><p>Choose the backup directory that you want to restore from.</p>
 
 <blockquote>
-<p><strong>You cannot restore from a backup whose version is bigger than the version of the GoCD server being used.</strong><br>
-<em>For example:</em> If the backup is from version 12.3 and the server installation is of version 12.2, the restoration might not work. You can check the version of the backup from the <strong>version.txt</strong> file.</p>
+<p>Note: Please ensure that you are not restoring a GoCD backup onto a GoCD version that is older than the one that was used to perform the backup.</p>
+
+<p><strong>For example:</strong> A backup using GoCD version 19.3 cannot be restored onto GoCD version 19.2. See the file <code>version.txt</code> in the backup directory to know the version of GoCD that was used to perform the backup</p>
 </blockquote></li>
 
-<li><p>You might want to keep a copy of all the files and directories that are involved in restoration. This will help in troubleshooting if there was a problem. Following this, make sure all the destination directories mentioned in the following steps are empty.<br>
-<em>For example:</em> Before restoring the Database, make sure the <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> is backed up and the directory is emptied.</p></li>
+<li><p>Database - Unzip the <code>db.zip</code> found in the backup directory. Unzip will create a file called <code>cruise.h2.db</code> . Copy this file to the directory <code>${SERVER_INSTALLATION_DIR}/db/h2db</code> .</p></li>
 
-<li><p>Database - Unzip the <strong>db.zip</strong> found in the backup directory. Unzip will create a file called <strong>cruise.h2.db</strong> . Copy this file to the directory <strong>{SERVER_INSTALLATION_DIR}/db/h2db</strong> .</p></li>
+<li><p>Configuration - Unzip the <code>config-dir.zip</code> into a temp directory. Copy all the files from this directory to <code>${SERVER_INSTALLATION_DIR}/config</code> directory on Windows and Mac or <code>/etc/go</code> on Linux.</p></li>
 
-<li><p>Configuration - Unzip the <strong>config-dir.zip</strong> into a temp directory. Copy all the files from this directory to <strong>{SERVER_INSTALLATION_DIR}/config</strong> directory on Windows and Mac or <strong>/etc/go</strong> on Linux.</p></li>
+<li><p>Configuration History - Unzip the <code>config-repo.zip</code> into temp directory. Recursively copy all the contents from this directory to <code>${SERVER_INSTALLATION_DIR}/db/config.git</code> .</p></li>
 
-<li><p>Configuration History - Unzip the <strong>config-repo.zip</strong> into temp directory. Recursively copy all the contents from this directory to <strong>{SERVER_INSTALLATION_DIR}/db/config.git</strong> .</p></li>
+<li><p>Make sure the ownership of all the files that are restored are the same as the user running the Go server.</p>
 
-<li><p>Make sure the ownership of all the files that are restored are the same as the user running the Go server.<br>
-<em>For example:</em> Make sure you run a &ldquo;chown -R go:go {SERVER_INSTALLATION_DIR}/db/h2db&rdquo; after Database restoration.</p></li>
+<blockquote>
+<p><strong>For example:</strong> Make sure you run a <code>chown -R go:go ${SERVER_INSTALLATION_DIR}/db/h2db</code> after Database restoration.</p>
+</blockquote></li>
 
 <li><p>Start the GoCD server</p></li>
 </ul>

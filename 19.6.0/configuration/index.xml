@@ -156,6 +156,16 @@ Developers can start building their own elastic-agent plugins by forking the ske
     </item>
     
     <item>
+      <title>Email server configuration</title>
+      <link>/configuration/admin_mailhost_info.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_mailhost_info.html</guid>
+      <description>Email server configuration In order to allow email notifications, you need to tell GoCD information about your email server.
+ Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your email server information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
+    </item>
+    
+    <item>
       <title>Job Timeout</title>
       <link>/configuration/job_timeout.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -173,16 +183,6 @@ Developers can start building their own elastic-agent plugins by forking the ske
       <guid>/configuration/admin_lock_pipelines.html</guid>
       <description>Pipeline locking: Ensure only one instance of a GoCD pipeline can run at the same time Sometimes you want to ensure that only a single instance of a pipeline can run at a time. This is important if the stages of a pipeline are interrelated. For example the first stage may set up an environment that is used by the next stage in the pipeline.
 If a pipeline is locked then GoCD will not allow any other instance of that pipeline to be scheduled until the currently running one has been completed.</description>
-    </item>
-    
-    <item>
-      <title>Mailhost Information</title>
-      <link>/configuration/admin_mailhost_info.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_mailhost_info.html</guid>
-      <description>Mailhost information In order to allow email notifications, you need to tell GoCD information about your mailhost.
- Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your mailhost information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
     </item>
     
     <item>
