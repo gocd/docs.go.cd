@@ -107,7 +107,7 @@ headless: true
           <li class="level3"><a href="{{< relref "configuration/delete_artifacts.md" >}}">Auto Delete Artifacts</a></li>
         </ul>
       </li>
-      <li class="level2"><a href="{{< relref "configuration/admin_mailhost_info.md" >}}">Mailhost Information</a></li>
+      <li class="level2"><a href="{{< relref "configuration/admin_mailhost_info.md" >}}">Email server configuration</a></li>
       <li class="level2"><a href="{{< relref "configuration/dev_notifications.md" >}}">Notifications</a></li>
       <li class="level2"><a href="{{< relref "configuration/configuration_reference.md" >}}">Reference</a></li>
     </ul>

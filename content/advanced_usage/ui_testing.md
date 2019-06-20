@@ -28,16 +28,16 @@ The next step is to start the GoCD agent as an application.
 
 ## Linux
 
-There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service to provide a dedicated X11 server to your agent. To do this:
+There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service (or `xvfb`) to provide a dedicated X11 server to your agent. To do this:
 
 1. Install the VNC server and fvwm packages for your distribution. (aptitude install vnc4server fvwm / yum install vnc-server fvwm)
 2. Sudo to the 'go' user (sudo su - go) and do the rest as that user
 3. Set a password for remote access to your VNC server with the command 'vncpasswd'
 4. Edit your VNC config to use fvwm and not twm as the window manager. (replace twm with fvwm in \~/.vnc/xstartup)
-5. Edit '/etc/default/go-agent' and change the line 'VNC=N' to 'VNC=Y'
+5. Edit the file `wrapper-properties.conf` and set the `DISPLAY` variable to an appropriate value.
 
-Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client. The default DISPLAY that GoCD uses is :3
+Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client.
 
->- If there are any other environmental variables that need to be set for your UI testing tools, they correct place to set these is in your /etc/default/go-agent file. Don't forget to export them!
->- You can connect to your session with vncviewer to see what's going on. Use vncviewer < agent-host-name >:3
+>- If there are any other environment variables that need to be set for your UI testing tools, they correct place to set these is in your `wrapper-properties.conf` file. Don't forget to export them!
+>- You can connect to your session with vncviewer to see what's going on. Use `vncviewer HOSTNAME:3`
 >- If things appear to hang, chances are you forgot to replace twm with fvwm. twm requires you to place a window on the desktop when it starts up

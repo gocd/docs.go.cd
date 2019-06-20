@@ -11,15 +11,6 @@ aliases:
 
 This page is mainly for newer users of GoCD, to help with troubleshooting issues.
 
-- [GoCD Agent not registering with the GoCD Server](#agent_registration)
-- [Command not found (git, svn, mvn, ant or others)](#path_issues)
-- [Agent is not being assigned or "Nothing gets built"](#agent_assignment)
-- [Mac OS X - Message related to Java 1.7](#mac_java)
-- [Unrecognized VM option "MaxMetaSpaceSize"](#upgrade-issues)
-- [Unsupported major.minor version 52.0](#upgrade-issues)
-- [GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)](#ajax-polling-interval)
-- [Port 8153 (HTTP) or 8154 (HTTPS) could not be opened](#ports-in-use)
-
 <a id="agent_registration"></a>
 ### GoCD Agent not registering with the GoCD Server
 
@@ -87,7 +78,7 @@ at the end of these files might be interesting. Some common errors are:
         at sun.security.ssl.InputRecord.read(Unknown Source)
         ... 28 more
 
-    or this:            
+    or this:
 
         2986 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
         java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
@@ -103,7 +94,7 @@ at the end of these files might be interesting. Some common errors are:
     The resolution is to move or rename the agent.jks file found the in the
     config/ directory of the agent and restarting the agent. That should make it
     connect using the correct certificate.
-    
+
     If you're using full
     [end-to-end transport security](../installation/ssl_tls/end_to_end_transport_security.html),
     this error might mean that the server's certificate has changed and you need
@@ -112,7 +103,7 @@ at the end of these files might be interesting. Some common errors are:
 3. **Incompatible Java version**
 
     This manifests itself as logs in go-agent-bootstrapper.log with lines similar to this:
-    
+
         242 [main] INFO com.thoughtworks.go.util.PerfTimer  - Performance: Downloading new admin/agent-launcher.jar with md5 signature: e9SXM6cdV5kSkpVEmymHIg== took 37ms
         Exception in thread "main" java.lang.reflect.InvocationTargetException
           at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
@@ -125,7 +116,7 @@ at the end of these files might be interesting. Some common errors are:
           at java.lang.ClassLoader.defineClass1(Native Method)
           at java.lang.ClassLoader.defineClass(ClassLoader.java:643)
           at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
-    
+
     The problem here is that the version of Java used by the agent is too old. In
     this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
     needs Java 7.
@@ -186,11 +177,11 @@ is correct.
     <figure>
       <img src="../images/troubleshooting/error_5_command_not_found_console_log.png">
     </figure>
-    
+
     This can also happen with other version control systems such as SVN, TFS, etc. It
     can also happen with any other command used in a task, such as Maven, Ant,
     Rake or even any other shell-script where it cannot be found in `PATH`.
-    
+
     **Resolution**: Check the `PATH` environment variable of the GoCD **Agent's**
     java process. Ensure that the directory that the command is available is in
     the list. On Windows, the
@@ -231,95 +222,17 @@ found for this job. The reasons for this can be:
    config). If it is, then any agent that can pick up a job from that pipeline
    needs to be a part of that environment as well.
 
-<a id="mac_java"></a>
-### Mac OS X - Message related to Java 1.7
-
-If you were greeted with a message such as this, when trying to use GoCD on Mac OSX:
-
-<figure class="small_image">
-  <img src="../images/troubleshooting/troubleshoot_mac_installer.png"
-    alt="Mac installer - Java 1.7+ message" title="Mac installer - Java 1.7+ message"/>
-</figure>
-
-you might have a Java installation in either a non-standard location or older
-than Java 1.7. The GoCD Mac application tries to find the correct Java
-installation to use, using this command:
-
-```
-/usr/libexec/java_home -v "1.7+"
-```
-
-If that fails, then you see the message shown above.
-
-In case you are sure that you have Java 1.7 or newer installed, and the
-application cannot find it at all, then the application can be forced to use a
-Java installation of your choosing, using the ```GO_JAVA_HOME``` environment
-variable. Suppose the ```Go Server.app``` file is in /Applications, and the Java
-installation you want GoCD to use is at: ```/Library/MY_Java/Contents/Home```,
-then you can start the GoCD Server with that Java using this (in a terminal
-emulator):
-
-```
-GO_JAVA_HOME="/Library/MY_Java/Contents/Home" open "/Applications/Go Server.app"
-```
-
-Please note that this is used to set the Java home, and not the path to the
-```
-java
-``` 
-executable. Usually, GO_JAVA_HOME/bin/java will need to be a working
-Java 1.7+ executable.
-
-<style type="text/css">
-  figure.small_image img { width: 50%; margin-left: 25%; }
-</style>
-
-<a id="upgrade-issues"></a>
-### Incompatible java version while upgrading to 17.x version
-
-Java 7 support is removed as part of 17.1 release.
-This implies an existing installation of GoCD will stop working after an upgrade
-if it is configured to run with Java 7.
-
-In such cases, one of the following error messages would be seen in the logs:
-
-```
-Unrecognized VM option "MaxMetaSpaceSize=256m"
-```
-or
-
-```
-Unsupported major.minor version 52.0
-```
-
-On Windows:
-
-This error will be logged, in `<GO_INSTALLATION_DIR>/go-server-wrapper.log` on server and
-`<GO_INSTALLATION_DIR>/go-agent-bootstrapper-wrapper.log` on agent, if startup failed due to incompatible version of Java.
-
-Resolution: Update the environment variable `GO_SERVER_JAVA_HOME`, `GO_AGENT_JAVA_HOME`
-to the Java 8 path and restart the GoCD server/agent.
-
-On Linux:
-
-This error will be logged, in `<GO_LOG_DIR>/go-server.out.log` on server and
-`<GO_LOG_DIR>/go-agent-bootstrapper.log` on agent, if startup failed due to incompatible version of Java.
-
-Resolution: Update the environment variable JAVA_HOME set in `/etc/default/go-server`, `/etc/default/go-agent`
-to Java 8 path, and restart the GoCD server/agent.
-
-<a id="ajax-polling-interval"></a>
 ### GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)
 
 The GoCD SPA page periodically makes AJAX API calls to fetch the current state of the entity and refreshes the page, this is done to ensure the information on the page is not stale.
 
-The AJAX API request has a timeout set to 5000 milliseconds, if the server does not respond within that duration the request is cancelled and an error is shown on the page.  
+The AJAX API request has a timeout set to 5000 milliseconds, if the server does not respond within that duration the request is cancelled and an error is shown on the page.
 
 <figure>
   <img src="../images/troubleshooting/error_8_request_timeout.png">
 </figure>
 
-Resolution: If this is happening, consider increase the timeout period by specifying the [go.spa.timeout](../advanced_usage/other_config_options.html#go-spa-timeout) 
+Resolution: If this is happening, consider increase the timeout period by specifying the [go.spa.timeout](../advanced_usage/other_config_options.html#go-spa-timeout)
 
 <a name="ports-in-use"></a>
 ### Port 8153 (HTTP) or 8154 (HTTPS) could not be opened
@@ -329,9 +242,4 @@ This issue shows up an error when starting GoCD Server:
     Port 8153 could not be opened. Please Check if it is available
     Port 8154 could not be opened. Please Check if it is available
 
-This could be happening if port 8153 or 8154 are already used. In order to change default ports, edit `/etc/default/go-server` if you installed GoCD Server, or `go-server.default` located in root directory if you run it via zip:
-
-```
-GO_SERVER_PORT=8153
-GO_SERVER_SSL_PORT=8154 
-```
+This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties `cruise.server.port` and `cruise.server.ssl.port` to appropriate values. These system properties can be set in the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.

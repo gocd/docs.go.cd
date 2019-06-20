@@ -42,19 +42,5 @@ When you see warning messages like the one above
 
 ## Configuring warning time
 
-- GoCD server waits for 15 minutes (of no output) before it warns user about possible hung material update. User can modify this wait time using a System Property: 'material.update.inactive.timeout'.
-- On linux installations of GoCD server, add the following line to /etc/default/go-server.
+GoCD server waits for 15 minutes (of no output) before it warns user about possible hung material update. User can modify this wait time (in minutes) using a system property `material.update.inactive.timeout`. This system property can be set in the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
 
-    ```shell
-    export GO_SERVER_SYSTEM_PROPERTIES='-Dmaterial.update.inactive.timeout=20'
-    ```
-
-    The above configuration sets the time that GoCD server uses to determine if a material update is possibly hung, to 20 minutes.
-
-- On Windows, add the following line in the *[wrapper-properties.conf](../installation/installing_go_server.html)* file in the config folder of the GoCD server installation where **x** is 1 more than the highest number in *wrapper-server.conf* and *wrapper-properties.conf* combined.
-
-    ```shell
-    wrapper.java.additional.x='-Dmaterial.update.inactive.timeout=20'
-    ```
-
-    The above configuration sets the time that GoCD server uses to determine if a material update is possibly hung, to 20 minutes.

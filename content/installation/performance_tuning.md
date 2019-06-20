@@ -25,18 +25,18 @@ If you have questions or have custom requirements, please contact support@though
 
 Do not run any other CPU intensive applications on the same box as the GoCD Server.
 
-When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are ```-Xms512m``` (minimum) and ```-Xmx1024m``` (maximum). These values can be increased by setting the environment variables ```SERVER_MEM``` (for minimum) and ```SERVER_MAX_MEM``` (for maximum).
-
-On linux, these can be added/updated in /etc/default/go-server. On Windows, copy the following lines in *[wrapper-properties.conf](installing_go_server.html)* and change it to desired value.
+When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are ```-Xms512m``` (minimum) and ```-Xmx1024m``` (maximum). To utilize more heap space, set the JVM option `-Xmx` to a higher value (for e.g. to use 8 GB heap, set the flag `-Xmx8g`). This flag can be set in the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
 
 ```shell
-wrapper.java.additional.1=-Xms512m
-wrapper.java.additional.2=-Xmx1024m
+# use minimum JVM heap of 4gb
+wrapper.java.additional.100=-Xms4g
+# use maximum JVM heap of 8gb
+wrapper.java.additional.2=-Xmx8g
 ```
 
-For linux/unix users: If more than 100 agents are being used, an exception might be seen in ```go-server.log``` mentioning "Too many open files". This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command ```ulimit -n``` can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:
+For linux/unix users running large setups, an exception might be seen in ```go-server.log``` mentioning "Too many open files". This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command ```ulimit -n``` can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:
 
-1. Edit ```/etc/security/limits.conf``` and add the lines:```soft nofile 1024 * hard nofile 65535```
+1. Edit ```/etc/security/limits.conf``` and add the lines: ```soft nofile 1024 * hard nofile 65535```
 2. Edit ```/etc/pam.d/login```, adding the line: ```session required /lib/security/pam_limits.so```
 3. The system file descriptor limit can be increased by setting ```fs.file-max``` in the file ```/etc/sysctl.conf```. To set the limit to ```65535``` use ```echo "fs.file-max = 65535" >> /etc/sysctl.conf```
 
