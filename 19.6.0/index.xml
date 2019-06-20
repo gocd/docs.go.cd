@@ -1129,8 +1129,8 @@ Windows The first step is to disable the GoCD agent service. To do this:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/upgrading_go.html</guid>
-      <description>Upgrading GoCD To upgrade from a previous version of GoCD, it is only necessary to upgrade the Server. It is not necessary to stop or backup the GoCD Agents. Agents will automatically update to the correct version of GoCD.
-Before you start Since Cruise 1.1 (legacy version of GoCD), we do not include a bundled version of the Subversion version control system. This means that if you use Subversion for your projects the server and all agents need to have Subversion installed and available on the system path.</description>
+      <description>Upgrading GoCD While upgrading GoCD agents is not necessary (agents will usually auto-upgrade if they detect a new version deployed on the server). Going forward, we will ensure that agents are backward compatible with atleast 1
+Before you start  Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under Admin &amp;gt; Server Maintenance Mode Navigate to the backup page under Admin &amp;gt; Backups and take a backup.</description>
     </item>
     
     <item>
