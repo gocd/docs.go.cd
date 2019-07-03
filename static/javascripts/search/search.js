@@ -47,7 +47,7 @@ function initUI() {
 
     $("#search").keyup(function () {
 
-        const query = $(this).val();
+        const query = $(this).val().trim();
 
         if (query.length < 2) {
             searchUI(SearchStatus.init);
@@ -69,6 +69,7 @@ function search(query) {
 }
 
 function doSearch(searchQuery) {
+    searchQuery = searchQuery.replace(/[ ]/, '\\ ');
     return lunrIndex.search(searchQuery).map(function (result) {
         return pagesIndex.filter(function (page) {
             return page.href === result.ref;

@@ -2,7 +2,7 @@ const GrayMatter = require('gray-matter');
 const S = require("string");
 const Markdown = require("markdown-it");
 const He = require('he');
-const lunr = require('lunr')
+const lunr = require('lunr');
 
 const CONTENT_PATH_PREFIX = "content";
 const md = new Markdown();
@@ -74,10 +74,15 @@ module.exports = function (grunt) {
             }
 
             // Build Lunr index for this page
+            const keywords = (frontMatter.keywords === undefined)
+                ? undefined
+                : frontMatter.keywords
+                    .split(',')
+                    .map((keyword) => keyword.trim());
             pageIndex = {
                 title: frontMatter.title,
                 description: frontMatter.description,
-                keywords: frontMatter.keywords,
+                keywords: keywords,
                 href: href,
                 content: He.decode(sanitizeInput(md.render(sanitizeInput(content.content)))
                     .replace(/[(\n)]+/ig, ' ').trim())
