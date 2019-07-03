@@ -449,12 +449,6 @@ if (!doNotTrack) {
     <span style="color:#a2f;font-weight:bold">proxy_pass</span>              <span style="color:#b44">http://localhost:8153/</span>;
   }
 }</code></pre></div>
-<p><a id="agents-and-custom-ssl-ports"></a></p>
-
-<h2 id="agents-and-reverse-proxies">Agents and reverse proxies</h2>
-
-<p>The GoCD server requires that the agents connect to it directly without any reverse-proxies in between that perform SSL termination. This is because GoCD agent-server communication is authenticated using SSL/TLS client certificates, a reverse-proxy will be interpreted as a MITM (man-in-the-middle-attack) and the agents will not be able to connect to the server.</p>
-
 <h2 id="also-see">Also see&hellip;</h2>
 
 <ul>
@@ -505,7 +499,6 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#gocd-with-apache">GoCD with Apache</a></li>
 <li><a href="#gocd-with-nginx">GoCD with NGINX</a></li>
-<li><a href="#agents-and-reverse-proxies">Agents and reverse proxies</a></li>
 <li><a href="#also-see">Also see&hellip;</a></li>
 </ul></li>
 </ul>
