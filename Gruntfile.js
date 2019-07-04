@@ -3,6 +3,7 @@ const S = require("string");
 const Markdown = require("markdown-it");
 const He = require('he');
 const lunr = require('lunr');
+lunr.tokenizer.separator = /[^\.a-zA-Z0-9_-]+/; // token separator is now all chars except alphanumeric, underscore, hypen and dot - default was space and hypen
 
 const CONTENT_PATH_PREFIX = "content";
 const md = new Markdown();

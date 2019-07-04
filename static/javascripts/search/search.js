@@ -62,14 +62,15 @@ function initUI() {
 function search(query) {
     let searchResults = doSearch(query);
     if (searchResults.length === 0) {
-        let partialMatchQuery = query + "*";
+        let partialMatchQuery = `*${query}*`;
         return doSearch(partialMatchQuery);
     }
     return searchResults;
 }
 
 function doSearch(searchQuery) {
-    searchQuery = searchQuery.replace(/[ ]/, '\\ ');
+    // escaping chars: hyphen, dot, underscore and space in the search query
+    searchQuery = searchQuery.replace(/[-\._ ]/g, '\\$&');
     return lunrIndex.search(searchQuery).map(function (result) {
         return pagesIndex.filter(function (page) {
             return page.href === result.ref;
