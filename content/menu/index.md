@@ -100,6 +100,8 @@ headless: true
           <li class="level3"><a href="{{< relref "configuration/pipeline_group_admin_config.md" >}}">Pipeline Group Administration</a></li>
         </ul>
       </li>
+      <li class="level2"><a href="{{< relref "configuration/secrets_management.md" >}}">Secrets Management</a>
+      </li>
       <li class="level2">Artifacts
         <ul>
           <li class="level3"><a href="{{< relref "configuration/dev_upload_test_report.md" >}}">Publish Reports and Artifacts</a></li>

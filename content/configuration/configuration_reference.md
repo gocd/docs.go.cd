@@ -99,6 +99,24 @@ title: Reference
             <a href="#property">&lt;/property&gt;</a>
         <a href="#artifactStore">&lt;/artifactStore&gt;</a>
     <a href="#artifactStores">&lt;/artifactStores&gt;</a>
+    <a href="#secretConfigs">&lt;secretConfigs&gt;</a>
+        <a href="#secretConfig">&lt;secretConfig&gt;</a>
+            <a href="#description">&lt;description&gt;</a>
+            <a href="#description">&lt;/description&gt;</a>
+            <a href="#configuration">&lt;configuration&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                    <a href="#key">&lt;key/&gt;</a>
+                    <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+            <a href="#configuration">&lt;/configuration&gt;</a>
+            <a href="#rules">&lt;rules&gt;</a>
+                <a href="#allow">&lt;allow&gt;</a>
+                <a href="#allow">&lt;/allow&gt;</a>
+                <a href="#deny">&lt;deny&gt;</a>
+                <a href="#deny">&lt;/deny&gt;</a>
+            <a href="#rules">&lt;/rules&gt;</a>
+        <a href="#secretConfig">&lt;/secretConfig&gt;</a>
+    <a href="#secretConfigs">&lt;/secretConfigs&gt;</a>
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -1388,6 +1406,120 @@ The `<artifactStore>` element specifies a global artifact store to publish/fetch
 | pluginId | Yes | The ID of artifact plugin. E.g. `cd.go.artifact.docker.registry`. |
 | id | Yes | The ID of the artifact store. ID must be a unique alphanumeric string. It can also contain `-`,`_`,`.`. This will be used later in the publish config |
 
+
+[top](#top)
+
+## &lt;secretConfigs&gt; {#secretConfigs}
+
+The `<secretConfigs>` element is a container of secret configurations.
+
+There can be zero or more secret configurations.
+
+**Examples**
+
+```xml
+<secretConfigs>
+  <secretConfig id="secret" pluginId="secret-plugin">
+    ...
+  </secretConfig>
+</secretConfigs>
+```
+
+
+[top](#top)
+
+## &lt;secretConfig&gt; {#secretConfig}
+
+The `<secretConfig>` element specifies a single secret configuration. It must be unique (including case) across the entire configuration.
+
+A `secretConfig` should have a unique `id` attribute and should be associated to plugin through the `pluginId` attribute.
+
+**Attributes**
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| id | Yes | The id is used to identify a secret config, and must be unique. The id can contain the following characters: a-z, A-Z, 0-9, period (.), underscore (_) and hyphen (-). Spaces are not allowed. The length should be less than 255 characters. |
+| pluginId | Yes | The `id` of secrets plugin. |
+
+**Example:**
+
+```xml
+<secretconfig id="secret" pluginId="secret-plugin">
+  <configuration>
+    <property>
+      <key>SecretsFilePath</key>
+      <value>/users/go/secret.db</value>
+    </property>
+  </configuration>
+</secretconfig>
+```
+
+[top](#top)
+
+## &lt;description&gt; {#description}
+
+The `<description>` element specifies description for the element.
+
+**Example:**
+
+```xml
+<description>
+This is a sample description.
+</description>
+```
+
+[top](#top)
+
+## &lt;rules&gt; {#rules}
+
+The `<rules>` element is a container for `allow` and `deny` rule.
+
+**Example:**
+
+```xml
+<rules>
+  <allow action="refer" type="*">*</allow>
+  <deny action="refer" type="*">*</deny>
+</rules>
+```
+
+[top](#top)
+
+## &lt;allow&gt; {#allow}
+
+The `<allow>` element is the rule which allows the usage of the defined secret based on action, configured type and resource.
+
+**Attributes**
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| action | Yes | Action for the entity specified under attribute `type`. |
+| type | Yes | Any GoCD entity type for which rule will be applied. |
+
+**Example:**
+
+```xml
+<allow action="refer" type="*">*</allow>
+```
+
+[top](#top)
+
+## &lt;deny&gt; {#deny}
+
+The `<deny>` element is the rule which denies the usage of the defined secret based on action, configured type and resource.
+
+**Attributes**
+
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| action | Yes | Action for the entity specified under attribute `type`. |
+| type | Yes | Any GoCD entity type for which rule will be applied. |
+
+**Example:**
+
+```xml
+<deny action="refer" type="*">*</deny>
+```
 
 [top](#top)
 
