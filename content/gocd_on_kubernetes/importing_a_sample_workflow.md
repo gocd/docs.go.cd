@@ -11,16 +11,13 @@ In this section, we'll import a set of GoCD pipelines that build and deploy a sa
 
 This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html) capability to import sample pipeline definitions from an external Git repository.
 
-To import sample pipelines from an external configuration repository:
-
 ### Prerequisites
+
 1. The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub. To do this, make sure you have a [Docker Hub](https://hub.docker.com) account.
 
 2. GoCD's pipelines as code configurations allow for the scripting of pipeline definitions. These do not include global objects like artifact stores. Global objects need to be setup using the GoCD user interface or the API. This sample requires an artifact store configured so pipelines can publish and fetch Docker image artifacts to it.
 
     You can configure a new DockerHub artifact store with the ```Admin -> Artifact Stores``` menu.
-
-    ![](../../images/gocd-helm-chart/admin_menu_artifact_store.png)
 
     You can now configure the artifact store with your DockerHub credentials.
 
@@ -42,13 +39,13 @@ To import sample pipelines from an external configuration repository:
     __Dockerhub organization__
     *TODO: Add steps to create this secret*
 
-4. Configure the elastic agent profile.
+4. Configure the elastic profile.
 
     The sample pipelines are configured to use [GoCD Kubernetes elastic agents](https://github.com/gocd/kubernetes-elastic-agents). [Elastic agents](https://docs.gocd.org/current/configuration/elastic_agents.html) are build agents that are provisioned on-demand for a job and terminated thereafter.
 
-    Elastic agents use elastic profiles to provision these on-demand agents. A Kubernetes elastic agent profile includes information about the container image for the GoCD agents, and the pod configuration yaml.
+    Elastic agents use elastic profiles to provision these on-demand agents. A Kubernetes elastic profile includes information about the container image for the GoCD agents, and the pod configuration yaml.
 
-    The GoCD Helm chart sets up an elastic agent profile after installation. To view this elastic agent profile configuration, navigate to ```Admin > Elastic Agent Profiles```.
+    The GoCD Helm chart sets up an elastic profile after installation. To view this elastic profile configuration, navigate to ```Admin > Elastic Profiles```.
 
     ![](../../images/gocd-helm-chart/default_elastic_profile.png)
 
@@ -56,40 +53,36 @@ To import sample pipelines from an external configuration repository:
 
     We configure the secrets created in the previous step in the configuration of the elastic profile mentioned earlier. Replace the pod yaml with one below.
 
-```
-apiVersion: v1
-kind: Pod
-metadata:
-  name: pod-name-prefix-{{ POD_POSTFIX }}
-  labels:
-    app: web
-spec:
-  containers:
-    - name: gocd-agent-container-{{ CONTAINER_POSTFIX }}
-      image: gocddemo/gocd-agent-dind:webinar
-      env:
-        - name: KUBE_TOKEN
-          valueFrom:
-            secretKeyRef:
-              name: secrets-for-gocd
-              key: K8S_API_TOKEN
-        - name: DOCKERHUB_USERNAME
-          valueFrom:
-            secretKeyRef:
-              name: secrets-for-gocd
-              key: DOCKERHUB_USERNAME
-        - name: DOCKERHUB_ORG
-          valueFrom:
-            secretKeyRef:
-              name: secrets-for-gocd
-              key: DOCKERHUB_ORG
-      securityContext:
-        privileged: true
-```
-
-#### Other links
-- [What are elastic profiles?](../../configuration/configuration_reference.html#agentProfile)
-
+    ```
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: pod-name-prefix-{{ POD_POSTFIX }}
+      labels:
+        app: web
+    spec:
+      containers:
+        - name: gocd-agent-container-{{ CONTAINER_POSTFIX }}
+          image: gocddemo/gocd-agent-dind:webinar
+          env:
+            - name: KUBE_TOKEN
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-for-gocd
+                  key: K8S_API_TOKEN
+            - name: DOCKERHUB_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-for-gocd
+                  key: DOCKERHUB_USERNAME
+            - name: DOCKERHUB_ORG
+              valueFrom:
+                secretKeyRef:
+                  name: secrets-for-gocd
+                  key: DOCKERHUB_ORG
+          securityContext:
+            privileged: true
+    ```
 
 ### Setup external pipeline configuration repository
 
@@ -108,12 +101,13 @@ You can now configure the location of the repository(ies) to pick up pipeline de
 ![](../../images/gocd-helm-chart/create_new_configuration_repository.png)
 
 ### Imported sample pipelines
-Once imported, the dashboard page (click on the GoCD logo anywhere in the application to go to the dashboard page) should display the sample pipelines
 
-![](../../images/gocd-helm-chart/create_new_configuration_repository.png)
+Once imported, the dashboard page should display the sample pipelines.
 
-Now that the pipelines have been imported, we can run them and verify that our application is built and it's Docker image is published to DockerHub.
+Now that the pipelines have been imported, we can run them and verify that our application is built and its Docker image is published to DockerHub.
+
+TODO:
 
     <Image with paused imported pipelines>
 
-To run the "build_and_publish_image" pipeline, unpause the pipelines in the GoCD dashboard.
+To run the `build_and_publish_image` pipeline, unpause the pipelines in the GoCD dashboard.

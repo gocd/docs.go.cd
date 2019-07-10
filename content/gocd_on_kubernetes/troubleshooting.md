@@ -7,16 +7,25 @@ title: Troubleshooting
 
 # Troubleshooting
 
-1. Elevated privileges error:
+### 1. Elevated privileges error:
 
-    - `User "system:serviceaccount:kube-system:default" cannot get namespaces in the namespace "gocd": Unknown user "system:serviceaccount:kube-system:default"`
-    - `Error: release gocd failed: clusterroles.rbac.authorization.k8s.io "<RBAC>" is forbidden: attempt to grant extra privileges:`
+```
+User "system:serviceaccount:kube-system:default" cannot get namespaces in the namespace "gocd": Unknown user "system:serviceaccount:kube-system:default"
+```
 
-    The above 2 error messages occur if the service account associated with the tiller pod does not have the permissions to create the resources.
-    Refer to the privileges section in the prerequisites to provide tiller elevated privileges.
+```
+Error: release gocd failed: clusterroles.rbac.authorization.k8s.io "<RBAC>" is forbidden: attempt to grant extra privileges:
+```
 
-2. Docker In Docker agent not working:
+The above error messages occur if the service account associated with the tiller pod does not have the permissions to create the resources.
+Refer to the [privileges section in the prerequisites](./importing_a_sample_workflow.html#prerequisites) to provide tiller elevated privileges.
 
-`Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?`
+TODO: Is this actually [here](./setup_and_configuration.html#install-the-helm-server-tiller-with-rbac)?
 
-Make sure to have started the docker container with the privileged mode. For the Kubernetes elastic agent, edit the elastic profile in Admin -> Elastic Agent Profiles to check the `Privileged` mode.
+### 2. Docker In Docker agent not working:
+
+```
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+```
+
+Make sure the docker container is started with privileged mode. For the Kubernetes elastic agent, edit the elastic profile in `Admin -> Elastic Profiles` to enable `Privileged` mode.

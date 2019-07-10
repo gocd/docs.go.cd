@@ -9,10 +9,10 @@ title: Install the GoCD Helm chart
 
 Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.  
 
-Install the GoCD Helm chart with these commands:
+Install the official GoCD Helm chart with this command:
 
 ```bash
-  helm install stable/gocd --name gocd --namespace gocd
+$ helm install stable/gocd --name gocd --namespace gocd
 ```
 
 ## Access the GoCD server
@@ -24,19 +24,20 @@ The Ingress IP address can be obtained as specified below:
 - Minikube
 
     ```bash
-    minikube ip
+    $ minikube ip
     ```
-- Others
+
+- For other Kubernetes offerings:
 
     ```bash
-    ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
-    echo "http://$ip"
+    $ ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}")
+    $ echo "http://$ip"
     ```
 
 *Note: It might take a few minutes for the GoCD server to come up for the first time. You can check if the GoCD server is available with this command:*
 
 ```bash
-  kubectl get deployments --namespace gocd
+$ kubectl get deployments --namespace gocd
 ```
 
 The GoCD server starts with a sample "Hello World" pipeline that looks like:

@@ -29,8 +29,8 @@ Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popu
   *Tip: You can enable Ingress on minikube with this command*
 
   ```bash
-    minikube addons enable ingress
-    ingress was successfully enabled
+  $ minikube addons enable ingress
+  ingress was successfully enabled
   ```
 
 ### Option 2: Google Kubernetes Engine or GKE ([setup guide](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster))
@@ -38,9 +38,10 @@ Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popu
   *Tip: Once the cluster is running, execute the following command to see if kubectl is using right context.*
 
   ```bash
-    $ kubectl config current-context
-    gke_my-project_us-central1-a_gocd-cluster
+  $ kubectl config current-context
+  gke_my-project_us-central1-a_gocd-cluster
   ```
+
 ### Option 3: Amazon Elastic Kubernetes Service (EKS) ([Getting Started](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html))
 
 *Tip: [eksctl](https://github.com/weaveworks/eksctl) is a useful CLI for setting up Kubernetes clusters on Amazon EKS*
@@ -49,23 +50,20 @@ Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popu
 
 Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
 
-Helm has two parts to it, a client and a server called `Tiller`.
+Helm has two parts to it, the `helm` client and a server called `Tiller`.
 
 ### Install the Helm client
 
-The helm client is a CLI that let's you install and update packaged applications on Kubernetes.
-
-Please refer to the helm [install documentation](https://github.com/helm/helm#user-content-install) for alternative methods of installation.
+The helm client is a CLI that let's you install and update packaged applications on Kubernetes. Helm's [installtion documentation](https://github.com/helm/helm#user-content-install) details various ways to install the Helm client.
 
 ### Install the Helm server (Tiller) with RBAC
 
-With Helm, it is a best practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer the
+With Helm, it is a good practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer the
 [Kubernetes RBAC documentation](https://github.com/helm/helm/blob/master/docs/rbac.md) for more on Kubernetes service accounts and RBAC.
 
-To create a service account for Tiller with the rather permissive cluster-admin role:
+To create a service account for Tiller with the rather permissive cluster-admin role, create a file called `rbac-config.yaml` with this content:
 
-In ```rbac-config.yaml```:
-```bash
+```yaml
 apiVersion: v1
 kind: ServiceAccount
 metadata:
@@ -85,7 +83,8 @@ subjects:
     name: tiller
     namespace: kube-system
 ```
-Note: The cluster-admin role is available by default in a Kubernetes cluster, you don't have to create it.
+
+Note: The `cluster-admin` role is available by default in a Kubernetes cluster, you don't have to create it.
 
 ```bash
 $ kubectl create -f rbac-config.yaml
@@ -93,4 +92,5 @@ serviceaccount "tiller" created
 clusterrolebinding "tiller" created
 $ helm init --service-account tiller
 ```
-Refer the [Helm RBAC guide](https://github.com/helm/helm/blob/master/docs/rbac.md) for more advanced RBAC configurations
+
+Refer the [Helm RBAC guide](https://github.com/helm/helm/blob/master/docs/rbac.md) for more secure and advanced RBAC configurations.
