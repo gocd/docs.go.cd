@@ -3,9 +3,11 @@ description: The GoCD Helm Chart page explains how to get started with GoCD for 
 keywords: gocd helm chart, cd pipeline
 title: Docker workflows
 ---
+## Getting Started with GoCD on Kubernetes
+
 # Docker workflows
 
-Using docker containers to execute docker commands can be done in the following ways. This section identifies the approaches and the drawbacks to keep in mind when using these approaches. 
+Using docker containers to execute docker commands can be done in the following ways. This section identifies the approaches and the drawbacks to keep in mind when using these approaches.
 
 ## Docker in Docker (DinD)
 

@@ -146,23 +146,12 @@ headless: true
     <a href="#"><b>GoCD on Kubernetes</b></a>
     <ul>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/introduction.md" >}}">Introduction</a></li>
-      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.md" >}}">Setup and configuration</a>
-        <ul>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/setup.md" >}}">Setup</a></li>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/configure_cluster.md" >}}">Configure your Kubernetes Cluster</a></li>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/helm_install.md" >}}">Install the GoCD Helm chart</a></li>
-        </ul>
-      </li>
-      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/designing_a_cd_pipeline/_index.md" >}}">Designing a CD Pipeline</a>
-        <ul>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.md" >}}">Create a pipeline to build application</a></li>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.md" >}}">Create a pipeline to test the built application</a></li>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.md" >}}">Create a pipeline to deploy on Kubernetes</a></li>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.md" >}}">Docker workflows</a></li>
-          <li class="level3"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.md" >}}">Configure the Kubernetes Elastic Agent plugin</a></li>
-        </ul>
-      </li>
-      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/gocd_helm_chart/troubleshooting.md" >}}">Troubleshooting</a></li>
+      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/setup_and_configuration.md" >}}">Setup and configuration</a></li>
+      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/helm_install.md" >}}">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/importing_a_sample_workflow.md" >}}">Importing a sample workflow</a></li>
+      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/sample_pipelines_explained.md" >}}">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/docker_workflows.md" >}}">Docker workflows</a></li>
+      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/troubleshooting.md" >}}">Troubleshooting</a></li>
     </ul>
   </li>
 

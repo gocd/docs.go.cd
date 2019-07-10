@@ -3,7 +3,7 @@ description: The GoCD Helm Chart page explains how to get started with GoCD for 
 keywords: gocd helm chart, faq, cd pipeline
 title: Troubleshooting
 ---
-
+## Getting Started with GoCD on Kubernetes
 
 # Troubleshooting
 
