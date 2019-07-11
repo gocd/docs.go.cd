@@ -54,7 +54,6 @@ The console tab for the `build_image` job shows this interaction.
  ![](../../images/gocd-helm-chart/build_image_job_console.png)
 
 
-
 ## 2. Test application
 
 This pipeline fetches the Docker image built in the previous `build_and_publish_image` pipeline and runs tests against it.
@@ -178,8 +177,8 @@ To access the agent status report,
 
     ![](../../images/gocd-helm-chart/job_details.png)
 
-4. Clicking on this will take you to the Agent Status Report where you can see ---
+4. Clicking on this will take you to the Agent Status Report. The ```Events``` and ```Logs``` tabs display the GoCD elastic agent pod events and logs.
 
     ![](../../images/gocd-helm-chart/agent_status_report.png)
 
-    *Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.*
+    *Note: The Agent Status Report is only visible when a job is running. Once the job completes, this status is no longer visible.*
