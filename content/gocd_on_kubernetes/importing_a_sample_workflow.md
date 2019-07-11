@@ -23,21 +23,39 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
 
     ![](../../images/gocd-helm-chart/create_new_artifact_store.png)
 
+    To setup Dockerhub credentials, selected the registry type: ```Others (Dockerhub, GCR, private)```
+
+    The Docker registry URL for Dockerhub is ```https://index.docker.io/v1```
+
+    Enter your Dockerhub user credentials.
 
 3. Setup secrets
 
-    The GoCD elastic agents need access to credentials to be able to communicate with the Kubernetes API, and with Docker registries. We setup these secrets in Kubernetes and make them available to the GoCD agent pod yaml configuration.
+    For deployment pipelines that need access to the Kubernetes API for target deployment Kubernetes clusters, an API token must be provided and made available to deployment scripts. Deployment scripts also need other secrets such as Dockerhub credentials. We setup these secrets in Kubernetes and make them available to the GoCD agents in the elastic agent's pod yaml configuration.
 
     __Kubernetes API Tokens__
+    To allow a deployment script to be able to communicate with the target Kubernetes cluster, you must create a service account for deployments. The API token for this service account can then be stored in a Kubernetes secret.
 
-    *TODO: Add steps to create this secret*
+    Refer the [Kubernetes RBAC guide](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) for instructions on creating service accounts and assigning roles to them.
 
-    __Dockerhub user name__
-
-    *TODO: Add steps to create this secret*
-
-    __Dockerhub organization__
-    *TODO: Add steps to create this secret*
+    You can create a Kubernetes secret with these credentials as
+    ```
+    $ cat <<EOF >./secrets-for-gocd.yaml
+    apiVersion: v1
+    kind: Secret
+    metadata:
+      name: secrets-for-gocd
+    type: Opaque
+    data:
+      K8S_API_TOKEN: <Base64 encoded Kubernetes API token>
+      DOCKERHUB_USERNAME: <Base64 encoded Dockerhub user name>
+      DOCKERHUB_ORG: <Base64 encoded Dockerhub organization>
+    EOF
+    ```
+    Apply the secrets-for-gocd.yaml file to create a secret with these credentials
+    ```
+    $ kubectl apply -f secrets-for-gocd.yaml
+    ```
 
 4. Configure the elastic profile.
 
@@ -90,11 +108,9 @@ GoCD pipelines can be defined in code in either YAML or JSON format. These pipel
 
 The GoCD sample pipelines build and publish an image of a [sample nodejs application](https://github.com/gocd-demo/node-bulletin-board) called 'Bulletin Board'. These pipeline configurations are available in the repository:
 
-     https://github.com/gocd-demo/sample-k8s-workflow
+    https://github.com/gocd-demo/sample-k8s-workflow
 
 You can add a new configuration repository with the ```Admin -> Config Repositories``` menu.
-
-![](../../images/gocd-helm-chart/admin_menu_config_repositories.png)
 
 You can now configure the location of the repository(ies) to pick up pipeline definitions.
 
@@ -106,8 +122,6 @@ Once imported, the dashboard page should display the sample pipelines.
 
 Now that the pipelines have been imported, we can run them and verify that our application is built and its Docker image is published to DockerHub.
 
-TODO:
-
-    <Image with paused imported pipelines>
+![](../../images/gocd-helm-chart/imported_pipelines.png)
 
 To run the `build_and_publish_image` pipeline, unpause the pipelines in the GoCD dashboard.

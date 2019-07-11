@@ -41,13 +41,19 @@ Clicking on a stage or a job on the GoCD user interface shows you the results of
 
 The `build_image` job builds a Docker image [artifact](https://docs.gocd.org/current/configuration/managing_artifacts_and_reports.html) for the sample application. It then publishes the Docker image to a Docker registry configured under `Admin -> Artifact Stores`.
 
+##### Elastic profile
+
+The ```elastic_profile_id``` assigns this job to an elastic profile. When this job is triggered, an elastic agent is provisioned based on the elastic profile and is assigned to this job.
+
+##### External artifacts
+
 The external artifact configuration in the job definition uses the [Docker registry artifact plugin](https://github.com/gocd/docker-registry-artifact-plugin) to push the docker image to the Docker registry once it is built.
 
 The console tab for the `build_image` job shows this interaction.
 
  ![](../../images/gocd-helm-chart/build_image_job_console.png)
 
-**TODO: How do we talk about the elastic profile here**
+
 
 ## 2. Test application
 
@@ -76,6 +82,12 @@ The stage details page shows the result of exection of the stage and its constit
 #### Job details
 
 GoCD build agents run as Docker In Docker containers. The `test_app_image` job fetches the application's Docker image and runs the application's test command on an application container. It does so by executing the ``` docker run ``` command.
+
+##### Elastic profile
+
+The ```elastic_profile_id``` assigns this job to an elastic profile. When this job is triggered, an elastic agent is provisioned based on the elastic profile and is assigned to this job.
+
+##### Fetching artifacts
 
 The `fetch` task is configured with the application image to be pulled from the Docker registry configured under `Admin -> Artifact Stores`.
 
@@ -111,6 +123,12 @@ The stage details page shows the result of exection of the stage and its constit
 
 The `Deploy` job fetches the application's Docker image metadata and makes it available for use in the environment. It then calls a deployment script to deploy the application to Kubernetes.
 
+##### Elastic profile
+
+The ```elastic_profile_id``` assigns this job to an elastic profile. When this job is triggered, an elastic agent is provisioned based on the elastic profile and is assigned to this job.
+
+##### Fetching image metadata
+
 Since deploying to Kubernetes doesn't require the application image to be pulled down to the build agent, the `fetch` task is configured to fetch the application image metadata. The metadata is then made available for further tasks in the job.
 
 This interaction is shown in the console tab of the `deploy` job.
@@ -137,9 +155,6 @@ Getting the new ingress IP address for the deployed application:
     ```
 
 ![](../../images/gocd-helm-chart/sample_application.png)
-
-
-**TODO: What do we do with the following section, seems relevant**
 
 ## Check the status of agents with Agent Status Report
 
@@ -168,9 +183,3 @@ To access the agent status report,
     ![](../../images/gocd-helm-chart/agent_status_report.png)
 
     *Note: The Agent Status Report is only visible when that particular job is running. Once the job is run, this status will not be visible.*
-
-## Verify your pipeline
-
-Once the pipeline has run successfully, you can go to your DockerHub account to verify if the image has been published.
-
-In the [next section](creating_a_test_pipeline.html), we'll look at how to configure a pipeline to test our sample application's docker image.
