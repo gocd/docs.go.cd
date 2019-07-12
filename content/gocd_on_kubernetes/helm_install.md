@@ -27,7 +27,7 @@ The Ingress IP address can be obtained as specified below:
     $ minikube ip
     ```
 
-- For other Kubernetes offerings:
+- For other Kubernetes offerings like GKE and EKS:
 
     ```bash
     $ ip=$(kubectl get ingress --namespace gocd gocd-server -o jsonpath="{.status.loadBalancer.ingress[0].ip}")

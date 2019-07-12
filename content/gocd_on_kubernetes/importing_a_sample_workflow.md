@@ -52,9 +52,14 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
       DOCKERHUB_ORG: <Base64 encoded Dockerhub organization>
     EOF
     ```
+    *Encoding note: The serialized JSON and YAML values of secret data are encoded as base64 strings. Newlines are not valid within these strings and must be omitted. The following pipeline will strip newlines before base64 encoding strings.*
+
+        $ echo -n "string" | base64
+
+
     Apply the secrets-for-gocd.yaml file to create a secret with these credentials
     ```
-    $ kubectl apply -f secrets-for-gocd.yaml
+    $ kubectl apply -f secrets-for-gocd.yaml -n gocd
     ```
 
 4. Configure the elastic profile.
@@ -113,6 +118,8 @@ The GoCD sample pipelines build and publish an image of a [sample nodejs applica
 You can add a new configuration repository with the ```Admin -> Config Repositories``` menu.
 
 You can now configure the location of the repository(ies) to pick up pipeline definitions.
+
+*Note: The PluginID dropdown allows you to select either the JSON or YAML configuration plugin, based on the format of your pipeline configuration.*
 
 ![](../../images/gocd-helm-chart/create_new_configuration_repository.png)
 
