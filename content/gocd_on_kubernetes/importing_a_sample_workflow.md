@@ -103,6 +103,10 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
                 secretKeyRef:
                   name: secrets-for-gocd
                   key: DOCKERHUB_ORG
+            - name: NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
           securityContext:
             privileged: true
     ```
