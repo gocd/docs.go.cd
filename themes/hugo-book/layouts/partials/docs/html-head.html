@@ -6,8 +6,8 @@
 <meta name="keywords" content="{{ .Params.keywords | default "continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques" }}"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="{{ .Site.Params.CurrentBaseURL }}/{{ .File.Path | replaceRE "_index.md" "" | replaceRE "index.html.md" "" | replaceRE "_index.html" "" | replaceRE "README.md" "" |  replaceRE "readme.md" "" |  replaceRE ".md" ".html" |  replaceRE ".adoc" ".html" }}"/>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<script src="{{ "javascripts/vendor/jquery-3.3.1.min.js" | relURL }}" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="{{ "javascripts/vendor/lunr-2.3.6.min.js" | relURL }}"></script>
 
 <script type="text/javascript" src="{{ "javascripts/search/search.js" | relURL }}"></script>
 <script type="text/javascript" src="{{ "javascripts/navigation/navigation.js" | relURL }}"></script>
