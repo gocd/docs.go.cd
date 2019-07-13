@@ -21,7 +21,7 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
 
     You can now configure the artifact store with your DockerHub credentials.
 
-    ![](../../images/gocd-helm-chart/create_new_artifact_store.png)
+    ![](../images/gocd-helm-chart/create_new_artifact_store.png)
 
     To setup Dockerhub credentials, selected the registry type: ```Others (Dockerhub, GCR, private)```
 
@@ -70,7 +70,7 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
 
     The GoCD Helm chart sets up an elastic profile after installation. To view this elastic profile configuration, navigate to ```Admin > Elastic Profiles```.
 
-    ![](../../images/gocd-helm-chart/default_elastic_profile.png)
+    ![](../images/gocd-helm-chart/default_elastic_profile.png)
 
     The GoCD elastic agents need to be configured with secrets such as a Kubernetes API token to allow it to be able to perform deployments of applications to the cluster.
 
@@ -125,7 +125,7 @@ You can now configure the location of the repository(ies) to pick up pipeline de
 
 *Note: The PluginID dropdown allows you to select either the JSON or YAML configuration plugin, based on the format of your pipeline configuration.*
 
-![](../../images/gocd-helm-chart/create_new_configuration_repository.png)
+![](../images/gocd-helm-chart/create_new_configuration_repository.png)
 
 ### Imported sample pipelines
 
@@ -133,6 +133,6 @@ Once imported, the dashboard page should display the sample pipelines.
 
 Now that the pipelines have been imported, we can run them and verify that our application is built and its Docker image is published to DockerHub.
 
-![](../../images/gocd-helm-chart/imported_pipelines.png)
+![](../images/gocd-helm-chart/imported_pipelines.png)
 
 To run the `build_and_publish_image` pipeline, unpause the pipelines in the GoCD dashboard.

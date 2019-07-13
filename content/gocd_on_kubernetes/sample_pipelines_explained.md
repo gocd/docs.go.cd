@@ -9,7 +9,7 @@ title: Sample pipelines explained
 
 In this section, we'll explain the details of each of the pipelines imported in the previous section.
 
-![](../../images/gocd-helm-chart/sample_k8s_workflow_vsm.png)
+![](../images/gocd-helm-chart/sample_k8s_workflow_vsm.png)
 
 ## 1. Build and publish image
 This pipeline builds an application artifact and publishes it to an artifact store.
@@ -19,11 +19,11 @@ A GoCD pipeline's [material](https://docs.gocd.org/current/introduction/concepts
 
 The material for the `build_and_publish_image` pipeline is a Git repository.
 
-![](../../images/gocd-helm-chart/build_and_publish_pipeline_material_yaml.png)
+![](../images/gocd-helm-chart/build_and_publish_pipeline_material_yaml.png)
 
 When the pipeline is imported, the material is rendered on the [Value Stream Map](https://docs.gocd.org/current/navigation/value_stream_map.html) page as the trigger for the `build_and_publish_image` pipeline.
 
-![](../../images/gocd-helm-chart/build_and_publish_image_vsm_material.png)
+![](../images/gocd-helm-chart/build_and_publish_image_vsm_material.png)
 
 ### Stages and jobs
 
@@ -31,11 +31,11 @@ In GoCD, [stages](https://docs.gocd.org/current/introduction/concepts_in_go.html
 
 The `build_and_publish_image` pipeline has one stage called `build_and_publish_image` with one job called `build_image`.
 
- ![](../../images/gocd-helm-chart/build_and_publish_pipeline_stage_and_job_yaml.png)
+ ![](../images/gocd-helm-chart/build_and_publish_pipeline_stage_and_job_yaml.png)
 
 Clicking on a stage or a job on the GoCD user interface shows you the results of execution of the stage and its constituent jobs.
 
-  ![](../../images/gocd-helm-chart/build_and_publish_image_stage_details.png)
+  ![](../images/gocd-helm-chart/build_and_publish_image_stage_details.png)
 
 #### Job details
 
@@ -51,7 +51,7 @@ The external artifact configuration in the job definition uses the [Docker regis
 
 The console tab for the `build_image` job shows this interaction.
 
- ![](../../images/gocd-helm-chart/build_image_job_console.png)
+ ![](../images/gocd-helm-chart/build_image_job_console.png)
 
 
 ## 2. Test application
@@ -64,7 +64,7 @@ The material for the `test_application` pipeline is the previous `build_and_publ
 
 The `test_application` pipeline can also reach out and fetch any artifacts that the `build_and_publish_image` pipeline generates and stores on the GoCD server.
 
-![](../../images/gocd-helm-chart/test_application_pipeline_material.png)
+![](../images/gocd-helm-chart/test_application_pipeline_material.png)
 
  *Note: Build artifacts could either be stored on the GoCD server or an external artifact store like a Docker registry.*
 
@@ -72,11 +72,11 @@ The `test_application` pipeline can also reach out and fetch any artifacts that 
 
 The `test_application` pipeline has one stage called `test_app_image` with one job called `test_app_image`.
 
-![](../../images/gocd-helm-chart/test_application_stages_and_jobs.png)
+![](../images/gocd-helm-chart/test_application_stages_and_jobs.png)
 
 The stage details page shows the result of exection of the stage and its constituent jobs.
 
-![](../../images/gocd-helm-chart/test_application_stage_details.png)
+![](../images/gocd-helm-chart/test_application_stage_details.png)
 
 #### Job details
 
@@ -92,7 +92,7 @@ The `fetch` task is configured with the application image to be pulled from the 
 
 This interaction is shown in the console tab of the `test_app_image` job.
 
-![](../../images/gocd-helm-chart/test_app_image_console_output.png)
+![](../images/gocd-helm-chart/test_app_image_console_output.png)
 
 ## 3. Deploy to cluster
 
@@ -104,7 +104,7 @@ The `deploy_to_cluster` pipeline has two materials.
 
 The first material is the previous `test_application` pipeline. The second material is a Git respository where the deployment scripts are stored.
 
-![](../../images/gocd-helm-chart/deploy_to_cluster_pipeline_materials.png)
+![](../images/gocd-helm-chart/deploy_to_cluster_pipeline_materials.png)
 
 The `deploy_to_cluster` pipeline will be triggered either on successful completion of the upstream `test_application` pipeline, or on a commit to the Git repository material.
 
@@ -112,11 +112,11 @@ The `deploy_to_cluster` pipeline will be triggered either on successful completi
 
 The `deploy_to_cluster` pipeline has one stage called `deploy_to_cluster` with one job called `Deploy`.
 
-![](../../images/gocd-helm-chart/deploy_to_cluster_stages_and_jobs.png)
+![](../images/gocd-helm-chart/deploy_to_cluster_stages_and_jobs.png)
 
 The stage details page shows the result of exection of the stage and its constituent jobs.
 
-![](../../images/gocd-helm-chart/deploy_to_cluster_stage_details.png)
+![](../images/gocd-helm-chart/deploy_to_cluster_stage_details.png)
 
 #### Job details
 
@@ -132,7 +132,7 @@ Since deploying to Kubernetes doesn't require the application image to be pulled
 
 This interaction is shown in the console tab of the `deploy` job.
 
-![](../../images/gocd-helm-chart/deploy_console_output.png)
+![](../images/gocd-helm-chart/deploy_console_output.png)
 
 
 #### Access your application
@@ -153,7 +153,7 @@ Getting the new ingress IP address for the deployed application:
     echo "http://$(kubectl get ingress bulletin-board-ingress --namespace $NAMESPACE -o jsonpath="{.status.loadBalancer.ingress[0]['ip']}")"
     ```
 
-![](../../images/gocd-helm-chart/sample_application.png)
+![](../images/gocd-helm-chart/sample_application.png)
 
 ## Check the status of agents with Agent Status Report
 
@@ -175,10 +175,10 @@ To access the agent status report,
 
 3. This is the job detail page which has a console log. Click on the button titled 'Check Agent Status'.
 
-    ![](../../images/gocd-helm-chart/job_details.png)
+    ![](../images/gocd-helm-chart/job_details.png)
 
 4. Clicking on this will take you to the Agent Status Report. The ```Events``` and ```Logs``` tabs display the GoCD elastic agent pod events and logs.
 
-    ![](../../images/gocd-helm-chart/agent_status_report.png)
+    ![](../images/gocd-helm-chart/agent_status_report.png)
 
     *Note: The Agent Status Report is only visible when a job is running. Once the job completes, this status is no longer visible.*
