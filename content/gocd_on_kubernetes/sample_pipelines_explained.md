@@ -159,15 +159,15 @@ Getting the new ingress IP address for the deployed application:
 
 When the pipeline is running (signified by a yellow bar), you can take a look at the status of the agents that are assigned to run the jobs in the pipeline. You can find the following information here:
 
-- pod details & configuration
+- Pod details & configuration
 
-- pod events
+- Pod events
 
-- logs for the agents
+- Logs for the agents
 
 This can be useful to troubleshoot when an agent is not picking up the job.
 
-To access the agent status report,
+To access the agent status report:
 
 1. Click on a stage of your choice when the pipeline is being built.
 

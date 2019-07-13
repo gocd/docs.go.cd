@@ -151,7 +151,6 @@ headless: true
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/importing_a_sample_workflow.md" >}}">Importing a sample workflow</a></li>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/sample_pipelines_explained.md" >}}">An explanation of the sample pipelines</a></li>
       <li class="level2"><a href="{{< relref "gocd_on_kubernetes/docker_workflows.md" >}}">Docker workflows</a></li>
-      <li class="level2"><a href="{{< relref "gocd_on_kubernetes/troubleshooting.md" >}}">Troubleshooting</a></li>
     </ul>
   </li>
 
