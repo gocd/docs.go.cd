@@ -6,15 +6,14 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>
-    Getting Started with GoCD on Kubernetes | GoCD User Documentation</title>
+<title>Import a pipeline to build and deploy a sample application | GoCD User Documentation</title>
 
-<meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
-<meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
+<meta name="description" content="The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm."/>
+<meta name="keywords" content="[gocd helm chart, cd pipeline]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/gocd_on_kubernetes/"/>
-<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/lunr.js/2.3.6/lunr.min.js"></script>
+<link rel="canonical" href="https://docs.gocd.org/current/gocd_on_kubernetes/importing_a_sample_workflow.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
 
 <script type="text/javascript" src="../javascripts/search/search.js"></script>
 <script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
@@ -40,7 +39,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/gocd_on_kubernetes/">
+<body data-rel-permalink="/gocd_on_kubernetes/importing_a_sample_workflow.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -72,7 +71,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2fgocd_on_kubernetes\2f "] {
+  nav ul a[href$="\2fgocd_on_kubernetes\2fimporting_a_sample_workflow.html"] {
   color: #004ed0;
   }
 </style>
@@ -239,23 +238,12 @@ if (!doNotTrack) {
     <a href="#"><b>GoCD on Kubernetes</b></a>
     <ul>
       <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
-      <li class="level2"><a href="../gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.html">Setup and configuration</a>
-        <ul>
-          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/setup.html">Setup</a></li>
-          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html">Configure your Kubernetes Cluster</a></li>
-          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/helm_install.html">Install the GoCD Helm chart</a></li>
-        </ul>
-      </li>
-      <li class="level2"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/">Designing a CD Pipeline</a>
-        <ul>
-          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html">Create a pipeline to build application</a></li>
-          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html">Create a pipeline to test the built application</a></li>
-          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html">Create a pipeline to deploy on Kubernetes</a></li>
-          <li class="level3"><a href="../gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html">Docker workflows</a></li>
-          <li class="level3"><a href="../gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html">Configure the Kubernetes Elastic Agent plugin</a></li>
-        </ul>
-      </li>
-      <li class="level2"><a href="../gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html">Troubleshooting</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/troubleshooting.html">Troubleshooting</a></li>
     </ul>
   </li>
 
@@ -337,8 +325,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>
-    Getting Started with GoCD on Kubernetes</strong>
+  <strong>Import a pipeline to build and deploy a sample application</strong>
 </header>
 
       
@@ -351,21 +338,144 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown"><p><html>
-    <body>
-    <div style="text-align:center;" class="my-block">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-       <h1>Getting Started with GoCD on Kubernetes</h1>
-    </div>
-    </body>
-</html></p>
+<article class="markdown">
+
+<h2 id="getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</h2>
+
+<h1 id="step-3-import-sample-pipeline-to-build-and-deploy-a-sample-application">Step 3: Import sample pipeline to build and deploy a sample application</h1>
+
+<p>In this section, we&rsquo;ll import a set of GoCD pipelines that build and deploy a sample application with a Docker based build workflow.</p>
+
+<p>This section uses GoCDs <a href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html">pipelines as code</a> capability to import sample pipeline definitions from an external Git repository.</p>
+
+<h3 id="prerequisites">Prerequisites</h3>
+
+<ol>
+<li><p>The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub. To do this, make sure you have a <a href="https://hub.docker.com">Docker Hub</a> account.</p></li>
+
+<li><p>GoCD&rsquo;s pipelines as code configurations allow for the scripting of pipeline definitions. These do not include global objects like artifact stores. Global objects need to be setup using the GoCD user interface or the API. This sample requires an artifact store configured so pipelines can publish and fetch Docker image artifacts to it.</p>
+
+<p>You can configure a new DockerHub artifact store with the <code>Admin -&gt; Artifact Stores</code> menu.</p>
+
+<p>You can now configure the artifact store with your DockerHub credentials.</p>
+
+<p><img src="../images/gocd-helm-chart/create_new_artifact_store.png" alt="" /></p>
+
+<p>To setup Dockerhub credentials, selected the registry type: <code>Others (Dockerhub, GCR, private)</code></p>
+
+<p>The Docker registry URL for Dockerhub is <code>https://index.docker.io/v1</code></p>
+
+<p>Enter your Dockerhub user credentials.</p></li>
+
+<li><p>Setup secrets</p>
+
+<p>For deployment pipelines that need access to the Kubernetes API for target deployment Kubernetes clusters, an API token must be provided and made available to deployment scripts. Deployment scripts also need other secrets such as Dockerhub credentials. We setup these secrets in Kubernetes and make them available to the GoCD agents in the elastic agent&rsquo;s pod yaml configuration.</p>
+
+<p><strong>Kubernetes API Tokens</strong>
+To allow a deployment script to be able to communicate with the target Kubernetes cluster, you must create a service account for deployments. The API token for this service account can then be stored in a Kubernetes secret.</p>
+
+<p>Refer the <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Kubernetes RBAC guide</a> for instructions on creating service accounts and assigning roles to them.</p>
+
+<p>You can create a Kubernetes secret with these credentials as</p>
+
+<pre><code>$ cat &lt;&lt;EOF &gt;./secrets-for-gocd.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: secrets-for-gocd
+type: Opaque
+data:
+  K8S_API_TOKEN: &lt;Base64 encoded Kubernetes API token&gt;
+  DOCKERHUB_USERNAME: &lt;Base64 encoded Dockerhub user name&gt;
+  DOCKERHUB_ORG: &lt;Base64 encoded Dockerhub organization&gt;
+EOF
+</code></pre>
+
+<p><em>Encoding note: The serialized JSON and YAML values of secret data are encoded as base64 strings. Newlines are not valid within these strings and must be omitted. The following pipeline will strip newlines before base64 encoding strings.</em></p>
+
+<pre><code>$ echo -n &quot;string&quot; | base64
+</code></pre>
+
+<p>Apply the secrets-for-gocd.yaml file to create a secret with these credentials</p>
+
+<pre><code>$ kubectl apply -f secrets-for-gocd.yaml -n gocd
+</code></pre></li>
+
+<li><p>Configure the elastic profile.</p>
+
+<p>The sample pipelines are configured to use <a href="https://github.com/gocd/kubernetes-elastic-agents">GoCD Kubernetes elastic agents</a>. <a href="https://docs.gocd.org/current/configuration/elastic_agents.html">Elastic agents</a> are build agents that are provisioned on-demand for a job and terminated thereafter.</p>
+
+<p>Elastic agents use elastic profiles to provision these on-demand agents. A Kubernetes elastic profile includes information about the container image for the GoCD agents, and the pod configuration yaml.</p>
+
+<p>The GoCD Helm chart sets up an elastic profile after installation. To view this elastic profile configuration, navigate to <code>Admin &gt; Elastic Profiles</code>.</p>
+
+<p><img src="../images/gocd-helm-chart/default_elastic_profile.png" alt="" /></p>
+
+<p>The GoCD elastic agents need to be configured with secrets such as a Kubernetes API token to allow it to be able to perform deployments of applications to the cluster.</p>
+
+<p>We configure the secrets created in the previous step in the configuration of the elastic profile mentioned earlier. Replace the pod yaml with one below.</p>
+
+<pre><code>apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-name-prefix-{{ POD_POSTFIX }}
+  labels:
+    app: web
+spec:
+  containers:
+    - name: gocd-agent-container-{{ CONTAINER_POSTFIX }}
+      image: gocddemo/gocd-agent-dind:webinar
+      env:
+        - name: KUBE_TOKEN
+          valueFrom:
+            secretKeyRef:
+              name: secrets-for-gocd
+              key: K8S_API_TOKEN
+        - name: DOCKERHUB_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: secrets-for-gocd
+              key: DOCKERHUB_USERNAME
+        - name: DOCKERHUB_ORG
+          valueFrom:
+            secretKeyRef:
+              name: secrets-for-gocd
+              key: DOCKERHUB_ORG
+        - name: NAMESPACE
+          valueFrom:
+            fieldRef:
+              fieldPath: metadata.namespace
+      securityContext:
+        privileged: true
+</code></pre></li>
+</ol>
+
+<h3 id="setup-external-pipeline-configuration-repository">Setup external pipeline configuration repository</h3>
+
+<p>GoCD pipelines can be defined in code in either YAML or JSON format. These pipeline definitions can be stored in a source code repository, either in your application&rsquo;s repository or a separate repository.</p>
+
+<p>The GoCD sample pipelines build and publish an image of a <a href="https://github.com/gocd-demo/node-bulletin-board">sample nodejs application</a> called &lsquo;Bulletin Board&rsquo;. These pipeline configurations are available in the repository:</p>
+
+<pre><code>https://github.com/gocd-demo/sample-k8s-workflow
+</code></pre>
+
+<p>You can add a new configuration repository with the <code>Admin -&gt; Config Repositories</code> menu.</p>
+
+<p>You can now configure the location of the repository(ies) to pick up pipeline definitions.</p>
+
+<p><em>Note: The PluginID dropdown allows you to select either the JSON or YAML configuration plugin, based on the format of your pipeline configuration.</em></p>
+
+<p><img src="../images/gocd-helm-chart/create_new_configuration_repository.png" alt="" /></p>
+
+<h3 id="imported-sample-pipelines">Imported sample pipelines</h3>
+
+<p>Once imported, the dashboard page should display the sample pipelines.</p>
+
+<p>Now that the pipelines have been imported, we can run them and verify that our application is built and its Docker image is published to DockerHub.</p>
+
+<p><img src="../images/gocd-helm-chart/imported_pipelines.png" alt="" /></p>
+
+<p>To run the <code>build_and_publish_image</code> pipeline, unpause the pipelines in the GoCD dashboard.</p>
 </article>
 
       
@@ -382,7 +492,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/gocd_on_kubernetes/_index.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/gocd_on_kubernetes/importing_a_sample_workflow.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -404,6 +514,26 @@ if (!doNotTrack) {
     
 
   
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</a></li>
+</ul></li>
+<li><a href="#step-3-import-sample-pipeline-to-build-and-deploy-a-sample-application">Step 3: Import sample pipeline to build and deploy a sample application</a>
+<ul>
+<li>
+<ul>
+<li><a href="#prerequisites">Prerequisites</a></li>
+<li><a href="#setup-external-pipeline-configuration-repository">Setup external pipeline configuration repository</a></li>
+<li><a href="#imported-sample-pipelines">Imported sample pipelines</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
 
 
   </main>

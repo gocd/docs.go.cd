@@ -140,14 +140,6 @@
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html</loc>
-  </url>
-  
-  <url>
-    <loc>/gocd_on_kubernetes/gocd_helm_chart/configure_cluster.html</loc>
-  </url>
-  
-  <url>
     <loc>/configuration/</loc>
   </url>
   
@@ -161,18 +153,6 @@
   
   <url>
     <loc>/installation/configuring_server_details.html</loc>
-  </url>
-  
-  <url>
-    <loc>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_build_pipeline.html</loc>
-  </url>
-  
-  <url>
-    <loc>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_deploy_pipeline.html</loc>
-  </url>
-  
-  <url>
-    <loc>/gocd_on_kubernetes/designing_a_cd_pipeline/creating_a_test_pipeline.html</loc>
   </url>
   
   <url>
@@ -196,7 +176,7 @@
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/designing_a_cd_pipeline/docker_workflows.html</loc>
+    <loc>/gocd_on_kubernetes/docker_workflows.html</loc>
   </url>
   
   <url>
@@ -236,15 +216,12 @@
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/</loc>
-  </url>
-  
-  <url>
     <loc>/faq/material_update_hung.html</loc>
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/designing_a_cd_pipeline/</loc>
+    <loc>/gocd_on_kubernetes.html</loc>
+    <priority>0</priority>
   </url>
   
   <url>
@@ -264,7 +241,11 @@
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/gocd_helm_chart/helm_install.html</loc>
+    <loc>/gocd_on_kubernetes/importing_a_sample_workflow.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/helm_install.html</loc>
   </url>
   
   <url>
@@ -436,6 +417,10 @@
   </url>
   
   <url>
+    <loc>/gocd_on_kubernetes/sample_pipelines_explained.html</loc>
+  </url>
+  
+  <url>
     <loc>/faq/dev_save_properties.html</loc>
   </url>
   
@@ -448,11 +433,7 @@
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/gocd_helm_chart/setup.html</loc>
-  </url>
-  
-  <url>
-    <loc>/gocd_on_kubernetes/gocd_helm_chart/setup_and_configuration.html</loc>
+    <loc>/gocd_on_kubernetes/setup_and_configuration.html</loc>
   </url>
   
   <url>
@@ -485,7 +466,7 @@
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/gocd_helm_chart/troubleshooting.html</loc>
+    <loc>/gocd_on_kubernetes/troubleshooting.html</loc>
   </url>
   
   <url>
