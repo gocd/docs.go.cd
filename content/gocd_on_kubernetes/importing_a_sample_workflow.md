@@ -23,7 +23,7 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
 
     ![](../../images/gocd-helm-chart/create_new_artifact_store.png)
 
-    To setup Dockerhub credentials, selected the registry type: ```Others (Dockerhub, GCR, private)```
+    To setup Dockerhub credentials, select the registry type: ```Others (Dockerhub, GCR, private)```
 
     The Docker registry URL for Dockerhub is ```https://index.docker.io/v1```
 
