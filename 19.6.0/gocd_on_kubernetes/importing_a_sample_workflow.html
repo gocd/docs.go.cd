@@ -243,7 +243,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
       <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
-      <li class="level2"><a href="../gocd_on_kubernetes/troubleshooting.html">Troubleshooting</a></li>
     </ul>
   </li>
 
@@ -361,7 +360,7 @@ if (!doNotTrack) {
 
 <p><img src="../images/gocd-helm-chart/create_new_artifact_store.png" alt="" /></p>
 
-<p>To setup Dockerhub credentials, selected the registry type: <code>Others (Dockerhub, GCR, private)</code></p>
+<p>To setup Dockerhub credentials, select the registry type: <code>Others (Dockerhub, GCR, private)</code></p>
 
 <p>The Docker registry URL for Dockerhub is <code>https://index.docker.io/v1</code></p>
 
@@ -371,12 +370,13 @@ if (!doNotTrack) {
 
 <p>For deployment pipelines that need access to the Kubernetes API for target deployment Kubernetes clusters, an API token must be provided and made available to deployment scripts. Deployment scripts also need other secrets such as Dockerhub credentials. We setup these secrets in Kubernetes and make them available to the GoCD agents in the elastic agent&rsquo;s pod yaml configuration.</p>
 
-<p><strong>Kubernetes API Tokens</strong>
-To allow a deployment script to be able to communicate with the target Kubernetes cluster, you must create a service account for deployments. The API token for this service account can then be stored in a Kubernetes secret.</p>
+<p><strong>Kubernetes API Tokens</strong></p>
 
-<p>Refer the <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Kubernetes RBAC guide</a> for instructions on creating service accounts and assigning roles to them.</p>
+<p>To allow a deployment script to be able to communicate with the target Kubernetes cluster, you must create a service account for deployments. The API token for this service account can then be stored in a Kubernetes secret.</p>
 
-<p>You can create a Kubernetes secret with these credentials as</p>
+<p>Refer the <a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Kubernetes RBAC guide</a> for instructions on creating service accounts and assigning them to roles.</p>
+
+<p>You can create a secret with these credentials with the following Kubernetes configuration:</p>
 
 <pre><code>$ cat &lt;&lt;EOF &gt;./secrets-for-gocd.yaml
 apiVersion: v1

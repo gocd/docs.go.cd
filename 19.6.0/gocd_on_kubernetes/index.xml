@@ -75,14 +75,5 @@ The material A GoCD pipeline&amp;rsquo;s material is the trigger for a pipeline.
 2. Setup a Kubernetes Cluster Before installing GoCD, you need to setup a Kubernetes cluster.</description>
     </item>
     
-    <item>
-      <title>Troubleshooting</title>
-      <link>/gocd_on_kubernetes/troubleshooting.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/gocd_on_kubernetes/troubleshooting.html</guid>
-      <description>Getting Started with GoCD on Kubernetes Troubleshooting 1. Elevated privileges error: User &amp;quot;system:serviceaccount:kube-system:default&amp;quot; cannot get namespaces in the namespace &amp;quot;gocd&amp;quot;: Unknown user &amp;quot;system:serviceaccount:kube-system:default&amp;quot;  Error: release gocd failed: clusterroles.rbac.authorization.k8s.io &amp;quot;&amp;lt;RBAC&amp;gt;&amp;quot; is forbidden: attempt to grant extra privileges:  The above error messages occur if the service account associated with the tiller pod does not have the permissions to create the resources. Refer to the privileges section in the prerequisites to provide tiller elevated privileges.</description>
-    </item>
-    
   </channel>
 </rss>
