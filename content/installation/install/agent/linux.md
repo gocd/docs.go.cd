@@ -44,7 +44,16 @@ sudo dpkg -i go-agent-${version}.deb
 
 ## Managing the GoCD agent process
 
-{{< include file="installation/install/_tanuki_commands.md" markdown="true" type="agent" prefix="/etc/init.d" >}}
+The GoCD agent script must be run with one of the following arguments: 
+
+| Script                                             | Description                                                              |
+| -------------------------------------------------- | ------------------------------------------------------------------------ |
+|  service go-agent console                          | The GoCD agent will be started in the foreground                         |
+|  service go-agent start                            | The GoCD agent will be started as a daemon in the background             |
+|  service go-agent stop                             | The GoCD agent will be stopped                                           |
+|  service go-agent restart                          | The GoCD agent will be restarted                                         |
+
+`service` utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.
 
 ## Location of GoCD agent files
 

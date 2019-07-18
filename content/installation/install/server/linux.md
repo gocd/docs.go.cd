@@ -44,9 +44,18 @@ sudo dpkg -i go-server-${version}.deb
 
 ## Managing the GoCD server process
 
-{{< include file="installation/install/_tanuki_commands.md" markdown="true" type="server" prefix="/etc/init.d" >}}
+The GoCD server script must be run with one of the following arguments: 
 
-Once the GoCD server is started the GoCD server will be started and it will print out the URL for the Dashboard page. This will be `http://localhost:8153/go`
+| Script                                             | Description                                                             |
+| -------------------------------------------------- | ------------------------------------------------------------------------|
+|  service go-server console                         | The GoCD server will be started in the foreground                       |
+|  service go-server start                           | The GoCD server will be started as a daemon in the background           |
+|  service go-server stop                            | The GoCD server will be stopped                                         |
+|  service go-server restart                         | The GoCD server will be restarted                                       |
+
+`service` utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.
+
+Once the GoCD server is started it will print out the URL for the Dashboard page. This will be `http://localhost:8153/go`
 
 ## Location of GoCD server files
 
