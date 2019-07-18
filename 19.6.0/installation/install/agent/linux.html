@@ -369,7 +369,7 @@ sudo apt-get update</code></pre></div>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
 <h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 
-The GoCD agent script must be run with one of the following arguments:</p>
+<p>The GoCD agent script must be run with one of the following arguments:</p>
 
 <table>
 <thead>
@@ -381,27 +381,28 @@ The GoCD agent script must be run with one of the following arguments:</p>
 
 <tbody>
 <tr>
-<td><code>/etc/init.d/go-agent console</code></td>
+<td>service go-agent console</td>
 <td>The GoCD agent will be started in the foreground</td>
 </tr>
 
 <tr>
-<td><code>/etc/init.d/go-agent start</code></td>
+<td>service go-agent start</td>
 <td>The GoCD agent will be started as a daemon in the background</td>
 </tr>
 
 <tr>
-<td><code>/etc/init.d/go-agent stop</code></td>
+<td>service go-agent stop</td>
 <td>The GoCD agent will be stopped</td>
 </tr>
 
 <tr>
-<td><code>/etc/init.d/go-agent restart</code></td>
+<td>service go-agent restart</td>
 <td>The GoCD agent will be restarted</td>
 </tr>
 </tbody>
 </table>
 
+<p><code>service</code> utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.</p>
 
 <h2 id="location-of-gocd-agent-files">Location of GoCD agent files</h2>
 
@@ -446,7 +447,7 @@ After installing the GoCD agent, you must first configure the agent with the hos
 <li>Open <code>/usr/share/go-agent/wrapper-config/wrapper-properties.conf</code> in your favourite text editor.</li>
 <li>Follow the instructions in the file to configure the GoCD server url</li>
 <li>Save the file and exit your editor.</li>
-<li>Run <code>/etc/init.d/go-agent [start|restart]</code> to (re)start the agent.</li>
+<li>Run <code>service go-agent [start|restart]</code> to (re)start the agent.</li>
 </ul>
 
 

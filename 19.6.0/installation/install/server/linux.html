@@ -369,7 +369,7 @@ sudo apt-get update</code></pre></div>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 
-The GoCD server script must be run with one of the following arguments:</p>
+<p>The GoCD server script must be run with one of the following arguments:</p>
 
 <table>
 <thead>
@@ -381,29 +381,30 @@ The GoCD server script must be run with one of the following arguments:</p>
 
 <tbody>
 <tr>
-<td><code>/etc/init.d/go-server console</code></td>
+<td>service go-server console</td>
 <td>The GoCD server will be started in the foreground</td>
 </tr>
 
 <tr>
-<td><code>/etc/init.d/go-server start</code></td>
+<td>service go-server start</td>
 <td>The GoCD server will be started as a daemon in the background</td>
 </tr>
 
 <tr>
-<td><code>/etc/init.d/go-server stop</code></td>
+<td>service go-server stop</td>
 <td>The GoCD server will be stopped</td>
 </tr>
 
 <tr>
-<td><code>/etc/init.d/go-server restart</code></td>
+<td>service go-server restart</td>
 <td>The GoCD server will be restarted</td>
 </tr>
 </tbody>
 </table>
 
+<p><code>service</code> utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.</p>
 
-<p>Once the GoCD server is started the GoCD server will be started and it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
+<p>Once the GoCD server is started it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
 
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
 
