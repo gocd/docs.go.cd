@@ -16,11 +16,11 @@ At no point the external secrets are stored in GoCD, these secrets are looked up
 
 To look up for secrets from an external Secrets Manager you would need to install a Secrets Plugin which supports a Secret Manager of your choice. A list of available Secrets Plugins can be found [here](https://www.gocd.org/plugins/#secrets).
 
-GoCD comes bundled with a Secrets Plugin which encrypts and stores secrets on a file. For more information about the File based Secrets Plugin please refer to the [documentation](https://github.com/gocd/gocd-file-based-secrets-plugin).
+GoCD comes bundled with a Secrets Plugin which encrypts and stores secrets on a file. For more information about the File based Secrets Plugin please refer to the [documentation](https://github.com/gocd/gocd-file-based-secrets-plugin#readme).
 
 ### Step 2 - Configure a Secret Manager
 
-A Secret Manager should be configured to lookup for secrets. A Secret Manager can be configured using the Secret Configuration, this configuration is specific to a pluign and would differ based on the plugin used.
+A Secret Manager should be configured to lookup for secrets. A Secret Manager can be configured using the Secret Configuration, this configuration is specific to a plugin and would differ based on the plugin used.
 
 Steps to configure a Secrets Manager, the below example uses the bundled File based Secrets Plugin,
 

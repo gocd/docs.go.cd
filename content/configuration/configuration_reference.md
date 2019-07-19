@@ -1472,7 +1472,7 @@ This is a sample description.
 
 ## &lt;rules&gt; {#rules}
 
-The `<rules>` element is a container for `allow` and `deny` rule.
+The `<rules>` element is a container for `allow` and `deny` rule. More about `rules` can be read from [here](./secrets_management.html#more-about-rules).
 
 **Example:**
 
