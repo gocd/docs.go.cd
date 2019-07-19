@@ -186,6 +186,8 @@ if (!doNotTrack) {
           <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
         </ul>
       </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
       <li class="level2">Artifacts
         <ul>
           <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
@@ -434,6 +436,24 @@ if (!doNotTrack) {
             <a href="#property">&lt;/property&gt;</a>
         <a href="#artifactStore">&lt;/artifactStore&gt;</a>
     <a href="#artifactStores">&lt;/artifactStores&gt;</a>
+    <a href="#secretConfigs">&lt;secretConfigs&gt;</a>
+        <a href="#secretConfig">&lt;secretConfig&gt;</a>
+            <a href="#description">&lt;description&gt;</a>
+            <a href="#description">&lt;/description&gt;</a>
+            <a href="#configuration">&lt;configuration&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                    <a href="#key">&lt;key/&gt;</a>
+                    <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+            <a href="#configuration">&lt;/configuration&gt;</a>
+            <a href="#rules">&lt;rules&gt;</a>
+                <a href="#allow">&lt;allow&gt;</a>
+                <a href="#allow">&lt;/allow&gt;</a>
+                <a href="#deny">&lt;deny&gt;</a>
+                <a href="#deny">&lt;/deny&gt;</a>
+            <a href="#rules">&lt;/rules&gt;</a>
+        <a href="#secretConfig">&lt;/secretConfig&gt;</a>
+    <a href="#secretConfigs">&lt;/secretConfigs&gt;</a>
     <a href="#pipelines">&lt;pipelines&gt;</a>
         <a href="#group_authorization">&lt;authorization&gt;</a>
             <a href="#group_admins">&lt;admins&gt;</a>
@@ -2345,6 +2365,152 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 
+<p><a href="#top">top</a></p>
+
+<h2 id="secretConfigs">&lt;secretConfigs&gt;</h2>
+
+<p>The <code>&lt;secretConfigs&gt;</code> element is a container of secret configurations.</p>
+
+<p>There can be zero or more secret configurations.</p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;secretConfigs&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;secretConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;secret-plugin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    ...
+  <span style="color:#008000;font-weight:bold">&lt;/secretConfig&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/secretConfigs&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="secretConfig">&lt;secretConfig&gt;</h2>
+
+<p>The <code>&lt;secretConfig&gt;</code> element specifies a single secret configuration. It must be unique (including case) across the entire configuration.</p>
+
+<p>A <code>secretConfig</code> should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
+
+<p><strong>Attributes</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>id</td>
+<td>Yes</td>
+<td>The id is used to identify a secret config, and must be unique. The id can contain the following characters: a-z, A-Z, 0-9, period (.), underscore (_) and hyphen (-). Spaces are not allowed. The length should be less than 255 characters.</td>
+</tr>
+
+<tr>
+<td>pluginId</td>
+<td>Yes</td>
+<td>The <code>id</code> of secrets plugin.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;secretconfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;secret-plugin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>SecretsFilePath<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>/users/go/secret.db<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/secretconfig&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="description">&lt;description&gt;</h2>
+
+<p>The <code>&lt;description&gt;</code> element specifies description for the element.</p>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;description&gt;</span>
+This is a sample description.
+<span style="color:#008000;font-weight:bold">&lt;/description&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="rules">&lt;rules&gt;</h2>
+
+<p>The <code>&lt;rules&gt;</code> element is a container for <code>allow</code> and <code>deny</code> rule.</p>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="allow">&lt;allow&gt;</h2>
+
+<p>The <code>&lt;allow&gt;</code> element is the rule which allows the usage of the defined secret based on action, configured type and resource.</p>
+
+<p><strong>Attributes</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>Action for the entity specified under attribute <code>type</code>.</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>Any GoCD entity type for which rule will be applied.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="deny">&lt;deny&gt;</h2>
+
+<p>The <code>&lt;deny&gt;</code> element is the rule which denies the usage of the defined secret based on action, configured type and resource.</p>
+
+<p><strong>Attributes</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>Action for the entity specified under attribute <code>type</code>.</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>Any GoCD entity type for which rule will be applied.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
 <h2 id="pipelines">&lt;pipelines&gt;</h2>
@@ -5081,6 +5247,12 @@ allow certain variable names and/or values.</p>
 <li><a href="#package">&lt;package&gt;</a></li>
 <li><a href="#artifactStores">&lt;artifactStores&gt;</a></li>
 <li><a href="#artifactStore">&lt;artifactStore&gt;</a></li>
+<li><a href="#secretConfigs">&lt;secretConfigs&gt;</a></li>
+<li><a href="#secretConfig">&lt;secretConfig&gt;</a></li>
+<li><a href="#description">&lt;description&gt;</a></li>
+<li><a href="#rules">&lt;rules&gt;</a></li>
+<li><a href="#allow">&lt;allow&gt;</a></li>
+<li><a href="#deny">&lt;deny&gt;</a></li>
 <li><a href="#pipelines">&lt;pipelines&gt;</a></li>
 <li><a href="#authorization">&lt;authorization&gt;</a></li>
 <li><a href="#admins-1">&lt;admins&gt;</a></li>
