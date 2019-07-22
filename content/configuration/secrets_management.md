@@ -63,11 +63,11 @@ There can be cases wherein Admins might want to restrict the usage of Secret Man
 
 The rules have the following attributes,
 
-| Attribute | Description |
-| --------- | ----------- |
-| type      | This attribute represents the type of GoCD config entity, can be either `pipeline_group` or `environment`. To represent any entity type use the wildcard **(*)**|
-| action    | This attribute represents the allowed action on the Secret Configuration, currently the only allowed action is `refer`.|
-| resource  | The name of resource. Should be the name of a `pipeline_group` or `environment` since they are the only supported `type`s.|
+| Attribute | Description                                                                                                                                                       |
+| --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| type      | This attribute represents the type of GoCD config entity, can be either `pipeline_group` or `environment`. To represent any entity type use the wildcard **(*)**. |
+| action    | This attribute represents the allowed action on the Secret Configuration, currently the only allowed action is `refer`.                                           |
+| resource  | The name of resource. Should be the name of a `pipeline_group` or `environment` since they are the only supported values for the `type` attribute.                |
 
 
 - By default if no rule is defined, none of the GoCD entities will have access to the Secret Manager. Hence the Secret Manager would be unusable.
@@ -108,42 +108,50 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
 
 ### More about Rules
 
-  - We follow a more restrictive model while accessing a Secrets Manager, in absence of a rule a Secret Manager would be inaccessible.
+  - A restrictive model is followed while accessing a Secrets Manager. In the absence of a rule, a Secret Manager is inaccessible by default.
 
     > The secret config defined in the example cannot be referred by any entity in GoCD.
 
     ```xml
-      <secretConfig id='teamA_secrets' pluginId='vault_based_plugin'>
-        <description>All secrets for env1</description>
-         <configuration>
-            ...
-        </configuration>
-        <rules/>
-      </secretConfig>
+    <secretConfig id='teamA_secrets' pluginId='vault_based_plugin'>
+      <description>All secrets for env1</description>
+       <configuration>
+          ...
+      </configuration>
+      <rules/>
+    </secretConfig>
     ```
 
-  - Wildcards **(*)**: The `Allow` and `Deny` Rules support wildcards. Wildcard can be used for either `type`, `resource` or `action`.
-    - **type**: Using a wildcard **(*)** for type implies a given rules apply to all entity types in this case the supported entities `pipeline_group` and `environment`.
+  - Wildcards **(*)** in **type**:
 
-      > In the given example, a Secret Configuration can be referred by any `pipeline_group` or `environment` with the name `production`.
+    Using a wildcard **(*)** for type implies a given rule applies to all entity types. In this case, the supported entities are `pipeline_group` and `environment`.
 
-      ```xml
-        <rules>
-          <allow type="*" action="refer">production</allow>
-        </rules>
-      ```
+    > In the given example, a Secret Configuration can be referred by any `pipeline_group` or `environment` with the name `production`.
 
-    - **action**: Using a wildcard **(*)** for action implies a given rule applies to any action on the Secret Config, currently `refer` is the only supported action.
-**Note**: `action` and `type` can have a wildcard(`*`) but it will not support pattern matching e.g. `prod*` or `ref*`
+    ```xml
+    <rules>
+      <allow type="*" action="refer">production</allow>
+    </rules>
+    ```
 
-    - **resource**: Resource name supports the wildcard characters '?' and '*' to represent a single or multiple (zero or more) wildcard characters.
+    **Note**: `type` can have a wildcard(`*`) but it will not support pattern matching e.g. `pipe*`.
 
-| Wildcard Matcher | Matching resource names              |
-| ---------------- | ------------------------------------ |
-| *_group          | my_group, someothergroup             |
-| Production_*     | Production_Team_A, Production_Team_B |
-| \*group\*        | group, my_group, group_A, gro...up   |
-| Team_?_group     | Team_A_group, Team_B_group           |
+  - Wildcards **(*)** in **action**:
+
+    Using a wildcard **(*)** for action implies a given rule applies to any action on the Secret Config. Currently `refer` is the only supported action.
+
+    **Note**: `action` can have a wildcard(`*`) but it will not support pattern matching e.g. `ref*`.
+
+  - Wildcards **(*)** in **resource**:
+
+    Resource name supports the wildcard characters '?' and '*' to represent a single or multiple (zero or more) wildcard characters.
+
+    | Wildcard Matcher | Resource names                                                                       |
+    |------------------|--------------------------------------------------------------------------------------|
+    | `*_group`        | Matches `my_group` and `someother_group`, but not `testgroup` or `group1`.           |
+    | `Production_*`   | Matches `Production_Team_A` and `Production_Team_B` but not `Team_ABC_Production_D`. |
+    | `*group*`        | Matches `group`, `my_group` and `group_A`, but not `groABCup`.                       |
+    | `Team_?_group`   | Matches `Team_A_group`, `Team_B_group` but not `Team_ABC_group` or `Team__group`.    |
 
   - When multiple rules are defined, rules will be applied from top to bottom.
 
@@ -165,7 +173,7 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
     </rules>
     ```
 
-  - Rules are applied during secret lookup, if an entity does not have the required permission to access the Secret Manager the lookup would fail. A failed lookup would result in a failed job or a failed material update based on where the secret param is defined.
+  - Rules are applied during secret lookup. If an entity does not have the required permission to access the Secret Manager, the lookup will fail. A failed lookup results in a failed job or a failed material update based on where the secret param is defined.
 
 
 [1]: ../images/configuration/secret-management/1_navigate_to_secret_management.png
