@@ -23,7 +23,7 @@ Docker outside of Docker involves volume mounting the host's docker socket onto 
 
 This can be achieved by doing:
 ```bash
-$ docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e GO_SERVER_URL="https://<go-server-ip>:8154/go" gocd/gocd-agent-alpine-3.7:v18.1.0
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e GO_SERVER_URL="https://<go-server-ip>:8154/go" gocd/gocd-agent-alpine-3.7:v18.1.0
 ```
 
 **Drawbacks:**

@@ -41,7 +41,7 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
 
     You can create a secret with these credentials with the following Kubernetes configuration:
     ```
-    $ cat <<EOF >./secrets-for-gocd.yaml
+    cat <<EOF >./secrets-for-gocd.yaml
     apiVersion: v1
     kind: Secret
     metadata:
@@ -54,13 +54,13 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
     EOF
     ```
     *Encoding note: The serialized JSON and YAML values of secret data are encoded as base64 strings. Newlines are not valid within these strings and must be omitted. The following pipeline will strip newlines before base64 encoding strings.*
-
-        $ echo -n "string" | base64
-
+    ```
+    echo -n "string" | base64
+    ```
 
     Apply the secrets-for-gocd.yaml file to create a secret with these credentials
     ```
-    $ kubectl apply -f secrets-for-gocd.yaml -n gocd
+    kubectl apply -f secrets-for-gocd.yaml -n gocd
     ```
 
 4. Configure the elastic profile.
