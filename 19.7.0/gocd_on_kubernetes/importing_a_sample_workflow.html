@@ -380,7 +380,7 @@ if (!doNotTrack) {
 
 <p>You can create a secret with these credentials with the following Kubernetes configuration:</p>
 
-<pre><code>$ cat &lt;&lt;EOF &gt;./secrets-for-gocd.yaml
+<pre><code>cat &lt;&lt;EOF &gt;./secrets-for-gocd.yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -395,12 +395,12 @@ EOF
 
 <p><em>Encoding note: The serialized JSON and YAML values of secret data are encoded as base64 strings. Newlines are not valid within these strings and must be omitted. The following pipeline will strip newlines before base64 encoding strings.</em></p>
 
-<pre><code>$ echo -n &quot;string&quot; | base64
+<pre><code>echo -n &quot;string&quot; | base64
 </code></pre>
 
 <p>Apply the secrets-for-gocd.yaml file to create a secret with these credentials</p>
 
-<pre><code>$ kubectl apply -f secrets-for-gocd.yaml -n gocd
+<pre><code>kubectl apply -f secrets-for-gocd.yaml -n gocd
 </code></pre></li>
 
 <li><p>Configure the elastic profile.</p>

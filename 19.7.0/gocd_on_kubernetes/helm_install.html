@@ -348,7 +348,7 @@ if (!doNotTrack) {
 <p>Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.</p>
 
 <p>Install the official GoCD Helm chart with this command:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ helm install stable/gocd --name gocd --namespace gocd</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm install stable/gocd --name gocd --namespace gocd</code></pre></div>
 <h2 id="access-the-gocd-server">Access the GoCD server</h2>
 
 <p>After you&rsquo;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</p>
@@ -357,15 +357,15 @@ if (!doNotTrack) {
 
 <ul>
 <li><p>Minikube</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ minikube ip</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube ip</code></pre></div></li>
 
 <li><p>For other Kubernetes offerings like GKE and EKS:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ <span style="color:#b8860b">ip</span><span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">$(</span>kubectl get ingress --namespace gocd gocd-server -o <span style="color:#b8860b">jsonpath</span><span style="color:#666">=</span><span style="color:#b44">&#34;{.status.loadBalancer.ingress[0].ip}&#34;</span><span style="color:#a2f;font-weight:bold">)</span>
-$ <span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#b8860b">$ip</span><span style="color:#b44">&#34;</span></code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">ip</span><span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">$(</span>kubectl get ingress --namespace gocd gocd-server -o <span style="color:#b8860b">jsonpath</span><span style="color:#666">=</span><span style="color:#b44">&#34;{.status.loadBalancer.ingress[0].ip}&#34;</span><span style="color:#a2f;font-weight:bold">)</span>
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#b8860b">$ip</span><span style="color:#b44">&#34;</span></code></pre></div></li>
 </ul>
 
 <p><em>Note: It might take a few minutes for the GoCD server to come up for the first time. You can check if the GoCD server is available with this command:</em></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl get deployments --namespace gocd</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get deployments --namespace gocd</code></pre></div>
 <p>The GoCD server starts with a sample &ldquo;Hello World&rdquo; pipeline that looks like:</p>
 
 <p><img src="../images/gocd-helm-chart/gocd_dashboard_with_sample_pipeline.png" alt="" /></p>

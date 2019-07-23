@@ -360,13 +360,11 @@ if (!doNotTrack) {
 <p>Once minikube is installed, start minikube with the <code>kubeadm</code> bootstrapper. The <code>kubeadm</code> toolkit helps to easily bootstrap a cluster so that appropriate privileges are granted for performing read-write operations on Kubernetes authentication and authorization (RBAC) resources.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  minikube start --vm-driver<span style="color:#666">=</span>virtualbox --bootstrapper<span style="color:#666">=</span>kubeadm --memory <span style="color:#666">4096</span></code></pre></div>
 <p><em>Tip: You can enable Ingress on minikube with this command</em></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ minikube addons <span style="color:#a2f">enable</span> ingress
-  ingress was successfully enabled</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  minikube addons <span style="color:#a2f">enable</span> ingress</code></pre></div>
 <h3 id="option-2-google-kubernetes-engine-or-gke-setup-guide-https-cloud-google-com-kubernetes-engine-docs-how-to-creating-a-container-cluster">Option 2: Google Kubernetes Engine or GKE (<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster">setup guide</a>)</h3>
 
 <p><em>Tip: Once the cluster is running, execute the following command to see if kubectl is using right context.</em></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ kubectl config current-context
-  gke_my-project_us-central1-a_gocd-cluster</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  kubectl config current-context</code></pre></div>
 <h3 id="option-3-amazon-elastic-kubernetes-service-eks-getting-started-https-docs-aws-amazon-com-eks-latest-userguide-getting-started-html">Option 3: Amazon Elastic Kubernetes Service (EKS) (<a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html">Getting Started</a>)</h3>
 
 <p><em>Tip: <a href="https://github.com/weaveworks/eksctl">eksctl</a> is a useful CLI for setting up Kubernetes clusters on Amazon EKS</em></p>
@@ -406,10 +404,12 @@ if (!doNotTrack) {
 </span><span style="color:#bbb">    </span>name:<span style="color:#bbb"> </span>tiller<span style="color:#bbb">
 </span><span style="color:#bbb">    </span>namespace:<span style="color:#bbb"> </span>kube-system</code></pre></div>
 <p>Note: The <code>cluster-admin</code> role is available by default in a Kubernetes cluster, you don&rsquo;t have to create it.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ kubectl create -f rbac-config.yaml
-serviceaccount <span style="color:#b44">&#34;tiller&#34;</span> created
-clusterrolebinding <span style="color:#b44">&#34;tiller&#34;</span> created
-$ helm init --service-account tiller</code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create -f rbac-config.yaml</code></pre></div>
+<p>Now that we have the Helm service account created and assigned to a role, let&rsquo;s deploy Tiller with this service account.</p>
+
+<pre><code>helm init --service-account tiller
+</code></pre>
+
 <p>Refer the <a href="https://github.com/helm/helm/blob/master/docs/rbac.md">Helm RBAC guide</a> for more secure and advanced RBAC configurations.</p>
 </article>
 

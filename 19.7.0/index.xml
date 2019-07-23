@@ -555,7 +555,7 @@ Prerequisites  The sample pipelines build a sample application as a Docker image
       <guid>/gocd_on_kubernetes/helm_install.html</guid>
       <description>Getting Started with GoCD on Kubernetes Step 2: Install the GoCD Helm chart Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
 Install the official GoCD Helm chart with this command:
-$ helm install stable/gocd --name gocd --namespace gocd Access the GoCD server After you&amp;rsquo;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</description>
+helm install stable/gocd --name gocd --namespace gocd Access the GoCD server After you&amp;rsquo;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</description>
     </item>
     
     <item>
