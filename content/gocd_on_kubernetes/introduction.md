@@ -3,6 +3,8 @@ description: The GoCD Helm Chart page explains how to get started with GoCD for 
 keywords: gocd helm chart, cd pipeline
 title: Introduction
 BookShowToC: false
+aliases:
+  - /gocd_on_kubernetes/index.html
 ---
 ## Getting Started with GoCD on Kubernetes
 
