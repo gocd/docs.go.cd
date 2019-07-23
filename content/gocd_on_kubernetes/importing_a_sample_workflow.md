@@ -2,6 +2,9 @@
 description: The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm.
 keywords: gocd helm chart, cd pipeline
 title: Import a pipeline to build and deploy a sample application
+aliases:
+  - /gocd_on_kubernetes/designing_a_cd_pipeline/index.html
+  - /gocd_on_kubernetes/gocd_helm_chart/configure_k8s_ea_plugin.html
 ---
 ## Getting Started with GoCD on Kubernetes
 
