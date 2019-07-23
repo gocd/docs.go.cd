@@ -34,8 +34,7 @@ Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popu
   *Tip: You can enable Ingress on minikube with this command*
 
   ```bash
-  $ minikube addons enable ingress
-  ingress was successfully enabled
+  minikube addons enable ingress
   ```
 
 ### Option 2: Google Kubernetes Engine or GKE ([setup guide](https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster))
@@ -43,8 +42,7 @@ Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popu
   *Tip: Once the cluster is running, execute the following command to see if kubectl is using right context.*
 
   ```bash
-  $ kubectl config current-context
-  gke_my-project_us-central1-a_gocd-cluster
+  kubectl config current-context
   ```
 
 ### Option 3: Amazon Elastic Kubernetes Service (EKS) ([Getting Started](https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html))
@@ -92,10 +90,12 @@ subjects:
 Note: The `cluster-admin` role is available by default in a Kubernetes cluster, you don't have to create it.
 
 ```bash
-$ kubectl create -f rbac-config.yaml
-serviceaccount "tiller" created
-clusterrolebinding "tiller" created
-$ helm init --service-account tiller
+kubectl create -f rbac-config.yaml
+```
+
+Now that we have the Helm service account created and assigned to a role, let's deploy Tiller with this service account.
+```
+helm init --service-account tiller
 ```
 
 Refer the [Helm RBAC guide](https://github.com/helm/helm/blob/master/docs/rbac.md) for more secure and advanced RBAC configurations.
