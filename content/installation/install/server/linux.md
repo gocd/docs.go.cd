@@ -42,9 +42,14 @@ Alternatively, if you have the server DEB [downloaded](https://www.gocd.org/down
 sudo dpkg -i go-server-${version}.deb
 ```
 
+## Install on Docker containers
+
+{{< include file="installation/install/_install_on_containers.md" markdown="true" service_name="server" >}}
+
+
 ## Managing the GoCD server process
 
-The GoCD server script must be run with one of the following arguments: 
+The GoCD server script must be run with one of the following arguments:
 
 | Script                                             | Description                                                             |
 | -------------------------------------------------- | ------------------------------------------------------------------------|
