@@ -12,7 +12,7 @@ On Fedora, install `procps` package, execute
 sudo yum install procps
 ```
 
-On Centos, install `sysvinit-tools` package, execute
+On CentOS/RHEL, install `sysvinit-tools` package, execute
 
 ```shell
 sudo yum install sysvinit-tools
