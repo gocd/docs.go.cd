@@ -4,7 +4,7 @@
 
 To run GoCD on container please use our official [docker container images](https://hub.docker.com/u/gocd)
 
-If for some reason want to install gocd using rpm/deb packages on container, from 19.7.0 release additional dependecies needs to be installed before installing GoCD {{ .Get "service_name" }}
+For installing GoCD {{ .Get "service_name" }} using rpm/deb packages on containers, starting from release 19.7.0 the following additional dependencies will be required.
 
 On Fedora, install `procps` package, execute
 
