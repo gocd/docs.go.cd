@@ -369,6 +369,17 @@ sudo apt-get update</code></pre></div>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-server</code></pre></div>
 <p>Alternatively, if you have the server DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
+<h2 id="install-on-docker-containers">Install on Docker containers</h2>
+
+<p>To run GoCD on container please use our official <a href="https://hub.docker.com/u/gocd">docker container images</a></p>
+
+<p>For installing GoCD server using rpm/deb packages on containers, starting from release 19.7.0 the following additional dependencies will be required.</p>
+
+<p>On Fedora, install <code>procps</code> package, execute</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install procps</code></pre></div>
+<p>On Centos, install <code>sysvinit-tools</code> package, execute</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install sysvinit-tools</code></pre></div>
+
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 
 <p>The GoCD server script must be run with one of the following arguments:</p>
@@ -516,6 +527,7 @@ Users can override default startup arguments in a editing the file <code>/usr/sh
 <ul>
 <li><a href="#rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
 <li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
+<li><a href="#install-on-docker-containers">Install on Docker containers</a></li>
 <li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
 <li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
 <li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
