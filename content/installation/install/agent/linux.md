@@ -42,9 +42,13 @@ Alternatively, if you have the agent DEB [downloaded](https://www.gocd.org/downl
 sudo dpkg -i go-agent-${version}.deb
 ```
 
+## Install on Docker containers
+
+{{< include file="installation/install/_install_on_containers.md" markdown="true" service_name="agent" >}}
+
 ## Managing the GoCD agent process
 
-The GoCD agent script must be run with one of the following arguments: 
+The GoCD agent script must be run with one of the following arguments:
 
 | Script                                             | Description                                                              |
 | -------------------------------------------------- | ------------------------------------------------------------------------ |
