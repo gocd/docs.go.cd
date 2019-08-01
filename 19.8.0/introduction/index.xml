@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Concepts In GoCD on GoCD User Documentation</title>
+    <link>/introduction/</link>
+    <description>Recent content in Concepts In GoCD on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/introduction/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Concepts in GoCD</title>
+      <link>/introduction/concepts_in_go.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/introduction/concepts_in_go.html</guid>
+      <description>Concepts in GoCD This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and Continuous Delivery, in general, you can refer to Martin Fowler&amp;rsquo;s articles on the subject: Continuous Integration and Continuous Delivery.
+If you&amp;rsquo;re very new to GoCD, the Getting Started Guide is a good starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.</description>
+    </item>
+    
+  </channel>
+</rss>

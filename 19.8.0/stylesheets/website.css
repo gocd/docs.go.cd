@@ -1,0 +1,84 @@
+figure.concept_image {
+  text-align: center;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+
+figure.concept_image figcaption {
+  color: #575757;
+  font-weight: normal;
+  padding-top: 10px;
+}
+
+figure.concept_image img.very_small_image {
+  max-width: 25% !important;
+}
+
+figure.concept_image img.small_image {
+  max-width: 50% !important;
+}
+
+figure.concept_image img.medium_image {
+  max-width: 75% !important;
+}
+
+.smaller.header {
+  font-size: large;
+  font-weight: normal;
+}
+
+.gdpr-banner {
+  box-sizing: border-box;
+  background: #808285;
+  color: #fff;
+  padding: 10px 66px;
+  width: 100%;
+  position: fixed;
+  z-index: 100;
+
+  box-shadow: 0 3px 5px 0 rgba(0,0,0,.1);
+
+  text-align: center;
+  font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei","微软雅黑", STXihei, "华文细黑", sans-serif;
+  font-size: 14px;
+}
+
+.gdpr-banner ~ * {
+  transform: translateY(36px);
+}
+
+.gdpr-banner p { margin: 0; padding: 0; }
+
+.gdpr-banner a, .gdpr-banner a:active, .gdpr-banner a:visited {
+  text-decoration: underline;
+}
+
+.gdpr-banner a, .gdpr-banner a:visited {
+  color: #fff;
+}
+
+.gdpr-banner a:hover, .gdpr-banner a:active {
+  color: #fff
+}
+
+.gdpr-banner .gdpr-close {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  right: 40px;
+  margin-top: -8px;
+  cursor: pointer;
+}
+
+.gdpr-banner .gdpr-close::before, .gdpr-banner .gdpr-close::after {
+  position: absolute;
+  left: 7px;
+  content: '';
+  height: 17.63px;
+  width: 3px;
+  background-color: #fff;
+}
+
+.gdpr-banner .gdpr-close::before { transform: rotate(45deg); }
+.gdpr-banner .gdpr-close::after { transform: rotate(-45deg); }
