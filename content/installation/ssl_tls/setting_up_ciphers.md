@@ -27,6 +27,14 @@ Following system properties are exposed to override the default SSL/TLS configur
 	``` shell
 export GO_SERVER_SYSTEM_PROPERTIES="-Dgo.ssl.ciphers.include='TLS_ECDHE.*' -Dgo.ssl.ciphers.exclude='.*NULL.*,.*RC4.*' -Dgo.ssl.protocols.include='TLSv1.2' -Dgo.ssl.protocols.exclude='SSLv3' -Dgo.ssl.renegotiation.allowed='N'"
 ```
+| System Property                          | Default value | Description                                                                               |
+| ---------------------------------------- | :-----------: | ----------------------------------------------------------------------------------------- |
+| `go.ssl.ciphers.include`                 |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be enabled  |
+| `go.ssl.ciphers.exclude`                 |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be disabled |
+| `go.ssl.protocols.include`               |    `null`     | A comma-separated list of SSL/TLS protocols to be enabled                                 |
+| `go.ssl.protocols.exclude`               |    `null`     | A comma-separated list of SSL/TLS protocols to be disabled                                |
+| `go.ssl.renegotiation.allowed`           |    `true`     | Flag to allow/dis-allow TLS renegotiation, accepts - `true` and `false`                   |
+| `go.ssl.config.clear.default.exclusions` |    `true`     | Flag to instruct jetty to not exclude any weak ciphers, accepts - `true` and `false`      |
 
 * Windows
 
