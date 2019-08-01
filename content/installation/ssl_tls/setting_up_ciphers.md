@@ -10,13 +10,14 @@ You can choose which ciphers and SSL/TLS protocols Go will use for communication
 
 Following system properties are exposed to override the default SSL/TLS configuration for Go server:
 
-| System Property                | Default value | Description                                                                               |
-| ------------------------------ | :-----------: | ----------------------------------------------------------------------------------------- |
-| `go.ssl.ciphers.include`       |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be enabled  |
-| `go.ssl.ciphers.exclude`       |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be disabled |
-| `go.ssl.protocols.include`     |    `null`     | A comma-separated list of SSL/TLS protocols to be enabled                                 |
-| `go.ssl.protocols.exclude`     |    `null`     | A comma-separated list of SSL/TLS protocols to be disabled                                |
-| `go.ssl.renegotiation.allowed` |    `true`     | Flag to allow/dis-allow TLS renegotiation, accepts - `true` and `false`                   |
+| System Property                          | Default value | Description                                                                               |
+| ---------------------------------------- | :-----------: | ----------------------------------------------------------------------------------------- |
+| `go.ssl.ciphers.include`                 |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be enabled  |
+| `go.ssl.ciphers.exclude`                 |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be disabled |
+| `go.ssl.protocols.include`               |    `null`     | A comma-separated list of SSL/TLS protocols to be enabled                                 |
+| `go.ssl.protocols.exclude`               |    `null`     | A comma-separated list of SSL/TLS protocols to be disabled                                |
+| `go.ssl.renegotiation.allowed`           |    `true`     | Flag to allow/dis-allow TLS renegotiation, accepts - `true` and `false`                   |
+| `go.ssl.config.clear.default.exclusions` |    `true`     | Flag to instruct jetty to not exclude any weak ciphers, accepts - `true` and `false`      |
 
 To configure the system properties, edit the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
 
