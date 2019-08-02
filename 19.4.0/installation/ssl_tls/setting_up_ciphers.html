@@ -375,7 +375,54 @@ if (!doNotTrack) {
 <li><p>Linux</p>
 
 <p>This can be configured through <code>/etc/default/go-server</code>, such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.include=&#39;TLS_ECDHE.*&#39; -Dgo.ssl.ciphers.exclude=&#39;.*NULL.*,.*RC4.*&#39; -Dgo.ssl.protocols.include=&#39;TLSv1.2&#39; -Dgo.ssl.protocols.exclude=&#39;SSLv3&#39; -Dgo.ssl.renegotiation.allowed=&#39;N&#39;&#34;</span></code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#a2f">export</span> <span style="color:#b8860b">GO_SERVER_SYSTEM_PROPERTIES</span><span style="color:#666">=</span><span style="color:#b44">&#34;-Dgo.ssl.ciphers.include=&#39;TLS_ECDHE.*&#39; -Dgo.ssl.ciphers.exclude=&#39;.*NULL.*,.*RC4.*&#39; -Dgo.ssl.protocols.include=&#39;TLSv1.2&#39; -Dgo.ssl.protocols.exclude=&#39;SSLv3&#39; -Dgo.ssl.renegotiation.allowed=&#39;N&#39;&#34;</span></code></pre></div>
+<table>
+<thead>
+<tr>
+<th>System Property</th>
+<th align="center">Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>go.ssl.ciphers.include</code></td>
+<td align="center"><code>null</code></td>
+<td>A comma-separated list of cipher suite names (exact or regular expression) to be enabled</td>
+</tr>
+
+<tr>
+<td><code>go.ssl.ciphers.exclude</code></td>
+<td align="center"><code>null</code></td>
+<td>A comma-separated list of cipher suite names (exact or regular expression) to be disabled</td>
+</tr>
+
+<tr>
+<td><code>go.ssl.protocols.include</code></td>
+<td align="center"><code>null</code></td>
+<td>A comma-separated list of SSL/TLS protocols to be enabled</td>
+</tr>
+
+<tr>
+<td><code>go.ssl.protocols.exclude</code></td>
+<td align="center"><code>null</code></td>
+<td>A comma-separated list of SSL/TLS protocols to be disabled</td>
+</tr>
+
+<tr>
+<td><code>go.ssl.renegotiation.allowed</code></td>
+<td align="center"><code>true</code></td>
+<td>Flag to allow/dis-allow TLS renegotiation, accepts - <code>true</code> and <code>false</code></td>
+</tr>
+
+<tr>
+<td><code>go.ssl.config.clear.default.exclusions</code></td>
+<td align="center"><code>true</code></td>
+<td>Flag to instruct jetty to not exclude any weak ciphers, accepts - <code>true</code> and <code>false</code></td>
+</tr>
+</tbody>
+</table></li>
 
 <li><p>Windows</p>
 
