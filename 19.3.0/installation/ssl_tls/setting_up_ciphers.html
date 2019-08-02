@@ -330,41 +330,47 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th><em>Key</em></th>
-<th align="center"><em>Default value</em></th>
-<th><em>Description</em></th>
+<th>System Property</th>
+<th align="center">Default value</th>
+<th>Description</th>
 </tr>
 </thead>
 
 <tbody>
 <tr>
 <td><code>go.ssl.ciphers.include</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of cipher suite names (exact or regular expression) to be enabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.ciphers.exclude</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of cipher suite names (exact or regular expression) to be disabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.protocols.include</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of SSL/TLS protocols to be enabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.protocols.exclude</code></td>
-<td align="center">null</td>
+<td align="center"><code>null</code></td>
 <td>A comma-separated list of SSL/TLS protocols to be disabled</td>
 </tr>
 
 <tr>
 <td><code>go.ssl.renegotiation.allowed</code></td>
-<td align="center">Y</td>
-<td>Flag to allow/dis-allow TLS renegotiation, accepts - <code>Y</code> and <code>N</code></td>
+<td align="center"><code>true</code></td>
+<td>Flag to allow/dis-allow TLS renegotiation, accepts - <code>true</code> and <code>false</code></td>
+</tr>
+
+<tr>
+<td><code>go.ssl.config.clear.default.exclusions</code></td>
+<td align="center"><code>true</code></td>
+<td>Flag to instruct jetty to not exclude any weak ciphers, accepts - <code>true</code> and <code>false</code></td>
 </tr>
 </tbody>
 </table>
