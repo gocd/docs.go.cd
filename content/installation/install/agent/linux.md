@@ -68,7 +68,7 @@ The GoCD agent installs its files in the following locations on your filesystem:
 | `/var/lib/go-agent`                                 | the GoCD agent configuration and working directory    |
 | `/var/log/go-agent`                                  | the GoCD agent log files                              |
 | `/usr/share/go-agent`                                | the GoCD agent binaries and startup scripts           |
-| `/usr/share/go-agent/config/wrapper-properties.conf` | the configuration file to alter GoCD agent properties |
+| `/usr/share/go-agent/wrapper-config/wrapper-properties.conf` | the configuration file to alter GoCD agent properties |
 
 ## Configuring the GoCD agent
 
