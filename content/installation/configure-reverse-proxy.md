@@ -79,10 +79,6 @@ NameVirtualHost nnn.nnn.nnn.nnn:80
 ## GoCD with NGINX
 
 ```nginx
-http {
-  client_max_body_size  10000m;
-}
-
 server {
   # Redirect any http requests to https
   listen         80;
