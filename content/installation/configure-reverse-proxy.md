@@ -78,19 +78,11 @@ NameVirtualHost nnn.nnn.nnn.nnn:80
 
 ## GoCD with NGINX
 
-To `/etc/nginx/nginx.conf` add the `client_max_body_size` to the `http` section so that agents can upload huge artifacts:
-
 ```nginx
 http {
-  ...
   client_max_body_size  10000m;
-  ...
 }
-```
 
-The configuration of the site in `/etc/nginx/sites-enabled`
-
-```nginx
 server {
   # Redirect any http requests to https
   listen         80;
