@@ -137,7 +137,8 @@ title: Reference
                 <a href="#param">&lt;param/&gt;</a>
             <a href="#params">&lt;/params&gt;</a>
             <a href="#trackingtool">&lt;trackingtool/&gt;</a>
-            <a href="#mingle">&lt;mingle/&gt;</a>
+            <a href="#
+                     ">&lt;mingle/&gt;</a>
             <a href="#timer">&lt;timer/&gt;</a>
             <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
                 <a href="#variable">&lt;variable&gt;</a>
@@ -1758,7 +1759,7 @@ is your task ID. Your configuration would be:
 If you check in some code with a commit message which includes the characters 'evo-512' then that will appear in the modification pop-up
 box as a link. When you click it, Go will take you to the web page `http://your-trackingtool/yourproject/512`.
 
-For example: If you use [Mingle](http://www.thoughtworks.com/products/mingle-agile-project-management/) for your task manager, the configuration would be:
+For example: If you use Mingle for your task manager, the configuration would be:
 
 ```xml
 <pipeline name="yourproject">
