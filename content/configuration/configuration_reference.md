@@ -3127,7 +3127,7 @@ Specifies how a stage should be triggered. `<approval>` of type 'manual' or 'suc
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | type | Yes | Either 'manual' or 'success'. 'manual' means the stage needs to be approved manually. 'success' means the stage will be automatically triggered when the previous stage passes. |
-| allowOnlyOnSuccess | No | If the 'type' is set to 'manual', setting this attribute to 'true' will ensure that the stage can triggered only if the previous stage (if any) has succeeded. 
+| allowOnlyOnSuccess | No | Setting this attribute to 'true' will ensure that the stage can triggered only if the previous stage (if any) has succeeded. |
 
 **Notes:**
 
