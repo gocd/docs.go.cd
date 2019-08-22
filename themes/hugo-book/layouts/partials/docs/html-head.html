@@ -13,6 +13,8 @@
 <script type="text/javascript" src="{{ "javascripts/navigation/navigation.js" | relURL }}"></script>
 <script src="{{ "javascripts/_common-to-all-pages.js" | relURL }}" type="text/javascript"></script>
 
+<link href="{{ "images/favicon.ico" | relURL }}" rel="shortcut icon">
+
 <link rel="stylesheet" href="{{ "stylesheets/normalize.min.css" | relURL }}"/>
 <link rel="stylesheet" href="{{ "stylesheets/website.css" | relURL }}"/>
 {{ $styles := resources.Get "stylesheets/book.scss" | resources.ToCSS | resources.Minify | resources.Fingerprint }}
