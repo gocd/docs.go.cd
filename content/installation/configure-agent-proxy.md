@@ -25,9 +25,9 @@ To configure an agent to use a proxy edit the `wrapper-properties.conf` and add 
 # the proxy server
 wrapper.java.additional.100=-Dhttps.proxyHost=proxy.example.com
 # the proxy port
-wrapper.java.additional.101-Dhttps.proxyPort=3128
+wrapper.java.additional.101=-Dhttps.proxyPort=3128
 # do not proxy connections to these hosts
-wrapper.java.additional.102-Dhttp.nonProxyHosts=localhost|*.department.acme.com
+wrapper.java.additional.102=-Dhttp.nonProxyHosts=localhost|*.department.acme.com
 
 set.AGENT_STARTUP_ARGS=%AGENT_STARTUP_ARGS% -Dhttps.proxyHost=proxy.example.com -Dhttps.proxyPort=3128 -Dhttp.nonProxyHosts=localhost|*.department.acme.com
 ```
