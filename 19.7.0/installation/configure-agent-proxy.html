@@ -362,9 +362,9 @@ if (!doNotTrack) {
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># the proxy server</span>
 wrapper.java.additional.100<span style="color:#666">=</span>-Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com
 <span style="color:#080;font-style:italic"># the proxy port</span>
-wrapper.java.additional.101-Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span>
+wrapper.java.additional.101<span style="color:#666">=</span>-Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span>
 <span style="color:#080;font-style:italic"># do not proxy connections to these hosts</span>
-wrapper.java.additional.102-Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com
+wrapper.java.additional.102<span style="color:#666">=</span>-Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com
 
 set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>%AGENT_STARTUP_ARGS% -Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com -Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span> -Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com</code></pre></div></article>
 
