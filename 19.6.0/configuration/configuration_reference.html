@@ -474,7 +474,8 @@ if (!doNotTrack) {
                 <a href="#param">&lt;param/&gt;</a>
             <a href="#params">&lt;/params&gt;</a>
             <a href="#trackingtool">&lt;trackingtool/&gt;</a>
-            <a href="#mingle">&lt;mingle/&gt;</a>
+            <a href="#
+                     ">&lt;mingle/&gt;</a>
             <a href="#timer">&lt;timer/&gt;</a>
             <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
                 <a href="#variable">&lt;variable&gt;</a>
@@ -2782,7 +2783,7 @@ is your task ID. Your configuration would be:</p>
 <p>If you check in some code with a commit message which includes the characters &lsquo;evo-512&rsquo; then that will appear in the modification pop-up
 box as a link. When you click it, Go will take you to the web page <code>http://your-trackingtool/yourproject/512</code>.</p>
 
-<p>For example: If you use <a href="http://www.thoughtworks.com/products/mingle-agile-project-management/">Mingle</a> for your task manager, the configuration would be:</p>
+<p>For example: If you use Mingle for your task manager, the configuration would be:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://your-mingle-server/projects/yourproject/cards/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
