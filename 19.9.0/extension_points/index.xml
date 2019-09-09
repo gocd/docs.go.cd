@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Extension Points Of GoCD on GoCD User Documentation</title>
+    <link>/extension_points/</link>
+    <description>Recent content in Extension Points Of GoCD on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/extension_points/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Package Repository Extension</title>
+      <link>/extension_points/package_repository_extension.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/package_repository_extension.html</guid>
+      <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards. Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
+ jar, war or ear file in case of Java nuget/ chocolatey package in case of .</description>
+    </item>
+    
+    <item>
+      <title>Plugin User Guide</title>
+      <link>/extension_points/plugin_user_guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/plugin_user_guide.html</guid>
+      <description>GoCD Plugin User Guide Introduction Plugins allow users to extend the functionality of GoCD. Each plugin is assigned an identifier which is determined by the id attribute provided in plugin metadata file packaged along with the plugin jar. If the metadata file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, GoCD server would try to load all the plugins.</description>
+    </item>
+    
+    <item>
+      <title>SCM Extension</title>
+      <link>/extension_points/scm_extension.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/scm_extension.html</guid>
+      <description>SCM Material Introduction A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS &amp;amp; Perforce. Users can use SCM plugins to integrate with other SCMs.
+SCMs and Materials Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is not contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM.</description>
+    </item>
+    
+    <item>
+      <title>Task Extension</title>
+      <link>/extension_points/task_extension.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/task_extension.html</guid>
+      <description>Task Extension Overview GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you&amp;rsquo;ll see something like this:
+A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.</description>
+    </item>
+    
+    <item>
+      <title>Yum Repository Poller</title>
+      <link>/extension_points/yum_repository_poller.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/yum_repository_poller.html</guid>
+      <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package, Ubuntu, CentOS)
+Introduction The Yum repository poller is a bundled package material plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server.</description>
+    </item>
+    
+  </channel>
+</rss>
