@@ -137,8 +137,6 @@ title: Reference
                 <a href="#param">&lt;param/&gt;</a>
             <a href="#params">&lt;/params&gt;</a>
             <a href="#trackingtool">&lt;trackingtool/&gt;</a>
-            <a href="#
-                     ">&lt;mingle/&gt;</a>
             <a href="#timer">&lt;timer/&gt;</a>
             <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
                 <a href="#variable">&lt;variable&gt;</a>
@@ -286,7 +284,7 @@ The `<server>` element can be used to define information and attributes of the G
 |-----------|----------|-------------|
 | artifactsdir | No | This directory is where Go will store its information, including artifacts published by jobs. The **default value** is 'artifacts' in the folder where the Go Server is installed. You can use an absolute path or a relative path which will take the server installed directory as the root. **Notes:** If you specify the attribute, please check whether Go has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won't take effect until Go Server is restarted. |
 | siteUrl | No | This entry will be used by Go Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted Go with a reverse proxy, this value should be the base URL for the proxy and not the internal Go address. For this reason, it is necessary to specify this configuration. Format: [protocol]://[host]:[port]. You need to define the [port] in case Go uses a non-standard port. |
-| secureSiteUrl | No | Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL. Format: https://[host]:[port]. You need to define the [port] in case Go uses a non-standard port. |
+| secureSiteUrl | No | Certain features in Go require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL. Format: https://[host]:[port]. You need to define the [port] in case Go uses a non-standard port. |
 | purgeStart | No | Go can purge old artifacts when available disk space on the server is low. Go will begin to purge artifacts when disk space is lower than 'purgeStart' GB. Artifacts will never be deleted if 'purgeStart' and 'purgeUpto' are not defined. |
 | purgeUpto | No | Go can purge old artifacts when available disk space on the server is low. Go will purge artifacts till available disk space is greater than 'purgeUpto' GB. This attribute must be defined if purgeStart is defined. |
 | jobTimeout | No | This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for "jobTimeout" minutes. If the attribute is not specified jobTimeout defaults to 60 minutes. |
@@ -1735,7 +1733,7 @@ template.
 ## &lt;trackingtool&gt; {#trackingtool}
 
 The `<trackingtool>` element can be used to specify links to an issue tracker. Go will construct a link based on the commit message that you
-can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue etc).
+can use to take you to your tracking tool (JIRA issue, Trac issue etc).
 
 **Attributes**
 
@@ -1759,42 +1757,16 @@ is your task ID. Your configuration would be:
 If you check in some code with a commit message which includes the characters 'evo-512' then that will appear in the modification pop-up
 box as a link. When you click it, Go will take you to the web page `http://your-trackingtool/yourproject/512`.
 
-For example: If you use Mingle for your task manager, the configuration would be:
+For example: If you use Jira for your task manager, the configuration would be:
 
 ```xml
 <pipeline name="yourproject">
-  <trackingtool link="http://your-mingle-server/projects/yourproject/cards/${ID}" regex="##(\d+)"/>
+  <trackingtool link="https://your-jira-server/browse/yourproject-${ID}" regex="##(\d+)"/>
   ...
 </pipeline>
 ```
 
 **Notes:** You can not define multiple tracking tools in one pipeline.
-
-[top](#top)
-
-## &lt;mingle&gt; {#mingle}
-
-This element let's you associate a [Mingle](http://www.thoughtworks.com/mingle) project to a pipeline. Once associated, you will be able to track Mingle cards from within Go.
-
-**Note:** You cannot configure a [trackingtool](#trackingtool) if mingle is configured for a pipeline.
-
-**Attributes**
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| baseUrl | Yes | Base URL to the Mingle installation (do not include the project name/identifier) |
-| projectIdentifier | Yes | This is the "Identifier" specified under a Mingle project's "Basic Options" |
-| mqlGroupingConditions | No | An MQL string that determines the "passing criteria" for cards displayed in Go |
-
-**Examples**
-
-```xml
-<mingle
-    baseUrl="http://mingle.example.com"
-    projectIdentifier="my_project">
-    <mqlGroupingConditions>status > 'In Dev'</mqlGroupingConditions>
-</mingle>
-```
 
 [top](#top)
 

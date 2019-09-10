@@ -1,6 +1,6 @@
 ---
 description: Integrate external tools with GoCD
-keywords: gocd integrations, tool integrations, cctray, mingle project management, configure tracking tool
+keywords: gocd integrations, tool integrations, cctray, configure tracking tool
 title: Integrating GoCD With Other Tools
 url: /integration/
 ---
@@ -11,7 +11,7 @@ url: /integration/
 
 GoCD allows you to link your commit messages with bug tracking and story management tools which are web applications.
 
-The following shows an example of tracking cards on Mingle by card numbers starting with a "\#" (e.g: \#4618):
+The following shows an example of tracking cards on Jira by card numbers starting with a "\#" (e.g: \#3301):
 
 ![Configure tracking tool](../images/pipeline_tracking_tool.png)
 
@@ -21,12 +21,12 @@ For power users, here's how you'd do it from Config XML:
 
 ```xml
 <pipeline name="mypipeline">
-  <trackingtool link="http://mingle.thoughtworks.com/go/${ID}" regex="##(\d+)"/>
+  <trackingtool link="http://jira.atlassian.com/go/${ID}" regex="##(\d+)"/>
   ...
 </pipeline>
 ```
 
-Now, when a user commits code with comments like "\#4618 - Make sure the TrackingToolConfig and...", GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:
+Now, when a user commits code with comments like "\#3301 - Make sure the TrackingToolConfig and...", GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:
 
 ![](../images/pipeline_activity_tracking_tool.png)
 
