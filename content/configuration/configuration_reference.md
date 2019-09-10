@@ -226,9 +226,6 @@ title: Reference
                         <a href="#tabs">&lt;tabs&gt;</a>
                             <a href="#tab">&lt;tab/&gt;</a>
                         <a href="#tabs">&lt;/tabs&gt;</a>
-                        <a href="#properties">&lt;properties&gt;</a>
-                            <a href="#property">&lt;property/&gt;</a>
-                        <a href="#properties">&lt;/properties&gt;</a>
                     <a href="#job">&lt;/job&gt;</a>
                 <a href="#jobs">&lt;/jobs&gt;</a>
             <a href="#stage">&lt;/stage&gt;</a>
@@ -3039,81 +3036,6 @@ Given some coverage information in 'target/Jcoverage' folder on the agent side, 
   <tabs>
     <tab name="coverage" path="Jcoverage/index.html"/>
   </tabs>
-</job>
-```
-
-## &lt;properties&gt; {#properties}
-
-The `<properties>` element allows you to create properties of the build from XML files or artifacts created during your build. You can export
-the values of properties over time. This allows you to track properties against certain builds, for example to see whether build time is
-improving or getting worse.
-
-**Example:**
-
-```xml
-<job name="emma">
-  <artifacts>
-    <artifact type="build" src="target/emma" dest="analysis" />
-  </artifacts>
-  <tasks>
-    <ant target="emma" />
-  </tasks>
-  <properties>
-    <property name="coverage.class" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'class')]/@value, '%')" />
-    <property name="coverage.method" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'method')]/@value, '%')" />
-    <property name="coverage.block" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'block')]/@value, '%')" />
-    <property name="coverage.line" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'line')]/@value, '%')" />
-  </properties>
-</job>
-```
-
-[top](#top)
-
-## &lt;property&gt; {#property}
-
-Define a Property based on the contents of an XML file.
-
-**Attributes**
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| name | Yes | The name of the property. It has to be unique within a `<job>`. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed. Name is case-sensitive. |
-| src | Yes | The xml file containing the data that you want to use to create the property, and it isn't allowed to start from '.' Properties are set on the Agent at the end of the build and does not need to be an artifact that will be uploaded to the server. |
-| xpath | Yes | The XPath that will be used to create the property. |
-
-**Example:**
-
-This is a simple example to parse the errors and failures count from a single junit file and turn them into properties.
-
-```xml
-<job name="junit">
-  <tasks>
-    <ant target="unittest">
-  </tasks>
-  <properties>
-    <property name="junit.errors" src="target/junit-reports/TEST-MainAppTest.xml" xpath="string(/testsuite/@errors)" />
-    <property name="junit.failures" src="target/junit-reports/TEST-MainAppTest.xml" xpath="string(/testsuite/@failures)" />
-  </properties>
-</job>
-```
-
-Here's a more complex example. This will parse the class, method, block, and line coverage out of an [EMMA](http://emma.sourceforge.net/)
-coverage.xml file.
-
-```xml
-<job name="emma">
-  <artifacts>
-    <artifact type="build" src="target/emma" dest="analysis" />
-  </artifacts>
-  <tasks>
-    <ant target="emma" />
-  </tasks>
-  <properties>
-    <property name="coverage.class" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'class')]/@value, '%')" />
-    <property name="coverage.method" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'method')]/@value, '%')" />
-    <property name="coverage.block" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'block')]/@value, '%')" />
-    <property name="coverage.line" src="target/emma/coverage.xml" xpath="substring-before(//report/data/all/coverage[starts-with(@type,'line')]/@value, '%')" />
-  </properties>
 </job>
 ```
 
