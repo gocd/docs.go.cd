@@ -248,21 +248,11 @@ title: Reference
                     &lt;value/&gt;
                 <a href="#variable">&lt;/variable&gt;</a>
             <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-            <a href="#environment-agents">&lt;agents&gt;</a>
-                <a href="#environment-agents-physical">&lt;physical/&gt;</a>
-            <a href="#environment-agents">&lt;/agents&gt;</a>
             <a href="#environment-pipelines">&lt;pipelines&gt;</a>
                 <a href="#environment-pipeline">&lt;pipeline/&gt;</a>
             <a href="#environment-pipelines">&lt;/pipelines&gt;</a>
         <a href="#environment">&lt;/environment&gt;</a>
     <a href="#environments">&lt;/environments&gt;</a>
-    <a href="#agents">&lt;agents&gt;</a>
-        <a href="#agent">&lt;agent&gt;</a>
-            <a href="#agentresources">&lt;resources&gt;</a>
-                <a href="#agentresource">&lt;resource/&gt;</a>
-            <a href="#resources">&lt;/resources&gt;</a>
-        <a href="#agent">&lt;/agent&gt;</a>
-    <a href="#agents">&lt;/agents&gt;</a>
 <a href="#cruise">&lt;/cruise&gt;</a>
 </pre></big>
 
@@ -2377,7 +2367,7 @@ The `<jobs>` element specify the set of jobs for a stage.
 
 **Note:**
 
-`<jobs>` can contain several [`<job>`](#job) elements. These jobs can run in parallel on different [`<agents>`](#agents).
+`<jobs>` can contain several [`<job>`](#job) elements. These jobs can run in parallel on different agents.
 
 **Examples**
 
@@ -3236,7 +3226,7 @@ The `<environments>` element specifies the set of environments known by the serv
 
 ## &lt;environment&gt; {#environment}
 
-Allows you to group a set of agents together for exclusive use.
+Allows you to group a set of agents and pipelines together for exclusive use.
 
 **Attributes**
 
@@ -3259,25 +3249,13 @@ Allows you to group a set of agents together for exclusive use.
       <environmentvariables>
       <variable name="FOO"><value>bar</value></variable>
       </environmentvariables>
-      <agents>
-        <physical uuid="94fcb7ad-8b97-4078-b5f6-3c7436d6a390"/>
-      </agents>
       <pipelines>
         <pipeline name="yourproject"/>
       </pipelines>
     </environment>
   </environments>
-  <agents>
-    <agent hostname="agent01" ipaddress="192.168.0.1" uuid="94fcb7ad-8b97-4078-b5f6-3c7436d6a390" />
-  </agents>
 </cruise>
 ```
-
-[top](#top)
-
-## &lt;agents&gt; {#environment-agents}
-
-The `<agents>` element inside the [`<environment>`](#environment) element specifies the set of agents that it references.
 
 [top](#top)
 
@@ -3312,28 +3290,6 @@ allow certain variable names and/or values.
 
 [top](#top)
 
-## &lt;physical&gt; {#environment-agents-physical}
-
-References a physical agent to be associated with this environment.
-
-**Attributes**
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| uuid  | Yes | Identifier to an agent (must exist in the config file). |
-
-**Examples**
-
-```xml
-<environment name="UAT">
-  <agents>
-    <physical uuid="94fcb7ad-8b97-4078-b5f6-3c7436d6a390"/>
-  </agents>
-</environment>
-```
-
-[top](#top)
-
 ## &lt;pipelines&gt; {#environment-pipelines}
 
 The `<pipelines>` element inside the [`<environment>`](#environment) element specifies the set of pipelines that it references.
@@ -3361,61 +3317,3 @@ References a pipeline to be associated with this environment.
 ```
 
 [top](#top)
-
-## &lt;agents&gt; {#agents}
-
-The `<agents>` element specifies the set of agents known by the server.
-
-**Notes:**
-
-Do not change it manually. You can manage these through the Agents tab.
-
-[top](#top)
-
-## &lt;agent&gt; {#agent}
-
-An approved agent. Before it is approved, the agent is displayed on the top of the agent tab with a grey bar.
-
-**Attributes**
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| hostname | Yes | Name of your agent. This defaults to the hostname of the agent when it is approved. |
-| ipaddress | Yes | IP for the agent. |
-| uuid | Yes | Identifier for the agent. It is created by Go automatically. |
-| isDisabled | No | The values should be one of 'true' or 'false' (or 1 / 0). 'true' or '1' means that the agent is denied. Go doesn't assign jobs to a denied agent. |
-| elasticAgentId | No | Id of your elastic agent. **This attribute is only required for elastic agents.** |
-| elasticPluginId | No | Elastic-agent plugin Id. **This attribute is only required for elastic agents.** |
-
-**Notes:**
-
-A local agent will be approved automatically.
-
-[top](#top)
-
-## &lt;resources&gt; {#agentresources}
-
-`<resources>` describes the resources available on a particular agent.
-
-**Note:**
-
-An agent without any resources will build any jobs that don't specify resources. Refer to the [`<resources>`](#resources) of [`<job>`](#job).
-
-[top](#top)
-
-## &lt;resource&gt; {#agentresource}
-
-Resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.
-
-**Examples**
-
-```xml
-<agents>
-  <agent hostname="agent01" ipaddress="192.168.0.1" uuid="94fcb7ad-8b97-4078-b5f6-3c7436d6a390">
-    <resources>
-      <resource>java</resource>
-      <resource>linux</resource>
-    </resources>
-  </agent>
-</agents>
-```
