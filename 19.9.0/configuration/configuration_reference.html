@@ -587,21 +587,11 @@ if (!doNotTrack) {
                     &lt;value/&gt;
                 <a href="#variable">&lt;/variable&gt;</a>
             <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-            <a href="#environment-agents">&lt;agents&gt;</a>
-                <a href="#environment-agents-physical">&lt;physical/&gt;</a>
-            <a href="#environment-agents">&lt;/agents&gt;</a>
             <a href="#environment-pipelines">&lt;pipelines&gt;</a>
                 <a href="#environment-pipeline">&lt;pipeline/&gt;</a>
             <a href="#environment-pipelines">&lt;/pipelines&gt;</a>
         <a href="#environment">&lt;/environment&gt;</a>
     <a href="#environments">&lt;/environments&gt;</a>
-    <a href="#agents">&lt;agents&gt;</a>
-        <a href="#agent">&lt;agent&gt;</a>
-            <a href="#agentresources">&lt;resources&gt;</a>
-                <a href="#agentresource">&lt;resource/&gt;</a>
-            <a href="#resources">&lt;/resources&gt;</a>
-        <a href="#agent">&lt;/agent&gt;</a>
-    <a href="#agents">&lt;/agents&gt;</a>
 <a href="#cruise">&lt;/cruise&gt;</a>
 </pre></big></p>
 
@@ -3804,7 +3794,7 @@ would be:</p>
 
 <p><strong>Note:</strong></p>
 
-<p><code>&lt;jobs&gt;</code> can contain several <a href="#job"><code>&lt;job&gt;</code></a> elements. These jobs can run in parallel on different <a href="#agents"><code>&lt;agents&gt;</code></a>.</p>
+<p><code>&lt;jobs&gt;</code> can contain several <a href="#job"><code>&lt;job&gt;</code></a> elements. These jobs can run in parallel on different agents.</p>
 
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ut&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -4906,7 +4896,7 @@ are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href=
 
 <h2 id="environment">&lt;environment&gt;</h2>
 
-<p>Allows you to group a set of agents together for exclusive use.</p>
+<p>Allows you to group a set of agents and pipelines together for exclusive use.</p>
 
 <p><strong>Attributes</strong></p>
 
@@ -4941,24 +4931,12 @@ are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href=
       <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;&lt;/variable&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/environmentvariables&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;agents&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;physical</span> <span style="color:#b44">uuid=</span><span style="color:#b44">&#34;94fcb7ad-8b97-4078-b5f6-3c7436d6a390&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/agents&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/environment&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/environments&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;agents&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;agent</span> <span style="color:#b44">hostname=</span><span style="color:#b44">&#34;agent01&#34;</span> <span style="color:#b44">ipaddress=</span><span style="color:#b44">&#34;192.168.0.1&#34;</span> <span style="color:#b44">uuid=</span><span style="color:#b44">&#34;94fcb7ad-8b97-4078-b5f6-3c7436d6a390&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/agents&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<p><a href="#top">top</a></p>
-
-<h2 id="environment-agents">&lt;agents&gt;</h2>
-
-<p>The <code>&lt;agents&gt;</code> element inside the <a href="#environment"><code>&lt;environment&gt;</code></a> element specifies the set of agents that it references.</p>
-
 <p><a href="#top">top</a></p>
 
 <h2 id="environmentvariables">&lt;environmentvariables&gt;</h2>
@@ -5007,38 +4985,6 @@ allow certain variable names and/or values.</p>
   <span style="color:#008000;font-weight:bold">&lt;/environmentvariables&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
-<h2 id="environment-agents-physical">&lt;physical&gt;</h2>
-
-<p>References a physical agent to be associated with this environment.</p>
-
-<p><strong>Attributes</strong></p>
-
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>uuid</td>
-<td>Yes</td>
-<td>Identifier to an agent (must exist in the config file).</td>
-</tr>
-</tbody>
-</table>
-
-<p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;agents&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;physical</span> <span style="color:#b44">uuid=</span><span style="color:#b44">&#34;94fcb7ad-8b97-4078-b5f6-3c7436d6a390&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/agents&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/environment&gt;</span></code></pre></div>
-<p><a href="#top">top</a></p>
-
 <h2 id="environment-pipelines">&lt;pipelines&gt;</h2>
 
 <p>The <code>&lt;pipelines&gt;</code> element inside the <a href="#environment"><code>&lt;environment&gt;</code></a> element specifies the set of pipelines that it references.</p>
@@ -5076,100 +5022,7 @@ allow certain variable names and/or values.</p>
   <span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/environment&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
-
-<h2 id="agents">&lt;agents&gt;</h2>
-
-<p>The <code>&lt;agents&gt;</code> element specifies the set of agents known by the server.</p>
-
-<p><strong>Notes:</strong></p>
-
-<p>Do not change it manually. You can manage these through the Agents tab.</p>
-
-<p><a href="#top">top</a></p>
-
-<h2 id="agent">&lt;agent&gt;</h2>
-
-<p>An approved agent. Before it is approved, the agent is displayed on the top of the agent tab with a grey bar.</p>
-
-<p><strong>Attributes</strong></p>
-
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>hostname</td>
-<td>Yes</td>
-<td>Name of your agent. This defaults to the hostname of the agent when it is approved.</td>
-</tr>
-
-<tr>
-<td>ipaddress</td>
-<td>Yes</td>
-<td>IP for the agent.</td>
-</tr>
-
-<tr>
-<td>uuid</td>
-<td>Yes</td>
-<td>Identifier for the agent. It is created by Go automatically.</td>
-</tr>
-
-<tr>
-<td>isDisabled</td>
-<td>No</td>
-<td>The values should be one of &lsquo;true&rsquo; or &lsquo;false&rsquo; (or 1 / 0). &lsquo;true&rsquo; or &lsquo;1&rsquo; means that the agent is denied. Go doesn&rsquo;t assign jobs to a denied agent.</td>
-</tr>
-
-<tr>
-<td>elasticAgentId</td>
-<td>No</td>
-<td>Id of your elastic agent. <strong>This attribute is only required for elastic agents.</strong></td>
-</tr>
-
-<tr>
-<td>elasticPluginId</td>
-<td>No</td>
-<td>Elastic-agent plugin Id. <strong>This attribute is only required for elastic agents.</strong></td>
-</tr>
-</tbody>
-</table>
-
-<p><strong>Notes:</strong></p>
-
-<p>A local agent will be approved automatically.</p>
-
-<p><a href="#top">top</a></p>
-
-<h2 id="agentresources">&lt;resources&gt;</h2>
-
-<p><code>&lt;resources&gt;</code> describes the resources available on a particular agent.</p>
-
-<p><strong>Note:</strong></p>
-
-<p>An agent without any resources will build any jobs that don&rsquo;t specify resources. Refer to the <a href="#resources"><code>&lt;resources&gt;</code></a> of <a href="#job"><code>&lt;job&gt;</code></a>.</p>
-
-<p><a href="#top">top</a></p>
-
-<h2 id="agentresource">&lt;resource&gt;</h2>
-
-<p>Resources names can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.</p>
-
-<p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;agents&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;agent</span> <span style="color:#b44">hostname=</span><span style="color:#b44">&#34;agent01&#34;</span> <span style="color:#b44">ipaddress=</span><span style="color:#b44">&#34;192.168.0.1&#34;</span> <span style="color:#b44">uuid=</span><span style="color:#b44">&#34;94fcb7ad-8b97-4078-b5f6-3c7436d6a390&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>java<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>linux<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/resources&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/agent&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/agents&gt;</span></code></pre></div></article>
+</article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -5310,16 +5163,10 @@ allow certain variable names and/or values.</p>
 <li><a href="#pipeline-2">&lt;pipeline&gt;</a></li>
 <li><a href="#environments">&lt;environments&gt;</a></li>
 <li><a href="#environment">&lt;environment&gt;</a></li>
-<li><a href="#environment-agents">&lt;agents&gt;</a></li>
 <li><a href="#environmentvariables">&lt;environmentvariables&gt;</a></li>
 <li><a href="#variable">&lt;variable&gt;</a></li>
-<li><a href="#environment-agents-physical">&lt;physical&gt;</a></li>
 <li><a href="#environment-pipelines">&lt;pipelines&gt;</a></li>
 <li><a href="#environment-pipeline">&lt;pipeline&gt;</a></li>
-<li><a href="#agents">&lt;agents&gt;</a></li>
-<li><a href="#agent">&lt;agent&gt;</a></li>
-<li><a href="#agentresources">&lt;resources&gt;</a></li>
-<li><a href="#agentresource">&lt;resource&gt;</a></li>
 </ul></li>
 </ul>
 </nav>
