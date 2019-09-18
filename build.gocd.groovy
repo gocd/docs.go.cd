@@ -14,7 +14,7 @@ def buildStage = {
         cleanWorkingDir = true
         jobs {
             job("BuildWebsite") {
-                elasticProfileId = 'ubuntu-16.04'
+                elasticProfileId = 'ubuntu18-ruby-java11'
                 tasks {
                     bash {
                         commandString = "bundle install --path .bundle --jobs 4"
@@ -33,7 +33,7 @@ def pushToGHPages = {
         cleanWorkingDir = true
         jobs {
             job("PushToGHPages") {
-                elasticProfileId = 'ubuntu-16.04'
+                elasticProfileId = 'ubuntu18-ruby-java11'
                 tasks {
                     bash {
                         commandString = "git remote add upstream 'https://\${BUILD_MAP_USER}:\${BUILD_MAP_PASSWORD}@github.com/gocd/docs.go.cd'"
@@ -55,7 +55,7 @@ def publishToS3 = {
         cleanWorkingDir = true    
         jobs {
             job("upload") {
-                elasticProfileId = 'ubuntu-16.04'
+                elasticProfileId = 'ubuntu18-ruby-java11'
                 tasks {
                     bash {
                         commandString = "bundle install --path .bundle --jobs 4"
