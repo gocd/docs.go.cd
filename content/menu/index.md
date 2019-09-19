@@ -127,7 +127,6 @@ headless: true
       <li class="level2"><a href="{{< relref "advanced_usage/dev_conditional_task_execution.md" >}}">Conditional Task Execution</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/trigger_with_options.md" >}}">Trigger With Options</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/fan_in.md" >}}">Fan In</a></li>
-      <li class="level2"><a href="{{< relref "advanced_usage/properties.md" >}}">Properties</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/logging.md" >}}">Logging</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/ui_testing.md" >}}">UI Testing</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/compare_pipelines.md" >}}">Compare Builds</a></li>
