@@ -346,7 +346,7 @@ if (!doNotTrack) {
 
 <h2 id="introduction">Introduction</h2>
 
-<p>Plugins allow users to extend the functionality of GoCD. Each plugin is assigned an identifier which is determined by the <strong>id</strong> attribute provided in plugin metadata file packaged along with the plugin jar. If the <a href="https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html#plugin-metadata">metadata</a> file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, GoCD server would try to load all the plugins. On successful load, the plugin will be converted into an OSGi bundle and extracted into <code>&lt;server installation directory&gt;/plugins_work</code> directory. <strong>Plugins</strong> tab, under GoCD server Administration, would list all the loaded plugins.</p>
+<p>Plugins allow users to extend the functionality of GoCD. Each plugin is assigned an identifier which is determined by the <strong>id</strong> attribute provided in plugin metadata file packaged along with the plugin jar. If the metadata file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, GoCD server would try to load all the plugins. On successful load, the plugin will be converted into an OSGi bundle and extracted into <code>&lt;server installation directory&gt;/plugins_work</code> directory. <strong>Plugins</strong> tab, under GoCD server Administration, would list all the loaded plugins.</p>
 
 <h2 id="bundled-versus-external">Bundled versus External</h2>
 
