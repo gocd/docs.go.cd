@@ -14,7 +14,7 @@ GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, f
 
 A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.
 
-For instance, you can find the source of a sample Curl plugin, [at this location](https://developer.gocd.org/current/writing_go_plugins/go_plugins_basics.html#building-a-plugin). Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
+For instance, you can find the source of a sample Curl plugin, [at this location](https://github.com/gocd/sample-plugins/tree/master/curl-plugin). Assuming you have the plugin installed, you'll see that the dropdown in the job configuration UI has changed to look like this:
 
 ![](../images/2_With_Curl.png)
 
@@ -69,4 +69,4 @@ Dload  Upload   Total   Spent    Left  Speed
 0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0
 100   259  100   259    0     0    122      0  0:00:02  0:00:02 --:--:--   122
 ```
-You can write a task plugin in GoCD using [JSON API - Message based](https://developer.gocd.org/current/writing_go_plugins/task/json_message_based_task_extension.html)
+You can write a task plugin in GoCD using [JSON API - Message based](https://plugin-api.gocd.org/current/tasks/)
