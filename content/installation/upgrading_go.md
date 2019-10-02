@@ -6,7 +6,7 @@ title: Upgrading GoCD
 
 # Upgrading GoCD
 
-While upgrading GoCD agents is not necessary (agents will usually auto-upgrade if they detect a new version deployed on the server). Going forward, we will ensure that agents are backward compatible with atleast 1
+Below steps can be followed to upgrade GoCD. We would recommend understanding any [breaking changes](https://www.gocd.org/releases/) between the releases and see if they impact upgrade in any way.
 
 ### Before you start
 
