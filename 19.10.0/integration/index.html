@@ -9,7 +9,7 @@
 <title>Integrating GoCD With Other Tools | GoCD User Documentation</title>
 
 <meta name="description" content="Integrate external tools with GoCD"/>
-<meta name="keywords" content="[gocd integrations, tool integrations, cctray, mingle project management, configure tracking tool]"/>
+<meta name="keywords" content="[gocd integrations, tool integrations, cctray, configure tracking tool]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/integration/"/>
 <script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -285,7 +285,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
       <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
       <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
-      <li class="level2"><a href="../faq/dev_save_properties.html">Save Properties for a Build</a></li>
       <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
       <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
       <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
@@ -348,7 +347,7 @@ if (!doNotTrack) {
 
 <p>GoCD allows you to link your commit messages with bug tracking and story management tools which are web applications.</p>
 
-<p>The following shows an example of tracking cards on Mingle by card numbers starting with a &ldquo;#&rdquo; (e.g: #4618):</p>
+<p>The following shows an example of tracking cards on Jira by card numbers starting with a &ldquo;#&rdquo; (e.g: #3301):</p>
 
 <p><img src="../images/pipeline_tracking_tool.png" alt="Configure tracking tool" /></p>
 
@@ -356,10 +355,10 @@ if (!doNotTrack) {
 
 <p>For power users, here&rsquo;s how you&rsquo;d do it from Config XML:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;mypipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://mingle.thoughtworks.com/go/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://jira.atlassian.com/go/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<p>Now, when a user commits code with comments like &ldquo;#4618 - Make sure the TrackingToolConfig and&hellip;&ldquo;, GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:</p>
+<p>Now, when a user commits code with comments like &ldquo;#3301 - Make sure the TrackingToolConfig and&hellip;&ldquo;, GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:</p>
 
 <p><img src="../images/pipeline_activity_tracking_tool.png" alt="" /></p>
 

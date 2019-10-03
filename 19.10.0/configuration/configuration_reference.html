@@ -285,7 +285,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
       <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
       <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
-      <li class="level2"><a href="../faq/dev_save_properties.html">Save Properties for a Build</a></li>
       <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
       <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
       <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
@@ -475,8 +474,6 @@ if (!doNotTrack) {
                 <a href="#param">&lt;param/&gt;</a>
             <a href="#params">&lt;/params&gt;</a>
             <a href="#trackingtool">&lt;trackingtool/&gt;</a>
-            <a href="#
-                     ">&lt;mingle/&gt;</a>
             <a href="#timer">&lt;timer/&gt;</a>
             <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
                 <a href="#variable">&lt;variable&gt;</a>
@@ -564,9 +561,6 @@ if (!doNotTrack) {
                         <a href="#tabs">&lt;tabs&gt;</a>
                             <a href="#tab">&lt;tab/&gt;</a>
                         <a href="#tabs">&lt;/tabs&gt;</a>
-                        <a href="#properties">&lt;properties&gt;</a>
-                            <a href="#property">&lt;property/&gt;</a>
-                        <a href="#properties">&lt;/properties&gt;</a>
                     <a href="#job">&lt;/job&gt;</a>
                 <a href="#jobs">&lt;/jobs&gt;</a>
             <a href="#stage">&lt;/stage&gt;</a>
@@ -635,7 +629,7 @@ if (!doNotTrack) {
 <tr>
 <td>secureSiteUrl</td>
 <td>No</td>
-<td>Certain features in Go, such as Mingle integration, require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL. Format: https://[host]:[port]. You need to define the [port] in case Go uses a non-standard port.</td>
+<td>Certain features in Go require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL. Format: https://[host]:[port]. You need to define the [port] in case Go uses a non-standard port.</td>
 </tr>
 
 <tr>
@@ -2735,7 +2729,7 @@ template.</p>
 <h2 id="trackingtool">&lt;trackingtool&gt;</h2>
 
 <p>The <code>&lt;trackingtool&gt;</code> element can be used to specify links to an issue tracker. Go will construct a link based on the commit message that you
-can use to take you to your tracking tool (Mingle card, JIRA issue, Trac issue etc).</p>
+can use to take you to your tracking tool (JIRA issue, Trac issue etc).</p>
 
 <p><strong>Attributes</strong></p>
 
@@ -2774,59 +2768,13 @@ is your task ID. Your configuration would be:</p>
 <p>If you check in some code with a commit message which includes the characters &lsquo;evo-512&rsquo; then that will appear in the modification pop-up
 box as a link. When you click it, Go will take you to the web page <code>http://your-trackingtool/yourproject/512</code>.</p>
 
-<p>For example: If you use Mingle for your task manager, the configuration would be:</p>
+<p>For example: If you use Jira for your task manager, the configuration would be:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://your-mingle-server/projects/yourproject/cards/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;https://your-jira-server/browse/yourproject-${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
 <p><strong>Notes:</strong> You can not define multiple tracking tools in one pipeline.</p>
 
-<p><a href="#top">top</a></p>
-
-<h2 id="mingle">&lt;mingle&gt;</h2>
-
-<p>This element let&rsquo;s you associate a <a href="http://www.thoughtworks.com/mingle">Mingle</a> project to a pipeline. Once associated, you will be able to track Mingle cards from within Go.</p>
-
-<p><strong>Note:</strong> You cannot configure a <a href="#trackingtool">trackingtool</a> if mingle is configured for a pipeline.</p>
-
-<p><strong>Attributes</strong></p>
-
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>baseUrl</td>
-<td>Yes</td>
-<td>Base URL to the Mingle installation (do not include the project name/identifier)</td>
-</tr>
-
-<tr>
-<td>projectIdentifier</td>
-<td>Yes</td>
-<td>This is the &ldquo;Identifier&rdquo; specified under a Mingle project&rsquo;s &ldquo;Basic Options&rdquo;</td>
-</tr>
-
-<tr>
-<td>mqlGroupingConditions</td>
-<td>No</td>
-<td>An MQL string that determines the &ldquo;passing criteria&rdquo; for cards displayed in Go</td>
-</tr>
-</tbody>
-</table>
-
-<p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;mingle</span>
-    <span style="color:#b44">baseUrl=</span><span style="color:#b44">&#34;http://mingle.example.com&#34;</span>
-    <span style="color:#b44">projectIdentifier=</span><span style="color:#b44">&#34;my_project&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;mqlGroupingConditions&gt;</span>status &gt; &#39;In Dev&#39;<span style="color:#008000;font-weight:bold">&lt;/mqlGroupingConditions&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/mingle&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
 <h2 id="timer">&lt;timer&gt;</h2>
@@ -4670,93 +4618,6 @@ server.</p>
     <span style="color:#008000;font-weight:bold">&lt;tab</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage&#34;</span> <span style="color:#b44">path=</span><span style="color:#b44">&#34;Jcoverage/index.html&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/tabs&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span></code></pre></div>
-<h2 id="properties">&lt;properties&gt;</h2>
-
-<p>The <code>&lt;properties&gt;</code> element allows you to create properties of the build from XML files or artifacts created during your build. You can export
-the values of properties over time. This allows you to track properties against certain builds, for example to see whether build time is
-improving or getting worse.</p>
-
-<p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;emma&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;analysis&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;emma&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;properties&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.class&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;class&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.method&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;method&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.block&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;block&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.line&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;line&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/properties&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span></code></pre></div>
-<p><a href="#top">top</a></p>
-
-<h2 id="property-1">&lt;property&gt;</h2>
-
-<p>Define a Property based on the contents of an XML file.</p>
-
-<p><strong>Attributes</strong></p>
-
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name of the property. It has to be unique within a <code>&lt;job&gt;</code>. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed. Name is case-sensitive.</td>
-</tr>
-
-<tr>
-<td>src</td>
-<td>Yes</td>
-<td>The xml file containing the data that you want to use to create the property, and it isn&rsquo;t allowed to start from &lsquo;.&rsquo; Properties are set on the Agent at the end of the build and does not need to be an artifact that will be uploaded to the server.</td>
-</tr>
-
-<tr>
-<td>xpath</td>
-<td>Yes</td>
-<td>The XPath that will be used to create the property.</td>
-</tr>
-</tbody>
-</table>
-
-<p><strong>Example:</strong></p>
-
-<p>This is a simple example to parse the errors and failures count from a single junit file and turn them into properties.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;junit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;unittest&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;properties&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;junit.errors&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/junit-reports/TEST-MainAppTest.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;string(/testsuite/@errors)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;junit.failures&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/junit-reports/TEST-MainAppTest.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;string(/testsuite/@failures)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/properties&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span></code></pre></div>
-<p>Here&rsquo;s a more complex example. This will parse the class, method, block, and line coverage out of an <a href="http://emma.sourceforge.net/">EMMA</a>
-coverage.xml file.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;emma&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;analysis&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;emma&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;properties&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.class&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;class&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.method&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;method&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.block&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;block&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;coverage.line&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/emma/coverage.xml&#34;</span> <span style="color:#b44">xpath=</span><span style="color:#b44">&#34;substring-before(//report/data/all/coverage[starts-with(@type,&#39;line&#39;)]/@value, &#39;%&#39;)&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/properties&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
 <h2 id="approval">&lt;approval&gt;</h2>
@@ -5124,7 +4985,6 @@ allow certain variable names and/or values.</p>
 <li><a href="#params">&lt;params&gt;</a></li>
 <li><a href="#param">&lt;param&gt;</a></li>
 <li><a href="#trackingtool">&lt;trackingtool&gt;</a></li>
-<li><a href="#mingle">&lt;mingle&gt;</a></li>
 <li><a href="#timer">&lt;timer&gt;</a></li>
 <li><a href="#materials">&lt;materials&gt;</a></li>
 <li><a href="#filter">&lt;filter&gt;</a></li>
@@ -5154,8 +5014,6 @@ allow certain variable names and/or values.</p>
 <li><a href="#artifact">&lt;artifact&gt;</a></li>
 <li><a href="#tabs">&lt;tabs&gt;</a></li>
 <li><a href="#tab">&lt;tab&gt;</a></li>
-<li><a href="#properties">&lt;properties&gt;</a></li>
-<li><a href="#property-1">&lt;property&gt;</a></li>
 <li><a href="#approval">&lt;approval&gt;</a></li>
 <li><a href="#authorization-1">&lt;authorization&gt;</a></li>
 <li><a href="#templates">&lt;templates&gt;</a></li>

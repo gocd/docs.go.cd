@@ -143,16 +143,6 @@ GoCD will stop scheduling new pipelines until you make more room, either by comp
     </item>
     
     <item>
-      <title>Save Properties for a Build</title>
-      <link>/faq/dev_save_properties.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/dev_save_properties.html</guid>
-      <description>Saving properties about a build When building your code, there can be quite a bit of extra information that you are interested in. For example, you might run EMMA on your code in order to log code coverage. With properties, you can save this information, and even look at the history of a property (by way of an exported spreadsheet).
-Example usage Usage: As a developer, I want to save the average cyclomatic complexity of a function (pulled from JavaNCSS).</description>
-    </item>
-    
-    <item>
       <title>See artifacts as sub-tabs</title>
       <link>/faq/dev_see_artifact_as_tab.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
