@@ -6,7 +6,7 @@ title: Upgrading GoCD
 
 # Upgrading GoCD
 
-Below steps can be followed to upgrade GoCD. We would recommend understanding any [breaking changes](https://www.gocd.org/releases/) between the releases and see if they impact upgrade in any way.
+The steps in this page can be followed to upgrade GoCD. It is recommended to understand any [breaking changes](https://www.gocd.org/releases/) between the releases to see if they impact your upgrades in any way.
 
 ### Before you start
 
