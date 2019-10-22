@@ -651,7 +651,7 @@ sudo curl https://download.</description>
       <guid>/gocd_on_kubernetes/introduction.html</guid>
       <description>Getting Started with GoCD on Kubernetes Introduction GoCD gives you the flexibility to effectively represent CD pipelines that suit your organization&amp;rsquo;s processes. Kubernetes gives you a highly programmable delivery infrastructure platform. And together, they provide the foundation for a powerful Continuous Delivery platform.
 With this documentation guide, you&amp;rsquo;ll be able to
- Setup and configure an instance of GoCD on a Kubernetes cluster. Install the GoCD Helm chart. Importing a sample workflow.</description>
+1) Setup and configure an instance of GoCD on a Kubernetes cluster. 2) Install GoCD on Kubernetes the GoCD Helm chart.</description>
     </item>
     
     <item>
