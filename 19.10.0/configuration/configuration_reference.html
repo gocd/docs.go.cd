@@ -3641,6 +3641,12 @@ directory where the .ssh/ directory is located.</p>
 <td>By default the materialName is the name of the upstream pipeline (the pipelineName). This is required if this material is referenced in pipeline labeltemplate</td>
 <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
 </tr>
+
+<tr>
+<td>ignoreForScheduling</td>
+<td>No (false by default)</td>
+<td>When set to true, the pipeline will not be automatically scheduled for changes to this material. However, when the pipeline is triggered (either by another material, or a manual or timer trigger), it will always pick up the latest available version of this material</td>
+</tr>
 </tbody>
 </table>
 
@@ -3663,6 +3669,14 @@ would be:</p>
 <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Client&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;distStage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+  ...
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
+<p>If the Server pipeline needs to be triggered only when commonLib2 changes, the <code>ignoreForScheduling</code> flag can be set for the commonLib1 material:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;distStage&#34;</span> <span style="color:#b44">ignoreForScheduling=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib2&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;pkgStage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
