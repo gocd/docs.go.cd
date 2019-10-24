@@ -2259,6 +2259,7 @@ Note that you can not specify two (or more) dependencies for the same upstream p
 | pipelineName | Yes | The name of a pipeline that this pipeline depends on. |
 | stageName | Yes | The name of a stage which will trigger this pipeline once it is successful. |
 | materialName | By default the materialName is the name of the upstream pipeline (the pipelineName). This is required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
+| ignoreForScheduling | No (false by default) | When set to true, the pipeline will not be automatically scheduled for changes to this material. However, when the pipeline is triggered (either by another material, or a manual or timer trigger), it will always pick up the latest available version of this material |
 
 **Notes:**
 
@@ -2281,6 +2282,18 @@ would be:
 <pipeline name="Client">
   <materials>
     <pipeline pipelineName="commonLib1" stageName="distStage"/>
+  </materials>
+  ...
+</pipeline>
+```
+
+If the Server pipeline needs to be triggered only when commonLib2 changes, the `ignoreForScheduling` flag can be set for the commonLib1 material:
+
+```xml
+<pipeline name="Server">
+  <materials>
+    <pipeline pipelineName="commonLib1" stageName="distStage" ignoreForScheduling="true"/>
+    <pipeline pipelineName="commonLib2" stageName="pkgStage"/>
   </materials>
   ...
 </pipeline>
