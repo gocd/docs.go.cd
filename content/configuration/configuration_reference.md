@@ -11,6 +11,10 @@ title: Reference
 <big><pre>
 <a href="#cruise">&lt;cruise&gt;</a>
     <a href="#server">&lt;server&gt;</a>
+        <a href="#siteUrls">&lt;siteUrls&gt;</a>
+            <a href="#siteUrl">&lt;siteUrl/&gt;</a>
+            <a href="#secureSiteUrl">&lt;secureSiteUrl/&gt;</a>
+        <a href="#site_urls">&lt;/siteUrls&gt;</a>
         <a href="#security">&lt;security&gt;</a>
             <a href="#ldap">&lt;ldap&gt;</a>
                 <a href="#bases">&lt;bases&gt;</a>
@@ -53,6 +57,13 @@ title: Reference
         <a href="#security">&lt;/security&gt;</a>
         <a href="#mailhost">&lt;mailhost/&gt;</a>
         <a href="#backup">&lt;backup/&gt;</a>
+        <a href="#artifacts">&lt;artifacts&gt;</a>
+            <a href="#artifactDir">&lt;artifactsDir/&gt;</a>
+            <a href="#purgeSettings">&lt;purgeSettings&gt;</a>
+                <a href="#purgeStartDiskSpace">&lt;purgeStartDiskSpace/&gt;</a>
+                <a href="#purgeUptoDiskSpace">&lt;purgeUptoDiskSpace/&gt;</a>
+            <a href="#purgeSettings">&lt;/purgeSettings/&gt;</a>
+         <a href="#artifacts">&lt;/artifacts&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
     <a href="#elastic">&lt;elastic&gt;</a>
         <a href="#agentProfiles">&lt;agentProfiles&gt;</a>
@@ -282,34 +293,76 @@ The `<server>` element can be used to define information and attributes of the G
 
 | Attribute | Required | Description |
 |-----------|----------|-------------|
-| artifactsdir | No | This directory is where Go will store its information, including artifacts published by jobs. The **default value** is 'artifacts' in the folder where the Go Server is installed. You can use an absolute path or a relative path which will take the server installed directory as the root. **Notes:** If you specify the attribute, please check whether Go has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won't take effect until Go Server is restarted. |
-| siteUrl | No | This entry will be used by Go Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted Go with a reverse proxy, this value should be the base URL for the proxy and not the internal Go address. For this reason, it is necessary to specify this configuration. Format: [protocol]://[host]:[port]. You need to define the [port] in case Go uses a non-standard port. |
-| secureSiteUrl | No | Certain features in Go require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL. Format: https://[host]:[port]. You need to define the [port] in case Go uses a non-standard port. |
-| purgeStart | No | Go can purge old artifacts when available disk space on the server is low. Go will begin to purge artifacts when disk space is lower than 'purgeStart' GB. Artifacts will never be deleted if 'purgeStart' and 'purgeUpto' are not defined. |
-| purgeUpto | No | Go can purge old artifacts when available disk space on the server is low. Go will purge artifacts till available disk space is greater than 'purgeUpto' GB. This attribute must be defined if purgeStart is defined. |
-| jobTimeout | No | This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for "jobTimeout" minutes. If the attribute is not specified jobTimeout defaults to 60 minutes. |
+| jobTimeout | No | This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for "jobTimeout" minutes. If the attribute is not specified job will never timeout. |
 | commandRepositoryLocation | Yes (auto-generated) | Specifies the location of the [command repository]() relative to `go-server_install_root/db/command_repository`. The bundled repository is in a directory named default. |
 | serverId | Yes (auto-generated) | This value uniquely identifies a Go server installation. It may be used by features that require unique names/identifiers across different Go server installations. This attribute need not be specified for a new server. In case no value is given, server auto-generates a random UUID an assigns it as serverId. This value should never be changed for an existing server. Administrator should clear this attribute before copying configuration to a different installation. |
 | agentAutoRegisterKey | No | The key specified here is used by agents for [auto-registration](../advanced_usage/agent_auto_register.html). |
 
-**Notes:**
-
-- If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be `http://your-go-server:8153`
-- If only siteUrl is defined and is not HTTPS, Go URLs will be composed from the siteUrl entry. In this case, the secure pages of Go will not be navigable.
-- If only siteUrl is defined and is HTTPS, Go URLs will be composed from the siteUrl entry and all pages will be HTTPS.
-- If only secureSiteUrl is defined, Go URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the secureSiteUrl entry.
-- If purgeStart and purgeUpto are not defined, artifacts will never be deleted.
 
 **Examples**
 
 ```xml
 <cruise>
-  <server artifactsdir="/var/lib/go/big-artifacts-folder" siteUrl="http://go.example.com" secureSiteUrl="https://go.example.com" purgeStart='5' purgeUpto='10' jobTimeout='30'>
+  <server jobTimeout='30'>
   </server>
 </cruise>
 ```
 
 [top](#top)
+
+## &lt;siteUrls&gt; {#siteUrls}
+
+The `<siteUrls>` element is used to define [`<siteUrl>`](#siteUrl) and [`<secureSiteUrl>`](#secureSiteUrl).
+
+**Notes**
+
+- If both `<siteUrl>` and `<secureSiteUrl>` are not defined, GoCD URLs will use the default domain which in most cases will be `http://your-go-server:8153`
+- If only `<siteUrl>` is defined and is not HTTPS, GoCD URLs will be composed from the `<siteUrl>` entry. In this case, the secure pages of GoCD will not be navigable.
+- If only `<siteUrl>` is defined and is HTTPS, GoCD URLs will be composed from the `<siteUrl>` entry and all pages will be HTTPS.
+- If only `<secureSiteUrl>` is defined, GoCD URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the `<secureSiteUrl>` entry.
+
+
+**Examples**
+
+```xml
+<siteUrls>
+  <siteUrl>http://siteUrl.com</siteUrl>
+  <secureSiteUrl>https://secureSiteUrl.com</secureSiteUrl>
+</siteUrls>
+```
+
+[top](#top)
+
+## &lt;siteUrl&gt; {#siteUrl}
+
+The `<siteUrl>` element is used by GoCD Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. `Format: [protocol]://[host]:[port]`. You need to define the [port] in case GoCD uses a non-standard port. The [Protocol] can be HTTP or HTTPs.
+
+**Examples**
+
+```xml
+<siteUrls>
+  <siteUrl>http://siteUrl.com</siteUrl>
+  ...
+</siteUrls>
+```
+
+[top](#top)
+
+## &lt;secureSiteUrl&gt; {#secureSiteUrl}
+
+The `<secureSiteUrl>` element is used to specify value of the base HTTPS URL.Certain features in GoCD require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL,you can use this element. Format: `https://[host]:[port]`. You need to define the [port] in case GoCD uses a non-standard port.
+
+**Examples**
+
+```xml
+<siteUrls>
+  ...
+  <secureSiteUrl>https://secureSiteUrl.com</secureSiteUrl>
+</siteUrls>
+```
+
+[top](#top)
+
 
 ## &lt;security&gt; {#security}
 
@@ -477,6 +530,104 @@ Pay attention to the effects of '?' and '\*' in the day-of-week and day-of-month
 - Support for specifying both a day-of-week and a day-of-month value is not complete (you must currently use the '?' character in one of these fields).
 - Be careful when setting fire times between mid-night and 1:00 AM - "daylight savings" can cause a skip or a repeat depending on whether the time moves back or jumps forward.
 
+
+[top](#top)
+
+## &lt;artifacts&gt; {#artifacts}
+
+The `<artifacts>` element can be used to define information related to artifacts.In this, artifact directory can be defined using  [`<artifactsDir>`](#artifactDir) and purge settings can be using [`<purgeSettings>`](#purgeSettings)
+
+
+**Examples**
+
+```xml
+<artifacts>
+  <artifactsDir>artifacts</artifactsDir>
+  <purgeSettings>
+    <purgeStartDiskSpace>30.0</purgeStartDiskSpace>
+    <purgeUptoDiskSpace>60.0</purgeUptoDiskSpace>
+  </purgeSettings>
+</artifacts>
+```
+
+[top](#top)
+
+## &lt;artifactDir&gt; {#artifactDir}
+
+The `<artifactsDir>` element is used to define the directory where GoCD will store its information, including artifacts published by jobs.The **default value** is 'artifacts' in the folder where the GoCD Server is installed. You can use an absolute path or a relative path which will take the server installed directory as the root.
+
+**Notes:**
+
+If you specify the attribute, please check whether GoCD has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won't take effect until GoCD Server is restarted.
+
+**Examples**
+
+```xml
+<artifacts>
+  <artifactsDir>artifacts</artifactsDir>
+  ...
+</artifacts>
+```
+
+[top](#top)
+
+## &lt;purgeSettings&gt; {#purgeSettings}
+
+The `<purgeSettings>` element is used to define `<purgeStartDiskSpace>` and `<purgeUptoDiskSpace>`, where if available disk space on the server is lower than `<purgeStartDiskSpace>` GB, GoCD will purge old artifacts till the available disk space is greater than `<purgeUptoDiskSpace>`GB.
+
+**Notes**
+
+- Artifacts will never be deleted if `purgeStartDiskSpace` and `purgeUptoDiskSpace` are not defined.
+
+- If `purgeStartDiskSpace` is defined,`purgeUptoDiskSpace`should be defined.
+
+**Examples**
+
+```xml
+<purgeSettings>
+    <purgeStartDiskSpace>30.0</purgeStartDiskSpace>
+    <purgeUptoDiskSpace>60.0</purgeUptoDiskSpace>
+</purgeSettings>
+```
+
+[top](#top)
+
+## &lt;purgeStartDiskSpace&gt; {#purgeStartDiskSpace}
+
+The `<purgeStartDiskSpace>` element is used to defined the limit of available disk space. If actual available disk space is less than the limit, GoCD will start purging the artifacts.
+
+
+**Notes**
+
+- It should be smaller than `<purgeUptoDiskSpace>`.
+
+**Examples**
+
+```xml
+<purgeSettings>
+    <purgeStartDiskSpace>30.0</purgeStartDiskSpace>
+    ...
+</purgeSettings>
+```
+
+[top](#top)
+
+## &lt;purgeUptoDiskSpace&gt; {#purgeUptoDiskSpace}
+
+The `<purgeUptoDiskSpace>` element is used to defined the limit of available disk space.GoCD will stop purging artifacts,when the available disk space reaches the specified limit.
+
+**Notes**
+
+- It should be greater than `<purgeStartDiskSpace>`.
+
+**Examples**
+
+```xml
+<purgeSettings>
+    ...
+    <purgeUptoDiskSpace>30.0</purgeUptoDiskSpace>
+</purgeSettings>
+```
 
 [top](#top)
 
