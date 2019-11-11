@@ -691,29 +691,9 @@ if (!doNotTrack) {
 
 <p>The <code>&lt;security&gt;</code> element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support enabling authentication using Authorization plugin endpoint. Support for LDAP and simple password-file authentication is available out of box via the bundled plugins for the same. You can use more than one authentication mechanism if you want. Support for inbuilt <a href="#ldap">LDAP</a> and <a href="#passwordFile">password file</a> tags in configuration has been deprecated.</p>
 
-<p><strong>Attributes</strong></p>
-
-<table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-
-<tbody>
-<tr>
-<td>allowOnlyKnownUsersToLogin</td>
-<td>No</td>
-<td>Allow only those users to login who have been explicitly added by an admin. If false, any new user who tries to login and is present in your password file or LDAP will be automatically created as a Go user. (Default=false)</td>
-</tr>
-</tbody>
-</table>
-
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;/var/lib/go/big-artifacts-folder&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;security</span> <span style="color:#b44">allowOnlyKnownUsersToLogin=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authConfigs&gt;</span>
      <span style="color:#008000;font-weight:bold">&lt;authConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;profile-id&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.authentication.ldap&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
        <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
@@ -1267,13 +1247,19 @@ the directory from which the LDAP search begins.</p>
 <td>Yes</td>
 <td>The Id of authorization plugin.</td>
 </tr>
+
+<tr>
+<td>allowOnlyKnownUsersToLogin</td>
+<td>No</td>
+<td>Allow only those users to login who have been explicitly added by an admin. If false, any new user who tries to login and is present in your password file or LDAP will be automatically created as a Go user. (Default=false)</td>
+</tr>
 </tbody>
 </table>
 
 <p>Refer to your plugin&rsquo;s documentation to know the <code>property</code> keys to be configured.</p>
 
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;authConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;file-auth-config&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.authentication.passwordfile&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;authConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;file-auth-config&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.authentication.passwordfile&#34;</span> <span style="color:#b44">allowOnlyKnownUsersToLogin=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>PasswordFilePath<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>/etc/go/password.properties<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
