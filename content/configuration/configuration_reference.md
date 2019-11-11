@@ -302,17 +302,11 @@ The `<server>` element can be used to define information and attributes of the G
 
 The `<security>` element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support enabling authentication using Authorization plugin endpoint. Support for LDAP and simple password-file authentication is available out of box via the bundled plugins for the same. You can use more than one authentication mechanism if you want. Support for inbuilt [LDAP](#ldap) and [password file](#passwordFile) tags in configuration has been deprecated.
 
-**Attributes**
-
-| Attribute | Required | Description |
-|-----------|----------|-------------|
-| allowOnlyKnownUsersToLogin | No | Allow only those users to login who have been explicitly added by an admin. If false, any new user who tries to login and is present in your password file or LDAP will be automatically created as a Go user. (Default=false) |
-
 **Examples**
 
 ```xml
 <server artifactsdir="/var/lib/go/big-artifacts-folder">
-  <security allowOnlyKnownUsersToLogin="false">
+  <security>
     <authConfigs>
      <authConfig id="profile-id" pluginId="cd.go.authentication.ldap">
        <property>
@@ -607,6 +601,7 @@ An `authConfig` should have a unique `id` attribute and should be associated to 
 |-----------|----------|-------------|
 | id       | Yes | Unique Id of authConfig.           |
 | pluginId | Yes | The Id of authorization plugin. |
+| allowOnlyKnownUsersToLogin | No | Allow only those users to login who have been explicitly added by an admin. If false, any new user who tries to login and is present in your password file or LDAP will be automatically created as a Go user. (Default=false) |
 
 Refer to your plugin's documentation to know the `property` keys to be configured.
 
@@ -614,7 +609,7 @@ Refer to your plugin's documentation to know the `property` keys to be configure
 
 
 ```xml
-<authConfig id="file-auth-config" pluginId="cd.go.authentication.passwordfile">
+<authConfig id="file-auth-config" pluginId="cd.go.authentication.passwordfile" allowOnlyKnownUsersToLogin="false">
   <property>
     <key>PasswordFilePath</key>
     <value>/etc/go/password.properties</value>
