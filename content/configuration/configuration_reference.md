@@ -28,10 +28,23 @@ title: Reference
             <a href="#authConfigs">&lt;/authConfigs&gt;</a>
             <a href="#roles">&lt;roles&gt;</a>
                 <a href="#role_definition">&lt;role&gt;</a>
+                    <a href="#policyinrole">&lt;policy&gt;</a>
+                      <a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
+                      <a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
+                    <a href="#policyinrole">&lt;/policy&gt;</a>
                     <a href="#usersinrole">&lt;users/&gt;</a>
                         <a href="#userinrole">&lt;user/&gt;</a>
                 <a href="#role_definition">&lt;/role&gt;</a>
                 <a href="#plugin_role_definition">&lt;pluginRole/&gt;</a>
+                    <a href="#policyinrole">&lt;policy&gt;</a>
+                      <a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
+                      <a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
+                    <a href="#policyinrole">&lt;/policy&gt;</a>
+                    <a href="#property">&lt;property&gt;</a>
+                      <a href="#key">&lt;key/&gt;</a>
+                      <a href="#value">&lt;value/&gt;</a>
+                    <a href="#property">&lt;/property&gt;</a>
+                <a href="#plugin_role_definition">&lt;/pluginRole&gt;</a>
             <a href="#roles">&lt;/roles&gt;</a>
             <a href="#admins">&lt;admins&gt;</a>
                 <a href="#roleinadmin">&lt;role/&gt;</a>
@@ -641,7 +654,8 @@ The `<roles>` element is a container for roles that users defined. It can't be d
 
 ## &lt;role&gt; {#role_definition}
 
-The `<role>` element is used to define a group of users who perform similar tasks. Users are added by adding the sub-tag [`<users>`](#usersinrole).
+The `<role>` element is used to define a group of users who perform similar tasks. Optionally, the `<role>` element can specify a policy which defines the permission model for the users defined as part of the current role.  
+In a `<role>` element, Users are added by adding the sub-tag [`<users>`](#usersinrole) and Policy is added by adding the sub-tag [`<policy>`](#policyinrole).
 
 **Notes:**
 
@@ -654,11 +668,15 @@ The `<role>` element is used to define a group of users who perform similar task
 
 **Examples**
 
-Two users would be in the role 'pipeline-operators', they are **Jez** and **lqiao**.
+Two users would be in the role 'environment-operators', they are **Jez** and **lqiao** have access to administer all the environments expect environments matching `prod_*` name.
 
 ```xml
 <roles>
-  <role name="pipeline-operators">
+  <role name="environment-operators">
+    <policy>
+        <deny action="administer" type="environment">prod_*</deny>
+        <allow action="administer" type="environment">*</allow>
+    </policy>
     <users>
       <user>Jez</user>
       <user>lqiao</user>
@@ -699,11 +717,90 @@ Two users would be in the role 'pipeline-operators', they are **Jez** and **lqia
 </role>
 ```
 
+
+## &lt;policy&gt; {#policyinrole}
+
+The `<policy>` element defines the permissions for the users belonging to the users of a role.
+
+In a `<policy>` element, the *allow* permission can added by adding the sub-tag [`<allow>`](#allow_permission_in_policy) and *deny* permission can be added by adding the sub-tag [`<deny>`](#deny_permission_in_policy).
+
+**Examples**
+
+The following policy would grant users the permissions to `administer` to all environments expect environments matching `prod_*` name.
+
+```xml
+<policy>
+    <deny action="administer" type="environment">prod_*</deny>
+    <allow action="administer" type="environment">*</allow>
+</policy>
+```
+
+## &lt;allow&gt; {#allow_permission_in_policy}
+
+The `<allow>` element under `policy` grants permissions to the defined GoCD entity based on the type, action and resource.
+
+The value of the `allow` element defines the resource on which policy should be applied. 
+
+ **Notes:**
+  
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| type      | Yes      | The type of the GoCD entity to grant permissions on. The supported values for type are `environment` and `config_repo`. |
+| action    | Yes      | The operation that can be performed on the GoCD entity. The supported values for action are `administer` and `view`. |
+  
+ **Examples**
+ 
+ The following policy would grant users the permissions to `administer` to all environments matching `prod_*` name.
+ 
+ ```xml
+     <allow action="administer" type="environment">prod_*</allow>
+ ```
+ 
+An administrator can use `*` to provide allow access of all type and action. 
+
+**Examples**
+
+```xml
+     <allow action="*" type="*">*</allow>
+ ```
+
+
+## &lt;deny&gt; {#deny_permission_in_policy}
+
+The `<deny>` element under `policy` deny the access to the defined GoCD entity based on the type, action and resource.
+
+The value of the `deny` element defines the resource on which policy should be applied. 
+
+ **Notes:**
+ 
+| Attribute | Required | Description |
+|-----------|----------|-------------|
+| type      | Yes      | The type of the GoCD entity to deny the access on. The supported values for type are `environment` and `config_repo`. |
+| action    | Yes      | The operation that can not be performed on the GoCD entity. The supported values for action are `administer` and `view`. |
+  
+ **Examples**
+ 
+ The following policy would deny the `administer` access to all environments matching `prod_*` name.
+ 
+ ```xml
+     <deny action="administer" type="environment">prod_*</deny>
+ ```
+ 
+An administrator can use `*` to deny all the access of all type and action. 
+
+**Examples**
+
+```xml
+     <deny action="*" type="*">*</deny>
+ ```
+
 [top](#top)
 
 ## &lt;pluginRole&gt; {#plugin_role_definition}
 
 The `<pluginRole>` element is used to define roles in GoCD. Unlike `role` which contains a list of `users`, `pluginRole` provides [configuration](#property) to map a GoCD role to a role defined in an external authorization server managed by an Authorization plugin. e.g pluginRole can be used to define mappings between LDAP group and GoCD roles.
+
+Optionally, the `<pluginRole>` element can specify a [policy](#policyinrole) which defines the permission model for the users of the current role.
 
 **Notes:**
 
@@ -719,6 +816,10 @@ Refer to your plugin's documentation to know the `property` keys to be configure
 ```xml
 <roles>
 <pluginRole name="SuperAdmin" authConfigId="auth_config_id">
+  <policy>
+    <deny action="administer" type="environment">prod_*</deny>
+    <allow action="administer" type="environment">*</allow>
+  </policy>
   <property>
     <key>MemberOfAttribute</key>
     <value>memberOf</value>
