@@ -120,7 +120,7 @@ The agent by default trusts any and all certificates offered to it, which may po
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/install/agent/zip.html</guid>
-      <description>Advanced installation of GoCD server using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
+      <description>Advanced installation of GoCD agent using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
  Download the zip installer for GoCD agent Unzip the installer in a folder of your choice. It creates a subfolder with the name go-agent-${version} Ensure that java executable is available on the PATH environment variable.</description>
     </item>
     
