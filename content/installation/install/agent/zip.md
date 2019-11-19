@@ -2,7 +2,7 @@
 title:    Generic Zip
 ---
 
-# Advanced installation of GoCD server using zip installer
+# Advanced installation of GoCD agent using zip installer
 
 If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
 
