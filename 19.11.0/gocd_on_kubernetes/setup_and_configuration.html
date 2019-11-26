@@ -377,12 +377,12 @@ if (!doNotTrack) {
 
 <h3 id="install-the-helm-client">Install the Helm client</h3>
 
-<p>The helm client is a CLI that let&rsquo;s you install and update packaged applications on Kubernetes. Helm&rsquo;s <a href="https://github.com/helm/helm#user-content-install">installtion documentation</a> details various ways to install the Helm client.</p>
+<p>The helm client is a CLI that let&rsquo;s you install and update packaged applications on Kubernetes. Helm&rsquo;s <a href="https://github.com/helm/helm#user-content-install">installation documentation</a> details various ways to install the Helm client.</p>
 
 <h3 id="install-the-helm-server-tiller-with-rbac">Install the Helm server (Tiller) with RBAC</h3>
 
 <p>With Helm, it is a good practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer the
-<a href="https://github.com/helm/helm/blob/master/docs/rbac.md">Kubernetes RBAC documentation</a> for more on Kubernetes service accounts and RBAC.</p>
+<a href="https://kubernetes.io/docs/reference/access-authn-authz/rbac/">Kubernetes RBAC documentation</a> for more on Kubernetes service accounts and RBAC.</p>
 
 <p>To create a service account for Tiller with the rather permissive cluster-admin role, create a file called <code>rbac-config.yaml</code> with this content:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
@@ -410,7 +410,7 @@ if (!doNotTrack) {
 <pre><code>helm init --service-account tiller
 </code></pre>
 
-<p>Refer the <a href="https://github.com/helm/helm/blob/master/docs/rbac.md">Helm RBAC guide</a> for more secure and advanced RBAC configurations.</p>
+<p>Refer the <a href="https://helm.sh/docs/topics/rbac/">Helm RBAC guide</a> for more secure and advanced RBAC configurations.</p>
 </article>
 
       
