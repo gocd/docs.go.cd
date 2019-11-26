@@ -157,7 +157,7 @@ It is often useful to use the current version control revision number in your bu
 
 ### One material
 
-For this example, we are going to assume we are using a single [Subversion](http://subversion.tigris.org/) repository for our source control system and we have a job set up to call the ant target "dist".
+For this example, we are going to assume we are using a single [Subversion](https://subversion.apache.org/) repository for our source control system and we have a job set up to call the ant target "dist".
 
 - Add the following target to your ant `build.xml`
 
@@ -181,7 +181,7 @@ Building pipeline my-app
 
 #### Multiple materials
 
-For this example we are going to assume we are using a [Subversion](http://subversion.tigris.org/) repository containing
+For this example we are going to assume we are using a [Subversion](https://subversion.apache.org/) repository containing
 the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository containing configuration scripts.
 
 - Ensure the pipeline materials look like this
