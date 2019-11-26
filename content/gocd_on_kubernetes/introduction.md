@@ -16,7 +16,7 @@ GoCD gives you the flexibility to effectively represent CD pipelines that suit y
 
 With this documentation guide, you'll be able to
 
-1) [Setup and configure](setup_and_configuration.html) an instance of GoCD on a Kubernetes cluster.
-2) [Install GoCD on Kubernetes](helm_install.html) the GoCD Helm chart.
-3) [Import sample workflow](importing_a_sample_workflow.html).
-4) [Interpret the workflow](sample_pipelines_explained.html)
+1. [Setup and configure](setup_and_configuration.html) an instance of GoCD on a Kubernetes cluster.
+2. [Install GoCD on Kubernetes](helm_install.html) the GoCD Helm chart.
+3. [Import sample workflow](importing_a_sample_workflow.html).
+4. [Interpret the workflow](sample_pipelines_explained.html)
