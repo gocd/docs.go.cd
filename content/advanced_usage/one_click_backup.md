@@ -25,6 +25,7 @@ The backup directory will be named `backup_{TIMESTAMP}` where the `${TIMESTAMP}`
 
 - Database - This is in a zip called `db.zip` . The zip has a single DB file called `cruise.h2.db`
 - Configuration - This is in a zip called `config-dir.zip` . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD's internal configurations.
+- Wrapper Config - An archive named `wrapper-config-dir.zip` containing tanuki wrapper configuration.
 - XML Configuration Version Repo - This is in a zip called `config-repo.zip` . This zip contains the Git repository of the XML configuration file.
 - GoCD version - This is a file called `version.txt` . This file contains the version of the GoCD server when the backup was initiated
 
@@ -64,6 +65,7 @@ The restoration process is not automated and needs to be done manually. Please r
 
 - Database - Unzip the `db.zip` found in the backup directory. Unzip will create a file called `cruise.h2.db` . Copy this file to the directory `${SERVER_INSTALLATION_DIR}/db/h2db` .
 - Configuration - Unzip the `config-dir.zip` into a temp directory. Copy all the files from this directory to `${SERVER_INSTALLATION_DIR}/config` directory on Windows and Mac or `/etc/go` on Linux.
+- Wrapper Config - Unzip the `wrapper-config-dir.zip` into a temp directory. Copy all the files from this directory to `${SERVER_INSTALLATION_DIR}/wrapper-config`.
 - Configuration History - Unzip the `config-repo.zip` into temp directory. Recursively copy all the contents from this directory to `${SERVER_INSTALLATION_DIR}/db/config.git` .
 - Make sure the ownership of all the files that are restored are the same as the user running the Go server.
 
