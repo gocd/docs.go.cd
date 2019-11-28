@@ -25,7 +25,7 @@ Users can be made administrators from the "User Summary" tab in the "Admin" sect
 
 To give admin privileges to users and/or roles via "Config xml", please refer to the example in the section below, where members of the "go\_admin" role (jhumble and qiao), along with the user chris, can administer Go.
 
-## Role-based security
+## Role-based Access Control
 
 You can define roles that can be used anywhere that authorization is required. A role is just a group of users. Administrators can add users to a new or existing role from the "User Summary" tab in the "Admin" section. Here, you can select any number of users and assign a new or existing role to them. In this example, user "aantony" is being added to the role "analyst"
 
@@ -66,6 +66,24 @@ For power users, here's how you would configure roles via "Config XML":
 ```
 
 In this example, the "qa" role has two users: dyang and pavan. The "go\_admin" role also has two users: jhumble and qiao.
+
+Starting GoCD 19.11.0, the roles can be configured to control what the particular group of user can do at a broad and granular level. This can be achieved via configuring `policy`. A `policy` is a set of permissions which govern the access of a GoCD entity to the user belonging to that role.
+
+Here's how an admin can configure a policy to grant `view` permissions for `environment`:
+
+```xml
+...
+    <roles>
+        <role name="view-permissions">
+            <policy>
+                <allow type="environment" action="view">env*</allow>
+            </policy>
+        </role>
+    </roles>
+...
+```  
+This means that any user which has the role `view-permissions` will get `view` access to the enviornments which has a name starting with `env`.
+You can read more about policy from [here](./policy_in_gocd.html).
 
 ## Specifying permissions for pipeline groups
 
