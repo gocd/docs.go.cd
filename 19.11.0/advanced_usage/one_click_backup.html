@@ -368,6 +368,7 @@ if (!doNotTrack) {
 <ul>
 <li>Database - This is in a zip called <code>db.zip</code> . The zip has a single DB file called <code>cruise.h2.db</code></li>
 <li>Configuration - This is in a zip called <code>config-dir.zip</code> . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD&rsquo;s internal configurations.</li>
+<li>Wrapper Configuration - This is in a zip called <code>wrapper-config-dir.zip</code> . This zip contains configuration files for startup properties for the server.</li>
 <li>XML Configuration Version Repo - This is in a zip called <code>config-repo.zip</code> . This zip contains the Git repository of the XML configuration file.</li>
 <li>GoCD version - This is a file called <code>version.txt</code> . This file contains the version of the GoCD server when the backup was initiated</li>
 </ul>
@@ -411,6 +412,8 @@ if (!doNotTrack) {
 <li><p>Database - Unzip the <code>db.zip</code> found in the backup directory. Unzip will create a file called <code>cruise.h2.db</code> . Copy this file to the directory <code>${SERVER_INSTALLATION_DIR}/db/h2db</code> .</p></li>
 
 <li><p>Configuration - Unzip the <code>config-dir.zip</code> into a temp directory. Copy all the files from this directory to <code>${SERVER_INSTALLATION_DIR}/config</code> directory on Windows and Mac or <code>/etc/go</code> on Linux.</p></li>
+
+<li><p>Wrapper Configuration - Unzip the <code>wrapper-config-dir.zip</code> into a temp directory. Copy all the files from this directory to <code>${SERVER_INSTALLATION_DIR}/wrapper-config</code> directory.</p></li>
 
 <li><p>Configuration History - Unzip the <code>config-repo.zip</code> into temp directory. Recursively copy all the contents from this directory to <code>${SERVER_INSTALLATION_DIR}/db/config.git</code> .</p></li>
 
