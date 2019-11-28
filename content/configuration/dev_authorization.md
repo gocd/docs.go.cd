@@ -67,9 +67,10 @@ For power users, here's how you would configure roles via "Config XML":
 
 In this example, the "qa" role has two users: dyang and pavan. The "go\_admin" role also has two users: jhumble and qiao.
 
-Starting GoCD 19.11.0, the roles can be configured to control what the particular group of user can do at a broad and granular level. This can be achieved via configuring `policy`. A `policy` is a set of permissions which govern the access of a GoCD entity to the user belonging to that role.
+Starting GoCD 19.11.0, the roles can be configured to allow how the users assigned the role can access a GoCD entity.
+GoCD system administrators can now define a role with a `policy` that will contain a set of permissions to govern access of a GoCD entity for the users belonging to the role.
 
-Here's how an admin can configure a policy to grant `view` permissions for `environment`:
+The following role definition would grant `view` action permissions for GoCD entity type `environment` with the matching wild card pattern:
 
 ```xml
 ...
@@ -82,8 +83,8 @@ Here's how an admin can configure a policy to grant `view` permissions for `envi
     </roles>
 ...
 ```  
-This means that any user which has the role `view-permissions` will get `view` access to the enviornments which has a name starting with `env`.
-You can read more about policy from [here](./policy_in_gocd.html).
+This means that any user which has the role `view-permissions` will get `view` access to the environments which have the name starting with `env`.
+You can read more about policy [here](./policy_in_gocd.html).
 
 ## Specifying permissions for pipeline groups
 
