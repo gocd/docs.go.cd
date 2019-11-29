@@ -309,6 +309,17 @@ Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following f
     </item>
     
     <item>
+      <title>Policy in GoCD</title>
+      <link>/configuration/policy_in_gocd.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/policy_in_gocd.html</guid>
+      <description>Policy A policy is a set of permissions for GoCD entities such as environments, configuration repositories, etc. The policy defines the access of a GoCD entity for the users in a role. GoCD supports a restrictive model of access i.e. until access is granted, the entity can&amp;rsquo;t be accessed by anyone (except admins).
+A permission consists of 3 values:
+ Type: The type of GoCD entity. Supported values are environment.</description>
+    </item>
+    
+    <item>
       <title>Publish Reports and Artifacts</title>
       <link>/configuration/dev_upload_test_report.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

@@ -393,6 +393,10 @@
   </url>
   
   <url>
+    <loc>/configuration/policy_in_gocd.html</loc>
+  </url>
+  
+  <url>
     <loc>/configuration/dev_upload_test_report.html</loc>
   </url>
   

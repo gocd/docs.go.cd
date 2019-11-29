@@ -186,6 +186,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
           <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
           <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
         </ul>
       </li>
       <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
@@ -364,7 +365,7 @@ if (!doNotTrack) {
 
 <p>To give admin privileges to users and/or roles via &ldquo;Config xml&rdquo;, please refer to the example in the section below, where members of the &ldquo;go_admin&rdquo; role (jhumble and qiao), along with the user chris, can administer Go.</p>
 
-<h2 id="role-based-security">Role-based security</h2>
+<h2 id="role-based-access-control">Role-based Access Control</h2>
 
 <p>You can define roles that can be used anywhere that authorization is required. A role is just a group of users. Administrators can add users to a new or existing role from the &ldquo;User Summary&rdquo; tab in the &ldquo;Admin&rdquo; section. Here, you can select any number of users and assign a new or existing role to them. In this example, user &ldquo;aantony&rdquo; is being added to the role &ldquo;analyst&rdquo;</p>
 
@@ -400,6 +401,22 @@ if (!doNotTrack) {
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
 <p>In this example, the &ldquo;qa&rdquo; role has two users: dyang and pavan. The &ldquo;go_admin&rdquo; role also has two users: jhumble and qiao.</p>
+
+<p>Starting GoCD 19.11.0, the roles can be configured to allow how the users assigned the role can access a GoCD entity.
+GoCD system administrators can now define a role with a <code>policy</code> that will contain a set of permissions to govern access of a GoCD entity for the users belonging to the role.</p>
+
+<p>The following role definition would grant <code>view</code> action permissions for GoCD entity type <code>environment</code> with the matching wild card pattern:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">...
+    <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;view-permissions&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+                <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;view&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>env*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+...</code></pre></div>
+<p>This means that any user which has the role <code>view-permissions</code> will get <code>view</code> access to the environments which have the name starting with <code>env</code>.
+You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 
 <h2 id="specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</h2>
 
@@ -546,7 +563,7 @@ if (!doNotTrack) {
 <li><a href="#authorization">Authorization</a>
 <ul>
 <li><a href="#administrators">Administrators</a></li>
-<li><a href="#role-based-security">Role-based security</a></li>
+<li><a href="#role-based-access-control">Role-based Access Control</a></li>
 <li><a href="#specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</a></li>
 <li><a href="#adding-authorization-to-approvals">Adding authorization to approvals</a></li>
 <li><a href="#specifying-permissions-for-templates">Specifying permissions for templates</a>
