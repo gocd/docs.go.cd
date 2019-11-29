@@ -98,6 +98,7 @@ headless: true
           <li class="level3"><a href="{{< relref "configuration/dev_authorization.md" >}}">Authorizing Users</a></li>
           <li class="level3"><a href="{{< relref "configuration/delegating_group_administration.md" >}}">Delegating Group Administration</a></li>
           <li class="level3"><a href="{{< relref "configuration/pipeline_group_admin_config.md" >}}">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="{{< relref "configuration/policy_in_gocd.md" >}}">Policy in GoCD</a></li>
         </ul>
       </li>
       <li class="level2"><a href="{{< relref "configuration/secrets_management.md" >}}">Secrets Management</a>
