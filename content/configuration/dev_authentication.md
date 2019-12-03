@@ -32,7 +32,7 @@ In this example, the password file authentication method will be tried first. If
 
 3. Provide the path to a password file on the GoCD server.
 
-4. Specify allow only known users to login field. [Learn more](dev_authentication.html#controlling_user_access)
+4. Specify allow only known users to login field. [Learn more](dev_authentication.html#controlling-user-access)
 
 The [password file plugin's documentation](https://github.com/gocd/gocd-filebased-authentication-plugin#readme) has information about the values that can go into a password file.
 
@@ -46,7 +46,7 @@ The [password file plugin's documentation](https://github.com/gocd/gocd-filebase
 
 3. Provide the appropriate values for your LDAP server. You might need to talk to the LDAP/AD server administrator at your organization to get the right values.
 
-4. Specify allow only known users to login field. [Learn more](dev_authentication.html#controlling_user_access)
+4. Specify allow only known users to login field. [Learn more](dev_authentication.html#controlling-user-access)
 
 The [LDAP authentication plugin's documentation](https://github.com/gocd/gocd-ldap-authentication-plugin#readme) has more information about the configuration.
 
