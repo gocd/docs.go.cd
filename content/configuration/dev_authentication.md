@@ -68,7 +68,7 @@ You can use one or more of the below to tweak settings such as the session confi
 
 See [the "Other config options" page](../advanced_usage/other_config_options.html) for instructions around setting these system property values.
 
-## [Controlling User Access](#controlling_user_access)
+## Controlling User Access
 
 GoCD checks if an authenticated user is an existing user or a new user (logging in for the first time). For new users, there are two behaviors GoCD can operate under:
 
