@@ -370,6 +370,8 @@ if (!doNotTrack) {
 <li><p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;Password File Authentication Plugin for GoCD&rdquo;.</p></li>
 
 <li><p>Provide the path to a password file on the GoCD server.</p></li>
+
+<li><p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p></li>
 </ol>
 
 <p>The <a href="https://github.com/gocd/gocd-filebased-authentication-plugin#readme">password file plugin&rsquo;s documentation</a> has information about the values that can go into a password file.</p>
@@ -384,6 +386,8 @@ if (!doNotTrack) {
 <li><p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;LDAP Authentication Plugin for GoCD&rdquo;.</p></li>
 
 <li><p>Provide the appropriate values for your LDAP server. You might need to talk to the LDAP/AD server administrator at your organization to get the right values.</p></li>
+
+<li><p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p></li>
 </ol>
 
 <p>The <a href="https://github.com/gocd/gocd-ldap-authentication-plugin#readme">LDAP authentication plugin&rsquo;s documentation</a> has more information about the configuration.</p>
@@ -447,9 +451,8 @@ if (!doNotTrack) {
 
 <ol>
 <li>Login to GoCD as an admin</li>
-<li>Navigate to the &ldquo;Admin&rdquo; section</li>
-<li>Click on the &ldquo;Server Configuration&rdquo; tab</li>
-<li>Set the &ldquo;Allow users to login via plugin into GoCD, even if they haven&rsquo;t been explicitly added to GoCD.&rdquo; checkbox</li>
+<li>Navigate to the &ldquo;Authorization Configuration&rdquo; section</li>
+<li>Set the &ldquo;Allow only known users to login&rdquo; for desired authorization configuration.</li>
 </ol>
 
 <p><img src="../images/user_authentication_auto_login.png" alt="" /></p>

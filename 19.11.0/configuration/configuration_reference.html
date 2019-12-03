@@ -366,10 +366,23 @@ if (!doNotTrack) {
             <a href="#authConfigs">&lt;/authConfigs&gt;</a>
             <a href="#roles">&lt;roles&gt;</a>
                 <a href="#role_definition">&lt;role&gt;</a>
+                    <a href="#policyinrole">&lt;policy&gt;</a>
+                      <a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
+                      <a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
+                    <a href="#policyinrole">&lt;/policy&gt;</a>
                     <a href="#usersinrole">&lt;users/&gt;</a>
                         <a href="#userinrole">&lt;user/&gt;</a>
                 <a href="#role_definition">&lt;/role&gt;</a>
                 <a href="#plugin_role_definition">&lt;pluginRole/&gt;</a>
+                    <a href="#policyinrole">&lt;policy&gt;</a>
+                      <a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
+                      <a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
+                    <a href="#policyinrole">&lt;/policy&gt;</a>
+                    <a href="#property">&lt;property&gt;</a>
+                      <a href="#key">&lt;key/&gt;</a>
+                      <a href="#value">&lt;value/&gt;</a>
+                    <a href="#property">&lt;/property&gt;</a>
+                <a href="#plugin_role_definition">&lt;/pluginRole&gt;</a>
             <a href="#roles">&lt;/roles&gt;</a>
             <a href="#admins">&lt;admins&gt;</a>
                 <a href="#roleinadmin">&lt;role/&gt;</a>
@@ -1286,7 +1299,8 @@ the directory from which the LDAP search begins.</p>
 
 <h2 id="role_definition">&lt;role&gt;</h2>
 
-<p>The <code>&lt;role&gt;</code> element is used to define a group of users who perform similar tasks. Users are added by adding the sub-tag <a href="#usersinrole"><code>&lt;users&gt;</code></a>.</p>
+<p>The <code>&lt;role&gt;</code> element is used to define a group of users who perform similar tasks. Optionally, the <code>&lt;role&gt;</code> element can specify a policy which defines the permission model for the users defined as part of the current role.<br />
+In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a href="#usersinrole"><code>&lt;users&gt;</code></a> and Policy is added by adding the sub-tag <a href="#policyinrole"><code>&lt;policy&gt;</code></a>.</p>
 
 <p><strong>Notes:</strong></p>
 
@@ -1315,9 +1329,13 @@ the directory from which the LDAP search begins.</p>
 
 <p><strong>Examples</strong></p>
 
-<p>Two users would be in the role &lsquo;pipeline-operators&rsquo;, they are <strong>Jez</strong> and <strong>lqiao</strong>.</p>
+<p>Two users would be in the role &lsquo;environment-operators&rsquo;, they are <strong>Jez</strong> and <strong>lqiao</strong> have access to administer all the environments expect environments matching <code>prod_*</code> name.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;pipeline-operators&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;environment-operators&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Jez<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
@@ -1353,11 +1371,106 @@ the directory from which the LDAP search begins.</p>
     <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span></code></pre></div>
+<h2 id="policyinrole">&lt;policy&gt;</h2>
+
+<p>The <code>&lt;policy&gt;</code> element defines the permissions for the users belonging to the users of a role.</p>
+
+<p>In a <code>&lt;policy&gt;</code> element, the <em>allow</em> permission can added by adding the sub-tag <a href="#allow_permission_in_policy"><code>&lt;allow&gt;</code></a> and <em>deny</em> permission can be added by adding the sub-tag <a href="#deny_permission_in_policy"><code>&lt;deny&gt;</code></a>.</p>
+
+<p><strong>Examples</strong></p>
+
+<p>The following policy would grant users the permissions to <code>administer</code> to all environments expect environments matching <code>prod_*</code> name.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span></code></pre></div>
+<h2 id="allow_permission_in_policy">&lt;allow&gt;</h2>
+
+<p>The <code>&lt;allow&gt;</code> element under <code>policy</code> grants permissions to the defined GoCD entity based on the type, action and resource.</p>
+
+<p>The value of the <code>allow</code> element defines the resource on which policy should be applied.</p>
+
+<p><strong>Notes:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>The type of the GoCD entity to grant permissions on. The supported values for type are <code>environment</code> and <code>config_repo</code>.</td>
+</tr>
+
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>The operation that can be performed on the GoCD entity. The supported values for action are <code>administer</code> and <code>view</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Examples</strong></p>
+
+<p>The following policy would grant users the permissions to <code>administer</code> to all environments matching <code>prod_*</code> name.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span></code></pre></div>
+<p>An administrator can use <code>*</code> to provide allow access of all type and action.</p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span></code></pre></div>
+<h2 id="deny_permission_in_policy">&lt;deny&gt;</h2>
+
+<p>The <code>&lt;deny&gt;</code> element under <code>policy</code> deny the access to the defined GoCD entity based on the type, action and resource.</p>
+
+<p>The value of the <code>deny</code> element defines the resource on which policy should be applied.</p>
+
+<p><strong>Notes:</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>The type of the GoCD entity to deny the access on. The supported values for type are <code>environment</code> and <code>config_repo</code>.</td>
+</tr>
+
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>The operation that can not be performed on the GoCD entity. The supported values for action are <code>administer</code> and <code>view</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Examples</strong></p>
+
+<p>The following policy would deny the <code>administer</code> access to all environments matching <code>prod_*</code> name.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span></code></pre></div>
+<p>An administrator can use <code>*</code> to deny all the access of all type and action.</p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
 <h2 id="plugin_role_definition">&lt;pluginRole&gt;</h2>
 
 <p>The <code>&lt;pluginRole&gt;</code> element is used to define roles in GoCD. Unlike <code>role</code> which contains a list of <code>users</code>, <code>pluginRole</code> provides <a href="#property">configuration</a> to map a GoCD role to a role defined in an external authorization server managed by an Authorization plugin. e.g pluginRole can be used to define mappings between LDAP group and GoCD roles.</p>
+
+<p>Optionally, the <code>&lt;pluginRole&gt;</code> element can specify a <a href="#policyinrole">policy</a> which defines the permission model for the users of the current role.</p>
 
 <p><strong>Notes:</strong></p>
 
@@ -1390,6 +1503,10 @@ the directory from which the LDAP search begins.</p>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;pluginRole</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;SuperAdmin&#34;</span> <span style="color:#b44">authConfigId=</span><span style="color:#b44">&#34;auth_config_id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>MemberOfAttribute<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>memberOf<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -4942,6 +5059,9 @@ allow certain variable names and/or values.</p>
 <li><a href="#role_definition">&lt;role&gt;</a></li>
 <li><a href="#usersinrole">&lt;users&gt;</a></li>
 <li><a href="#userinrole">&lt;user&gt;</a></li>
+<li><a href="#policyinrole">&lt;policy&gt;</a></li>
+<li><a href="#allow_permission_in_policy">&lt;allow&gt;</a></li>
+<li><a href="#deny_permission_in_policy">&lt;deny&gt;</a></li>
 <li><a href="#plugin_role_definition">&lt;pluginRole&gt;</a></li>
 <li><a href="#admins">&lt;admins&gt;</a></li>
 <li><a href="#roleinadmin">&lt;role&gt;</a></li>
