@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gocd_on_kubernetes on GoCD User Documentation</title>
+    <link>/gocd_on_kubernetes.html</link>
+    <description>Recent content in Gocd_on_kubernetes on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/gocd_on_kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker workflows</title>
+      <link>/gocd_on_kubernetes/docker_workflows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/docker_workflows.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Docker workflows Using docker containers to execute docker commands can be done in the following ways. This section identifies the approaches and the drawbacks to keep in mind when using these approaches.
+Docker in Docker (DinD) Docker in Docker involves setting up a docker binary and running an isolated docker daemon inside the container. This requires that the host docker container be run in privileged mode.</description>
+    </item>
+    
+    <item>
+      <title>Import a pipeline to build and deploy a sample application</title>
+      <link>/gocd_on_kubernetes/importing_a_sample_workflow.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/importing_a_sample_workflow.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Step 3: Import sample pipeline to build and deploy a sample application In this section, we&amp;rsquo;ll import a set of GoCD pipelines that build and deploy a sample application with a Docker based build workflow.
+This section uses GoCDs pipelines as code capability to import sample pipeline definitions from an external Git repository.
+Prerequisites  The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
+    </item>
+    
+    <item>
+      <title>Install the GoCD Helm chart</title>
+      <link>/gocd_on_kubernetes/helm_install.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/helm_install.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Step 2: Install the GoCD Helm chart Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
+Install the official GoCD Helm chart with this command:
+helm install stable/gocd --name gocd --namespace gocd Access the GoCD server After you&amp;rsquo;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/gocd_on_kubernetes/introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/introduction.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Introduction GoCD gives you the flexibility to effectively represent CD pipelines that suit your organization&amp;rsquo;s processes. Kubernetes gives you a highly programmable delivery infrastructure platform. And together, they provide the foundation for a powerful Continuous Delivery platform.
+With this documentation guide, you&amp;rsquo;ll be able to
+ Setup and configure an instance of GoCD on a Kubernetes cluster. Install GoCD on Kubernetes the GoCD Helm chart.</description>
+    </item>
+    
+    <item>
+      <title>Sample pipelines explained</title>
+      <link>/gocd_on_kubernetes/sample_pipelines_explained.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/sample_pipelines_explained.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Explanation of the sample pipelines In this section, we&amp;rsquo;ll explain the details of each of the pipelines imported in the previous section.
+1. Build and publish image This pipeline builds an application artifact and publishes it to an artifact store.
+The material A GoCD pipeline&amp;rsquo;s material is the trigger for a pipeline. Often it is a source code repository. It could also be another GoCD repository.</description>
+    </item>
+    
+    <item>
+      <title>Setup and configuration</title>
+      <link>/gocd_on_kubernetes/setup_and_configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/setup_and_configuration.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Step 1: Setup your Kubernetes cluster Before you can get started with GoCD on Kubernetes, make sure that you have taken a look at the list below.
+1. Install kubectl The Kubernetes CLI kubectl is used for cluster management purposes. The Kubernetes install documentation provides various ways of installing kubectl for different platforms.
+2. Setup a Kubernetes Cluster Before installing GoCD, you need to setup a Kubernetes cluster.</description>
+    </item>
+    
+  </channel>
+</rss>
