@@ -349,7 +349,7 @@ if (!doNotTrack) {
 <p>A permission consists of 3 values:</p>
 
 <ol>
-<li><strong>Type</strong>: The type of GoCD entity. Supported values are <code>environment</code>. Wildcard(<code>*</code>) is also permitted which means all supported values.</li>
+<li><strong>Type</strong>: The type of GoCD entity. Supported values are <code>environment, config-repo</code>. Wildcard(<code>*</code>) is also permitted which means all supported values.</li>
 <li><strong>Action</strong>: The action which is controlled. Supported values are <code>view</code> and <code>administer</code></li>
 <li><strong>Resource</strong>: The resource can be the name of entity or a pattern consisting of wildcard (<code>*</code>) matching one or more entities
 <br /></li>
@@ -444,6 +444,80 @@ if (!doNotTrack) {
 </table></li>
 </ol>
 
+<h3 id="config-repo">Config Repo</h3>
+
+<ol>
+<li><p>API</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Index</th>
+<th>Get</th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>View</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+</tr>
+
+<tr>
+<td>Administer</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>UI</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>List</th>
+<th>Create</th>
+<th>Refresh</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>View</td>
+<td>&#x2714;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+</tr>
+
+<tr>
+<td>Administer</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+
 <h2 id="configure-policy">Configure policy</h2>
 
 <ol>
@@ -517,6 +591,7 @@ if (!doNotTrack) {
 <li><a href="#privilege-action-matrix">Privilege-Action Matrix</a>
 <ul>
 <li><a href="#environment">Environment</a></li>
+<li><a href="#config-repo">Config Repo</a></li>
 </ul></li>
 <li><a href="#configure-policy">Configure policy</a></li>
 </ul></li>
