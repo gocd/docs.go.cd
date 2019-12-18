@@ -10,7 +10,7 @@ A policy is a set of permissions for GoCD entities such as environments, configu
 
 A permission consists of 3 values:
 
- 1. __Type__: The type of GoCD entity. Supported values are `environment`. Wildcard(`*`) is also permitted which means all supported values.
+ 1. __Type__: The type of GoCD entity. Supported values are `environment, config-repo`. Wildcard(`*`) is also permitted which means all supported values.
  2. __Action__: The action which is controlled. Supported values are `view` and `administer`
  3. __Resource__: The resource can be the name of entity or a pattern consisting of wildcard (`*`) matching one or more entities
    
@@ -43,6 +43,22 @@ Each GoCD entity has a set of actions which grants/restricts control on a granul
     | View       | &#x2714; | &#x2718; | &#x2718; | &#x2718; |
     | Administer | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
 
+
+### Config Repo
+
+1. API
+
+    |            | Index    | Get      | Create   | Update   | Delete   |
+    | ---------- | -------- | -------- | -------- | -------  | -------- |
+    | View       | &#x2714; | &#x2714; | &#x2718; | &#x2718; | &#x2718; |
+    | Administer | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
+
+2. UI
+
+    |            | List     | Create   | Refresh  | Update   | Delete   |
+    | ---------- | -------- | -------- | -------- | -------- | -------- |
+    | View       | &#x2714; | &#x2718; | &#x2718; | &#x2718; | &#x2718; |
+    | Administer | &#x2714; | &#x2714; | &#x2714; | &#x2714; | &#x2714; |
 
 ## Configure policy
 
