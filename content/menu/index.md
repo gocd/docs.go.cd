@@ -139,6 +139,7 @@ headless: true
       <li class="level2"><a href="{{< relref "advanced_usage/other_config_options.md" >}}">Other Config Options</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/agent-health-check-api.md" >}}">Agent Health Check API</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/maintenance_mode.md" >}}">Maintenance Mode</a></li>
+      <li class="level2"><a href="{{< relref "advanced_usage/pipeline_activity.md" >}}">Pipeline activity</a></li>
       <li class="level2"><a href="{{< relref "integration/_index.md" >}}">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
@@ -190,14 +191,6 @@ headless: true
       <li class="level2"><a href="{{< relref "faq/tester_what_has_changed.md" >}}">See changes in new binary</a></li>
       <li class="level2"><a href="{{< relref "faq/dev_use_current_revision_in_build.md" >}}">Using Environment variables</a></li>
       <li class="level2"><a href="{{< relref "faq/dev_understand_why_build_broken.md" >}}">Why the Build is Broken?</a></li>
-    </ul>
-  </li>
-
-  <li class="level1 has-children">
-    {{< figure src="/images/arrow.png" class="menu-arrow" >}}
-    <a href="#"><b>Beta features</b></a>
-    <ul>
-      <li class="level2"><a href="{{< relref "beta/comment_on_pipeline_run.md" >}}">Comment on a pipeline run</a></li>
     </ul>
   </li>
 </ul>
