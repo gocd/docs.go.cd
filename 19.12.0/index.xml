@@ -227,15 +227,6 @@ By default, GoCD will kill any currently running tasks . There are two other alt
     </item>
     
     <item>
-      <title>Comment on a pipeline run</title>
-      <link>/beta/comment_on_pipeline_run.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/beta/comment_on_pipeline_run.html</guid>
-      <description>Beta feature: Comment on a pipeline run Note: This is a beta feature, which is turned off by default in GoCD 14.4.0. It can be turned on by using the feature toggle API, for this feature. If you are using curl, this is what you will need to do: curl -d toggle_value=on&#39; &#39;http://go_server/go/api/admin/feature_toggles/pipeline_comment_feature_toggle_key&#39; -H &#39;Confirm:true&#39; When authentication is turned on in your GoCD Server setup, add the &amp;ndash;user option to the curl command, like this:</description>
-    </item>
-    
-    <item>
       <title>Compare Builds</title>
       <link>/advanced_usage/compare_pipelines.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -869,6 +860,16 @@ Disable automatic scheduling Unchecking the &amp;ldquo;Automatic Pipeline Schedu
       <description>GoCD Pipeline Templates Templating helps to create reusable workflows in order to make tasks like creating and maintaining branches, and managing large number of pipelines easier.
 Creating Pipeline Templates Pipeline Templates can be managed from the Templates tab on the Administration Page.
 Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following form which allows you to create a fresh template, or extract it from an existing pipeline. Once saved, the pipeline indicated will also start using this newly created template.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline activity</title>
+      <link>/advanced_usage/pipeline_activity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/pipeline_activity.html</guid>
+      <description>Pipeline activity The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)
+Overview    Actions Description     Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</description>
     </item>
     
     <item>

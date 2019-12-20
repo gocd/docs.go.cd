@@ -67,10 +67,6 @@
   </url>
   
   <url>
-    <loc>/beta/</loc>
-  </url>
-  
-  <url>
     <loc>/categories.html</loc>
     <priority>0</priority>
   </url>
@@ -97,10 +93,6 @@
   
   <url>
     <loc>/advanced_usage/command_repository.html</loc>
-  </url>
-  
-  <url>
-    <loc>/beta/comment_on_pipeline_run.html</loc>
   </url>
   
   <url>
@@ -382,6 +374,10 @@
   
   <url>
     <loc>/configuration/pipeline_templates.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/pipeline_activity.html</loc>
   </url>
   
   <url>

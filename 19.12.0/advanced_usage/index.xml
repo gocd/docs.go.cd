@@ -159,6 +159,16 @@ System properties If an option specified below is of type &amp;ldquo;System prop
     </item>
     
     <item>
+      <title>Pipeline activity</title>
+      <link>/advanced_usage/pipeline_activity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/pipeline_activity.html</guid>
+      <description>Pipeline activity The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)
+Overview    Actions Description     Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</description>
+    </item>
+    
+    <item>
       <title>Pipelines as code</title>
       <link>/advanced_usage/pipelines_as_code.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>

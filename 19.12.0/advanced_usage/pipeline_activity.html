@@ -6,13 +6,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>
-    Beta features | GoCD User Documentation</title>
+<title>Pipeline activity | GoCD User Documentation</title>
 
-<meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
-<meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
+<meta name="description" content="List pipeline runs. Annotate each pipeline with comments. Text can be viewed by users who can access the pipeline page."/>
+<meta name="keywords" content="[Pipeline history, pipeline activities, pipeline comment, comment, pipeline annotations]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/beta/"/>
+<link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/pipeline_activity.html"/>
 <script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
 
@@ -42,7 +41,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/beta/">
+<body data-rel-permalink="/advanced_usage/pipeline_activity.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -74,7 +73,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2f beta\2f "] {
+  nav ul a[href$="\2f advanced_usage\2fpipeline_activity.html"] {
   color: #004ed0;
   }
 </style>
@@ -231,6 +230,7 @@ if (!doNotTrack) {
       <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
       <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
       <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
@@ -293,17 +293,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
     </ul>
   </li>
-
-  <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
-</figure>
-
-    <a href="#"><b>Beta features</b></a>
-    <ul>
-      <li class="level2"><a href="../beta/comment_on_pipeline_run.html">Comment on a pipeline run</a></li>
-    </ul>
-  </li>
 </ul>
 
 
@@ -328,8 +317,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>
-    Beta features</strong>
+  <strong>Pipeline activity</strong>
 </header>
 
       
@@ -342,22 +330,106 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown"><p><html>
-    <body>
-    <div style="text-align:center;" class="my-block">
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-    <br>
-       <h1>Beta</h1>
-       <h1>Features</h1>
-    </div>
-    </body>
-</html></p>
+<article class="markdown">
+
+<h1 id="pipeline-activity">Pipeline activity</h1>
+
+<p>The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)</p>
+
+<h3 id="overview">Overview</h3>
+
+<p><img src="../images/advanced_usage/pipeline_activity.png" alt="Pipelines activity" /></p>
+
+<table>
+<thead>
+<tr>
+<th>Actions</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><strong>Pause pipeline</strong></td>
+<td>Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</td>
+</tr>
+
+<tr>
+<td><strong>Pipeline settings</strong></td>
+<td>Take user to pipeline settings page.</td>
+</tr>
+
+<tr>
+<td><strong>Filter history</strong></td>
+<td>Allows user to filter pipeline activity by <code>pipeline counter</code>, <code>revision</code> or <code>username</code>.</td>
+</tr>
+
+<tr>
+<td><strong>Stages</strong></td>
+<td>Stage available for the pipeline run. In case of change in stage config the pipeline run with same stage config will be rendered in group while maintaining the pipeline run order.</td>
+</tr>
+
+<tr>
+<td><strong>Instance</strong></td>
+<td>Pipeline run label.</td>
+</tr>
+
+<tr>
+<td><strong>VSM</strong></td>
+<td>Link to VSM, It will open the VSM for the current pipeline run in a new tab.</td>
+</tr>
+
+<tr>
+<td><strong>Trigger by</strong></td>
+<td>Reason for pipeline run, e.g. Triggered by user or Triggered by changes. Click on the link to know more about the revisions it triggered with</td>
+</tr>
+
+<tr>
+<td><strong>Stage status bar</strong></td>
+<td>Show the status of each stage in pipeline. Hover on the stage status bar to get more options.</td>
+</tr>
+
+<tr>
+<td><strong>Add Comment</strong></td>
+<td>Allow user to add comment on the pipeline run. For this user must have operate permission on the pipeline.</td>
+</tr>
+
+<tr>
+<td><strong>Gate Icon</strong></td>
+<td>Based on the stage config before each stage there will be an <code>Auto</code> or <code>Manual</code> gate icon. User can run the next stage based on the state of previous stage.</td>
+</tr>
+
+<tr>
+<td><strong>Stage Details</strong></td>
+<td>Open the stage details page in new tab.</td>
+</tr>
+
+<tr>
+<td><strong>Rerun or cancel stage</strong></td>
+<td>On hover on the stage details tab user will get <code>Rerun</code> or <code>Cancel</code> stage icon based on the stage status.</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="comment-on-a-pipeline-run">Comment on a pipeline run</h3>
+
+<p>Each pipeline in the pipeline history page can now be annotated with a comment. This text can be seen by all other users
+ who have access to view history of a pipeline.</p>
+
+<p>Clicking on the <strong><code>Add Comment</code></strong> link for a pipeline run brings up a modal box to enter comment. Enter the comment and click
+on the <strong><code>Save</code></strong> or <strong><code>Save &amp; Close</code></strong> to update the comment.</p>
+
+<p><img src="../images/advanced_usage/pipeline_comment_1.png" alt="Pipelines activity" /></p>
+
+<h3 id="feature-toggle">Feature toggle</h3>
+
+<p><strong>Note:</strong> This is a beta feature, which is turned off by default in GoCD version prior to <code>19.12.0</code>. It can be turned on by using the feature toggle API, for this feature. If you are using curl, this is what you will need to do:</p>
+
+<pre><code>curl &quot;https://go_server/go/api/admin/feature_toggles/pipeline_comment_feature_toggle_key&quot;  \
+  -H 'Accept: application/vnd.go.cd.v1+json' \
+  -u 'username:password' \
+  -X PUT -d '{&quot;toggle_value&quot;: &quot;on&quot;}'
+</code></pre>
 </article>
 
       
@@ -374,7 +446,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/beta/_index.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/pipeline_activity.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -396,6 +468,22 @@ if (!doNotTrack) {
     
 
   
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#pipeline-activity">Pipeline activity</a>
+<ul>
+<li>
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#comment-on-a-pipeline-run">Comment on a pipeline run</a></li>
+<li><a href="#feature-toggle">Feature toggle</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
 
 
   </main>
