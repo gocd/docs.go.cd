@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Authentication | GoCD User Documentation</title>
+
+<meta name="description" content="GoCD Authentication"/>
+<meta name="keywords" content="[GoCD configuration, authentication, https, ldap, ldap authentication, authorization plugins, user access, passwords, logins, authorization endpoints, GoCD security]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/configuration/dev_authentication.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/configuration/dev_authentication.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2f configuration\2f dev_authentication.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Authentication</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown">
+
+<h1 id="authentication">Authentication</h1>
+
+<p>A newly installed GoCD server does not require users to authenticate. This is great for a trial. However, it is one of the first things you should change, as soon as you decide to use GoCD more widely.</p>
+
+<p>GoCD has two methods of authentication built into it: Password-file based authentication and LDAP/Active Directory authentication. You can also choose from a collection of <a href="https://www.gocd.org/plugins/#authorization">community-maintained plugins</a> for other methods of authentication, such as using Google or GitHub OAuth.</p>
+
+<p>You can even write your own plugins for authentication (as in username/password combination) or authorization (as in deciding which GoCD roles a user should be allowed into) by using the <a href="https://plugin-api.gocd.org/current/authorization/">authorization plugin endpoint</a>.</p>
+
+<p>&ldquo;Authorization configuration&rdquo; is the term used in GoCD for the configuration which allows a GoCD administrator to configure the kind of authentication and authorization used by it. GoCD can be setup to use multiple authorization configurations at the same time.</p>
+
+<p>Note: The order of the configurations matters. They will be tried from the first one to the last one and each authorization configuration will be given a chance to authenticate a user, when a user tries to log in. If the user is successfully allowed by one of the configurations, then the following configurations will not be used.</p>
+
+<p>Consider the example image below:</p>
+
+<p><img src="../images/user_authentication_multiple_configurations.png" alt="Shows two authorization configurations" /></p>
+
+<p>In this example, the password file authentication method will be tried first. If that succeeds, the user will be allowed to log in. If not, the LDAP authentication method will be tried next. If that succeeds, the user will be allowed to log in. If not, the user will be disallowed from logging in.</p>
+
+<h2 id="built-in-methods-of-authentication">Built-in methods of authentication</h2>
+
+<h3 id="password-file-authentication">Password-file authentication</h3>
+
+<ol>
+<li><p>Create an authorization configuration, by going to the &ldquo;Admin&rdquo; menu and then into &ldquo;Security&rdquo; and then &ldquo;Authorization Configuration&rdquo;.</p></li>
+
+<li><p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;Password File Authentication Plugin for GoCD&rdquo;.</p></li>
+
+<li><p>Provide the path to a password file on the GoCD server.</p></li>
+
+<li><p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p></li>
+</ol>
+
+<p>The <a href="https://github.com/gocd/gocd-filebased-authentication-plugin#readme">password file plugin&rsquo;s documentation</a> has information about the values that can go into a password file.</p>
+
+<p><img src="../images/user_authentication_password_file.png" alt="User authentication using password file" /></p>
+
+<h3 id="ldap-ad-authentication">LDAP/AD authentication</h3>
+
+<ol>
+<li><p>Create an authorization configuration, by going to the &ldquo;Admin&rdquo; menu and then into &ldquo;Security&rdquo; and then &ldquo;Authorization Configuration&rdquo;.</p></li>
+
+<li><p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;LDAP Authentication Plugin for GoCD&rdquo;.</p></li>
+
+<li><p>Provide the appropriate values for your LDAP server. You might need to talk to the LDAP/AD server administrator at your organization to get the right values.</p></li>
+
+<li><p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p></li>
+</ol>
+
+<p>The <a href="https://github.com/gocd/gocd-ldap-authentication-plugin#readme">LDAP authentication plugin&rsquo;s documentation</a> has more information about the configuration.</p>
+
+<p><img src="../images/user_authentication_ldap.png" alt="User authentication using LDAP" /></p>
+
+<p>It you&rsquo;ve installed any other plugins, they will also be available at the &ldquo;Authorization Configuration&rdquo; page, ready to be setup.</p>
+
+<h2 id="configurable-properties">Configurable properties</h2>
+
+<p>You can use one or more of the below to tweak settings such as the session configuration:</p>
+
+<table>
+<thead>
+<tr>
+<th>System property name</th>
+<th>Default value</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><code>go.server.session.timeout.seconds</code></td>
+<td><code>1209600</code> (14 days)</td>
+<td>Idle session timeout (in seconds). Do not set this to <code>-1</code> else the session will never timeout.</td>
+</tr>
+
+<tr>
+<td><code>go.sessioncookie.maxage.seconds</code></td>
+<td><code>1209600</code> (14 days)</td>
+<td>Expiry of a session cookie. Set to <code>-1</code> to expire the cookie on browser close. Do not set to <code>0</code> as this will cause the cookie to expire immediately.</td>
+</tr>
+
+<tr>
+<td><code>go.sessioncookie.secure</code></td>
+<td><code>N</code></td>
+<td>Set this to <code>Y</code> to allow a session cookie to be set only if the request was made over HTTPS. Do not set this property if the users access GoCD via HTTP url</td>
+</tr>
+
+<tr>
+<td><code>go.security.reauthentication.interval</code></td>
+<td><code>1800000</code> (30 mins in milliseconds)</td>
+<td>GoCD forces a perodic re-authentication of users, this is to ensure any changes like removing of users or roles in the external authorization server are reflected in GoCD. The re-authentication interval (specified in milliseconds) is controlled by this property.</td>
+</tr>
+</tbody>
+</table>
+
+<p>See <a href="../advanced_usage/other_config_options.html">the &ldquo;Other config options&rdquo; page</a> for instructions around setting these system property values.</p>
+
+<h2 id="controlling-user-access">Controlling User Access</h2>
+
+<p>GoCD checks if an authenticated user is an existing user or a new user (logging in for the first time). For new users, there are two behaviors GoCD can operate under:</p>
+
+<ul>
+<li>Automatically register the new user in GoCD and continue with the login process.</li>
+<li>Deny access to the user if not already a registered GoCD user. New users will have to be <a href="./managing_users.html#adding-users">explicitly added</a> by an admin.</li>
+</ul>
+
+<p>To switch the mode in which the GoCD Server operates:</p>
+
+<ol>
+<li>Login to GoCD as an admin</li>
+<li>Navigate to the &ldquo;Authorization Configuration&rdquo; section</li>
+<li>Set the &ldquo;Allow only known users to login&rdquo; for desired authorization configuration.</li>
+</ol>
+
+<p><img src="../images/user_authentication_auto_login.png" alt="" /></p>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/dev_authentication.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#authentication">Authentication</a>
+<ul>
+<li><a href="#built-in-methods-of-authentication">Built-in methods of authentication</a>
+<ul>
+<li><a href="#password-file-authentication">Password-file authentication</a></li>
+<li><a href="#ldap-ad-authentication">LDAP/AD authentication</a></li>
+</ul></li>
+<li><a href="#configurable-properties">Configurable properties</a></li>
+<li><a href="#controlling-user-access">Controlling User Access</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>

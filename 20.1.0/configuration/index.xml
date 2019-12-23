@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuring Go on GoCD User Documentation</title>
+    <link>/configuration/</link>
+    <description>Recent content in Configuring Go on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/configuration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Access tokens</title>
+      <link>/configuration/access_tokens.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/access_tokens.html</guid>
+      <description>Access Tokens From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
+Usage instructions  A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
+ Before 19.2.0
+ curl &amp;#39;https://ci.</description>
+    </item>
+    
+    <item>
+      <title>Add Material to Existing Pipeline</title>
+      <link>/configuration/admin_add_material.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_material.html</guid>
+      <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.</description>
+    </item>
+    
+    <item>
+      <title>Add Stage to Existing Pipeline</title>
+      <link>/configuration/admin_add_stage.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_stage.html</guid>
+      <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.</description>
+    </item>
+    
+    <item>
+      <title>Add a new Pipeline</title>
+      <link>/configuration/quick_pipeline_setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/quick_pipeline_setup.html</guid>
+      <description>Add a New Pipeline There are many ways of creating pipelines in GoCD:
+ You can create them by using Pipelines as Code, by adding pipeline definitions to a repository in formats such as Yaml, JSON, Groovy, etc. You can use GoCD&amp;rsquo;s extensive APIs to create a pipeline. See Pipeline Config API. You can use GoCD&amp;rsquo;s UI to create a pipeline (see below). By cloning an existing pipeline.  New Pipeline Wizard Clicking on the Admin -&amp;gt; Pipelines menu item will take you to the pipelines administration page.</description>
+    </item>
+    
+    <item>
+      <title>Add job to Existing stage</title>
+      <link>/configuration/admin_add_job.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_job.html</guid>
+      <description>Add a new job to an existing GoCD stage Now that we have a pipeline with stage(s), we can add more jobs to any of the existing stages. You can now use the tree navigation on the left side of the screen to edit a stage or a job under a pipeline.
+ Click on the stage name that you want to edit on the tree as shown below. The &amp;ldquo;defaultStage&amp;rdquo; is being edited.</description>
+    </item>
+    
+    <item>
+      <title>Add task to Existing Job</title>
+      <link>/configuration/admin_add_task.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_task.html</guid>
+      <description>Add a new task to an existing GoCD Job Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a job under a stage.
+ Click on the job name that you want to edit on the tree as shown below. The &amp;ldquo;defaultJob&amp;rdquo; is being edited.</description>
+    </item>
+    
+    <item>
+      <title>Authentication</title>
+      <link>/configuration/dev_authentication.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_authentication.html</guid>
+      <description>Authentication A newly installed GoCD server does not require users to authenticate. This is great for a trial. However, it is one of the first things you should change, as soon as you decide to use GoCD more widely.
+GoCD has two methods of authentication built into it: Password-file based authentication and LDAP/Active Directory authentication. You can also choose from a collection of community-maintained plugins for other methods of authentication, such as using Google or GitHub OAuth.</description>
+    </item>
+    
+    <item>
+      <title>Authorizing Users</title>
+      <link>/configuration/dev_authorization.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_authorization.html</guid>
+      <description>Authorization With no security switched on, there is of course no authorization either. Once you have configured security, the default is that any user can perform any operation. However, GoCD can limit certain operations to particular Users or Roles, and manage membership of those Roles.
+Administrators GoCD allows you to restrict the users who can perform certain functions. Administrators is a special role that allows its members to perform any action in GoCD.</description>
+    </item>
+    
+    <item>
+      <title>Auto Delete Artifacts</title>
+      <link>/configuration/delete_artifacts.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/delete_artifacts.html</guid>
+      <description>Auto delete artifacts Introduction GoCD can be configured to automatically delete artifacts if the available disk space on the server is low. GoCD will purge artifacts when available disk space is lower than the given value. Artifacts will be purged up to the point when available disk space is greater than a defined value.
+Configuration Specify artifact purge start and end limits You must be logged in as an admin user to configure this step.</description>
+    </item>
+    
+    <item>
+      <title>Choose When a Stage Runs</title>
+      <link>/configuration/dev_choose_when_stage_runs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_choose_when_stage_runs.html</guid>
+      <description>Choose when a GoCD stage runs Often there are steps in your pipeline that you do not want to happen automatically. For example, you might want to keep binaries from being created for every pipeline (to prevent running out of disk space) or want to choose when your code is deployed to production. Stages in GoCD can be marked as &amp;lsquo;manual&amp;rsquo; just for this purpose.
+You can create a manual pipeline by setting the first stage to manual.</description>
+    </item>
+    
+    <item>
+      <title>Clone/Copy an Existing Agents</title>
+      <link>/configuration/clone_existing_agents.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/clone_existing_agents.html</guid>
+      <description>Setting up a new agent by cloning an existing agent in GoCD Clone the agent An easy way to set up a new agent is to clone an existing one which is already set up and is known to work correctly. You can clone an agent in a couple different ways:
+ Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).</description>
+    </item>
+    
+    <item>
+      <title>Delegating Group Administration</title>
+      <link>/configuration/delegating_group_administration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/delegating_group_administration.html</guid>
+      <description>Delegating Group Administration A GoCD Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section &amp;ldquo;Privileges of a Group Administrator&amp;rdquo;.
+Steps to assign Group Administrators To assign a user as a group administrator:
+ Click on &amp;ldquo;Pipelines&amp;rdquo; tab on the Admin section Locate the group you want to assign a group administrator to Click the &amp;ldquo;Edit&amp;rdquo; link for that group Here, you can define permissions for users and roles  In the above screenshot, the GoCD admin has delegated group admin privileges to a user &amp;ldquo;jez&amp;rdquo; and all users defined under the role &amp;ldquo;groupAdminRole&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Deleting Pipelines</title>
+      <link>/configuration/deleting_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/deleting_pipelines.html</guid>
+      <description>Deleting Pipelines Deleting a pipeline removes an existing pipeline from the config.
+ Warning: Pipeline history is not removed from the database and artifacts are not removed from artifact storage, which may cause conflicts if a pipeline with the same name is later re-created.
+ To delete a pipeline:
+ Navigate to the &amp;ldquo;Admin&amp;rdquo; menu and click the &amp;ldquo;Pipelines&amp;rdquo; item. Locate the pipeline that needs to be deleted. In that row, click on the &amp;ldquo;Delete&amp;rdquo; icon.</description>
+    </item>
+    
+    <item>
+      <title>Elastic Agents</title>
+      <link>/configuration/elastic_agents.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/elastic_agents.html</guid>
+      <description>GoCD Elastic Agents Introduction Elastic Agents is an extension-point in GoCD that allows for on-demand agents which are created and provisioned by an elastic-agent plugin when there are jobs to be executed, and terminated when the agents are running idle. These agents can be in a data center or in the cloud or both, and may be physical or virtual.
+Developers can start building their own elastic-agent plugins by forking the skeleton plugin and looking at a sample docker plugin, docker swarm plugin as an example reference implementation.</description>
+    </item>
+    
+    <item>
+      <title>Email server configuration</title>
+      <link>/configuration/admin_mailhost_info.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_mailhost_info.html</guid>
+      <description>Email server configuration In order to allow email notifications, you need to tell GoCD information about your email server.
+ Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your email server information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
+    </item>
+    
+    <item>
+      <title>Job Timeout</title>
+      <link>/configuration/job_timeout.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/job_timeout.html</guid>
+      <description>Job Timeout Introduction GoCD can be configured to automatically cancel jobs that do not generate any console output for a period of time. Default Job timeout options include:
+ Never : Jobs will never be timed out by default. You can override this behavior when configuring the job in the job editor Timeout after a period of inactivity : A job will be cancelled if it did not have any console output for a period of time (in minutes)  When a job is timed out, the onCancel task for the job will be triggered.</description>
+    </item>
+    
+    <item>
+      <title>Lock a Pipeline</title>
+      <link>/configuration/admin_lock_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_lock_pipelines.html</guid>
+      <description>Pipeline locking: Ensure only one instance of a GoCD pipeline can run at the same time Sometimes you want to ensure that only a single instance of a pipeline can run at a time. This is important if the stages of a pipeline are interrelated. For example the first stage may set up an environment that is used by the next stage in the pipeline.
+If a pipeline is locked then GoCD will not allow any other instance of that pipeline to be scheduled until the currently running one has been completed.</description>
+    </item>
+    
+    <item>
+      <title>Managing Agents</title>
+      <link>/configuration/managing_a_build_cloud.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_a_build_cloud.html</guid>
+      <description>Managing GoCD agents GoCD is designed to make managing a build cloud extremely simple. This page takes you through the lifecycle of expanding your cloud and maintaining your agents.
+Adding a GoCD agent to your cloud The first thing you need to do is install Go agent on the machine you want to add to the cloud.
+Once the GoCD agent has been installed and pointed at your GoCD server, go to the Agents tab on the GoCD dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Managing Artifacts and Reports</title>
+      <link>/configuration/managing_artifacts_and_reports.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_artifacts_and_reports.html</guid>
+      <description>Managing artifacts and reports Because all your work is done on remote agents, GoCD provides a mechanism for files to be automatically uploaded to GoCD server following the completion of every job. These files can then be accessed via the GoCD server dashboard, or via the RESTful API.
+Publishing artifacts The first step in using the artifact repository is to tell GoCD which files you want to publish. To do this just specify the path to the file or directory relative to the root of the source control checkout.</description>
+    </item>
+    
+    <item>
+      <title>Managing Dependencies</title>
+      <link>/configuration/managing_dependencies.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_dependencies.html</guid>
+      <description>Managing dependencies Sometimes you need more complex triggers than a simple pipeline of stages and jobs. In particular, you may want a pipeline to trigger based on the result of a stage in another pipeline. This is possible by adding pipelines as materials.
+Creating a dependency Say we have two pipelines - upstream_pipeline and downstream_pipeline . We want downstream_pipeline to automatically trigger following the successful completion of the stage AutoStage1 in pipeline upstream_pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Managing Environments</title>
+      <link>/configuration/managing_environments.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_environments.html</guid>
+      <description>Managing environments GoCD is configured using an XML configuration file. This file can be edited through the GoCD server dashboard. GoCD allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.
+Creating a new environment An Environment is a grouping of pipelines and agents.</description>
+    </item>
+    
+    <item>
+      <title>Managing Pipelines</title>
+      <link>/configuration/pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipelines.html</guid>
+      <description>Pipelines in GoCD In this section, you can learn about some of the ways you can use and manipulate pipelines in GoCD. In case you&amp;rsquo;re not familiar with the concept of pipelines, please read the concepts page first.</description>
+    </item>
+    
+    <item>
+      <title>Managing Users</title>
+      <link>/configuration/managing_users.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_users.html</guid>
+      <description>Managing Users GoCD&amp;rsquo;s user management features allow you to control access to GoCD and grant role-based permissions.
+All user management features depend on an authentication mechanism having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.
+Adding Users  Navigate to the Admin section Click on the &amp;ldquo;User Summary&amp;rdquo; tab Click the &amp;ldquo;Add User&amp;rdquo; button   Enter a name/email to search for (minimum 2 characters) and click &amp;ldquo;Search&amp;rdquo; This will perform a search across all authentication mechanisms configured (password file and/or LDAP) From the list of results, select the user to add and click &amp;ldquo;Add User&amp;rdquo;  Assigning Roles Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</description>
+    </item>
+    
+    <item>
+      <title>Notifications</title>
+      <link>/configuration/dev_notifications.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_notifications.html</guid>
+      <description>Notifications It is often useful to receive an email when certain status changes occur in a stage. For example, a developer might want to know when their own check-in has broken the build. Alternatively, a manager might want an email whenever a project is deployed into production. Both of these scenarios can be covered by Notification Filters
+Notifications will only work if Security is enabled and mailhost information is correct.</description>
+    </item>
+    
+    <item>
+      <title>Parameterize a pipeline</title>
+      <link>/configuration/admin_use_parameters_in_configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_use_parameters_in_configuration.html</guid>
+      <description>Parameterize your Configuration GoCD allows you to parameterize your pipelines and pipeline templates. This powerful feature can help reduce repetition within your configurations and also allows for complex setups using a combination of parameters and pipeline templates.
+Using Web Interface Edit the Parameters tab when defining a pipeline .
+Defining and using a parameter Parameter values are defined in the &amp;lt;params&amp;gt; tag within a pipeline and can be used anywhere within that pipeline using #{param_name}.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Group Administration</title>
+      <link>/configuration/pipeline_group_admin_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_group_admin_config.html</guid>
+      <description>GoCD Pipeline Groups Administration Pipeline Group Administrators in GoCD can add, remove and edit pipelines in their respective pipeline groups. They can do these operations via the UI as well by editing the config XML of the pipeline group. They can also manage the templates and add any package repositories with the help of plugins.
+Administration using UI The administration page for a pipeline group administrator looks as follows. The controls on the &amp;ldquo;Pipelines&amp;rdquo; tab allows her to edit, clone, delete and move any pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Labelling</title>
+      <link>/configuration/pipeline_labeling.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_labeling.html</guid>
+      <description>GoCD Pipeline Labeling GoCD maintains an internal counter to identify a pipeline. This number increases by 1 for each build. By default, GoCD will use this counter as the pipeline label. This label is also passed to your build as an environment variable: GO_PIPELINE_COUNTER . The pipeline counter increases even if a build fails.
+Changing the default pipeline label You can create a custom label by setting the Label Template field on your pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Scheduling</title>
+      <link>/configuration/pipeline_scheduling.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_scheduling.html</guid>
+      <description>GoCD Pipeline Scheduling Pipelines get scheduled automatically by default. Please see the knowledge base article in the Also see section below. Here we&amp;rsquo;ll see how to disable automatic scheduling.
+Disable automatic scheduling Unchecking the &amp;ldquo;Automatic Pipeline Scheduling&amp;rdquo; checkbox above disables auto scheduling. Actually this is the same as marking first stage as manual. We have just surfaced the option at a pipeline level to make it easier to spot. Please note though that this isn&amp;rsquo;t really a pipeline level configuration.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Templates</title>
+      <link>/configuration/pipeline_templates.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_templates.html</guid>
+      <description>GoCD Pipeline Templates Templating helps to create reusable workflows in order to make tasks like creating and maintaining branches, and managing large number of pipelines easier.
+Creating Pipeline Templates Pipeline Templates can be managed from the Templates tab on the Administration Page.
+Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following form which allows you to create a fresh template, or extract it from an existing pipeline. Once saved, the pipeline indicated will also start using this newly created template.</description>
+    </item>
+    
+    <item>
+      <title>Policy in GoCD</title>
+      <link>/configuration/policy_in_gocd.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/policy_in_gocd.html</guid>
+      <description>Policy A policy is a set of permissions for GoCD entities such as environments, configuration repositories, etc. The policy defines the access of a GoCD entity for the users in a role. GoCD supports a restrictive model of access i.e. until access is granted, the entity can&amp;rsquo;t be accessed by anyone (except admins).
+A permission consists of 3 values:
+ Type: The type of GoCD entity. Supported values are environment, config-repo.</description>
+    </item>
+    
+    <item>
+      <title>Publish Reports and Artifacts</title>
+      <link>/configuration/dev_upload_test_report.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_upload_test_report.html</guid>
+      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you understand why the build is broken. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD.</description>
+    </item>
+    
+    <item>
+      <title>Reference</title>
+      <link>/configuration/configuration_reference.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/configuration_reference.html</guid>
+      <description>GoCD Configuration Reference  &amp;lt;cruise&amp;gt; &amp;lt;server&amp;gt; &amp;lt;security&amp;gt; &amp;lt;ldap&amp;gt; &amp;lt;bases&amp;gt; &amp;lt;base/&amp;gt; &amp;lt;/bases&amp;gt; &amp;lt;/ldap&amp;gt; &amp;lt;passwordFile/&amp;gt; &amp;lt;authConfigs&amp;gt; &amp;lt;authConfig&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/authConfig&amp;gt; &amp;lt;/authConfigs&amp;gt; &amp;lt;roles&amp;gt; &amp;lt;role&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;users/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/role&amp;gt; &amp;lt;pluginRole/&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/pluginRole&amp;gt; &amp;lt;/roles&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;mailhost/&amp;gt; &amp;lt;backup/&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;elastic&amp;gt; &amp;lt;agentProfiles&amp;gt; &amp;lt;agentProfile&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/agentProfile&amp;gt; &amp;lt;/agentProfiles&amp;gt; &amp;lt;clusterProfiles&amp;gt; &amp;lt;clusterProfile/&amp;gt; &amp;lt;/clusterProfiles&amp;gt; &amp;lt;/elastic&amp;gt; &amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;pluginConfiguration/&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;packages&amp;gt; &amp;lt;package&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/package&amp;gt; &amp;lt;/packages&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; &amp;lt;config-repos&amp;gt; &amp;lt;config-repo&amp;gt; &amp;lt;svn /&amp;gt; &amp;lt;hg /&amp;gt; &amp;lt;p4 /&amp;gt; &amp;lt;git /&amp;gt; &amp;lt;tfs /&amp;gt; &amp;lt;scm /&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/config-repo&amp;gt; &amp;lt;/config-repos&amp;gt; &amp;lt;artifactStores&amp;gt; &amp;lt;artifactStore&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/artifactStore&amp;gt; &amp;lt;/artifactStores&amp;gt; &amp;lt;secretConfigs&amp;gt; &amp;lt;secretConfig&amp;gt; &amp;lt;description&amp;gt; &amp;lt;/description&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;/allow&amp;gt; &amp;lt;deny&amp;gt; &amp;lt;/deny&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/secretConfig&amp;gt; &amp;lt;/secretConfigs&amp;gt; &amp;lt;pipelines&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;view&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/view&amp;gt; &amp;lt;operate&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/operate&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;params&amp;gt; &amp;lt;param/&amp;gt; &amp;lt;/params&amp;gt; &amp;lt;trackingtool/&amp;gt; &amp;lt;timer/&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;materials&amp;gt; &amp;lt;svn&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/svn&amp;gt; &amp;lt;hg&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/hg&amp;gt; &amp;lt;p4&amp;gt; &amp;lt;view/&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/p4&amp;gt; &amp;lt;git&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/git&amp;gt; &amp;lt;tfs&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/tfs&amp;gt; &amp;lt;package/&amp;gt; &amp;lt;pipeline/&amp;gt; &amp;lt;/materials&amp;gt; &amp;lt;stage&amp;gt; &amp;lt;approval&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;/approval&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;jobs&amp;gt; &amp;lt;job&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;resources&amp;gt; &amp;lt;resource/&amp;gt; &amp;lt;/resources&amp;gt; &amp;lt;tasks&amp;gt; &amp;lt;fetchartifact&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/fetchartifact&amp;gt; &amp;lt;ant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/ant&amp;gt; &amp;lt;nant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/nant&amp;gt; &amp;lt;rake&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/rake&amp;gt; &amp;lt;exec&amp;gt; &amp;lt;arg/&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/exec&amp;gt; &amp;lt;/tasks&amp;gt; &amp;lt;artifacts&amp;gt; &amp;lt;artifact/&amp;gt; &amp;lt;/artifacts&amp;gt; &amp;lt;tabs&amp;gt; &amp;lt;tab/&amp;gt; &amp;lt;/tabs&amp;gt; &amp;lt;/job&amp;gt; &amp;lt;/jobs&amp;gt; &amp;lt;/stage&amp;gt; &amp;lt;/pipeline&amp;gt; &amp;lt;/pipelines&amp;gt; &amp;lt;templates&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;stage&amp;gt; &amp;hellip; &amp;lt;/stage&amp;gt; &amp;lt;/pipeline&amp;gt; &amp;lt;/templates&amp;gt; &amp;lt;environments&amp;gt; &amp;lt;environment&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;pipelines&amp;gt; &amp;lt;pipeline/&amp;gt; &amp;lt;/pipelines&amp;gt; &amp;lt;/environment&amp;gt; &amp;lt;/environments&amp;gt; &amp;lt;/cruise&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Secret Management</title>
+      <link>/configuration/secrets_management.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/secrets_management.html</guid>
+      <description>Secrets Management Managing secrets is hard, ideally secrets should be stored securely, secrets need to have tight access controls and should be rotated on a regular interval. There are Secret Managers in the market which specialize in solving some of these problems around handling secrets. Leveraging these solutions, GoCD provides plugin endpoints to lookup for secrets defined in an external Secrets Manager. This gives GoCD users the flexibilty to use a Secret Manager of their choice to store and manage secrets.</description>
+    </item>
+    
+    <item>
+      <title>Timer Trigger</title>
+      <link>/configuration/admin_timer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_timer.html</guid>
+      <description>Run a GoCD pipeline on a schedule To run a pipeline at a given time, use a timer. Timers understand a cron-like specification for when to run a pipeline.
+Note that a pipeline will still schedule normally if changes are checked in. If the pipeline should only run according to the timer&amp;rsquo;s schedule then you should also set a manual approval for the first stage of the pipeline to stop it from automatically scheduling when materials change.</description>
+    </item>
+    
+  </channel>
+</rss>

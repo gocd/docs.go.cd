@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Use Environment Variables in GoCD | GoCD User Documentation</title>
+
+<meta name="description" content="Using environment variables in GoCD"/>
+<meta name="keywords" content="[environment variable, GoCD configuration, GoCD tasks, custom command, shell-script, ruby script,]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/faq/dev_use_current_revision_in_build.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/faq/dev_use_current_revision_in_build.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2f faq\2f dev_use_current_revision_in_build.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Use Environment Variables in GoCD</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown">
+
+<h1 id="using-environment-variables-in-gocd">Using Environment Variables in GoCD</h1>
+
+<h2 id="accessing-environment-variables-in-tasks">Accessing environment variables in tasks</h2>
+
+<p>Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending
+on the kind of process used in the task, environment variables are accessed differently. Presented below are some common
+usage scenarios, with the assumption that a job has been configured with an environment variable called <code>ENV_VAR_1</code>,
+with the value <code>VALUE_1</code>.</p>
+
+<h3 id="1-using-an-environment-variable-in-a-custom-command-on-unix-linux">1. Using an environment variable in a custom command on Unix/Linux</h3>
+
+<p>A very common use case for environment variables is to use them as arguments for a custom command
+(<a href="../configuration/admin_add_task.html">&ldquo;exec task&rdquo; in GoCD</a>). Assuming
+that you want to pass the environment variable <code>ENV_VAR_1</code> to the <code>ls</code> command, you might be tempted to try something
+like this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/1_wrong_env_var_usage.png" alt="Figure 1: Wrong usage of environment variable" id="wrong_env_var_usage">
+  <figcaption>Figure 1: Wrong usage of environment variable in custom command task (Will not work)</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/2_wrong_env_var_usage_result.png" alt="Figure 2: Result of wrong usage of environment variable" id="wrong_env_var_usage_result">
+  <figcaption>Figure 2: Result of wrong usage of environment variable in custom command task</figcaption>
+</figure>
+
+<p>As you can see, the environment variable, <code>$ENV_VAR_1</code> was passed in literally to the command <code>ls</code> and was not
+interpolated. What is happening here is that GoCD is directly executing the command and passing in the parameters,
+without involving a shell like bash or sh in the middle. When a command such as <code>ls $ENV_VAR_1</code> is executed from the
+command-line, the shell process is the one that interpolates the environment variable and replaces it with its value, so
+that the <code>ls</code> command does not see it.</p>
+
+<p>So, we need to do the same here. The correct way to invoke this, so that the interpolation of the environment variable
+works is like this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/3_right_env_var_usage.png" alt="Figure 3: Correct usage of environment variable" id="right_env_var_usage">
+  <figcaption>Figure 3: Correct usage of environment variable in custom command task</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/4_right_env_var_usage_result.png" alt="Figure 4: Result of correct usage of environment variable" id="right_env_var_usage_result">
+  <figcaption>Figure 4: Result of correct usage of environment variable in custom command task</figcaption>
+</figure>
+
+<p>Even though the command failed in this example, the value of the environment variable was interpolated. You can replace
+<code>ls</code> with some other command, but the concept remains the same.</p>
+
+<h3 id="2-using-an-environment-variable-in-a-custom-command-on-windows">2. Using an environment variable in a custom command on Windows</h3>
+
+<p>This is easier than using it in a shell script because, on Windows GoCD agents, commands are executed by wrapping them
+in <code>cmd /c</code>. So, environment variables get interpolated automatically. So, with a configuration such as this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/7_env_var_windows_command.png" alt="Figure 5: Usage of environment variable on Windows" id="env_var_usage_windows">
+  <figcaption>Figure 5: Usage of environment variable on Windows</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/8_env_var_windows_command_result.png" alt="Figure 6: Result of usage of environment variable on Windows" id="env_var_usage_windows_result">
+  <figcaption>Figure 8: Result of usage of environment variable on Windows</figcaption>
+</figure>
+
+<p>Similarly, it works when used in a batch file (say, &ldquo;env_var.cmd&rdquo;), with content such as this:</p>
+
+<pre><code>echo Environment variable ENV_VAR_1 is: %ENV_VAR_1%
+</code></pre>
+
+<p>Notice that, unlike on Unix/Linux, the way to access an environment variable on Windows is to use %, instead of $.</p>
+
+<h3 id="3-using-an-environment-variable-in-a-shell-script-on-unix-linux">3. Using an environment variable in a shell-script - On Unix/Linux</h3>
+
+<p>Using an environment variable inside a shell-script is not special at all. You can directly use it, as you would any
+environment variable. For instance, a shell-script with this content, will work when executed normally:</p>
+
+<pre><code>#!/bin/sh
+
+echo &quot;Value of environment variable ENV_VAR_1 is: $ENV_VAR_1&quot;
+</code></pre>
+
+<p>This works when executed directly, with a config such as this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/5_env_var_in_script.png" alt="Figure 9: Usage of environment variable in a shell-script" id="env_var_usage_script">
+  <figcaption>Figure 9: Usage of environment variable in a shell-script</figcaption>
+</figure>
+
+<p>When run, it will end with a message like this:</p>
+
+<figure class="concept_image">
+  <img src="../images/faq/6_env_var_in_script_result.png" alt="Figure 10: Result of usage of environment variable in a shell-script" id="env_var_usage_script_result">
+  <figcaption>Figure 10: Result of usage of environment variable in a shell-script</figcaption>
+</figure>
+
+<h3 id="4-using-an-environment-variable-in-a-ruby-script">4. Using an environment variable in a ruby script</h3>
+
+<p>Again, using an environment variable inside a ruby script is not special at all. This has been mentioned here, just to
+show that scripts written in different languages have to use different mechanisms to access environment variables. A
+ruby script such as this works as expected:</p>
+
+<pre><code>#!/usr/bin/env ruby
+
+puts &quot;Environment variable ENV_VAR_1 has the value: #{ENV['ENV_VAR_1']}&quot;
+</code></pre>
+
+<h2 id="standard-gocd-environment-variables">Standard GoCD environment variables</h2>
+
+<p>The examples above mention a custom environment variable set at the job level. However, there are some standard
+environment variables available during every job run, set by GoCD. They are:</p>
+
+<table>
+<thead>
+<tr>
+<th>Environment Variable</th>
+<th>Description</th>
+<th>Example contents</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>GO_SERVER_URL</td>
+<td>Base URL for the GoCD server (including the context root)</td>
+<td><code>https://127.0.0.1:8154/go</code></td>
+</tr>
+
+<tr>
+<td>GO_ENVIRONMENT_NAME</td>
+<td>The name of the current environment. This is only set if the environment is specified. Otherwise the variable is not set.</td>
+<td><code>Development</code></td>
+</tr>
+
+<tr>
+<td>GO_PIPELINE_NAME</td>
+<td>Name of the current pipeline being run</td>
+<td><code>main</code></td>
+</tr>
+
+<tr>
+<td>GO_PIPELINE_COUNTER</td>
+<td>How many times the current pipeline has been run.</td>
+<td><code>2345</code></td>
+</tr>
+
+<tr>
+<td>GO_PIPELINE_LABEL</td>
+<td>Label for the current pipeline. By default, this is set to the pipeline count (this can be set to a <a href="../configuration/build_labelling.html">custom pipeline label</a>)</td>
+<td><code>1.1.2345</code></td>
+</tr>
+
+<tr>
+<td>GO_STAGE_NAME</td>
+<td>Name of the current stage being run</td>
+<td><code>dev</code></td>
+</tr>
+
+<tr>
+<td>GO_STAGE_COUNTER</td>
+<td>How many times the current stage has been run</td>
+<td><code>1</code></td>
+</tr>
+
+<tr>
+<td>GO_JOB_NAME</td>
+<td>Name of the current job being run</td>
+<td><code>linux-firefox</code></td>
+</tr>
+
+<tr>
+<td>GO_TRIGGER_USER</td>
+<td>Username of the user that triggered the build. This will have one of three possible values<ul><li>anonymous - if there is no security</li><li>username of the user, who triggered the build</li><li>changes, if SCM changes auto-triggered the build</li><li>timer, if the pipeline is triggered at a scheduled time</li></ul></td>
+<td><code>changes</code></td>
+</tr>
+
+<tr>
+<td>GO_DEPENDENCY_LABEL_${pipeline name or material name}</td>
+<td>The label of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>). Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;). For example, upstream pipeline &ldquo;pipeline-foo&rdquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO. In case material name is specified, for example material &ldquo;foo&rdquo; becomes: GO_DEPENDENCY_LABEL_FOO</td>
+<td><code>1.0.3456</code></td>
+</tr>
+
+<tr>
+<td>GO_DEPENDENCY_LOCATOR_${pipeline name}</td>
+<td>The locator of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>), which can be used to create the URL for RESTful API calls</td>
+<td><code>upstream/1.0.3456/dev/1</code></td>
+</tr>
+
+<tr>
+<td>GO_REVISION</td>
+<td>The current source control revision being run (when using only one material)</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_REVISION_${material name or dest}</td>
+<td>If you are using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_TO_REVISION</td>
+<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the latest revision (when using only one material). This is always same as GO_REVISION.</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_TO_REVISION_${material name or dest}</td>
+<td>If you are using more than one material in your pipeline, the &lsquo;to&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>123</code></td>
+</tr>
+
+<tr>
+<td>GO_FROM_REVISION</td>
+<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the oldest revision (when using only one material)</td>
+<td><code>121</code></td>
+</tr>
+
+<tr>
+<td>GO_FROM_REVISION_${material name or dest}</td>
+<td>If you are using more than one material in your pipeline, the &lsquo;from&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>121</code></td>
+</tr>
+
+<tr>
+<td>GO_MATERIAL_HAS_CHANGED</td>
+<td>A boolean value indicating if the material revision has changed since the previous run (when using only one material)</td>
+<td><code>true</code></td>
+</tr>
+
+<tr>
+<td>GO_MATERIAL_${material name or dest}_HAS_CHANGED</td>
+<td>When more than one material is configured for your pipeline, a flag would be available for each of the materials available to denote if the corresponding material&rsquo;s revision has changed since the previous run. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td><code>false</code></td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="use-current-revision-in-a-build">Use current revision in a build</h2>
+
+<p>It is often useful to use the current version control revision number in your build. For example, you might want to use the svn version number in the name of your binary for tracing purposes. GoCD makes much of this information available to your build scripts as environment variables.</p>
+
+<h3 id="example-usages">Example usages</h3>
+
+<h3 id="one-material">One material</h3>
+
+<p>For this example, we are going to assume we are using a single <a href="https://subversion.apache.org/">Subversion</a> repository for our source control system and we have a job set up to call the ant target &ldquo;dist&rdquo;.</p>
+
+<ul>
+<li>Add the following target to your ant <code>build.xml</code></li>
+</ul>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;test-build&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">environment=</span><span style="color:#b44">&#34;env&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;target</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dist&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;echo</span> <span style="color:#b44">message=</span><span style="color:#b44">&#34;Building pipeline ${env.GO_PIPELINE_NAME}&#34;</span>
+          <span style="color:#b44">file=</span><span style="color:#b44">&#34;deploy-${env.GO_REVISION}.txt&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/target&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<ul>
+<li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline on revision 123, the file deploy-123.txt will be created, with the following content:</li>
+</ul>
+
+<pre><code>deploy-123.txt
+
+Building pipeline my-app
+</code></pre>
+
+<h4 id="multiple-materials">Multiple materials</h4>
+
+<p>For this example we are going to assume we are using a <a href="https://subversion.apache.org/">Subversion</a> repository containing
+the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> repository containing configuration scripts.</p>
+
+<ul>
+<li>Ensure the pipeline materials look like this</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;multiple-materials&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;...&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;code&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;...&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;configuration/latest&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+  ...
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
+<ul>
+<li>Add the following target to your ant <code>build.xml</code></li>
+</ul>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-app&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">environment=</span><span style="color:#b44">&#34;env&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;target</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dist&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;echo</span> <span style="color:#b44">message=</span><span style="color:#b44">&#34;Building pipeline ${env.GO_PIPELINE_NAME}&#34;</span>
+          <span style="color:#b44">file=</span><span style="color:#b44">&#34;deploy-${env.GO_REVISION_CODE}.txt&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;echo</span> <span style="color:#b44">message=</span><span style="color:#b44">&#34;Configuration version: ${env.GO_REVISION_CONFIGURATION_LATEST}&#34;</span>
+          <span style="color:#b44">file=</span><span style="color:#b44">&#34;deploy-${env.GO_REVISION_CODE}.txt&#34;</span>
+          <span style="color:#b44">append=</span><span style="color:#b44">&#34;true&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/target&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
+<ul>
+<li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline with the code at revision &lsquo;123&rsquo; and the configuration at revision &lsquo;59cab75ccf231b9e338c96cff0f4adad5cb7d335&rsquo;, the file deploy-123.txt will be created with the following content:</li>
+</ul>
+
+<pre><code>deploy-123.txt
+
+Building pipeline my-app
+Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
+</code></pre>
+
+<h2 id="pass-environment-variables-to-a-job">Pass environment variables to a job</h2>
+
+<p>You can specify variables for Environments, Pipelines, Stages and Jobs. If a variable is specified more than once, the
+most specific scope is used. For example if you specify variable FOO=&lsquo;foo&rsquo; for an environment, and FOO=&lsquo;bar&rsquo; for a Job,
+then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
+
+<h2 id="setting-variables-on-an-environment">Setting variables on an environment</h2>
+
+<p>You can add variables to an environment by editing the configuration of the environment. Click on the name of the environment to edit configuration.</p>
+
+<p><img src="../images/env_variables_environment.png" alt="" /></p>
+
+<p>You specify variables on an environment in the Config XML by adding an <a href="../configuration/configuration_reference.html#environmentvariables">&lt; environmentvariables &gt;</a> section to the environment definition.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/variable&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;MULTIPLE_LINES&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>Variable values can have
+            multiple lines (assuming that your operating system supports this correctly).
+            <span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/variable&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;COMPLEX&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;value&gt;</span><span style="color:#080">&lt;![CDATA[&lt;complex
+</span><span style="color:#080">            values&gt;]]&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/variable&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/environmentvariables&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;agents</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/environment&gt;</span></code></pre></div>
+<p>You can add variables for a job by editing the job configuration.</p>
+
+<p><img src="../images/env_variables_job.png" alt="" /></p>
+
+<p>You specify variables on an job in the Config XML by adding an <a href="../configuration/configuration_reference.html#environmentvariables">&lt; environmentvariables &gt;</a> section to the job definition.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
+       <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/variable&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;MULTIPLE_LINES&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>Variable values can have
+            multiple lines (assuming that your operating system supports this correctly).
+            <span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/variable&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;COMPLEX&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;value&gt;</span><span style="color:#080">&lt;![CDATA[&lt;complex
+</span><span style="color:#080">            values&gt;]]&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/variable&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/environmentvariables&gt;</span>
+    ...
+<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span></code></pre></div></article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/faq/dev_use_current_revision_in_build.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#using-environment-variables-in-gocd">Using Environment Variables in GoCD</a>
+<ul>
+<li><a href="#accessing-environment-variables-in-tasks">Accessing environment variables in tasks</a>
+<ul>
+<li><a href="#1-using-an-environment-variable-in-a-custom-command-on-unix-linux">1. Using an environment variable in a custom command on Unix/Linux</a></li>
+<li><a href="#2-using-an-environment-variable-in-a-custom-command-on-windows">2. Using an environment variable in a custom command on Windows</a></li>
+<li><a href="#3-using-an-environment-variable-in-a-shell-script-on-unix-linux">3. Using an environment variable in a shell-script - On Unix/Linux</a></li>
+<li><a href="#4-using-an-environment-variable-in-a-ruby-script">4. Using an environment variable in a ruby script</a></li>
+</ul></li>
+<li><a href="#standard-gocd-environment-variables">Standard GoCD environment variables</a></li>
+<li><a href="#use-current-revision-in-a-build">Use current revision in a build</a>
+<ul>
+<li><a href="#example-usages">Example usages</a></li>
+<li><a href="#one-material">One material</a>
+<ul>
+<li><a href="#multiple-materials">Multiple materials</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#pass-environment-variables-to-a-job">Pass environment variables to a job</a></li>
+<li><a href="#setting-variables-on-an-environment">Setting variables on an environment</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>

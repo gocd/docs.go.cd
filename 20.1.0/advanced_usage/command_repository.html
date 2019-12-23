@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Command Repository | GoCD User Documentation</title>
+
+<meta name="description" content="Look up a command from GoCD Command Repository"/>
+<meta name="keywords" content="[Command Repository, Custom commands and agents, Args style commands, Bundled Repository, Command syntax, lookup logic]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/command_repository.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/advanced_usage/command_repository.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2f advanced_usage\2f command_repository.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Command Repository</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown">
+
+<h1 id="gocd-command-repository">GoCD Command Repository</h1>
+
+<h2 id="introduction">Introduction</h2>
+
+<p>This feature is an enhancement to <a href="http://support.thoughtworks.com/entries/22873043-go-s-custom-command">Custom Commands</a> in GoCD. Rather than start from scratch with command name and arguments, you now have the option to look up a command from a repository of useful commands maintained by the Go team. The lookup provides a starting point, you may need to edit the arguments, specify a working directory etc. Once saved, the behaviour is the same as a manually entered custom command. Take a look at this <a href="https://www.gocd.org/videos/go-command-repo/">video</a> to learn more.</p>
+
+<h2 id="using-the-command-repository">Using the command repository</h2>
+
+<p>This feature can be used anywhere you need to specify a custom command.</p>
+
+<ul>
+<li><p>Add a new pipeline</p>
+
+<p><img src="../images/cmd_repo_wizard.png" alt="" /></p></li>
+
+<li><p>Add a new stage to a pipeline</p></li>
+
+<li><p>Add a new job to a stage</p></li>
+
+<li><p>Add a new task to a job</p></li>
+
+<li><p>Edit a task</p></li>
+</ul>
+
+<blockquote>
+<p><strong>Custom commands and agents</strong></p>
+
+<p>Go does not check if the command that you have specified is available on the agents.</p>
+
+<p>Install the relevant command on all the agents where you want it to run. If it is not available on the default path, add it to the path in /etc/default/go-agent or equivalent. This requires an agent restart.</p>
+
+<p>Alternatively, create a symbolic link to the path to the executable from /bin or equivalent folder. This doesn&rsquo;t require an agent restart</p>
+</blockquote>
+
+<h3 id="args-style-commands">Args style commands</h3>
+
+<p>The older <a href="../configuration/configuration_reference.html#exec">args</a> style commands are not supported by this feature. Please convert them to the new syntax using the config xml editor ( <strong>Admin &gt; Config XML</strong> ). For example:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;touch&#34;</span> <span style="color:#b44">args=</span><span style="color:#b44">&#34;a b c&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span></code></pre></div>
+<p>becomes</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;touch&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>a<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>b<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span></code></pre></div>
+<h2 id="bundled-repository">Bundled Repository</h2>
+
+<p>The default set of commands come from <a href="https://github.com/gocd/go-command-repo">https://github.com/gocd/go-command-repo</a>. This repository is maintained by the Go team. The Go server installer bundles a clone of this Git repository under <code>&lt;server-install-root&gt;/db/command_repository/default</code>. Every upgrade of Go Server will overwrite the contents of this directory with an up to date set of commands. Hence, please do not add your commands here. Instead, set up a <a href="../advanced_usage/command_repository.html#private-repository">private repository</a>.</p>
+
+<h3 id="pulling-updates">Pulling Updates</h3>
+
+<p>Go team will continue to add (and sometimes update) commands to the repository on GitHub. If you want to make these commands available to your Go server without waiting for a new release or without upgrading your Go server, you could git pull them into <code>&lt;go-server-install-root&gt;/db/command_repository/default</code> as desired.</p>
+
+<h4 id="linux-unix">Linux/Unix</h4>
+
+<p>Here is a simple cron tab entry that you could add to Go service account&rsquo;s cron tab to pull commands once a day.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">@daily <span style="color:#a2f">cd</span> &lt; go-server-install-root &gt;/db/command_repository/default;git pull &gt;&gt;/var/go/cronrun <span style="color:#666">2</span>&gt;&amp;<span style="color:#666">1</span></code></pre></div>
+<blockquote>
+<p><strong>Caution</strong>: Don&rsquo;t pull as root/administrator. Use the Go service account.</p>
+</blockquote>
+
+<h4 id="windows">Windows</h4>
+
+<p>On Windows, you could set up a scheduled task to run this script on a schedule.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> %date% %time% &gt;&gt;c:<span style="color:#b62;font-weight:bold">\p</span>ull-log.txt <span style="color:#666">2</span>&gt;&amp;<span style="color:#666">1</span>
+<span style="color:#a2f">cd</span> <span style="color:#b44">&#34;C:\Program Files (x86)\Go Server\db\command_repository\default&#34;</span>
+git pull &gt;&gt;c:<span style="color:#b62;font-weight:bold">\p</span>ull-log.txt <span style="color:#666">2</span>&gt;&amp;<span style="color:#666">1</span></code></pre></div>
+<p>Go caches these commands with a refresh interval of 30 minutes so you may not see the results of a pull immediately in the lookup unless you hit the reload cache button under the command repository section on the server configuration admin page.</p>
+
+<h4 id="via-api">Via API</h4>
+
+<p>You may make a <code>POST</code> request to the path <code>/go/api/admin/command-repo-cache/reload</code> in order to update the command repository with the latest.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -u username:password -X POST -H <span style="color:#b44">&#39;Confirm: true&#39;</span> http://goserver.com:8153/go/api/admin/command-repo-cache/reload</code></pre></div>
+<h3 id="private-repository">Private Repository</h3>
+
+<p>If you want to add your own commands for look up, you should set up your own Git/Mercurial/Subversion/Perforce/TFS repository that your command authors can commit/check-in into.</p>
+
+<p>Make a clone/working copy available under <code>&lt;go-server-install-root&gt;/db/command_repository/&lt;your-repo-name&gt;</code>. Symbolic links are not supported. Then switch Go Server to this location. To do this, go to <strong>Command Repository Management</strong> section of <strong>Server Configuration</strong> in <strong>Admin</strong> tab and change the <strong>default</strong> value</p>
+
+<p><img src="../images/cmd_repo_mgmt.png" alt="" /></p>
+
+<p>From the Go server&rsquo;s point of view, the command repository is just a directory under which it recursively looks for valid command.xml files. Note that directory names starting with a dot will be ignored.</p>
+
+<blockquote>
+<p>Go will not lookup from the bundled repository if you switch to your own repository. You could choose to manually seed your private command repository with Go&rsquo;s bundled set of commands if you want to have them in addition to your own commands.</p>
+</blockquote>
+
+<h3 id="recommended-process">Recommended process</h3>
+
+<ol>
+<li>Command author pushes/checks-in command to corporate version control system</li>
+<li>Cron job on Go-server pulls/updates local repository/working copy in due course</li>
+<li>Go Server caches the commands to improve response time. In case of changes in the command repository, new command gets into the cache in one of the following ways:
+
+<ol>
+<li>The default cache invalidation interval of 30 mins kicks in and the cache gets refreshed</li>
+<li>Go server admin clicks on the <strong>RELOAD CACHE</strong> button</li>
+<li>Go server admin uses the <strong>reload API</strong> through a cron job or otherwise to force a cache reload.</li>
+</ol></li>
+</ol>
+
+<blockquote>
+<p>The commands in the command repository are not part of your Go Server config. They become part of your Go server config only after you (optionally edit and) save them.</p>
+</blockquote>
+
+<h2 id="command-syntax-and-lookup-logic">Command syntax and lookup logic</h2>
+
+<p><img src="../images/cmd_repo_curl.png" alt="" /></p>
+
+<p>The above screenshot resulted from the command below:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080;font-style:italic">&lt;!--
+</span><span style="color:#080;font-style:italic">name: curl
+</span><span style="color:#080;font-style:italic">description: Download from a protected Url and saveToFile
+</span><span style="color:#080;font-style:italic">author: Go Team
+</span><span style="color:#080;font-style:italic">authorinfo: http://support.thoughtworks.com/categories/20002778-go-community-support
+</span><span style="color:#080;font-style:italic">keywords: curl, http, download, wget
+</span><span style="color:#080;font-style:italic">moreinfo: http://curl.haxx.se/docs/manual.html
+</span><span style="color:#080;font-style:italic">--&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;curl&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-o<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>saveToFile<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-u<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>user:password<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>http://targeturl<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span></code></pre></div>
+<p>This is an example of valid command syntax. The command attribute is mandatory. No other attributes are valid. Zero or more arg child elements can be specified. No other child elements are allowed. One command file may only contain one command.</p>
+
+<blockquote>
+<p><strong>Please refer the <a href="https://github.com/gocd/go-command-repo#readme">README</a> for full command and documentation syntax.</strong></p>
+</blockquote>
+
+<p>When you lookup a command, the following logic is used to sort the resulting suggestions:</p>
+
+<ol>
+<li>Exact matches of name in command documentation (or filename if name missing)</li>
+<li>Partial starts-with matches of name in command documentation (or filename if name missing)</li>
+<li>Exact matches of keywords in command documentation</li>
+</ol>
+
+<p>Within each category, the sorting is alphabetical.</p>
+
+<h2 id="contributing-commands">Contributing Commands</h2>
+
+<p>We welcome commands contributed by users. Simply,</p>
+
+<ol>
+<li><a href="https://help.github.com/articles/fork-a-repo">fork</a> this <a href="https://github.com/gocd/go-command-repo">GitHub repo</a></li>
+<li>Clone it locally</li>
+<li>Commit and push your change</li>
+<li>Send us a <a href="https://help.github.com/articles/using-pull-requests">pull request</a></li>
+</ol>
+
+<p>Accepted commands will be bundled into the next release.</p>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/command_repository.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#gocd-command-repository">GoCD Command Repository</a>
+<ul>
+<li><a href="#introduction">Introduction</a></li>
+<li><a href="#using-the-command-repository">Using the command repository</a>
+<ul>
+<li><a href="#args-style-commands">Args style commands</a></li>
+</ul></li>
+<li><a href="#bundled-repository">Bundled Repository</a>
+<ul>
+<li><a href="#pulling-updates">Pulling Updates</a>
+<ul>
+<li><a href="#linux-unix">Linux/Unix</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#via-api">Via API</a></li>
+</ul></li>
+<li><a href="#private-repository">Private Repository</a></li>
+<li><a href="#recommended-process">Recommended process</a></li>
+</ul></li>
+<li><a href="#command-syntax-and-lookup-logic">Command syntax and lookup logic</a></li>
+<li><a href="#contributing-commands">Contributing Commands</a></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>

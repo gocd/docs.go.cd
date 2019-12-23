@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Authorizing Users | GoCD User Documentation</title>
+
+<meta name="description" content="GoCD authorization and administration"/>
+<meta name="keywords" content="[GoCD configuration, authorization, administration, users, roles, role-based security, security, security configuration, user permissions, pipeline groups, pipeline permissions, GoCD administration]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/configuration/dev_authorization.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/configuration/dev_authorization.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2f configuration\2f dev_authorization.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Authorizing Users</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown">
+
+<h1 id="authorization">Authorization</h1>
+
+<p>With no security switched on, there is of course no authorization either. Once you have configured security, the default is that any user can perform any operation. However, GoCD can limit certain operations to particular Users or Roles, and manage membership of those Roles.</p>
+
+<h2 id="administrators">Administrators</h2>
+
+<p>GoCD allows you to restrict the users who can perform certain functions. Administrators is a special role that allows its members to perform any action in GoCD. Specifying administrators is optional &ndash; without it, all users are automatically made administrators.</p>
+
+<p>If administrators are specified, only they can perform the following actions:</p>
+
+<ul>
+<li>Access the &ldquo;administration&rdquo; tab</li>
+<li>Add/Edit Pipeline Templates</li>
+<li>Enable agents</li>
+<li>Add / remove agent resources</li>
+</ul>
+
+<p>Users can be made administrators from the &ldquo;User Summary&rdquo; tab in the &ldquo;Admin&rdquo; section.</p>
+
+<p><img src="../images/user_summary_make_admin.png" alt="" /></p>
+
+<p>To give admin privileges to users and/or roles via &ldquo;Config xml&rdquo;, please refer to the example in the section below, where members of the &ldquo;go_admin&rdquo; role (jhumble and qiao), along with the user chris, can administer Go.</p>
+
+<h2 id="role-based-access-control">Role-based Access Control</h2>
+
+<p>You can define roles that can be used anywhere that authorization is required. A role is just a group of users. Administrators can add users to a new or existing role from the &ldquo;User Summary&rdquo; tab in the &ldquo;Admin&rdquo; section. Here, you can select any number of users and assign a new or existing role to them. In this example, user &ldquo;aantony&rdquo; is being added to the role &ldquo;analyst&rdquo;</p>
+
+<p><img src="../images/user_summary_add_user_to_role.png" alt="" /></p>
+
+<p>For power users, here&rsquo;s how you would configure roles via &ldquo;Config XML&rdquo;:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;license...</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;passwordFile</span> <span style="color:#b44">path=</span><span style="color:#b44">&#34;/etc/go-server/passwords.properties&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+
+      <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;qa&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>dyang<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>pavan<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go_admin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>jhumble<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>qiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+
+      <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>go_admin<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>chris<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/security&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
+<p>In this example, the &ldquo;qa&rdquo; role has two users: dyang and pavan. The &ldquo;go_admin&rdquo; role also has two users: jhumble and qiao.</p>
+
+<p>Starting GoCD 19.11.0, the roles can be configured to allow how the users assigned the role can access a GoCD entity.
+GoCD system administrators can now define a role with a <code>policy</code> that will contain a set of permissions to govern access of a GoCD entity for the users belonging to the role.</p>
+
+<p>The following role definition would grant <code>view</code> action permissions for GoCD entity type <code>environment</code> with the matching wild card pattern:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">...
+    <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;view-permissions&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+                <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;view&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>env*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+...</code></pre></div>
+<p>This means that any user which has the role <code>view-permissions</code> will get <code>view</code> access to the environments which have the name starting with <code>env</code>.
+You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
+
+<h2 id="specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</h2>
+
+<p>GoCD allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.</p>
+
+<p>The <strong>&ldquo;view&rdquo; permission</strong> allows users to view the pipeline. It does not give permission to trigger pipelines, approve stages, or re-run stages. In the below example, the users &ldquo;akrishna&rdquo; and &ldquo;aantony&rdquo; can view the pipelines in this group, but they cannot perform any operations on it.</p>
+
+<p>The <strong>&ldquo;operate&rdquo; permission</strong> allows users to trigger pipelines and its stages. In the below example, the role &ldquo;developer&rdquo; is being granted the operate permission and will be able to trigger pipelines and its stages within this group.</p>
+
+<p>The <strong>&ldquo;admin&rdquo; permission</strong> makes the user a <a href="delegating_group_administration.html">Pipeline Group Administrator</a> allowing him to view, operate and administer the pipeline group. In the below example, role &ldquo;admins&rdquo; has been granted this permission.</p>
+
+<blockquote>
+<p>Note that is is possible to give a user or role only the operate permission. In the example below, the user &ldquo;bot&rdquo; only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of Go.</p>
+</blockquote>
+
+<p>To edit the permissions for a pipeline group, navigate to the &ldquo;Pipelines&rdquo; tab on the &ldquo;Admin&rdquo; section:</p>
+
+<p><img src="../images/group_list.png" alt="" /></p>
+
+<p>Then, click the &ldquo;Edit&rdquo; link for the pipeline group you want to manage permissions for:</p>
+
+<p><img src="../images/group_permission.png" alt="" /></p>
+
+<p>If no authorization is defined for a pipeline group, all GoCD users will have view and operate permissions to that group.</p>
+
+<p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;Shine&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>aantony<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>akrishna<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>developer<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;operate&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>bot<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>developer<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/operate&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>admins<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
+  ...
+<span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span></code></pre></div>
+<h2 id="adding-authorization-to-approvals">Adding authorization to approvals</h2>
+
+<p>In GoCD, it is possible to specify <a href="managing_pipelines.html">manual approvals</a> between stages. You can also specify which user is allowed to trigger manual approvals.</p>
+
+<p>The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role &ldquo;admin&rdquo;, and the user &ldquo;goleys&rdquo;, can trigger the approval.</p>
+
+<p><img src="../images/stage_permissions.png" alt="" /></p>
+
+<p>For power users, here&rsquo;s how you would configure authorization for approvals for a stage via &ldquo;Config XML&rdquo;:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;defaultStage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+
+  <span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>admin<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>goleys<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/approval&gt;</span>
+
+  <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>uat<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/resources&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;deploy&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span></code></pre></div>
+<p><a id="template-admin"></a></p>
+
+<h2 id="specifying-permissions-for-templates">Specifying permissions for templates</h2>
+
+<p>A GoCD Administrator can make any user a template administrator for a specific template. As a template administrator, a user can now view and edit the template to which he has permissions.</p>
+
+<p>To edit the permissions for a template, navigate to the &ldquo;Templates&rdquo; tab on the &ldquo;Admin&rdquo; section:</p>
+
+<p><img src="../images/templates_tab_on_admin_page.png" alt="" /></p>
+
+<p>Then, click the &ldquo;Permissions&rdquo; link for the template you want to manage permissions for:</p>
+
+<p><img src="../images/add_template_permissions.png" alt="" /></p>
+
+<p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;templates&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;app-1-template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>operate<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
+      ...
+    <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/templates&gt;</span></code></pre></div>
+<h3 id="also-see">Also See</h3>
+
+<ul>
+<li><a href="delegating_group_administration.html">Delegating group administration</a></li>
+</ul>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/dev_authorization.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#authorization">Authorization</a>
+<ul>
+<li><a href="#administrators">Administrators</a></li>
+<li><a href="#role-based-access-control">Role-based Access Control</a></li>
+<li><a href="#specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</a></li>
+<li><a href="#adding-authorization-to-approvals">Adding authorization to approvals</a></li>
+<li><a href="#specifying-permissions-for-templates">Specifying permissions for templates</a>
+<ul>
+<li><a href="#also-see">Also See</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>

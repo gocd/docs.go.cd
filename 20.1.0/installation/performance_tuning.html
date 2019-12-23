@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Performance Tuning | GoCD User Documentation</title>
+
+<meta name="description" content="Recommendations to evaluate server hardware and memory requirements for your GoCD server installation."/>
+<meta name="keywords" content="[install gocd, server requirements, scale gocd, performance tuning, continuous delivery]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/installation/performance_tuning.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/installation/performance_tuning.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2finstallation\2fperformance_tuning.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Performance Tuning</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown">
+
+<h1 id="gocd-performance-tuning">GoCD Performance Tuning</h1>
+
+<h2 id="capacity-planning">Capacity Planning</h2>
+
+<p>This section provides recommendations to evaluate server hardware and memory requirements for your GoCD server. It also highlights some configurations which need to be taken care of when scaling GoCD.</p>
+
+<h3 id="minimum-server-requirements">Minimum server requirements</h3>
+
+<p>The minimum requirements for a GoCD server can be found <a href="../installation/system_requirements.html">here</a></p>
+
+<h3 id="scaling-gocd">Scaling GoCD</h3>
+
+<p>As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.</p>
+
+<p>If you have questions or have custom requirements, please contact support@thoughtworks.com to help with capacity planning for GoCD server</p>
+
+<h3 id="things-to-remember">Things to Remember</h3>
+
+<p>Do not run any other CPU intensive applications on the same box as the GoCD Server.</p>
+
+<p>When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are <code>-Xms512m</code> (minimum) and <code>-Xmx1024m</code> (maximum). To utilize more heap space, set the JVM option <code>-Xmx</code> to a higher value (for e.g. to use 8 GB heap, set the flag <code>-Xmx8g</code>). This flag can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># use minimum JVM heap of 4gb</span>
+wrapper.java.additional.100<span style="color:#666">=</span>-Xms4g
+<span style="color:#080;font-style:italic"># use maximum JVM heap of 8gb</span>
+wrapper.java.additional.2<span style="color:#666">=</span>-Xmx8g</code></pre></div>
+<p>For linux/unix users running large setups, an exception might be seen in <code>go-server.log</code> mentioning &ldquo;Too many open files&rdquo;. This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command <code>ulimit -n</code> can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:</p>
+
+<ol>
+<li>Edit <code>/etc/security/limits.conf</code> and add the lines: <code>soft nofile 1024 * hard nofile 65535</code></li>
+<li>Edit <code>/etc/pam.d/login</code>, adding the line: <code>session required /lib/security/pam_limits.so</code></li>
+<li>The system file descriptor limit can be increased by setting <code>fs.file-max</code> in the file <code>/etc/sysctl.conf</code>. To set the limit to <code>65535</code> use <code>echo &quot;fs.file-max = 65535&quot; &gt;&gt; /etc/sysctl.conf</code></li>
+</ol>
+
+<h3 id="tuning-your-jvm">Tuning your JVM</h3>
+
+<p>Ensure that the latest JVM is used always, as there are major performance improvements with every release.</p>
+
+<p>The minimum and maximum JVM heap space allocated to the GoCD server affects its performance. GoCD uses default values of <code>512m</code> and <code>1024m</code> for minimum and maximum JVM heap sizes respectively. However, for production environments, we recommend setting the minimum and maximum values to an identical value.</p>
+
+<p>The default heap settings mentioned above are for a 32-bit JVM. But if the GoCD server is facing performance issues we recommend doubling the values in the heap settings and measuring performance. If its seen that more than 3 GB of heap memory is needed, we recommend a switch to 64-bit JVM. Our tests show that GoCD server performs much better on a 64 bit JVM than a 32 bit JVM provided the heap memory has been increased appropriately. This is needed because 64-bit JVM makes use of 64-bit addresses instead of 32bits, allowing it to use more memory.</p>
+
+<p>Start with the default settings and increase the heap memory incrementally to suit your application.</p>
+
+<h3 id="storage">Storage</h3>
+
+<p>For optimal performance in artifact transfer GoCD would need storage with good disk I/O throughput. We recommend local storage for GoCD database and artifacts. Disk space can be reclaimed through deletion of historical artifacts.</p>
+
+<p>If using network storage is preferred, ensure that the speeds and throughput are good.</p>
+
+<p>Use RAID Configuration for higher throughput if the GoCD Server is expected to be an intensive setup. If you expect to have large artifacts you could use use different RAID configurations for GoCD database and artifacts. For example, 2 drives on RAID1 can be be used for the GoCD database (for redundancy), 3+ hard drives on RAID5 can be used for artifacts so that access to database and artifacts is optimized.</p>
+
+<h3 id="improving-server-startup-time">Improving Server Startup Time</h3>
+
+<p>The start up time for a very large GoCD Server instance could be improved by delaying material polling and pipeline scheduling to a few seconds after the server starts up. This would allow the server to warm up and cache some of the data before it is bombarded with threads that poll for material updates and pipelines that need to be scheduled. Following are the JVM properties that enable such a delay:</p>
+
+<ul>
+<li><p><code>cruise.material.update.delay</code> - This value is specified in milliseconds. It has a default value of 10,000. This means that material polling would only start 10s after the server starts.</p></li>
+
+<li><p><code>cruise.produce.build.cause.delay</code> - Likewise, this value is also specified in milliseconds. It again defaults to 10,000 meaning that scheduling of pipelines would take place only 10s after the server starts up.</p></li>
+</ul>
+
+<p>The two values above do not affect the frequency of material polling or pipeline scheduling.</p>
+
+<h2 id="troubleshooting">Troubleshooting</h2>
+
+<h3 id="enable-gc-logging">Enable GC Logging</h3>
+
+<p>An easy way to check the memory usage, heap size (initial and over time) and GC metrics of the application is by turning on GC logging. GC logging can be enabled using the following JVM arguments while starting the application (Note: the log file specified as file is reset each time the VM starts.)</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-verbose:gc -Xloggc:file -XX:+PrintGCTimeStamps</code></pre></div>
+<p>In case of the GoCD server, these arguments will have to be added in the script that starts the Go jar:</p>
+
+<ul>
+<li>For linux : <code>/usr/share/go-server/server.sh</code></li>
+<li>For Windows: <code>[go_server_installation_dir]/server.cmd</code> In most cases GoCD is installed in <code>C:\Program Files\Go Server</code></li>
+</ul>
+
+<h3 id="using-jconsole">Using JConsole</h3>
+
+<p>JConsole is a graphical monitoring tool to monitor Java Virtual Machine (JVM) which comes as part of the JDK installation. It can be used to monitor the current state of a process without much overhead. If the GoCD server&rsquo;s performance is slow, some metrics can be immediately analysed using jconsole.</p>
+
+<p>Since jconsole is a graphical tool, make sure you have an access to display, when running the following command. That is, use <code>ssh -X</code> or VNC if GoCD is on linux. Use remote desktop if the GoCD server is on windows.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ jconsole</code></pre></div>
+<p>Select the local process <code>go.jar</code> when the jconsole GUI opens up. This shows the current heap memory usage, threads, cpu usage etc. Screenshots of the VM Summary and the overview page can be taken to be sent to the GoCD Support team, if required.</p>
+
+<blockquote>
+<p>Please note that in case of linux, jconsole will have to be started as &lsquo;go&rsquo; user. In Windows, starting the process as administrator should suffice.</p>
+</blockquote>
+
+<p>More information about jconsole can be found <a href="http://download.oracle.com/javase/1.5.0/docs/guide/management/jconsole.html">here</a>.</p>
+
+<h3 id="cpu-and-memory-profiling">CPU and memory profiling</h3>
+
+<p>Yourkit java profiler is a recommended tool for profiling the CPU and memory of the GO Server.</p>
+
+<p>To start using yourkit, download the latest version of the Yourkit java profiler from <a href="http://www.yourkit.com/download/index.jsp">http://www.yourkit.com/download/index.jsp</a>. Unpack to [yourkit_profiler_directory] The following steps will enable the GoCD server to pick up the yourkit profiler agent and enable us to take memory and cpu snapshots.</p>
+
+<p>For Linux</p>
+
+<ol>
+<li><p>Create a symlink for <code>libyjpagent.so</code> file to <code>/usr/lib/yourkit</code> folder. When the GoCD server starts up, it looks at this folder to see if it needs to start with profiling enabled or not. If you want to change the default path of the yourkit agent, you can edit <code>server.sh</code> at <code>/usr/share/go-server/server.sh</code></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-32/libyjpagent.so /usr/lib/yourkit/libyjpagent.so</code></pre></div>
+<p>For 64-bit JVM, the command is:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-64/libyjpagent.so /usr/lib/yourkit/libyjpagent.so</code></pre></div></li>
+
+<li><p>Restart the server after this, and the yourkit agent should get picked up by the server VM. Let the server start up and agents get registered.</p></li>
+</ol>
+
+<p>For Windows</p>
+
+<ol>
+<li>By default, GoCD server looks for the yourkit profiler agent yjpagent.dll in the location <code>C:\yjpagent.dll</code>. Therefore, copy the file <code>yjpagent.dll</code> (which is the yourkit profiler agent) from <code>[yourkit_profiler_directory]\bin\win32</code> to <code>C:\yjpagent.dll</code>. Copy the file from <code>[yourkit_profiler_directory}\bin\win64</code> if you are using 64 bit JVM.</li>
+<li>To change the above mentioned default location: define environment variable <code>YOURKIT_PATH</code> with value equal to location of <code>yjpagent.dll</code>.</li>
+
+<li><p>If you are running the GoCD server as a service, you will need to perform an additional step. In the config folder of the GoCD server installation, edit the <em><a href="installing_go_server.html">wrapper-properties.conf</a></em> file, and add an additional property with the following value</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b44">&#34;-agentpath: [Path to yjpagent.dll]=port=6133,builtinprobes=none&#34;</span></code></pre></div>
+<p>For example, if there are 16 properties already defined, add this 17th property as shown below</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-agentpath:C:\yjpagent.dll=port=6133,builtinprobes=none&#34;</span></code></pre></div></li>
+</ol>
+
+<p>Use the following steps to take profile the application and take snapshots. The <code>hostname</code> mentioned here is the hostname of the GoCD Server. In most cases, it would be &lsquo;localhost&rsquo;. The value of <code>port</code> is 6133, because GoCD starts the yjpagent on port 6133.</p>
+
+<ol>
+<li><p>To start profiling, run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port  start-cpu-sampling</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-monitor-profiling</code></pre></div>
+<p>If memory allocation profiling is also required:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-alloc-recording-adaptive</code></pre></div></li>
+
+<li><p>Let the server run for some time till you start seeing performance problems. 30 mins of snapshot should give us enough data.</p></li>
+
+<li><p>To capture the snapshot - Run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port capture-performance-snapshot</code></pre></div>
+<p>To capture memory snapshot</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port capture-memory-snapshot</code></pre></div></li>
+
+<li><p>To stop profiling, run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-cpu-profiling<span style="color:#b44">`</span></code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-monitor-profiling</code></pre></div>
+<p>If memory profiling was turned on,s top it using the following command</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-alloc-recording</code></pre></div></li>
+
+<li><p>Once you&rsquo;re done profiling, run the following so that on the next GoCD server restart, the agent is not loaded into the JVM.</p>
+
+<p>In case of linux, run the following command:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo rm /usr/lib/yourkit/libyjpagent.so</code></pre></div></li>
+</ol>
+
+<p>In case of windows, delete the file <code>C:\yjpagent.dll</code>. If you were using the variable <code>YOURKIT_PATH</code>, then remove the environment variable.</p>
+
+<p>These snapshots will be saved in the yourkit configured snapshots folder. They can be sent to the GoCD Support so that they can be examined to help find the root cause of the performance.</p>
+
+<h3 id="contact-gocd-support">Contact GoCD Support</h3>
+
+<p>If the GoCD server continues to behave poorly, send us the following data.</p>
+
+<ol>
+<li><p>Database file <code>cruise.h2.db</code>. Stop the server and take a backup of the database. Location:</p>
+
+<p>Linux: <code>/var/lib/db/h2db/cruise.h2.db</code></p>
+
+<p>Windows: <code>[go_installation_dir]\db\h2db\cruise.h2.db</code></p></li>
+
+<li><p>Log file <code>go-server.log</code>. Location:</p>
+
+<p>Linux: <code>/var/log/go-server/go-server.log</code></p>
+
+<p>Windows: <code>[go_installation_dir]\go-server.log</code></p></li>
+
+<li><p>GoCD config file <code>cruise-config.xml</code>. Location:</p>
+
+<p>Linux: <code>/etc/go/cruise-config.xml</code></p>
+
+<p>Windows: <code>[go_installation_dir]\config\cruise-config.xml</code></p></li>
+
+<li><p>If any Yourkit and jconsole snapshots as mentioned in the previous points, its useful if that can be sent too.</p></li>
+</ol>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/performance_tuning.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#gocd-performance-tuning">GoCD Performance Tuning</a>
+<ul>
+<li><a href="#capacity-planning">Capacity Planning</a>
+<ul>
+<li><a href="#minimum-server-requirements">Minimum server requirements</a></li>
+<li><a href="#scaling-gocd">Scaling GoCD</a></li>
+<li><a href="#things-to-remember">Things to Remember</a></li>
+<li><a href="#tuning-your-jvm">Tuning your JVM</a></li>
+<li><a href="#storage">Storage</a></li>
+<li><a href="#improving-server-startup-time">Improving Server Startup Time</a></li>
+</ul></li>
+<li><a href="#troubleshooting">Troubleshooting</a>
+<ul>
+<li><a href="#enable-gc-logging">Enable GC Logging</a></li>
+<li><a href="#using-jconsole">Using JConsole</a></li>
+<li><a href="#cpu-and-memory-profiling">CPU and memory profiling</a></li>
+<li><a href="#contact-gocd-support">Contact GoCD Support</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>
