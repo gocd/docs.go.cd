@@ -18,7 +18,7 @@ As a GoCD administrator, you can auto approve remote agents by using a shared ke
 </cruise>
 ```
 
-- On the remote GoCD Agent machine, create a file named `<agent_installation_directory>/config/autoregister.properties`.
+- On the remote GoCD Agent machine, create a file named `<agent_installation_directory>/config/autoregister.properties`. In a native agent installation this file is usually located on `/var/lib/go-agent/config/` directory. The `config/` folder might not exist, in this case you should create it by yourself.
 
     This file supports the following properties
 
