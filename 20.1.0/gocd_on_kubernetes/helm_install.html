@@ -338,7 +338,12 @@ if (!doNotTrack) {
 
 <p>Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.</p>
 
-<p>Install the official GoCD Helm chart with this command:</p>
+<p>First verify your Helm version using command <code>helm version</code>.</p>
+
+<p>For Helm version 3 and bove, install the official GoCD Helm chart with this command:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create ns gocd
+helm install gocd stable/gocd --namespace gocd</code></pre></div>
+<p>If you&rsquo;re using an older version of Helm, then use this command:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm install stable/gocd --name gocd --namespace gocd</code></pre></div>
 <h2 id="access-the-gocd-server">Access the GoCD server</h2>
 
