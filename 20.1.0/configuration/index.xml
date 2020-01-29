@@ -316,7 +316,7 @@ Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following f
       <guid>/configuration/policy_in_gocd.html</guid>
       <description>Policy A policy is a set of permissions for GoCD entities such as environments, configuration repositories, etc. The policy defines the access of a GoCD entity for the users in a role. GoCD supports a restrictive model of access i.e. until access is granted, the entity can&amp;rsquo;t be accessed by anyone (except admins).
 A permission consists of 3 values:
- Type: The type of GoCD entity. Supported values are environment, config-repo.</description>
+ Type: The type of GoCD entity. Supported values are environment, config_repo, cluster_profile, elastic_agent_profile.</description>
     </item>
     
     <item>

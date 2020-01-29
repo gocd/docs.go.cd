@@ -339,9 +339,9 @@ if (!doNotTrack) {
 <p>A permission consists of 3 values:</p>
 
 <ol>
-<li><strong>Type</strong>: The type of GoCD entity. Supported values are <code>environment, config-repo</code>. Wildcard(<code>*</code>) is also permitted which means all supported values.</li>
+<li><strong>Type</strong>: The type of GoCD entity. Supported values are <code>environment, config_repo, cluster_profile, elastic_agent_profile</code>. Wildcard(<code>*</code>) is also permitted which means all supported values.</li>
 <li><strong>Action</strong>: The action which is controlled. Supported values are <code>view</code> and <code>administer</code></li>
-<li><strong>Resource</strong>: The resource can be the name of entity or a pattern consisting of wildcard (<code>*</code>) matching one or more entities
+<li><strong>Resource</strong>: The resource can be the name of entity or a pattern consisting of wildcard (<code>*</code>) matching one or more entities and can optionally be namespaced within parent entity using <code>:</code> separator.<br />
 <br /></li>
 </ol>
 
@@ -508,6 +508,270 @@ if (!doNotTrack) {
 </table></li>
 </ol>
 
+<h3 id="elastic-agent-configuration">Elastic Agent Configuration</h3>
+
+<p>GoCD supports dynamic provisioning of agents using Elastic Agents. To Configure an elastic agent in GoCD, a user is required to configure Cluster Profiles and Elastic Agent Profiles.</p>
+
+<p>In most cases, a single GoCD instance is being utilized by multiple teams.
+Each team can have their own build environments e.g. development, staging, production, etc. Where each build environment is mapped to a cluster profile.
+And the type and the configurations of the agent is specified as an elastic agent profile.</p>
+
+<p>As Cluster Profiles and Elastic Agent Profiles are inter-dependent, a specific permission policy can be specified to provide granular access as per teams.</p>
+
+<h4 id="basic-permissions">Basic Permissions</h4>
+
+<h5 id="cluster-profile">Cluster Profile</h5>
+
+<ol>
+<li><p>API</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Index</th>
+<th>Get</th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>View</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+</tr>
+
+<tr>
+<td>Administer</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>UI</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>List</th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+<th>Cluster Status Report</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>View</td>
+<td>&#x2714;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2714;</td>
+</tr>
+
+<tr>
+<td>Administer</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+
+<h5 id="elastic-agent-profile">Elastic Agent Profile</h5>
+
+<ol>
+<li><p>API</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Index</th>
+<th>Get</th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>View</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+</tr>
+
+<tr>
+<td>Administer</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+</tr>
+</tbody>
+</table></li>
+
+<li><p>UI</p>
+
+<table>
+<thead>
+<tr>
+<th></th>
+<th>List</th>
+<th>Create</th>
+<th>Update</th>
+<th>Delete</th>
+<th>Agent Status Report</th>
+<th>Elastic Profiles Usage</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>View</td>
+<td>&#x2714;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2718;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+</tr>
+
+<tr>
+<td>Administer</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+<td>&#x2714;</td>
+</tr>
+</tbody>
+</table></li>
+</ol>
+
+<h4 id="implicit-permission">Implicit Permission</h4>
+
+<ol>
+<li><p>Any permission on the Cluster profile is implicitly applied to all the Elastic Agent Profiles of the same cluster.</p>
+
+<p><em>Example</em>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;frontend_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Bob<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;cluster_profile&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>frontend_team_uat_cluster<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;elastic&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;agentProfiles&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;node6-agent&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;frontend_team_uat_cluster&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;node8-agent&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;frontend_team_uat_cluster&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;/agentProfiles&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;clusterProfiles&gt;</span>
+               <span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;frontend_team_uat_cluster&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.contrib.docker&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;/clusterProfiles&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/elastic&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
+<p>In the give role, The user <code>Bob</code> has given administrative access on the <code>frontend_team_uat_cluster</code> cluster.
+With implicit permissions, the user <code>Bob</code> is allowed to administer <code>frontend_team_uat_cluster</code> cluster profile and <code>node6-agent</code>, <code>node8-agent</code> elastic agent profiles.</p></li>
+
+<li><p>Any permission on the Elastic Agent profile provides the <strong>view</strong> permission to the associated Cluster Profile.</p>
+
+<p><em>Example</em>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;frontend_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Bob<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;elastic_agent_profile&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>node6-agent<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;elastic&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;agentProfiles&gt;</span>
+              <span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;node6-agent&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;frontend_team_uat_cluster&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;/agentProfiles&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;clusterProfiles&gt;</span>
+               <span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;frontend_team_uat_cluster&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.contrib.docker&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;/clusterProfiles&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/elastic&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
+<p>In the give role, The user <code>Bob</code> has given administrative access on the <code>node6-agent</code> elastic agent profile.
+With implicit permissions, the user <code>Bob</code> is allowed to administer <code>node6-agent</code> elastic agent profile and is also able to view <code>frontend_team_uat_cluster</code> cluster profile.</p></li>
+</ol>
+
+<h4 id="namespaced-permission">Namespaced Permission</h4>
+
+<p>In a distributed teams setup, along with granting permissions to create GoCD entities, we often want to restrict users from performing certain operations.
+Within namespaced resource permissions we can restrict user permissions to a particular entity.</p>
+
+<p>Namespaced resource permissions can be specified using colon (<code>:</code>) separator. Example: <code>parent_entity:child_entity</code>.
+This would enforce the given user has access to operate on <code>child_entity</code> only within <code>parent_entity</code>.</p>
+
+<p>While creating elastic agent configurations we often to restrict users to to their team&rsquo;s cluster profiles and elastic profiles.
+Following is the example which demonstrates permission restrictions using namespaced resource as per teams.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;frontend_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Bob<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;elastic_agent_profiles&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>frontend_*:*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;backend_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>John<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;elastic_agent_profiles&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>backend_*:*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;devops_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+           <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Admin<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+           <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;elastic_agent_profiles&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*:*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+         <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+     <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span></code></pre></div>
+<p>In the given example:</p>
+
+<ol>
+<li>As part of role <code>frontend_team</code>, the user <code>Bob</code> has given administrative access on all the Elastic agent profiles which refers to the <code>frontend_*</code> cluster profile(s).</li>
+<li>As part of role <code>backend_team</code>, the user <code>John</code> has given administrative access on all the Elastic agent profiles which refers to the <code>backend_*</code> cluster profile(s).</li>
+<li>As part of role <code>devops_team</code>, the user <code>Admin</code> has given administrative access on all the Elastic agent profiles. This can also be achieved specifying <code>*</code> as resource.</li>
+</ol>
+
 <h2 id="configure-policy">Configure policy</h2>
 
 <ol>
@@ -582,6 +846,16 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#environment">Environment</a></li>
 <li><a href="#config-repo">Config Repo</a></li>
+<li><a href="#elastic-agent-configuration">Elastic Agent Configuration</a>
+<ul>
+<li><a href="#basic-permissions">Basic Permissions</a>
+<ul>
+<li><a href="#cluster-profile">Cluster Profile</a></li>
+<li><a href="#elastic-agent-profile">Elastic Agent Profile</a></li>
+</ul></li>
+<li><a href="#implicit-permission">Implicit Permission</a></li>
+<li><a href="#namespaced-permission">Namespaced Permission</a></li>
+</ul></li>
 </ul></li>
 <li><a href="#configure-policy">Configure policy</a></li>
 </ul></li>
