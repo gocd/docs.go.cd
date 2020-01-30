@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>FAQ on GoCD User Documentation</title>
+    <link>/faq/</link>
+    <description>Recent content in FAQ on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/faq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Artifact integrity verification</title>
+      <link>/faq/artifact_integrity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/artifact_integrity.html</guid>
+      <description>GoCD Artifact integrity verification Overview GoCD verifies artifact integrity to ensure that they are unchanged from the point of origin. While executing a job, GoCD applies the following rules if the checksum of the downloaded artifact does not match the checksum at the time of generation of the artifact.
+ If the artifact was uploaded using the artifact API, a warning is displayed in the console output for the job If the downloaded artifact is different from the point of generation, the job will be failed with an error in the console output for the job.</description>
+    </item>
+    
+    <item>
+      <title>Check What&#39;s Deployed</title>
+      <link>/faq/rm_what_is_deployed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/rm_what_is_deployed.html</guid>
+      <description> Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
+Example usage For this example, we will assume we have a stage name &amp;ldquo;production&amp;rdquo; that will automatically deploy a binary onto a production server
+ Start at the environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The stage details page will show every time GoCD has deployed your application  </description>
+    </item>
+    
+    <item>
+      <title>Concurrent Modifications to Config</title>
+      <link>/faq/concurrent_config_modifications.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/concurrent_config_modifications.html</guid>
+      <description>Concurrent Modifications to GoCD&amp;rsquo;s Configuration GoCD handles concurrent modifications to its configuration. Multiple modifications are merged and saved successfully. Modifications to the same area of configuration would result in a conflict.
+Note: Configuration file is maintained in git version control system. GoCD leverages git&amp;rsquo;s merge feature to merge changes from multiple users. As expected, concurrent changes to the same section by users would result in a conflict.
+Successful Merge In case of a successful merge, user would see a success message as below:</description>
+    </item>
+    
+    <item>
+      <title>Configure SSH Keys for dockerized GoCD</title>
+      <link>/faq/docker_container_ssh_keys.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/docker_container_ssh_keys.html</guid>
+      <description>Using SSH keys to access GoCD materials in a containerized GoCD server and agent If you have configured a git repository as a GoCD material, then there are several ways to let GoCD access the repository. One of the popular methods to do so is configuring SSH keys. When using docker for gocd server and agents, it becomes slightly more complex to do this. Below are the steps to configure the ssh keys that can be used with multiple containers at once.</description>
+    </item>
+    
+    <item>
+      <title>Deploy a Specific Build</title>
+      <link>/faq/deploy_a_specific_build_to_an_environment.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/deploy_a_specific_build_to_an_environment.html</guid>
+      <description>Deploy specific revisions of the materials to an environment GoCD allows you to hand pick which revision of your materials you would like to deploy to your environment. This is a a very common requirement on larger projects which have multiple materials in their deployment pipeline. Sometimes you may wish to have control over which revision of the application is deployed to a particular environment (say UAT).
+Select specific revisions of materials to deploy Consider the case where a deployment pipeline &amp;lsquo;deploy_bookstore&amp;rsquo; has 2 materials - Material &amp;lsquo;svn&amp;rsquo; and upstream pipeline &amp;lsquo;bookstore&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Deploy to an environment</title>
+      <link>/faq/rm_deploy_to_environment.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/rm_deploy_to_environment.html</guid>
+      <description>Releasing into an environment One of the most useful aspects of having your build mapped as a pipeline, is being able to know exactly what is in a particular environment. For example, you might have a User Acceptance Testing environment into which you want GoCD to automatically deploy your binary. Due to process restriction within your company, you might want to manually install a binary yourself, but have GoCD still retain the information of what is currently released.</description>
+    </item>
+    
+    <item>
+      <title>Fixing common issues</title>
+      <link>/faq/fixing_common_issues.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/fixing_common_issues.html</guid>
+      <description>Fixing common issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
+
+GoCD Agent not registering with the GoCD Server This issue shows up either as an agent not showing up on the &amp;ldquo;Agents&amp;rdquo; page, or showing up with a status of &amp;ldquo;Missing&amp;rdquo;. If this happens, start troubleshooting by looking at the agent log files.
+See the end of the installation documentation page for your operating system to find the location of the log files.</description>
+    </item>
+    
+    <item>
+      <title>Go unable to poll for changes</title>
+      <link>/faq/material_update_hung.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/material_update_hung.html</guid>
+      <description>GoCD unable to poll for changes GoCD server polls for changes to all materials of &amp;lsquo;Auto Triggered&amp;rsquo; pipelines. By default, polling occurs every minute and ten materials at a time. The polling interval and the number of materials to be polled simultaneously are configurable.
+GoCD uses SCM commands to poll for changes. For example, to check for any new changes in SVN repository the following command is used:
+svn log --non-interactive --xml -v -r HEAD:&amp;#39;revision&amp;#39; &amp;#39;repository-URL&amp;#39; The SCM command used by GoCD server can hang with no output.</description>
+    </item>
+    
+    <item>
+      <title>Historical Configuration</title>
+      <link>/faq/stage_old_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/stage_old_config.html</guid>
+      <description>GoCD Historical Configuration Trace a stage run to it&amp;rsquo;s config GoCD provides a section on the stage details page to view the GoCD configuration xml used when executing a particular instance of the stage. Admin users can use this view to trace a pipeline run back to it&amp;rsquo;s configuration. The stage history widget which can be found on the right hand side of the stage details page has markers to indicate GoCD configuration changes.</description>
+    </item>
+    
+    <item>
+      <title>How do I re-run jobs?</title>
+      <link>/faq/job_rerun.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/job_rerun.html</guid>
+      <description>Re-running Job(s) in GoCD You may sometimes encounter situations where you want to re-run only a subset of jobs within a stage rather than the entire stage or pipeline. Examples of such scenarios include:
+ Environmental problems on a particular agent caused a job to fail Unsuccessful build deployment to one (or more) servers within a cluster of servers  To re-run a job  Navigate to the Stage Details screen of the stage who&amp;rsquo;s job you want to re-run.</description>
+    </item>
+    
+    <item>
+      <title>Ordering of Pipelines</title>
+      <link>/faq/ordering_of_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/ordering_of_pipelines.html</guid>
+      <description>Ordering of pipelines in GoCD In GoCD, we use two distinct types of ordering of pipelines:
+ Schedule order: Chronological order in which pipelines are scheduled. Natural order: Chronological order of pipelines based on material modifications  In most cases the schedule order and natural order match. The user checks in and builds incrementally so the order in which builds are scheduled is the same as the relative order in which changes are checked in.</description>
+    </item>
+    
+    <item>
+      <title>Run Tests against new Builds</title>
+      <link>/faq/dependency_management.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dependency_management.html</guid>
+      <description>GoCD Dependency Management When you have non-trivial dependency pipeline chains, you may have concerns about how dependent pipelines and materials interact. For example, code and tests are checked in as part of the same commit. But code is built and tested in sequence, so the same material version has to be used for pipelines that build and test your code. This section covers some Dependency Management concepts and how GoCD handles certain complex scenarios.</description>
+    </item>
+    
+    <item>
+      <title>Running out of Disk Space</title>
+      <link>/faq/admin_out_of_disk_space.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/admin_out_of_disk_space.html</guid>
+      <description>Running out of disk space After you&amp;rsquo;ve had GoCD running for a while, you may notice the following warning box when browsing GoCD:
+If you don&amp;rsquo;t do anything about it, you&amp;rsquo;ll end up seeing the following error:
+GoCD will stop scheduling new pipelines until you make more room, either by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. You could also let GoCD manage artifact disk space by enabling auto purge of old artifacts.</description>
+    </item>
+    
+    <item>
+      <title>See artifacts as sub-tabs</title>
+      <link>/faq/dev_see_artifact_as_tab.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dev_see_artifact_as_tab.html</guid>
+      <description>See artifacts as sub-tabs in GoCD After uploading html reports, it is often useful to be able to easily view this information when trying to understand why the build is broken.
+Example usage  Suppose we have configured GoCD to upload a flash video and html file and display it as a tab Click on the Dashboard tab   Click on the stage you want to investigate   Click on the job you want to investigate   Click on the tab you created   Clicking on the tab will load the page, which will start the video!</description>
+    </item>
+    
+    <item>
+      <title>See changes in new binary</title>
+      <link>/faq/tester_what_has_changed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/tester_what_has_changed.html</guid>
+      <description>What has changed in the current GOCD version? When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
+Example usage For this example, we&amp;rsquo;ll assume that there is a manual &amp;ldquo;UAT&amp;rdquo; stage will automatically deploy and install an executable on your user acceptance testing machine.</description>
+    </item>
+    
+    <item>
+      <title>Use Environment Variables in GoCD</title>
+      <link>/faq/dev_use_current_revision_in_build.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dev_use_current_revision_in_build.html</guid>
+      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
+    </item>
+    
+    <item>
+      <title>Why the Build is Broken?</title>
+      <link>/faq/dev_understand_why_build_broken.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dev_understand_why_build_broken.html</guid>
+      <description> Why is the build broken? Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
+Example usage Usage: As a developer, I want to understand why the build is broken.
+Let&amp;rsquo;s assume that in this case, we are on a java project using JUnit as our testing library.
+ If we&amp;rsquo;re not already, we need to configure Go to upload JUnit xml reports Click on the Pipelines tab   Click on the failed stage you want to investigate   Click on the failed job   The &amp;ldquo;Failures&amp;rdquo; sub-tab should help you diagnose what is wrong with your build   If you need more information, the &amp;ldquo;Console&amp;rdquo; sub-tab contains everything that was written out to the console (including extra information from Go)  </description>
+    </item>
+    
+  </channel>
+</rss>

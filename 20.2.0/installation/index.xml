@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Installing GoCD on GoCD User Documentation</title>
+    <link>/installation/</link>
+    <description>Recent content in Installing GoCD on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="/installation/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title></title>
+      <link>/installation/configure_proxy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configure_proxy.html</guid>
+      <description>  Redirecting   Redirecting...  This page has moved to .  Click here if you are not redirected.  window.location.href = &#34;../configure-reverse-proxy.html&#34;;    </description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>/installation/ssl_tls/custom_certificate.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/custom_certificate.html</guid>
+      <description>  Redirecting   Redirecting...  This page has moved to custom_server_certificate.html.  Click here if you are not redirected.  window.location.href = &#34;custom_server_certificate.html&#34;;    </description>
+    </item>
+    
+    <item>
+      <title>Change SSL Certificates</title>
+      <link>/installation/ssl_tls/custom_server_certificate.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/custom_server_certificate.html</guid>
+      <description>Using your own SSL certificates on the Server The GoCD server on first startup will create a self-signed SSL certificate that is ready for use by you. However if have your own SSL certificate that you want to use with GoCD, you may replace GoCD&amp;rsquo;s certificate with your own.
+Assuming that you have the certificate key (example.com.key) and X509 certificate(example.com.crt)
+ Change the passphrase of the certificate key  If your key has a passphrase, you must first change the passphrase to serverKeystorepa55w0rd</description>
+    </item>
+    
+    <item>
+      <title>Configure a Reverse Proxy</title>
+      <link>/installation/configure-reverse-proxy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configure-reverse-proxy.html</guid>
+      <description>Configure a reverse proxy server to use with GoCD server It is sometimes useful to front GoCD with a proxy server. In this section, we give you some tips and examples on how to achieve this.
+GoCD with Apache An example of how to configure GoCD with Apache is shown below.
+Assumptions:
+ You have Apache with mod_proxy installed The Apache server sits on the same machine as the GoCD server (localhost)  Listen nnn.</description>
+    </item>
+    
+    <item>
+      <title>Configure an agent with proxy</title>
+      <link>/installation/configure-agent-proxy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configure-agent-proxy.html</guid>
+      <description>Configure a GoCD agent to connect to a server through a proxy server. Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
+Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions defined by the JVM:
+ http.proxyHost http.proxyPort (default: 80) http.nonProxyHosts (default: localhost|127.*|[::1]) https.proxyHost https.proxyPort socksProxyHost socksProxyPort (default: 1080) socksProxyVersion (default: 5)  To configure an agent to use a proxy edit the wrapper-properties.</description>
+    </item>
+    
+    <item>
+      <title>Configuring HSTS Header</title>
+      <link>/installation/ssl_tls/configuring_hsts_header.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/configuring_hsts_header.html</guid>
+      <description>Configuring the HSTS header The Strict-Transport-Security (HSTS) header can be enabled and configured using the following System Properties
+   Key Default value Description     gocd.enable.hsts.header false A boolean value indicating whether the HSTS header should be enabled   gocd.hsts.header.max.age 31536000 The max-age value of the header. Defaults to one year   gocd.hsts.header.include.subdomains false Whether the include-subdomains flag should be set on the header   gocd.</description>
+    </item>
+    
+    <item>
+      <title>Configuring SSL/TLS</title>
+      <link>/installation/ssl_tls_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls_config.html</guid>
+      <description>CONFIGURING SSL/TLS</description>
+    </item>
+    
+    <item>
+      <title>Configuring Server Details</title>
+      <link>/installation/configuring_server_details.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_server_details.html</guid>
+      <description>Configuring GoCD server details Artifact repository configuration GoCD needs no configuration once installed. However, we recommend that you create a separate partition on your computer&amp;rsquo;s hard disk for GoCD server artifacts. The artifact repository can grow in size very quickly. If located on your system&amp;rsquo;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.
+Once you have created a new disk partition, you need to tell GoCD where to find it.</description>
+    </item>
+    
+    <item>
+      <title>Customizing Ciphers</title>
+      <link>/installation/ssl_tls/setting_up_ciphers.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/setting_up_ciphers.html</guid>
+      <description>Configuring SSL/TLS ciphers You can choose which ciphers and SSL/TLS protocols Go will use for communication with agents and users (and their browsers)
+Configuring GoCD server Following system properties are exposed to override the default SSL/TLS configuration for Go server:
+   System Property Default value Description     go.ssl.ciphers.include null A comma-separated list of cipher suite names (exact or regular expression) to be enabled   go.</description>
+    </item>
+    
+    <item>
+      <title>End to end transport security</title>
+      <link>/installation/ssl_tls/end_to_end_transport_security.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/end_to_end_transport_security.html</guid>
+      <description>Configure end-to-end transport security Note: To ensure end-to-end transport encryption, please ensure that both your GoCD server and agent are running on atleast version 16.7.0
+This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.
+The GoCD agent allows for some configuration to be able to configure and secure the end-to-end transport security to varying security levels.
+The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks.</description>
+    </item>
+    
+    <item>
+      <title>Generic Zip</title>
+      <link>/installation/install/agent/zip.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/zip.html</guid>
+      <description>Advanced installation of GoCD agent using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
+ Download the zip installer for GoCD agent Unzip the installer in a folder of your choice. It creates a subfolder with the name go-agent-${version} Ensure that java executable is available on the PATH environment variable.</description>
+    </item>
+    
+    <item>
+      <title>Generic Zip</title>
+      <link>/installation/install/server/zip.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/zip.html</guid>
+      <description>Advanced installation of GoCD server using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
+ Download the zip installer for GoCD server Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version} Ensure that java executable is available on the PATH environment variable.</description>
+    </item>
+    
+    <item>
+      <title>Hardware Specifications</title>
+      <link>/installation/hardware_specifications.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/hardware_specifications.html</guid>
+      <description>GoCD hardware specifications The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.
+ Also see: GoCD system requirements
+ Agent hardware requirements The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements).</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD Agent</title>
+      <link>/installation/installing_go_agent.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/installing_go_agent.html</guid>
+      <description> Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.
+Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
+Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD Server</title>
+      <link>/installation/installing_go_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/installing_go_server.html</guid>
+      <description> Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
+Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD agent on Linux</title>
+      <link>/installation/install/agent/linux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/linux.html</guid>
+      <description>Installing GoCD agent on Linux Installation of the GoCD agent using the package manager will require root access on the machine.
+RPM based distributions (ie RedHat/CentOS/Fedora) The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
+If you prefer to use the YUM repository and install via YUM, paste the following in your shell -
+sudo curl https://download.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD agent on Windows</title>
+      <link>/installation/install/agent/windows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/windows.html</guid>
+      <description>Installing GoCD agent on Windows You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.
+ Download a version of go-agent from the downloads page. Double-click the go-agent-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Linux</title>
+      <link>/installation/install/server/linux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/linux.html</guid>
+      <description>Installing GoCD server on Linux Installation of the GoCD server using the package manager will require root access on the machine.
+RPM based distributions (ie RedHat/CentOS/Fedora) The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
+If you prefer to use the YUM repository and install via YUM, paste the following in your shell -
+sudo curl https://download.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Mac OS X</title>
+      <link>/installation/install/agent/osx.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/osx.html</guid>
+      <description>Installing GoCD agent on Mac OS X  Download the Mac OSX installer for GoCD agent from downloads page Unzip the installer in a folder of your choice. It creates a subfolder with the name go-agent-${version}  Managing the GoCD agent process The GoCD agent script must be run with one of the following arguments:
+   Script Description     ./bin/go-agent console The GoCD agent will be started in the foreground   .</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Mac OS X</title>
+      <link>/installation/install/server/osx.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/osx.html</guid>
+      <description>Installing GoCD server on Mac OS X  Download the Mac OSX installer for GoCD server from downloads page Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version}  Managing the GoCD server process The GoCD server script must be run with one of the following arguments:
+   Script Description     ./bin/go-server console The GoCD server will be started in the foreground   .</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Windows</title>
+      <link>/installation/install/server/windows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/windows.html</guid>
+      <description>Installing GoCD server on Windows You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.
+ Download a version of go-server from the downloads page. Double-click the go-server-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</description>
+    </item>
+    
+    <item>
+      <title>Performance Tuning</title>
+      <link>/installation/performance_tuning.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/performance_tuning.html</guid>
+      <description>GoCD Performance Tuning Capacity Planning This section provides recommendations to evaluate server hardware and memory requirements for your GoCD server. It also highlights some configurations which need to be taken care of when scaling GoCD.
+Minimum server requirements The minimum requirements for a GoCD server can be found here
+Scaling GoCD As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.</description>
+    </item>
+    
+    <item>
+      <title>System requirements</title>
+      <link>/installation/system_requirements.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/system_requirements.html</guid>
+      <description>GoCD System requirements These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
+ Also see: GoCD hardware specifications
+ Client (browser) requirements GoCD supports the two most recent versions of the following browsers:
+ Google Chrome Mozilla Firefox Microsoft Edge Apple Safari   GoCD Server requirements Hardware  RAM - minimum 1GB, 2GB recommended CPU - minimum 2 cores, 2GHz Disk - minimum 1GB free space  Supported Operating Systems  Windows - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10 Mac OSX - 10.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading GoCD</title>
+      <link>/installation/upgrading_go.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/upgrading_go.html</guid>
+      <description>Upgrading GoCD The steps in this page can be followed to upgrade GoCD. It is recommended to understand any breaking changes between the releases to see if they impact your upgrades in any way.
+Before you start  Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under Admin &amp;gt; Server Maintenance Mode Navigate to the backup page under Admin &amp;gt; Backups and take a backup.</description>
+    </item>
+    
+  </channel>
+</rss>

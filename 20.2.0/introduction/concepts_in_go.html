@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Concepts in GoCD | GoCD User Documentation</title>
+
+<meta name="description" content="Introduction to GoCD, its underlying concepts, and get a good understanding of continuous delivery and continuous integration."/>
+<meta name="keywords" content="[introduction gocd, continuous delivery, continuous integration, martin fowler, gocd getting started, build pipelines, value stream map, build artifacts, fan in]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/introduction/concepts_in_go.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/introduction/concepts_in_go.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2fintroduction\2f concepts_in_go.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Concepts in GoCD</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown">
+
+<h1 id="concepts-in-gocd">Concepts in GoCD</h1>
+
+<p>This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and
+Continuous Delivery, in general, you can refer to Martin Fowler&rsquo;s articles on the subject: <a href="http://martinfowler.com/articles/continuousIntegration.html">Continuous
+Integration</a> and <a href="http://martinfowler.com/bliki/ContinuousDelivery.html">Continuous
+Delivery</a>.</p>
+
+<p>If you&rsquo;re very new to GoCD, the <a href="https://www.gocd.org/getting-started/part-1/">Getting Started Guide</a> is a good
+starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.</p>
+
+<h1 id="index">Index</h1>
+
+<ul>
+<li><a href="#task">Task</a></li>
+<li><a href="#job">Job</a></li>
+<li><a href="#stage">Stage</a></li>
+<li><a href="#pipeline">Pipeline</a></li>
+<li><a href="#materials">Materials</a></li>
+<li><a href="#pipeline_dependency">Pipeline Dependencies</a></li>
+<li><a href="#fan_in_out">Fan-in and fan-out</a></li>
+<li><a href="#vsm">Value Stream Map</a></li>
+<li><a href="#artifacts">Artifacts</a>
+
+<ul>
+<li><a href="#fetch_artifact">Fetching artifacts</a></li>
+</ul></li>
+<li><a href="#agent">Agent</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#environment">Environment</a></li>
+<li><a href="#environment_variables">Environment Variables</a></li>
+<li><a href="#templates">Templates</a></li>
+</ul>
+
+<p><a id="task"></a></p>
+
+<h1 id="task">Task</h1>
+
+<p>A task, or a build task, is an action that needs to be performed. Usually, it is a single command.</p>
+
+<p>The task shown in the image below is set to run the command <code>ant -Dmodule=A compile</code>, when executed by GoCD.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/01_task.png" alt="Figure 1: Task" id="image_task" class="small_image">
+  <figcaption>Figure 1: Task</figcaption>
+</figure>
+
+<p><a id="job">   </a></p>
+
+<h1 id="job">Job</h1>
+
+<p>A job consists of multiple tasks, each of which will be run in order. If a task in a job fails, then the job is considered failed, and unless
+specified otherwise, the rest of the tasks in the job will not be run.</p>
+
+<p>The job shown in the image below has three tasks. The <code>ant</code> task will be run first, followed by the <code>rake</code> task and finally, the shell script is run.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/02_job.png" alt="Figure 2: Job" id="image_job" class="small_image">
+  <figcaption>Figure 2: Job</figcaption>
+</figure>
+
+<p>Every task in a job is run as an independent program, and so, changes made by a task to any of its environment variables will not affect subsequent
+tasks. Any changes made by a task on the filesystem will be visible to subsequent tasks.</p>
+
+<p><a id="stage">   </a></p>
+
+<h1 id="stage">Stage</h1>
+
+<p>A stage consists of multiple jobs, each of which can run independently of the others. This means that GoCD can and does parallelize the execution of
+jobs in a stage. If a job fails, then the stage is considered failed. However, since jobs are independent of each other, the other jobs in the
+stage will be run to completion.</p>
+
+<p>The stage shown in the image below has two jobs, one which builds module A and another which builds module B. The success or failure of the first
+job cannot affect the success or failure of the second.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/03_stage.png" alt="Figure 3: Stage" id="image_stage" class="small_image">
+  <figcaption>Figure 3: Stage</figcaption>
+</figure>
+
+<p><a id="pipeline"></a></p>
+
+<h1 id="pipeline">Pipeline</h1>
+
+<p>A pipeline consists of multiple stages, each of which will be run in order. If a stage fails, then the pipeline is considered failed and the following
+stages will not be started.</p>
+
+<p>The pipeline shown in the image below has three stages, the first with two jobs, the second with three and the third with one. If the first stage fails,
+then the second and third stages will not be run.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/04_pipeline.png" alt="Figure 4: Pipeline" id="image_pipeline">
+  <figcaption>Figure 4: Pipeline</figcaption>
+</figure>
+
+<p>Since an image of a pipeline can get quite big, the rest of this document will use a slightly smaller representation of a pipeline, which hides the jobs
+and tasks. This representation is shown below.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/05_pipeline_small.png" alt="Figure 5: Pipeline (small representation)" id="image_pipeline_small" class="small_image">
+  <figcaption>Figure 5: Pipeline (small representation)</figcaption>
+</figure>
+
+<p><a id="materials">   </a></p>
+
+<h1 id="materials-and-triggers">Materials and triggers</h1>
+
+<p><span class="header smaller">(or &ldquo;<em>When</em> do these tasks, jobs, stages and pipelines run?&ldquo;)</span></p>
+
+<p>A material is a cause for a pipeline to run. Often, it is a source code material repository (Git, SVN, Mercurial, etc). The GoCD Server
+continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or &ldquo;triggered&rdquo;.</p>
+
+<p>There are different kinds of materials. Here&rsquo;s an example of a Git material. When a commit is made to the repository configured in the Git material,
+the pipeline gets triggered.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/06_material_git.png" alt="Figure 6: Material - git" id="image_material_git" class="medium_image">
+  <figcaption>Figure 6: Material - git</figcaption>
+</figure>
+
+<p>Similarly, an SVN material is shown below. GoCD has support for many different kinds of source code materials, as well as a plugin endpoint for
+extending the kinds of materials it supports.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/07_material_svn.png" alt="Figure 7: Material - SVN" id="image_material_svn" class="medium_image">
+  <figcaption>Figure 7: Material - SVN</figcaption>
+</figure>
+
+<p>A &ldquo;timer trigger&rdquo; is a special kind of material that triggers a pipeline at a specified time, or at specified intervals.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/08_timer_trigger.png" alt="Figure 8: Timer trigger" id="image_timer_trigger" class="medium_image">
+  <figcaption>Figure 8: Timer trigger</figcaption>
+</figure>
+
+<p>A pipeline can even be configured with multiple materials. The pipeline shown below is configured with a Git material and an SVN material. When either
+repository has a new commit, the pipeline is triggered.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/09_multiple_materials.png" alt="Figure 9: Multiple materials" id="image_multiple_materials" class="medium_image">
+  <figcaption>Figure 9: Multiple materials</figcaption>
+</figure>
+
+<p><a id="pipeline_dependency">  </a></p>
+
+<h1 id="pipeline-dependency-material">Pipeline dependency material</h1>
+
+<p>Materials really start becoming powerful when a stage in a pipeline is used as a material for another pipeline.</p>
+
+<p>In the image shown below, Stage 2 of Pipeline 1 is configured as a material for Pipeline 2. Whenever Stage 2 of Pipeline 1 finishes
+successfully, Pipeline 2 triggers. In a setup such as this, Pipeline 1 is called the Upstream Pipeline and Pipeline 2 is called the
+Downstream Pipeline. Stage 2 of Pipeline 1 is called the Upstream Dependency of Pipeline 2.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/11_pipeline_deps_2.png" alt="Figure 10: Pipeline dependency - Last stage" id="image_pipeline_deps_2">
+  <figcaption>Figure 10: Pipeline dependency - Last stage</figcaption>
+</figure>
+
+<p>Any stage of a pipeline can be used as a material. In the image shown below, as soon as Stage 1 of Pipeline 1 finishes successfully, Pipeline 2
+will trigger and start. Now, both Stage 2 of Pipeline 1 and Stage 1 of Pipeline 2 can run simultaneously.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/12_pipeline_deps_3.png" alt="Figure 11: Pipeline dependency - Any stage" id="image_pipeline_deps_3">
+  <figcaption>Figure 11: Pipeline dependency - Any stage</figcaption>
+</figure>
+
+<p><a id="fan_in_out"> </a></p>
+
+<h1 id="fan-out-and-fan-in">Fan-out and fan-in</h1>
+
+<p>A material is said to &ldquo;fan-out&rdquo; to downstream pipelines, when the material&rsquo;s completion causes multiple downstream pipelines to trigger, as is shown
+in the image below. The cause of a fan-out need not always be a pipeline dependency material. It can be any material.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/14_fanout.png" alt="Figure 12: Fan-out" id="image_fanout">
+  <figcaption>Figure 12: Fan-out</figcaption>
+</figure>
+
+<p>A &ldquo;fan-in&rdquo; is when multiple upstream materials are needed to trigger a downstream pipeline, as shown in the image below. One important and interesting
+aspect of fan-in is that GoCD will ensure that the revisions of upstream pipelines are consistent, before triggering a downstream pipeline.</p>
+
+<p>In the image shown below, this means that if Stage 2 of Pipeline 1 is slow and Stage 1 of Pipeline 2 is quick, Pipeline 3 will wait for Pipeline 1
+to finish before triggering. It will not trigger with an inconsistent or old revision of Pipeline 1, just because Pipeline 2 finished quickly.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/13_fanin.png" alt="Figure 13: Fan-in" id="image_fanin">
+  <figcaption>Figure 13: Fan-in</figcaption>
+</figure>
+
+<p><a id="vsm">  </a></p>
+
+<h1 id="value-stream-map-vsm">Value Stream Map (VSM)</h1>
+
+<p>The Value Stream Map (VSM) is an end-to-end view of a pipeline, its upstream dependencies and the downstream pipelines it triggers. When deciding which
+pipelines to trigger, GoCD&rsquo;s fan-in and fan-out resolution will take care of all the dependencies consistently.</p>
+
+<p>For instance, in the image below, when a new commit is found in Repo 1 (git), GoCD will not trigger Pipeline 5 immediately. It will wait for Pipeline 1 to
+trigger and finish successfully, then it will wait for Pipeline 4 to trigger and finish successfully. Finally, it will trigger Pipeline 5 with the same
+revision of Repo 1 that was used with Pipeline 1.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/15_vsm.png" alt="Figure 14: VSM" id="image_vsm">
+  <figcaption>Figure 14: VSM</figcaption>
+</figure>
+
+<p><a id="artifacts"> </a></p>
+
+<h1 id="artifacts">Artifacts</h1>
+
+<p>Every <a href="#job">job</a> in Go can optionally publish &ldquo;Artifacts&rdquo;, which are files or directories. After the job is run, GoCD will ensure that the specified artifacts are
+published and made available to the user, and other downstream stages and pipelines.</p>
+
+<p>A representation of artifacts is shown below. As shown, every job can have artifacts. In this case, the job on the top has two files and a directory as
+its artifacts and the job below it has two directories and a file as its artifacts.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/20_artifacts.png" alt="Figure 15: Artifacts" id="image_artifacts" class="small_image">
+  <figcaption>Figure 15: Artifacts</figcaption>
+</figure>
+
+<p><a id="fetch_artifact">  </a></p>
+
+<h2 id="fetching-artifacts">Fetching artifacts</h2>
+
+<p>GoCD provides a special task called a &ldquo;Fetch Artifact Task&rdquo;, which allows artifacts to be fetched and used, from any ancestor pipeline - that is, any
+pipeline that is upstream of the current pipeline. GoCD will ensure that the correct version of the artifact is fetched, irrespective of anything else
+that might be going on in the system.</p>
+
+<p>In the image shown below, the jobs in Stage 1 of Pipeline 1 publish some artifacts. In Stage 2, a Fetch Artifact Task fetches the artifact published in
+Stage 1. Then, in Pipeline 2, a Fetch Artifact Task fetches an artifact published in Pipeline 1. Finally, in Pipeline 3, which is further downstream,
+a Fetch Artifact Task fetches an artifact from Pipeline 1, through Pipeline 2.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/21_fetch_artifacts.png" alt="Figure 16: Fetch Artifact Task" id="image_fetch_artifacts">
+  <figcaption>Figure 16: Fetch Artifact Task</figcaption>
+</figure>
+
+<p><a id="agent">       </a></p>
+
+<h1 id="agent">Agent</h1>
+
+<p><span class="header smaller">(or &ldquo;<em>Where</em> do these tasks, jobs, stages and pipelines run?&ldquo;)</span></p>
+
+<p>GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents. The GoCD Server polls for changes in material (this
+happens on the GoCD Server itself) and then, when a change is detected and a pipeline needs to be triggered, the corresponding jobs are assigned to the
+agents, for them to execute the tasks.</p>
+
+<p>Agents pick up <a href="#job">jobs</a> which are assigned to them, execute the <a href="#task">tasks</a> in the job and report the status of the job to the GoCD Server. Then,
+the GoCD Server collates all the information from the different jobs and then decides on the status of the stage.</p>
+
+<p>An agent is represented by a monitor in the image below.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/16_agent.png" alt="Figure 17: Agent" id="image_agent" class="very_small_image">
+  <figcaption>Figure 17: Agent</figcaption>
+</figure>
+
+<p><a id="resources">  </a></p>
+
+<h1 id="resources">Resources</h1>
+
+<p>Agents and <a href="#job">jobs</a> can be enhanced with &ldquo;Resources&rdquo;. Resources are free-form tags, that help Go decide which agents are capable of picking up specific jobs.</p>
+
+<p>In the image below, the Firefox&reg; and Tux icons represent resources on the agent. The resources can be thought of as the agent broadcasting its
+capabilities. Resources are defined by administrators and can mean anything the administrators wants them to mean. In this case, it might be an indication that this
+agent has Firefox installed for running functional tests and it is a Linux box.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/18_resources.png" alt="Figure 18: Resources on an agent" id="image_resources" class="very_small_image">
+  <figcaption>Figure 18: Resources on an agent</figcaption>
+</figure>
+
+<p>Resources become very useful, when jobs are assigned resources. In the case of jobs, resources can be thought of as the capabilities they need in an
+agent, for them to be run successfully.</p>
+
+<p>In the image below, Job 1 claims that it needs an agent with the Firefox&reg; resource. Job 2 claims that it needs an agent with the Linux&reg;
+resource. Job 3 claims that it needs an agent with <em>both</em> Firefox&reg; and Linux&reg; resources. Job 4 claims that it doesn&rsquo;t need any resources.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/19_agents_jobs_resources.png" alt="Figure 19: Agents, jobs and resources" id="image_agents_jobs_resources">
+  <figcaption>Figure 19: Agents, jobs and resources</figcaption>
+</figure>
+
+<p>In the case of the image above:</p>
+
+<ol>
+<li><p>Job 1 can be assigned to either Agents 1 or 3, by the GoCD Server.</p></li>
+
+<li><p>Job 2 can be assigned only to Agent 1 (since it is the only agent to provide the Linux resource).</p></li>
+
+<li><p>Job 3 can be assigned only to Agent 1 (since it is the only agent to provide <em>both</em> those resources).</p></li>
+
+<li><p>Job 4 can be assigned to any of the three agents, since that job needs no special resource matching.</p></li>
+</ol>
+
+<p>Note that the fact that Agent 3 has an Apple&reg; resource does not stop it from being assigned a job. It just happens to be a resource which is not
+needed by any of the jobs shown.</p>
+
+<p><a id="environment">    </a></p>
+
+<h1 id="environments">Environments</h1>
+
+<p>An &ldquo;Environment&rdquo; in GoCD is a way to group and isolate pipelines and agents. The rules of an environment are:</p>
+
+<ol>
+<li><p>A pipeline can be associated with a maximum of one environment.</p></li>
+
+<li><p>An agent can be associated with multiple environments or no environments.</p></li>
+
+<li><p>An agent can only pick up jobs belonging to pipelines in environments that it is associated with.</p></li>
+
+<li><p>An agent which is associated with an environment cannot pick up jobs in pipelines which are not associated with any environment.</p></li>
+</ol>
+
+<p>In the image below representing environments, Environment 1 is composed of Pipeline 1, Pipeline 2, Agent 1, Agent 2 and Agent 3. Environment 2
+is composed of Pipeline 3, Pipeline 4, Agent 3 and Agent 4. Pipelines 5, 6 and 7 and Agent 5 do not belong to any environment.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/22_environment.png" alt="Figure 20: Environments" id="image_environments">
+  <figcaption>Figure 20: Environments</figcaption>
+</figure>
+
+<p>In a case such as the image shown above:</p>
+
+<ol>
+<li><p>Jobs in Pipelines 1 and 2 can only be picked up by Agents 1, 2 and 3.</p></li>
+
+<li><p>Jobs in Pipelines 3 and 4 can only be picked up by Agents 3 and 4.</p></li>
+
+<li><p>Jobs in Pipelines 5, 6 and 7 can only be picked up Agent 5.</p></li>
+</ol>
+
+<p>In addition to the restrictions related to matching of Environments, resources need to match between the agents and jobs, as detailed in the section
+on <a href="#resources">Resources</a>.</p>
+
+<p><a id="environment_variables">  </a></p>
+
+<h1 id="environment-variables">Environment Variables</h1>
+
+<p>Environment variables are often confused with &ldquo;Environments&rdquo;. They&rsquo;re not directly related. In GoCD, &ldquo;Environment Variables&rdquo; are user-defined variables that
+are defined in the configuration. These environment variables are made available to tasks just like other environment variables available to processes
+when they run in an operation system.</p>
+
+<p>Environment variables can be defined at multiple levels: Within environments, within pipelines, within stages and within jobs. They follow a cascading system
+where environment variables defined at the &ldquo;Environment&rdquo; level get overridden by environment variables defined at the pipeline level and so on.</p>
+
+<p>In the image shown below, there are 4 environment variables defined at the environment level, 3 at the pipeline level and 2 each at the stage and job levels.
+The environment variable, <code>ENV_ENV</code> has been set to a value of 1 at the environment level, <code>ENV_STG</code> has been set to 2 at stage level and so on.</p>
+
+<figure class="concept_image">
+  <img src="../images/concepts/23_env_vars.png" alt="Figure 21: Environment Variables" id="image_env_vars" class="small_image">
+  <figcaption>Figure 21: Environment Variables</figcaption>
+</figure>
+
+<p>The environment variables provided to every task in this job will be:</p>
+
+<pre><code>ENV_ENV =&gt; 1
+ENV_PIP =&gt; 2
+ENV_STG =&gt; 3
+ENV_JOB =&gt; 4
+MY_VAR  =&gt; 4
+</code></pre>
+
+<p>For instance: <code>ENV_PIP</code> set at the environment level (to a value of 1) is overridden by <code>ENV_PIP</code> set at the pipeline level (to a value of 2). Since <code>ENV_PIP</code>
+is not defined at the stage and job levels, the value of <code>ENV_PIP</code> will be 2. The other environment variables can be reasoned about in the same way.</p>
+
+<p><a id="templates"></a></p>
+
+<h1 id="templates">Templates</h1>
+
+<p>This section is a work in progress.</p>
+
+<h1 id="image-attributions">Image attributions</h1>
+
+<ul>
+<li><a href="https://commons.wikimedia.org/wiki/File:Git-logo.svg">Git logo - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Subversion-logo.svg">Subversion logo - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Reloj_10_10.svg">Clock face - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Crystal_128_konsole.svg">Console - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Mozilla_Firefox_logo_2013.svg">Firefox logo - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:NewTux.svg">Tux - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Apple_logo_black.svg">Apple logo (Black) - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Gnome-mime-text-x-copying.svg">Gnome text mime - Wikimedia Commons</a></li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Blue_folder_seth_yastrov_01.svg">Blue folder - Wikimedia Commons</a></li>
+</ul>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/introduction/concepts_in_go.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#concepts-in-gocd">Concepts in GoCD</a></li>
+<li><a href="#index">Index</a></li>
+<li><a href="#task">Task</a></li>
+<li><a href="#job">Job</a></li>
+<li><a href="#stage">Stage</a></li>
+<li><a href="#pipeline">Pipeline</a></li>
+<li><a href="#materials-and-triggers">Materials and triggers</a></li>
+<li><a href="#pipeline-dependency-material">Pipeline dependency material</a></li>
+<li><a href="#fan-out-and-fan-in">Fan-out and fan-in</a></li>
+<li><a href="#value-stream-map-vsm">Value Stream Map (VSM)</a></li>
+<li><a href="#artifacts">Artifacts</a>
+<ul>
+<li><a href="#fetching-artifacts">Fetching artifacts</a></li>
+</ul></li>
+<li><a href="#agent">Agent</a></li>
+<li><a href="#resources">Resources</a></li>
+<li><a href="#environments">Environments</a></li>
+<li><a href="#environment-variables">Environment Variables</a></li>
+<li><a href="#templates">Templates</a></li>
+<li><a href="#image-attributions">Image attributions</a></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>

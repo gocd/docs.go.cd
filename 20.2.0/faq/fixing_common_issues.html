@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Fixing common issues | GoCD User Documentation</title>
+
+<meta name="description" content="Troubleshooting common GoCD server and agent errors."/>
+<meta name="keywords" content="[gocd troubleshooting, installation errors gocd, agent not registering, ssl error, common issues]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/faq/fixing_common_issues.html"/>
+<script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.8438ef93d18b7624c901141b7df7f65da2050dae72fe7ef0d3d68a2ea15e2198.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/faq/fixing_common_issues.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2f faq\2f fixing_common_issues.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+
+<hr>
+
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+
+  <li class="level1 has-children">
+    <figure class="menu-arrow">
+    <img src="../images/arrow.png"/> 
+</figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Fixing common issues</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown">
+
+<h1 id="fixing-common-issues">Fixing common issues</h1>
+
+<p>This page is mainly for newer users of GoCD, to help with troubleshooting issues.</p>
+
+<p><a id="agent_registration"></a></p>
+
+<h3 id="gocd-agent-not-registering-with-the-gocd-server">GoCD Agent not registering with the GoCD Server</h3>
+
+<p>This issue shows up either as an agent not showing up on the &ldquo;Agents&rdquo; page, or
+showing up with a status of &ldquo;Missing&rdquo;. If this happens, start troubleshooting by
+looking at the agent log files.</p>
+
+<p>See the end of <a href="../installation/installing_go_agent.html">the installation documentation page</a>
+for your operating system to find the location of the log files. There will be
+log files for the agent, the agent-bootstrapper and agent-launcher. Any errors
+at the end of these files might be interesting. Some common errors are:</p>
+
+<ol>
+<li><p><strong>Unable to reach the GoCD Server</strong></p>
+
+<p>This manifests itself as logs in go-agent-launcher.log with lines similar to this:</p>
+
+<pre><code>ERROR go.agent.launcher.ServerCall:69 - Couldn't access Go Server with base url: http://YOUR_SERVER:8153/go/admin/agent-launcher.jar: java.net.ConnectException: Connection refused
+ERROR go.agent.launcher.ServerBinaryDownloader:116 - Couldn't update admin/agent-launcher.jar. Sleeping for 1m. Error: java.lang.Exception: Couldn't access Go Server with base url: http://YOUR_SERVER:8153/go/admin/agent-launcher.jar: java.net.ConnectException: Connection refused
+INFO  apache.commons.httpclient.HttpMethodDirector:438 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+INFO  apache.commons.httpclient.HttpMethodDirector:444 - Retrying request
+</code></pre>
+
+<p>The problem here is that the agent cannot reach the server, either because of
+a problem with the network or because the ports used by the server are not
+accessible due to firewall restrictions. The GoCD server uses two ports, 8153
+and 8154 (by default). These two ports need to be accessible by the agents.</p></li>
+
+<li><p><strong>Unable to connect - SSL handshake error or connection reset</strong></p>
+
+<p>This manifests itself as logs in go-agent-bootstrapper.out.log with lines similar to this:</p>
+
+<pre><code>180679 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
+at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.headers(ServerBinaryDownloader.java:130)
+at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.downloadIfNecessary(ServerBinaryDownloader.java:106)
+at com.thoughtworks.go.agent.launcher.AgentLauncherImpl.launch(AgentLauncherImpl.java:78)
+at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.go(AgentBootstrapper.java:72)
+at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.main(AgentBootstrapper.java:54)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at com.simontuffs.onejar.Boot.run(Boot.java:306)
+at com.simontuffs.onejar.Boot.main(Boot.java:159)
+Caused by: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:394)
+at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:353)
+at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
+at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:55)
+... 11 more
+Caused by: java.io.EOFException: SSL peer shut down incorrectly
+at sun.security.ssl.InputRecord.read(Unknown Source)
+... 28 more
+</code></pre>
+
+<p>or this:</p>
+
+<pre><code>2986 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
+...
+</code></pre>
+
+<p>The problem here is that the agent is not able to connect securely to the
+server, which points to an invalid certificate. This can happen if an agent
+has connected to one GoCD server and is then pointed to another GoCD
+server. It will try to connect to the new server using the certificate that
+was for the older server and it will fail.</p>
+
+<p>The resolution is to move or rename the agent.jks file found the in the
+config/ directory of the agent and restarting the agent. That should make it
+connect using the correct certificate.</p>
+
+<p>If you&rsquo;re using full
+<a href="../installation/ssl_tls/end_to_end_transport_security.html">end-to-end transport security</a>,
+this error might mean that the server&rsquo;s certificate has changed and you need
+to provide the update certificate.</p></li>
+
+<li><p><strong>Incompatible Java version</strong></p>
+
+<p>This manifests itself as logs in go-agent-bootstrapper.log with lines similar to this:</p>
+
+<pre><code>242 [main] INFO com.thoughtworks.go.util.PerfTimer  - Performance: Downloading new admin/agent-launcher.jar with md5 signature: e9SXM6cdV5kSkpVEmymHIg== took 37ms
+Exception in thread &quot;main&quot; java.lang.reflect.InvocationTargetException
+  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+  at java.lang.reflect.Method.invoke(Method.java:622)
+  at com.simontuffs.onejar.Boot.run(Boot.java:306)
+  at com.simontuffs.onejar.Boot.main(Boot.java:159)
+Caused by: java.lang.UnsupportedClassVersionError: com/thoughtworks/cruise/agent/launcher/AgentLauncherImpl : Unsupported major.minor version 51.0
+  at java.lang.ClassLoader.defineClass1(Native Method)
+  at java.lang.ClassLoader.defineClass(ClassLoader.java:643)
+  at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+</code></pre>
+
+<p>The problem here is that the version of Java used by the agent is too old. In
+this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
+needs Java 7.</p></li>
+</ol>
+
+<p><a id="path_issues"></a></p>
+
+<h3 id="command-not-found-git-svn-mvn-ant-or-others">Command not found (git, svn, mvn, ant or others)</h3>
+
+<p>This issue shows up in one of three ways as you can see below. The resolution
+for all three issues is the same &ndash; to ensure that the <code>PATH</code> environment variable
+is correct.</p>
+
+<ol>
+<li><p><strong>During &ldquo;Check Connection&rdquo;</strong></p>
+
+<figure>
+    <img src="../images/troubleshooting/error_4_check_connection_git_not_found.png">
+</figure>
+
+<p>This can also happen with other version control systems such as SVN, TFS, etc.</p>
+
+<p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Server</strong>&rsquo;s java
+process. Ensure that the directory that the command is available is in the
+list. On Windows, the
+<a href="https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx">procexp</a>
+tool from Microsoft&rsquo;s Windows SysInternals might be useful to check this. It
+shows per-process environment variables in an easy way.</p></li>
+
+<li><p><strong>During material polling</strong></p>
+
+<p>Look for an error message at the bottom-right of any page, which looks like this:
+<figure>
+  <img src="../images/troubleshooting/error_1.png">
+</figure></p>
+
+<p>Clicking on that shows an error like this:
+<figure>
+  <img src="../images/troubleshooting/error_2_git_not_found.png">
+</figure></p>
+
+<p>The GoCD server log, go-server.log (location can be found at the bottom of
+<a href="../installation/installing_go_server.html">the installation documentation page</a> for your
+operating system) will have a message like this:
+<figure>
+  <img src="../images/troubleshooting/error_3_git_not_found_log.png">
+</figure></p>
+
+<p>This can also happen with other version control systems such as SVN, TFS, etc.</p>
+
+<p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Server</strong>&rsquo;s java
+process. Ensure that the directory that the command is available is in the
+list. On Windows, the
+<a href="https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx">procexp</a>
+tool from Microsoft&rsquo;s Windows SysInternals might be useful to check this. It
+shows per-process environment variables in an easy way.</p></li>
+
+<li><p><strong>During the running of a task, in the console output</strong></p>
+
+<p>This shows up as a message in the console output, like this:
+<figure>
+  <img src="../images/troubleshooting/error_5_command_not_found_console_log.png">
+</figure></p>
+
+<p>This can also happen with other version control systems such as SVN, TFS, etc. It
+can also happen with any other command used in a task, such as Maven, Ant,
+Rake or even any other shell-script where it cannot be found in <code>PATH</code>.</p>
+
+<p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Agent&rsquo;s</strong>
+java process. Ensure that the directory that the command is available is in
+the list. On Windows, the
+<a href="https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx">procexp</a>
+tool from Microsoft&rsquo;s Windows SysInternals might be useful to check this. It
+shows per-process environment variables in an easy way.</p></li>
+</ol>
+
+<p><a id="agent_assignment"></a></p>
+
+<h3 id="agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</h3>
+
+<p>This shows up as a pipeline which stays in the &ldquo;Building&rdquo; (yellow) state for a
+long time:
+<figure>
+  <img src="../images/troubleshooting/error_6_pipeline_building_not_assigned.png">
+</figure></p>
+
+<p>Click on the stage bar and then the job, to reach the console log, and
+you might see a build whose status is &ldquo;Scheduled&rdquo; with the agent status being &ldquo;Not yet
+assigned&rdquo;, like this:
+<figure>
+  <img src="../images/troubleshooting/error_7_agent_not_assigned.png">
+</figure></p>
+
+<p>Resolution: If this is happening, it means that a suitable agent has not been
+found for this job. The reasons for this can be:</p>
+
+<ol>
+<li><p>No agent is available (free and not building). Check the &ldquo;Agents&rdquo; page to see
+if all agents are busy. If so, once one of them becomes free, then this build
+will start.</p></li>
+
+<li><p>If you do see available agents, then check whether the job has resources
+defined in its config. If so, it means that the job is looking for an agent
+with those resources. Check the &ldquo;Agents&rdquo; page to see whether there are agents
+which have the resources needed by the job and are available (not building).</p></li>
+
+<li><p>If the previous two options don&rsquo;t solve the problem, check whether the
+pipeline is a part of an environment (in the &ldquo;Environments&rdquo; page or in the
+config). If it is, then any agent that can pick up a job from that pipeline
+needs to be a part of that environment as well.</p></li>
+</ol>
+
+<h3 id="gocd-spa-pages-there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</h3>
+
+<p>The GoCD SPA page periodically makes AJAX API calls to fetch the current state of the entity and refreshes the page, this is done to ensure the information on the page is not stale.</p>
+
+<p>The AJAX API request has a timeout set to 5000 milliseconds, if the server does not respond within that duration the request is cancelled and an error is shown on the page.</p>
+
+<figure>
+  <img src="../images/troubleshooting/error_8_request_timeout.png">
+</figure>
+
+<p>Resolution: If this is happening, consider increase the timeout period by specifying the <a href="../advanced_usage/other_config_options.html#go-spa-timeout">go.spa.timeout</a></p>
+
+<p><a name="ports-in-use"></a></p>
+
+<h3 id="port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</h3>
+
+<p>This issue shows up an error when starting GoCD Server:</p>
+
+<pre><code>Port 8153 could not be opened. Please Check if it is available
+Port 8154 could not be opened. Please Check if it is available
+</code></pre>
+
+<p>This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties <code>cruise.server.port</code> and <code>cruise.server.ssl.port</code> to appropriate values. These system properties can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/faq/fixing_common_issues.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+<ul>
+<li><a href="#fixing-common-issues">Fixing common issues</a>
+<ul>
+<li>
+<ul>
+<li><a href="#gocd-agent-not-registering-with-the-gocd-server">GoCD Agent not registering with the GoCD Server</a></li>
+<li><a href="#command-not-found-git-svn-mvn-ant-or-others">Command not found (git, svn, mvn, ant or others)</a></li>
+<li><a href="#agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</a></li>
+<li><a href="#gocd-spa-pages-there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
+<li><a href="#port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>

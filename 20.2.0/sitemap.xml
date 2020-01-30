@@ -1,0 +1,488 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/installation/configure_proxy.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/ssl_tls/custom_certificate.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/access_tokens.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_add_material.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_add_stage.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/quick_pipeline_setup.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_add_job.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_add_task.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/agent-health-check-api.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/artifact_integrity.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/dev_authentication.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/dev_authorization.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/delete_artifacts.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/agent_auto_register.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/one_click_backup.html</loc>
+  </url>
+  
+  <url>
+    <loc>/categories.html</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/installation/ssl_tls/custom_server_certificate.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/rm_what_is_deployed.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/dev_choose_when_stage_runs.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/dev_clean_up_when_cancel.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/clone_existing_agents.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/command_repository.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/compare_pipelines.html</loc>
+  </url>
+  
+  <url>
+    <loc>/introduction/</loc>
+  </url>
+  
+  <url>
+    <loc>/introduction/concepts_in_go.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/concurrent_config_modifications.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/dev_conditional_task_execution.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/config_repo.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/docker_container_ssh_keys.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/configure-reverse-proxy.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/configure-agent-proxy.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/ssl_tls/configuring_hsts_header.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/ssl_tls_config.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/configuring_server_details.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/ssl_tls/setting_up_ciphers.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/delegating_group_administration.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/deleting_pipelines.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/deploy_a_specific_build_to_an_environment.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/rm_deploy_to_environment.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/docker_workflows.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/elastic_agents.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_mailhost_info.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/ssl_tls/end_to_end_transport_security.html</loc>
+  </url>
+  
+  <url>
+    <loc>/extension_points/</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/fan_in.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/fixing_common_issues.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/agent/zip.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/server/zip.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/material_update_hung.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes.html</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/stage_duration_chart.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/hardware_specifications.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/stage_old_config.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/job_rerun.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/importing_a_sample_workflow.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/helm_install.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/installing_go_agent.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/installing_go_server.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/agent/linux.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/agent/windows.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/server/linux.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/agent/osx.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/server/osx.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/install/server/windows.html</loc>
+  </url>
+  
+  <url>
+    <loc>/integration/</loc>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/introduction.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/job_timeout.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_lock_pipelines.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/logging.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/maintenance_mode.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/managing_a_build_cloud.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/managing_artifacts_and_reports.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/managing_dependencies.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/managing_environments.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/pipelines.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/managing_users.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/admin_install_multiple_agents.html</loc>
+  </url>
+  
+  <url>
+    <loc>/navigation/</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/dev_notifications.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/ordering_of_pipelines.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/other_config_options.html</loc>
+  </url>
+  
+  <url>
+    <loc>/extension_points/package_repository_extension.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_use_parameters_in_configuration.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/performance_tuning.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/pipeline_group_admin_config.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/pipeline_labeling.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/pipeline_scheduling.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/pipeline_templates.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/pipeline_activity.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/pipelines_as_code.html</loc>
+  </url>
+  
+  <url>
+    <loc>/extension_points/plugin_user_guide.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/policy_in_gocd.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/dev_upload_test_report.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/configuration_reference.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/dependency_management.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/admin_out_of_disk_space.html</loc>
+  </url>
+  
+  <url>
+    <loc>/extension_points/scm_extension.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/sample_pipelines_explained.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/secrets_management.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/dev_see_artifact_as_tab.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/tester_what_has_changed.html</loc>
+  </url>
+  
+  <url>
+    <loc>/gocd_on_kubernetes/setup_and_configuration.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/admin_spawn_multiple_jobs.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/system_requirements.html</loc>
+  </url>
+  
+  <url>
+    <loc>/tags.html</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>/extension_points/task_extension.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/cron_backup.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_timer.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/trigger_with_options.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/ui_testing.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/upgrading_go.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/dev_use_current_revision_in_build.html</loc>
+  </url>
+  
+  <url>
+    <loc>/navigation/value_stream_map.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/dev_understand_why_build_broken.html</loc>
+  </url>
+  
+  <url>
+    <loc>/extension_points/yum_repository_poller.html</loc>
+  </url>
+  
+</urlset>
