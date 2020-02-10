@@ -102,6 +102,12 @@ title: Reference
                 <a href="#config-repo-property-value">&lt;value/&gt;</a>
             <a href="#config-repo-property">&lt;/property&gt;</a>
         <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
+        <a href="#config-repo-rules">&lt;rules&gt;</a>
+            <a href="#config-repo-allow">&lt;allow&gt;</a>
+            <a href="#config-repo-allow">&lt;/allow&gt;</a>
+            <a href="#config-repo-deny">&lt;deny&gt;</a>
+            <a href="#config-repo-deny">&lt;/deny&gt;</a>
+        <a href="#config-repo-rules">&lt;/rules&gt;</a>
       <a href="#config-repo">&lt;/config-repo&gt;</a>
     <a href="#config-repos">&lt;/config-repos&gt;</a>
     <a href="#artifactStores">&lt;artifactStores&gt;</a>
@@ -1308,6 +1314,59 @@ The config repo `<scm>` material element specifies the location of your code bas
 
 [top](#top)
 
+## &lt;rules&gt; {#config-repo-rules}
+
+The config repo `<rules>` rules element is a container for `allow` and `deny` rule. More about `rules` can be read from [here](../advanced_usage/pipelines_as_code.html#specifying-rules).
+
+**Examples are:**
+
+```xml
+<rules>
+    <allow action="refer" type="environment">dev</allow>
+    <deny action="refer" type="environment">prod</allow>
+</rules>
+```
+
+[top](#top)
+
+
+## &lt;allow&gt; {#config-repo-allow}
+
+The `<allow>` element is the rule which allows referring the specified configured type and resource.
+
+**Attributes**
+
+| Attribute   | Required   | Description  |
+|------------ | ---------- | -------------|
+| action      | Yes        | Action for the entity specified under attribute `type`. Supported values are `refer`. |
+| type        | Yes        | The GoCD entity type for which rule will be applied. Supported values are `*, environment, pipeline_group, pipeline`. |
+
+**Example:**
+
+```xml
+<allow action="refer" type="*">*</allow>
+```
+
+[top](#top)
+
+## &lt;deny&gt; {#config-repo-deny}
+
+The `<deny>` element is the rule which denies the referral of the defined type and resource.
+
+**Attributes**
+
+| Attribute   | Required   | Description  |
+|------------ | ---------- | -------------|
+| action      | Yes        | Action for the entity specified under attribute `type`. Supported values are `refer`.  |
+| type        | Yes        | The GoCD entity type for which rule will be applied. Supported values are `*, environment, pipeline_group, pipeline`. |
+
+**Example:**
+
+```xml
+<deny action="refer" type="*">*</deny>
+```
+
+[top](#top)
 
 ## &lt;repositories&gt; {#repositories}
 

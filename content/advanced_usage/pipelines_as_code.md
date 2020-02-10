@@ -70,3 +70,76 @@ Once you've added a config repository, you'll see new pipelines in the pipeline 
 As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD's main XML configuration file.
 
 ![Config repo yaml](../images/advanced_usage/pipeline-export.gif)
+
+
+### Specifying Rules
+
+Starting with GoCD 20.2.0, you can defines `rules` on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.
+
+Previously, giving access to a config repository's backing SCM repository meant giving full access to the GoCD instance, almost. Such users used to have access to all environments/pipeline groups and could, possibly, add tasks to expose the secrets configured.
+
+With `rules`, the owners of the config repositories can limit the environments/pipeline groups the repo can add a pipeline to. Similarly, they can also define which pipelines can be referred as an upstream dependency. Hence, providing more control over what all entities can come via the config repository.
+
+- A restrictive model is followed while parsing a config repository. In the absence of a rule, no entity is accessible by default.
+
+    > The config repository defined in the example cannot refer any entity in GoCD.
+
+    ```xml
+    <config-repo id='teamA_repo' pluginId='yaml.config.plugin'>
+       <configuration>
+          ...
+      </configuration>
+      <rules/>
+    </secretConfig>
+    ```
+
+- Wildcards **(*)** in **type**:
+
+    Using a wildcard **(*)** for type implies a given rule applies to all entity types. In this case, the supported entities are `environment`, `pipeline_group` and `pipeline`.
+
+    > In the given example, a config repository can refer to any `pipeline_group` or `environment` or `pipeline` with the name `production`.
+
+    ```xml
+    <rules>
+      <allow type="*" action="refer">production</allow>
+    </rules>
+    ```
+
+    **Note**: `type` can have a wildcard(`*`) but it will not support pattern matching e.g. `pipe*`.
+
+- Wildcards **(*)** in **action**:
+
+    Using a wildcard **(*)** for action implies a given rule applies to any action on the config repository. Currently `refer` is the only supported action.
+
+    **Note**: `action` can have a wildcard(`*`) but it will not support pattern matching e.g. `ref*`.
+
+- Wildcards **(*)** in **resource**:
+
+    Resource name supports the wildcard characters '?' and '*' to represent a single or multiple (zero or more) wildcard characters.
+
+    | Wildcard Matcher   | Resource names                                                                         |
+    |------------------- | -------------------------------------------------------------------------------------- |
+    | `*_group`          | Matches `my_group` and `someother_group`, but not `testgroup` or `group1`.             |
+    | `Production_*`     | Matches `Production_Team_A` and `Production_Team_B` but not `Team_ABC_Production_D`.   |
+    | `*group*`          | Matches `group`, `my_group` and `group_A`, but not `groABCup`.                         |
+    | `Team_?_group`     | Matches `Team_A_group`, `Team_B_group` but not `Team_ABC_group` or `Team__group`.      |
+
+- When multiple permissions are defined, rules will be applied from top to bottom.
+
+    > In the below example pipeline_group `my_group` cannot be referred by the config repository since the first rule denies access using the pattern `my_*`
+
+    ```xml
+    <rules>
+      <deny action="refer" type="pipeline_group">my_*</deny>
+      <allow action="refer" type="pipeline_group">my_group</allow>
+    </rules>
+    ```
+
+    > In the below example pipeline_group `my_group` can be referred by the config repository since the first rule allows access.
+
+    ```xml
+    <rules>
+      <allow action="refer" type="pipeline_group">my_group</allow>
+      <deny action="refer" type="pipeline_group">*</deny>
+    </rules>
+    ```
