@@ -62,7 +62,7 @@ The helm client is a CLI that let's you install and update packaged applications
 ### Install the Helm server (Tiller) with RBAC
 
 With Helm, it is a good practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer the
-[Kubernetes RBAC documentation](https://kubernetes.io/docs/reference/access-authn-authz/rbac/) for more on Kubernetes service accounts and RBAC.
+[Kubernetes RBAC documentation](https://kubernetes.io/rbac/) for more on Kubernetes service accounts and RBAC.
 
 To create a service account for Tiller with the rather permissive cluster-admin role, create a file called `rbac-config.yaml` with this content:
 

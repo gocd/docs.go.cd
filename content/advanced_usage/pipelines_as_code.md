@@ -78,7 +78,7 @@ Starting with GoCD 20.2.0, you can defines `rules` on your config repository spe
 
 Previously, giving access to a config repository's backing SCM repository meant giving full access to the GoCD instance, almost. Such users used to have access to all environments/pipeline groups and could, possibly, add tasks to expose the secrets configured.
 
-With `rules`, the owners of the config repositories can limit the environments/pipeline groups the repo can add a pipeline to. Similarly, they can also define which pipelines can be referred as an upstream dependency. Hence, providing more control over what all entities can come via the config repository.
+With `rules`, the users who can create/edit config repositories can limit the environments/pipeline groups the repository can add a pipeline to. Similarly, they can also define which pipelines can be referred as an upstream dependency. Hence, providing more control over what all entities can come via the config repository.
 
 - A restrictive model is followed while parsing a config repository. In the absence of a rule, no entity is accessible by default.
 
