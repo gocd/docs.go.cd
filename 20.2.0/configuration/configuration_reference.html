@@ -430,6 +430,12 @@ if (!doNotTrack) {
                 <a href="#config-repo-property-value">&lt;value/&gt;</a>
             <a href="#config-repo-property">&lt;/property&gt;</a>
         <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
+        <a href="#config-repo-rules">&lt;rules&gt;</a>
+            <a href="#config-repo-allow">&lt;allow&gt;</a>
+            <a href="#config-repo-allow">&lt;/allow&gt;</a>
+            <a href="#config-repo-deny">&lt;deny&gt;</a>
+            <a href="#config-repo-deny">&lt;/deny&gt;</a>
+        <a href="#config-repo-rules">&lt;/rules&gt;</a>
       <a href="#config-repo">&lt;/config-repo&gt;</a>
     <a href="#config-repos">&lt;/config-repos&gt;</a>
     <a href="#artifactStores">&lt;artifactStores&gt;</a>
@@ -2195,6 +2201,85 @@ directory where the .ssh/ directory is located.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;e289f497-057b-46bc-bb69-8043454f5c1b&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="config-repo-rules">&lt;rules&gt;</h2>
+
+<p>The config repo <code>&lt;rules&gt;</code> rules element is a container for <code>allow</code> and <code>deny</code> rule. More about <code>rules</code> can be read from <a href="../advanced_usage/pipelines_as_code.html#specifying-rules">here</a>.</p>
+
+<p><strong>Examples are:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="config-repo-allow">&lt;allow&gt;</h2>
+
+<p>The <code>&lt;allow&gt;</code> element is the rule which allows referring the specified configured type and resource.</p>
+
+<p><strong>Attributes</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>Action for the entity specified under attribute <code>type</code>. Supported values are <code>refer</code>.</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>The GoCD entity type for which rule will be applied. Supported values are <code>*, environment, pipeline_group, pipeline</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="config-repo-deny">&lt;deny&gt;</h2>
+
+<p>The <code>&lt;deny&gt;</code> element is the rule which denies the referral of the defined type and resource.</p>
+
+<p><strong>Attributes</strong></p>
+
+<table>
+<thead>
+<tr>
+<th>Attribute</th>
+<th>Required</th>
+<th>Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>action</td>
+<td>Yes</td>
+<td>Action for the entity specified under attribute <code>type</code>. Supported values are <code>refer</code>.</td>
+</tr>
+
+<tr>
+<td>type</td>
+<td>Yes</td>
+<td>The GoCD entity type for which rule will be applied. Supported values are <code>*, environment, pipeline_group, pipeline</code>.</td>
+</tr>
+</tbody>
+</table>
+
+<p><strong>Example:</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
 <h2 id="repositories">&lt;repositories&gt;</h2>
@@ -5070,6 +5155,9 @@ allow certain variable names and/or values.</p>
 <li><a href="#config-repo-git">&lt;git&gt;</a></li>
 <li><a href="#config-repo-tfs">&lt;tfs&gt;</a></li>
 <li><a href="#config-repo-scm">&lt;scm&gt;</a></li>
+<li><a href="#config-repo-rules">&lt;rules&gt;</a></li>
+<li><a href="#config-repo-allow">&lt;allow&gt;</a></li>
+<li><a href="#config-repo-deny">&lt;deny&gt;</a></li>
 <li><a href="#repositories">&lt;repositories&gt;</a></li>
 <li><a href="#repository">&lt;repository&gt;</a></li>
 <li><a href="#pluginConfiguration">&lt;pluginConfiguration&gt;</a></li>
