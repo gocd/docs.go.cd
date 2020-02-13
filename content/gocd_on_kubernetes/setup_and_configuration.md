@@ -112,5 +112,5 @@ There is no need any more to have cluster admin privileges or to install Tiller 
 
 Know more about removal of Tiller at [Helm v3 Changelog](https://helm.sh/docs/faq/#changes-since-helm-2).  
 
-Helm’s permissions are now evaluated using your kubeconfig file. Refer the [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and [Helm RBAC guide](https://helm.sh/docs/topics/rbac/) for configuring more secure and advanced RBAC for your cluster.
+Helm's permissions are now evaluated using your kubeconfig file. Refer the [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and [Helm RBAC guide](https://helm.sh/docs/topics/rbac/) for configuring more secure and advanced RBAC for your cluster.
 
