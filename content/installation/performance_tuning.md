@@ -30,7 +30,7 @@ When the GoCD server is being scaled up to run with larger number of pipeline, a
 ```shell
 # use minimum JVM heap of 4gb
 wrapper.java.additional.100=-Xms4g
-# use maximum JVM heap of 8gb
+# use maximum JVM heap of 8gb (this is for GoCD server and the index MUST be 2, so that it overrides the value set in wrapper.conf)
 wrapper.java.additional.2=-Xmx8g
 ```
 
