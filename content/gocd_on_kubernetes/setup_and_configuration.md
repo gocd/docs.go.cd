@@ -53,13 +53,20 @@ Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popu
 
 Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
 
-Helm has two parts to it, the `helm` client and a server called `Tiller`.
-
 ### Install the Helm client
 
 The helm client is a CLI that let's you install and update packaged applications on Kubernetes. Helm's [installation documentation](https://github.com/helm/helm#user-content-install) details various ways to install the Helm client.
 
-### Install the Helm server (Tiller) with RBAC
+Upon installation, verify Helm version
+
+```terminal
+$ helm version
+version.BuildInfo{Version:"v3.0.3", GitCommit:"ac925eb7279f4a6955df663a0128044a8a6b7593", GitTreeState:"clean", GoVersion:"go1.13.7"}
+```
+
+### For Helm Client v2 and below:  
+
+#### Install the Helm server (Tiller) with RBAC
 
 With Helm, it is a good practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer the
 [Kubernetes RBAC documentation](https://kubernetes.io/rbac/) for more on Kubernetes service accounts and RBAC.
@@ -98,4 +105,12 @@ Now that we have the Helm service account created and assigned to a role, let's 
 helm init --service-account tiller
 ```
 
-Refer the [Helm RBAC guide](https://helm.sh/docs/topics/rbac/) for more secure and advanced RBAC configurations.
+### For Helm Client v3:  
+
+As part of Helm v3, Tiller has been removed from Helm in order to simplifies the experience of using Helm. 
+There is no more need to have cluster admin privileges or to install a Tiller in every namespace. With Tiller removed, Helm v3 now uses the settings and access defined in the local kubeconfig file.
+
+Know more about removal of Tiller at [Helm v3 Changelog](https://helm.sh/docs/faq/#changes-since-helm-2).  
+
+Helm’s permissions are now evaluated using your kubeconfig file. Refer the [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and [Helm RBAC guide](https://helm.sh/docs/topics/rbac/) for configuring more secure and advanced RBAC for your cluster.
+
