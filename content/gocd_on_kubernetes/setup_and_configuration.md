@@ -107,8 +107,8 @@ helm init --service-account tiller
 
 ### For Helm Client v3:  
 
-As part of Helm v3, Tiller has been removed from Helm in order to simplifies the experience of using Helm. 
-There is no more need to have cluster admin privileges or to install a Tiller in every namespace. With Tiller removed, Helm v3 now uses the settings and access defined in the local kubeconfig file.
+As part of Helm v3, Tiller has been removed from Helm in order to simplify the experience of using Helm. 
+There is no need any more to have cluster admin privileges or to install Tiller in every namespace. With Tiller removed, Helm v3 now uses the settings and access defined in the local kubeconfig file.
 
 Know more about removal of Tiller at [Helm v3 Changelog](https://helm.sh/docs/faq/#changes-since-helm-2).  
 
