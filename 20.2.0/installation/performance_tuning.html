@@ -350,6 +350,8 @@ if (!doNotTrack) {
 
 <h3 id="things-to-remember">Things to Remember</h3>
 
+<h4 id="server">Server</h4>
+
 <p>Do not run any other CPU intensive applications on the same box as the GoCD Server.</p>
 
 <p>When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are <code>-Xms512m</code> (minimum) and <code>-Xmx1024m</code> (maximum). To utilize more heap space, set the JVM option <code>-Xmx</code> to a higher value (for e.g. to use 8 GB heap, set the flag <code>-Xmx8g</code>). This flag can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
@@ -365,6 +367,12 @@ wrapper.java.additional.2<span style="color:#666">=</span>-Xmx8g</code></pre></d
 <li>The system file descriptor limit can be increased by setting <code>fs.file-max</code> in the file <code>/etc/sysctl.conf</code>. To set the limit to <code>65535</code> use <code>echo &quot;fs.file-max = 65535&quot; &gt;&gt; /etc/sysctl.conf</code></li>
 </ol>
 
+<h4 id="agent">Agent</h4>
+
+<p>When the GoCD agent is running pipelines with verbose output, many artifacts etc. you may encounter <code>java.lang.OutOfMemoryError: Java heap space</code> in the log files. It is a sign to increase memory limit. To do so tune <code>set.AGENT_STARTUP_ARGS</code> in the aforementioned <code>wrapper-properties.conf</code>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic">###### System properties for GoCD agent ######</span>
+<span style="color:#080;font-style:italic"># Set a memory limit of 1GB for the agent process. We recommend that you do not use more than half your system memory.</span>
+set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>-Xms128m -Xmx1024m</code></pre></div>
 <h3 id="tuning-your-jvm">Tuning your JVM</h3>
 
 <p>Ensure that the latest JVM is used always, as there are major performance improvements with every release.</p>
@@ -553,7 +561,11 @@ wrapper.java.additional.2<span style="color:#666">=</span>-Xmx8g</code></pre></d
 <ul>
 <li><a href="#minimum-server-requirements">Minimum server requirements</a></li>
 <li><a href="#scaling-gocd">Scaling GoCD</a></li>
-<li><a href="#things-to-remember">Things to Remember</a></li>
+<li><a href="#things-to-remember">Things to Remember</a>
+<ul>
+<li><a href="#server">Server</a></li>
+<li><a href="#agent">Agent</a></li>
+</ul></li>
 <li><a href="#tuning-your-jvm">Tuning your JVM</a></li>
 <li><a href="#storage">Storage</a></li>
 <li><a href="#improving-server-startup-time">Improving Server Startup Time</a></li>
