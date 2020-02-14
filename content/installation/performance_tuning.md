@@ -23,6 +23,8 @@ If you have questions or have custom requirements, please contact support@though
 
 ### Things to Remember
 
+#### Server
+
 Do not run any other CPU intensive applications on the same box as the GoCD Server.
 
 When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are ```-Xms512m``` (minimum) and ```-Xmx1024m``` (maximum). To utilize more heap space, set the JVM option `-Xmx` to a higher value (for e.g. to use 8 GB heap, set the flag `-Xmx8g`). This flag can be set in the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
@@ -39,6 +41,16 @@ For linux/unix users running large setups, an exception might be seen in ```go-s
 1. Edit ```/etc/security/limits.conf``` and add the lines: ```soft nofile 1024 * hard nofile 65535```
 2. Edit ```/etc/pam.d/login```, adding the line: ```session required /lib/security/pam_limits.so```
 3. The system file descriptor limit can be increased by setting ```fs.file-max``` in the file ```/etc/sysctl.conf```. To set the limit to ```65535``` use ```echo "fs.file-max = 65535" >> /etc/sysctl.conf```
+
+#### Agent
+
+When the GoCD agent is running pipelines with verbose output, many artifacts etc. you may encounter `java.lang.OutOfMemoryError: Java heap space` in the log files. It is a sign to increase memory limit. To do so tune `set.AGENT_STARTUP_ARGS` in the aforementioned `wrapper-properties.conf`.
+
+```shell
+###### System properties for GoCD agent ######
+# Set a memory limit of 1GB for the agent process. We recommend that you do not use more than half your system memory.
+set.AGENT_STARTUP_ARGS=-Xms128m -Xmx1024m
+```
 
 ### Tuning your JVM
 
