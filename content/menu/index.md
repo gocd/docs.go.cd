@@ -50,8 +50,6 @@ headless: true
       <li class="level2"><a href="{{< relref "installation/configure-agent-proxy.md" >}}">Configure an agent with proxy</a></li>
       <li class="level2"><a href="{{< relref "installation/ssl_tls_config.md" >}}">Configuring SSL/TLS</a>
         <ul>
-          <li class="level3"><a href="{{< relref "installation/ssl_tls/setting_up_ciphers.md" >}}">Customizing Ciphers</a></li>
-          <li class="level3"><a href="{{< relref "installation/ssl_tls/custom_server_certificate.md" >}}">Change SSL Certificates</a></li>
           <li class="level3"><a href="{{< relref "installation/ssl_tls/end_to_end_transport_security.md" >}}">End to end transport security</a></li>
           <li class="level3"><a href="{{< relref "installation/ssl_tls/configuring_hsts_header.md" >}}">Configuring HSTS Header</a></li>
         </ul>

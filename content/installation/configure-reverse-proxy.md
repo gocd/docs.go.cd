@@ -105,10 +105,10 @@ server {
     proxy_set_header        X-Forwarded-For $proxy_add_x_forwarded_for;
     proxy_set_header        X-Forwarded-Proto $scheme;
     proxy_http_version      1.1;
-    proxy_set_header 	      Upgrade $http_upgrade;
-    proxy_set_header 	      Connection $connection_upgrade;
+    proxy_set_header        Upgrade $http_upgrade;
+    proxy_set_header        Connection $connection_upgrade;
     proxy_pass              http://localhost:8153/;
-    
+
     # To be able to upload artifacts larger than default size of 1mb, ensure that you set this up to a large value.
     # setting to `0` will disable checking for body size.
     # See https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size

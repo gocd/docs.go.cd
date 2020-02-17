@@ -12,6 +12,7 @@ aliases:
 This page is mainly for newer users of GoCD, to help with troubleshooting issues.
 
 <a id="agent_registration"></a>
+
 ### GoCD Agent not registering with the GoCD Server
 
 This issue shows up either as an agent not showing up on the "Agents" page, or
