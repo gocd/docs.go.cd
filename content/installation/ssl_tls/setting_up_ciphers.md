@@ -4,25 +4,21 @@ title: Customizing Ciphers
 
 # Configuring SSL/TLS ciphers
 
-You can choose which ciphers and SSL/TLS protocols Go will use for communication with agents and users (and their browsers)
+You can choose which ciphers and SSL/TLS protocols GoCD will use for communication with agents and users (and their browsers)
 
 ## Configuring GoCD server
 
-Following system properties are exposed to override the default SSL/TLS configuration for Go server:
+**Note** GoCD version 20.2 no longer supports configuring TLS. See [this GitHub issue](https://github.com/gocd/gocd/pull/7669#issuecomment-580290432) for more details.
 
-| System Property                          | Default value | Description                                                                               |
-| ---------------------------------------- | :-----------: | ----------------------------------------------------------------------------------------- |
-| `go.ssl.ciphers.include`                 |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be enabled  |
-| `go.ssl.ciphers.exclude`                 |    `null`     | A comma-separated list of cipher suite names (exact or regular expression) to be disabled |
-| `go.ssl.protocols.include`               |    `null`     | A comma-separated list of SSL/TLS protocols to be enabled                                 |
-| `go.ssl.protocols.exclude`               |    `null`     | A comma-separated list of SSL/TLS protocols to be disabled                                |
-| `go.ssl.renegotiation.allowed`           |    `true`     | Flag to allow/dis-allow TLS renegotiation, accepts - `true` and `false`                   |
-| `go.ssl.config.clear.default.exclusions` |    `true`     | Flag to instruct jetty to not exclude any weak ciphers, accepts - `true` and `false`      |
-
-To configure the system properties, edit the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
+To configure SSL, please install and configure a reverse proxy to terminate SSL.
 
 ## Configuring GoCD agent
 
-The default transport protocol that agent uses to communicate with Go server is *TLSv1.2*. This can be overridden by configuring property `go.ssl.agent.protocol` to a suitable value based on your requirements. If your JRE does not support TLSv1.2, set this property as follows:
+The default transport protocol that the GoCD uses to communicate with GoCD server is determined by the version of Java that runs with the agent. The agent does allow configuring some properties to configure the SSL/TLS protocols:
+
+| System property   | Description                                                                                                                                  |
+| ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| `https.protocols` | A comma separated list of HTTPS protocols that the agent should use to communicate with the server. e.g. `-Dhttps.protocols=TLSv1.1,TLSv1.2` |
+| `https.cipherSuites` | A comma separated list of cipher suites that the agent should use to communicate with the server. e.g. `-Dhttps.protocols=TLSv1.1,TLSv1.2`. <p>This list can be obtained by executing the script `jrunscript -e "java.util.Arrays.asList(javax.net.ssl.SSLServerSocketFactory.getDefault().getSupportedCipherSuites()).stream().forEach(println)"` on your terminal or command prompt.</p> |
 
 To configure the system properties, edit the file `wrapper-properties.conf` on the GoCD agent to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.

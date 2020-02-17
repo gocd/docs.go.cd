@@ -12,7 +12,7 @@ The GoCD agent allows for some configuration to be able to configure and secure 
 
 The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you'd like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.
 
-`java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST]`
+`java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST] [-sslCertificate /path/to/certificate.pem] [-sslPrivateKey /path/to/private-key.pem] [-sslPrivateKeyPassphraseFile /path/to/private-key-passphrase]`
 
 ## The `-rootCertFile` option
 
@@ -33,6 +33,18 @@ The `-sslVerificationMode` option allows you to choose the level of verification
 * `NONE` (the default) will disable all SSL/TLS verification.
 * `NO_VERIFY_HOST` will perform certificate check, but ignore verification of the server hostname.
 * `FULL` will perform complete certificate validation.
+
+## The `-sslCertificate` option
+
+For performing mutual TLS between the GoCD agent and server, specify the certificate (in PEM format) that the agent should use to authenticate with the HTTPs server.
+
+## The `-sslPrivateKey` option
+
+For performing mutual TLS between the GoCD agent and server, specify the private key (in PEM format) that the agent should use to authenticate with the HTTPs server.
+
+## The `-sslPrivateKeyPassphraseFile` option
+
+If the private key is encrypted using a passphrase, specify the file that contains the passphrase.
 
 ## Configuring the agent
 
