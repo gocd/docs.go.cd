@@ -1764,7 +1764,7 @@ For example: If you use Mingle for your task manager, the configuration would be
 
 ## &lt;mingle&gt; {#mingle}
 
-This element let's you associate a [Mingle](http://www.thoughtworks.com/mingle) project to a pipeline. Once associated, you will be able to track Mingle cards from within Go.
+This element let's you associate a Mingle project to a pipeline. Once associated, you will be able to track Mingle cards from within Go.
 
 **Note:** You cannot configure a [trackingtool](#trackingtool) if mingle is configured for a pipeline.
 
