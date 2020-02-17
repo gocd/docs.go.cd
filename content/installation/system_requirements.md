@@ -104,6 +104,6 @@ These are the only network file systems GoCD is officially tested on. If you fin
 
 ### Java Dependencies for GoCD (Server and Agent)
 
-This version of GoCD works with Java Runtime Environment (JRE) versions 8, 10, 11 and 12.
+This version of GoCD works with Java Runtime Environment (JRE) versions 11 and 12.
 
 Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer to this [blog post](https://www.gocd.org/2019/05/21/official-stance-on-java/) for GoCD's official stance on supported Java versions.
