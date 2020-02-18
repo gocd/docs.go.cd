@@ -573,7 +573,9 @@ If you specify the attribute, please check whether GoCD has permission to access
 
 ## &lt;purgeSettings&gt; {#purgeSettings}
 
-The `<purgeSettings>` element is used to define `<purgeStartDiskSpace>` and `<purgeUptoDiskSpace>`, where if available disk space on the server is lower than `<purgeStartDiskSpace>` GB, GoCD will purge old artifacts till the available disk space is greater than `<purgeUptoDiskSpace>`GB.
+The `<purgeSettings>` element is used to configure GoCD to automatically delete old artifacts when the available disk space on the server is low.
+
+The `<purgeSettings>` can be configured with `<purgeStartDiskSpace>` and `<purgeUptoDiskSpace>`. If available disk space on the server is lower than `<purgeStartDiskSpace>` GB, GoCD will purge old artifacts till the available disk space is greater than `<purgeUptoDiskSpace>`GB.
 
 **Notes**
 
@@ -594,7 +596,7 @@ The `<purgeSettings>` element is used to define `<purgeStartDiskSpace>` and `<pu
 
 ## &lt;purgeStartDiskSpace&gt; {#purgeStartDiskSpace}
 
-The `<purgeStartDiskSpace>` element is used to defined the limit of available disk space. If actual available disk space is less than the limit, GoCD will start purging the artifacts.
+The `<purgeStartDiskSpace>` element is used to define the limit of available disk space. If actual available disk space is less than the limit, GoCD will start purging the artifacts.
 
 
 **Notes**
@@ -614,7 +616,7 @@ The `<purgeStartDiskSpace>` element is used to defined the limit of available di
 
 ## &lt;purgeUptoDiskSpace&gt; {#purgeUptoDiskSpace}
 
-The `<purgeUptoDiskSpace>` element is used to defined the limit of available disk space.GoCD will stop purging artifacts,when the available disk space reaches the specified limit.
+The `<purgeUptoDiskSpace>` element is used to define the limit of available disk space. GoCD will stop purging artifacts, when the available disk space reaches the specified limit.
 
 **Notes**
 
@@ -634,7 +636,8 @@ The `<purgeUptoDiskSpace>` element is used to defined the limit of available dis
 ## &lt;ldap&gt; {#ldap} [*Deprecated*]
 
 
-The `<ldap>` element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.
+The `<ldap>` element is used to specify the ldap server. Users can access 
+with their username and password from this ldap server.
 
 **Attributes**
 
