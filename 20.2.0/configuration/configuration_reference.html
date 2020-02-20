@@ -339,6 +339,10 @@ if (!doNotTrack) {
 <p><big><pre>
 <a href="#cruise">&lt;cruise&gt;</a>
     <a href="#server">&lt;server&gt;</a>
+        <a href="#siteUrls">&lt;siteUrls&gt;</a>
+            <a href="#siteUrl">&lt;siteUrl/&gt;</a>
+            <a href="#secureSiteUrl">&lt;secureSiteUrl/&gt;</a>
+        <a href="#site_urls">&lt;/siteUrls&gt;</a>
         <a href="#security">&lt;security&gt;</a>
             <a href="#ldap">&lt;ldap&gt;</a>
                 <a href="#bases">&lt;bases&gt;</a>
@@ -381,6 +385,13 @@ if (!doNotTrack) {
         <a href="#security">&lt;/security&gt;</a>
         <a href="#mailhost">&lt;mailhost/&gt;</a>
         <a href="#backup">&lt;backup/&gt;</a>
+        <a href="#artifacts">&lt;artifacts&gt;</a>
+            <a href="#artifactDir">&lt;artifactsDir/&gt;</a>
+            <a href="#purgeSettings">&lt;purgeSettings&gt;</a>
+                <a href="#purgeStartDiskSpace">&lt;purgeStartDiskSpace/&gt;</a>
+                <a href="#purgeUptoDiskSpace">&lt;purgeUptoDiskSpace/&gt;</a>
+            <a href="#purgeSettings">&lt;/purgeSettings/&gt;</a>
+         <a href="#artifacts">&lt;/artifacts&gt;</a>
     <a href="#server">&lt;/server&gt;</a>
     <a href="#elastic">&lt;elastic&gt;</a>
         <a href="#agentProfiles">&lt;agentProfiles&gt;</a>
@@ -625,39 +636,9 @@ if (!doNotTrack) {
 
 <tbody>
 <tr>
-<td>artifactsdir</td>
-<td>No</td>
-<td>This directory is where Go will store its information, including artifacts published by jobs. The <strong>default value</strong> is &lsquo;artifacts&rsquo; in the folder where the Go Server is installed. You can use an absolute path or a relative path which will take the server installed directory as the root. <strong>Notes:</strong> If you specify the attribute, please check whether Go has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won&rsquo;t take effect until Go Server is restarted.</td>
-</tr>
-
-<tr>
-<td>siteUrl</td>
-<td>No</td>
-<td>This entry will be used by Go Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted Go with a reverse proxy, this value should be the base URL for the proxy and not the internal Go address. For this reason, it is necessary to specify this configuration. Format: [protocol]://[host]:[port]. You need to define the [port] in case Go uses a non-standard port.</td>
-</tr>
-
-<tr>
-<td>secureSiteUrl</td>
-<td>No</td>
-<td>Certain features in Go require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL. Format: https://[host]:[port]. You need to define the [port] in case Go uses a non-standard port.</td>
-</tr>
-
-<tr>
-<td>purgeStart</td>
-<td>No</td>
-<td>Go can purge old artifacts when available disk space on the server is low. Go will begin to purge artifacts when disk space is lower than &lsquo;purgeStart&rsquo; GB. Artifacts will never be deleted if &lsquo;purgeStart&rsquo; and &lsquo;purgeUpto&rsquo; are not defined.</td>
-</tr>
-
-<tr>
-<td>purgeUpto</td>
-<td>No</td>
-<td>Go can purge old artifacts when available disk space on the server is low. Go will purge artifacts till available disk space is greater than &lsquo;purgeUpto&rsquo; GB. This attribute must be defined if purgeStart is defined.</td>
-</tr>
-
-<tr>
 <td>jobTimeout</td>
 <td>No</td>
-<td>This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for &ldquo;jobTimeout&rdquo; minutes. If the attribute is not specified jobTimeout defaults to 60 minutes.</td>
+<td>This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for &ldquo;jobTimeout&rdquo; minutes. If the attribute is not specified job will never timeout.</td>
 </tr>
 
 <tr>
@@ -680,21 +661,53 @@ if (!doNotTrack) {
 </tbody>
 </table>
 
-<p><strong>Notes:</strong></p>
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">jobTimeout=</span><span style="color:#b44">&#39;30&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="siteUrls">&lt;siteUrls&gt;</h2>
+
+<p>The <code>&lt;siteUrls&gt;</code> element is used to define <a href="#siteUrl"><code>&lt;siteUrl&gt;</code></a> and <a href="#secureSiteUrl"><code>&lt;secureSiteUrl&gt;</code></a>.</p>
+
+<p><strong>Notes</strong></p>
 
 <ul>
-<li>If both siteUrl and secureSiteUrl are not defined, Go URLs will use the default domain which in most cases will be <code>http://your-go-server:8153</code></li>
-<li>If only siteUrl is defined and is not HTTPS, Go URLs will be composed from the siteUrl entry. In this case, the secure pages of Go will not be navigable.</li>
-<li>If only siteUrl is defined and is HTTPS, Go URLs will be composed from the siteUrl entry and all pages will be HTTPS.</li>
-<li>If only secureSiteUrl is defined, Go URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the secureSiteUrl entry.</li>
-<li>If purgeStart and purgeUpto are not defined, artifacts will never be deleted.</li>
+<li>If both <code>&lt;siteUrl&gt;</code> and <code>&lt;secureSiteUrl&gt;</code> are not defined, GoCD URLs will use the default domain which in most cases will be <code>http://your-go-server:8153</code></li>
+<li>If only <code>&lt;siteUrl&gt;</code> is defined and is not HTTPS, GoCD URLs will be composed from the <code>&lt;siteUrl&gt;</code> entry. In this case, the secure pages of GoCD will not be navigable.</li>
+<li>If only <code>&lt;siteUrl&gt;</code> is defined and is HTTPS, GoCD URLs will be composed from the <code>&lt;siteUrl&gt;</code> entry and all pages will be HTTPS.</li>
+<li>If only <code>&lt;secureSiteUrl&gt;</code> is defined, GoCD URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the <code>&lt;secureSiteUrl&gt;</code> entry.</li>
 </ul>
 
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;/var/lib/go/big-artifacts-folder&#34;</span> <span style="color:#b44">siteUrl=</span><span style="color:#b44">&#34;http://go.example.com&#34;</span> <span style="color:#b44">secureSiteUrl=</span><span style="color:#b44">&#34;https://go.example.com&#34;</span> <span style="color:#b44">purgeStart=</span><span style="color:#b44">&#39;5&#39;</span> <span style="color:#b44">purgeUpto=</span><span style="color:#b44">&#39;10&#39;</span> <span style="color:#b44">jobTimeout=</span><span style="color:#b44">&#39;30&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://siteUrl.com<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;secureSiteUrl&gt;</span>https://secureSiteUrl.com<span style="color:#008000;font-weight:bold">&lt;/secureSiteUrl&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="siteUrl">&lt;siteUrl&gt;</h2>
+
+<p>The <code>&lt;siteUrl&gt;</code> element is used by GoCD Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. <code>Format: [protocol]://[host]:[port]</code>. You need to define the [port] in case GoCD uses a non-standard port. The [Protocol] can be HTTP or HTTPs.</p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://siteUrl.com<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
+  ...
+<span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="secureSiteUrl">&lt;secureSiteUrl&gt;</h2>
+
+<p>The <code>&lt;secureSiteUrl&gt;</code> element is used to specify value of the base HTTPS URL.Certain features in GoCD require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL,you can use this element. Format: <code>https://[host]:[port]</code>. You need to define the [port] in case GoCD uses a non-standard port.</p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+  ...
+  <span style="color:#008000;font-weight:bold">&lt;secureSiteUrl&gt;</span>https://secureSiteUrl.com<span style="color:#008000;font-weight:bold">&lt;/secureSiteUrl&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
 <h2 id="security">&lt;security&gt;</h2>
@@ -1065,11 +1078,96 @@ various combinations of the allowed special characters for that field. The field
 
 <p><a href="#top">top</a></p>
 
+<h2 id="artifacts">&lt;artifacts&gt;</h2>
+
+<p>The <code>&lt;artifacts&gt;</code> element can be used to define information related to artifacts.In this, artifact directory can be defined using  <a href="#artifactDir"><code>&lt;artifactsDir&gt;</code></a> and purge settings can be using <a href="#purgeSettings"><code>&lt;purgeSettings&gt;</code></a></p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;purgeStartDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeStartDiskSpace&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;purgeUptoDiskSpace&gt;</span>60.0<span style="color:#008000;font-weight:bold">&lt;/purgeUptoDiskSpace&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;/purgeSettings&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="artifactDir">&lt;artifactDir&gt;</h2>
+
+<p>The <code>&lt;artifactsDir&gt;</code> element is used to define the directory where GoCD will store its information, including artifacts published by jobs.The <strong>default value</strong> is &lsquo;artifacts&rsquo; in the folder where the GoCD Server is installed. You can use an absolute path or a relative path which will take the server installed directory as the root.</p>
+
+<p><strong>Notes:</strong></p>
+
+<p>If you specify the attribute, please check whether GoCD has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won&rsquo;t take effect until GoCD Server is restarted.</p>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
+  ...
+<span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="purgeSettings">&lt;purgeSettings&gt;</h2>
+
+<p>The <code>&lt;purgeSettings&gt;</code> element is used to configure GoCD to automatically delete old artifacts when the available disk space on the server is low.</p>
+
+<p>The <code>&lt;purgeSettings&gt;</code> can be configured with <code>&lt;purgeStartDiskSpace&gt;</code> and <code>&lt;purgeUptoDiskSpace&gt;</code>. If available disk space on the server is lower than <code>&lt;purgeStartDiskSpace&gt;</code> GB, GoCD will purge old artifacts till the available disk space is greater than <code>&lt;purgeUptoDiskSpace&gt;</code>GB.</p>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+<li><p>Artifacts will never be deleted if <code>purgeStartDiskSpace</code> and <code>purgeUptoDiskSpace</code> are not defined.</p></li>
+
+<li><p>If <code>purgeStartDiskSpace</code> is defined,<code>purgeUptoDiskSpace</code>should be defined.</p></li>
+</ul>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;purgeStartDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeStartDiskSpace&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;purgeUptoDiskSpace&gt;</span>60.0<span style="color:#008000;font-weight:bold">&lt;/purgeUptoDiskSpace&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/purgeSettings&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="purgeStartDiskSpace">&lt;purgeStartDiskSpace&gt;</h2>
+
+<p>The <code>&lt;purgeStartDiskSpace&gt;</code> element is used to define the limit of available disk space. If actual available disk space is less than the limit, GoCD will start purging the artifacts.</p>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+<li>It should be smaller than <code>&lt;purgeUptoDiskSpace&gt;</code>.</li>
+</ul>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;purgeStartDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeStartDiskSpace&gt;</span>
+    ...
+<span style="color:#008000;font-weight:bold">&lt;/purgeSettings&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
+<h2 id="purgeUptoDiskSpace">&lt;purgeUptoDiskSpace&gt;</h2>
+
+<p>The <code>&lt;purgeUptoDiskSpace&gt;</code> element is used to define the limit of available disk space. GoCD will stop purging artifacts, when the available disk space reaches the specified limit.</p>
+
+<p><strong>Notes</strong></p>
+
+<ul>
+<li>It should be greater than <code>&lt;purgeStartDiskSpace&gt;</code>.</li>
+</ul>
+
+<p><strong>Examples</strong></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
+    ...
+    <span style="color:#008000;font-weight:bold">&lt;purgeUptoDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeUptoDiskSpace&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;/purgeSettings&gt;</span></code></pre></div>
+<p><a href="#top">top</a></p>
+
 <h2 id="ldap">&lt;ldap&gt;</h2>
 
 <p>[<em>Deprecated</em>]</p>
 
-<p>The <code>&lt;ldap&gt;</code> element is used to specify the ldap server. Users can access Go with their username and password from this ldap server.</p>
+<p>The <code>&lt;ldap&gt;</code> element is used to specify the ldap server. Users can access
+with their username and password from this ldap server.</p>
 
 <p><strong>Attributes</strong></p>
 
@@ -4628,7 +4726,7 @@ the state &ldquo;failed&rdquo;&ldquo;&rdquo;.</p>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span></code></pre></div>
 <p><a href="#top">top</a></p>
 
-<h2 id="artifacts">&lt;artifacts&gt;</h2>
+<h2 id="artifacts-1">&lt;artifacts&gt;</h2>
 
 <p><code>&lt;artifacts&gt;</code> specifies what files the agent will publish to the server or an external artifact store.</p>
 
@@ -5121,9 +5219,17 @@ allow certain variable names and/or values.</p>
 <ul>
 <li><a href="#cruise">&lt;cruise&gt;</a></li>
 <li><a href="#server">&lt;server&gt;</a></li>
+<li><a href="#siteUrls">&lt;siteUrls&gt;</a></li>
+<li><a href="#siteUrl">&lt;siteUrl&gt;</a></li>
+<li><a href="#secureSiteUrl">&lt;secureSiteUrl&gt;</a></li>
 <li><a href="#security">&lt;security&gt;</a></li>
 <li><a href="#mailhost">&lt;mailhost&gt;</a></li>
 <li><a href="#backup">&lt;backup&gt;</a></li>
+<li><a href="#artifacts">&lt;artifacts&gt;</a></li>
+<li><a href="#artifactDir">&lt;artifactDir&gt;</a></li>
+<li><a href="#purgeSettings">&lt;purgeSettings&gt;</a></li>
+<li><a href="#purgeStartDiskSpace">&lt;purgeStartDiskSpace&gt;</a></li>
+<li><a href="#purgeUptoDiskSpace">&lt;purgeUptoDiskSpace&gt;</a></li>
 <li><a href="#ldap">&lt;ldap&gt;</a></li>
 <li><a href="#bases">&lt;bases&gt;</a></li>
 <li><a href="#base">&lt;base&gt;</a></li>
@@ -5209,7 +5315,7 @@ allow certain variable names and/or values.</p>
 <li><a href="#fetchartifact">&lt;fetchartifact&gt;</a></li>
 <li><a href="#runif">&lt;runif&gt;</a></li>
 <li><a href="#oncancel">&lt;oncancel&gt;</a></li>
-<li><a href="#artifacts">&lt;artifacts&gt;</a></li>
+<li><a href="#artifacts-1">&lt;artifacts&gt;</a></li>
 <li><a href="#artifact">&lt;artifact&gt;</a></li>
 <li><a href="#tabs">&lt;tabs&gt;</a></li>
 <li><a href="#tab">&lt;tab&gt;</a></li>
