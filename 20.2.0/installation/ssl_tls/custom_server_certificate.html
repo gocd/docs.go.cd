@@ -135,8 +135,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
       <li class="level2"><a href="../../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
         <ul>
-          <li class="level3"><a href="../../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
-          <li class="level3"><a href="../../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
           <li class="level3"><a href="../../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
           <li class="level3"><a href="../../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
         </ul>
@@ -334,38 +332,8 @@ if (!doNotTrack) {
 
 <h1 id="using-your-own-ssl-certificates-on-the-server">Using your own SSL certificates on the Server</h1>
 
-<p>The GoCD server on first startup will create a self-signed SSL certificate that is ready for use by you. However if have your own SSL certificate that you want to use with GoCD, you may replace GoCD&rsquo;s certificate with your own.</p>
-
-<p>Assuming that you have the certificate key (<code>example.com.key</code>) and X509 certificate(<code>example.com.crt</code>)</p>
-
-<ol>
-<li>Change the passphrase of the certificate key</li>
-</ol>
-
-<p>If your key has a passphrase, you must first change the passphrase to <code>serverKeystorepa55w0rd</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ mv example.com.key example.com.key.orig
-  $ openssl rsa -des3 -in example.com.key.orig -out example.com.key</code></pre></div>
-<ol>
-<li>Convert your certificate (<code>example.com.crt</code>) into PKCS12 format</li>
-</ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ openssl pkcs12 -inkey example.com.key -in example.com.crt -export -out example.com.crt.pkcs12</code></pre></div>
-<ol>
-<li>Import the PKCS12 key into the keystore</li>
-</ol>
-
-<p><strong>Note:</strong> The destination keystore password must be set to <code>serverKeystorepa55w0rd</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ keytool -importkeystore -srckeystore example.com.crt.pkcs12 -srcstoretype PKCS12 -destkeystore keystore -srcalias <span style="color:#666">1</span> -destalias cruise -deststorepass serverKeystorepa55w0rd -destkeypass serverKeystorepa55w0rd</code></pre></div>
-<ol>
-<li>Replace GoCD server&rsquo;s keystore with the one from above</li>
-</ol>
-
-<p>First backup the original keystore, and replace it with the new keystore</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ sudo su - go -c <span style="color:#b44">&#39;mv /etc/go/keystore /etc/go/keystore.original&#39;</span>
-  $ sudo su - go -c <span style="color:#b44">&#39;mv keystore /etc/go/keystore&#39;</span></code></pre></div>
-<ol>
-<li>Restart the go server</li>
-</ol>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  $ sudo /etc/init.d/go-server restart</code></pre></div></article>
+<p><strong>Note</strong> GoCD version 20.2 no longer supports configuring TLS. See <a href="https://github.com/gocd/gocd/pull/7669#issuecomment-580290432">this GitHub issue</a> for more details.</p>
+</article>
 
       
 <div class="align-center book-git-footer justify-between">

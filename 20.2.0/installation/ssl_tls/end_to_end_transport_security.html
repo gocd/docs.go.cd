@@ -135,8 +135,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
       <li class="level2"><a href="../../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
         <ul>
-          <li class="level3"><a href="../../installation/ssl_tls/setting_up_ciphers.html">Customizing Ciphers</a></li>
-          <li class="level3"><a href="../../installation/ssl_tls/custom_server_certificate.html">Change SSL Certificates</a></li>
           <li class="level3"><a href="../../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
           <li class="level3"><a href="../../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
         </ul>
@@ -342,7 +340,7 @@ if (!doNotTrack) {
 
 <p>The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you&rsquo;d like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.</p>
 
-<p><code>java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST]</code></p>
+<p><code>java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST] [-sslCertificate /path/to/certificate.pem] [-sslPrivateKey /path/to/private-key.pem] [-sslPrivateKeyPassphraseFile /path/to/private-key-passphrase]</code></p>
 
 <h2 id="the-rootcertfile-option">The <code>-rootCertFile</code> option</h2>
 
@@ -361,6 +359,18 @@ if (!doNotTrack) {
 <li><code>NO_VERIFY_HOST</code> will perform certificate check, but ignore verification of the server hostname.</li>
 <li><code>FULL</code> will perform complete certificate validation.</li>
 </ul>
+
+<h2 id="the-sslcertificate-option">The <code>-sslCertificate</code> option</h2>
+
+<p>For performing mutual TLS between the GoCD agent and server, specify the certificate (in PEM format) that the agent should use to authenticate with the HTTPs server.</p>
+
+<h2 id="the-sslprivatekey-option">The <code>-sslPrivateKey</code> option</h2>
+
+<p>For performing mutual TLS between the GoCD agent and server, specify the private key (in PEM format) that the agent should use to authenticate with the HTTPs server.</p>
+
+<h2 id="the-sslprivatekeypassphrasefile-option">The <code>-sslPrivateKeyPassphraseFile</code> option</h2>
+
+<p>If the private key is encrypted using a passphrase, specify the file that contains the passphrase.</p>
 
 <h2 id="configuring-the-agent">Configuring the agent</h2>
 
@@ -414,6 +424,9 @@ wrapper.app.parameter.106<span style="color:#666">=</span>FULL</code></pre></div
 <ul>
 <li><a href="#the-rootcertfile-option">The <code>-rootCertFile</code> option</a></li>
 <li><a href="#the-sslverificationmode-option">The <code>-sslVerificationMode</code> option</a></li>
+<li><a href="#the-sslcertificate-option">The <code>-sslCertificate</code> option</a></li>
+<li><a href="#the-sslprivatekey-option">The <code>-sslPrivateKey</code> option</a></li>
+<li><a href="#the-sslprivatekeypassphrasefile-option">The <code>-sslPrivateKeyPassphraseFile</code> option</a></li>
 <li><a href="#configuring-the-agent">Configuring the agent</a></li>
 </ul></li>
 </ul>
