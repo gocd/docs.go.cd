@@ -14,7 +14,7 @@ Pipelines in GoCD can poll packages in repositories similar to how they poll ver
 1. jar, war or ear file in case of Java
 2. [nuget](http://nuget.org/)/ [chocolatey](http://chocolatey.org/) package in case of .NET
 3. [Linux system package](http://en.wikipedia.org/wiki/Package_management_system#Package_formats) (e.g rpm, deb) in case of any application platform
-4. Other [application level package formats](http://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers) like gem, npm, [phar](https://php.net/manual/en/book.phar.php), [wheel](http://www.python.org/dev/peps/pep-0427/) etc.
+4. Other [application level package formats](http://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers) like gem, npm, [phar](https://www.php.net/manual/en/book.phar.php), [wheel](http://www.python.org/dev/peps/pep-0427/) etc.
 
 These files (packages) are often maintained in corresponding package repositories. **Such packages may be specified as materials for GoCD pipelines.**
 
