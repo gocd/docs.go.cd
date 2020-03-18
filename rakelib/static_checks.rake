@@ -27,7 +27,8 @@ namespace :static_checks do
       :check_html           => false,
       :typhoeus => {
           :ssl_verifypeer => false,
-          :connecttimeout => 500
+          :connecttimeout => 1000,
+          :verbose        => true
       },
       :empty_alt_ignore     => true,
       :log_level            => :info
