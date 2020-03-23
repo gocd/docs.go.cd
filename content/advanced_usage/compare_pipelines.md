@@ -43,3 +43,22 @@ Steps to select a particular instance from the history:
 1. Click on the search box
 2. Click on "Browse the timeline"
 3. Browse the history and select a pipeline
+
+## Understanding Non-sequential Material Revision
+
+Sometimes the following error message will be present on the comparison page:
+
+```text
+This pipeline instance was triggered with a non-sequential material revision.
+```
+
+This means that the instance in-question was triggered with an older revision or an older run of the upstream pipeline. This occurs when the `Trigger with options` flow is chosen on the Dashboard UI to schedule a pipeline.
+
+Let's consider a pipeline `P` with material `M`.
+
+ - a commit `c1` trigger an instance `P1` with a `natural_order` of 1
+ - a commit `c2` trigger an instance `P2` with a `natural_order` of 2
+ - a commit `c3` trigger an instance `P3` with a `natural_order` of 3
+
+Now a user using trigger with options triggers an instance `P4` with commit `c2`. Now, in all manners `P2` and `P4` are similar.
+Since instance `P4` was triggered with a commit earlier than `c3`, it was assigned with a `natural_order` of 2.5. It is recommended to compare only pipelines with integer `natural_order`. Hence, the warning.
