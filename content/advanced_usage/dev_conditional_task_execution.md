@@ -14,6 +14,11 @@ Check the appropriate **Run if conditions** when defining the **Task**
 
 ![](../images/conditional_task_execution.png)
 
+Possible run_if conditions:
+ * passed
+ * failed
+ * any
+
 ## Using XML configuration
 
 Usage: As a developer, I want to run a task only when the build has already failed.
