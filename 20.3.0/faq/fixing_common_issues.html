@@ -570,6 +570,26 @@ needs to be a part of that environment as well.</p></li>
 
 <p>Resolution: If this is happening, consider increase the timeout period by specifying the <a href="../advanced_usage/other_config_options.html#go-spa-timeout">go.spa.timeout</a></p>
 
+<p><a name="https-port-not-started"></a></p>
+
+<h3 id="application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</h3>
+
+<p>From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL certificates or listen to port 8154 (HTTPS) by default. To keep backward compatibility and minimize disruption:</p>
+
+<ul>
+<li><p>New versions of GoCD (&gt;= 20.2) will not bring up TLS port 8154. There will be no way for such users to configure built-in TLS. A reverse
+proxy will need to be the one terminating TLS if needed.</p></li>
+
+<li><p>Users upgrading to GoCD (20.2-20.4) will notice that the server does not bring up TLS on port 8154, but emits a warning indicating how
+they can turn it on, and go back to how it was earlier. The warning message will include a timeline when the toggle will go away, along
+with instructions on how to set it up correctly using a reverse proxy.</p></li>
+
+<li><p>Version 20.5 of GoCD server will no longer contain any functionality to configure TLS. At this point, users will be expected to terminate
+SSL elsewhere.</p></li>
+</ul>
+
+<p>More information can be found <a href="https://github.com/gocd/gocd/issues/7872">in issue #7872</a>.</p>
+
 <p><a name="ports-in-use"></a></p>
 
 <h3 id="port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</h3>
@@ -630,6 +650,7 @@ Port 8154 could not be opened. Please Check if it is available
 <li><a href="#command-not-found-git-svn-mvn-ant-or-others">Command not found (git, svn, mvn, ant or others)</a></li>
 <li><a href="#agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</a></li>
 <li><a href="#gocd-spa-pages-there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
+<li><a href="#application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</a></li>
 <li><a href="#port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
 </ul></li>
 </ul></li>
