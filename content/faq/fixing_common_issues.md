@@ -238,15 +238,19 @@ Resolution: If this is happening, consider increase the timeout period by specif
 <a name="https-port-not-started"></a>
 ### Application not listening to port 8154 (HTTPS) 
 
-The server will no longer generate any self signed SSL certificates or listen to 8154 (HTTPS) port by default.
-As mentioned on GitHub page <a href="https://github.com/gocd/gocd/pull/7669#issuecomment-580290432">(CLICK FOR MORE INFO)</a>:
-
-    To keep backward compatibility and minimize disruption:
+From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL certificates or listen to port 8154 (HTTPS) by default. To keep backward compatibility and minimize disruption:
     
-    - New versions of GoCD (>= 20.2) will not bring up TLS port 8154. There will be no way for such users to configure built-in TLS. A reverse proxy will need to be the one terminating TLS if needed.
-    - Users upgrading to GoCD (20.2-20.4) will notice that the server does not bring up TLS on port 8154, but emits a warning indicating how they can turn it on, and go back to how it was earlier. The warning message will include a timeline when the toggle will go away, along with instructions on how to set it up correctly using a reverse proxy.
-    - Version 20.5 of GoCD server will no longer contain any functionality to configure TLS. At this point, users will be expected to terminate SSL elsewhere.
+- New versions of GoCD (>= 20.2) will not bring up TLS port 8154. There will be no way for such users to configure built-in TLS. A reverse
+  proxy will need to be the one terminating TLS if needed.
 
+- Users upgrading to GoCD (20.2-20.4) will notice that the server does not bring up TLS on port 8154, but emits a warning indicating how
+  they can turn it on, and go back to how it was earlier. The warning message will include a timeline when the toggle will go away, along
+  with instructions on how to set it up correctly using a reverse proxy.
+
+- Version 20.5 of GoCD server will no longer contain any functionality to configure TLS. At this point, users will be expected to terminate
+  SSL elsewhere.
+
+More information can be found [in issue #7872](https://github.com/gocd/gocd/issues/7872).
 
 <a name="ports-in-use"></a>
 ### Port 8153 (HTTP) or 8154 (HTTPS) could not be opened
