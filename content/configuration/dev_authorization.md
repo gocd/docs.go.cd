@@ -90,6 +90,12 @@ You can read more about policy [here](./policy_in_gocd.html).
 
 GoCD allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.
 
+---------------------
+
+**Note:** If no authorization is defined for a pipeline group, it is viewable and operable only by GoCD system administrators.
+
+---------------------
+
 The **"view" permission** allows users to view the pipeline. It does not give permission to trigger pipelines, approve stages, or re-run stages. In the below example, the users "akrishna" and "aantony" can view the pipelines in this group, but they cannot perform any operations on it.
 
 The **"operate" permission** allows users to trigger pipelines and its stages. In the below example, the role "developer" is being granted the operate permission and will be able to trigger pipelines and its stages within this group.
@@ -105,8 +111,6 @@ To edit the permissions for a pipeline group, navigate to the "Pipelines" tab on
 Then, click the "Edit" link for the pipeline group you want to manage permissions for:
 
 ![](../images/group_permission.png)
-
-If no authorization is defined for a pipeline group, it is viewable and operable only by GoCD system administrators.
 
 For power users, here's how you would configure permissions via "Config XML":
 
