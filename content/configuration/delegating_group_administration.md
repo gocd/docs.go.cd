@@ -43,12 +43,12 @@ For power users, here's how you'd assign the same permissions via Config XML:
 As a group administrator of a pipeline group, a user is privileged to:
 
 - View and operate (trigger, rerun stages etc.) all the pipelines in this group.
-- Add other group admins to this group
+- Add other group administrators to this group
 - Authorize users/roles with 'view' and 'operate' permissions for this pipeline group.
-- Add and Delete pipelines to/from the group.
-- Add a pipeline using the "Add New Pipeline" wizard, but only to the groups he is allowed to administer.
-- Edit pipelines belonging to the group. Which includes renaming, adding, deleting and modifying stages and jobs.
-- Restfully view and operate (trigger, rerun stages etc.) all the pipelines in this group.
-- Restfully edit the pipelines belonging to this group.
+- Add to and delete pipelines from the group.
+- Add a pipeline using the "Add New Pipeline" wizard, but only to the groups they are allowed to administer.
+- Edit pipelines belonging to the group including renaming, adding, deleting and modifying stages and jobs.
+- Use APIs to view and operate (trigger, rerun stages etc.) all the pipelines in this group.
+- Use APIs to edit pipelines belonging to this group.
 
 > **Note:** A group administrator can access "Pipelines" and "Config XML" tabs on the Administration page to [view and edit his/her pipeline groups](pipeline_group_admin_config.html). He/She cannot access Server Configuration or perform user management. While a group administrator cannot access Pipeline Templates either, they can use existing templates for pipelines within their pipeline group.
