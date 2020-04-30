@@ -8,19 +8,15 @@ title: Managing Users
 
 GoCD's user management features allow you to control access to GoCD and grant role-based permissions.
 
-All user management features depend on an [authentication mechanism](dev_authentication.html) having been configured in GoCD. Please ensure you have at least one [authentication mechanism](dev_authentication.html) enabled before attempting to use any of the features mentioned in this chapter.
+All user management features depend on an [authentication mechanism](dev_authentication.html) having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.
 
 ## Adding Users
 
-1. Navigate to the Admin section
-2. Click on the "User Summary" tab
-3. Click the "Add User" button
-
-![](../images/user_summary_add_user.png)
-
-4. Enter a name/email to search for (minimum 2 characters) and click "Search"
-5. This will perform a search across all authentication mechanisms configured (password file and/or LDAP)
-6. From the list of results, select the user to add and click "Add User"
+1. Click on the menu item: Admin -> Users Management.
+2. Click the "Import User" button
+3. Enter a name/email to search for (minimum 2 characters) and click "Search"
+4. This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc)
+5. From the list of results, select the user to add and click "Import User"
 
 ![](../images/user_summary_search.png)
 
@@ -38,27 +34,20 @@ With this setup, your entire team has visibility into what each other is doing, 
 
 **To assign roles to users:**
 
-1. Navigate to the Admin section
-2. Click on the "User Summary" tab
-3. Select the users you want assign roles to, or remove roles from
-4. Click the "Roles" button to see a list of roles
-5. Check/un-check the roles you want to assign/remove from the selected users and click "Apply"
-6. Alternately, you can create a new role to apply to the selected users by typing in the name of a role in the input box and clicking "Add"
+1. Click on the menu item: Admin -> Users Management.
+2. Select the users you want assign roles to, or remove roles from.
+3. Click the "Roles" button to see a list of roles.
+4. Check/un-check the roles you want to assign/remove from the selected users and click "Apply".
+5. Alternately, you can create a new role to apply to the selected users by typing in the name of a role in the input box and clicking "Add".
 
 ![](../images/user_summary_roles.png)
 
-## Managing 'Go System Administrator' privilege
+## Managing 'GoCD System Administrator' privilege
 
-'Go System Administrator' has access to all administrative functions, and has operational access to all parts of a Go installation.
+GoCD System Administrator has access to all administrative functions, and has operational access to all parts of a GoCD installation. The user management page allows you to assign admin privileges to or revoke admin privileges from selected users.
 
-User management page allows you to assign admin privileges to or revoke admin privileges from selected users.
+This control allows you to modify admin privileges for users (not for roles). Enabling "System Admin" privilege to users adds them directly to ```<admins>``` configuration tag in GoCD's configuration XML. This control is disabled when one or more of the selected users have implicit admin privilege through role(s).
 
-This control allows you to modify admin privileges for users (not for roles). Applying the special 'Go System Administrator' role for selected users adds them directly to ```<admins>``` configuration tag. This control is disabled when one or more of the selected users have implicit admin privilege through role(s).
+![](../images/user_summary_system_admin.png)
 
-**Assign/Revoke 'Go System Administrator' privilege:**
-
-1. Navigate to the Admin section
-2. Click on the "User Summary" tab
-3. Select the users you want assign/revoke 'Go System Administrator' privilege.
-4. Click the "Roles" button to load 'Go System Administrator' control
-5. Check/un-check the 'Go System Administrator' checkbox and click "Apply"
+In the image above, "User Four" has implicit administrator privilege. So that cannot be revoked from here. "User Five" is not a GoCD system administrator and can be made one by toggling the switch in their row.

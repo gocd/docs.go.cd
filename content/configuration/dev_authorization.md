@@ -19,11 +19,11 @@ If administrators are specified, only they can perform the following actions:
 - Enable agents
 - Add / remove agent resources
 
-Users can be made administrators from the "User Summary" tab in the "Admin" section.
+Users can be made administrators from the "Users Management" section found under the "Admin" menu.
 
-![](../images/user_summary_make_admin.png)
+![](../images/user_summary_system_admin.png)
 
-To give admin privileges to users and/or roles via "Config xml", please refer to the example in the section below, where members of the "go\_admin" role (jhumble and qiao), along with the user chris, can administer Go.
+To give admin privileges to users and/or roles via "Config xml", please refer to the example in the section below, where members of the "go\_admin" role (jhumble and qiao), along with the user chris, can administer GoCD.
 
 ## Role-based Access Control
 
@@ -90,13 +90,19 @@ You can read more about policy [here](./policy_in_gocd.html).
 
 GoCD allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.
 
+---------------------
+
+**Note:** If no authorization is defined for a pipeline group, it is viewable and operable only by GoCD system administrators.
+
+---------------------
+
 The **"view" permission** allows users to view the pipeline. It does not give permission to trigger pipelines, approve stages, or re-run stages. In the below example, the users "akrishna" and "aantony" can view the pipelines in this group, but they cannot perform any operations on it.
 
 The **"operate" permission** allows users to trigger pipelines and its stages. In the below example, the role "developer" is being granted the operate permission and will be able to trigger pipelines and its stages within this group.
 
-The **"admin" permission** makes the user a [Pipeline Group Administrator](delegating_group_administration.html) allowing him to view, operate and administer the pipeline group. In the below example, role "admins" has been granted this permission.
+The **"admin" permission** makes the user a [Pipeline Group Administrator](delegating_group_administration.html) allowing them to view, operate and administer the pipeline group. In the below example, role "admins" has been granted this permission.
 
-> Note that is is possible to give a user or role only the operate permission. In the example below, the user "bot" only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of Go.
+> Note that is is possible to give a user or role only the operate permission. In the example below, the user "bot" only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of GoCD.
 
 To edit the permissions for a pipeline group, navigate to the "Pipelines" tab on the "Admin" section:
 
@@ -105,8 +111,6 @@ To edit the permissions for a pipeline group, navigate to the "Pipelines" tab on
 Then, click the "Edit" link for the pipeline group you want to manage permissions for:
 
 ![](../images/group_permission.png)
-
-If no authorization is defined for a pipeline group, all GoCD users will have view and operate permissions to that group.
 
 For power users, here's how you would configure permissions via "Config XML":
 
