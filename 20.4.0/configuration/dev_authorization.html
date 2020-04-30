@@ -347,11 +347,11 @@ if (!doNotTrack) {
 <li>Add / remove agent resources</li>
 </ul>
 
-<p>Users can be made administrators from the &ldquo;User Summary&rdquo; tab in the &ldquo;Admin&rdquo; section.</p>
+<p>Users can be made administrators from the &ldquo;Users Management&rdquo; section found under the &ldquo;Admin&rdquo; menu.</p>
 
-<p><img src="../images/user_summary_make_admin.png" alt="" /></p>
+<p><img src="../images/user_summary_system_admin.png" alt="" /></p>
 
-<p>To give admin privileges to users and/or roles via &ldquo;Config xml&rdquo;, please refer to the example in the section below, where members of the &ldquo;go_admin&rdquo; role (jhumble and qiao), along with the user chris, can administer Go.</p>
+<p>To give admin privileges to users and/or roles via &ldquo;Config xml&rdquo;, please refer to the example in the section below, where members of the &ldquo;go_admin&rdquo; role (jhumble and qiao), along with the user chris, can administer GoCD.</p>
 
 <h2 id="role-based-access-control">Role-based Access Control</h2>
 
@@ -410,14 +410,20 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 
 <p>GoCD allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.</p>
 
+<hr />
+
+<p><strong>Note:</strong> If no authorization is defined for a pipeline group, it is viewable and operable only by GoCD system administrators.</p>
+
+<hr />
+
 <p>The <strong>&ldquo;view&rdquo; permission</strong> allows users to view the pipeline. It does not give permission to trigger pipelines, approve stages, or re-run stages. In the below example, the users &ldquo;akrishna&rdquo; and &ldquo;aantony&rdquo; can view the pipelines in this group, but they cannot perform any operations on it.</p>
 
 <p>The <strong>&ldquo;operate&rdquo; permission</strong> allows users to trigger pipelines and its stages. In the below example, the role &ldquo;developer&rdquo; is being granted the operate permission and will be able to trigger pipelines and its stages within this group.</p>
 
-<p>The <strong>&ldquo;admin&rdquo; permission</strong> makes the user a <a href="delegating_group_administration.html">Pipeline Group Administrator</a> allowing him to view, operate and administer the pipeline group. In the below example, role &ldquo;admins&rdquo; has been granted this permission.</p>
+<p>The <strong>&ldquo;admin&rdquo; permission</strong> makes the user a <a href="delegating_group_administration.html">Pipeline Group Administrator</a> allowing them to view, operate and administer the pipeline group. In the below example, role &ldquo;admins&rdquo; has been granted this permission.</p>
 
 <blockquote>
-<p>Note that is is possible to give a user or role only the operate permission. In the example below, the user &ldquo;bot&rdquo; only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of Go.</p>
+<p>Note that is is possible to give a user or role only the operate permission. In the example below, the user &ldquo;bot&rdquo; only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of GoCD.</p>
 </blockquote>
 
 <p>To edit the permissions for a pipeline group, navigate to the &ldquo;Pipelines&rdquo; tab on the &ldquo;Admin&rdquo; section:</p>
@@ -427,8 +433,6 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 <p>Then, click the &ldquo;Edit&rdquo; link for the pipeline group you want to manage permissions for:</p>
 
 <p><img src="../images/group_permission.png" alt="" /></p>
-
-<p>If no authorization is defined for a pipeline group, all GoCD users will have view and operate permissions to that group.</p>
 
 <p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;Shine&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>

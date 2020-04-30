@@ -243,7 +243,7 @@ Creating a new environment An Environment is a grouping of pipelines and agents.
       <guid>/configuration/managing_users.html</guid>
       <description>Managing Users GoCD&amp;rsquo;s user management features allow you to control access to GoCD and grant role-based permissions.
 All user management features depend on an authentication mechanism having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.
-Adding Users  Navigate to the Admin section Click on the &amp;ldquo;User Summary&amp;rdquo; tab Click the &amp;ldquo;Add User&amp;rdquo; button   Enter a name/email to search for (minimum 2 characters) and click &amp;ldquo;Search&amp;rdquo; This will perform a search across all authentication mechanisms configured (password file and/or LDAP) From the list of results, select the user to add and click &amp;ldquo;Add User&amp;rdquo;  Assigning Roles Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</description>
+Adding Users  Click on the menu item: Admin -&amp;gt; Users Management. Click the &amp;ldquo;Import User&amp;rdquo; button Enter a name/email to search for (minimum 2 characters) and click &amp;ldquo;Search&amp;rdquo; This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc) From the list of results, select the user to add and click &amp;ldquo;Import User&amp;rdquo;  Assigning Roles Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</description>
     </item>
     
     <item>

@@ -334,22 +334,16 @@ if (!doNotTrack) {
 
 <p>GoCD&rsquo;s user management features allow you to control access to GoCD and grant role-based permissions.</p>
 
-<p>All user management features depend on an <a href="dev_authentication.html">authentication mechanism</a> having been configured in GoCD. Please ensure you have at least one <a href="dev_authentication.html">authentication mechanism</a> enabled before attempting to use any of the features mentioned in this chapter.</p>
+<p>All user management features depend on an <a href="dev_authentication.html">authentication mechanism</a> having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.</p>
 
 <h2 id="adding-users">Adding Users</h2>
 
 <ol>
-<li>Navigate to the Admin section</li>
-<li>Click on the &ldquo;User Summary&rdquo; tab</li>
-<li>Click the &ldquo;Add User&rdquo; button</li>
-</ol>
-
-<p><img src="../images/user_summary_add_user.png" alt="" /></p>
-
-<ol>
+<li>Click on the menu item: Admin -&gt; Users Management.</li>
+<li>Click the &ldquo;Import User&rdquo; button</li>
 <li>Enter a name/email to search for (minimum 2 characters) and click &ldquo;Search&rdquo;</li>
-<li>This will perform a search across all authentication mechanisms configured (password file and/or LDAP)</li>
-<li>From the list of results, select the user to add and click &ldquo;Add User&rdquo;</li>
+<li>This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc)</li>
+<li>From the list of results, select the user to add and click &ldquo;Import User&rdquo;</li>
 </ol>
 
 <p><img src="../images/user_summary_search.png" alt="" /></p>
@@ -371,33 +365,24 @@ if (!doNotTrack) {
 <p><strong>To assign roles to users:</strong></p>
 
 <ol>
-<li>Navigate to the Admin section</li>
-<li>Click on the &ldquo;User Summary&rdquo; tab</li>
-<li>Select the users you want assign roles to, or remove roles from</li>
-<li>Click the &ldquo;Roles&rdquo; button to see a list of roles</li>
-<li>Check/un-check the roles you want to assign/remove from the selected users and click &ldquo;Apply&rdquo;</li>
-<li>Alternately, you can create a new role to apply to the selected users by typing in the name of a role in the input box and clicking &ldquo;Add&rdquo;</li>
+<li>Click on the menu item: Admin -&gt; Users Management.</li>
+<li>Select the users you want assign roles to, or remove roles from.</li>
+<li>Click the &ldquo;Roles&rdquo; button to see a list of roles.</li>
+<li>Check/un-check the roles you want to assign/remove from the selected users and click &ldquo;Apply&rdquo;.</li>
+<li>Alternately, you can create a new role to apply to the selected users by typing in the name of a role in the input box and clicking &ldquo;Add&rdquo;.</li>
 </ol>
 
 <p><img src="../images/user_summary_roles.png" alt="" /></p>
 
-<h2 id="managing-go-system-administrator-privilege">Managing &lsquo;Go System Administrator&rsquo; privilege</h2>
+<h2 id="managing-gocd-system-administrator-privilege">Managing &lsquo;GoCD System Administrator&rsquo; privilege</h2>
 
-<p>&lsquo;Go System Administrator&rsquo; has access to all administrative functions, and has operational access to all parts of a Go installation.</p>
+<p>GoCD System Administrator has access to all administrative functions, and has operational access to all parts of a GoCD installation. The user management page allows you to assign admin privileges to or revoke admin privileges from selected users.</p>
 
-<p>User management page allows you to assign admin privileges to or revoke admin privileges from selected users.</p>
+<p>This control allows you to modify admin privileges for users (not for roles). Enabling &ldquo;System Admin&rdquo; privilege to users adds them directly to <code>&lt;admins&gt;</code> configuration tag in GoCD&rsquo;s configuration XML. This control is disabled when one or more of the selected users have implicit admin privilege through role(s).</p>
 
-<p>This control allows you to modify admin privileges for users (not for roles). Applying the special &lsquo;Go System Administrator&rsquo; role for selected users adds them directly to <code>&lt;admins&gt;</code> configuration tag. This control is disabled when one or more of the selected users have implicit admin privilege through role(s).</p>
+<p><img src="../images/user_summary_system_admin.png" alt="" /></p>
 
-<p><strong>Assign/Revoke &lsquo;Go System Administrator&rsquo; privilege:</strong></p>
-
-<ol>
-<li>Navigate to the Admin section</li>
-<li>Click on the &ldquo;User Summary&rdquo; tab</li>
-<li>Select the users you want assign/revoke &lsquo;Go System Administrator&rsquo; privilege.</li>
-<li>Click the &ldquo;Roles&rdquo; button to load &lsquo;Go System Administrator&rsquo; control</li>
-<li>Check/un-check the &lsquo;Go System Administrator&rsquo; checkbox and click &ldquo;Apply&rdquo;</li>
-</ol>
+<p>In the image above, &ldquo;User Four&rdquo; has implicit administrator privilege. So that cannot be revoked from here. &ldquo;User Five&rdquo; is not a GoCD system administrator and can be made one by toggling the switch in their row.</p>
 </article>
 
       
@@ -443,7 +428,7 @@ if (!doNotTrack) {
 <ul>
 <li><a href="#adding-users">Adding Users</a></li>
 <li><a href="#assigning-roles">Assigning Roles</a></li>
-<li><a href="#managing-go-system-administrator-privilege">Managing &lsquo;Go System Administrator&rsquo; privilege</a></li>
+<li><a href="#managing-gocd-system-administrator-privilege">Managing &lsquo;GoCD System Administrator&rsquo; privilege</a></li>
 </ul></li>
 </ul>
 </nav>
