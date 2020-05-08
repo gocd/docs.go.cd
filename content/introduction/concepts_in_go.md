@@ -329,7 +329,7 @@ Environment variables can be defined at multiple levels: Within environments, wi
 where environment variables defined at the "Environment" level get overridden by environment variables defined at the pipeline level and so on.
 
 In the image shown below, there are 4 environment variables defined at the environment level, 3 at the pipeline level and 2 each at the stage and job levels.
-The environment variable, `ENV_ENV` has been set to a value of 1 at the environment level, `ENV_STG` has been set to 2 at stage level and so on.
+The environment variable, `ENV_ENV` has been set to a value of 1 at the environment level, `ENV_STG` has been set to 2 at pipeline level and so on.
 
 <figure class="concept_image">
   <img src="../images/concepts/23_env_vars.png" alt="Figure 21: Environment Variables" id="image_env_vars" class="small_image">
