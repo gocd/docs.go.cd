@@ -7,13 +7,13 @@ title: Configuring GoCD Database
 # Configuring GoCD Database
 
 As part of GoCD release `v20.5.0`, GoCD introduces the ability to integrate with `H2`, `PostgreSQL` and `MySQL` databases. 
-This change comes after GoCD announced open sourcing its commercial component. Know more about it at [GoCD open sources postgreSQL addons](https://github.com/gocd/gocd/issues/7844).   
+This change comes after GoCD announced open sourcing its commercial component. Know more about it at [GoCD open sources postgreSQL addon](https://github.com/gocd/gocd/issues/7844).   
 
 This section describes how to bring up a new GoCD Server instance, using the database of your choice.
 In case you are looking to migrate the data from an existing GoCD Server instance, please take a look [GoCD Database Migrator](https://github.com/gocd/gocd-database-migrator) tool.  
 
 
-## Supported Databases:
+GoCD Supports following databases (with mentioned versions):
 
 - H2 (`v1.4.200`)
 - PostgreSQL (`v9.6` and above)
@@ -62,13 +62,6 @@ db.driver=org.postgresql.Driver
 db.url=jdbc:postgresql://localhost:5432/gocd
 db.user=postgres
 db.password=password
-db.maxIdle=32
-db.maxActive=32
-db.connectionProperties.ssl=true
-db.connectionProperties.sslmode=verify-full
-db.connectionProperties.sslcert=/var/lib/go-server/client-cert.pem
-db.connectionProperties.sslkey=/var/lib/go-server/client-key.pem
-db.connectionProperties.sslrootcert=/var/lib/go-server/ca.pem
 ```
 
 ### Step 4: Start the GoCD Server
@@ -97,7 +90,7 @@ The valid keys in the configuration file are mentioned below:
 | `db.maxIdle`                 | Maximum number of idle connections that should be maintained with the Database server.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b>`32`                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `db.extraBackupCommandArgs`  | Specify custom database backup arguments. This config property is used to specify the additional arguments to the backup utility while backing up the database using [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_backup.html) feature of GoCD. See [GoCD Database Extra Backup Command Arguments](#gocd-database-extra-backup-command-arguments) for more information.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`  |
 | `db.extraBackupEnv`          | Specify custom environment variables to the database backup utility. This config property is used to specify the additional environment variables to the backup utility while backing up the database using [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_backup.html) feature of GoCD. See [GoCD Database Extra Backup Environment Variables](#gocd-database-extra-backup-environment-variables) for more information.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`  |
-| `db.connectionProperties`    | Specify the database SSL config properties for secure communication between GoCD and the database server. See [GoCD Database Connection Properties](#gocd-database-connection-properties) for more information.<br/><br/><b>Mandatory:</b> `Yes` &nbsp; &nbsp;<b>Default : </b> `none`  |
+| `db.connectionProperties`    | Specify the database SSL config properties for secure communication between GoCD and the database server. See [GoCD Database Connection Properties](#gocd-database-connection-properties) for more information.<br/><br/><b>Mandatory:</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`  |
 
 
 ### GoCD Database Extra Backup Command Arguments
@@ -106,14 +99,14 @@ The [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_ba
 
 GoCD uses [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility for backing up a PostgreSQL database. Refer [pg_dump docs](https://www.postgresql.org/docs/9.6/app-pgdump.html) to know all available PostgreSQL database backup options.
 
-**Example:**
-  Specify `db.extraBackupCommandArgs=--format=plain` property to specify `--format=plain` option to the `pg_dump` backup utility, which causes it to take a plain text backup.
+**Example:** <br/>
+Specify `db.extraBackupCommandArgs=--format=plain` property to specify `--format=plain` option to the `pg_dump` backup utility, which causes it to take a plain text backup.
 
 
 GoCD uses [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) utility for backing up a MySQL database. Refer [mysqldump docs](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) to know all available MySQL database backup options.
 
-**Example:**
-  Specify `db.extraBackupCommandArgs=--compact` property to specify `--compact` option to the `mysqldump` backup utility, which causes it to produce more compact output.
+**Example:**<br/>
+Specify `db.extraBackupCommandArgs=--compact` property to specify `--compact` option to the `mysqldump` backup utility, which causes it to produce more compact output.
 
 
 ### GoCD Database Extra Backup Environment Variables
@@ -122,26 +115,46 @@ The [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_ba
 
 See [PostgreSQL Environment Variables](https://www.postgresql.org/docs/current/libpq-envars.html) and [MySQL Environment Variables](https://dev.mysql.com/doc/refman/8.0/en/environment-variables.html) to know the set of environment variables used by [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) and [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) utility respectively.
 
-**Example:**
-  Specify `db.extraBackupEnv.PGCLIENTENCODING=UTF8` property to specify `PGCLIENTENCODING` environment variable with value `UTF8`.
+**Example:** <br/>
+Specify `db.extraBackupEnv.PGCLIENTENCODING=UTF8` property to specify `PGCLIENTENCODING` environment variable with value `UTF8`.
 
 
 ### GoCD Database Connection Properties
 
-Specify `db.connectionProperties` to encrypt the database connection between the GoCD Server applications and your database instance.
+Specify `db.connectionProperties` to encrypt the communication between the GoCD Server applications and your database instance.
+Depending on the type of the database server, different connection properties could be specified for your SSL configuration.
 
-[Continue from here @ganeshpl..]
+#### PostgreSQL SSL Configuration:
 
-The valid ssl configurations are mentioned below:
+PostgreSQL application uses [`libpq`](https://www.postgresql.org/docs/9.5/libpq.html) as the interface for the underlying communication with the PostgreSQL Server.
 
-| `db.connectionProperties.ssl`               | No        | `false`            | This property should be set to "true" to enable SSL connections to the database server. If this is set to "true", then the other SSL and certificate related properties (below) should also be set.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| `db.connectionProperties.sslmode`           | No        | `verify-full`      | Indicates the verification level of the server certificate when SSL is used. In order to prevent spoofing, SSL certificate verification must be used. However, for evaluation or test environments, this can be set to lower security levels. This flag corresponds to "sslmode" connection parameter which is passed on to "libpq" library used by underlying database. For more details, take a look at [libpq SSL support](http://www.postgresql.org/docs/current/static/libpq-ssl.html#LIBPQ-SSL-PROTECTION) documentation.                                                                                                                                                                                    |
-| `db.connectionProperties.root.sslrootcert`  | No        | `root.pem`         | Filename of the root certificate file. This property needs to be configured if SSL connection is used. This file should be placed in the GoCD Server's configuration directory. This property corresponds to "sslrootcert" connection parameter which is passed on to "libpq" library used by underlying database. GoCD uses [Postgres' JDBC driver](http://jdbc.postgresql.org/) to connect to the database, and [pg_dump](http://www.postgresql.org/docs/current/static/app-pgdump.html) to perform backups. The former requires either PEM or DER encoded certificates, while the latter could work with either CRT file or PEM. Hence, only PEM encoded certificates can be used with GoCD as of now.          |
-| `db.connectionProperties.client.cert`       | No        | `client.crt`       | Client certificate filename. The certificate in this file will be provided when Postgres server requests a trusted client certificate. This file should be placed in the GoCD Server's configuration directory. This property corresponds to "sslcert" connection parameter which is passed on to "libpq" library used by Postgres.                                                                                                                                                                                                                                                                                                                                                                     |
-| `db.connectionProperties.client.key`        | No        | `client.key`       | RSA private key file for the client certificate. The key file should be placed in the GoCD Server's configuration directory and must not allow any access to world or group (can be done using: chmod 600 client.key). This property corresponds to "sslkey" connection parameters which is passed on to "libpq" library used by Postgres. If this file is not provided, "One Click Backup" from GoCD will not work.                                                                                                                                                                                                                                                                                    |
-| `db.connectionProperties.client.pkcs8.key`  | No        | `client_pkcs8.key` | PKCS8 encoded client key file. This should be placed in the GoCD Server's configuration directory. This file is required for a successful connection to be established when trusted client certificates are used for authentication. OpenSSL can be used to create a PKCS8 encoded file from a RSA key file by executing `openssl pkcs8 -topk8 -outform DER -in client.key -nocrypt > client_pkcs8.key`                                                                                                                                                                                                                                                                                                 |
-| `db.connectionProperties.backup.format`     | No        | `custom`           | [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_backup.html) feature of GoCD backs up both the configuration and database. By default, for servers using Postgres, the [custom](http://www.postgresql.org/docs/current/static/backup-dump.html#BACKUP-DUMP-LARGE) backup strategy provided by [pg_dump](http://www.postgresql.org/docs/current/static/app-pgdump.html) is used. The add-on can also be configured to take plaintext backups by configuring setting the value of this property to "plain". In this case, pg_dump will be invoked with `--format=plain --compress=6` as arguments. That causes it to take a plain text backup and compress it. |
+To configure SSL for the PostgreSQL database: <br/> 
+  - take a look at the [libpq SSL support](http://www.postgresql.org/docs/current/static/libpq-ssl.html#LIBPQ-SSL-PROTECTION) documentation.  <br/>
+  - see [libpq connection parameters](https://www.postgresql.org/docs/current/libpq-connect.html) to see all the available options.
 
+Below is an example of PostgreSQL SSL connection properties:
+
+```properties
+db.connectionProperties.sslmode=verify-full
+db.connectionProperties.sslcert=/var/lib/go-server/client-cert.pem
+db.connectionProperties.sslkey=/var/lib/go-server/client-key.pem
+db.connectionProperties.sslrootcert=/var/lib/go-server/ca.pem
+db.connectionProperties.sslcrl=/var/lib/go-server/root.crl
+```
+
+#### MySQL SSL Configuration:
+
+Refer [MySQL Command Options for Encrypted Connections](https://dev.mysql.com/doc/refman/8.0/en/connection-options.html#encrypted-connection-options) documentation to know about all the available options for that are specified to use encrypted connections with the server.  
+
+Below is an example of MySQL SSL connection properties:
+
+```properties
+db.connectionProperties.ssl-mode=verify-full
+db.connectionProperties.ssl-cert=/var/lib/go-server/client-cert.pem
+db.connectionProperties.ssl-key=/var/lib/go-server/client-key.pem
+db.connectionProperties.ssl-ca=/var/lib/go-server/ca.pem
+db.connectionProperties.ssl-crl=/var/lib/go-server/root.crl
+```
 
 
 <style>
