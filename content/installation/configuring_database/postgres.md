@@ -12,7 +12,7 @@ Refer [PostgreSQL Installtion](https://www.postgresql.org/docs/current/tutorial-
 
 ### Step 2: Initialize an empty database
 
-Once the PostgreSQL Server is started, the empty database can be created from the command-line using the `psql` utility, which PostgreSQL ships with.
+Once the PostgreSQL Server is started, an empty database can be created from the command-line using the `psql` utility, which PostgreSQL ships with.
 
 ```bash
 CREATE ROLE "gocd_database_user" PASSWORD 'gocd_database_password' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN;
@@ -37,7 +37,7 @@ This file should contain information about the database server, so that the GoCD
 
 See [GoCD Database Configuration Properties](connection-properties.html) to know the full list of configuration properties that can be specified under `db.properties`.
 
-An example properties file to connecto to PostgreSQL database:
+An example properties file to connect to PostgreSQL database:
 
 ```properties
 db.driver=org.postgresql.Driver
