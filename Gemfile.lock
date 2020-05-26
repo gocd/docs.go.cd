@@ -65,7 +65,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-darwin-17
 
 DEPENDENCIES
   aws-sdk-s3
