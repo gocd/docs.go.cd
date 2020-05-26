@@ -17,7 +17,7 @@ def buildStage = {
                 elasticProfileId = 'ubuntu'
                 tasks {
                     bash {
-                        commandString = "bundle install --path .bundle --jobs 4"
+                        commandString = "bundle"
                     }
                     bash {
                         commandString = "RUN_EXTERNAL_CHECKS=true bundle exec rake complete_build"
@@ -39,7 +39,7 @@ def pushToGHPages = {
                         commandString = "git remote add upstream 'https://\${BUILD_MAP_USER}:\${BUILD_MAP_PASSWORD}@github.com/gocd/docs.go.cd'"
                     }
                     bash {
-                        commandString = "bundle install --path .bundle --jobs 4"
+                        commandString = "bundle"
                     }
                     bash {
                         commandString = "ALLOW_DIRTY=true REMOTE_NAME=upstream bundle exec rake publish"
@@ -58,7 +58,7 @@ def publishToS3 = {
                 elasticProfileId = 'ubuntu'
                 tasks {
                     bash {
-                        commandString = "bundle install --path .bundle --jobs 4"
+                        commandString = "bundle"
                     }
                     bash {
                         commandString = "bundle exec rake upload_to_s3"
