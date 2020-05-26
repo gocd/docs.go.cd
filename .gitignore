@@ -1,5 +1,5 @@
 *.iml
-.bundle
+.bundle/ruby
 .DS_Store
 .idea
 *.swp
@@ -11,3 +11,7 @@ public
 resources
 _book
 static/javascripts/search/lunr/PagesIndex.json
+.ruby-version
+.ruby-gemset
+.node-version
+.nvmrc
