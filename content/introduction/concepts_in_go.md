@@ -33,8 +33,7 @@ starting point to get a good understanding of the concepts while trying them out
 - [Environment Variables](#environment_variables)
 - [Templates](#templates)
 
-<a id="task"></a>
-# Task
+# Task {#task}
 
 A task, or a build task, is an action that needs to be performed. Usually, it is a single command.
 
@@ -45,8 +44,7 @@ The task shown in the image below is set to run the command `ant -Dmodule=A comp
   <figcaption>Figure 1: Task</figcaption>
 </figure>
 
-<a id="job">   </a>
-# Job
+# Job {#job}
 
 A job consists of multiple tasks, each of which will be run in order. If a task in a job fails, then the job is considered failed, and unless
 specified otherwise, the rest of the tasks in the job will not be run.
@@ -61,8 +59,7 @@ The job shown in the image below has three tasks. The `ant` task will be run fir
 Every task in a job is run as an independent program, and so, changes made by a task to any of its environment variables will not affect subsequent
 tasks. Any changes made by a task on the filesystem will be visible to subsequent tasks.
 
-<a id="stage">   </a>
-# Stage      
+# Stage {#stage}
 
 A stage consists of multiple jobs, each of which can run independently of the others. This means that GoCD can and does parallelize the execution of
 jobs in a stage. If a job fails, then the stage is considered failed. However, since jobs are independent of each other, the other jobs in the
@@ -76,8 +73,7 @@ job cannot affect the success or failure of the second.
   <figcaption>Figure 3: Stage</figcaption>
 </figure>
 
-<a id="pipeline"></a>
-# Pipeline      
+# Pipeline {#pipeline}
 
 A pipeline consists of multiple stages, each of which will be run in order. If a stage fails, then the pipeline is considered failed and the following
 stages will not be started.
@@ -98,10 +94,8 @@ and tasks. This representation is shown below.
   <figcaption>Figure 5: Pipeline (small representation)</figcaption>
 </figure>
 
-
-<a id="materials">   </a>
-# Materials and triggers 
-<span class="header smaller">(or "*When* do these tasks, jobs, stages and pipelines run?")</span> 
+# Materials and triggers {#materials}
+<span class="header smaller">(or "*When* do these tasks, jobs, stages and pipelines run?")</span>
 
 A material is a cause for a pipeline to run. Often, it is a source code material repository (Git, SVN, Mercurial, etc). The GoCD Server
 continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or "triggered".
@@ -137,9 +131,7 @@ repository has a new commit, the pipeline is triggered.
   <figcaption>Figure 9: Multiple materials</figcaption>
 </figure>
 
-
-<a id="pipeline_dependency">  </a>
-# Pipeline dependency material
+# Pipeline dependency material {#pipeline_dependency}
 
 Materials really start becoming powerful when a stage in a pipeline is used as a material for another pipeline.
 
@@ -160,9 +152,7 @@ will trigger and start. Now, both Stage 2 of Pipeline 1 and Stage 1 of Pipeline 
   <figcaption>Figure 11: Pipeline dependency - Any stage</figcaption>
 </figure>
 
-
-<a id="fan_in_out"> </a>
-# Fan-out and fan-in
+# Fan-out and fan-in {#fan_in_out}
 
 A material is said to "fan-out" to downstream pipelines, when the material's completion causes multiple downstream pipelines to trigger, as is shown
 in the image below. The cause of a fan-out need not always be a pipeline dependency material. It can be any material.
@@ -183,8 +173,7 @@ to finish before triggering. It will not trigger with an inconsistent or old rev
   <figcaption>Figure 13: Fan-in</figcaption>
 </figure>
 
-<a id="vsm">  </a>
-# Value Stream Map (VSM)   
+# Value Stream Map (VSM) {#vsm}
 
 The Value Stream Map (VSM) is an end-to-end view of a pipeline, its upstream dependencies and the downstream pipelines it triggers. When deciding which
 pipelines to trigger, GoCD's fan-in and fan-out resolution will take care of all the dependencies consistently.
@@ -198,8 +187,7 @@ revision of Repo 1 that was used with Pipeline 1.
   <figcaption>Figure 14: VSM</figcaption>
 </figure>
 
-<a id="artifacts"> </a>
-# Artifacts       
+# Artifacts {#artifacts}
 
 Every [job](#job) in Go can optionally publish "Artifacts", which are files or directories. After the job is run, GoCD will ensure that the specified artifacts are
 published and made available to the user, and other downstream stages and pipelines.
@@ -212,8 +200,7 @@ its artifacts and the job below it has two directories and a file as its artifac
   <figcaption>Figure 15: Artifacts</figcaption>
 </figure>
 
-<a id="fetch_artifact">  </a>
-## Fetching artifacts
+## Fetching artifacts {#fetch_artifact}
 
 GoCD provides a special task called a "Fetch Artifact Task", which allows artifacts to be fetched and used, from any ancestor pipeline - that is, any
 pipeline that is upstream of the current pipeline. GoCD will ensure that the correct version of the artifact is fetched, irrespective of anything else
@@ -228,8 +215,7 @@ a Fetch Artifact Task fetches an artifact from Pipeline 1, through Pipeline 2.
   <figcaption>Figure 16: Fetch Artifact Task</figcaption>
 </figure>
 
-<a id="agent">       </a>
-# Agent 
+# Agent {#agent}
 <span class="header smaller">(or "*Where* do these tasks, jobs, stages and pipelines run?")</span>
 
 GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents. The GoCD Server polls for changes in material (this
@@ -246,9 +232,7 @@ An agent is represented by a monitor in the image below.
   <figcaption>Figure 17: Agent</figcaption>
 </figure>
 
-
-<a id="resources">  </a>
-# Resources      
+# Resources {#resources}
 
 Agents and [jobs](#job) can be enhanced with "Resources". Resources are free-form tags, that help Go decide which agents are capable of picking up specific jobs.
 
@@ -285,9 +269,7 @@ In the case of the image above:
 Note that the fact that Agent 3 has an Apple&reg; resource does not stop it from being assigned a job. It just happens to be a resource which is not
 needed by any of the jobs shown.
 
-
-<a id="environment">    </a>
-# Environments     
+# Environments {#environment}
 
 An "Environment" in GoCD is a way to group and isolate pipelines and agents. The rules of an environment are:
 
@@ -318,8 +300,7 @@ In a case such as the image shown above:
 In addition to the restrictions related to matching of Environments, resources need to match between the agents and jobs, as detailed in the section
 on [Resources](#resources).
 
-<a id="environment_variables">  </a>
-# Environment Variables      
+# Environment Variables {#environment_variables}
 
 Environment variables are often confused with "Environments". They're not directly related. In GoCD, "Environment Variables" are user-defined variables that
 are defined in the configuration. These environment variables are made available to tasks just like other environment variables available to processes
@@ -349,8 +330,7 @@ MY_VAR  => 4
 For instance: `ENV_PIP` set at the environment level (to a value of 1) is overridden by `ENV_PIP` set at the pipeline level (to a value of 2). Since `ENV_PIP`
 is not defined at the stage and job levels, the value of `ENV_PIP` will be 2. The other environment variables can be reasoned about in the same way.
 
-<a id="templates"></a>
-# Templates      
+# Templates {#templates}
 
 This section is a work in progress.
 

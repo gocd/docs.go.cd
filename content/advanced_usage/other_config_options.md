@@ -23,8 +23,7 @@ To configure the system properties, edit the file `wrapper-properties.conf` on t
 
 ## Options
 
-<a id='cruise-listen-host'></a>
-### `cruise.listen.host` - The host that the GoCD Server should bind to
+### `cruise.listen.host` - The host that the GoCD Server should bind to {#cruise-listen-host}
 
 - Name: `cruise.listen.host`
 - Type: [System property](#system-properties)
@@ -39,8 +38,7 @@ interface. In some, more advanced networking setups, it might be needed to
 override this, typically to 127.0.0.1, so that only clients local to the box can
 access it.
 
-<a id='cruise-server-port'></a>
-### `cruise.server.port` - HTTP port for the Go Server
+### `cruise.server.port` - HTTP port for the Go Server {#cruise-server-por}
 
 - Name: `cruise.server.port`
 - Type: [System property](#system-properties)
@@ -51,9 +49,7 @@ Similar to the [`cruise.listen.host`](#cruise-listen-host) property, the value o
 this property determines which port the Go Server binds to, and accepts HTTP
 connections from. If not overridden, it is set to `8153`.
 
-
-<a id='cruise-server-ssl-port'></a>
-### `cruise.server.ssl.port` - HTTPS port for the Go Server
+### `cruise.server.ssl.port` - HTTPS port for the Go Server {#cruise-server-ssl-port}
 
 - Name: `cruise.server.ssl.port`
 - Type: [System property](#system-properties)
@@ -64,8 +60,7 @@ Similar to the [cruise.listen.host](#cruise-listen-host) property, the value of
 this property determines which port the Go Server binds to, and accepts HTTPS
 connections from. If not overridden, it is set to `8154`.
 
-<a id='cruise-config-dir'></a>
-### `cruise.config.dir` - Location of the configuration files
+### `cruise.config.dir` - Location of the configuration files {#cruise-config-dir}
 
 - Name: `cruise.config.dir`
 - Type: [System property](#system-properties)
@@ -77,8 +72,7 @@ Go Server's config directory.
 Changing this could have an impact on the ability to upgrade the Go Server, and
 so, it's not recommended to change this.
 
-<a id='go-spa-refresh-interval'></a>
-### `go.spa.refresh.interval` - GoCD SPA pages refresh interval time
+### `go.spa.refresh.interval` - GoCD SPA pages refresh interval time {#go-spa-refresh-interval}
 
 - Name: `go.spa.refresh.interval`
 - Type: [System property](#system-properties)
@@ -91,8 +85,7 @@ This property can be used to change the time interval at which these GoCD pages 
 
 Setting this to a lower value (<= 5000) could have a performance impact on the GoCD server.
 
-<a id='go-spa-timeout'></a>
-### `go.spa.timeout`	 - GoCD SPA pages request timeout
+### `go.spa.timeout`	 - GoCD SPA pages request timeout {#go-spa-timeout}
 
 - Name: `go.spa.timeout`
 - Type: [System property](#system-properties)

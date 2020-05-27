@@ -639,10 +639,10 @@ The `<purgeUptoDiskSpace>` element is used to define the limit of available disk
 
 [top](#top)
 
-## &lt;ldap&gt; {#ldap} [*Deprecated*]
+## &lt;ldap&gt; [*Deprecated*] {#ldap}
 
 
-The `<ldap>` element is used to specify the ldap server. Users can access 
+The `<ldap>` element is used to specify the ldap server. Users can access
 with their username and password from this ldap server.
 
 **Attributes**
@@ -711,7 +711,7 @@ the directory from which the LDAP search begins.
 [top](#top)
 
 
-## &lt;passwordFile&gt; {#passwordFile} [*Deprecated*]
+## &lt;passwordFile&gt; [*Deprecated*] {#passwordFile}
 
 The `<passwordFile>` element is used to specify a file which has a set of username and password pairs. The format of username and password in this file is \${username}=\${password which has been encrypted with SHA1}, with one line per user.
 
@@ -814,7 +814,7 @@ The `<roles>` element is a container for roles that users defined. It can't be d
 
 ## &lt;role&gt; {#role_definition}
 
-The `<role>` element is used to define a group of users who perform similar tasks. Optionally, the `<role>` element can specify a policy which defines the permission model for the users defined as part of the current role.  
+The `<role>` element is used to define a group of users who perform similar tasks. Optionally, the `<role>` element can specify a policy which defines the permission model for the users defined as part of the current role.
 In a `<role>` element, Users are added by adding the sub-tag [`<users>`](#usersinrole) and Policy is added by adding the sub-tag [`<policy>`](#policyinrole).
 
 **Notes:**
@@ -899,24 +899,24 @@ The following policy would grant users the permissions to `administer` to all en
 
 The `<allow>` element under `policy` grants permissions to the defined GoCD entity based on the type, action and resource.
 
-The value of the `allow` element defines the resource on which policy should be applied. 
+The value of the `allow` element defines the resource on which policy should be applied.
 
  **Notes:**
-  
+
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | type      | Yes      | The type of the GoCD entity to grant permissions on. The supported values for type are `environment` and `config_repo`. |
 | action    | Yes      | The operation that can be performed on the GoCD entity. The supported values for action are `administer` and `view`. |
-  
+
  **Examples**
- 
+
  The following policy would grant users the permissions to `administer` to all environments matching `prod_*` name.
- 
+
  ```xml
      <allow action="administer" type="environment">prod_*</allow>
  ```
- 
-An administrator can use `*` to provide allow access of all type and action. 
+
+An administrator can use `*` to provide allow access of all type and action.
 
 **Examples**
 
@@ -929,24 +929,24 @@ An administrator can use `*` to provide allow access of all type and action.
 
 The `<deny>` element under `policy` deny the access to the defined GoCD entity based on the type, action and resource.
 
-The value of the `deny` element defines the resource on which policy should be applied. 
+The value of the `deny` element defines the resource on which policy should be applied.
 
  **Notes:**
- 
+
 | Attribute | Required | Description |
 |-----------|----------|-------------|
 | type      | Yes      | The type of the GoCD entity to deny the access on. The supported values for type are `environment` and `config_repo`. |
 | action    | Yes      | The operation that can not be performed on the GoCD entity. The supported values for action are `administer` and `view`. |
-  
+
  **Examples**
- 
+
  The following policy would deny the `administer` access to all environments matching `prod_*` name.
- 
+
  ```xml
      <deny action="administer" type="environment">prod_*</deny>
  ```
- 
-An administrator can use `*` to deny all the access of all type and action. 
+
+An administrator can use `*` to deny all the access of all type and action.
 
 **Examples**
 

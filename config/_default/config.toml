@@ -8,6 +8,12 @@ googleAnalytics = "UA-48357651-1"
 pygmentsCodefences = true
 pygmentsStyle = "emacs"
 
+[markup]
+  defaultMarkdownHandler = "goldmark"
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
 [params]
   # (Optional, default true) Show or hide table of contents globally
   # You can also specify this parameter per page in front matter

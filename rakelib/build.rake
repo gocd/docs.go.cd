@@ -6,12 +6,12 @@ CLEAN.include('resources')
 CLEAN.include('public')
 
 task :init do
-  sh("yarn install")
+  sh("npm install")
 end
 
 task :run_hugo do
-  sh('yarn run index')
-  sh('yarn run hugo')
+  sh('npm run index')
+  sh('npm run hugo')
 end
 
 desc 'Check for title property on every md file'

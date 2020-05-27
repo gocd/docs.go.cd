@@ -10,25 +10,24 @@ To make changes to GoCD's documentation, you can do this:
 1. Install all dependencies
 
     The dependencies for building the documentation are:
-  
-    - nodejs (known to work with v8.9.4)
-    - yarn (known to work with 1.13.0)
-    - Ruby (known to work with 2.3.6)
-    - Bundler gem (known to work with 1.17.2)
-    
+
+    - nodejs (known to work with v14.3.0)
+    - Ruby (known to work with 2.7.1)
+    - Bundler gem (known to work with 2.1.4)
+
     Then run this to get all the dependent gems:
-  
+
     ```shell
-    bundle install --jobs 4 --path .bundle --clean
+    bundle
     ```
-2. To install yarn dependencies
+2. To install npm dependencies
     ```bash
-    yarn install
+    npm install
     ```
 3. Run the documentation on the local server (defaults to http://localhost:1313)
     ```shell
-    yarn run index
-    yarn run serve
+    npm run index
+    npm run serve
     ```
 
 ### Publishing to GitHub pages
@@ -43,13 +42,13 @@ Check the latest changes deployed [here](https://gocd.github.io/docs.go.cd/).
 
 #### To build search index
 ```shell
-yarn run index
+npm run index
 ```
 
 #### To run hugo with different arguments
 
 ```shell
-yarn run hugo [arguments]
+npm run hugo [arguments]
 ```
 
 ### Releasing a new version of the documentation
@@ -63,7 +62,7 @@ CURRENT_VERSION=17.4.0 VERSION_TO_RELEASE=17.5.0  NEXT_VERSION=17.6.0 REMOTE_NAM
 ## License
 
 ```plain
-Copyright 2019 ThoughtWorks, Inc.
+Copyright 2020 ThoughtWorks, Inc.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

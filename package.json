@@ -13,10 +13,10 @@
   "author": "ThoughtWorks, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
-    "grunt": "^1.0.3",
-    "hugo-bin": "^0.41.0",
-    "lunr": "2.3.6",
-    "markdown-it": "^8.4.2",
+    "grunt": "^1.1.0",
+    "hugo-bin": "^0.59.1",
+    "lunr": "2.3.8",
+    "markdown-it": "^11.0.0",
     "string": "^3.3.3",
     "gray-matter": "^4.0.2",
     "he": "^1.2.0"

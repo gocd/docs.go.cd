@@ -5,7 +5,7 @@
     {{ $title := index ($sections | last 1) 0 | humanize | title }}
     {{- default $title .Title -}}
   {{- else -}}
-    {{ $title :=  .File | humanize | title }}
+    {{ $title :=  .File.ContentBaseName | humanize | title }}
     {{- default $title .Title -}}
   {{- end -}}
 {{ end }}
