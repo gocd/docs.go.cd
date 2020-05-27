@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,38 +320,25 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-integration-with-external-tools">GoCD Integration with external tools</h1>
-
+<article class="markdown"><h1 id="gocd-integration-with-external-tools">GoCD Integration with external tools</h1>
 <h2 id="integration-with-bug-tracking-and-story-management-tools">Integration with bug tracking and story management tools</h2>
-
 <p>GoCD allows you to link your commit messages with bug tracking and story management tools which are web applications.</p>
-
 <p>The following shows an example of tracking cards on Jira by card numbers starting with a &ldquo;#&rdquo; (e.g: #3301):</p>
-
-<p><img src="../images/pipeline_tracking_tool.png" alt="Configure tracking tool" /></p>
-
+<p><img src="../images/pipeline_tracking_tool.png" alt="Configure tracking tool"></p>
 <p>The pattern has an extra &ldquo;#&rdquo; because it is an escape character for a parameter. <a href="../configuration/admin_use_parameters_in_configuration.html">More information&hellip;</a></p>
-
 <p>For power users, here&rsquo;s how you&rsquo;d do it from Config XML:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;mypipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://jira.atlassian.com/go/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<p>Now, when a user commits code with comments like &ldquo;#3301 - Make sure the TrackingToolConfig and&hellip;&ldquo;, GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:</p>
-
-<p><img src="../images/pipeline_activity_tracking_tool.png" alt="" /></p>
-
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</code></pre></div><p>Now, when a user commits code with comments like &ldquo;#3301 - Make sure the TrackingToolConfig and&hellip;&quot;, GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:</p>
+<p><img src="../images/pipeline_activity_tracking_tool.png" alt=""></p>
 <h2 id="monitoring-your-builds-with-client-tools">Monitoring your builds with client tools</h2>
-
 <p>GoCD allows you to monitor your builds with CCTray through the url &lsquo;http://[your_go_server]:8153/go/cctray.xml.</p>
-
 <p>If you have switched on security in your configuration you can use BASIC authentication to connect. In many cases you can do this by including the username and password in the URL. The username and password should not include special characters.</p>
-
 <p>For example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">http://<span style="color:#666">[</span>username<span style="color:#666">]</span>:<span style="color:#666">[</span>password<span style="color:#666">]</span>@<span style="color:#666">[</span>your_go_server<span style="color:#666">]</span>:8153/go/cctray.xml</code></pre></div>
-<p>From 12.3, the CCTray feed includes a message tag with the &ldquo;breakers&rdquo; attribute that includes names of users who made the commit that broke the pipeline. Most CCTray clients support this message tag.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">http://<span style="color:#666">[</span>username<span style="color:#666">]</span>:<span style="color:#666">[</span>password<span style="color:#666">]</span>@<span style="color:#666">[</span>your_go_server<span style="color:#666">]</span>:8153/go/cctray.xml
+</code></pre></div><p>From 12.3, the CCTray feed includes a message tag with the &ldquo;breakers&rdquo; attribute that includes names of users who made the commit that broke the pipeline. Most CCTray clients support this message tag.</p>
 </article>
 
       
@@ -400,13 +379,10 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-integration-with-external-tools">GoCD Integration with external tools</a>
-<ul>
-<li><a href="#integration-with-bug-tracking-and-story-management-tools">Integration with bug tracking and story management tools</a></li>
-<li><a href="#monitoring-your-builds-with-client-tools">Monitoring your builds with client tools</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#integration-with-bug-tracking-and-story-management-tools">Integration with bug tracking and story management tools</a></li>
+    <li><a href="#monitoring-your-builds-with-client-tools">Monitoring your builds with client tools</a></li>
+  </ul>
 </nav>
   </aside>
 

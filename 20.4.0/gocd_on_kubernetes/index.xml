@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gocd_on_kubernetes on GoCD User Documentation</title>
@@ -28,7 +28,7 @@ Docker in Docker (DinD) Docker in Docker involves setting up a docker binary and
       <guid>/gocd_on_kubernetes/importing_a_sample_workflow.html</guid>
       <description>Getting Started with GoCD on Kubernetes Step 3: Import sample pipeline to build and deploy a sample application In this section, we&amp;rsquo;ll import a set of GoCD pipelines that build and deploy a sample application with a Docker based build workflow.
 This section uses GoCDs pipelines as code capability to import sample pipeline definitions from an external Git repository.
-Prerequisites  The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
+Prerequisites   The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
     </item>
     
     <item>

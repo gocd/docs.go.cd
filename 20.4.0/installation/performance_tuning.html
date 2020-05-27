@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,189 +320,155 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-performance-tuning">GoCD Performance Tuning</h1>
-
+<article class="markdown"><h1 id="gocd-performance-tuning">GoCD Performance Tuning</h1>
 <h2 id="capacity-planning">Capacity Planning</h2>
-
 <p>This section provides recommendations to evaluate server hardware and memory requirements for your GoCD server. It also highlights some configurations which need to be taken care of when scaling GoCD.</p>
-
 <h3 id="minimum-server-requirements">Minimum server requirements</h3>
-
 <p>The minimum requirements for a GoCD server can be found <a href="../installation/system_requirements.html">here</a></p>
-
 <h3 id="scaling-gocd">Scaling GoCD</h3>
-
 <p>As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.</p>
-
-<p>If you have questions or have custom requirements, please contact support@thoughtworks.com to help with capacity planning for GoCD server</p>
-
+<p>If you have questions or have custom requirements, please contact <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a> to help with capacity planning for GoCD server</p>
 <h3 id="things-to-remember">Things to Remember</h3>
-
 <h4 id="server">Server</h4>
-
 <p>Do not run any other CPU intensive applications on the same box as the GoCD Server.</p>
-
 <p>When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are <code>-Xms512m</code> (minimum) and <code>-Xmx1024m</code> (maximum). To utilize more heap space, set the JVM option <code>-Xmx</code> to a higher value (for e.g. to use 8 GB heap, set the flag <code>-Xmx8g</code>). This flag can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># use minimum JVM heap of 4gb</span>
 wrapper.java.additional.100<span style="color:#666">=</span>-Xms4g
 <span style="color:#080;font-style:italic"># use maximum JVM heap of 8gb (this is for GoCD server and the index MUST be 2, so that it overrides the value set in wrapper.conf)</span>
-wrapper.java.additional.2<span style="color:#666">=</span>-Xmx8g</code></pre></div>
-<p>For linux/unix users running large setups, an exception might be seen in <code>go-server.log</code> mentioning &ldquo;Too many open files&rdquo;. This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command <code>ulimit -n</code> can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:</p>
-
+wrapper.java.additional.2<span style="color:#666">=</span>-Xmx8g
+</code></pre></div><p>For linux/unix users running large setups, an exception might be seen in <code>go-server.log</code> mentioning &ldquo;Too many open files&rdquo;. This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command <code>ulimit -n</code> can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:</p>
 <ol>
 <li>Edit <code>/etc/security/limits.conf</code> and add the lines: <code>soft nofile 1024 * hard nofile 65535</code></li>
 <li>Edit <code>/etc/pam.d/login</code>, adding the line: <code>session required /lib/security/pam_limits.so</code></li>
 <li>The system file descriptor limit can be increased by setting <code>fs.file-max</code> in the file <code>/etc/sysctl.conf</code>. To set the limit to <code>65535</code> use <code>echo &quot;fs.file-max = 65535&quot; &gt;&gt; /etc/sysctl.conf</code></li>
 </ol>
-
 <h4 id="agent">Agent</h4>
-
 <p>When the GoCD agent is running pipelines with verbose output, many artifacts etc. you may encounter <code>java.lang.OutOfMemoryError: Java heap space</code> in the log files. It is a sign to increase memory limit. To do so tune <code>set.AGENT_STARTUP_ARGS</code> in the aforementioned <code>wrapper-properties.conf</code>.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic">###### System properties for GoCD agent ######</span>
 <span style="color:#080;font-style:italic"># Set a memory limit of 1GB for the agent process. We recommend that you do not use more than half your system memory.</span>
-set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>-Xms128m -Xmx1024m</code></pre></div>
-<h3 id="tuning-your-jvm">Tuning your JVM</h3>
-
+set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>-Xms128m -Xmx1024m
+</code></pre></div><h3 id="tuning-your-jvm">Tuning your JVM</h3>
 <p>Ensure that the latest JVM is used always, as there are major performance improvements with every release.</p>
-
 <p>The minimum and maximum JVM heap space allocated to the GoCD server affects its performance. GoCD uses default values of <code>512m</code> and <code>1024m</code> for minimum and maximum JVM heap sizes respectively. However, for production environments, we recommend setting the minimum and maximum values to an identical value.</p>
-
 <p>The default heap settings mentioned above are for a 32-bit JVM. But if the GoCD server is facing performance issues we recommend doubling the values in the heap settings and measuring performance. If its seen that more than 3 GB of heap memory is needed, we recommend a switch to 64-bit JVM. Our tests show that GoCD server performs much better on a 64 bit JVM than a 32 bit JVM provided the heap memory has been increased appropriately. This is needed because 64-bit JVM makes use of 64-bit addresses instead of 32bits, allowing it to use more memory.</p>
-
 <p>Start with the default settings and increase the heap memory incrementally to suit your application.</p>
-
 <h3 id="storage">Storage</h3>
-
 <p>For optimal performance in artifact transfer GoCD would need storage with good disk I/O throughput. We recommend local storage for GoCD database and artifacts. Disk space can be reclaimed through deletion of historical artifacts.</p>
-
 <p>If using network storage is preferred, ensure that the speeds and throughput are good.</p>
-
 <p>Use RAID Configuration for higher throughput if the GoCD Server is expected to be an intensive setup. If you expect to have large artifacts you could use use different RAID configurations for GoCD database and artifacts. For example, 2 drives on RAID1 can be be used for the GoCD database (for redundancy), 3+ hard drives on RAID5 can be used for artifacts so that access to database and artifacts is optimized.</p>
-
 <h3 id="improving-server-startup-time">Improving Server Startup Time</h3>
-
 <p>The start up time for a very large GoCD Server instance could be improved by delaying material polling and pipeline scheduling to a few seconds after the server starts up. This would allow the server to warm up and cache some of the data before it is bombarded with threads that poll for material updates and pipelines that need to be scheduled. Following are the JVM properties that enable such a delay:</p>
-
 <ul>
-<li><p><code>cruise.material.update.delay</code> - This value is specified in milliseconds. It has a default value of 10,000. This means that material polling would only start 10s after the server starts.</p></li>
-
-<li><p><code>cruise.produce.build.cause.delay</code> - Likewise, this value is also specified in milliseconds. It again defaults to 10,000 meaning that scheduling of pipelines would take place only 10s after the server starts up.</p></li>
+<li>
+<p><code>cruise.material.update.delay</code> - This value is specified in milliseconds. It has a default value of 10,000. This means that material polling would only start 10s after the server starts.</p>
+</li>
+<li>
+<p><code>cruise.produce.build.cause.delay</code> - Likewise, this value is also specified in milliseconds. It again defaults to 10,000 meaning that scheduling of pipelines would take place only 10s after the server starts up.</p>
+</li>
 </ul>
-
 <p>The two values above do not affect the frequency of material polling or pipeline scheduling.</p>
-
 <h2 id="troubleshooting">Troubleshooting</h2>
-
 <h3 id="enable-gc-logging">Enable GC Logging</h3>
-
 <p>An easy way to check the memory usage, heap size (initial and over time) and GC metrics of the application is by turning on GC logging. GC logging can be enabled using the following JVM arguments while starting the application (Note: the log file specified as file is reset each time the VM starts.)</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-verbose:gc -Xloggc:file -XX:+PrintGCTimeStamps</code></pre></div>
-<p>In case of the GoCD server, these arguments will have to be added in the script that starts the Go jar:</p>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-verbose:gc -Xloggc:file -XX:+PrintGCTimeStamps
+</code></pre></div><p>In case of the GoCD server, these arguments will have to be added in the script that starts the Go jar:</p>
 <ul>
 <li>For linux : <code>/usr/share/go-server/server.sh</code></li>
 <li>For Windows: <code>[go_server_installation_dir]/server.cmd</code> In most cases GoCD is installed in <code>C:\Program Files\Go Server</code></li>
 </ul>
-
 <h3 id="using-jconsole">Using JConsole</h3>
-
 <p>JConsole is a graphical monitoring tool to monitor Java Virtual Machine (JVM) which comes as part of the JDK installation. It can be used to monitor the current state of a process without much overhead. If the GoCD server&rsquo;s performance is slow, some metrics can be immediately analysed using jconsole.</p>
-
 <p>Since jconsole is a graphical tool, make sure you have an access to display, when running the following command. That is, use <code>ssh -X</code> or VNC if GoCD is on linux. Use remote desktop if the GoCD server is on windows.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ jconsole</code></pre></div>
-<p>Select the local process <code>go.jar</code> when the jconsole GUI opens up. This shows the current heap memory usage, threads, cpu usage etc. Screenshots of the VM Summary and the overview page can be taken to be sent to the GoCD Support team, if required.</p>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ jconsole
+</code></pre></div><p>Select the local process <code>go.jar</code> when the jconsole GUI opens up. This shows the current heap memory usage, threads, cpu usage etc. Screenshots of the VM Summary and the overview page can be taken to be sent to the GoCD Support team, if required.</p>
 <blockquote>
 <p>Please note that in case of linux, jconsole will have to be started as &lsquo;go&rsquo; user. In Windows, starting the process as administrator should suffice.</p>
 </blockquote>
-
 <p>More information about jconsole can be found <a href="http://download.oracle.com/javase/1.5.0/docs/guide/management/jconsole.html">here</a>.</p>
-
 <h3 id="cpu-and-memory-profiling">CPU and memory profiling</h3>
-
 <p>Yourkit java profiler is a recommended tool for profiling the CPU and memory of the GO Server.</p>
-
 <p>To start using yourkit, download the latest version of the Yourkit java profiler from <a href="http://www.yourkit.com/download/index.jsp">http://www.yourkit.com/download/index.jsp</a>. Unpack to [yourkit_profiler_directory] The following steps will enable the GoCD server to pick up the yourkit profiler agent and enable us to take memory and cpu snapshots.</p>
-
 <p>For Linux</p>
-
 <ol>
-<li><p>Create a symlink for <code>libyjpagent.so</code> file to <code>/usr/lib/yourkit</code> folder. When the GoCD server starts up, it looks at this folder to see if it needs to start with profiling enabled or not. If you want to change the default path of the yourkit agent, you can edit <code>server.sh</code> at <code>/usr/share/go-server/server.sh</code></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-32/libyjpagent.so /usr/lib/yourkit/libyjpagent.so</code></pre></div>
-<p>For 64-bit JVM, the command is:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-64/libyjpagent.so /usr/lib/yourkit/libyjpagent.so</code></pre></div></li>
-
-<li><p>Restart the server after this, and the yourkit agent should get picked up by the server VM. Let the server start up and agents get registered.</p></li>
+<li>
+<p>Create a symlink for <code>libyjpagent.so</code> file to <code>/usr/lib/yourkit</code> folder. When the GoCD server starts up, it looks at this folder to see if it needs to start with profiling enabled or not. If you want to change the default path of the yourkit agent, you can edit <code>server.sh</code> at <code>/usr/share/go-server/server.sh</code></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-32/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
+</code></pre></div><p>For 64-bit JVM, the command is:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-64/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
+</code></pre></div></li>
+<li>
+<p>Restart the server after this, and the yourkit agent should get picked up by the server VM. Let the server start up and agents get registered.</p>
+</li>
 </ol>
-
 <p>For Windows</p>
-
 <ol>
-<li>By default, GoCD server looks for the yourkit profiler agent yjpagent.dll in the location <code>C:\yjpagent.dll</code>. Therefore, copy the file <code>yjpagent.dll</code> (which is the yourkit profiler agent) from <code>[yourkit_profiler_directory]\bin\win32</code> to <code>C:\yjpagent.dll</code>. Copy the file from <code>[yourkit_profiler_directory}\bin\win64</code> if you are using 64 bit JVM.</li>
-<li>To change the above mentioned default location: define environment variable <code>YOURKIT_PATH</code> with value equal to location of <code>yjpagent.dll</code>.</li>
-
-<li><p>If you are running the GoCD server as a service, you will need to perform an additional step. In the config folder of the GoCD server installation, edit the <em><a href="installing_go_server.html">wrapper-properties.conf</a></em> file, and add an additional property with the following value</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b44">&#34;-agentpath: [Path to yjpagent.dll]=port=6133,builtinprobes=none&#34;</span></code></pre></div>
-<p>For example, if there are 16 properties already defined, add this 17th property as shown below</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-agentpath:C:\yjpagent.dll=port=6133,builtinprobes=none&#34;</span></code></pre></div></li>
+<li>
+<p>By default, GoCD server looks for the yourkit profiler agent yjpagent.dll in the location <code>C:\yjpagent.dll</code>. Therefore, copy the file <code>yjpagent.dll</code> (which is the yourkit profiler agent) from <code>[yourkit_profiler_directory]\bin\win32</code> to <code>C:\yjpagent.dll</code>. Copy the file from <code>[yourkit_profiler_directory}\bin\win64</code> if you are using 64 bit JVM.</p>
+</li>
+<li>
+<p>To change the above mentioned default location: define environment variable <code>YOURKIT_PATH</code> with value equal to location of <code>yjpagent.dll</code>.</p>
+</li>
+<li>
+<p>If you are running the GoCD server as a service, you will need to perform an additional step. In the config folder of the GoCD server installation, edit the <em><a href="installing_go_server.html">wrapper-properties.conf</a></em> file, and add an additional property with the following value</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b44">&#34;-agentpath: [Path to yjpagent.dll]=port=6133,builtinprobes=none&#34;</span>
+</code></pre></div><p>For example, if there are 16 properties already defined, add this 17th property as shown below</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wrapper.java.additional.17<span style="color:#666">=</span><span style="color:#b44">&#34;-agentpath:C:\yjpagent.dll=port=6133,builtinprobes=none&#34;</span>
+</code></pre></div></li>
 </ol>
-
 <p>Use the following steps to take profile the application and take snapshots. The <code>hostname</code> mentioned here is the hostname of the GoCD Server. In most cases, it would be &lsquo;localhost&rsquo;. The value of <code>port</code> is 6133, because GoCD starts the yjpagent on port 6133.</p>
-
 <ol>
-<li><p>To start profiling, run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port  start-cpu-sampling</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-monitor-profiling</code></pre></div>
-<p>If memory allocation profiling is also required:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-alloc-recording-adaptive</code></pre></div></li>
-
-<li><p>Let the server run for some time till you start seeing performance problems. 30 mins of snapshot should give us enough data.</p></li>
-
-<li><p>To capture the snapshot - Run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port capture-performance-snapshot</code></pre></div>
-<p>To capture memory snapshot</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port capture-memory-snapshot</code></pre></div></li>
-
-<li><p>To stop profiling, run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-cpu-profiling<span style="color:#b44">`</span></code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-monitor-profiling</code></pre></div>
-<p>If memory profiling was turned on,s top it using the following command</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-alloc-recording</code></pre></div></li>
-
-<li><p>Once you&rsquo;re done profiling, run the following so that on the next GoCD server restart, the agent is not loaded into the JVM.</p>
-
+<li>
+<p>To start profiling, run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port  start-cpu-sampling
+</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-monitor-profiling
+</code></pre></div><p>If memory allocation profiling is also required:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port start-alloc-recording-adaptive
+</code></pre></div></li>
+<li>
+<p>Let the server run for some time till you start seeing performance problems. 30 mins of snapshot should give us enough data.</p>
+</li>
+<li>
+<p>To capture the snapshot - Run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port capture-performance-snapshot
+</code></pre></div><p>To capture memory snapshot</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port capture-memory-snapshot
+</code></pre></div></li>
+<li>
+<p>To stop profiling, run:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-cpu-profiling<span style="color:#b44">`</span>
+</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-monitor-profiling
+</code></pre></div><p>If memory profiling was turned on,s top it using the following command</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ java -jar <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/lib/yjp-controller-api-redist.jar hostname port stop-alloc-recording
+</code></pre></div></li>
+<li>
+<p>Once you&rsquo;re done profiling, run the following so that on the next GoCD server restart, the agent is not loaded into the JVM.</p>
 <p>In case of linux, run the following command:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo rm /usr/lib/yourkit/libyjpagent.so</code></pre></div></li>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">$ sudo rm /usr/lib/yourkit/libyjpagent.so
+</code></pre></div></li>
 </ol>
-
 <p>In case of windows, delete the file <code>C:\yjpagent.dll</code>. If you were using the variable <code>YOURKIT_PATH</code>, then remove the environment variable.</p>
-
 <p>These snapshots will be saved in the yourkit configured snapshots folder. They can be sent to the GoCD Support so that they can be examined to help find the root cause of the performance.</p>
-
 <h3 id="contact-gocd-support">Contact GoCD Support</h3>
-
 <p>If the GoCD server continues to behave poorly, send us the following data.</p>
-
 <ol>
-<li><p>Database file <code>cruise.h2.db</code>. Stop the server and take a backup of the database. Location:</p>
-
+<li>
+<p>Database file <code>cruise.h2.db</code>. Stop the server and take a backup of the database. Location:</p>
 <p>Linux: <code>/var/lib/db/h2db/cruise.h2.db</code></p>
-
-<p>Windows: <code>[go_installation_dir]\db\h2db\cruise.h2.db</code></p></li>
-
-<li><p>Log file <code>go-server.log</code>. Location:</p>
-
+<p>Windows: <code>[go_installation_dir]\db\h2db\cruise.h2.db</code></p>
+</li>
+<li>
+<p>Log file <code>go-server.log</code>. Location:</p>
 <p>Linux: <code>/var/log/go-server/go-server.log</code></p>
-
-<p>Windows: <code>[go_installation_dir]\go-server.log</code></p></li>
-
-<li><p>GoCD config file <code>cruise-config.xml</code>. Location:</p>
-
+<p>Windows: <code>[go_installation_dir]\go-server.log</code></p>
+</li>
+<li>
+<p>GoCD config file <code>cruise-config.xml</code>. Location:</p>
 <p>Linux: <code>/etc/go/cruise-config.xml</code></p>
-
-<p>Windows: <code>[go_installation_dir]\config\cruise-config.xml</code></p></li>
-
-<li><p>If any Yourkit and jconsole snapshots as mentioned in the previous points, its useful if that can be sent too.</p></li>
+<p>Windows: <code>[go_installation_dir]\config\cruise-config.xml</code></p>
+</li>
+<li>
+<p>If any Yourkit and jconsole snapshots as mentioned in the previous points, its useful if that can be sent too.</p>
+</li>
 </ol>
 </article>
 
@@ -552,31 +510,26 @@ set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>-Xms128m -Xmx1024m</code>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-performance-tuning">GoCD Performance Tuning</a>
-<ul>
-<li><a href="#capacity-planning">Capacity Planning</a>
-<ul>
-<li><a href="#minimum-server-requirements">Minimum server requirements</a></li>
-<li><a href="#scaling-gocd">Scaling GoCD</a></li>
-<li><a href="#things-to-remember">Things to Remember</a>
-<ul>
-<li><a href="#server">Server</a></li>
-<li><a href="#agent">Agent</a></li>
-</ul></li>
-<li><a href="#tuning-your-jvm">Tuning your JVM</a></li>
-<li><a href="#storage">Storage</a></li>
-<li><a href="#improving-server-startup-time">Improving Server Startup Time</a></li>
-</ul></li>
-<li><a href="#troubleshooting">Troubleshooting</a>
-<ul>
-<li><a href="#enable-gc-logging">Enable GC Logging</a></li>
-<li><a href="#using-jconsole">Using JConsole</a></li>
-<li><a href="#cpu-and-memory-profiling">CPU and memory profiling</a></li>
-<li><a href="#contact-gocd-support">Contact GoCD Support</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#capacity-planning">Capacity Planning</a>
+      <ul>
+        <li><a href="#minimum-server-requirements">Minimum server requirements</a></li>
+        <li><a href="#scaling-gocd">Scaling GoCD</a></li>
+        <li><a href="#things-to-remember">Things to Remember</a></li>
+        <li><a href="#tuning-your-jvm">Tuning your JVM</a></li>
+        <li><a href="#storage">Storage</a></li>
+        <li><a href="#improving-server-startup-time">Improving Server Startup Time</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting">Troubleshooting</a>
+      <ul>
+        <li><a href="#enable-gc-logging">Enable GC Logging</a></li>
+        <li><a href="#using-jconsole">Using JConsole</a></li>
+        <li><a href="#cpu-and-memory-profiling">CPU and memory profiling</a></li>
+        <li><a href="#contact-gocd-support">Contact GoCD Support</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

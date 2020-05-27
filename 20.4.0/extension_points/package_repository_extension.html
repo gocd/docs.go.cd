@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,67 +320,41 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-package-material">GoCD Package Material</h1>
-
+<article class="markdown"><h1 id="gocd-package-material">GoCD Package Material</h1>
 <h2 id="introduction">Introduction</h2>
-
 <p>Poll from GoCD packages and more from GoCD 13.3 onwards.
 Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:</p>
-
 <ol>
 <li>jar, war or ear file in case of Java</li>
 <li><a href="http://nuget.org/">nuget</a>/ <a href="http://chocolatey.org/">chocolatey</a> package in case of .NET</li>
 <li><a href="http://en.wikipedia.org/wiki/Package_management_system#Package_formats">Linux system package</a> (e.g rpm, deb) in case of any application platform</li>
 <li>Other <a href="http://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers">application level package formats</a> like gem, npm, <a href="https://www.php.net/manual/en/book.phar.php">phar</a>, <a href="http://www.python.org/dev/peps/pep-0427/">wheel</a> etc.</li>
 </ol>
-
 <p>These files (packages) are often maintained in corresponding package repositories. <strong>Such packages may be specified as materials for GoCD pipelines.</strong></p>
-
 <h3 id="supported-packages">Supported Packages</h3>
-
 <p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a GoCD pipeline. Using other <a href="https://www.gocd.org/community/plugins.html">external plugins</a>, it is possible to do the same for other types of packages.</p>
-
 <h3 id="repositories-packages-and-materials">Repositories, Packages and Materials</h3>
-
 <p>A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the repository, interested pipelines will get scheduled.</p>
-
 <h4 id="repository-definition">Repository Definition</h4>
-
 <p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a yum repository using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
-
 <h5 id="note">Note:</h5>
-
 <ol>
 <li>The repository name is not used by the package material plugin - it is used by Go to construct the material name.</li>
 <li>Two package repositories cannot have the same name.</li>
 <li>Use the check connection button to ensure that Go can work with this repository.</li>
 </ol>
-
-<p><img src="../images/yum-repo.png" alt="" /></p>
-
+<p><img src="../images/yum-repo.png" alt=""></p>
 <h4 id="package-definition">Package Definition</h4>
-
 <p>A package material plugin also lets you define packages at the time of pipeline material configuration (Admin &gt; Material &gt;Add Material &gt; Package). Here is what it looks like for defining RPM packages with the bundled yum plugin. The package name is not used by the package material plugin - it is used by Go to construct the material name. Two packages in a repository cannot have the same name. Use the check package button to ensure that the package definition does indeed resolve to the package you are looking for.</p>
-
-<p><img src="../images/yum-pkg.png" alt="" /></p>
-
+<p><img src="../images/yum-pkg.png" alt=""></p>
 <p>Unlike other VCS/SCM materials, <em>the material definition in case of packages is not contained within the pipeline definition</em>. Many pipelines may have material definitions referring to the same package. Here is how we associate an existing package as material for a pipeline.</p>
-
-<p><img src="../images/yum-pkg-exist.png" alt="" /></p>
-
+<p><img src="../images/yum-pkg-exist.png" alt=""></p>
 <h5 id="note-1">Note:</h5>
-
 <p>Each package definition must resolve to exactly one package on the repository, else the pipeline will not run. In order to set up a pipeline that polls for multiple packages, configure each package as a separate material.</p>
-
 <p>Each package material plugin defines a subset of its properties as a <em>package fingerprint</em>. e.g. in case of the bundled yum plugin this subset consists of Repository URL and Package Spec (it excludes repository username and password). Repository and Package names are <strong>not</strong> part of package fingerprint. It is not permitted to multiple packages having the same package fingerprint. An attempt to do so will result in an error message like this:</p>
-
 <p>The following error(s) need to be resolved in order to perform this action:<br>
 Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchard&rsquo;, Package Name: &lsquo;apple&rsquo;], [Repo Name: &lsquo;orchard&rsquo;, Package Name: &lsquo;orange&rsquo;]</p>
-
 <h4 id="sample-xml-configuration">Sample XML Configuration</h4>
-
 <p>Here is a XML view of an RPM package definition. Note the relation between repository, package and pipeline material. Loosely typed property, key and value tags are used for repository and package configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn&rsquo;t necessary to provide repository and package IDs, Go server will autogenerate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;repository</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;1ce5c205-977f-4c0e-ada4-882030580eed&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ora&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;yum&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -415,36 +381,29 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
     <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;package</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;840b0b60-bd29-489d-b5ea-ccff5f6459a9&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  ...</code></pre></div>
-<h3 id="value-stream-modeling-tip">Value stream modeling tip</h3>
+  ...
 
+</code></pre></div><h3 id="value-stream-modeling-tip">Value stream modeling tip</h3>
 <p>Depending on whether GoCD is also publishing the package or just consuming it, there are two options for modeling a value stream that includes packages.</p>
-
 <ol>
-<li><p>The first scenario is where the package is published from some pipeline in GoCD. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:</p>
-
+<li>
+<p>The first scenario is where the package is published from some pipeline in GoCD. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:</p>
 <ol>
 <li>Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this <a href="http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines">tip</a> may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the <a href="../navigation/value_stream_map.html">value stream map.</a></li>
 <li>Package material: Y adds P as a package material. Y no longer has to resolve P.</li>
 </ol>
-
-<p>It isn&rsquo;t advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option #1 makes sense.</p></li>
-
-<li><p>The second scenario is where GoCD does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. GoCD helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.</p></li>
+<p>It isn&rsquo;t advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option #1 makes sense.</p>
+</li>
+<li>
+<p>The second scenario is where GoCD does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. GoCD helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.</p>
+</li>
 </ol>
-
 <h3 id="permissions">Permissions</h3>
-
 <p>Repositories and their packages are global entities not tied to a pipeline group or environment. Pipeline group admins may define repositories and packages for use in their pipelines. One pipeline group admin may also use packages defined by another for their pipelines. Changing a package definition will cause all dependent pipelines to schedule - even those not in the same pipeline group as that of the person editing. Because of this, we don&rsquo;t have a UI way of changing the definition of a package. Only the GoCD admin can change it via Admin &gt; Config XML tab.</p>
-
 <h3 id="polling">Polling</h3>
-
 <p>Even if no pipelines use a package, GoCD polls for newer packages every minute. This may be turned off at a package level by setting <a href="../configuration/configuration_reference.html#package">autoUpdate</a> to false via the config xml (GoCD admins only). autoUpdate is turned on by default. When a newer package is found, the pipelines for which it is a material get scheduled (assuming <a href="../configuration/pipeline_scheduling.html">auto scheduling of pipelines</a> is on). Also see <a href="https://api.gocd.org/current/#scheduling-pipelines">API scheduling</a>.</p>
-
 <h3 id="package-information-display">Package information display</h3>
-
 <p>The following information is expected from the package material plugin (which in turn obtains it from the package metadata if available)</p>
-
 <ol>
 <li>Package revision (e.g. gcc-4.4.7-3.el6.x86_64)</li>
 <li>Package build time</li>
@@ -453,31 +412,21 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 <li>Trackback URL - Typically an absolute URL that indicates what job (in GoCD or otherwise) created the package.</li>
 <li>Package - material name (i.e. repo-name:package-name)</li>
 </ol>
-
 <p>At the time of building the package, it is recommended to include as much of the above information as possible so that it is available for Go to display as below.</p>
-
-<p><img src="../images/package-changes.png" alt="" /></p>
-
+<p><img src="../images/package-changes.png" alt=""></p>
 <h3 id="downloading-the-package">Downloading the package</h3>
-
 <p>The package isn&rsquo;t automatically downloaded on the agent and made available to the jobs. This is unlike VCS/SCM materials where a checkout is made by default. In case of packages, the GoCD Agent is typically not the target node for deployment, it is only orchestrating deployment to a remote node. So, instead of an automatic download, the following environment variables are made available:</p>
-
 <ol>
 <li>GO_PACKAGE_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_LABEL</li>
 <li>GO_REPO_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_REPO_URL</li>
 <li>GO_PACKAGE_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_LOCATION</li>
 </ol>
-
 <p>Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let&rsquo;s say we set up a repository named ORA pointing to <a href="http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64">http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</a> and define a package gcc with a spec of gcc-4.* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:</p>
-
 <pre><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
 &lt;arg&gt;-c&lt;/arg&gt;
 &lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
 &lt;/exec&gt;
-</code></pre>
-
-<p>When the task executes on the agent, the environment variables get subsituted as below:</p>
-
+</code></pre><p>When the task executes on the agent, the environment variables get subsituted as below:</p>
 <pre><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
 &lt;arg&gt;-c&lt;/arg&gt;
 &lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
@@ -488,30 +437,22 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 [go] setting environment variable 'GO_PACKAGE_ORA_GCC_PACKAGE_SPEC' to value 'gcc-4.*'
 [go] setting environment variable 'GO_PACKAGE_ORA_GCC_LOCATION' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm'
 ...
-</code></pre>
-
-<p>Or, to simply pass it as an argument to a deploy script on a remote server</p>
+</code></pre><p>Or, to simply pass it as an argument to a deploy script on a remote server</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>ssh server &#34;cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION&#34;<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span></code></pre></div>
-<p><strong>Also see <a href="yum_repository_poller.html#installing-rpms">Installing RPMs</a></strong></p>
-
+<span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span>
+</code></pre></div><p><strong>Also see <a href="yum_repository_poller.html#installing-rpms">Installing RPMs</a></strong></p>
 <blockquote>
 <p><strong>Important:</strong> Please note that if you change repository credentials and then try to re-trigger (redeploy) an old package, the published environment variables will not reflect new credentials.</p>
 </blockquote>
-
 <h3 id="publishing-a-package">Publishing a Package</h3>
-
 <p>At the moment, GoCD does not create or publish the package for you. But it is simple enough for each type of package. e.g. <a href="yum_repository_poller.html#creating-and-publishing-rpms">rpm</a></p>
-
 <p>You could also explore the command repository on <a href="https://github.com/gocd/go-command-repo/tree/master/deploy">GitHub</a> for helpful commands. What is command repository? Please see <a href="../advanced_usage/command_repository.html">this</a>.</p>
-
 <h3 id="package-dependencies">Package Dependencies</h3>
-
 <p>Please note that GoCD does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install componentA-1.2.0-b234-noarch</code></pre></div>
-<p>do the resolution of componentB for you.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install componentA-1.2.0-b234-noarch
+</code></pre></div><p>do the resolution of componentB for you.</p>
 </article>
 
       
@@ -552,34 +493,21 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-package-material">GoCD Package Material</a>
-<ul>
-<li><a href="#introduction">Introduction</a>
-<ul>
-<li><a href="#supported-packages">Supported Packages</a></li>
-<li><a href="#repositories-packages-and-materials">Repositories, Packages and Materials</a>
-<ul>
-<li><a href="#repository-definition">Repository Definition</a>
-<ul>
-<li><a href="#note">Note:</a></li>
-</ul></li>
-<li><a href="#package-definition">Package Definition</a>
-<ul>
-<li><a href="#note-1">Note:</a></li>
-</ul></li>
-<li><a href="#sample-xml-configuration">Sample XML Configuration</a></li>
-</ul></li>
-<li><a href="#value-stream-modeling-tip">Value stream modeling tip</a></li>
-<li><a href="#permissions">Permissions</a></li>
-<li><a href="#polling">Polling</a></li>
-<li><a href="#package-information-display">Package information display</a></li>
-<li><a href="#downloading-the-package">Downloading the package</a></li>
-<li><a href="#publishing-a-package">Publishing a Package</a></li>
-<li><a href="#package-dependencies">Package Dependencies</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#supported-packages">Supported Packages</a></li>
+        <li><a href="#repositories-packages-and-materials">Repositories, Packages and Materials</a></li>
+        <li><a href="#value-stream-modeling-tip">Value stream modeling tip</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+        <li><a href="#polling">Polling</a></li>
+        <li><a href="#package-information-display">Package information display</a></li>
+        <li><a href="#downloading-the-package">Downloading the package</a></li>
+        <li><a href="#publishing-a-package">Publishing a Package</a></li>
+        <li><a href="#package-dependencies">Package Dependencies</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

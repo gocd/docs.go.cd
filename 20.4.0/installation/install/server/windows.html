@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -328,12 +320,8 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="installing-gocd-server-on-windows">Installing GoCD server on Windows</h1>
-
+<article class="markdown"><h1 id="installing-gocd-server-on-windows">Installing GoCD server on Windows</h1>
 <p>You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.</p>
-
 <ul>
 <li>Download a version of go-server from the <a href="https://www.gocd.org/download/">downloads page</a>.</li>
 <li>Double-click the <code>go-server-${version}-setup.exe</code> installer file and follow the prompts to install Go.</li>
@@ -342,15 +330,10 @@ if (!doNotTrack) {
 <li>At the end of the installation, GoCD server will register itself as a windows service owned by &lsquo;Local System&rsquo; and start running automatically</li>
 <li>Shortcuts to GoCD will be placed on your Desktop and in your Start Menu for convenience - double-click the shortcut to GoCD to the GoCD dashboard</li>
 </ul>
-
 <h2 id="silent-headless-installation">Silent (Headless) Installation</h2>
-
 <p>You may use this method if you would like to script the installation of the GoCD server.</p>
-
 <pre><code>go-server-${version}-setup.exe /S /D=&lt;PATH_TO_SERVER_DIRECTORY&gt;
-</code></pre>
-
-<table>
+</code></pre><table>
 <thead>
 <tr>
 <th>Argument</th>
@@ -358,7 +341,6 @@ if (!doNotTrack) {
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>/D</code></td>
@@ -367,27 +349,16 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <p>For example:</p>
-
 <pre><code>C:\&gt; go-server-16.1.0-1234-setup.exe /S /D=C:\go\server
-</code></pre>
-
-<p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
-
+</code></pre><p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 
-
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
-
 <p>You can manage the GoCD server process from the windows service manager</p>
-
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
-
 <p>All the files for the GoCD server are under the root installation path on Windows. The default location is <code>C:\Program Files\Go Server</code>.</p>
-
-The GoCD server installs its files in the following locations on your filesystem:</p>
-
+<p>The GoCD server installs its files in the following locations on your filesystem:</p>
 <table>
 <thead>
 <tr>
@@ -395,38 +366,31 @@ The GoCD server installs its files in the following locations on your filesystem
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>${INSTALL_DIR}/db</code></td>
 <td>the GoCD server database</td>
 </tr>
-
 <tr>
 <td><code>${INSTALL_DIR}/artifacts</code></td>
 <td>the GoCD server artifacts</td>
 </tr>
-
 <tr>
 <td><code>${INSTALL_DIR}/plugins</code></td>
 <td>the GoCD server plugins</td>
 </tr>
-
 <tr>
 <td><code>${INSTALL_DIR}/config</code></td>
 <td>the GoCD server configuration</td>
 </tr>
-
 <tr>
 <td><code>${INSTALL_DIR}/logs</code></td>
 <td>the GoCD server log files</td>
 </tr>
-
 <tr>
 <td><code>${INSTALL_DIR}/{lib,wrapper}</code></td>
 <td>the GoCD server binaries and startup scripts</td>
 </tr>
-
 <tr>
 <td><code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code></td>
 <td>the configuration file to alter GoCD server properties</td>
@@ -434,13 +398,9 @@ The GoCD server installs its files in the following locations on your filesystem
 </tbody>
 </table>
 
-
 <h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
-
 Users can override default startup arguments in a editing the file <code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code>.
-
 <h3 id="also-see">Also see</h3>
-
 <ul>
 <li><a href="../../installing_go_agent.html">Installing GoCD agents</a></li>
 <li><a href="../../configuring_server_details.html">Configuring server details</a></li>
@@ -488,15 +448,12 @@ Users can override default startup arguments in a editing the file <code>${INSTA
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#installing-gocd-server-on-windows">Installing GoCD server on Windows</a>
-<ul>
-<li><a href="#silent-headless-installation">Silent (Headless) Installation</a></li>
-<li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
-<li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
-<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#silent-headless-installation">Silent (Headless) Installation</a></li>
+    <li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
+    <li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
+    <li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
+  </ul>
 </nav>
   </aside>
 

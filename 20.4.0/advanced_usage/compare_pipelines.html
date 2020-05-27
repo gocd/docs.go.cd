@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,70 +320,49 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="compare-builds">Compare Builds</h1>
-
+<article class="markdown"><h1 id="compare-builds">Compare Builds</h1>
 <p>GoCD allows you to compare any two builds of a pipeline and see exactly what changes happened between those two instances. The information in this view will include:</p>
-
 <ul>
 <li>Code checkins</li>
 <li>Upstream pipelines</li>
 <li>Story/defect numbers (when linked to a tracking tool)</li>
 </ul>
-
 <h2 id="accessing-pipeline-compare">Accessing Pipeline Compare</h2>
-
 <p>There are several locations from where the Pipeline Compare feature can be invoked. These include:</p>
-
 <ul>
 <li>Pipelines Dashboard page (the &ldquo;Compare&rdquo; link in each pipeline)</li>
 <li>Environments page</li>
 <li>Stage Details page</li>
 <li>Stage History widget within the Stage Details page</li>
 </ul>
-
 <h2 id="understanding-the-pipeline-compare-screen">Understanding the Pipeline Compare Screen</h2>
-
 <p>The Pipeline Compare screen lets you compare any two instances of a pipeline. Every pipeline instance is associated with a set of changes; be it a source control modification or an upstream pipeline. Performing a compare lets you easily identify exactly what these changes were.</p>
-
-<p><img src="../images/compare_changes.png" alt="PipelineCompare_Changes" /></p>
-
+<p><img src="../images/compare_changes.png" alt="PipelineCompare_Changes"></p>
 <ol>
 <li><strong>To/from search box:</strong> You can search for the appropriate pipeline instance using any of the following - pipeline label, check-in comment, person who checked in, upstream pipeline label and revision.</li>
 <li><strong>Upstream dependency changes:</strong> All the changes to upstream pipelines within the search range.</li>
 <li><strong>Changes to version control systems:</strong> All check-ins that went into dependent VCS materials within the search range.</li>
 <li><strong>Tracking tool integration:</strong> If you&rsquo;ve configured a <a href="../integration/index.html#integration-with-bug-tracking-and-story-management-tools">tracking tool integration</a> for this pipeline or any upstream pipelines, check-in comments containing story/defect/ticket numbers would be hyperlinked to the appropriate tracking tool.</li>
 </ol>
-
 <h2 id="using-pipeline-history">Using Pipeline History</h2>
-
 <p>You can also select a pipeline by browsing the pipeline history.</p>
-
-<p><img src="../images/compare_timeline.png" alt="PipelineCompare-Timeline" /></p>
-
+<p><img src="../images/compare_timeline.png" alt="PipelineCompare-Timeline"></p>
 <p>Steps to select a particular instance from the history:</p>
-
 <ol>
 <li>Click on the search box</li>
 <li>Click on &ldquo;Browse the timeline&rdquo;</li>
 <li>Browse the history and select a pipeline</li>
 </ol>
-
 <h2 id="understanding-non-sequential-material-revision">Understanding Non-sequential Material Revision</h2>
-
 <p>Sometimes the following error message will be present on the comparison page:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">This pipeline instance was triggered with a non-sequential material revision.</code></pre></div>
-<p>This means that the instance in-question was triggered with an older revision or an older run of the upstream pipeline. This occurs when the <code>Trigger with options</code> flow is chosen on the Dashboard UI to schedule a pipeline.</p>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">This pipeline instance was triggered with a non-sequential material revision.
+</code></pre></div><p>This means that the instance in-question was triggered with an older revision or an older run of the upstream pipeline. This occurs when the <code>Trigger with options</code> flow is chosen on the Dashboard UI to schedule a pipeline.</p>
 <p>Let&rsquo;s consider a pipeline <code>P</code> with material <code>M</code>.</p>
-
 <ul>
 <li>a commit <code>c1</code> trigger an instance <code>P1</code> with a <code>natural_order</code> of 1</li>
 <li>a commit <code>c2</code> trigger an instance <code>P2</code> with a <code>natural_order</code> of 2</li>
 <li>a commit <code>c3</code> trigger an instance <code>P3</code> with a <code>natural_order</code> of 3</li>
 </ul>
-
 <p>Now a user using trigger with options triggers an instance <code>P4</code> with commit <code>c2</code>. Now, in all manners <code>P2</code> and <code>P4</code> are similar.
 Since instance <code>P4</code> was triggered with a commit earlier than <code>c3</code>, it was assigned with a <code>natural_order</code> of 2.5. It is recommended to compare only pipelines with integer <code>natural_order</code>. Hence, the warning.</p>
 </article>
@@ -434,15 +405,12 @@ Since instance <code>P4</code> was triggered with a commit earlier than <code>c3
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#compare-builds">Compare Builds</a>
-<ul>
-<li><a href="#accessing-pipeline-compare">Accessing Pipeline Compare</a></li>
-<li><a href="#understanding-the-pipeline-compare-screen">Understanding the Pipeline Compare Screen</a></li>
-<li><a href="#using-pipeline-history">Using Pipeline History</a></li>
-<li><a href="#understanding-non-sequential-material-revision">Understanding Non-sequential Material Revision</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#accessing-pipeline-compare">Accessing Pipeline Compare</a></li>
+    <li><a href="#understanding-the-pipeline-compare-screen">Understanding the Pipeline Compare Screen</a></li>
+    <li><a href="#using-pipeline-history">Using Pipeline History</a></li>
+    <li><a href="#understanding-non-sequential-material-revision">Understanding Non-sequential Material Revision</a></li>
+  </ul>
 </nav>
   </aside>
 

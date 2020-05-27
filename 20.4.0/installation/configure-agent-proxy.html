@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,14 +320,9 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="configure-a-gocd-agent-to-connect-to-a-server-through-a-proxy-server">Configure a GoCD agent to connect to a server through a proxy server.</h1>
-
+<article class="markdown"><h1 id="configure-a-gocd-agent-to-connect-to-a-server-through-a-proxy-server">Configure a GoCD agent to connect to a server through a proxy server.</h1>
 <p><strong>Note:</strong> Using this feature requires atleast version <code>17.11.0</code> of the GoCD server and agent.</p>
-
 <p>Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions <a href="https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html">defined by the JVM</a>:</p>
-
 <ul>
 <li><code>http.proxyHost</code></li>
 <li><code>http.proxyPort</code> (default: <code>80</code>)</li>
@@ -346,7 +333,6 @@ if (!doNotTrack) {
 <li><code>socksProxyPort</code> (default: <code>1080</code>)</li>
 <li><code>socksProxyVersion</code> (default: <code>5</code>)</li>
 </ul>
-
 <p>To configure an agent to use a proxy edit the <code>wrapper-properties.conf</code> and add the following system properties. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># the proxy server</span>
 wrapper.java.additional.100<span style="color:#666">=</span>-Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com
@@ -355,7 +341,8 @@ wrapper.java.additional.101<span style="color:#666">=</span>-Dhttps.proxyPort<sp
 <span style="color:#080;font-style:italic"># do not proxy connections to these hosts</span>
 wrapper.java.additional.102<span style="color:#666">=</span>-Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com
 
-set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>%AGENT_STARTUP_ARGS% -Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com -Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span> -Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com</code></pre></div></article>
+set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>%AGENT_STARTUP_ARGS% -Dhttps.proxyHost<span style="color:#666">=</span>proxy.example.com -Dhttps.proxyPort<span style="color:#666">=</span><span style="color:#666">3128</span> -Dhttp.nonProxyHosts<span style="color:#666">=</span>localhost|*.department.acme.com
+</code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -394,11 +381,7 @@ set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>%AGENT_STARTUP_ARGS% -Dht
 
   
   <aside class="book-toc fixed">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#configure-a-gocd-agent-to-connect-to-a-server-through-a-proxy-server">Configure a GoCD agent to connect to a server through a proxy server.</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 

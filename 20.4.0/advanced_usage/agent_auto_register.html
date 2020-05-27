@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,26 +320,22 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="auto-registration-of-remote-agents">Auto registration of remote agents</h1>
-
+<article class="markdown"><h1 id="auto-registration-of-remote-agents">Auto registration of remote agents</h1>
 <p>As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.</p>
-
 <ul>
-<li>Add an attribute named &ldquo;agentAutoRegisterKey&rdquo;, for e.g., agentAutoRegisterKey=&ldquo;388b633a88de126531afa41eff9aa69e&rdquo;, in the server configuration fragment, in case it is not present.</li>
+<li>Add an attribute named &ldquo;agentAutoRegisterKey&rdquo;, for e.g., agentAutoRegisterKey=&quot;388b633a88de126531afa41eff9aa69e&rdquo;, in the server configuration fragment, in case it is not present.</li>
 </ul>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;cruise</span> <span style="color:#b44">xmlns:xsi=</span><span style="color:#b44">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#b44">xsi:noNamespaceSchemaLocation=</span><span style="color:#b44">&#34;cruise-config.xsd&#34;</span> <span style="color:#b44">schemaVersion=</span><span style="color:#b44">&#34;75&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">agentAutoRegisterKey=</span><span style="color:#b44">&#34;388b633a88de126531afa41eff9aa69e&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   ...
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<ul>
-<li><p>On the remote GoCD Agent machine, create a file named <code>&lt;agent_installation_directory&gt;/config/autoregister.properties</code>. In a native agent installation this file is usually located on <code>/var/lib/go-agent/config/</code> directory. The <code>config/</code> folder might not exist, in this case you should create it by yourself.</p>
-
-<p>This file supports the following properties</p></li>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</code></pre></div><ul>
+<li>
+<p>On the remote GoCD Agent machine, create a file named <code>&lt;agent_installation_directory&gt;/config/autoregister.properties</code>. In a native agent installation this file is usually located on <code>/var/lib/go-agent/config/</code> directory. The <code>config/</code> folder might not exist, in this case you should create it by yourself.</p>
+<p>This file supports the following properties</p>
+</li>
 </ul>
-
 <table>
 <thead>
 <tr>
@@ -356,38 +344,32 @@ if (!doNotTrack) {
 <th><em>Description</em></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>agent.auto.register.key</code></td>
 <td align="center">yes</td>
 <td>The value of the <code>&lt;server/&gt;</code> element&rsquo;s <code>agentAutoRegisterKey</code> attribute from <code>cruise-config.xml</code></td>
 </tr>
-
 <tr>
 <td><code>agent.auto.register.environments</code></td>
 <td align="center">no</td>
 <td>A comma separated list of environments that this agent should be associated with.</td>
 </tr>
-
 <tr>
 <td><code>agent.auto.register.resources</code></td>
 <td align="center">no</td>
 <td>This MUST not be set by agents that register as elastic-agents. A comma separated list of resources that this agent should be tagged with.</td>
 </tr>
-
 <tr>
 <td><code>agent.auto.register.hostname</code></td>
 <td align="center">no</td>
 <td>The name of the agent when it is registered with the server. (<strong>Version 15.2.0 onwards</strong>)</td>
 </tr>
-
 <tr>
 <td><code>agent.auto.register.elasticAgent.agentId</code></td>
 <td align="center">no</td>
 <td>This MUST be set by agents that register as elastic-agents. This may contain an identifier of the agent, that the plugin can identify. Can be something like a docker container ID, or AWS instance ID. (<strong>Version 16.12.0 onwards</strong>)</td>
 </tr>
-
 <tr>
 <td><code>agent.auto.register.elasticAgent.pluginId</code></td>
 <td align="center">no</td>
@@ -395,7 +377,6 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <p>Example</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">agent.auto.register.key<span style="color:#666">=</span>388b633a88de126531afa41eff9aa69e
 agent.auto.register.resources<span style="color:#666">=</span>ant,java
@@ -404,8 +385,8 @@ agent.auto.register.hostname<span style="color:#666">=</span>Agent01
 
 <span style="color:#080;font-style:italic"># if you&#39;re using elastic agents, these would be needed as well</span>
 agent.auto.register.elasticAgent.agentId<span style="color:#666">=</span>i-123456
-agent.auto.register.elasticAgent.pluginId<span style="color:#666">=</span>com.example.aws</code></pre></div>
-<ul>
+agent.auto.register.elasticAgent.pluginId<span style="color:#666">=</span>com.example.aws
+</code></pre></div><ul>
 <li>Now, bringing up the remote agent should automatically register with the GoCD Server without the administrator having to &lsquo;Enable&rsquo; the newly added agent and configure its resources and assign it to environments.</li>
 </ul>
 </article>
@@ -447,11 +428,7 @@ agent.auto.register.elasticAgent.pluginId<span style="color:#666">=</span>com.ex
 
   
   <aside class="book-toc fixed">
-    <nav id="TableOfContents">
-<ul>
-<li><a href="#auto-registration-of-remote-agents">Auto registration of remote agents</a></li>
-</ul>
-</nav>
+    <nav id="TableOfContents"></nav>
   </aside>
 
 

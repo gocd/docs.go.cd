@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,24 +320,14 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="run-a-gocd-pipeline-on-a-schedule">Run a GoCD pipeline on a schedule</h1>
-
+<article class="markdown"><h1 id="run-a-gocd-pipeline-on-a-schedule">Run a GoCD pipeline on a schedule</h1>
 <p>To run a pipeline at a given time, use a timer. Timers understand a cron-like specification for when to run a pipeline.</p>
-
 <p>Note that a pipeline will still schedule normally if changes are checked in. If the pipeline should only run according to the timer&rsquo;s schedule then you should also set a manual approval for the first stage of the pipeline to stop it from automatically scheduling when materials change. This can be also be achieved by un-checking the option &ldquo;Automatic pipeline scheduling&rdquo; shown in the screenshot below.</p>
-
 <p>The timer is similar to a manually triggered pipeline in many ways. But it does not fetch the latest revision of the materials when it runs. It uses the last available revision that it knows of.</p>
-
 <h2 id="configure-through-the-ui">Configure through the UI</h2>
-
 <p>To configure the timer in the UI, navigate to the General Options section of the pipeline. For example, a timer that is configured as shown in the screenshot would run the pipeline at 10pm on weekdays. An option called &ldquo;Run only on new material&rdquo; is also available in this form. Selecting this option ensures that the pipeline will get triggered on the specified schedule only if materials have changed since the last run of this pipeline. For example, if there are no new commits since the last run, future runs will be skipped until new commits or until the pipeline is forced to run (using trigger-with-options) with an older commit. This option is typically useful when &ldquo;Automatic pipeline scheduling&rdquo; is turned off.</p>
-
-<p><img src="../images/timer_ui.png" alt="" /></p>
-
+<p><img src="../images/timer_ui.png" alt=""></p>
 <h2 id="configure-through-the-xml">Configure through the XML</h2>
-
 <p>The following xml config corresponds to the UI example above.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;nightly&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;timer</span> <span style="color:#b44">onlyOnChanges=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>0 0 22 ? * MON-FRI<span style="color:#008000;font-weight:bold">&lt;/timer&gt;</span>
@@ -358,8 +340,8 @@ if (!doNotTrack) {
     ...
     <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/stages&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<p>For more information see <a href="configuration_reference.html#timer">&lt; timer &gt;</a></p>
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</code></pre></div><p>For more information see <a href="configuration_reference.html#timer">&lt; timer &gt;</a></p>
 </article>
 
       
@@ -400,13 +382,10 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#run-a-gocd-pipeline-on-a-schedule">Run a GoCD pipeline on a schedule</a>
-<ul>
-<li><a href="#configure-through-the-ui">Configure through the UI</a></li>
-<li><a href="#configure-through-the-xml">Configure through the XML</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#configure-through-the-ui">Configure through the UI</a></li>
+    <li><a href="#configure-through-the-xml">Configure through the XML</a></li>
+  </ul>
 </nav>
   </aside>
 

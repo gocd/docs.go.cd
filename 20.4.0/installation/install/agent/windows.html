@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -328,12 +320,8 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="installing-gocd-agent-on-windows">Installing GoCD agent on Windows</h1>
-
+<article class="markdown"><h1 id="installing-gocd-agent-on-windows">Installing GoCD agent on Windows</h1>
 <p>You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.</p>
-
 <ol>
 <li>Download a version of go-agent from the <a href="https://www.gocd.org/download/">downloads page</a>.</li>
 <li>Double-click the <code>go-agent-${version}-setup.exe</code> installer file and follow the prompts to install Go.</li>
@@ -342,12 +330,10 @@ if (!doNotTrack) {
 <li>After installing the files, the installer will prompt you for the hostname or IP address of the GoCD server. Leaving this blank it will default to <code>https://localhost:8154/go</code>.</li>
 <li>At the end of the installation, GoCD agent registers itself as a windows service and starts running automatically.</li>
 </ol>
-
 <h1 id="silent-headless-installation">Silent (Headless) Installation</h1>
-
 <p>You may use this method if you would like to script the installation of the GoCD agent.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>-setup.exe /S /START_AGENT<span style="color:#666">=</span>NO /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;&lt;SERVERURL&gt;&#34;</span> /D<span style="color:#666">=</span>&lt;PATH_TO_AGENT_DIRECTORY&gt;</code></pre></div>
-<table>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>-setup.exe /S /START_AGENT<span style="color:#666">=</span>NO /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;&lt;SERVERURL&gt;&#34;</span> /D<span style="color:#666">=</span>&lt;PATH_TO_AGENT_DIRECTORY&gt;
+</code></pre></div><table>
 <thead>
 <tr>
 <th>Argument</th>
@@ -355,20 +341,17 @@ if (!doNotTrack) {
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>/D</code></td>
 <td>No</td>
 <td>The path where the server should be installed. Defaults to <code>C:\Program Files(x86)\Go Server</code>. <strong>Must be the last parameter on the command line and must not contain quotes even if the path contains blank spaces.</strong></td>
 </tr>
-
 <tr>
 <td><code>/SERVERURL</code></td>
 <td>No</td>
 <td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>.</td>
 </tr>
-
 <tr>
 <td><code>/START_AGENT</code></td>
 <td>No</td>
@@ -376,26 +359,17 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <p>For example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;https://10.12.20.47:8154/go&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent</code></pre></div>
-<p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;https://10.12.20.47:8154/go&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent
+</code></pre></div><p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 
-
 <h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
-
 <p>You can manage the GoCD agent process from the windows service manager</p>
-
 <h2 id="location-of-gocd-agent-files">Location of GoCD agent files</h2>
-
 <p>All the files for the GoCD agent are under its root installation folder in Windows, the default location is <code>C:\Program Files (x86)\Go Agent</code>.</p>
-
 <h2 id="registering-your-agent-with-the-server">Registering your agent with the server</h2>
-
 <p>For security reasons, all newly installed GoCD agents need to be enabled on the GoCD server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed GoCD agent, do the following:</p>
-
 <ol>
 <li>Open the GoCD server dashboard</li>
 <li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The GoCD server will now schedule work for this agent.</li>
@@ -441,14 +415,10 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#installing-gocd-agent-on-windows">Installing GoCD agent on Windows</a></li>
-<li><a href="#silent-headless-installation">Silent (Headless) Installation</a>
-<ul>
-<li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
-<li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
+    <li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
+  </ul>
 </nav>
   </aside>
 

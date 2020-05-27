@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,48 +320,32 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="why-is-the-build-broken">Why is the build broken?</h1>
-
+<article class="markdown"><h1 id="why-is-the-build-broken">Why is the build broken?</h1>
 <p>Knowing the build is broken is only the first step. Now we need to understand what caused it to break.</p>
-
 <h3 id="example-usage">Example usage</h3>
-
 <p>Usage: As a developer, I want to understand why the build is broken.</p>
-
 <p>Let&rsquo;s assume that in this case, we are on a java project using JUnit as our testing library.</p>
-
 <ul>
 <li>If we&rsquo;re not already, we need to configure Go to <a href="../configuration/dev_upload_test_report.html">upload JUnit xml reports</a></li>
 <li>Click on the <strong>Pipelines</strong> tab</li>
 </ul>
-
-<p><img src="../images/topnav_pipelines.png" alt="" /></p>
-
+<p><img src="../images/topnav_pipelines.png" alt=""></p>
 <ul>
 <li>Click on the failed stage you want to investigate</li>
 </ul>
-
-<p><img src="../images/click_on_stage.png" alt="" /></p>
-
+<p><img src="../images/click_on_stage.png" alt=""></p>
 <ul>
 <li>Click on the failed job</li>
 </ul>
-
-<p><img src="../images/7_click_failed_job.png" alt="" /></p>
-
+<p><img src="../images/7_click_failed_job.png" alt=""></p>
 <ul>
 <li>The &ldquo;Failures&rdquo; sub-tab should help you diagnose what is wrong with your build</li>
 </ul>
-
-<p><img src="../images/8_failures_tab.png" alt="" /></p>
-
+<p><img src="../images/8_failures_tab.png" alt=""></p>
 <ul>
 <li>If you need more information, the &ldquo;Console&rdquo; sub-tab contains everything that was written out to the console (including extra information from Go)</li>
 </ul>
-
-<p><img src="../images/9_console_tab.png" alt="" /></p>
+<p><img src="../images/9_console_tab.png" alt=""></p>
 </article>
 
       
@@ -410,15 +386,13 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#why-is-the-build-broken">Why is the build broken?</a>
-<ul>
-<li>
-<ul>
-<li><a href="#example-usage">Example usage</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#example-usage">Example usage</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

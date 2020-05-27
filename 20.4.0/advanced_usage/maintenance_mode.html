@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,73 +320,75 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="maintenance-mode">Maintenance Mode</h1>
-
+<article class="markdown"><h1 id="maintenance-mode">Maintenance Mode</h1>
 <p><strong>Note:</strong> Using this feature requires atleast version <code>19.1.0</code>  of the GoCD server.</p>
-
 <p>The GoCD system includes a lot of internal subsystems and processes, which continuously do work.
 Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.</p>
-
 <p>Maintenance mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up.</p>
-
 <h3 id="the-maintenance-mode-implementation">The maintenance mode implementation:</h3>
-
 <ul>
-<li>Stops the material subsystem so that no new materials are polled.</li>
-<li>Waits for currently polling materials to finish.</li>
-
-<li><p>Does not allow pipelines-as-code repositories to be polled.</p></li>
-
-<li><p>Stops the scheduling subsystem so that no new pipelines are triggered (automatically or through timers).</p></li>
-
-<li><p>Prevents users from triggering pipelines.</p></li>
-
-<li><p>Prevents users from modifying config.</p></li>
-
-<li><p>Prevents users from almost all activity which can modify state in the database or filesystem.</p></li>
-
-<li><p>Stops the agent subsystem, so that no agents can pick up work if they&rsquo;re idle.</p></li>
-
-<li><p>Allows all agents currently busy running jobs to finish.</p></li>
-
-<li><p>Provides a single location to put GoCD into or bring it out of maintenance mode.</p></li>
-
-<li><p>Provides a single location to see the status of all the subsystems, when in maintenance mode.</p></li>
-
-<li><p>Provides an API call to put GoCD into or bring it out of maintenance mode.</p></li>
-
-<li><p>Shows state of materials which are being polled currently.</p></li>
-
-<li><p>Shows state of agents which are currently running jobs.</p></li>
-
-<li><p>Shows a banner near the footer of all pages which tells everyone that the server is in maintenance mode.</p></li>
-
-<li><p>Indicate when a server is safe to restart or upgrade (finished maintenanceing).</p></li>
+<li>
+<p>Stops the material subsystem so that no new materials are polled.</p>
+</li>
+<li>
+<p>Waits for currently polling materials to finish.</p>
+</li>
+<li>
+<p>Does not allow pipelines-as-code repositories to be polled.</p>
+</li>
+<li>
+<p>Stops the scheduling subsystem so that no new pipelines are triggered (automatically or through timers).</p>
+</li>
+<li>
+<p>Prevents users from triggering pipelines.</p>
+</li>
+<li>
+<p>Prevents users from modifying config.</p>
+</li>
+<li>
+<p>Prevents users from almost all activity which can modify state in the database or filesystem.</p>
+</li>
+<li>
+<p>Stops the agent subsystem, so that no agents can pick up work if they&rsquo;re idle.</p>
+</li>
+<li>
+<p>Allows all agents currently busy running jobs to finish.</p>
+</li>
+<li>
+<p>Provides a single location to put GoCD into or bring it out of maintenance mode.</p>
+</li>
+<li>
+<p>Provides a single location to see the status of all the subsystems, when in maintenance mode.</p>
+</li>
+<li>
+<p>Provides an API call to put GoCD into or bring it out of maintenance mode.</p>
+</li>
+<li>
+<p>Shows state of materials which are being polled currently.</p>
+</li>
+<li>
+<p>Shows state of agents which are currently running jobs.</p>
+</li>
+<li>
+<p>Shows a banner near the footer of all pages which tells everyone that the server is in maintenance mode.</p>
+</li>
+<li>
+<p>Indicate when a server is safe to restart or upgrade (finished maintenanceing).</p>
+</li>
 </ul>
-
 <h3 id="in-progress-maintenance-mode">In Progress Maintenance Mode:</h3>
-
 <p>After initiating maintenance mode, several sub-systems of GoCD might still be in progress. Example: scheduled jobs, building jobs, material updates, etc.
 In such cases, GoCD Administrators can choose to cancel building, scheduled jobs or wait for there completion.</p>
-
 <p>Cancelling in-progress material updates might cause repository corruption due to partial clone and have side effects on pipeline scheduling.
 Hence, GoCD does not allow cancellation of MDUs even during maintenance mode. GoCD administrators should wait until all material updates are completed.</p>
-
-<p><img src="../images/advanced_usage/maintenance_mode/in_progress_maintenance_mode.png" alt="" />
-<img src="../images/advanced_usage/maintenance_mode/running_stages.png" alt="" />
-<img src="../images/advanced_usage/maintenance_mode/running_mdus.png" alt="" />
-<img src="../images/advanced_usage/maintenance_mode/scheduled_stages.png" alt="" /></p>
-
+<p><img src="../images/advanced_usage/maintenance_mode/in_progress_maintenance_mode.png" alt="">
+<img src="../images/advanced_usage/maintenance_mode/running_stages.png" alt="">
+<img src="../images/advanced_usage/maintenance_mode/running_mdus.png" alt="">
+<img src="../images/advanced_usage/maintenance_mode/scheduled_stages.png" alt=""></p>
 <h3 id="maintenance-mode-completion">Maintenance Mode Completion:</h3>
-
 <p>After all the sub-systems of GoCD are stopped during maintenance mode, GoCD server can be considered completely maintenanceed and is ready for a restart or an upgrade.</p>
-
-<p><img src="../images/advanced_usage/maintenance_mode/completed_maintenance_mode.png" alt="" /></p>
-
+<p><img src="../images/advanced_usage/maintenance_mode/completed_maintenance_mode.png" alt=""></p>
 <p><strong>NOTE:</strong> <code>Upon a restart, the GoCD server will no longer be in maintenance mode and will start all subsystems.</code></p>
-
 <p>The <a href="https://api.gocd.org/current/#maintenance-mode">maintenance mode API</a> allows GoCD Administrators to enable, disable and monitor the server maintenance mode state.</p>
 </article>
 
@@ -436,17 +430,15 @@ Hence, GoCD does not allow cancellation of MDUs even during maintenance mode. Go
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#maintenance-mode">Maintenance Mode</a>
-<ul>
-<li>
-<ul>
-<li><a href="#the-maintenance-mode-implementation">The maintenance mode implementation:</a></li>
-<li><a href="#in-progress-maintenance-mode">In Progress Maintenance Mode:</a></li>
-<li><a href="#maintenance-mode-completion">Maintenance Mode Completion:</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#the-maintenance-mode-implementation">The maintenance mode implementation:</a></li>
+        <li><a href="#in-progress-maintenance-mode">In Progress Maintenance Mode:</a></li>
+        <li><a href="#maintenance-mode-completion">Maintenance Mode Completion:</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,278 +320,237 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="fixing-common-issues">Fixing common issues</h1>
-
+<article class="markdown"><h1 id="fixing-common-issues">Fixing common issues</h1>
 <p>This page is mainly for newer users of GoCD, to help with troubleshooting issues.</p>
-
 <p><a id="agent_registration"></a></p>
-
 <h3 id="gocd-agent-not-registering-with-the-gocd-server">GoCD Agent not registering with the GoCD Server</h3>
-
 <p>This issue shows up either as an agent not showing up on the &ldquo;Agents&rdquo; page, or
 showing up with a status of &ldquo;Missing&rdquo;. If this happens, start troubleshooting by
 looking at the agent log files.</p>
-
 <p>See the end of <a href="../installation/installing_go_agent.html">the installation documentation page</a>
 for your operating system to find the location of the log files. There will be
 log files for the agent, the agent-bootstrapper and agent-launcher. Any errors
 at the end of these files might be interesting. Some common errors are:</p>
-
 <ol>
-<li><p><strong>Unable to reach the GoCD Server</strong></p>
-
+<li>
+<p><strong>Unable to reach the GoCD Server</strong></p>
 <p>This manifests itself as logs in go-agent-launcher.log with lines similar to this:</p>
-
-<pre><code>ERROR go.agent.launcher.ServerCall:69 - Couldn't access Go Server with base url: http://YOUR_SERVER:8153/go/admin/agent-launcher.jar: java.net.ConnectException: Connection refused
-ERROR go.agent.launcher.ServerBinaryDownloader:116 - Couldn't update admin/agent-launcher.jar. Sleeping for 1m. Error: java.lang.Exception: Couldn't access Go Server with base url: http://YOUR_SERVER:8153/go/admin/agent-launcher.jar: java.net.ConnectException: Connection refused
-INFO  apache.commons.httpclient.HttpMethodDirector:438 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused
-INFO  apache.commons.httpclient.HttpMethodDirector:444 - Retrying request
+<pre><code> ERROR go.agent.launcher.ServerCall:69 - Couldn't access Go Server with base url: http://YOUR_SERVER:8153/go/admin/agent-launcher.jar: java.net.ConnectException: Connection refused
+ ERROR go.agent.launcher.ServerBinaryDownloader:116 - Couldn't update admin/agent-launcher.jar. Sleeping for 1m. Error: java.lang.Exception: Couldn't access Go Server with base url: http://YOUR_SERVER:8153/go/admin/agent-launcher.jar: java.net.ConnectException: Connection refused
+ INFO  apache.commons.httpclient.HttpMethodDirector:438 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused
+ INFO  apache.commons.httpclient.HttpMethodDirector:444 - Retrying request
 </code></pre>
-
 <p>The problem here is that the agent cannot reach the server, either because of
 a problem with the network or because the ports used by the server are not
 accessible due to firewall restrictions. The GoCD server uses two ports, 8153
-and 8154 (by default). These two ports need to be accessible by the agents.</p></li>
-
-<li><p><strong>Unable to connect - SSL handshake error or connection reset</strong></p>
-
+and 8154 (by default). These two ports need to be accessible by the agents.</p>
+</li>
+<li>
+<p><strong>Unable to connect - SSL handshake error or connection reset</strong></p>
 <p>This manifests itself as logs in go-agent-bootstrapper.out.log with lines similar to this:</p>
-
-<pre><code>180679 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
-java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
-at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
-at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.headers(ServerBinaryDownloader.java:130)
-at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.downloadIfNecessary(ServerBinaryDownloader.java:106)
-at com.thoughtworks.go.agent.launcher.AgentLauncherImpl.launch(AgentLauncherImpl.java:78)
-at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.go(AgentBootstrapper.java:72)
-at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.main(AgentBootstrapper.java:54)
-at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-at java.lang.reflect.Method.invoke(Unknown Source)
-at com.simontuffs.onejar.Boot.run(Boot.java:306)
-at com.simontuffs.onejar.Boot.main(Boot.java:159)
-Caused by: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
-at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
-at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
-at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
-at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
-at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:394)
-at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:353)
-at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
-at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
-at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
-at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
-at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
-at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
-at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
-at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
-at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
-at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
-at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:55)
-... 11 more
-Caused by: java.io.EOFException: SSL peer shut down incorrectly
-at sun.security.ssl.InputRecord.read(Unknown Source)
-... 28 more
+<pre><code> 180679 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+ java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+ at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
+ at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.headers(ServerBinaryDownloader.java:130)
+ at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.downloadIfNecessary(ServerBinaryDownloader.java:106)
+ at com.thoughtworks.go.agent.launcher.AgentLauncherImpl.launch(AgentLauncherImpl.java:78)
+ at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.go(AgentBootstrapper.java:72)
+ at com.thoughtworks.go.agent.bootstrapper.AgentBootstrapper.main(AgentBootstrapper.java:54)
+ at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+ at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+ at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+ at java.lang.reflect.Method.invoke(Unknown Source)
+ at com.simontuffs.onejar.Boot.run(Boot.java:306)
+ at com.simontuffs.onejar.Boot.main(Boot.java:159)
+ Caused by: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+ at sun.security.ssl.SSLSocketImpl.readRecord(Unknown Source)
+ at sun.security.ssl.SSLSocketImpl.performInitialHandshake(Unknown Source)
+ at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+ at sun.security.ssl.SSLSocketImpl.startHandshake(Unknown Source)
+ at org.apache.http.conn.ssl.SSLConnectionSocketFactory.createLayeredSocket(SSLConnectionSocketFactory.java:394)
+ at org.apache.http.conn.ssl.SSLConnectionSocketFactory.connectSocket(SSLConnectionSocketFactory.java:353)
+ at org.apache.http.impl.conn.DefaultHttpClientConnectionOperator.connect(DefaultHttpClientConnectionOperator.java:141)
+ at org.apache.http.impl.conn.PoolingHttpClientConnectionManager.connect(PoolingHttpClientConnectionManager.java:353)
+ at org.apache.http.impl.execchain.MainClientExec.establishRoute(MainClientExec.java:380)
+ at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:236)
+ at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:184)
+ at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:88)
+ at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:110)
+ at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:184)
+ at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:82)
+ at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:107)
+ at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:55)
+ ... 11 more
+ Caused by: java.io.EOFException: SSL peer shut down incorrectly
+ at sun.security.ssl.InputRecord.read(Unknown Source)
+ ... 28 more
 </code></pre>
-
 <p>or this:</p>
-
-<pre><code>2986 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
-java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
-at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
-...
+<pre><code> 2986 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+ java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+ at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
+ ...
 </code></pre>
-
 <p>The problem here is that the agent is not able to connect securely to the
 server, which points to an invalid certificate. This can happen if an agent
 has connected to one GoCD server and is then pointed to another GoCD
 server. It will try to connect to the new server using the certificate that
 was for the older server and it will fail.</p>
-
 <p>The resolution is to move or rename the agent.jks file found the in the
 config/ directory of the agent and restarting the agent. That should make it
 connect using the correct certificate.</p>
-
 <p>If you&rsquo;re using full
 <a href="../installation/ssl_tls/end_to_end_transport_security.html">end-to-end transport security</a>,
 this error might mean that the server&rsquo;s certificate has changed and you need
-to provide the update certificate.</p></li>
-
-<li><p><strong>Incompatible Java version</strong></p>
-
+to provide the update certificate.</p>
+</li>
+<li>
+<p><strong>Incompatible Java version</strong></p>
 <p>This manifests itself as logs in go-agent-bootstrapper.log with lines similar to this:</p>
-
-<pre><code>242 [main] INFO com.thoughtworks.go.util.PerfTimer  - Performance: Downloading new admin/agent-launcher.jar with md5 signature: e9SXM6cdV5kSkpVEmymHIg== took 37ms
-Exception in thread &quot;main&quot; java.lang.reflect.InvocationTargetException
-  at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-  at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
-  at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-  at java.lang.reflect.Method.invoke(Method.java:622)
-  at com.simontuffs.onejar.Boot.run(Boot.java:306)
-  at com.simontuffs.onejar.Boot.main(Boot.java:159)
-Caused by: java.lang.UnsupportedClassVersionError: com/thoughtworks/cruise/agent/launcher/AgentLauncherImpl : Unsupported major.minor version 51.0
-  at java.lang.ClassLoader.defineClass1(Native Method)
-  at java.lang.ClassLoader.defineClass(ClassLoader.java:643)
-  at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
+<pre><code> 242 [main] INFO com.thoughtworks.go.util.PerfTimer  - Performance: Downloading new admin/agent-launcher.jar with md5 signature: e9SXM6cdV5kSkpVEmymHIg== took 37ms
+ Exception in thread &quot;main&quot; java.lang.reflect.InvocationTargetException
+   at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+   at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+   at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+   at java.lang.reflect.Method.invoke(Method.java:622)
+   at com.simontuffs.onejar.Boot.run(Boot.java:306)
+   at com.simontuffs.onejar.Boot.main(Boot.java:159)
+ Caused by: java.lang.UnsupportedClassVersionError: com/thoughtworks/cruise/agent/launcher/AgentLauncherImpl : Unsupported major.minor version 51.0
+   at java.lang.ClassLoader.defineClass1(Native Method)
+   at java.lang.ClassLoader.defineClass(ClassLoader.java:643)
+   at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
 </code></pre>
-
 <p>The problem here is that the version of Java used by the agent is too old. In
 this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
-needs Java 7.</p></li>
+needs Java 7.</p>
+</li>
 </ol>
-
 <p><a id="path_issues"></a></p>
-
 <h3 id="command-not-found-git-svn-mvn-ant-or-others">Command not found (git, svn, mvn, ant or others)</h3>
-
 <p>This issue shows up in one of three ways as you can see below. The resolution
 for all three issues is the same &ndash; to ensure that the <code>PATH</code> environment variable
 is correct.</p>
-
 <ol>
-<li><p><strong>During &ldquo;Check Connection&rdquo;</strong></p>
-
-<figure>
-    <img src="../images/troubleshooting/error_4_check_connection_git_not_found.png">
-</figure>
-
+<li>
+<p><strong>During &ldquo;Check Connection&rdquo;</strong></p>
+ <figure>
+     <img src="../images/troubleshooting/error_4_check_connection_git_not_found.png">
+ </figure>
 <p>This can also happen with other version control systems such as SVN, TFS, etc.</p>
-
-<p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Server</strong>&rsquo;s java
+<p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Server</strong>&lsquo;s java
 process. Ensure that the directory that the command is available is in the
 list. On Windows, the
 <a href="https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx">procexp</a>
 tool from Microsoft&rsquo;s Windows SysInternals might be useful to check this. It
-shows per-process environment variables in an easy way.</p></li>
-
-<li><p><strong>During material polling</strong></p>
-
-<p>Look for an error message at the bottom-right of any page, which looks like this:
-<figure>
-  <img src="../images/troubleshooting/error_1.png">
-</figure></p>
-
-<p>Clicking on that shows an error like this:
-<figure>
-  <img src="../images/troubleshooting/error_2_git_not_found.png">
-</figure></p>
-
+shows per-process environment variables in an easy way.</p>
+</li>
+<li>
+<p><strong>During material polling</strong></p>
+<p>Look for an error message at the bottom-right of any page, which looks like this:</p>
+ <figure>
+   <img src="../images/troubleshooting/error_1.png">
+ </figure>
+<p>Clicking on that shows an error like this:</p>
+ <figure>
+   <img src="../images/troubleshooting/error_2_git_not_found.png">
+ </figure>
 <p>The GoCD server log, go-server.log (location can be found at the bottom of
 <a href="../installation/installing_go_server.html">the installation documentation page</a> for your
-operating system) will have a message like this:
-<figure>
-  <img src="../images/troubleshooting/error_3_git_not_found_log.png">
-</figure></p>
-
+operating system) will have a message like this:</p>
+ <figure>
+   <img src="../images/troubleshooting/error_3_git_not_found_log.png">
+ </figure>
 <p>This can also happen with other version control systems such as SVN, TFS, etc.</p>
-
-<p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Server</strong>&rsquo;s java
+<p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Server</strong>&lsquo;s java
 process. Ensure that the directory that the command is available is in the
 list. On Windows, the
 <a href="https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx">procexp</a>
 tool from Microsoft&rsquo;s Windows SysInternals might be useful to check this. It
-shows per-process environment variables in an easy way.</p></li>
-
-<li><p><strong>During the running of a task, in the console output</strong></p>
-
-<p>This shows up as a message in the console output, like this:
-<figure>
-  <img src="../images/troubleshooting/error_5_command_not_found_console_log.png">
-</figure></p>
-
+shows per-process environment variables in an easy way.</p>
+</li>
+<li>
+<p><strong>During the running of a task, in the console output</strong></p>
+<p>This shows up as a message in the console output, like this:</p>
+ <figure>
+   <img src="../images/troubleshooting/error_5_command_not_found_console_log.png">
+ </figure>
 <p>This can also happen with other version control systems such as SVN, TFS, etc. It
 can also happen with any other command used in a task, such as Maven, Ant,
 Rake or even any other shell-script where it cannot be found in <code>PATH</code>.</p>
-
 <p><strong>Resolution</strong>: Check the <code>PATH</code> environment variable of the GoCD <strong>Agent&rsquo;s</strong>
 java process. Ensure that the directory that the command is available is in
 the list. On Windows, the
 <a href="https://technet.microsoft.com/en-us/sysinternals/processexplorer.aspx">procexp</a>
 tool from Microsoft&rsquo;s Windows SysInternals might be useful to check this. It
-shows per-process environment variables in an easy way.</p></li>
+shows per-process environment variables in an easy way.</p>
+</li>
 </ol>
-
 <p><a id="agent_assignment"></a></p>
-
 <h3 id="agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</h3>
-
 <p>This shows up as a pipeline which stays in the &ldquo;Building&rdquo; (yellow) state for a
-long time:
+long time:</p>
 <figure>
   <img src="../images/troubleshooting/error_6_pipeline_building_not_assigned.png">
-</figure></p>
-
+</figure>
 <p>Click on the stage bar and then the job, to reach the console log, and
 you might see a build whose status is &ldquo;Scheduled&rdquo; with the agent status being &ldquo;Not yet
-assigned&rdquo;, like this:
+assigned&rdquo;, like this:</p>
 <figure>
   <img src="../images/troubleshooting/error_7_agent_not_assigned.png">
-</figure></p>
-
+</figure>
 <p>Resolution: If this is happening, it means that a suitable agent has not been
 found for this job. The reasons for this can be:</p>
-
 <ol>
-<li><p>No agent is available (free and not building). Check the &ldquo;Agents&rdquo; page to see
+<li>
+<p>No agent is available (free and not building). Check the &ldquo;Agents&rdquo; page to see
 if all agents are busy. If so, once one of them becomes free, then this build
-will start.</p></li>
-
-<li><p>If you do see available agents, then check whether the job has resources
+will start.</p>
+</li>
+<li>
+<p>If you do see available agents, then check whether the job has resources
 defined in its config. If so, it means that the job is looking for an agent
 with those resources. Check the &ldquo;Agents&rdquo; page to see whether there are agents
-which have the resources needed by the job and are available (not building).</p></li>
-
-<li><p>If the previous two options don&rsquo;t solve the problem, check whether the
+which have the resources needed by the job and are available (not building).</p>
+</li>
+<li>
+<p>If the previous two options don&rsquo;t solve the problem, check whether the
 pipeline is a part of an environment (in the &ldquo;Environments&rdquo; page or in the
 config). If it is, then any agent that can pick up a job from that pipeline
-needs to be a part of that environment as well.</p></li>
+needs to be a part of that environment as well.</p>
+</li>
 </ol>
-
-<h3 id="gocd-spa-pages-there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</h3>
-
+<h3 id="gocd-spa-pages---there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</h3>
 <p>The GoCD SPA page periodically makes AJAX API calls to fetch the current state of the entity and refreshes the page, this is done to ensure the information on the page is not stale.</p>
-
 <p>The AJAX API request has a timeout set to 5000 milliseconds, if the server does not respond within that duration the request is cancelled and an error is shown on the page.</p>
-
 <figure>
   <img src="../images/troubleshooting/error_8_request_timeout.png">
 </figure>
-
 <p>Resolution: If this is happening, consider increase the timeout period by specifying the <a href="../advanced_usage/other_config_options.html#go-spa-timeout">go.spa.timeout</a></p>
-
 <p><a name="https-port-not-started"></a></p>
-
 <h3 id="application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</h3>
-
 <p>From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL certificates or listen to port 8154 (HTTPS) by default. To keep backward compatibility and minimize disruption:</p>
-
 <ul>
-<li><p>New versions of GoCD (&gt;= 20.2) will not bring up TLS port 8154. There will be no way for such users to configure built-in TLS. A reverse
-proxy will need to be the one terminating TLS if needed.</p></li>
-
-<li><p>Users upgrading to GoCD (20.2-20.4) will notice that the server does not bring up TLS on port 8154, but emits a warning indicating how
+<li>
+<p>New versions of GoCD (&gt;= 20.2) will not bring up TLS port 8154. There will be no way for such users to configure built-in TLS. A reverse
+proxy will need to be the one terminating TLS if needed.</p>
+</li>
+<li>
+<p>Users upgrading to GoCD (20.2-20.4) will notice that the server does not bring up TLS on port 8154, but emits a warning indicating how
 they can turn it on, and go back to how it was earlier. The warning message will include a timeline when the toggle will go away, along
-with instructions on how to set it up correctly using a reverse proxy.</p></li>
-
-<li><p>Version 20.5 of GoCD server will no longer contain any functionality to configure TLS. At this point, users will be expected to terminate
-SSL elsewhere.</p></li>
+with instructions on how to set it up correctly using a reverse proxy.</p>
+</li>
+<li>
+<p>Version 20.5 of GoCD server will no longer contain any functionality to configure TLS. At this point, users will be expected to terminate
+SSL elsewhere.</p>
+</li>
 </ul>
-
 <p>More information can be found <a href="https://github.com/gocd/gocd/issues/7872">in issue #7872</a>.</p>
-
 <p><a name="ports-in-use"></a></p>
-
 <h3 id="port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</h3>
-
 <p>This issue shows up an error when starting GoCD Server:</p>
-
 <pre><code>Port 8153 could not be opened. Please Check if it is available
 Port 8154 could not be opened. Please Check if it is available
 </code></pre>
-
 <p>This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties <code>cruise.server.port</code> and <code>cruise.server.ssl.port</code> to appropriate values. These system properties can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
 
@@ -641,20 +592,18 @@ Port 8154 could not be opened. Please Check if it is available
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#fixing-common-issues">Fixing common issues</a>
-<ul>
-<li>
-<ul>
-<li><a href="#gocd-agent-not-registering-with-the-gocd-server">GoCD Agent not registering with the GoCD Server</a></li>
-<li><a href="#command-not-found-git-svn-mvn-ant-or-others">Command not found (git, svn, mvn, ant or others)</a></li>
-<li><a href="#agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</a></li>
-<li><a href="#gocd-spa-pages-there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
-<li><a href="#application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</a></li>
-<li><a href="#port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gocd-agent-not-registering-with-the-gocd-server">GoCD Agent not registering with the GoCD Server</a></li>
+        <li><a href="#command-not-found-git-svn-mvn-ant-or-others">Command not found (git, svn, mvn, ant or others)</a></li>
+        <li><a href="#agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</a></li>
+        <li><a href="#gocd-spa-pages---there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
+        <li><a href="#application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</a></li>
+        <li><a href="#port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

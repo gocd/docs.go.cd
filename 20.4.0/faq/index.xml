@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>FAQ on GoCD User Documentation</title>
@@ -26,7 +26,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/faq/rm_what_is_deployed.html</guid>
-      <description> Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
+      <description>Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
 Example usage For this example, we will assume we have a stage name &amp;ldquo;production&amp;rdquo; that will automatically deploy a binary onto a production server
  Start at the environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The stage details page will show every time GoCD has deployed your application  </description>
     </item>
@@ -177,7 +177,7 @@ Example usage For this example, we&amp;rsquo;ll assume that there is a manual &a
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/faq/dev_understand_why_build_broken.html</guid>
-      <description> Why is the build broken? Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
+      <description>Why is the build broken? Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
 Example usage Usage: As a developer, I want to understand why the build is broken.
 Let&amp;rsquo;s assume that in this case, we are on a java project using JUnit as our testing library.
  If we&amp;rsquo;re not already, we need to configure Go to upload JUnit xml reports Click on the Pipelines tab   Click on the failed stage you want to investigate   Click on the failed job   The &amp;ldquo;Failures&amp;rdquo; sub-tab should help you diagnose what is wrong with your build   If you need more information, the &amp;ldquo;Console&amp;rdquo; sub-tab contains everything that was written out to the console (including extra information from Go)  </description>

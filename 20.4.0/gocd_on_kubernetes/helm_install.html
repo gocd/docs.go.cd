@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,41 +320,33 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h2 id="getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</h2>
-
+<article class="markdown"><h2 id="getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</h2>
 <h1 id="step-2-install-the-gocd-helm-chart">Step 2: Install the GoCD Helm chart</h1>
-
 <p>Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.</p>
-
 <p>First verify your Helm version using command <code>helm version</code>.</p>
-
 <p>For Helm version 3 and bove, install the official GoCD Helm chart with this command:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create ns gocd
-helm install gocd stable/gocd --namespace gocd</code></pre></div>
-<p>If you&rsquo;re using an older version of Helm, then use this command:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm install stable/gocd --name gocd --namespace gocd</code></pre></div>
-<h2 id="access-the-gocd-server">Access the GoCD server</h2>
-
+helm install gocd stable/gocd --namespace gocd
+</code></pre></div><p>If you&rsquo;re using an older version of Helm, then use this command:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">helm install stable/gocd --name gocd --namespace gocd
+</code></pre></div><h2 id="access-the-gocd-server">Access the GoCD server</h2>
 <p>After you&rsquo;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</p>
-
 <p>The Ingress IP address can be obtained as specified below:</p>
-
 <ul>
-<li><p>Minikube</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube ip</code></pre></div></li>
-
-<li><p>For other Kubernetes offerings like GKE and EKS:</p>
+<li>
+<p>Minikube</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube ip
+</code></pre></div></li>
+<li>
+<p>For other Kubernetes offerings like GKE and EKS:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">ip</span><span style="color:#666">=</span><span style="color:#a2f;font-weight:bold">$(</span>kubectl get ingress --namespace gocd gocd-server -o <span style="color:#b8860b">jsonpath</span><span style="color:#666">=</span><span style="color:#b44">&#34;{.status.loadBalancer.ingress[0].ip}&#34;</span><span style="color:#a2f;font-weight:bold">)</span>
-<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#b8860b">$ip</span><span style="color:#b44">&#34;</span></code></pre></div></li>
+<span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#b8860b">$ip</span><span style="color:#b44">&#34;</span>
+</code></pre></div></li>
 </ul>
-
 <p><em>Note: It might take a few minutes for the GoCD server to come up for the first time. You can check if the GoCD server is available with this command:</em></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get deployments --namespace gocd</code></pre></div>
-<p>The GoCD server starts with a sample &ldquo;Hello World&rdquo; pipeline that looks like:</p>
-
-<p><img src="../images/gocd-helm-chart/gocd_dashboard_with_sample_pipeline.png" alt="" /></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl get deployments --namespace gocd
+</code></pre></div><p>The GoCD server starts with a sample &ldquo;Hello World&rdquo; pipeline that looks like:</p>
+<p><img src="../images/gocd-helm-chart/gocd_dashboard_with_sample_pipeline.png" alt=""></p>
 </article>
 
       
@@ -403,16 +387,13 @@ helm install gocd stable/gocd --namespace gocd</code></pre></div>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</a></li>
-</ul></li>
-<li><a href="#step-2-install-the-gocd-helm-chart">Step 2: Install the GoCD Helm chart</a>
-<ul>
-<li><a href="#access-the-gocd-server">Access the GoCD server</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#access-the-gocd-server">Access the GoCD server</a></li>
+  </ul>
 </nav>
   </aside>
 

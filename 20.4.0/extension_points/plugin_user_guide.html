@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,34 +320,24 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-plugin-user-guide">GoCD Plugin User Guide</h1>
-
+<article class="markdown"><h1 id="gocd-plugin-user-guide">GoCD Plugin User Guide</h1>
 <h2 id="introduction">Introduction</h2>
-
 <p>Plugins allow users to extend the functionality of GoCD. Each plugin is assigned an identifier which is determined by the <strong>id</strong> attribute provided in plugin metadata file packaged along with the plugin jar. If the metadata file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, GoCD server would try to load all the plugins. On successful load, the plugin will be converted into an OSGi bundle and extracted into <code>&lt;server installation directory&gt;/plugins_work</code> directory. <strong>Plugins</strong> tab, under GoCD server Administration, would list all the loaded plugins.</p>
-
 <h2 id="bundled-versus-external">Bundled versus External</h2>
-
 <ul>
-<li><p><strong>Bundled Plugins:</strong> As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These are developed and supported by Thoughtworks GoCD development team. Bundled plugins are located under <code>&lt;server installation directory&gt;/plugins/bundled</code> directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.</p></li>
-
-<li><p><strong>External Plugins:</strong> All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from <code>&lt;server installation directory&gt;/plugins/external</code> directory. <a href="https://www.gocd.org/community/plugins.html">Listing of external plugins</a></p></li>
+<li>
+<p><strong>Bundled Plugins:</strong> As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These are developed and supported by Thoughtworks GoCD development team. Bundled plugins are located under <code>&lt;server installation directory&gt;/plugins/bundled</code> directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.</p>
+</li>
+<li>
+<p><strong>External Plugins:</strong> All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from <code>&lt;server installation directory&gt;/plugins/external</code> directory. <a href="https://www.gocd.org/community/plugins.html">Listing of external plugins</a></p>
+</li>
 </ul>
-
 <h2 id="installing-and-uninstalling-of-plugins">Installing and Uninstalling of plugins</h2>
-
 <p>You need access to the GoCD server machine to be able to install/uninstall a plugin. To install a plugin, drop the plugin jar under the external plugin directory ( <code>&lt;server installation directory&gt;/plugins/external</code> ) and restart GoCD server. To uninstall a plugin, remove the plugin jar from the external plugin directory ( <code>&lt;server installation directory&gt;/plugins/external</code> ) and restart GoCD server.</p>
-
 <h2 id="plugins-tab">Plugins Tab</h2>
-
 <p>Plugins tab can be found under GoCD server Administration. Plugins tab shows all the plugins that have been loaded currently along with its details and status. If a plugin is marked invalid or incompatible, the reasons for the same would be reported here.</p>
-
-<p><img src="../images/plugin-tab.png" alt="" /></p>
-
+<p><img src="../images/plugin-tab.png" alt=""></p>
 <h3 id="notes">Notes</h3>
-
 <ul>
 <li>Add/delete/upgrade of a plugin will take effect only after a GoCD server restart.</li>
 <li>Two plugins cannot have same <strong>id</strong> irrespective of whether it is a bundled or an external plugin.</li>
@@ -402,18 +384,16 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-plugin-user-guide">GoCD Plugin User Guide</a>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#bundled-versus-external">Bundled versus External</a></li>
-<li><a href="#installing-and-uninstalling-of-plugins">Installing and Uninstalling of plugins</a></li>
-<li><a href="#plugins-tab">Plugins Tab</a>
-<ul>
-<li><a href="#notes">Notes</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#bundled-versus-external">Bundled versus External</a></li>
+    <li><a href="#installing-and-uninstalling-of-plugins">Installing and Uninstalling of plugins</a></li>
+    <li><a href="#plugins-tab">Plugins Tab</a>
+      <ul>
+        <li><a href="#notes">Notes</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,73 +320,48 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="managing-environments">Managing environments</h1>
-
+<article class="markdown"><h1 id="managing-environments">Managing environments</h1>
 <p>GoCD is configured using an XML configuration file. This file can be edited through the GoCD server dashboard. GoCD allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.</p>
-
 <h2 id="creating-a-new-environment">Creating a new environment</h2>
-
 <p>An Environment is a grouping of pipelines and agents. By assigning an agent to an environment, it will be used to run only those jobs that belong to the pipelines of that environment. An agent can belong to more than one environment. This means, for instance, the same agent can be used to deploy something into an UAT or a Performance testing environment. A pipeline can, however, only be assigned to a single environment. Generally, these pipelines represent the tasks that need to happen in a given environment. For example deploying a 3-tier application into an UAT environment with 6 machines and running smoke tests on the setup.</p>
-
 <p>However, once an agent is associated with one or more environments, it is no longer capable of picking up jobs on pipelines that do not belong to environments. Pipelines outside of environments will only be assigned to agents in the default pool (not associated with any environment).</p>
-
 <p>You can create an environment in the admin UI through the following steps. This example creates a production environment, adding the deployment pipeline and the agent installed on the production server.</p>
-
 <ul>
 <li>Click on the Environments tab</li>
 </ul>
-
-<p><img src="../images/topnav_environments.png" alt="" /></p>
-
+<p><img src="../images/topnav_environments.png" alt=""></p>
 <ul>
 <li>Click on the &ldquo;Add a new environment&rdquo;</li>
 </ul>
-
-<p><img src="../images/env_click_new.png" alt="" /></p>
-
+<p><img src="../images/env_click_new.png" alt=""></p>
 <ul>
 <li>Provide a name for the environment</li>
 </ul>
-
-<p><img src="../images/env_name.png" alt="" /></p>
-
+<p><img src="../images/env_name.png" alt=""></p>
 <ul>
 <li>Add one or more pipelines that need to run on the environment</li>
 </ul>
-
-<p><img src="../images/env_pipelines.png" alt="" /></p>
-
+<p><img src="../images/env_pipelines.png" alt=""></p>
 <ul>
 <li>Add one or more agents associated with the environment</li>
 </ul>
-
-<p><img src="../images/env_agents.png" alt="" /></p>
-
+<p><img src="../images/env_agents.png" alt=""></p>
 <ul>
 <li>Add one or more environment variables or secure environment variables that need to be passed.</li>
 </ul>
-
-<p><img src="../images/env_env_variables.png" alt="" /></p>
-
+<p><img src="../images/env_env_variables.png" alt=""></p>
 <ul>
 <li>Click on finish</li>
 </ul>
-
 <p>Setting up an environment through the xml can be found in the <a href="configuration_reference.html#environments">configuration reference</a></p>
-
 <h2 id="add-a-new-agent-to-an-existing-environment">Add a new agent to an existing environment</h2>
-
 <p>You can do this very easily in the Agents tab. Just select the agents you want to add to your environment and click on the Environments button. All existing environments will appear in alphabetical order. Select one of three states for all environments you want to add and then click the &ldquo;Apply&rdquo; button.</p>
-
 <ul>
 <li>An environment <strong>with a check</strong> will add the environment to all selected agents.</li>
 <li>An environment <strong>with a hyphen</strong> means some of your selected agents are associated to it. No change will occur after clicking &ldquo;Apply&rdquo;.</li>
 <li>An environment <strong>without a check</strong> will remove the environment from all selected agents.</li>
 </ul>
-
-<p><img src="../images/associate_agent_environment.png" alt="" /></p>
+<p><img src="../images/associate_agent_environment.png" alt=""></p>
 </article>
 
       
@@ -435,13 +402,10 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#managing-environments">Managing environments</a>
-<ul>
-<li><a href="#creating-a-new-environment">Creating a new environment</a></li>
-<li><a href="#add-a-new-agent-to-an-existing-environment">Add a new agent to an existing environment</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#creating-a-new-environment">Creating a new environment</a></li>
+    <li><a href="#add-a-new-agent-to-an-existing-environment">Add a new agent to an existing environment</a></li>
+  </ul>
 </nav>
   </aside>
 

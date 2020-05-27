@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,39 +320,23 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-pipeline-templates">GoCD Pipeline Templates</h1>
-
+<article class="markdown"><h1 id="gocd-pipeline-templates">GoCD Pipeline Templates</h1>
 <p>Templating helps to create reusable workflows in order to make tasks like creating and maintaining branches, and managing large number of pipelines easier.</p>
-
 <h2 id="creating-pipeline-templates">Creating Pipeline Templates</h2>
-
 <p>Pipeline Templates can be managed from the Templates tab on the Administration Page.</p>
-
-<p><img src="../images/pipeline_templates.png" alt="" /></p>
-
+<p><img src="../images/pipeline_templates.png" alt=""></p>
 <p>Clicking on the &ldquo;Add New Template&rdquo; brings up the following form which allows you to create a fresh template, or extract it from an existing pipeline. Once saved, the pipeline indicated will also start using this newly created template.</p>
-
-<p><img src="../images/add_new_template.png" alt="" /></p>
-
+<p><img src="../images/add_new_template.png" alt=""></p>
 <p>A template can also be extracted from a pipeline using the &ldquo;Extract Template&rdquo; link. This can be found on the &ldquo;Pipelines&rdquo; tab in the Administration page.</p>
-
-<p><img src="../images/extract_template_from_pipeline.png" alt="" /></p>
-
+<p><img src="../images/extract_template_from_pipeline.png" alt=""></p>
 <h3 id="example">Example</h3>
-
 <p>As an example, assume that there is a pipeline group called &ldquo;my-app&rdquo; and it contains a pipeline called &ldquo;app-trunk&rdquo; which builds the application from trunk. Now, if we need to create another pipeline called &ldquo;app-1.0-branch&rdquo; which builds 1.0 version of the application, we can use Pipeline Templates as follows</p>
-
 <h2 id="using-administration-ui">Using Administration UI</h2>
-
 <ul>
 <li>Create a template &ldquo;my-app-build&rdquo; by extracting it from the pipeline &ldquo;app-trunk&rdquo;, as shown in the previous section.</li>
 <li>Create a new pipeline &ldquo;app-1.0-branch&rdquo; which defines SCM material with the branch url and uses the template &ldquo;my-app-build&rdquo;.</li>
 </ul>
-
 <h2 id="using-xml">Using XML</h2>
-
 <p>Power users can configure the above as follows:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;my-app&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;app-trunk&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my-app-build&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -386,36 +362,24 @@ if (!doNotTrack) {
       <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/templates&gt;</span></code></pre></div>
-<h3 id="editing-pipeline-templates">Editing Pipeline Templates</h3>
-
+<span style="color:#008000;font-weight:bold">&lt;/templates&gt;</span>
+</code></pre></div><h3 id="editing-pipeline-templates">Editing Pipeline Templates</h3>
 <p>GoCD Administrators can now enable any GoCD user to edit a template by <a href="dev_authorization.html#specifying-permissions-for-templates">making them a template administrator</a>.</p>
-
 <p>Template administrators can view and edit the templates to which they have permissions, on the template tab of the admin page. Template Administrators, will however not be able to add, delete or change permissions for a template. They will also be able to see the number of pipelines in which the template is being used, but not the details of those pipelines.</p>
-
-<p><img src="../images/template_admin_edit_template.png" alt="" /></p>
-
+<p><img src="../images/template_admin_edit_template.png" alt=""></p>
 <h3 id="viewing-pipeline-templates">Viewing Pipeline Templates</h3>
-
 <p>Pipeline Templates can now be viewed by Administrators and Pipeline Group Administrators while editing or creating a Pipeline.</p>
-
-<p><img src="../images/template_view_on_pipeline_tab.png" alt="" /></p>
-
+<p><img src="../images/template_view_on_pipeline_tab.png" alt=""></p>
 <p>Clicking on the icon indicated by arrow will display the following:</p>
-
-<p><img src="../images/view_template_popup.png" alt="" /></p>
-
+<p><img src="../images/view_template_popup.png" alt=""></p>
 <p>The pop-up shows the extract of the template &ldquo;Services-Template&rdquo; configured for the pipeline &ldquo;Service_1&rdquo;.</p>
-
 <ol>
 <li>Shows the details of the job &ldquo;compile-job&rdquo; configured for the stage &ldquo;compile&rdquo;.</li>
-<li>Indicates that the working directory set for the task is &ldquo;go/service_1&rdquo;, which is followed by the &ldquo;\$&rdquo; symbol and then the command.</li>
+<li>Indicates that the working directory set for the task is &ldquo;go/service_1&rdquo;, which is followed by the &ldquo;$&rdquo; symbol and then the command.</li>
 <li>If any &ldquo;On Cancel Task&rdquo; has been configured, it will be indicated like this.</li>
 <li>Shows the &ldquo;Run If Condition&rdquo; for this task.</li>
 </ol>
-
 <h4 id="see-also">See also&hellip;</h4>
-
 <ul>
 <li><a href="configuration_reference.html#templates">Templates - Configuration Reference</a></li>
 </ul>
@@ -459,24 +423,20 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-pipeline-templates">GoCD Pipeline Templates</a>
-<ul>
-<li><a href="#creating-pipeline-templates">Creating Pipeline Templates</a>
-<ul>
-<li><a href="#example">Example</a></li>
-</ul></li>
-<li><a href="#using-administration-ui">Using Administration UI</a></li>
-<li><a href="#using-xml">Using XML</a>
-<ul>
-<li><a href="#editing-pipeline-templates">Editing Pipeline Templates</a></li>
-<li><a href="#viewing-pipeline-templates">Viewing Pipeline Templates</a>
-<ul>
-<li><a href="#see-also">See also&hellip;</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#creating-pipeline-templates">Creating Pipeline Templates</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+      </ul>
+    </li>
+    <li><a href="#using-administration-ui">Using Administration UI</a></li>
+    <li><a href="#using-xml">Using XML</a>
+      <ul>
+        <li><a href="#editing-pipeline-templates">Editing Pipeline Templates</a></li>
+        <li><a href="#viewing-pipeline-templates">Viewing Pipeline Templates</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

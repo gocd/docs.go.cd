@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Extension Points Of GoCD on GoCD User Documentation</title>
@@ -56,7 +56,7 @@ A task plugin allows you to extend this so that you can have other tasks availab
       
       <guid>/extension_points/yum_repository_poller.html</guid>
       <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package, Ubuntu, CentOS)
-Introduction The Yum repository poller is a bundled package material plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server.</description>
+Introduction The Yum repository poller is a bundled package material plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.</description>
     </item>
     
   </channel>

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,44 +320,33 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-configuration-repository">GoCD Configuration repository</h1>
-
+<article class="markdown"><h1 id="gocd-configuration-repository">GoCD Configuration repository</h1>
 <p>GoCD&rsquo;s configuration is version controlled in a local git repository - <em>config.git</em> hosted on the same machine as the
 GoCD server. The repo is available at <code>&lt;GoCD server installation directory&gt;/db/config.git</code>. Any changes to the config,
 either through file-system, API or GoCD configuration UI is saved as a new commit in this repo. This allows auditing of
 all changes made to the configuration.</p>
-
 <p><strong>NOTE</strong>: This repo must not be altered externally as this will lead to errors in GoCD.</p>
-
 <h2 id="garbage-collection">Garbage collection</h2>
-
 <p>With time, this repository grows in size and can considerably slow down config save operations. One way to
 tackle this is to run <code>git gc</code> manually on the repo (<a href="https://git-scm.com/docs/git-gc">read more</a>). However, doing this
 at the wrong time (say, when the server is running and trying to finish a config save operation) can cause problems.</p>
-
 <p>So, GoCD has in-built garbage collection for this git repository and it can be configured to run on a periodic
 basis. However, since this activity can potentially take a long time to run when GC happens for the first time around,
 the feature is turned off by default. GoCD server periodically checks if the loose-object count exceeds a preset
 threshold and displays a warning message. This is a cue for users to enable periodic GC on their servers. Here are the
 steps you need to follow (and in this order) to enable periodic GC for the config repository:</p>
-
 <ol>
 <li>Stop the GoCD server.</li>
 <li>Take a backup of the whole <code>config.git</code> directory (rememeber, there is a hidden .git directory in it)</li>
 <li>Run <code>git gc</code> manually, once, in that directory as the user that the GoCD server runs under. On Unix/Linux, this is
-usually the <code>go</code> user. Do not run this as the root user. If you do, make sure that you run <code>chown -R go:go
-/path/to/config.git</code> to make sure that the ownership of that directory is proper.</li>
+usually the <code>go</code> user. Do not run this as the root user. If you do, make sure that you run <code>chown -R go:go /path/to/config.git</code> to make sure that the ownership of that directory is proper.</li>
 <li>Once you&rsquo;ve done that, you can now set these system properties mentioned below, to change the behavior of the
 periodic garbage collection. At the very least, you should set the <code>go.config.repo.gc.periodic</code> system property to
 <code>Y</code> so that it is enabled.</li>
 <li>Start the server and verify that the properties you&rsquo;ve set are reflected in the system. The section at the end of
 this page has details about it.</li>
 </ol>
-
 <h2 id="system-properties-that-affect-periodic-garbage-collection">System properties that affect periodic garbage collection</h2>
-
 <table>
 <thead>
 <tr>
@@ -374,38 +355,32 @@ this page has details about it.</li>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>go.config.repo.gc.periodic</code></td>
 <td><code>false</code></td>
 <td>Flag that enables the periodic garbage collection of <code>config.git</code> repository.</td>
 </tr>
-
 <tr>
 <td><code>go.config.repo.gc.aggressive</code></td>
 <td><code>true</code></td>
 <td>This will cause the GC to run more aggressively. For large repositories, this can take a significant amount of time. It is recommended to set this to <code>false</code> if the frequency of GC is very high.</td>
 </tr>
-
 <tr>
 <td><code>go.config.repo.gc.cron</code></td>
 <td><code>0 0 7 ? * SUN</code> (7 am on Sunday morning)</td>
 <td>The <a href="../configuration/configuration_reference.html#timer">cron expression</a> that describes when GC should happen.</td>
 </tr>
-
 <tr>
 <td><code>go.config.repo.gc.warning.looseobject.threshold</code></td>
 <td><code>10000</code></td>
 <td>If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup.</td>
 </tr>
-
 <tr>
 <td><code>go.config.repo.gc.expire</code></td>
 <td><code>24</code>  (in hours)</td>
 <td>Objects older than this period (in hours) will be pruned.</td>
 </tr>
-
 <tr>
 <td><code>go.config.repo.gc.check.interval</code></td>
 <td><code>28800000</code>  (in milliseconds)</td>
@@ -413,7 +388,6 @@ this page has details about it.</li>
 </tr>
 </tbody>
 </table>
-
 <p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
 
@@ -455,13 +429,10 @@ this page has details about it.</li>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-configuration-repository">GoCD Configuration repository</a>
-<ul>
-<li><a href="#garbage-collection">Garbage collection</a></li>
-<li><a href="#system-properties-that-affect-periodic-garbage-collection">System properties that affect periodic garbage collection</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#garbage-collection">Garbage collection</a></li>
+    <li><a href="#system-properties-that-affect-periodic-garbage-collection">System properties that affect periodic garbage collection</a></li>
+  </ul>
 </nav>
   </aside>
 

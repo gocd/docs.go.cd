@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,102 +320,72 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="running-out-of-disk-space">Running out of disk space</h1>
-
+<article class="markdown"><h1 id="running-out-of-disk-space">Running out of disk space</h1>
 <p>After you&rsquo;ve had GoCD running for a while, you may notice the following warning box when browsing GoCD:</p>
-
-<p><img src="../images/1_low_disk_space_on_artifacts.png" alt="" /></p>
-
+<p><img src="../images/1_low_disk_space_on_artifacts.png" alt=""></p>
 <p>If you don&rsquo;t do anything about it, you&rsquo;ll end up seeing the following error:</p>
-
-<p><img src="../images/2_out_of_disk_space_on_artifacts.png" alt="" /></p>
-
+<p><img src="../images/2_out_of_disk_space_on_artifacts.png" alt=""></p>
 <p>GoCD will stop scheduling new pipelines until you make more room, either by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. You could also let GoCD manage artifact disk space by enabling auto purge of old artifacts.</p>
-
 <h2 id="auto-delete-artifacts">Auto delete artifacts</h2>
-
 <h3 id="introduction">Introduction</h3>
-
 <p>GoCD can be configured to automatically delete artifacts if the available disk space on the server is low. GoCD will purge artifacts when available disk space is lower than the given value. Artifacts will be purged upto the point when available disk space is greater than a defined value.</p>
-
 <h3 id="configuration">Configuration</h3>
-
 <h4 id="specify-artifact-purge-start-and-end-limits">Specify artifact purge start and end limits</h4>
-
 <blockquote>
 <p>You must be logged in as an admin user to configure this step.</p>
 </blockquote>
-
 <ol>
 <li>Navigate to the Admin section on the GoCD dashboard.</li>
 <li>Navigate to the Pipeline Management sub-section</li>
 <li>Specify when GoCD should begin to purge artifacts in the first edit box.</li>
 <li>Specify when GoCD should stop purging artifacts in the second edit box.</li>
 </ol>
-
-<p><img src="../images/pipeline_management.png" alt="Purge artifacts" /></p>
-
+<p><img src="../images/pipeline_management.png" alt="Purge artifacts"></p>
 <h4 id="never-delete-artifacts-for-a-stage">Never delete artifacts for a stage</h4>
-
 <blockquote>
 <p>You must be logged in as an admin user to configure this step.</p>
 </blockquote>
-
 <p>You can disallow deletion of artifacts from a particular stage so that those artifacts are excluded during deletion. This option can be set in the stage editor for a pipeline. This option can be set for stages that are important so that artifacts for the stage are preserved.</p>
-
 <ol>
 <li>Navigate to the admin section on the GoCD dashboard.</li>
 <li>Navigate to the pipelines section and choose a pipeline to edit</li>
 <li>Navigate to the stage settings for the stage</li>
 </ol>
-
-<p><img src="../images/artifact_disable_stage.png" alt="Disable artifact cleanup" /></p>
-
+<p><img src="../images/artifact_disable_stage.png" alt="Disable artifact cleanup"></p>
 <p>4.Check the box &lsquo;Never Cleanup Artifacts&rsquo;</p>
-
 <h3 id="also-see">Also see&hellip;</h3>
-
 <ul>
 <li><a href="../configuration/managing_artifacts_and_reports.html">Managing artifacts and reports</a></li>
 <li><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean up after cancelling a task</a></li>
 </ul>
-
 <h2 id="compress-large-log-files">Compress large log files</h2>
-
 <p>In many cases, the easiest thing to do is compress some of the larger artifacts that you won&rsquo;t frequently have need for. For example, if you have a large log file named &lsquo;test.log&rsquo; and you&rsquo;re running GoCD server on a unix machine, the following script will gzip those files that haven&rsquo;t been modified in the last 10 days</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v <span style="color:#b44">&#39;{}&#39;</span> <span style="color:#b62;font-weight:bold">\;</span></code></pre></div>
-<p>Now, if you add this to a system <a href="http://en.wikipedia.org/wiki/Cron">crontab</a>, your server can compress large artifacts automatically.</p>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v <span style="color:#b44">&#39;{}&#39;</span> <span style="color:#b62;font-weight:bold">\;</span>
+</code></pre></div><p>Now, if you add this to a system <a href="http://en.wikipedia.org/wiki/Cron">crontab</a>, your server can compress large artifacts automatically.</p>
 <h2 id="move-the-artifact-repository-to-a-new-larger-drive">Move the artifact repository to a new (larger) drive</h2>
-
 <p>If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it&rsquo;s artifact repository.</p>
-
 <ul>
 <li>Find the location of the GoCD configuration file</li>
 <li>Navigate to the <em>Admin &gt; Config XML</em> tab section
-<img src="../images/topnav_admin.png" alt="" /></li>
+<img src="../images/topnav_admin.png" alt=""></li>
 <li>The location of the configuration file is listed here
-<img src="../images/4_find_config_location.png" alt="" /></li>
+<img src="../images/4_find_config_location.png" alt=""></li>
 <li>Install the new drive</li>
 <li>Shut down GoCD server</li>
 <li>Copy all files from the original artifact repository location to the new drive</li>
-<li>Change the artifact repository location in the configuration file
-<code>xml
-&lt;server artifactsDir=&quot;/path/to/new/artifacts&quot;&gt;
-...
-&lt;/server&gt;
-</code></li>
+<li>Change the artifact repository location in the configuration file</li>
+</ul>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsDir=</span><span style="color:#b44">&#34;/path/to/new/artifacts&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+    ...
+<span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+</code></pre></div><ul>
 <li>Start up GoCD server and verify you still have access to old artifacts</li>
 </ul>
-
 <h2 id="delete-unused-artifacts">Delete unused artifacts</h2>
-
 <p>Another option for making more room is to remove unused (or easily recreatable) artifacts. You may also have old pipelines that you no longer need.</p>
-
 <p>The directory structure of the artifact repository makes selecting which artifacts are safe to delete easier. The format is:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>artifacts-dir<span style="color:#666">]</span>/pipelines/<span style="color:#666">[</span>pipelineName<span style="color:#666">]</span>/<span style="color:#666">[</span>pipelineLabel<span style="color:#666">]</span>/<span style="color:#666">[</span>stageName<span style="color:#666">]</span>/<span style="color:#666">[</span>stageCounter<span style="color:#666">]</span>/<span style="color:#666">[</span>jobName<span style="color:#666">]</span></code></pre></div></article>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>artifacts-dir<span style="color:#666">]</span>/pipelines/<span style="color:#666">[</span>pipelineName<span style="color:#666">]</span>/<span style="color:#666">[</span>pipelineLabel<span style="color:#666">]</span>/<span style="color:#666">[</span>stageName<span style="color:#666">]</span>/<span style="color:#666">[</span>stageCounter<span style="color:#666">]</span>/<span style="color:#666">[</span>jobName<span style="color:#666">]</span>
+</code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -463,24 +425,18 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#running-out-of-disk-space">Running out of disk space</a>
-<ul>
-<li><a href="#auto-delete-artifacts">Auto delete artifacts</a>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#configuration">Configuration</a>
-<ul>
-<li><a href="#specify-artifact-purge-start-and-end-limits">Specify artifact purge start and end limits</a></li>
-<li><a href="#never-delete-artifacts-for-a-stage">Never delete artifacts for a stage</a></li>
-</ul></li>
-<li><a href="#also-see">Also see&hellip;</a></li>
-</ul></li>
-<li><a href="#compress-large-log-files">Compress large log files</a></li>
-<li><a href="#move-the-artifact-repository-to-a-new-larger-drive">Move the artifact repository to a new (larger) drive</a></li>
-<li><a href="#delete-unused-artifacts">Delete unused artifacts</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#auto-delete-artifacts">Auto delete artifacts</a>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#configuration">Configuration</a></li>
+        <li><a href="#also-see">Also see&hellip;</a></li>
+      </ul>
+    </li>
+    <li><a href="#compress-large-log-files">Compress large log files</a></li>
+    <li><a href="#move-the-artifact-repository-to-a-new-larger-drive">Move the artifact repository to a new (larger) drive</a></li>
+    <li><a href="#delete-unused-artifacts">Delete unused artifacts</a></li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,124 +320,85 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="using-environment-variables-in-gocd">Using Environment Variables in GoCD</h1>
-
+<article class="markdown"><h1 id="using-environment-variables-in-gocd">Using Environment Variables in GoCD</h1>
 <h2 id="accessing-environment-variables-in-tasks">Accessing environment variables in tasks</h2>
-
 <p>Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending
 on the kind of process used in the task, environment variables are accessed differently. Presented below are some common
 usage scenarios, with the assumption that a job has been configured with an environment variable called <code>ENV_VAR_1</code>,
 with the value <code>VALUE_1</code>.</p>
-
-<h3 id="1-using-an-environment-variable-in-a-custom-command-on-unix-linux">1. Using an environment variable in a custom command on Unix/Linux</h3>
-
+<h3 id="1-using-an-environment-variable-in-a-custom-command-on-unixlinux">1. Using an environment variable in a custom command on Unix/Linux</h3>
 <p>A very common use case for environment variables is to use them as arguments for a custom command
 (<a href="../configuration/admin_add_task.html">&ldquo;exec task&rdquo; in GoCD</a>). Assuming
 that you want to pass the environment variable <code>ENV_VAR_1</code> to the <code>ls</code> command, you might be tempted to try something
 like this:</p>
-
 <figure class="concept_image">
   <img src="../images/faq/1_wrong_env_var_usage.png" alt="Figure 1: Wrong usage of environment variable" id="wrong_env_var_usage">
   <figcaption>Figure 1: Wrong usage of environment variable in custom command task (Will not work)</figcaption>
 </figure>
-
 <p>When run, it will end with a message like this:</p>
-
 <figure class="concept_image">
   <img src="../images/faq/2_wrong_env_var_usage_result.png" alt="Figure 2: Result of wrong usage of environment variable" id="wrong_env_var_usage_result">
   <figcaption>Figure 2: Result of wrong usage of environment variable in custom command task</figcaption>
 </figure>
-
 <p>As you can see, the environment variable, <code>$ENV_VAR_1</code> was passed in literally to the command <code>ls</code> and was not
 interpolated. What is happening here is that GoCD is directly executing the command and passing in the parameters,
 without involving a shell like bash or sh in the middle. When a command such as <code>ls $ENV_VAR_1</code> is executed from the
 command-line, the shell process is the one that interpolates the environment variable and replaces it with its value, so
 that the <code>ls</code> command does not see it.</p>
-
 <p>So, we need to do the same here. The correct way to invoke this, so that the interpolation of the environment variable
 works is like this:</p>
-
 <figure class="concept_image">
   <img src="../images/faq/3_right_env_var_usage.png" alt="Figure 3: Correct usage of environment variable" id="right_env_var_usage">
   <figcaption>Figure 3: Correct usage of environment variable in custom command task</figcaption>
 </figure>
-
 <p>When run, it will end with a message like this:</p>
-
 <figure class="concept_image">
   <img src="../images/faq/4_right_env_var_usage_result.png" alt="Figure 4: Result of correct usage of environment variable" id="right_env_var_usage_result">
   <figcaption>Figure 4: Result of correct usage of environment variable in custom command task</figcaption>
 </figure>
-
 <p>Even though the command failed in this example, the value of the environment variable was interpolated. You can replace
 <code>ls</code> with some other command, but the concept remains the same.</p>
-
 <h3 id="2-using-an-environment-variable-in-a-custom-command-on-windows">2. Using an environment variable in a custom command on Windows</h3>
-
 <p>This is easier than using it in a shell script because, on Windows GoCD agents, commands are executed by wrapping them
 in <code>cmd /c</code>. So, environment variables get interpolated automatically. So, with a configuration such as this:</p>
-
 <figure class="concept_image">
   <img src="../images/faq/7_env_var_windows_command.png" alt="Figure 5: Usage of environment variable on Windows" id="env_var_usage_windows">
   <figcaption>Figure 5: Usage of environment variable on Windows</figcaption>
 </figure>
-
 <p>When run, it will end with a message like this:</p>
-
 <figure class="concept_image">
   <img src="../images/faq/8_env_var_windows_command_result.png" alt="Figure 6: Result of usage of environment variable on Windows" id="env_var_usage_windows_result">
   <figcaption>Figure 8: Result of usage of environment variable on Windows</figcaption>
 </figure>
-
 <p>Similarly, it works when used in a batch file (say, &ldquo;env_var.cmd&rdquo;), with content such as this:</p>
-
 <pre><code>echo Environment variable ENV_VAR_1 is: %ENV_VAR_1%
-</code></pre>
-
-<p>Notice that, unlike on Unix/Linux, the way to access an environment variable on Windows is to use %, instead of $.</p>
-
-<h3 id="3-using-an-environment-variable-in-a-shell-script-on-unix-linux">3. Using an environment variable in a shell-script - On Unix/Linux</h3>
-
+</code></pre><p>Notice that, unlike on Unix/Linux, the way to access an environment variable on Windows is to use %, instead of $.</p>
+<h3 id="3-using-an-environment-variable-in-a-shell-script---on-unixlinux">3. Using an environment variable in a shell-script - On Unix/Linux</h3>
 <p>Using an environment variable inside a shell-script is not special at all. You can directly use it, as you would any
 environment variable. For instance, a shell-script with this content, will work when executed normally:</p>
-
 <pre><code>#!/bin/sh
 
 echo &quot;Value of environment variable ENV_VAR_1 is: $ENV_VAR_1&quot;
-</code></pre>
-
-<p>This works when executed directly, with a config such as this:</p>
-
+</code></pre><p>This works when executed directly, with a config such as this:</p>
 <figure class="concept_image">
   <img src="../images/faq/5_env_var_in_script.png" alt="Figure 9: Usage of environment variable in a shell-script" id="env_var_usage_script">
   <figcaption>Figure 9: Usage of environment variable in a shell-script</figcaption>
 </figure>
-
 <p>When run, it will end with a message like this:</p>
-
 <figure class="concept_image">
   <img src="../images/faq/6_env_var_in_script_result.png" alt="Figure 10: Result of usage of environment variable in a shell-script" id="env_var_usage_script_result">
   <figcaption>Figure 10: Result of usage of environment variable in a shell-script</figcaption>
 </figure>
-
 <h3 id="4-using-an-environment-variable-in-a-ruby-script">4. Using an environment variable in a ruby script</h3>
-
 <p>Again, using an environment variable inside a ruby script is not special at all. This has been mentioned here, just to
 show that scripts written in different languages have to use different mechanisms to access environment variables. A
 ruby script such as this works as expected:</p>
-
 <pre><code>#!/usr/bin/env ruby
 
 puts &quot;Environment variable ENV_VAR_1 has the value: #{ENV['ENV_VAR_1']}&quot;
-</code></pre>
-
-<h2 id="standard-gocd-environment-variables">Standard GoCD environment variables</h2>
-
+</code></pre><h2 id="standard-gocd-environment-variables">Standard GoCD environment variables</h2>
 <p>The examples above mention a custom environment variable set at the job level. However, there are some standard
 environment variables available during every job run, set by GoCD. They are:</p>
-
 <table>
 <thead>
 <tr>
@@ -454,134 +407,109 @@ environment variables available during every job run, set by GoCD. They are:</p>
 <th>Example contents</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>GO_SERVER_URL</td>
 <td>Base URL for the GoCD server (including the context root)</td>
 <td><code>https://127.0.0.1:8154/go</code></td>
 </tr>
-
 <tr>
 <td>GO_ENVIRONMENT_NAME</td>
 <td>The name of the current environment. This is only set if the environment is specified. Otherwise the variable is not set.</td>
 <td><code>Development</code></td>
 </tr>
-
 <tr>
 <td>GO_PIPELINE_NAME</td>
 <td>Name of the current pipeline being run</td>
 <td><code>main</code></td>
 </tr>
-
 <tr>
 <td>GO_PIPELINE_COUNTER</td>
 <td>How many times the current pipeline has been run.</td>
 <td><code>2345</code></td>
 </tr>
-
 <tr>
 <td>GO_PIPELINE_LABEL</td>
 <td>Label for the current pipeline. By default, this is set to the pipeline count (this can be set to a <a href="../configuration/build_labelling.html">custom pipeline label</a>)</td>
 <td><code>1.1.2345</code></td>
 </tr>
-
 <tr>
 <td>GO_STAGE_NAME</td>
 <td>Name of the current stage being run</td>
 <td><code>dev</code></td>
 </tr>
-
 <tr>
 <td>GO_STAGE_COUNTER</td>
 <td>How many times the current stage has been run</td>
 <td><code>1</code></td>
 </tr>
-
 <tr>
 <td>GO_JOB_NAME</td>
 <td>Name of the current job being run</td>
 <td><code>linux-firefox</code></td>
 </tr>
-
 <tr>
 <td>GO_TRIGGER_USER</td>
 <td>Username of the user that triggered the build. This will have one of three possible values<ul><li>anonymous - if there is no security</li><li>username of the user, who triggered the build</li><li>changes, if SCM changes auto-triggered the build</li><li>timer, if the pipeline is triggered at a scheduled time</li></ul></td>
 <td><code>changes</code></td>
 </tr>
-
 <tr>
 <td>GO_DEPENDENCY_LABEL_${pipeline name or material name}</td>
-<td>The label of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>). Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;). For example, upstream pipeline &ldquo;pipeline-foo&rdquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO. In case material name is specified, for example material &ldquo;foo&rdquo; becomes: GO_DEPENDENCY_LABEL_FOO</td>
+<td>The label of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>). Non alphanumeric characters are replaced with underscores (&quot;_&quot;). For example, upstream pipeline &ldquo;pipeline-foo&rdquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO. In case material name is specified, for example material &ldquo;foo&rdquo; becomes: GO_DEPENDENCY_LABEL_FOO</td>
 <td><code>1.0.3456</code></td>
 </tr>
-
 <tr>
 <td>GO_DEPENDENCY_LOCATOR_${pipeline name}</td>
 <td>The locator of the upstream pipeline (when using <a href="../configuration/managing_dependencies.html">dependent pipelines</a>), which can be used to create the URL for RESTful API calls</td>
 <td><code>upstream/1.0.3456/dev/1</code></td>
 </tr>
-
 <tr>
 <td>GO_REVISION</td>
 <td>The current source control revision being run (when using only one material)</td>
 <td><code>123</code></td>
 </tr>
-
 <tr>
 <td>GO_REVISION_${material name or dest}</td>
-<td>If you are using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td>If you are using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>123</code></td>
 </tr>
-
 <tr>
 <td>GO_TO_REVISION</td>
 <td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the latest revision (when using only one material). This is always same as GO_REVISION.</td>
 <td><code>123</code></td>
 </tr>
-
 <tr>
 <td>GO_TO_REVISION_${material name or dest}</td>
-<td>If you are using more than one material in your pipeline, the &lsquo;to&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td>If you are using more than one material in your pipeline, the &lsquo;to&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>123</code></td>
 </tr>
-
 <tr>
 <td>GO_FROM_REVISION</td>
 <td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the oldest revision (when using only one material)</td>
 <td><code>121</code></td>
 </tr>
-
 <tr>
 <td>GO_FROM_REVISION_${material name or dest}</td>
-<td>If you are using more than one material in your pipeline, the &lsquo;from&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td>If you are using more than one material in your pipeline, the &lsquo;from&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>121</code></td>
 </tr>
-
 <tr>
 <td>GO_MATERIAL_HAS_CHANGED</td>
 <td>A boolean value indicating if the material revision has changed since the previous run (when using only one material)</td>
 <td><code>true</code></td>
 </tr>
-
 <tr>
 <td>GO_MATERIAL_${material name or dest}_HAS_CHANGED</td>
-<td>When more than one material is configured for your pipeline, a flag would be available for each of the materials available to denote if the corresponding material&rsquo;s revision has changed since the previous run. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&rdquo;_&rdquo;).</td>
+<td>When more than one material is configured for your pipeline, a flag would be available for each of the materials available to denote if the corresponding material&rsquo;s revision has changed since the previous run. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>false</code></td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="use-current-revision-in-a-build">Use current revision in a build</h2>
-
 <p>It is often useful to use the current version control revision number in your build. For example, you might want to use the svn version number in the name of your binary for tracing purposes. GoCD makes much of this information available to your build scripts as environment variables.</p>
-
 <h3 id="example-usages">Example usages</h3>
-
 <h3 id="one-material">One material</h3>
-
 <p>For this example, we are going to assume we are using a single <a href="https://subversion.apache.org/">Subversion</a> repository for our source control system and we have a job set up to call the ant target &ldquo;dist&rdquo;.</p>
-
 <ul>
 <li>Add the following target to your ant <code>build.xml</code></li>
 </ul>
@@ -591,21 +519,16 @@ environment variables available during every job run, set by GoCD. They are:</p>
     <span style="color:#008000;font-weight:bold">&lt;echo</span> <span style="color:#b44">message=</span><span style="color:#b44">&#34;Building pipeline ${env.GO_PIPELINE_NAME}&#34;</span>
           <span style="color:#b44">file=</span><span style="color:#b44">&#34;deploy-${env.GO_REVISION}.txt&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/target&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
-<ul>
+<span style="color:#008000;font-weight:bold">&lt;/project&gt;</span>
+</code></pre></div><ul>
 <li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline on revision 123, the file deploy-123.txt will be created, with the following content:</li>
 </ul>
-
 <pre><code>deploy-123.txt
 
 Building pipeline my-app
-</code></pre>
-
-<h4 id="multiple-materials">Multiple materials</h4>
-
+</code></pre><h4 id="multiple-materials">Multiple materials</h4>
 <p>For this example we are going to assume we are using a <a href="https://subversion.apache.org/">Subversion</a> repository containing
 the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> repository containing configuration scripts.</p>
-
 <ul>
 <li>Ensure the pipeline materials look like this</li>
 </ul>
@@ -615,8 +538,8 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
     <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;...&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;configuration/latest&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<ul>
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</code></pre></div><ul>
 <li>Add the following target to your ant <code>build.xml</code></li>
 </ul>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-app&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -628,29 +551,21 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
           <span style="color:#b44">file=</span><span style="color:#b44">&#34;deploy-${env.GO_REVISION_CODE}.txt&#34;</span>
           <span style="color:#b44">append=</span><span style="color:#b44">&#34;true&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/target&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/project&gt;</span></code></pre></div>
-<ul>
+<span style="color:#008000;font-weight:bold">&lt;/project&gt;</span>
+</code></pre></div><ul>
 <li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline with the code at revision &lsquo;123&rsquo; and the configuration at revision &lsquo;59cab75ccf231b9e338c96cff0f4adad5cb7d335&rsquo;, the file deploy-123.txt will be created with the following content:</li>
 </ul>
-
 <pre><code>deploy-123.txt
 
 Building pipeline my-app
 Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
-</code></pre>
-
-<h2 id="pass-environment-variables-to-a-job">Pass environment variables to a job</h2>
-
+</code></pre><h2 id="pass-environment-variables-to-a-job">Pass environment variables to a job</h2>
 <p>You can specify variables for Environments, Pipelines, Stages and Jobs. If a variable is specified more than once, the
-most specific scope is used. For example if you specify variable FOO=&lsquo;foo&rsquo; for an environment, and FOO=&lsquo;bar&rsquo; for a Job,
+most specific scope is used. For example if you specify variable FOO='foo&rsquo; for an environment, and FOO='bar&rsquo; for a Job,
 then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
-
 <h2 id="setting-variables-on-an-environment">Setting variables on an environment</h2>
-
 <p>You can add variables to an environment by editing the configuration of the environment. Click on the name of the environment to edit configuration.</p>
-
-<p><img src="../images/env_variables_environment.png" alt="" /></p>
-
+<p><img src="../images/env_variables_environment.png" alt=""></p>
 <p>You specify variables on an environment in the Config XML by adding an <a href="../configuration/configuration_reference.html#environmentvariables">&lt; environmentvariables &gt;</a> section to the environment definition.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
@@ -670,11 +585,9 @@ then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
     <span style="color:#008000;font-weight:bold">&lt;/environmentvariables&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;agents</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/environment&gt;</span></code></pre></div>
-<p>You can add variables for a job by editing the job configuration.</p>
-
-<p><img src="../images/env_variables_job.png" alt="" /></p>
-
+<span style="color:#008000;font-weight:bold">&lt;/environment&gt;</span>
+</code></pre></div><p>You can add variables for a job by editing the job configuration.</p>
+<p><img src="../images/env_variables_job.png" alt=""></p>
 <p>You specify variables on an job in the Config XML by adding an <a href="../configuration/configuration_reference.html#environmentvariables">&lt; environmentvariables &gt;</a> section to the job definition.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
@@ -693,7 +606,8 @@ then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
         <span style="color:#008000;font-weight:bold">&lt;/variable&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/environmentvariables&gt;</span>
     ...
-<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span></code></pre></div></article>
+<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -733,29 +647,25 @@ then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#using-environment-variables-in-gocd">Using Environment Variables in GoCD</a>
-<ul>
-<li><a href="#accessing-environment-variables-in-tasks">Accessing environment variables in tasks</a>
-<ul>
-<li><a href="#1-using-an-environment-variable-in-a-custom-command-on-unix-linux">1. Using an environment variable in a custom command on Unix/Linux</a></li>
-<li><a href="#2-using-an-environment-variable-in-a-custom-command-on-windows">2. Using an environment variable in a custom command on Windows</a></li>
-<li><a href="#3-using-an-environment-variable-in-a-shell-script-on-unix-linux">3. Using an environment variable in a shell-script - On Unix/Linux</a></li>
-<li><a href="#4-using-an-environment-variable-in-a-ruby-script">4. Using an environment variable in a ruby script</a></li>
-</ul></li>
-<li><a href="#standard-gocd-environment-variables">Standard GoCD environment variables</a></li>
-<li><a href="#use-current-revision-in-a-build">Use current revision in a build</a>
-<ul>
-<li><a href="#example-usages">Example usages</a></li>
-<li><a href="#one-material">One material</a>
-<ul>
-<li><a href="#multiple-materials">Multiple materials</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#pass-environment-variables-to-a-job">Pass environment variables to a job</a></li>
-<li><a href="#setting-variables-on-an-environment">Setting variables on an environment</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#accessing-environment-variables-in-tasks">Accessing environment variables in tasks</a>
+      <ul>
+        <li><a href="#1-using-an-environment-variable-in-a-custom-command-on-unixlinux">1. Using an environment variable in a custom command on Unix/Linux</a></li>
+        <li><a href="#2-using-an-environment-variable-in-a-custom-command-on-windows">2. Using an environment variable in a custom command on Windows</a></li>
+        <li><a href="#3-using-an-environment-variable-in-a-shell-script---on-unixlinux">3. Using an environment variable in a shell-script - On Unix/Linux</a></li>
+        <li><a href="#4-using-an-environment-variable-in-a-ruby-script">4. Using an environment variable in a ruby script</a></li>
+      </ul>
+    </li>
+    <li><a href="#standard-gocd-environment-variables">Standard GoCD environment variables</a></li>
+    <li><a href="#use-current-revision-in-a-build">Use current revision in a build</a>
+      <ul>
+        <li><a href="#example-usages">Example usages</a></li>
+        <li><a href="#one-material">One material</a></li>
+      </ul>
+    </li>
+    <li><a href="#pass-environment-variables-to-a-job">Pass environment variables to a job</a></li>
+    <li><a href="#setting-variables-on-an-environment">Setting variables on an environment</a></li>
+  </ul>
 </nav>
   </aside>
 

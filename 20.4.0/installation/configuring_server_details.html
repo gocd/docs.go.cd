@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,41 +320,29 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="configuring-gocd-server-details">Configuring GoCD server details</h1>
-
+<article class="markdown"><h1 id="configuring-gocd-server-details">Configuring GoCD server details</h1>
 <h2 id="artifact-repository-configuration">Artifact repository configuration</h2>
-
 <p>GoCD needs no configuration once installed. However, we recommend that you create a separate partition on your computer&rsquo;s hard disk for GoCD server artifacts. The artifact repository can grow in size very quickly. If located on your system&rsquo;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.</p>
-
 <p>Once you have created a new disk partition, you need to tell GoCD where to find it.</p>
-
 <p>Click on &ldquo;Server Configuration&rdquo; tab of the &ldquo;Admin&rdquo; tab. GoCD to the &ldquo;Pipeline Management&rdquo; section.</p>
-
-<p><img src="../images/artifact_location.png" alt="Specify artifact location" /></p>
-
+<p><img src="../images/artifact_location.png" alt="Specify artifact location"></p>
 <p>Specify the artifacts directory location and click on &ldquo;Save&rdquo;</p>
-
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the
 Admin section:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;/path/to/artifacts/directory&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<p>In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:</p>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</code></pre></div><p>In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;E:\go-artifacts&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<p>When you have entered this information, click &ldquo;Save&rdquo; to save the configuration file.</p>
-
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</code></pre></div><p>When you have entered this information, click &ldquo;Save&rdquo; to save the configuration file.</p>
 <p>You can change the artifacts directory location at any time using the method described above, even when GoCD is running. However GoCD will not move existing artifacts to the new location for you, and changing the location while GoCD is running won&rsquo;t take effect until GoCD Server is restarted.</p>
-
 <p>If you decide to move your artifact repository, the safe way to do it is:</p>
-
 <ol>
 <li>Pause all pipelines and wait until all active jobs on the agent grid has completed (all agents are in the state &ldquo;idle&rdquo;)</li>
 <li>Shut down GoCD server</li>
@@ -370,27 +350,19 @@ Admin section:</p>
 <li>Edit GoCD&rsquo;s configuration file manually as described above to tell GoCD where to find the artifacts</li>
 <li>Restart GoCD server</li>
 </ol>
-
 <p>Even when all active jobs on the agent grid have stopped, users may still be uploading artifacts using the RESTful URLs. This is why we need to stop GoCD server completely in order to be safe.</p>
-
 <h2 id="configure-site-urls">Configure site URLs</h2>
-
 <p>Click on &ldquo;Server Configuration&rdquo; tab of the &ldquo;Admin&rdquo; tab. GoCD to the &ldquo;Server Management&rdquo; section.</p>
-
-<p><img src="../images/site_url.png" alt="Specify site url" /></p>
-
+<p><img src="../images/site_url.png" alt="Specify site url"></p>
 <p>GoCD generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where GoCD cannot rely upon publishing URLs relative to a request. If you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.</p>
-
 <p>Power users, if they so desire, can directly update the <a href="../configuration/configuration_reference.html#server">server</a> section.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">siteUrl=</span><span style="color:#b44">&#34;http://&lt;host&gt;:&lt;port&gt;&#34;</span> <span style="color:#b44">secureSiteUrl=</span><span style="color:#b44">&#34;https://&lt;host&gt;:&lt;securePort&gt;&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
         ...
       <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<p>Certain features in GoCD require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.</p>
-
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</code></pre></div><p>Certain features in GoCD require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.</p>
 <h3 id="also-see">Also see&hellip;</h3>
-
 <ul>
 <li><a href="../installation/installing_go_agent.html">Installing GoCD agents</a></li>
 <li><a href="../installation/configure-reverse-proxy.html">Configure GoCD to work with a proxy</a></li>
@@ -435,16 +407,14 @@ Admin section:</p>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#configuring-gocd-server-details">Configuring GoCD server details</a>
-<ul>
-<li><a href="#artifact-repository-configuration">Artifact repository configuration</a></li>
-<li><a href="#configure-site-urls">Configure site URLs</a>
-<ul>
-<li><a href="#also-see">Also see&hellip;</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#artifact-repository-configuration">Artifact repository configuration</a></li>
+    <li><a href="#configure-site-urls">Configure site URLs</a>
+      <ul>
+        <li><a href="#also-see">Also see&hellip;</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

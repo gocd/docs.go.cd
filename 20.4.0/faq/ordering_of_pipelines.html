@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,51 +320,42 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="ordering-of-pipelines-in-gocd">Ordering of pipelines in GoCD</h1>
-
+<article class="markdown"><h1 id="ordering-of-pipelines-in-gocd">Ordering of pipelines in GoCD</h1>
 <p>In GoCD, we use two distinct types of ordering of pipelines:</p>
-
 <ul>
 <li>Schedule order: Chronological order in which pipelines are scheduled.</li>
 <li>Natural order: Chronological order of pipelines based on material modifications</li>
 </ul>
-
 <p>In most cases the schedule order and natural order match. The user checks in and builds incrementally so the order in which builds are scheduled is the same as the relative order in which changes are checked in. Now with the &ldquo;Trigger with options&rdquo; functionality, it is possible to trigger a pipeline with older materials. In this case, the changes to the material as reported by the repository and the order of pipelines containing these changes are not the same</p>
-
 <h2 id="example">Example</h2>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">Order of check-ins retrieved from Hg log:
 
-changeset:   <span style="color:#666">10689</span>:6dbb27e86dc9
+changeset:   10689:6dbb27e86dc9
 branch:      trunk
 tag:         tip
 user:        ShilpaG
-date:        Tue Apr <span style="color:#666">27</span> <span style="color:#666">09</span>:52:15 <span style="color:#666">2010</span> +0530
+date:        Tue Apr <span style="color:#666">27</span> 09:52:15 <span style="color:#666">2010</span> +0530
 summary:     fixing twist <span style="color:#a2f">test</span> EnvironmentScreenPermissions
 
-changeset:   <span style="color:#666">10688</span>:2b5b25a68117
+changeset:   10688:2b5b25a68117
 branch:      trunk
 user:        JJ
-date:        Tue Apr <span style="color:#666">27</span> <span style="color:#666">08</span>:45:29 <span style="color:#666">2010</span> +0530
+date:        Tue Apr <span style="color:#666">27</span> 08:45:29 <span style="color:#666">2010</span> +0530
 summary:     fixing broken twist <span style="color:#a2f">test</span>
 
-changeset:   <span style="color:#666">10687</span>:6f91bbb648fa
+changeset:   10687:6f91bbb648fa
 branch:      trunk
 user:        PS
-date:        Mon Apr <span style="color:#666">26</span> <span style="color:#666">15</span>:28:16 <span style="color:#666">2010</span> +0530
+date:        Mon Apr <span style="color:#666">26</span> 15:28:16 <span style="color:#666">2010</span> +0530
 summary:     <span style="color:#080;font-style:italic">#3889 - Added the twist test for the stage details actions.</span>
 
 
-Pipeline instance <span style="color:#666">1</span> has revision: <span style="color:#666">10687</span>:6f91bbb648fa
-Pipeline instance <span style="color:#666">2</span> has revision: <span style="color:#666">10689</span>:6f91bbb648fa
-Pipeline instance <span style="color:#666">3</span> has revision: <span style="color:#666">10688</span>:2b5b25a68117</code></pre></div>
-<p>The pipeline order based on scheduling is: 1, 2, 3. This is the order in which they were triggered.</p>
-
+Pipeline instance <span style="color:#666">1</span> has revision: 10687:6f91bbb648fa
+Pipeline instance <span style="color:#666">2</span> has revision: 10689:6f91bbb648fa
+Pipeline instance <span style="color:#666">3</span> has revision: 10688:2b5b25a68117
+</code></pre></div><p>The pipeline order based on scheduling is: 1, 2, 3. This is the order in which they were triggered.</p>
 <p>The pipeline order based on natural order: 1, 3, 2. This is because, if we look at the changes in each pipeline instance, 1 has the earliest set of revisions, 3 has the next set of revisions and 2 has the latest revisions in that particular repository (material).</p>
-
 <p>The above example works when there is one material. If the pipeline has multiple materials, GoCD examines the timestamps of all the materials to determine which is logically the earlier pipeline instance. In this case, the earlier instance is the one that has the earliest time stamp across all the materials.</p>
-
 <p>GoCD supports natural ordering of materials when we &ldquo;Trigger with Options&rdquo;. The user can change the revision of all materials or where one particular material(that is likely to have broken the build) is chosen and all other materials are pinned to a particular revision(last known good revision).</p>
 </article>
 
@@ -414,12 +397,9 @@ Pipeline instance <span style="color:#666">3</span> has revision: <span style="c
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#ordering-of-pipelines-in-gocd">Ordering of pipelines in GoCD</a>
-<ul>
-<li><a href="#example">Example</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#example">Example</a></li>
+  </ul>
 </nav>
   </aside>
 

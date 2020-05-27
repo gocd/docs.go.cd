@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,24 +320,15 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-hardware-specifications">GoCD hardware specifications</h1>
-
+<article class="markdown"><h1 id="gocd-hardware-specifications">GoCD hardware specifications</h1>
 <p>The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.</p>
-
 <blockquote>
 <p>Also see: <a href="./system_requirements.html">GoCD system requirements</a></p>
 </blockquote>
-
 <h3 id="agent-hardware-requirements">Agent hardware requirements</h3>
-
 <p>The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements). The agent will require an additional memory of about 500Mb. Although, you may run the agent on the same machine as the server, it is recommended that you use a separate machine (though, it may be virtual) for each build agent. If you chose to install several agents on the same machine, please consider possible CPU, disk, memory or network bottlenecks that might occur.</p>
-
 <h3 id="server-hardware-requirements">Server hardware requirements</h3>
-
 <p>The GoCD Server is responsible for performing a number of tasks and we describe how each of these tasks affects the specifications:</p>
-
 <ul>
 <li><a href="#number-of-web-requests-to-the-server">Number of web-requests to the server</a></li>
 <li><a href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build">Number of agents connected to a GoCD server, and how often they build</a></li>
@@ -354,127 +337,80 @@ if (!doNotTrack) {
 <li><a href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history">Number of times each of the pipeline has run (pipeline history)</a></li>
 <li><a href="#number-and-types-of-plugins-that-may-be-installed">Number and types of plugins that may be installed</a></li>
 </ul>
-
 <h4 id="number-of-web-requests-to-the-server">Number of web-requests to the server</h4>
-
 <p>Web-requests to the server come from different kinds of sources</p>
-
 <ul>
 <li>browsers requests from end users (most pages in GoCD continuously poll the server every few seconds to check if the page has updates on it)</li>
 <li>API calls from programs</li>
 <li>CCTray which is popularly used by dashboard apps and other desktop apps to notify devs about failing builds usually poll every few seconds and are fairly expensive calls on the server</li>
 </ul>
-
 <p>GoCD uses a shared thread-pool to manage a lot of web requests from several users, if you have a lot of users, consider adding more cores based on the number and type of request you serve per minute.</p>
-
 <p>You can find out the number of requests that your server is handling by turning on web-request logging.</p>
-
 <h4 id="number-of-agents-connected-to-a-gocd-server-and-how-often-they-build">Number of agents connected to a GoCD server, and how often they build</h4>
-
 <p>Each GoCD agent that is connected to the server will poll the GoCD server every few seconds and to update its status on the server and check if there are any jobs that it should build.</p>
-
 <p>When a build starts off on an agent, it will first perform an SCM checkout operation to update to the correct revision that must be built. If the job requires that artifacts from other dependent jobs be downloaded, the agent will download the artifacts from the server. During a job run, the agent will send the console logs every few seconds and at the end of the build, an agent may upload artifacts to the server if it is configured to do so.</p>
-
 <p>To cope up with the number of agents, artifact uploads and downloads, ensure that the server has -</p>
-
 <ul>
 <li>enough disk space to store the artifacts</li>
 <li>enough consistent IO baseline throughput to be able to handle simultaneous uploads and downloads from several agents at the same time</li>
 <li>enough cores to be able to handle web requests from agents</li>
 </ul>
-
 <blockquote>
 <p><strong>Note</strong>: it is perfectly allright to host the GoCD artifacts on a network file share. However ensure that your network file share can provide a consistent IO throughput. A high load on the network file share may also cause your web-requests to slow down, if they use the same network port.</p>
 </blockquote>
-
 <p>It helps with quicker artifact upload and download if the server and agents are geographically co-located. This will help reduce the latency between the agent and server.</p>
-
 <h4 id="number-of-source-control-materials">Number of source control materials</h4>
-
 <p>GoCD uses up-to 10 processes (configurable) to check if updates are available for source control materials(SCM). Only materials that have polling turned on will be polled. Each material is checked approximately every minute for to see if there are updates available so that GoCD can trigger a build.</p>
-
 <p>If you have hundreds of SCMs, depending on the performance of your source control updates, the update checks for SCMs may queue up and negatively affect the performance.</p>
-
 <p>Ensure that -</p>
-
 <ul>
 <li>your SCM server(s) can handle the load of several SCM checkout and update operations (both from the server and the agent)</li>
 <li>there is enough IOPS, IO throughput, memory and cores available to ensure that you can poll all your SCMs without the update checks queueing up, or eating away too many resources that would otherwise be used by the GoCD server process.</li>
 </ul>
-
 <p>You can find out the amount of time it takes to perform an SCM update check by turning on performance logging on your GoCD server.</p>
-
 <p>If you find that material updates are taking too much of your CPU time, you may try one or more of these options -</p>
-
 <ul>
 <li>turn off polling for materials that don&rsquo;t update frequently</li>
 <li>reduce the interval between polls</li>
 <li>notify the GoCD server of material updates, instead of polling it</li>
 <li>investigate if upgrading the SCM software version resolves the issue</li>
 </ul>
-
 <h4 id="type-of-source-control-materials-some-types-perform-better-than-others">Type of source control materials, some types perform better than others</h4>
-
 <p>All SCMs need to connect to a remote SCM repository to check if updates are available. Some of them are more efficient at update checks than others.</p>
-
 <p>SCMs like git and mercurial require a local clone to be able to check if there are new commits and the contents of those commits, as such they will have additional overhead in terms of IO and disk space usage.</p>
-
 <p>On the other hand, SCMs like SVN and TFS don&rsquo;t require a local checkout to check for updates, so they may not have a disk IO overhead on the gocd server. However the number and frequency of since a material update check may cause a bottleneck on the network.</p>
-
 <h4 id="number-of-times-each-of-the-pipeline-has-run-pipeline-history">Number of times each of the pipeline has run (pipeline history)</h4>
-
 <p>Each pipeline run (along with the stages and jobs in it) is recorded in the database for purpose of audits. To ensure optimal performance of your GoCD server we recommend that you run your database server on a separate instance</p>
-
 <h4 id="number-and-types-of-plugins-that-may-be-installed">Number and types of plugins that may be installed</h4>
-
 <p>Each plugin that is installed on the server will consume additional memory on the memory and may have an impact on the CPU utilization of the server. Task plugins, will consume additional on the memory usage of the gocd agent process and may affect the CPU usage of the gocd agent process.</p>
-
 <p>This may require that users change the heap(<code>-Xmx</code>) and/or metaspace(<code>-XX:MaxMetaspaceSize</code>).</p>
-
 <h3 id="definitions">Definitions</h3>
-
 <p>For the purpose of the rest of this document, we would like to use the following definitions:</p>
-
 <h4 id="cores">Cores</h4>
-
 <p>The number of physical compute units available to the server machine.</p>
-
 <blockquote>
 <p><strong>A note about hyper-threading</strong>: While hyper-threading makes a single physical core to look like 2 logical cores, the performance improvement, in most cases, the performance is somewhere around 15% of a single core.</p>
 </blockquote>
-
 <h4 id="memory">Memory</h4>
-
 <h5 id="jvm-memory">JVM Memory</h5>
-
 <p>The amount of memory available to the JVM running the GoCD server process (roughly the <code>-Xmx</code> JVM argument)</p>
-
 <h5 id="ram">RAM</h5>
-
 <p>The amount of memory available to the server machine. Generally speaking, the amount of RAM should be atleast 2-3GB more than the JVM memory to allow some headroom for the operating system.</p>
-
 <blockquote>
 <p><strong>A note about swap</strong>: Ensure that swap is turned off, because it negatively affects performance when the machine runs out of memory and begins swapping</p>
 </blockquote>
-
 <h5 id="buffer-cache">Buffer Cache</h5>
-
 <p>Reading from a disk is very slow as compared to reading from memory. Additionally, it is common to read the same part of a disk several times during relatively short periods of time. For example, consider how often the command <code>git</code> might be run on a GoCD server. By reading the information from disk only once and then keeping it in memory until no longer needed, one can speed up all but the first read. This is called disk buffering, and the memory used for the purpose is called the buffer cache.</p>
-
 <p>Generally speaking, you should ensure that there is sufficient free memory for buffer cache to ensure optimal performance and reduced disk IO.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#666">[</span>root@fmtgocdgo01 ~<span style="color:#666">]</span><span style="color:#080;font-style:italic"># free -m</span>
              total       used       free     shared    buffers     cached
 Mem:         <span style="color:#666">11912</span>      <span style="color:#666">11633</span>        <span style="color:#666">278</span>          <span style="color:#666">0</span>         <span style="color:#666">20</span>       <span style="color:#666">2128</span>
 -/+ buffers/cache:       <span style="color:#666">9484</span>       <span style="color:#666">2427</span>
-Swap:            <span style="color:#666">0</span>          <span style="color:#666">0</span>          <span style="color:#666">0</span></code></pre></div>
-<p>In the example above, the first line says that the amount of free memory is &ldquo;278&rdquo; mb, this makes it look like the system is running short of memory. However the second line(<code>-/+ buffers/cache</code>) shows that in reality <code>2427</code> mb is actually free. This is because about 20+2128 megs of memory is buffers + cache, which the OS can purge if it is programs request for more memory.</p>
-
+Swap:            <span style="color:#666">0</span>          <span style="color:#666">0</span>          <span style="color:#666">0</span>
+</code></pre></div><p>In the example above, the first line says that the amount of free memory is &ldquo;278&rdquo; mb, this makes it look like the system is running short of memory. However the second line(<code>-/+ buffers/cache</code>) shows that in reality <code>2427</code> mb is actually free. This is because about 20+2128 megs of memory is buffers + cache, which the OS can purge if it is programs request for more memory.</p>
 <h4 id="iops">IOPS</h4>
-
 <p>The amount of input/output operations per seconds of your storage device.</p>
-
 <h4 id="io-throughput">IO throughput</h4>
-
 <p>Usually expressed as <strong>Megabytes / Second (MB/s)</strong>, indicates the amount of data that a server can read and/or write in a given amount of time. Usually, higher the <em>IOPS</em>, the higher the throughput.</p>
 </article>
 
@@ -516,36 +452,15 @@ Swap:            <span style="color:#666">0</span>          <span style="color:#
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-hardware-specifications">GoCD hardware specifications</a>
-<ul>
-<li>
-<ul>
-<li><a href="#agent-hardware-requirements">Agent hardware requirements</a></li>
-<li><a href="#server-hardware-requirements">Server hardware requirements</a>
-<ul>
-<li><a href="#number-of-web-requests-to-the-server">Number of web-requests to the server</a></li>
-<li><a href="#number-of-agents-connected-to-a-gocd-server-and-how-often-they-build">Number of agents connected to a GoCD server, and how often they build</a></li>
-<li><a href="#number-of-source-control-materials">Number of source control materials</a></li>
-<li><a href="#type-of-source-control-materials-some-types-perform-better-than-others">Type of source control materials, some types perform better than others</a></li>
-<li><a href="#number-of-times-each-of-the-pipeline-has-run-pipeline-history">Number of times each of the pipeline has run (pipeline history)</a></li>
-<li><a href="#number-and-types-of-plugins-that-may-be-installed">Number and types of plugins that may be installed</a></li>
-</ul></li>
-<li><a href="#definitions">Definitions</a>
-<ul>
-<li><a href="#cores">Cores</a></li>
-<li><a href="#memory">Memory</a>
-<ul>
-<li><a href="#jvm-memory">JVM Memory</a></li>
-<li><a href="#ram">RAM</a></li>
-<li><a href="#buffer-cache">Buffer Cache</a></li>
-</ul></li>
-<li><a href="#iops">IOPS</a></li>
-<li><a href="#io-throughput">IO throughput</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#agent-hardware-requirements">Agent hardware requirements</a></li>
+        <li><a href="#server-hardware-requirements">Server hardware requirements</a></li>
+        <li><a href="#definitions">Definitions</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,80 +320,60 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="deploy-specific-revisions-of-the-materials-to-an-environment">Deploy specific revisions of the materials to an environment</h1>
-
+<article class="markdown"><h1 id="deploy-specific-revisions-of-the-materials-to-an-environment">Deploy specific revisions of the materials to an environment</h1>
 <p>GoCD allows you to hand pick which revision of your materials you would like to deploy to your environment. This is a a very common requirement on larger projects which have multiple materials in their deployment pipeline. Sometimes you may wish to have control over which revision of the application is deployed to a particular environment (say UAT).</p>
-
 <h3 id="select-specific-revisions-of-materials-to-deploy">Select specific revisions of materials to deploy</h3>
-
 <p>Consider the case where a deployment pipeline &lsquo;deploy_bookstore&rsquo; has 2 materials - Material &lsquo;svn&rsquo; and upstream pipeline &lsquo;bookstore&rsquo;. It is very common to know that label, say &ldquo;3.4-RELEASE&rdquo; of the dependent pipeline &lsquo;bookstore&rsquo; is stable. All the changes that you want right now in your UAT environment are made to material &lsquo;svn&rsquo;. In such a scenario when you deploy &ldquo;deploy_bookstore&rdquo; to UAT, you might always want to select label &ldquo;3.4-RELEASE&rdquo; of pipeline &lsquo;bookstore&rsquo; and the latest (or a known revision specified by your developer) of material &lsquo;svn&rsquo;.</p>
-
 <p>Once there are any new changes to any of the materials, Go will indicate to the user that newer revisions are available to deploy. You could use this information and deploy a custom build with hand picked revision or deploy the latest available revision.</p>
-
 <p>Steps to select the revisions of materials you want to deploy</p>
-
 <ul>
 <li>Navigate to the Environments page and locate the specific deployment pipeline you are interested in.</li>
 <li>Click on &ldquo;Deploy Specific Revision&rdquo;.</li>
 </ul>
-
-<p><img src="../images/new_revisions.png" alt="" /></p>
-
+<p><img src="../images/new_revisions.png" alt=""></p>
 <ul>
 <li>This gives you the list of available revisions for each material</li>
 <li>Click on the &ldquo;Revision to Deploy&rdquo; search box. This will list latest 5 revisions/labels of your materials ordered by time of check-in (latest check-in on top)</li>
 </ul>
-
-<p><img src="../images/see_all_materials.png" alt="" /></p>
-
+<p><img src="../images/see_all_materials.png" alt=""></p>
 <ul>
 <li>Select the revisions of all the materials that you would like to pick for deployment. You can search for the revision you want by
-
 <ul>
 <li>revision hash/pipeline label</li>
 <li>check-in comment</li>
 <li>user</li>
-</ul></li>
+</ul>
+</li>
 <li>If you do not select a specific revision of a material, then the currently deployed revision will be retained.</li>
 <li>Before clicking on &ldquo;Deploy Changes&rdquo;, check the &ldquo;To Deploy&rdquo; column to verify which revision will be deployed.</li>
 <li>Click &ldquo;Deploy Changes&rdquo; to start the deployment.</li>
 </ul>
-
 <h3 id="why-is-the-deploy-changes-button-disabled">Why is the &lsquo;Deploy Changes&rsquo; button disabled?</h3>
-
 <p>There are 3 reasons this can happen</p>
-
 <ul>
 <li>There is a deployment in progress, so another one cannot be started</li>
 <li>Your deployment pipeline is operating in <a href="../configuration/admin_lock_pipelines.html">locked</a> mode</li>
 <li>You do not have sufficient permissions to operate on that pipeline</li>
 </ul>
-
 <h3 id="deploying-the-latest-of-all-materials">Deploying the latest of all materials</h3>
-
 <p>If you always want to have the latest of all materials deployed to your environment, then this is how you can use Go to do it.</p>
-
 <ul>
 <li>Click on deploy latest</li>
 <li>This will trigger the deployment pipeline</li>
 <li>This will pick up the latest available revision of your materials at
 the time the pipeline is scheduled</li>
 </ul>
-
-<p><img src="../images/deploy_latest.png" alt="" /></p>
-
+<p><img src="../images/deploy_latest.png" alt=""></p>
 <h3 id="using-passwords-while-deploying">Using passwords while deploying</h3>
-
 <ul>
-<li><p>You can set secure variables in Go that gets passed along as environment variables to the executing task. You can use this feature to pass passwords to deploy scripts. For e.g., you can define a secure variable named &lsquo;DB_DEPLOY_PASSWORD&rsquo; and the DB password as its value. This value will be encrypted by Go and passed along to the task.</p>
-
-<p><img src="../images/secure_variables_admin.png" alt="" /></p></li>
-
-<li><p>Also, you can override secure variables when you use the &lsquo;Trigger With Options&rsquo; feature.</p>
-
-<p><img src="../images/secure_variables_trigger.png" alt="" /></p></li>
+<li>
+<p>You can set secure variables in Go that gets passed along as environment variables to the executing task. You can use this feature to pass passwords to deploy scripts. For e.g., you can define a secure variable named &lsquo;DB_DEPLOY_PASSWORD&rsquo; and the DB password as its value. This value will be encrypted by Go and passed along to the task.</p>
+<p><img src="../images/secure_variables_admin.png" alt=""></p>
+</li>
+<li>
+<p>Also, you can override secure variables when you use the &lsquo;Trigger With Options&rsquo; feature.</p>
+<p><img src="../images/secure_variables_trigger.png" alt=""></p>
+</li>
 </ul>
 </article>
 
@@ -443,18 +415,16 @@ the time the pipeline is scheduled</li>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#deploy-specific-revisions-of-the-materials-to-an-environment">Deploy specific revisions of the materials to an environment</a>
-<ul>
-<li>
-<ul>
-<li><a href="#select-specific-revisions-of-materials-to-deploy">Select specific revisions of materials to deploy</a></li>
-<li><a href="#why-is-the-deploy-changes-button-disabled">Why is the &lsquo;Deploy Changes&rsquo; button disabled?</a></li>
-<li><a href="#deploying-the-latest-of-all-materials">Deploying the latest of all materials</a></li>
-<li><a href="#using-passwords-while-deploying">Using passwords while deploying</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#select-specific-revisions-of-materials-to-deploy">Select specific revisions of materials to deploy</a></li>
+        <li><a href="#why-is-the-deploy-changes-button-disabled">Why is the &lsquo;Deploy Changes&rsquo; button disabled?</a></li>
+        <li><a href="#deploying-the-latest-of-all-materials">Deploying the latest of all materials</a></li>
+        <li><a href="#using-passwords-while-deploying">Using passwords while deploying</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

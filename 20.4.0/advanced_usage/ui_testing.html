@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,36 +320,25 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="ui-testing">UI testing</h1>
-
+<article class="markdown"><h1 id="ui-testing">UI testing</h1>
 <p>Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&rsquo;s how you do it.</p>
-
 <h2 id="windows">Windows</h2>
-
 <p>The first step is to disable the GoCD agent service. To do this:</p>
-
 <ol>
 <li>Log in to your Windows machine as an Administrative user.</li>
-<li>Click on Start &rarr; Control Panel &rarr; Administrative Tools &rarr; Services.</li>
+<li>Click on Start → Control Panel → Administrative Tools → Services.</li>
 <li>Double click on &lsquo;Go Agent&rsquo;.</li>
 <li>Change the Startup Type to &lsquo;Disabled&rsquo;.</li>
 <li>Click &lsquo;Stop&rsquo; to stop the service.</li>
 <li>Click &lsquo;OK&rsquo; to finish.</li>
 </ol>
-
 <p>The next step is to start the GoCD agent as an application.</p>
-
 <ol>
-<li>Click on Start &rarr; All Programs &rarr; Go Agent &rarr; Run Go Agent.</li>
+<li>Click on Start → All Programs → Go Agent → Run Go Agent.</li>
 <li>To get the GoCD agent to start every time you log in, copy the Run Go Agent shortcut to the Startup folder of your start menu.</li>
 </ol>
-
 <h2 id="linux">Linux</h2>
-
 <p>There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service (or <code>xvfb</code>) to provide a dedicated X11 server to your agent. To do this:</p>
-
 <ol>
 <li>Install the VNC server and fvwm packages for your distribution. (aptitude install vnc4server fvwm / yum install vnc-server fvwm)</li>
 <li>Sudo to the &lsquo;go&rsquo; user (sudo su - go) and do the rest as that user</li>
@@ -365,9 +346,7 @@ if (!doNotTrack) {
 <li>Edit your VNC config to use fvwm and not twm as the window manager. (replace twm with fvwm in ~/.vnc/xstartup)</li>
 <li>Edit the file <code>wrapper-properties.conf</code> and set the <code>DISPLAY</code> variable to an appropriate value.</li>
 </ol>
-
 <p>Restart your agent and it will now have access to an X11 server that you can also connect to with your favourite VNC client.</p>
-
 <blockquote>
 <ul>
 <li>If there are any other environment variables that need to be set for your UI testing tools, they correct place to set these is in your <code>wrapper-properties.conf</code> file. Don&rsquo;t forget to export them!</li>
@@ -415,13 +394,10 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#ui-testing">UI testing</a>
-<ul>
-<li><a href="#windows">Windows</a></li>
-<li><a href="#linux">Linux</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#windows">Windows</a></li>
+    <li><a href="#linux">Linux</a></li>
+  </ul>
 </nav>
   </aside>
 

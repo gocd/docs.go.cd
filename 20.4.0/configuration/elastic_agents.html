@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,57 +320,34 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-elastic-agents">GoCD Elastic Agents</h1>
-
+<article class="markdown"><h1 id="gocd-elastic-agents">GoCD Elastic Agents</h1>
 <h2 id="introduction">Introduction</h2>
-
 <p>Elastic Agents is an extension-point in GoCD that allows for on-demand agents which are created and provisioned by an elastic-agent plugin when there are jobs to be executed, and terminated when the agents are running idle. These agents can be in a data center or in the cloud or both, and may be physical or virtual.</p>
-
 <p>Developers can start building their own elastic-agent plugins by forking the <a href="https://github.com/gocd-contrib/elastic-agent-skeleton-plugin">skeleton plugin</a> and looking at a sample <a href="https://github.com/gocd-contrib/docker-elastic-agents">docker plugin</a>, <a href="https://github.com/gocd-contrib/docker-swarm-elastic-agents">docker swarm plugin</a> as an example reference implementation.</p>
-
 <h2 id="why-elastic-agents">Why elastic agents?</h2>
-
 <p>A feature like this can allow for more efficient use of agent machines, can allow flexible scaling and in many cases, can reduce the cost of running agents. Imagine an automated performance test which runs occasionally and needs a lot of machines. These machines can be started at the beginning of the performance test, possibly using some cloud service, and then brought down when not needed. This feature should enable a more flexible and dynamic build grid.</p>
-
 <h2 id="configuration-of-elastic-agents">Configuration of elastic agents</h2>
-
 <blockquote>
 <p><strong>Note:</strong> GoCD version 19.3.0 introduces the concept of cluster profile. The plugin settings are being removed from elastic agent extension in the favour of cluster profiles. If you are on an older version of GoCD, please refer <a href="https://docs.gocd.org/19.2.0/configuration/elastic_agents.html">this</a>.</p>
 </blockquote>
-
 <p>Using GoCD elastic agents requires downloading and installing one of the available <a href="https://www.gocd.org/plugins/#elastic-agents">elastic agents plugin</a>.</p>
-
 <p>Once the plugin is downloaded and installed, make sure to:</p>
-
 <ol>
 <li>Configure a cluster profile (<strong><em>Admin &gt; Elastic Profiles</em></strong>).</li>
 <li>Configure an elastic agent profile (<strong><em>Admin &gt; Elastic Profiles</em></strong>).</li>
 <li>Associate the elastic agent profile with one or more jobs.</li>
 </ol>
-
 <h2 id="concepts">Concepts</h2>
-
 <p>There are a few basic concepts to understand the elastic agent plugins in GoCD:</p>
-
 <h3 id="cluster-profile">Cluster Profile</h3>
-
 <p>In most cases, a single GoCD instance is being utilized by multiple teams. Each team can have their own build environments e.g. development, staging, production. Earlier, with <a href="https://docs.gocd.org/19.2.0/configuration/elastic_agents.html#plugin-settings">plugin settings</a>, GoCD could only support one environment at a time. Now teams can leverage their own build environment by utilizing cluster profiles.</p>
-
 <p>Cluster profile usually contains the connection settings (endpoints, credentials) so that the GoCD server can connect to the elastic provider. An elastic provider depending on the plugin may be a docker server, AWS, azure, or a kubernetes cluster.</p>
-
-<p><img src="../images/configuration/elastic-agents/cluster-profile.png" alt="" /></p>
-
+<p><img src="../images/configuration/elastic-agents/cluster-profile.png" alt=""></p>
 <h3 id="elastic-agent-profile">Elastic Agent Profile</h3>
-
 <p>An elastic agent profile usually contains the configuration for your agent. Depending on the plugin used, this may contain the machine image (ami, docker image), size of the CPU/memory/disk, network settings among other things.</p>
-
-<p><img src="../images/configuration/elastic-agents/profile.png" alt="" /></p>
-
+<p><img src="../images/configuration/elastic-agents/profile.png" alt=""></p>
 <p>Once an elastic agent profile is defined, it should then be associated with a particular <a href="admin_add_job.html">job</a>. It&rsquo;s possible to define several profiles for different types jobs.</p>
-
-<p><img src="../images/configuration/elastic-agents/configure-job.png" alt="" /></p>
+<p><img src="../images/configuration/elastic-agents/configure-job.png" alt=""></p>
 </article>
 
       
@@ -419,19 +388,17 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-elastic-agents">GoCD Elastic Agents</a>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#why-elastic-agents">Why elastic agents?</a></li>
-<li><a href="#configuration-of-elastic-agents">Configuration of elastic agents</a></li>
-<li><a href="#concepts">Concepts</a>
-<ul>
-<li><a href="#cluster-profile">Cluster Profile</a></li>
-<li><a href="#elastic-agent-profile">Elastic Agent Profile</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#why-elastic-agents">Why elastic agents?</a></li>
+    <li><a href="#configuration-of-elastic-agents">Configuration of elastic agents</a></li>
+    <li><a href="#concepts">Concepts</a>
+      <ul>
+        <li><a href="#cluster-profile">Cluster Profile</a></li>
+        <li><a href="#elastic-agent-profile">Elastic Agent Profile</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

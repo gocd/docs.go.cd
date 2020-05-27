@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Installing GoCD on GoCD User Documentation</title>
@@ -9,24 +9,6 @@
     
 	<atom:link href="/installation/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title></title>
-      <link>/installation/configure_proxy.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/configure_proxy.html</guid>
-      <description>  Redirecting   Redirecting...  This page has moved to .  Click here if you are not redirected.  window.location.href = &#34;../configure-reverse-proxy.html&#34;;    </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/installation/ssl_tls/custom_certificate.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/ssl_tls/custom_certificate.html</guid>
-      <description>  Redirecting   Redirecting...  This page has moved to custom_server_certificate.html.  Click here if you are not redirected.  window.location.href = &#34;custom_server_certificate.html&#34;;    </description>
-    </item>
     
     <item>
       <title>Change SSL Certificates</title>
@@ -71,15 +53,6 @@ Proxy support is configured with GoCD agents by passing certain system propertie
     </item>
     
     <item>
-      <title>Configuring SSL/TLS</title>
-      <link>/installation/ssl_tls_config.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/ssl_tls_config.html</guid>
-      <description>CONFIGURING SSL/TLS</description>
-    </item>
-    
-    <item>
       <title>Configuring Server Details</title>
       <link>/installation/configuring_server_details.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -87,6 +60,15 @@ Proxy support is configured with GoCD agents by passing certain system propertie
       <guid>/installation/configuring_server_details.html</guid>
       <description>Configuring GoCD server details Artifact repository configuration GoCD needs no configuration once installed. However, we recommend that you create a separate partition on your computer&amp;rsquo;s hard disk for GoCD server artifacts. The artifact repository can grow in size very quickly. If located on your system&amp;rsquo;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.
 Once you have created a new disk partition, you need to tell GoCD where to find it.</description>
+    </item>
+    
+    <item>
+      <title>Configuring SSL/TLS</title>
+      <link>/installation/ssl_tls_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls_config.html</guid>
+      <description>  CONFIGURING SSL/TLS    </description>
     </item>
     
     <item>
@@ -150,18 +132,8 @@ The agent by default trusts any and all certificates offered to it, which may po
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/installing_go_agent.html</guid>
-      <description> Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.
+      <description>Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.
 Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
-Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
-    </item>
-    
-    <item>
-      <title>Installing GoCD Server</title>
-      <link>/installation/installing_go_server.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/installing_go_server.html</guid>
-      <description> Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
 Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
     </item>
     
@@ -185,6 +157,16 @@ sudo curl https://download.</description>
       <guid>/installation/install/agent/windows.html</guid>
       <description>Installing GoCD agent on Windows You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.
  Download a version of go-agent from the downloads page. Double-click the go-agent-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD Server</title>
+      <link>/installation/installing_go_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/installing_go_server.html</guid>
+      <description>Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
+Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
     </item>
     
     <item>
@@ -259,7 +241,7 @@ Scaling GoCD As the number of pipelines, agents and concurrent users increase in
       
       <guid>/installation/upgrading_go.html</guid>
       <description>Upgrading GoCD The steps in this page can be followed to upgrade GoCD. It is recommended to understand any breaking changes between the releases to see if they impact your upgrades in any way.
-Before you start  Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under Admin &amp;gt; Server Maintenance Mode Navigate to the backup page under Admin &amp;gt; Backups and take a backup.</description>
+Before you start   Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under Admin &amp;gt; Server Maintenance Mode</description>
     </item>
     
   </channel>

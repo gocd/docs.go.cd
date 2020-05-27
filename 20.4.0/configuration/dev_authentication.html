@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,66 +320,53 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="authentication">Authentication</h1>
-
+<article class="markdown"><h1 id="authentication">Authentication</h1>
 <p>A newly installed GoCD server does not require users to authenticate. This is great for a trial. However, it is one of the first things you should change, as soon as you decide to use GoCD more widely.</p>
-
 <p>GoCD has two methods of authentication built into it: Password-file based authentication and LDAP/Active Directory authentication. You can also choose from a collection of <a href="https://www.gocd.org/plugins/#authorization">community-maintained plugins</a> for other methods of authentication, such as using Google or GitHub OAuth.</p>
-
 <p>You can even write your own plugins for authentication (as in username/password combination) or authorization (as in deciding which GoCD roles a user should be allowed into) by using the <a href="https://plugin-api.gocd.org/current/authorization/">authorization plugin endpoint</a>.</p>
-
 <p>&ldquo;Authorization configuration&rdquo; is the term used in GoCD for the configuration which allows a GoCD administrator to configure the kind of authentication and authorization used by it. GoCD can be setup to use multiple authorization configurations at the same time.</p>
-
 <p>Note: The order of the configurations matters. They will be tried from the first one to the last one and each authorization configuration will be given a chance to authenticate a user, when a user tries to log in. If the user is successfully allowed by one of the configurations, then the following configurations will not be used.</p>
-
 <p>Consider the example image below:</p>
-
-<p><img src="../images/user_authentication_multiple_configurations.png" alt="Shows two authorization configurations" /></p>
-
+<p><img src="../images/user_authentication_multiple_configurations.png" alt="Shows two authorization configurations"></p>
 <p>In this example, the password file authentication method will be tried first. If that succeeds, the user will be allowed to log in. If not, the LDAP authentication method will be tried next. If that succeeds, the user will be allowed to log in. If not, the user will be disallowed from logging in.</p>
-
 <h2 id="built-in-methods-of-authentication">Built-in methods of authentication</h2>
-
 <h3 id="password-file-authentication">Password-file authentication</h3>
-
 <ol>
-<li><p>Create an authorization configuration, by going to the &ldquo;Admin&rdquo; menu and then into &ldquo;Security&rdquo; and then &ldquo;Authorization Configuration&rdquo;.</p></li>
-
-<li><p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;Password File Authentication Plugin for GoCD&rdquo;.</p></li>
-
-<li><p>Provide the path to a password file on the GoCD server.</p></li>
-
-<li><p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p></li>
+<li>
+<p>Create an authorization configuration, by going to the &ldquo;Admin&rdquo; menu and then into &ldquo;Security&rdquo; and then &ldquo;Authorization Configuration&rdquo;.</p>
+</li>
+<li>
+<p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;Password File Authentication Plugin for GoCD&rdquo;.</p>
+</li>
+<li>
+<p>Provide the path to a password file on the GoCD server.</p>
+</li>
+<li>
+<p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p>
+</li>
 </ol>
-
 <p>The <a href="https://github.com/gocd/gocd-filebased-authentication-plugin#readme">password file plugin&rsquo;s documentation</a> has information about the values that can go into a password file.</p>
-
-<p><img src="../images/user_authentication_password_file.png" alt="User authentication using password file" /></p>
-
-<h3 id="ldap-ad-authentication">LDAP/AD authentication</h3>
-
+<p><img src="../images/user_authentication_password_file.png" alt="User authentication using password file"></p>
+<h3 id="ldapad-authentication">LDAP/AD authentication</h3>
 <ol>
-<li><p>Create an authorization configuration, by going to the &ldquo;Admin&rdquo; menu and then into &ldquo;Security&rdquo; and then &ldquo;Authorization Configuration&rdquo;.</p></li>
-
-<li><p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;LDAP Authentication Plugin for GoCD&rdquo;.</p></li>
-
-<li><p>Provide the appropriate values for your LDAP server. You might need to talk to the LDAP/AD server administrator at your organization to get the right values.</p></li>
-
-<li><p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p></li>
+<li>
+<p>Create an authorization configuration, by going to the &ldquo;Admin&rdquo; menu and then into &ldquo;Security&rdquo; and then &ldquo;Authorization Configuration&rdquo;.</p>
+</li>
+<li>
+<p>Click on &ldquo;Add&rdquo; and provide any identifier (ID) for the configuration and then choose &ldquo;LDAP Authentication Plugin for GoCD&rdquo;.</p>
+</li>
+<li>
+<p>Provide the appropriate values for your LDAP server. You might need to talk to the LDAP/AD server administrator at your organization to get the right values.</p>
+</li>
+<li>
+<p>Specify allow only known users to login field. <a href="dev_authentication.html#controlling-user-access">Learn more</a></p>
+</li>
 </ol>
-
 <p>The <a href="https://github.com/gocd/gocd-ldap-authentication-plugin#readme">LDAP authentication plugin&rsquo;s documentation</a> has more information about the configuration.</p>
-
-<p><img src="../images/user_authentication_ldap.png" alt="User authentication using LDAP" /></p>
-
+<p><img src="../images/user_authentication_ldap.png" alt="User authentication using LDAP"></p>
 <p>It you&rsquo;ve installed any other plugins, they will also be available at the &ldquo;Authorization Configuration&rdquo; page, ready to be setup.</p>
-
 <h2 id="configurable-properties">Configurable properties</h2>
-
 <p>You can use one or more of the below to tweak settings such as the session configuration:</p>
-
 <table>
 <thead>
 <tr>
@@ -396,26 +375,22 @@ if (!doNotTrack) {
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>go.server.session.timeout.seconds</code></td>
 <td><code>1209600</code> (14 days)</td>
 <td>Idle session timeout (in seconds). Do not set this to <code>-1</code> else the session will never timeout.</td>
 </tr>
-
 <tr>
 <td><code>go.sessioncookie.maxage.seconds</code></td>
 <td><code>1209600</code> (14 days)</td>
 <td>Expiry of a session cookie. Set to <code>-1</code> to expire the cookie on browser close. Do not set to <code>0</code> as this will cause the cookie to expire immediately.</td>
 </tr>
-
 <tr>
 <td><code>go.sessioncookie.secure</code></td>
 <td><code>N</code></td>
 <td>Set this to <code>Y</code> to allow a session cookie to be set only if the request was made over HTTPS. Do not set this property if the users access GoCD via HTTP url</td>
 </tr>
-
 <tr>
 <td><code>go.security.reauthentication.interval</code></td>
 <td><code>1800000</code> (30 mins in milliseconds)</td>
@@ -423,27 +398,20 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
 <p>See <a href="../advanced_usage/other_config_options.html">the &ldquo;Other config options&rdquo; page</a> for instructions around setting these system property values.</p>
-
 <h2 id="controlling-user-access">Controlling User Access</h2>
-
 <p>GoCD checks if an authenticated user is an existing user or a new user (logging in for the first time). For new users, there are two behaviors GoCD can operate under:</p>
-
 <ul>
 <li>Automatically register the new user in GoCD and continue with the login process.</li>
 <li>Deny access to the user if not already a registered GoCD user. New users will have to be <a href="./managing_users.html#adding-users">explicitly added</a> by an admin.</li>
 </ul>
-
 <p>To switch the mode in which the GoCD Server operates:</p>
-
 <ol>
 <li>Login to GoCD as an admin</li>
 <li>Navigate to the &ldquo;Authorization Configuration&rdquo; section</li>
 <li>Set the &ldquo;Allow only known users to login&rdquo; for desired authorization configuration.</li>
 </ol>
-
-<p><img src="../images/user_authentication_auto_login.png" alt="" /></p>
+<p><img src="../images/user_authentication_auto_login.png" alt=""></p>
 </article>
 
       
@@ -484,18 +452,16 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#authentication">Authentication</a>
-<ul>
-<li><a href="#built-in-methods-of-authentication">Built-in methods of authentication</a>
-<ul>
-<li><a href="#password-file-authentication">Password-file authentication</a></li>
-<li><a href="#ldap-ad-authentication">LDAP/AD authentication</a></li>
-</ul></li>
-<li><a href="#configurable-properties">Configurable properties</a></li>
-<li><a href="#controlling-user-access">Controlling User Access</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#built-in-methods-of-authentication">Built-in methods of authentication</a>
+      <ul>
+        <li><a href="#password-file-authentication">Password-file authentication</a></li>
+        <li><a href="#ldapad-authentication">LDAP/AD authentication</a></li>
+      </ul>
+    </li>
+    <li><a href="#configurable-properties">Configurable properties</a></li>
+    <li><a href="#controlling-user-access">Controlling User Access</a></li>
+  </ul>
 </nav>
   </aside>
 

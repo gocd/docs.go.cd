@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,22 +320,19 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="upgrading-gocd">Upgrading GoCD</h1>
-
+<article class="markdown"><h1 id="upgrading-gocd">Upgrading GoCD</h1>
 <p>The steps in this page can be followed to upgrade GoCD. It is recommended to understand any <a href="https://www.gocd.org/releases/">breaking changes</a> between the releases to see if they impact your upgrades in any way.</p>
-
 <h3 id="before-you-start">Before you start</h3>
-
 <ul>
-<li>Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under <em>Admin &gt; Server Maintenance Mode</em></li>
-<li>Navigate to the backup page under <em>Admin &gt; Backups</em> and take a backup. This may take several minutes, depending on the size of your GoCD database and configuration.</li>
-
-<li><p>The GoCD server acts as a repository for all your build artifacts. While it is not essential to backup the artifacts before an upgrade, it is good practice to make regular backups of this directory.</p>
-
+<li>
+<p>Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under <em>Admin &gt; Server Maintenance Mode</em></p>
+</li>
+<li>
+<p>Navigate to the backup page under <em>Admin &gt; Backups</em> and take a backup. This may take several minutes, depending on the size of your GoCD database and configuration.</p>
+</li>
+<li>
+<p>The GoCD server acts as a repository for all your build artifacts. While it is not essential to backup the artifacts before an upgrade, it is good practice to make regular backups of this directory.</p>
 <p>You can configure where GoCD stores build artifacts. The following are the default locations of the artifacts if you have not customized its location:</p>
-
 <table>
 <thead>
 <tr>
@@ -351,51 +340,38 @@ if (!doNotTrack) {
 <th>Location</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Linux</td>
 <td><code>/var/lib/go-server/artifacts</code></td>
 </tr>
-
 <tr>
 <td>Windows, Mac OS X</td>
 <td><code>${GOCD_INSTALL_DIR}/artifacts</code></td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ul>
-
 <h3 id="upgrading-to-the-new-version">Upgrading to the new version</h3>
-
 <p>You do not need to stop the Agents to perform an upgrade. GoCD agents will automatically update to the correct version of the software. You do not need to upgrade the GoCD agents. Any builds in progress will be rescheduled, and the existing pipelines will complete as expected. We ensure that the installed server will remain compatible with a version of a GoCD agent that is atleast 1 year old.</p>
-
 <p>GoCD will perform upgrades of its configuration and database when it starts. This process may take some time for installations with a large number of historical builds (10 to 15 minutes on very large installations). If you suspect that there is a problem with the upgrade, check the go-server.log to see if there are any reported errors. This is a one-time migration and subsequent restarts will be much faster.</p>
-
 <h4 id="windows">Windows</h4>
-
 <p>Run the GoCD installer. Make sure that you specify the same directory as your previously installed version.</p>
-
 <p>If you have changed the GoCD Server Windows service to run as a different user, you will need to repeat this configuration change.</p>
-
 <p>The installer will automatically start the service. Once GoCD completes its internal data changes, you should be able to see the GoCD webpage. Any existing Agents should automatically reconnect. Any builds in progress should continue, or be rescheduled.</p>
-
 <h4 id="linux">Linux</h4>
-
-<h4 id="debian-based-distributions-i-e-ubuntu">Debian based distributions (i.e. Ubuntu)</h4>
-
+<h4 id="debian-based-distributions-ie-ubuntu">Debian based distributions (i.e. Ubuntu)</h4>
 <p>Run the GoCD installer as described</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo dpkg -i /path/to/go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
 <span style="color:#080;font-style:italic"># OR</span>
 sudo apt-get update
-sudo apt-get install go-server</code></pre></div>
-<h4 id="rpm-based-distributions-i-e-redhat">RPM based distributions (i.e. RedHat)</h4>
-
+sudo apt-get install go-server
+</code></pre></div><h4 id="rpm-based-distributions-ie-redhat">RPM based distributions (i.e. RedHat)</h4>
 <p>Run the GoCD installer as described</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo rpm -Uvh /path/to/go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
-sudo yum upgrade go-server</code></pre></div>
-<h4 id="macintosh-osx">Macintosh OSX</h4>
-
+sudo yum upgrade go-server
+</code></pre></div><h4 id="macintosh-osx">Macintosh OSX</h4>
 <p>The Macintosh OSX edition of Go does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.</p>
 </article>
 
@@ -437,23 +413,14 @@ sudo yum upgrade go-server</code></pre></div>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#upgrading-gocd">Upgrading GoCD</a>
-<ul>
-<li>
-<ul>
-<li><a href="#before-you-start">Before you start</a></li>
-<li><a href="#upgrading-to-the-new-version">Upgrading to the new version</a>
-<ul>
-<li><a href="#windows">Windows</a></li>
-<li><a href="#linux">Linux</a></li>
-<li><a href="#debian-based-distributions-i-e-ubuntu">Debian based distributions (i.e. Ubuntu)</a></li>
-<li><a href="#rpm-based-distributions-i-e-redhat">RPM based distributions (i.e. RedHat)</a></li>
-<li><a href="#macintosh-osx">Macintosh OSX</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#before-you-start">Before you start</a></li>
+        <li><a href="#upgrading-to-the-new-version">Upgrading to the new version</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

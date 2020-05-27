@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,91 +320,52 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-value-stream-map">GoCD Value Stream Map</h1>
-
+<article class="markdown"><h1 id="gocd-value-stream-map">GoCD Value Stream Map</h1>
 <h2 id="introduction">Introduction</h2>
-
 <p>Value Stream Map helps you visualize your CI/CD workflow. With a single click, it allows you to trace a commit from when it is checked in up to when it is deployed.</p>
-
-<p><img src="../images/whole_map.png" alt="" /></p>
-
+<p><img src="../images/whole_map.png" alt=""></p>
 <p>A value stream map can be drawn for every instance of a pipeline. It provides you with the ability to:</p>
-
 <ul>
 <li>See what caused the current pipeline to be triggered.</li>
 <li>See what downstream pipelines were triggered by the current pipeline.</li>
 <li>See the status of the current pipeline and all its upstream and downstream dependencies.</li>
 <li>See changes in dependencies of the pipeline across different runs of it.</li>
 </ul>
-
 <p>Along with all this, it also allows you to easily debug problems when a dependency/configuration change caused your build-test-release setup to break.</p>
-
 <h2 id="understanding-the-value-stream-map">Understanding the Value Stream Map</h2>
-
 <p>The Value Stream Map is laid out as an end-to-end dependency graph. The graph originates from source control materials and flows from left to right.</p>
-
 <p>The pipeline instance for which the Value Stream Map is being viewed is the main pipeline and is highlighted. Everything to the left of this pipeline are its upstream dependencies, ie all the materials that have contributed to this instance. Everything to the right are its downstream dependencies, ie, all the pipelines that it can potentially trigger or contribute to.</p>
-
-<p><img src="../images/upstream_and_downstream.png" alt="" /></p>
-
+<p><img src="../images/upstream_and_downstream.png" alt=""></p>
 <h3 id="upstream-dependencies">Upstream Dependencies</h3>
-
 <p>The upstream dependencies of the main pipeline are taken from history and show all the source control and pipeline dependency materials that have contributed to the main pipeline. Even when the GoCD Configuration changes after a certain instance of a pipeline, its upstream dependency graph will continue to reflect the older configuration with which it was run. This also means that it would display pipelines that do not exist in the configuration any more.</p>
-
 <p>Let us assume that instance &lsquo;1&rsquo; of pipeline &lsquo;Build&rsquo; is as below</p>
-
-<p><img src="../images/upstream.png" alt="" /></p>
-
+<p><img src="../images/upstream.png" alt=""></p>
 <p>If the configuration changes to replace the pipeline &lsquo;Services&rsquo; with 2 pipelines - &lsquo;Service-1&rsquo; and &lsquo;Service-2&rsquo;, the next instance of pipeline &lsquo;Build&rsquo; would reflect the change.</p>
-
-<p><img src="../images/upstream_config_changed.png" alt="" /></p>
-
+<p><img src="../images/upstream_config_changed.png" alt=""></p>
 <p>Value Stream Map of pipeline &lsquo;Build&rsquo; with counter &lsquo;1&rsquo; would look as below</p>
-
-<p><img src="../images/upstream_pipeline_deleted.png" alt="" /></p>
-
+<p><img src="../images/upstream_pipeline_deleted.png" alt=""></p>
 <h3 id="downstream-dependencies">Downstream Dependencies</h3>
-
 <p>The downstream dependencies of the main pipeline instance indicate what can happen with it. This information is always taken from the latest configuration. Pipelines that have not run yet are also shown</p>
-
-<p><img src="../images/downstream_unrun_instance.png" alt="" /></p>
-
+<p><img src="../images/downstream_unrun_instance.png" alt=""></p>
 <p>If Environment-1 is removed from the configuration, the Value Stream Map for the same instance of &lsquo;Build&rsquo; would look as below.</p>
-
-<p><img src="../images/downstream_pipeline_deleted.png" alt="" /></p>
-
+<p><img src="../images/downstream_pipeline_deleted.png" alt=""></p>
 <h3 id="multiple-pipeline-instances">Multiple Pipeline Instances</h3>
-
 <p>A pipeline could be re-triggered multiple times with the same revision. In such cases, all the instances are shown in descending order against that pipeline. In the below example, &lsquo;Deploy&rsquo; has been triggered thrice with counter &lsquo;2&rsquo; of pipeline &lsquo;FunctionalTests&rsquo;.</p>
-
-<p><img src="../images/multiple_instances.png" alt="" /></p>
-
+<p><img src="../images/multiple_instances.png" alt=""></p>
 <h3 id="viewing-the-value-stream-map">Viewing the Value Stream Map</h3>
-
 <p>Every pipeline label in GoCD directs you to the value stream map of that instance of the pipeline.</p>
-
-<p><img src="../images/navigation.png" alt="" /></p>
-
+<p><img src="../images/navigation.png" alt=""></p>
 <p>You can access Value Stream Map for a commit in 2 ways:</p>
-
-<p><img src="../images/vsm_commit_1.png" alt="" />
-<img src="../images/vsm_commit_2.png" alt="" /></p>
-
+<p><img src="../images/vsm_commit_1.png" alt="">
+<img src="../images/vsm_commit_2.png" alt=""></p>
 <h3 id="permissions">Permissions</h3>
-
 <p>The permissions required to view a value stream map are as follows:</p>
-
 <ul>
 <li>GoCD Administrators have access to the value stream maps of all the pipelines that are configured.</li>
 <li>Users with view permissions for a pipeline will be able to view the value stream map for all instances of that pipeline.</li>
 </ul>
-
 <p>However, there is one special case to be noted where the pipeline details might not be shown completely. If the user does not have view permissions for a pipeline in the Value Stream Map, its details, like the stages and instances run will not be shown.</p>
-
-<p><img src="../images/no_view_permissions.png" alt="" /></p>
-
+<p><img src="../images/no_view_permissions.png" alt=""></p>
 <p>If you are using Internet Explorer as your browser please note that Value Stream Map is supported with only versions 9 and above.</p>
 </article>
 
@@ -454,20 +407,18 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-value-stream-map">GoCD Value Stream Map</a>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#understanding-the-value-stream-map">Understanding the Value Stream Map</a>
-<ul>
-<li><a href="#upstream-dependencies">Upstream Dependencies</a></li>
-<li><a href="#downstream-dependencies">Downstream Dependencies</a></li>
-<li><a href="#multiple-pipeline-instances">Multiple Pipeline Instances</a></li>
-<li><a href="#viewing-the-value-stream-map">Viewing the Value Stream Map</a></li>
-<li><a href="#permissions">Permissions</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#understanding-the-value-stream-map">Understanding the Value Stream Map</a>
+      <ul>
+        <li><a href="#upstream-dependencies">Upstream Dependencies</a></li>
+        <li><a href="#downstream-dependencies">Downstream Dependencies</a></li>
+        <li><a href="#multiple-pipeline-instances">Multiple Pipeline Instances</a></li>
+        <li><a href="#viewing-the-value-stream-map">Viewing the Value Stream Map</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

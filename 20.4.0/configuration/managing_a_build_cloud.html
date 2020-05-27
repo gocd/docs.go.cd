@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,110 +320,60 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="managing-gocd-agents">Managing GoCD agents</h1>
-
+<article class="markdown"><h1 id="managing-gocd-agents">Managing GoCD agents</h1>
 <p>GoCD is designed to make managing a build cloud extremely simple. This page takes you through the lifecycle of expanding your cloud and maintaining your agents.</p>
-
 <h2 id="adding-a-gocd-agent-to-your-cloud">Adding a GoCD agent to your cloud</h2>
-
 <p>The first thing you need to do is <a href="../installation/installing_go_agent.html">install Go agent</a> on the machine you want to add to the cloud.</p>
-
 <p>Once the GoCD agent has been installed and pointed at your GoCD server, go to the <em>Agents</em> tab on the GoCD dashboard. You should see something like this:</p>
-
-<p><img src="../images/enable_agent.png" alt="" /></p>
-
+<p><img src="../images/enable_agent.png" alt=""></p>
 <p>Note that the hostname is as reported by the agent, and the IP address is as reported by the server.</p>
-
 <p>To add the agent to the cloud, click &ldquo;Enable&rdquo;. Note that even after you have clicked &ldquo;Enable&rdquo;, the agent will not be enabled until it next contacts the server &ndash; so if your agent has stopped talking to the server, nothing will happen.</p>
-
 <p>Once your agent has successfully been enabled, it should no longer appear greyed out and will and be marked &ldquo;idle&rdquo;. At this point your agent will automatically begin picking up jobs. Agents will automatically check out any code they need in order to start running jobs.</p>
-
 <h2 id="matching-jobs-to-agents">Matching jobs to agents</h2>
-
 <p>In its default state, GoCD server will assign scheduled jobs to the first available agent. GoCD doesn&rsquo;t have the ability to determine what operating system or other resources are present on a given agent. If you want particular jobs to run on particular agents, you&rsquo;ll need to specify <strong>resources</strong> .</p>
-
 <p>You can specify one or more resources that a particular job needs in order to execute. In the same way, you can specify that an agent has one or more resources. Go will then match jobs to agents, such that a job will only run on agents which have at least the resources required for that job.</p>
-
 <p>Resources are just plain text tags. There are no preset tags or conventions around tagging &ndash; just use what makes sense to you. You might, for example, use operating systems as tags: &ldquo;RHEL linux&rdquo;, &ldquo;Windows XP&rdquo;. You could also use browsers, databases, or whatever else makes sense. We recommend you let your classification be driven by your jobs &ndash; if you know that certain jobs will only work on certain machines, tag the jobs with the special resource or resources that job needs in order to work, and then classify the agents accordingly.</p>
-
 <blockquote>
 <p>Note: Resource matching is case-insensitive.</p>
 </blockquote>
-
 <p>To specify the resources that a job needs, go to the <strong>Pipelines configuration</strong> section of the <em>Admin &gt; Pipelines</em> tab tab and edit the job that you want to specify resources for:</p>
-
-<p><img src="../images/edit_job_resources.png" alt="" /></p>
-
+<p><img src="../images/edit_job_resources.png" alt=""></p>
 <p>Once you&rsquo;ve specified the resources your jobs need, you&rsquo;ll want to describe the resources your agents have. You can do this very easily in the <em>Agents</em> tab. Just select the agents you want to describe, and click on the <strong>Resources</strong> button.</p>
-
-<h3 id="associate-selected-agent-s-with-a-newly-created-resource">Associate selected agent(s) with a newly created resource</h3>
-
+<h3 id="associate-selected-agents-with-a-newly-created-resource">Associate selected agent(s) with a newly created resource</h3>
 <p>Enter the name of the new resource and click the &ldquo;Add&rdquo; button.</p>
-
-<p><img src="../images/associate_agent_resources_new.png" alt="" /></p>
-
-<h3 id="associate-selected-agent-s-with-existing-resources">Associate selected agent(s) with existing resources</h3>
-
+<p><img src="../images/associate_agent_resources_new.png" alt=""></p>
+<h3 id="associate-selected-agents-with-existing-resources">Associate selected agent(s) with existing resources</h3>
 <p>All existing resources across your agents and jobs will appear in alphabetical order. Select one of three states for all resources you want to associate and then click the &ldquo;Apply&rdquo; button.</p>
-
 <ul>
 <li>A resource <strong>with a check</strong> will add the resource to all selected agents.</li>
 <li>A resource <strong>with a hyphen</strong> means some of your selected agents are associated to it. No change will occur after clicking &ldquo;Apply&rdquo;.</li>
 <li>A resource <strong>without a check</strong> will remove the resource from all selected agents.</li>
 </ul>
-
-<p><img src="../images/associate_agent_resources_existing.png" alt="" /></p>
-
+<p><img src="../images/associate_agent_resources_existing.png" alt=""></p>
 <h2 id="agent-states">Agent states</h2>
-
 <p>GoCD will tell you if it loses touch with agents. If GoCD server doesn&rsquo;t hear from an agent for two minutes, the agent will turn red in the <em>Agents</em> tab, and GoCD will tell you the last time it heard from the agent. GoCD will also transparently re-assign the build to the next available agent that can run it, if the lost agent was building a job.</p>
-
 <p>GoCD will also let you know if one of the agents it knows about has never contacted it since GoCD server was last started. In this case, the agent&rsquo;s state will be marked as &ldquo;missing&rdquo; and it will be gray.</p>
-
 <p>If an agent is working on a job, it will turn orange, and display the name of the job it is working on. You can click on the job description to go to the job details page for that job:</p>
-
 <h2 id="removing-agents">Removing agents</h2>
-
 <p>If you want to remove an agent from GoCD&rsquo;s build cloud, go to the agents tab, locate the agent you want to remove, and click on the button marked &ldquo;Disable&rdquo;. GoCD will record in its configuration that this agent should be excluded from the build cloud. If you restart Go server, the agent will continue to be disabled. Disabled agents do not count towards GoCD&rsquo;s licensed agents.</p>
-
 <p>To permanently remove an agent from Go&rsquo;s configuration, you can use the <a href="https://api.gocd.org/#agents">agent api</a> or delete from the agents tab. The agent must be disabled before it can be deleted</p>
-
 <p>Following this procedure, if you restart the agent, GoCD server will see it as a new agent, and you can enable it again in the same way as described above.</p>
-
-<p><img src="../images/delete_agent.png" alt="" /></p>
-
+<p><img src="../images/delete_agent.png" alt=""></p>
 <h2 id="pausing-agents">Pausing agents</h2>
-
 <p>If you want to pause an agent or temporarily disable it so that GoCD server will not assign work to the agent. GoCD will record in its configuration file that the agent has been disabled. This means, if you restart GoCD server, the disabled agent will remain disabled. You can use the following api to <a href="https://api.gocd.org/current/#update-an-agent">disable agents</a> or you can disable the agent from the agents tab.</p>
-
 <p>A disabled agent can be enabled; this will make it eligible to pick up work again. You can use the api or enable an agent from the agents tab.</p>
-
-<p><img src="../images/disable_agent.png" alt="" /></p>
-
+<p><img src="../images/disable_agent.png" alt=""></p>
 <h2 id="details-of-a-single-agent">Details of a single agent</h2>
-
 <p>GoCD now provides a page that shows the details of a single agent. This page provides details about the agent configuration and the history of all the jobs that ran on that agent.</p>
-
 <h3 id="agent-details-tab">Agent Details tab</h3>
-
 <p>This tab shows the configuration and runtime information of an agent. For example, this tab shows the free space available on the agent, the IP Address and the OS of the agent.</p>
-
 <p>In terms of configuration, this tab shows the resources of the agent and the environment it belongs to. A sample Details tab looks as below:</p>
-
-<p><img src="../images/agent_details.png" alt="" /></p>
-
+<p><img src="../images/agent_details.png" alt=""></p>
 <h3 id="job-run-history-tab">Job Run History tab</h3>
-
 <p>You must be logged in as an admin user to configure this step.</p>
-
 <p>This tab shows a table of all the completed jobs that ran on this agent. A sample page is shown below</p>
-
-<p><img src="../images/agent_job_history.png" alt="" /></p>
-
+<p><img src="../images/agent_job_history.png" alt=""></p>
 <p>For every job, the following columns are shown:</p>
-
 <ol>
 <li>Pipeline: The pipeline to which the job belongs to</li>
 <li>Stage: The stage to which the job belongs to</li>
@@ -440,22 +382,16 @@ if (!doNotTrack) {
 <li>Completed: The date when the Job completed</li>
 <li>Duration: The duration that the Job took to finish - from scheduled till completed.</li>
 </ol>
-
 <p>The job listing table can be sorted on any column, except for the Duration column.</p>
-
 <h3 id="using-agent-details-to-debug-agent-issues">Using Agent details to debug agent issues</h3>
-
 <p>This page is useful to figure out if there are agent issues and hence a certain job keeps failing on that agent.</p>
-
 <p>Consider a job which runs functional tests for a web application that need a browser to be available. The job was passing so far and only recently it has started to fail intermittently. Here are the steps you can follow to figure out if this is an agent issue.</p>
-
 <ol>
 <li>Navigate to the job details page of the given job that failed.</li>
 <li>Locate the &ldquo;Agent&rdquo; label and click on the link to the agent</li>
 <li>Navigate to the &ldquo;Job Run History&rdquo; tab</li>
 <li>Sort on the Job Name and locate the job that just navigated from</li>
 </ol>
-
 <p>You&rsquo;d notice that the job started to fail recently. You can even see if there are other jobs that have started failing around the same time by now sorting on the Completed date.</p>
 </article>
 
@@ -497,26 +433,25 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#managing-gocd-agents">Managing GoCD agents</a>
-<ul>
-<li><a href="#adding-a-gocd-agent-to-your-cloud">Adding a GoCD agent to your cloud</a></li>
-<li><a href="#matching-jobs-to-agents">Matching jobs to agents</a>
-<ul>
-<li><a href="#associate-selected-agent-s-with-a-newly-created-resource">Associate selected agent(s) with a newly created resource</a></li>
-<li><a href="#associate-selected-agent-s-with-existing-resources">Associate selected agent(s) with existing resources</a></li>
-</ul></li>
-<li><a href="#agent-states">Agent states</a></li>
-<li><a href="#removing-agents">Removing agents</a></li>
-<li><a href="#pausing-agents">Pausing agents</a></li>
-<li><a href="#details-of-a-single-agent">Details of a single agent</a>
-<ul>
-<li><a href="#agent-details-tab">Agent Details tab</a></li>
-<li><a href="#job-run-history-tab">Job Run History tab</a></li>
-<li><a href="#using-agent-details-to-debug-agent-issues">Using Agent details to debug agent issues</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#adding-a-gocd-agent-to-your-cloud">Adding a GoCD agent to your cloud</a></li>
+    <li><a href="#matching-jobs-to-agents">Matching jobs to agents</a>
+      <ul>
+        <li><a href="#associate-selected-agents-with-a-newly-created-resource">Associate selected agent(s) with a newly created resource</a></li>
+        <li><a href="#associate-selected-agents-with-existing-resources">Associate selected agent(s) with existing resources</a></li>
+      </ul>
+    </li>
+    <li><a href="#agent-states">Agent states</a></li>
+    <li><a href="#removing-agents">Removing agents</a></li>
+    <li><a href="#pausing-agents">Pausing agents</a></li>
+    <li><a href="#details-of-a-single-agent">Details of a single agent</a>
+      <ul>
+        <li><a href="#agent-details-tab">Agent Details tab</a></li>
+        <li><a href="#job-run-history-tab">Job Run History tab</a></li>
+        <li><a href="#using-agent-details-to-debug-agent-issues">Using Agent details to debug agent issues</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

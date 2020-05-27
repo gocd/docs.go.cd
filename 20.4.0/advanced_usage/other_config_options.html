@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,37 +320,25 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="other-config-options">Other config options</h1>
-
+<article class="markdown"><h1 id="other-config-options">Other config options</h1>
 <p>This is a list of some of the more advanced configuration options available.
 These will typically need to be set before the start of the GoCD Server, unless
 specified.</p>
-
 <h3 id="system-properties">System properties</h3>
-
 <p>If an option specified below is of type &ldquo;System property&rdquo;, then it will be a
 Java system property, which needs to be provided to the GoCD Server, typically
 prefixed with <code>-D</code> unless otherwise stated. So, if the property is called
 <code>my.new.property</code> and the value that needs to be set is <code>true</code>, then the
 Java system property to be used will be <code>-Dmy.new.property=true</code>. Notice the
 lack of a space between the <code>-D</code> and the property name.</p>
-
 <p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> on the GoCD server. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
-
 <h2 id="options">Options</h2>
-
-<p><a id='cruise-listen-host'></a></p>
-
-<h3 id="cruise-listen-host-the-host-that-the-gocd-server-should-bind-to"><code>cruise.listen.host</code> - The host that the GoCD Server should bind to</h3>
-
+<h3 id="cruise-listen-host"><code>cruise.listen.host</code> - The host that the GoCD Server should bind to</h3>
 <ul>
 <li>Name: <code>cruise.listen.host</code></li>
 <li>Type: <a href="#system-properties">System property</a></li>
 <li>Restrictions: Should be a valid, bind-able IP address</li>
 </ul>
-
 <p>The GoCD Server opens a listening socket, so that it can serve pages to users and
 GoCD Agents. It needs to listen on a specific host. This host determines which
 clients (users as well as GoCD Agents) can access the GoCD Server. By default, the
@@ -367,83 +347,54 @@ Usually, this means that the GoCD Server can be accessed through any network
 interface. In some, more advanced networking setups, it might be needed to
 override this, typically to 127.0.0.1, so that only clients local to the box can
 access it.</p>
-
-<p><a id='cruise-server-port'></a></p>
-
-<h3 id="cruise-server-port-http-port-for-the-go-server"><code>cruise.server.port</code> - HTTP port for the Go Server</h3>
-
+<h3 id="cruise-server-por"><code>cruise.server.port</code> - HTTP port for the Go Server</h3>
 <ul>
 <li>Name: <code>cruise.server.port</code></li>
 <li>Type: <a href="#system-properties">System property</a></li>
 <li>Restrictions: Should be the number of a valid port that is not used by another
 process</li>
 </ul>
-
 <p>Similar to the <a href="#cruise-listen-host"><code>cruise.listen.host</code></a> property, the value of
 this property determines which port the Go Server binds to, and accepts HTTP
 connections from. If not overridden, it is set to <code>8153</code>.</p>
-
-<p><a id='cruise-server-ssl-port'></a></p>
-
-<h3 id="cruise-server-ssl-port-https-port-for-the-go-server"><code>cruise.server.ssl.port</code> - HTTPS port for the Go Server</h3>
-
+<h3 id="cruise-server-ssl-port"><code>cruise.server.ssl.port</code> - HTTPS port for the Go Server</h3>
 <ul>
 <li>Name: <code>cruise.server.ssl.port</code></li>
 <li>Type: <a href="#system-properties">System property</a></li>
 <li>Restrictions: Should be the number of a valid port that is not used by another
 process</li>
 </ul>
-
 <p>Similar to the <a href="#cruise-listen-host">cruise.listen.host</a> property, the value of
 this property determines which port the Go Server binds to, and accepts HTTPS
 connections from. If not overridden, it is set to <code>8154</code>.</p>
-
-<p><a id='cruise-config-dir'></a></p>
-
-<h3 id="cruise-config-dir-location-of-the-configuration-files"><code>cruise.config.dir</code> - Location of the configuration files</h3>
-
+<h3 id="cruise-config-dir"><code>cruise.config.dir</code> - Location of the configuration files</h3>
 <ul>
 <li>Name: <code>cruise.config.dir</code></li>
 <li>Type: <a href="#system-properties">System property</a></li>
 <li>Restrictions: Should be the directory, writeable by the Go Server process</li>
 </ul>
-
 <p>Though not used often, this property can be used to change the location of the
 Go Server&rsquo;s config directory.</p>
-
 <p>Changing this could have an impact on the ability to upgrade the Go Server, and
 so, it&rsquo;s not recommended to change this.</p>
-
-<p><a id='go-spa-refresh-interval'></a></p>
-
-<h3 id="go-spa-refresh-interval-gocd-spa-pages-refresh-interval-time"><code>go.spa.refresh.interval</code> - GoCD SPA pages refresh interval time</h3>
-
+<h3 id="go-spa-refresh-interval"><code>go.spa.refresh.interval</code> - GoCD SPA pages refresh interval time</h3>
 <ul>
 <li>Name: <code>go.spa.refresh.interval</code></li>
 <li>Type: <a href="#system-properties">System property</a></li>
 <li>Restrictions: Should be the time duration specified in milliseconds</li>
 <li>Default: <code>10000</code></li>
 </ul>
-
 <p>The GoCD pages are refreshed periodically to ensure they have upto date information.</p>
-
 <p>This property can be used to change the time interval at which these GoCD pages should be refreshed.</p>
-
 <p>Setting this to a lower value (&lt;= 5000) could have a performance impact on the GoCD server.</p>
-
-<p><a id='go-spa-timeout'></a></p>
-
-<h3 id="go-spa-timeout-gocd-spa-pages-request-timeout"><code>go.spa.timeout</code>     - GoCD SPA pages request timeout</h3>
-
+<h3 id="go-spa-timeout"><code>go.spa.timeout</code>	 - GoCD SPA pages request timeout</h3>
 <ul>
 <li>Name: <code>go.spa.timeout</code></li>
 <li>Type: <a href="#system-properties">System property</a></li>
 <li>Restrictions: Should be the time duration specified in milliseconds</li>
 <li>Default: <code>60000</code></li>
 </ul>
-
 <p>This property can be used to change the timeout value of AJAX requests made from the GoCD pages.</p>
-
 <p>Setting this to a very low value (ie. &lt;5000) could result in AJAX requests being cancelled more frequently.</p>
 </article>
 
@@ -485,24 +436,23 @@ so, it&rsquo;s not recommended to change this.</p>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#other-config-options">Other config options</a>
-<ul>
-<li>
-<ul>
-<li><a href="#system-properties">System properties</a></li>
-</ul></li>
-<li><a href="#options">Options</a>
-<ul>
-<li><a href="#cruise-listen-host-the-host-that-the-gocd-server-should-bind-to"><code>cruise.listen.host</code> - The host that the GoCD Server should bind to</a></li>
-<li><a href="#cruise-server-port-http-port-for-the-go-server"><code>cruise.server.port</code> - HTTP port for the Go Server</a></li>
-<li><a href="#cruise-server-ssl-port-https-port-for-the-go-server"><code>cruise.server.ssl.port</code> - HTTPS port for the Go Server</a></li>
-<li><a href="#cruise-config-dir-location-of-the-configuration-files"><code>cruise.config.dir</code> - Location of the configuration files</a></li>
-<li><a href="#go-spa-refresh-interval-gocd-spa-pages-refresh-interval-time"><code>go.spa.refresh.interval</code> - GoCD SPA pages refresh interval time</a></li>
-<li><a href="#go-spa-timeout-gocd-spa-pages-request-timeout"><code>go.spa.timeout</code>     - GoCD SPA pages request timeout</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#system-properties">System properties</a></li>
+      </ul>
+    </li>
+    <li><a href="#options">Options</a>
+      <ul>
+        <li><a href="#cruise-listen-host"><code>cruise.listen.host</code> - The host that the GoCD Server should bind to</a></li>
+        <li><a href="#cruise-server-por"><code>cruise.server.port</code> - HTTP port for the Go Server</a></li>
+        <li><a href="#cruise-server-ssl-port"><code>cruise.server.ssl.port</code> - HTTPS port for the Go Server</a></li>
+        <li><a href="#cruise-config-dir"><code>cruise.config.dir</code> - Location of the configuration files</a></li>
+        <li><a href="#go-spa-refresh-interval"><code>go.spa.refresh.interval</code> - GoCD SPA pages refresh interval time</a></li>
+        <li><a href="#go-spa-timeout"><code>go.spa.timeout</code>	 - GoCD SPA pages request timeout</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

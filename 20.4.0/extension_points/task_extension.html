@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,26 +320,15 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="task-extension">Task Extension</h1>
-
+<article class="markdown"><h1 id="task-extension">Task Extension</h1>
 <h2 id="overview">Overview</h2>
-
 <p>GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you&rsquo;ll see something like this:</p>
-
-<p><img src="../images/1_Without_Curl.png" alt="" /></p>
-
+<p><img src="../images/1_Without_Curl.png" alt=""></p>
 <p>A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.</p>
-
 <p>For instance, you can find the source of a sample Curl plugin, <a href="https://github.com/gocd/sample-plugins/tree/master/curl-plugin">at this location</a>. Assuming you have the plugin installed, you&rsquo;ll see that the dropdown in the job configuration UI has changed to look like this:</p>
-
-<p><img src="../images/2_With_Curl.png" alt="" /></p>
-
+<p><img src="../images/2_With_Curl.png" alt=""></p>
 <p>When selected, the dialog box which allows you to configure details about the task looks like this:</p>
-
-<p><img src="../images/3_Curl_Form.png" alt="" /></p>
-
+<p><img src="../images/3_Curl_Form.png" alt=""></p>
 <p>In the configuration XML, the information entered for this task looks like this:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;task&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;curl.task.plugin&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -370,8 +351,8 @@ if (!doNotTrack) {
     <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;runif</span> <span style="color:#b44">status=</span><span style="color:#b44">&#34;passed&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/task&gt;</span></code></pre></div>
-<p>When a build which uses the plugin runs, the output of the build looks something like this:</p>
+<span style="color:#008000;font-weight:bold">&lt;/task&gt;</span>
+</code></pre></div><p>When a build which uses the plugin runs, the output of the build looks something like this:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>go<span style="color:#666">]</span> Start to execute task: Plugin with ID: curl.task.plugin.
 Launching command: <span style="color:#666">[</span>curl, -G, --insecure, -o, pipelines/up42/index.txt, http://www.google.com<span style="color:#666">]</span>
 Environment variables:
@@ -386,9 +367,9 @@ Environment variables:
 Dload  Upload   Total   Spent    Left  Speed
 
 <span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>      <span style="color:#666">0</span>      <span style="color:#666">0</span> --:--:-- --:--:-- --:--:--     <span style="color:#666">0</span>
-<span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>      <span style="color:#666">0</span>      <span style="color:#666">0</span> --:--:--  <span style="color:#666">0</span>:00:02 --:--:--     <span style="color:#666">0</span>
-<span style="color:#666">100</span>   <span style="color:#666">259</span>  <span style="color:#666">100</span>   <span style="color:#666">259</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">122</span>      <span style="color:#666">0</span>  <span style="color:#666">0</span>:00:02  <span style="color:#666">0</span>:00:02 --:--:--   <span style="color:#666">122</span></code></pre></div>
-<p>You can write a task plugin in GoCD using <a href="https://plugin-api.gocd.org/current/tasks/">JSON API - Message based</a></p>
+<span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>      <span style="color:#666">0</span>      <span style="color:#666">0</span> --:--:--  0:00:02 --:--:--     <span style="color:#666">0</span>
+<span style="color:#666">100</span>   <span style="color:#666">259</span>  <span style="color:#666">100</span>   <span style="color:#666">259</span>    <span style="color:#666">0</span>     <span style="color:#666">0</span>    <span style="color:#666">122</span>      <span style="color:#666">0</span>  0:00:02  0:00:02 --:--:--   <span style="color:#666">122</span>
+</code></pre></div><p>You can write a task plugin in GoCD using <a href="https://plugin-api.gocd.org/current/tasks/">JSON API - Message based</a></p>
 </article>
 
       
@@ -429,12 +410,9 @@ Dload  Upload   Total   Spent    Left  Speed
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#task-extension">Task Extension</a>
-<ul>
-<li><a href="#overview">Overview</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+  </ul>
 </nav>
   </aside>
 

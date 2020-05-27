@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,91 +320,55 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="pipelines-as-code">Pipelines as code</h1>
-
+<article class="markdown"><h1 id="pipelines-as-code">Pipelines as code</h1>
 <p>GoCD can store pipeline definitions in a source code repository (either in your application&rsquo;s repository, or in a separate repository). This way, you can keep your pipeline definitions out of GoCD and under version control, and manage them externally. A poller in the GoCD server will check periodically for modifications to your external pipeline definitions, and merge them with the pipeline data already present in GoCD&rsquo;s main XML configuration file. For a quick overview of this feature, see this <a href="https://www.youtube.com/watch?v=1AfBxCWRqD8&amp;feature=youtu.be">video</a>.</p>
-
 <p><em>Pipelines as code</em> is an optional feature. Any existing config in any GoCD server will remain valid.</p>
-
 <p><em>Pipelines as code</em> allows GoCD to monitor and merge in external pipeline definitions located in multiple &ldquo;config repositories&rdquo;. Pipelines from a config repository may depend on a pipeline defined in GoCD&rsquo;s main XML configuration file.</p>
-
 <p><em>Pipelines as code</em> is exposed as a plugin endpoint, and so, you can write a plugin for a config repository to store pipeline configuration data in any manner you choose.</p>
-
 <p>The following diagram shows how GoCD combines pipeline configuration data from multiple sources:</p>
-
-<p><img src="../images/advanced_usage/pipelines_as_code.png" alt="Pipelines as code" /></p>
-
+<p><img src="../images/advanced_usage/pipelines_as_code.png" alt="Pipelines as code"></p>
 <h3 id="a-note-about-infrastructure-as-code">A note about &ldquo;Infrastructure as code&rdquo;</h3>
-
 <p>&ldquo;Infrastructure as code&rdquo; is often equated exclusively to checking in configuration data to a source code repository. However, GoCD has always allowed configuration through code in various forms. For instance, <a href="https://github.com/SpringerSBM/gomatic">gomatic</a>, using <a href="https://api.gocd.org/current/">GoCD APIs</a>, <a href="https://github.com/grundic/yagocd">yagocd</a>, <a href="https://github.com/gaqzi/py-gocd">gocd-cli</a>, and more. <em>Pipelines as code</em> is simply one more option. It makes pipeline definition more declarative, depending on the plugin, and may give more control to external mantainers.</p>
-
 <h2 id="available-plugins-for-storing-pipelines-as-code">Available plugins for storing pipelines as code</h2>
-
 <p>JSON and YAML are the two formats supported currently. Refer to <a href="https://github.com/tomzo/gocd-json-config-plugin#configuration-files">JSON file configuration</a> and <a href="https://github.com/tomzo/gocd-yaml-config-plugin#setup">YAML file configuration</a> for more information about the file format.</p>
-
-<p>The config repositories page (Admin &rarr; Config Repositories) lists existing config repositories, and allows CRUD (Create-Read-Update-Delete) operations on them. This page also shows errors and allows you to request a check of a config repository.</p>
-
-<p><img src="../images/advanced_usage/config-repo-page.png" alt="Pipelines as code page" /></p>
-
+<p>The config repositories page (Admin → Config Repositories) lists existing config repositories, and allows CRUD (Create-Read-Update-Delete) operations on them. This page also shows errors and allows you to request a check of a config repository.</p>
+<p><img src="../images/advanced_usage/config-repo-page.png" alt="Pipelines as code page"></p>
 <h3 id="pipeline-configuration-in-json">Pipeline configuration in JSON</h3>
-
 <p>To tell GoCD where to find the pipeline configuration files:</p>
-
 <ul>
 <li>Start the server</li>
-<li>Go to &ldquo;Admin &rarr; Config repositories&rdquo;</li>
+<li>Go to &ldquo;Admin → Config repositories&rdquo;</li>
 </ul>
-
-<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
-
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories"></p>
 <ul>
 <li>Click on the &ldquo;Add&rdquo; button at the top right corner</li>
 <li>Select &ldquo;JSON configuration Plugin&rdquo; as the plugin ID</li>
 </ul>
-
-<p><img src="../images/advanced_usage/config-repo-json.png" alt="Config repo json" /></p>
-
+<p><img src="../images/advanced_usage/config-repo-json.png" alt="Config repo json"></p>
 <p>Once you&rsquo;ve added a config repository, you&rsquo;ll see new pipelines in the pipeline dashboard. If there are any errors, you&rsquo;ll see them on the &ldquo;Config repositories&rdquo; page mentioned above.</p>
-
 <h3 id="pipeline-configuration-in-yaml">Pipeline configuration in YAML</h3>
-
 <p>To tell GoCD where to find the pipeline configuration files:</p>
-
 <ul>
 <li>Start the server</li>
-<li>Go to &ldquo;Admin &rarr; Config repositories&rdquo;</li>
+<li>Go to &ldquo;Admin → Config repositories&rdquo;</li>
 </ul>
-
-<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories" /></p>
-
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories"></p>
 <ul>
 <li>Click on the &ldquo;Add&rdquo; button at the top right corner</li>
 <li>Select &ldquo;YAML configuration Plugin&rdquo; as the plugin ID</li>
 </ul>
-
-<p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml" /></p>
-
+<p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml"></p>
 <p>Once you&rsquo;ve added a config repository, you&rsquo;ll see new pipelines in the pipeline dashboard. If there are any errors, you&rsquo;ll see them on the &ldquo;Config repositories&rdquo; page mentioned above.</p>
-
 <h3 id="exporting-pipeline-configuration-data">Exporting pipeline configuration data</h3>
-
 <p>As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD&rsquo;s main XML configuration file.</p>
-
-<p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml" /></p>
-
+<p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml"></p>
 <h3 id="specifying-rules">Specifying Rules</h3>
-
 <p>Starting with GoCD 20.2.0, you can defines <code>rules</code> on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.</p>
-
 <p>Previously, giving access to a config repository&rsquo;s backing SCM repository meant giving full access to the GoCD instance, almost. Such users used to have access to all environments/pipeline groups and could, possibly, add tasks to expose the secrets configured.</p>
-
 <p>With <code>rules</code>, the users who can create/edit config repositories can limit the environments/pipeline groups the repository can add a pipeline to. Similarly, they can also define which pipelines can be referred as an upstream dependency. Hence, providing more control over what all entities can come via the config repository.</p>
-
 <ul>
-<li><p>A restrictive model is followed while parsing a config repository. In the absence of a rule, no entity is accessible by default.</p>
-
+<li>
+<p>A restrictive model is followed while parsing a config repository. In the absence of a rule, no entity is accessible by default.</p>
 <blockquote>
 <p>The config repository defined in the example cannot refer any entity in GoCD.</p>
 </blockquote>
@@ -421,30 +377,27 @@ if (!doNotTrack) {
       ...
   <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;rules/&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/secretConfig&gt;</span></code></pre></div></li>
-
-<li><p>Wildcards <strong>(*)</strong> in <strong>type</strong>:</p>
-
+<span style="color:#008000;font-weight:bold">&lt;/secretConfig&gt;</span>
+</code></pre></div></li>
+<li>
+<p>Wildcards <strong>(*)</strong> in <strong>type</strong>:</p>
 <p>Using a wildcard <strong>(*)</strong> for type implies a given rule applies to all entity types. In this case, the supported entities are <code>environment</code>, <code>pipeline_group</code> and <code>pipeline</code>.</p>
-
 <blockquote>
 <p>In the given example, a config repository can refer to any <code>pipeline_group</code> or <code>environment</code> or <code>pipeline</code> with the name <code>production</code>.</p>
 </blockquote>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>production<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span></code></pre></div>
-<p><strong>Note</strong>: <code>type</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>pipe*</code>.</p></li>
-
-<li><p>Wildcards <strong>(*)</strong> in <strong>action</strong>:</p>
-
+<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</code></pre></div><p><strong>Note</strong>: <code>type</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>pipe*</code>.</p>
+</li>
+<li>
+<p>Wildcards <strong>(*)</strong> in <strong>action</strong>:</p>
 <p>Using a wildcard <strong>(*)</strong> for action implies a given rule applies to any action on the config repository. Currently <code>refer</code> is the only supported action.</p>
-
-<p><strong>Note</strong>: <code>action</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>ref*</code>.</p></li>
-
-<li><p>Wildcards <strong>(*)</strong> in <strong>resource</strong>:</p>
-
+<p><strong>Note</strong>: <code>action</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>ref*</code>.</p>
+</li>
+<li>
+<p>Wildcards <strong>(*)</strong> in <strong>resource</strong>:</p>
 <p>Resource name supports the wildcard characters &lsquo;?&rsquo; and &lsquo;*&rsquo; to represent a single or multiple (zero or more) wildcard characters.</p>
-
 <table>
 <thead>
 <tr>
@@ -452,46 +405,43 @@ if (!doNotTrack) {
 <th>Resource names</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>*_group</code></td>
 <td>Matches <code>my_group</code> and <code>someother_group</code>, but not <code>testgroup</code> or <code>group1</code>.</td>
 </tr>
-
 <tr>
 <td><code>Production_*</code></td>
 <td>Matches <code>Production_Team_A</code> and <code>Production_Team_B</code> but not <code>Team_ABC_Production_D</code>.</td>
 </tr>
-
 <tr>
 <td><code>*group*</code></td>
 <td>Matches <code>group</code>, <code>my_group</code> and <code>group_A</code>, but not <code>groABCup</code>.</td>
 </tr>
-
 <tr>
 <td><code>Team_?_group</code></td>
 <td>Matches <code>Team_A_group</code>, <code>Team_B_group</code> but not <code>Team_ABC_group</code> or <code>Team__group</code>.</td>
 </tr>
 </tbody>
-</table></li>
-
-<li><p>When multiple permissions are defined, rules will be applied from top to bottom.</p>
-
+</table>
+</li>
+<li>
+<p>When multiple permissions are defined, rules will be applied from top to bottom.</p>
 <blockquote>
 <p>In the below example pipeline_group <code>my_group</code> cannot be referred by the config repository since the first rule denies access using the pattern <code>my_*</code></p>
 </blockquote>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span></code></pre></div>
-<blockquote>
+<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</code></pre></div><blockquote>
 <p>In the below example pipeline_group <code>my_group</code> can be referred by the config repository since the first rule allows access.</p>
 </blockquote>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span></code></pre></div></li>
+<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</code></pre></div></li>
 </ul>
 </article>
 
@@ -533,22 +483,21 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#pipelines-as-code">Pipelines as code</a>
-<ul>
-<li>
-<ul>
-<li><a href="#a-note-about-infrastructure-as-code">A note about &ldquo;Infrastructure as code&rdquo;</a></li>
-</ul></li>
-<li><a href="#available-plugins-for-storing-pipelines-as-code">Available plugins for storing pipelines as code</a>
-<ul>
-<li><a href="#pipeline-configuration-in-json">Pipeline configuration in JSON</a></li>
-<li><a href="#pipeline-configuration-in-yaml">Pipeline configuration in YAML</a></li>
-<li><a href="#exporting-pipeline-configuration-data">Exporting pipeline configuration data</a></li>
-<li><a href="#specifying-rules">Specifying Rules</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#a-note-about-infrastructure-as-code">A note about &ldquo;Infrastructure as code&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#available-plugins-for-storing-pipelines-as-code">Available plugins for storing pipelines as code</a>
+      <ul>
+        <li><a href="#pipeline-configuration-in-json">Pipeline configuration in JSON</a></li>
+        <li><a href="#pipeline-configuration-in-yaml">Pipeline configuration in YAML</a></li>
+        <li><a href="#exporting-pipeline-configuration-data">Exporting pipeline configuration data</a></li>
+        <li><a href="#specifying-rules">Specifying Rules</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

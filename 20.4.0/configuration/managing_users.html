@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,16 +320,10 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="managing-users">Managing Users</h1>
-
+<article class="markdown"><h1 id="managing-users">Managing Users</h1>
 <p>GoCD&rsquo;s user management features allow you to control access to GoCD and grant role-based permissions.</p>
-
 <p>All user management features depend on an <a href="dev_authentication.html">authentication mechanism</a> having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.</p>
-
 <h2 id="adding-users">Adding Users</h2>
-
 <ol>
 <li>Click on the menu item: Admin -&gt; Users Management.</li>
 <li>Click the &ldquo;Import User&rdquo; button</li>
@@ -345,25 +331,17 @@ if (!doNotTrack) {
 <li>This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc)</li>
 <li>From the list of results, select the user to add and click &ldquo;Import User&rdquo;</li>
 </ol>
-
-<p><img src="../images/user_summary_search.png" alt="" /></p>
-
+<p><img src="../images/user_summary_search.png" alt=""></p>
 <h2 id="assigning-roles">Assigning Roles</h2>
-
 <p>Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</p>
-
 <p>For example, you may have 3 pipelines configured as part of your workflow &ndash; build, acceptance and deploy. You team may consist of 6 developers and 2 testers. With roles, you can group all 6 of your developers into a role called &ldquo;developers&rdquo; and your 2 testers into a role called &ldquo;testers&rdquo;. You&rsquo;d then assign the following permissions to your pipelines:</p>
-
 <ul>
 <li>build: Auto triggered pipeline with approval permissions granted to both developers and testers</li>
 <li>acceptance: Auto triggered pipeline with approval permissions granted to testers only</li>
 <li>deploy: Manually triggered pipeline with approval permissions granted to testers only</li>
 </ul>
-
 <p>With this setup, your entire team has visibility into what each other is doing, but you have controls around which role can do what.</p>
-
 <p><strong>To assign roles to users:</strong></p>
-
 <ol>
 <li>Click on the menu item: Admin -&gt; Users Management.</li>
 <li>Select the users you want assign roles to, or remove roles from.</li>
@@ -371,17 +349,11 @@ if (!doNotTrack) {
 <li>Check/un-check the roles you want to assign/remove from the selected users and click &ldquo;Apply&rdquo;.</li>
 <li>Alternately, you can create a new role to apply to the selected users by typing in the name of a role in the input box and clicking &ldquo;Add&rdquo;.</li>
 </ol>
-
-<p><img src="../images/user_summary_roles.png" alt="" /></p>
-
+<p><img src="../images/user_summary_roles.png" alt=""></p>
 <h2 id="managing-gocd-system-administrator-privilege">Managing &lsquo;GoCD System Administrator&rsquo; privilege</h2>
-
 <p>GoCD System Administrator has access to all administrative functions, and has operational access to all parts of a GoCD installation. The user management page allows you to assign admin privileges to or revoke admin privileges from selected users.</p>
-
 <p>This control allows you to modify admin privileges for users (not for roles). Enabling &ldquo;System Admin&rdquo; privilege to users adds them directly to <code>&lt;admins&gt;</code> configuration tag in GoCD&rsquo;s configuration XML. This control is disabled when one or more of the selected users have implicit admin privilege through role(s).</p>
-
-<p><img src="../images/user_summary_system_admin.png" alt="" /></p>
-
+<p><img src="../images/user_summary_system_admin.png" alt=""></p>
 <p>In the image above, &ldquo;User Four&rdquo; has implicit administrator privilege. So that cannot be revoked from here. &ldquo;User Five&rdquo; is not a GoCD system administrator and can be made one by toggling the switch in their row.</p>
 </article>
 
@@ -423,14 +395,11 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#managing-users">Managing Users</a>
-<ul>
-<li><a href="#adding-users">Adding Users</a></li>
-<li><a href="#assigning-roles">Assigning Roles</a></li>
-<li><a href="#managing-gocd-system-administrator-privilege">Managing &lsquo;GoCD System Administrator&rsquo; privilege</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#adding-users">Adding Users</a></li>
+    <li><a href="#assigning-roles">Assigning Roles</a></li>
+    <li><a href="#managing-gocd-system-administrator-privilege">Managing &lsquo;GoCD System Administrator&rsquo; privilege</a></li>
+  </ul>
 </nav>
   </aside>
 

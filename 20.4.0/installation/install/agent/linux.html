@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -328,51 +320,38 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="installing-gocd-agent-on-linux">Installing GoCD agent on Linux</h1>
-
+<article class="markdown"><h1 id="installing-gocd-agent-on-linux">Installing GoCD agent on Linux</h1>
 <p>Installation of the GoCD agent using the package manager will require <code>root</code> access on the machine.</p>
-
-<h2 id="rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
-
+<h2 id="rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 <p>The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
-
 <p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo</code></pre></div>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
+</code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-agent</code></pre></div>
-<p>Alternatively, if you have the agent RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm</code></pre></div>
-<h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-agent
+</code></pre></div><p>Alternatively, if you have the agent RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
+</code></pre></div><h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
 <p>The GoCD agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
-
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell -</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
 curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
-sudo apt-get update</code></pre></div>
-
+sudo apt-get update
+</code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-agent</code></pre></div>
-<p>Alternatively, if you have the agent DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
-<h2 id="install-on-docker-containers">Install on Docker containers</h2>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-agent
+</code></pre></div><p>Alternatively, if you have the agent DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
+</code></pre></div><h2 id="install-on-docker-containers">Install on Docker containers</h2>
 <p>To run GoCD on container please use our official <a href="https://hub.docker.com/u/gocd">docker container images</a></p>
-
 <p>For installing GoCD agent using rpm/deb packages on containers, starting from release 19.7.0 the following additional dependencies will be required.</p>
-
 <p>On Fedora, install <code>procps</code> package, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install procps</code></pre></div>
-<p>On CentOS/RHEL, install <code>sysvinit-tools</code> package, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install sysvinit-tools</code></pre></div>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install procps
+</code></pre></div><p>On CentOS/RHEL, install <code>sysvinit-tools</code> package, execute</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install sysvinit-tools
+</code></pre></div>
 <h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
-
 <p>The GoCD agent script must be run with one of the following arguments:</p>
-
 <table>
 <thead>
 <tr>
@@ -380,36 +359,28 @@ sudo apt-get update</code></pre></div>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>service go-agent console</td>
 <td>The GoCD agent will be started in the foreground</td>
 </tr>
-
 <tr>
 <td>service go-agent start</td>
 <td>The GoCD agent will be started as a daemon in the background</td>
 </tr>
-
 <tr>
 <td>service go-agent stop</td>
 <td>The GoCD agent will be stopped</td>
 </tr>
-
 <tr>
 <td>service go-agent restart</td>
 <td>The GoCD agent will be restarted</td>
 </tr>
 </tbody>
 </table>
-
 <p><code>service</code> utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.</p>
-
 <h2 id="location-of-gocd-agent-files">Location of GoCD agent files</h2>
-
 <p>The GoCD agent installs its files in the following locations on your filesystem:</p>
-
 <table>
 <thead>
 <tr>
@@ -417,34 +388,27 @@ sudo apt-get update</code></pre></div>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>/var/lib/go-agent</code></td>
 <td>the GoCD agent configuration and working directory</td>
 </tr>
-
 <tr>
 <td><code>/var/log/go-agent</code></td>
 <td>the GoCD agent log files</td>
 </tr>
-
 <tr>
 <td><code>/usr/share/go-agent</code></td>
 <td>the GoCD agent binaries and startup scripts</td>
 </tr>
-
 <tr>
 <td><code>/usr/share/go-agent/wrapper-config/wrapper-properties.conf</code></td>
 <td>the configuration file to alter GoCD agent properties</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="configuring-the-gocd-agent">Configuring the GoCD agent</h2>
-
-After installing the GoCD agent, you must first configure the agent with the hostname (or IP address) of your GoCD server, in order to do this:</p>
-
+<p>After installing the GoCD agent, you must first configure the agent with the hostname (or IP address) of your GoCD server, in order to do this:</p>
 <ul>
 <li>Open <code>/usr/share/go-agent/wrapper-config/wrapper-properties.conf</code> in your favourite text editor.</li>
 <li>Follow the instructions in the file to configure the GoCD server url</li>
@@ -452,11 +416,8 @@ After installing the GoCD agent, you must first configure the agent with the hos
 <li>Run <code>service go-agent [start|restart]</code> to (re)start the agent.</li>
 </ul>
 
-
 <h2 id="registering-your-agent-with-the-server">Registering your agent with the server</h2>
-
 <p>For security reasons, all newly installed GoCD agents need to be enabled on the GoCD server before work is assigned to them. This prevents an unauthorized person from getting access to your source code. To enable a newly installed GoCD agent, do the following:</p>
-
 <ol>
 <li>Open the GoCD server dashboard</li>
 <li>Follow the instructions <a href="../../../configuration/managing_a_build_cloud.html">here</a> to find the agent you&rsquo;ve just installed on the list and add the agent to your cloud. The GoCD server will now schedule work for this agent.</li>
@@ -502,17 +463,14 @@ After installing the GoCD agent, you must first configure the agent with the hos
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#installing-gocd-agent-on-linux">Installing GoCD agent on Linux</a>
-<ul>
-<li><a href="#rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
-<li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
-<li><a href="#install-on-docker-containers">Install on Docker containers</a></li>
-<li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
-<li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
-<li><a href="#configuring-the-gocd-agent">Configuring the GoCD agent</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
+    <li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
+    <li><a href="#install-on-docker-containers">Install on Docker containers</a></li>
+    <li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
+    <li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
+    <li><a href="#configuring-the-gocd-agent">Configuring the GoCD agent</a></li>
+  </ul>
 </nav>
   </aside>
 

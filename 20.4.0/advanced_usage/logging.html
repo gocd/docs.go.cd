@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,31 +320,19 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="logging">Logging</h1>
-
+<article class="markdown"><h1 id="logging">Logging</h1>
 <h2 id="introduction">Introduction</h2>
-
 <p>You can turn on additional logging to diagnose and troubleshoot issues with the GoCD server and agent.</p>
-
 <h2 id="log-location">Log location</h2>
-
 <p>To change where the GoCD server logs or GoCD agent logs are stored, use the system properties <code>gocd.server.log.dir</code> and <code>gocd.agent.log.dir</code> respectively.
 Refer to the <a href="../advanced_usage/other_config_options.html#system-properties">system properties</a> documentation to find out how to set the system property on the gocd server or agent.</p>
-
 <p>Note: The system property deals with configuring the log location for the GoCD server or agent related logs and not the plugin logs.</p>
-
 <h2 id="gocd-server">GoCD Server</h2>
-
 <p>To turn on additional logging on the GoCD server, you must:</p>
-
 <ul>
 <li>create/edit the file <code>CONFIG_DIR/logback-include.xml</code>. The config directory is typically <code>/etc/go</code> on Linux and <code>C:\Program Files\Go Server\config</code> on Windows. See the section <a href="#log-configuration-syntax">Log configuration syntax</a> for the log configuration syntax.</li>
 </ul>
-
 <p>The table below describes the various loggers that can be configured with the server:</p>
-
 <table>
 <thead>
 <tr>
@@ -361,98 +341,82 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>com.thoughtworks.go.server.Rails</code></td>
 <td><code>true</code></td>
 <td>This will enable debugging the rails application server.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.studios.shine</code></td>
 <td><code>true</code></td>
 <td>This will enable debugging of GoCD&rsquo;s test report analysis that is shown on the &ldquo;Tests&rdquo; tab of the stage details page on the server.</td>
 </tr>
-
 <tr>
 <td><code>org.springframework</code></td>
 <td><code>true</code></td>
 <td>This will enable debugging of the spring framework.</td>
 </tr>
-
 <tr>
 <td><code>org.apache.velocity</code></td>
 <td><code>true</code></td>
 <td>This will enable debugging of some of the server view templates.</td>
 </tr>
-
 <tr>
 <td><code>org.eclipse.jetty.server.RequestLog</code></td>
 <td><code>false</code></td>
 <td>This will enable http request logging to help diagnose and identify slow page render times.</td>
 </tr>
-
 <tr>
 <td><code>PerformanceLogger</code></td>
 <td><code>false</code></td>
 <td>This will output performance debug logs for 3 key background jobs: scheduling, material updates, work assignment. It is recommended that you send these logs to a different file using an appender.</td>
 </tr>
-
 <tr>
 <td><code>com.microsoft.tfs.core</code></td>
 <td><code>true</code></td>
 <td>This will turn on debugging for the underlying Microsoft Team Foundation Server library used by GoCD.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.tfssdk14</code></td>
 <td><code>true</code></td>
 <td>This will turn on debugging for the GoCD wrapper around Microsoft TFS library.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.dependency</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>dependency</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.git</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>git</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.mercurial</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>mercurial</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.packagematerial</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>packagematerial</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.perforce</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>perforce</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.scm</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>scm</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.svn</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>svn</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.tfs</code></td>
 <td><code>true</code></td>
@@ -460,17 +424,12 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </tr>
 </tbody>
 </table>
-
 <h2 id="gocd-agent">GoCD Agent</h2>
-
 <p>To turn on additional logging on the GoCD agent, you must:</p>
-
 <ul>
 <li>create/edit the file <code>CONFIG_DIR/agent-logback-include.xml</code>. The config directory is typically <code>/var/lib/go-agent/config</code> on Linux and <code>C:\Program Files\Go Agent\config</code> on Windows. See the section <a href="#log-configuration-syntax">Log configuration syntax</a> for the log configuration syntax.</li>
 </ul>
-
 <p>The table below describes the various loggers that can be configured with the server:</p>
-
 <table>
 <thead>
 <tr>
@@ -479,74 +438,62 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>org.springframework</code></td>
 <td><code>true</code></td>
 <td>This will enable debugging of the spring framework.</td>
 </tr>
-
 <tr>
 <td><code>org.apache.http.wire</code></td>
 <td><code>true</code></td>
 <td>This will enable debugging of http connections between the agent and server.</td>
 </tr>
-
 <tr>
 <td><code>com.microsoft.tfs.core</code></td>
 <td><code>true</code></td>
 <td>This will turn on debugging for the underlying Microsoft Team Foundation Server library used by GoCD.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.tfssdk14</code></td>
 <td><code>true</code></td>
 <td>This will turn on debugging for the GoCD wrapper around Microsoft TFS library.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.dependency</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>dependency</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.git</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>git</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.mercurial</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>mercurial</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.packagematerial</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>packagematerial</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.perforce</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>perforce</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.scm</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>scm</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.svn</code></td>
 <td><code>true</code></td>
 <td>Turn on logging for materials of type <code>svn</code>.</td>
 </tr>
-
 <tr>
 <td><code>com.thoughtworks.go.domain.materials.tfs</code></td>
 <td><code>true</code></td>
@@ -554,11 +501,8 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </tr>
 </tbody>
 </table>
-
 <h2 id="log-configuration-syntax">Log configuration syntax</h2>
-
 <p>To configure logging, you can specify the configuration below. You must tweak the <code>&lt;logger /&gt;</code> and optionally <code>&lt;appender /&gt;</code> to write to specific log files. You can read more about logback configuration in the <a href="https://logback.qos.ch/manual/configuration.html">logback configuration documentation</a>. This file will be reloaded every 5 seconds, so a restart of the GoCD server or agent is not necessary.</p>
-
 <blockquote>
 <p><strong>Note:</strong> It is recommended that you do not set the log level to <code>DEBUG</code> or <code>TRACE</code> for long periods of time since this can significantly affect performance.</p>
 </blockquote>
@@ -595,9 +539,8 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </span><span style="color:#080;font-style:italic">    &lt;appender-ref ref=&#34;my-appender&#34; /&gt;
 </span><span style="color:#080;font-style:italic">  &lt;/logger&gt;
 </span><span style="color:#080;font-style:italic">  --&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span></code></pre></div>
-<h2 id="example-enable-web-request-logs">Example: Enable web-request logs</h2>
-
+<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</code></pre></div><h2 id="example-enable-web-request-logs">Example: Enable web-request logs</h2>
 <p>To turn on web request logs, add below content to logback-include.xml.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
@@ -621,31 +564,25 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
   <span style="color:#008000;font-weight:bold">&lt;logger</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;org.eclipse.jetty.server.RequestLog&#34;</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;DEBUG&#34;</span> <span style="color:#b44">additivity=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;web-request-appender&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/logger&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span></code></pre></div>
-<h2 id="advanced-logging-features">Advanced logging features</h2>
-
+<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</code></pre></div><h2 id="advanced-logging-features">Advanced logging features</h2>
 <p>If you&rsquo;d like to send log events to a log aggregator service (like logstash, graylog, splunk) of your choice, you may require additional configuration to be performed:</p>
-
 <ul>
 <li>ensure that the relevant java libraries along with their dependencies are present in the <code>libs</code> directory, relative to the working directory of the GoCD server or agent process. The working directory is usually <code>/var/lib/go-{server,agent}</code> on linux, and <code>C:\Program Files\Go {Server,Agent}</code> on windows.</li>
 <li>configure appenders and encoders in the relevant <code>logback-include.xml</code> file for your agent or server</li>
 </ul>
-
 <h3 id="example-logstash-setup">Example logstash setup</h3>
-
 <p>For e.g. to send logs to logstash (using <a href="https://github.com/logstash/logstash-logback-encoder">logstash-logback-encoder</a>) one would need to perform the following:</p>
-
 <ul>
 <li>download all logstash-logback-encoder jars and dependencies into <code>libs</code> dir:
-
 <ul>
 <li><code>logstash-logback-encoder-4.11.jar</code></li>
 <li><code>jackson-databind-2.9.1.jar</code></li>
 <li><code>jackson-annotations-2.9.1.jar</code></li>
 <li><code>jackson-core-2.9.1.jar</code></li>
-</ul></li>
 </ul>
-
+</li>
+</ul>
 <p>Then follow the instructions on the <a href="https://github.com/logstash/logstash-logback-encoder#readme">README</a> to configure your <code>logback-include.xml</code> to setup relevant appenders and encoders:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
@@ -659,11 +596,9 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
   <span style="color:#008000;font-weight:bold">&lt;root</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;info&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;stash&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span></code></pre></div>
-<h2 id="override-existing-logback-xml">Override Existing logback.xml</h2>
-
+<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</code></pre></div><h2 id="override-existing-logbackxml">Override Existing logback.xml</h2>
 <p>If you&rsquo;d like to completely override the packaged <code>logback.xml</code>, create a <code>CONFIG_DIR\logback.xml</code> file. If such a file is present, GoCD will use the loggers and file appender provided in the file for logging. You can read more about logback configuration in the <a href="https://logback.qos.ch/manual/configuration.html">logback configuration documentation</a></p>
-
 <p>The following is a sample <code>logback.xml</code> users can use to override logging for GoCD root logger. The example uses a user defined directory for writing logs.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
@@ -688,19 +623,17 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
     <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;CustomFileAppender&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
 
-<span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span></code></pre></div>
-<ul>
+<span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+
+</code></pre></div><ul>
 <li>Please note while overriding the logging for your GoCD server, redirect all logs to appropriate files in order to avoid any loss of logs.</li>
 </ul>
-
 <h3 id="example-gelf-setup">Example gelf setup</h3>
-
 <p>Another example setup using GELF (Graylog Extended Log Format) using <a href="https://github.com/osiegmar/logback-gelf">logback-gelf</a>:</p>
-
 <p>Download <code>logback-gelf-1.1.0.jar</code> and place it in <code>libs</code> directory.
 On typical linux server, that can be done with</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget <span style="color:#b44">&#34;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar</code></pre></div>
-<p>Configure <code>logback-include.xml</code> with any of the gelf appenders as defined on <a href="https://github.com/osiegmar/logback-gelf#example">project documentation</a>:
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget <span style="color:#b44">&#34;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
+</code></pre></div><p>Configure <code>logback-include.xml</code> with any of the gelf appenders as defined on <a href="https://github.com/osiegmar/logback-gelf#example">project documentation</a>:
 An example logging over UDP could look like this:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;GELF&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;de.siegmar.logbackgelf.GelfUdpAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -727,7 +660,8 @@ An example logging over UDP could look like this:</p>
     <span style="color:#008000;font-weight:bold">&lt;root&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;GELF&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span></code></pre></div></article>
+<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -767,25 +701,24 @@ An example logging over UDP could look like this:</p>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#logging">Logging</a>
-<ul>
-<li><a href="#introduction">Introduction</a></li>
-<li><a href="#log-location">Log location</a></li>
-<li><a href="#gocd-server">GoCD Server</a></li>
-<li><a href="#gocd-agent">GoCD Agent</a></li>
-<li><a href="#log-configuration-syntax">Log configuration syntax</a></li>
-<li><a href="#example-enable-web-request-logs">Example: Enable web-request logs</a></li>
-<li><a href="#advanced-logging-features">Advanced logging features</a>
-<ul>
-<li><a href="#example-logstash-setup">Example logstash setup</a></li>
-</ul></li>
-<li><a href="#override-existing-logback-xml">Override Existing logback.xml</a>
-<ul>
-<li><a href="#example-gelf-setup">Example gelf setup</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a></li>
+    <li><a href="#log-location">Log location</a></li>
+    <li><a href="#gocd-server">GoCD Server</a></li>
+    <li><a href="#gocd-agent">GoCD Agent</a></li>
+    <li><a href="#log-configuration-syntax">Log configuration syntax</a></li>
+    <li><a href="#example-enable-web-request-logs">Example: Enable web-request logs</a></li>
+    <li><a href="#advanced-logging-features">Advanced logging features</a>
+      <ul>
+        <li><a href="#example-logstash-setup">Example logstash setup</a></li>
+      </ul>
+    </li>
+    <li><a href="#override-existing-logbackxml">Override Existing logback.xml</a>
+      <ul>
+        <li><a href="#example-gelf-setup">Example gelf setup</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Configuring Go on GoCD User Documentation</title>
@@ -17,29 +17,9 @@
       
       <guid>/configuration/access_tokens.html</guid>
       <description>Access Tokens From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
-Usage instructions  A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
+Usage instructions   A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
  Before 19.2.0
  curl &amp;#39;https://ci.</description>
-    </item>
-    
-    <item>
-      <title>Add Material to Existing Pipeline</title>
-      <link>/configuration/admin_add_material.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_add_material.html</guid>
-      <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.</description>
-    </item>
-    
-    <item>
-      <title>Add Stage to Existing Pipeline</title>
-      <link>/configuration/admin_add_stage.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_add_stage.html</guid>
-      <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.</description>
     </item>
     
     <item>
@@ -60,6 +40,26 @@ Usage instructions  A token can be used to access GoCD APIs and cctray.xml by pa
       <guid>/configuration/admin_add_job.html</guid>
       <description>Add a new job to an existing GoCD stage Now that we have a pipeline with stage(s), we can add more jobs to any of the existing stages. You can now use the tree navigation on the left side of the screen to edit a stage or a job under a pipeline.
  Click on the stage name that you want to edit on the tree as shown below. The &amp;ldquo;defaultStage&amp;rdquo; is being edited.</description>
+    </item>
+    
+    <item>
+      <title>Add Material to Existing Pipeline</title>
+      <link>/configuration/admin_add_material.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_material.html</guid>
+      <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.</description>
+    </item>
+    
+    <item>
+      <title>Add Stage to Existing Pipeline</title>
+      <link>/configuration/admin_add_stage.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_stage.html</guid>
+      <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.</description>
     </item>
     
     <item>
@@ -325,7 +325,7 @@ A permission consists of 3 values:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/configuration/dev_upload_test_report.html</guid>
-      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you understand why the build is broken. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD.</description>
+      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you understand why the build is broken. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.</description>
     </item>
     
     <item>

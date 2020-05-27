@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,16 +320,10 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="pipeline-activity">Pipeline activity</h1>
-
+<article class="markdown"><h1 id="pipeline-activity">Pipeline activity</h1>
 <p>The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)</p>
-
 <h3 id="overview">Overview</h3>
-
-<p><img src="../images/advanced_usage/pipeline_activity.png" alt="Pipelines activity" /></p>
-
+<p><img src="../images/advanced_usage/pipeline_activity.png" alt="Pipelines activity"></p>
 <table>
 <thead>
 <tr>
@@ -345,90 +331,70 @@ if (!doNotTrack) {
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><strong>Pause pipeline</strong></td>
 <td>Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</td>
 </tr>
-
 <tr>
 <td><strong>Pipeline settings</strong></td>
 <td>Take user to pipeline settings page.</td>
 </tr>
-
 <tr>
 <td><strong>Filter history</strong></td>
 <td>Allows user to filter pipeline activity by <code>pipeline counter</code>, <code>revision</code> or <code>username</code>.</td>
 </tr>
-
 <tr>
 <td><strong>Stages</strong></td>
 <td>Stage available for the pipeline run. In case of change in stage config the pipeline run with same stage config will be rendered in group while maintaining the pipeline run order.</td>
 </tr>
-
 <tr>
 <td><strong>Instance</strong></td>
 <td>Pipeline run label.</td>
 </tr>
-
 <tr>
 <td><strong>VSM</strong></td>
 <td>Link to VSM, It will open the VSM for the current pipeline run in a new tab.</td>
 </tr>
-
 <tr>
 <td><strong>Trigger by</strong></td>
 <td>Reason for pipeline run, e.g. Triggered by user or Triggered by changes. Click on the link to know more about the revisions it triggered with</td>
 </tr>
-
 <tr>
 <td><strong>Stage status bar</strong></td>
 <td>Show the status of each stage in pipeline. Hover on the stage status bar to get more options.</td>
 </tr>
-
 <tr>
 <td><strong>Add Comment</strong></td>
 <td>Allow user to add comment on the pipeline run. For this user must have operate permission on the pipeline.</td>
 </tr>
-
 <tr>
 <td><strong>Gate Icon</strong></td>
 <td>Based on the stage config before each stage there will be an <code>Auto</code> or <code>Manual</code> gate icon. User can run the next stage based on the state of previous stage.</td>
 </tr>
-
 <tr>
 <td><strong>Stage Details</strong></td>
 <td>Open the stage details page in new tab.</td>
 </tr>
-
 <tr>
 <td><strong>Rerun or cancel stage</strong></td>
 <td>On hover on the stage details tab user will get <code>Rerun</code> or <code>Cancel</code> stage icon based on the stage status.</td>
 </tr>
 </tbody>
 </table>
-
 <h3 id="comment-on-a-pipeline-run">Comment on a pipeline run</h3>
-
 <p>Each pipeline in the pipeline history page can now be annotated with a comment. This text can be seen by all other users
- who have access to view history of a pipeline.</p>
-
+who have access to view history of a pipeline.</p>
 <p>Clicking on the <strong><code>Add Comment</code></strong> link for a pipeline run brings up a modal box to enter comment. Enter the comment and click
 on the <strong><code>Save</code></strong> or <strong><code>Save &amp; Close</code></strong> to update the comment.</p>
-
-<p><img src="../images/advanced_usage/pipeline_comment_1.png" alt="Pipelines activity" /></p>
-
+<p><img src="../images/advanced_usage/pipeline_comment_1.png" alt="Pipelines activity"></p>
 <h3 id="feature-toggle">Feature toggle</h3>
-
 <p><strong>Note:</strong> This is a beta feature, which is turned off by default in GoCD version prior to <code>19.12.0</code>. It can be turned on by using the feature toggle API, for this feature. If you are using curl, this is what you will need to do:</p>
-
 <pre><code>curl &quot;https://go_server/go/api/admin/feature_toggles/pipeline_comment_feature_toggle_key&quot;  \
   -H 'Accept: application/vnd.go.cd.v1+json' \
   -u 'username:password' \
   -X PUT -d '{&quot;toggle_value&quot;: &quot;on&quot;}'
-</code></pre>
-</article>
+</code></pre></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -468,17 +434,15 @@ on the <strong><code>Save</code></strong> or <strong><code>Save &amp; Close</cod
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#pipeline-activity">Pipeline activity</a>
-<ul>
-<li>
-<ul>
-<li><a href="#overview">Overview</a></li>
-<li><a href="#comment-on-a-pipeline-run">Comment on a pipeline run</a></li>
-<li><a href="#feature-toggle">Feature toggle</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#overview">Overview</a></li>
+        <li><a href="#comment-on-a-pipeline-run">Comment on a pipeline run</a></li>
+        <li><a href="#feature-toggle">Feature toggle</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

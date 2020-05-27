@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,33 +320,22 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="email-server-configuration">Email server configuration</h1>
-
+<article class="markdown"><h1 id="email-server-configuration">Email server configuration</h1>
 <p>In order to allow <a href="dev_notifications.html">email notifications</a>, you need to tell GoCD information about your email server.</p>
-
 <ul>
 <li>Click on the <em>Admin &gt; Server Configuration</em> link in the top navigation bar</li>
 <li>Add your email server information (with username and password as required)
-<img src="../images/3_add_mailhost_info.png" alt="" /></li>
+<img src="../images/3_add_mailhost_info.png" alt=""></li>
 <li>Add an Administrator email address (this account will be emailed if the Go server is <a href="../faq/admin_out_of_disk_space.html">running out of disk space</a>)</li>
 <li>Click &lsquo;Send test email&rsquo; to verify the configuration is working correctly</li>
 <li>Click &lsquo;Save&rsquo; when you&rsquo;re sure it&rsquo;s working.</li>
 </ul>
-
 <p><a id='starttls'></a></p>
-
 <h1 id="smtps-and-tls">SMTPS and TLS</h1>
-
 <p>Depending on the way your email server is setup, you might need to enable TLS or SMTPS setup in GoCD, to get it to send emails properly. Please ask you administrators for information about the setup of your email server.</p>
-
 <p>To make GoCD change the protocol to use SMTPS, while connecting to the email server, just enable the &ldquo;Use SMTPS&rdquo; setting shown in the image above. Most often, but not always, this setting is used in conjunction with port 465.</p>
-
 <p>If your email server uses STARTTLS, then you need to set the system property <code>mail.smtp.starttls.enable</code> to <code>true</code>. Most often, but not always, this setting is used in conjunction with port 587, and with the &ldquo;Use SMTPS&rdquo; option turned off. To configure the system properties, edit the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
-
 <h4 id="references">References:</h4>
-
 <ul>
 <li>External site: <a href="https://www.fastmail.com/help/technical/ssltlsstarttls.html">SSL vs TLS vs STARTTLS</a></li>
 </ul>
@@ -398,19 +379,13 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#email-server-configuration">Email server configuration</a></li>
-<li><a href="#smtps-and-tls">SMTPS and TLS</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#references">References:</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

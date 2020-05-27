@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../../../images/arrow.png"/> 
@@ -328,51 +320,38 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="installing-gocd-server-on-linux">Installing GoCD server on Linux</h1>
-
+<article class="markdown"><h1 id="installing-gocd-server-on-linux">Installing GoCD server on Linux</h1>
 <p>Installation of the GoCD server using the package manager will require <code>root</code> access on the machine.</p>
-
-<h2 id="rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
-
+<h2 id="rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 <p>The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
-
 <p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo</code></pre></div>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
+</code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-server</code></pre></div>
-<p>Alternatively, if you have the server RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm</code></pre></div>
-<h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-server
+</code></pre></div><p>Alternatively, if you have the server RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
+</code></pre></div><h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
 <p>The GoCD server .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
-
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell -</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
 curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
-sudo apt-get update</code></pre></div>
-
+sudo apt-get update
+</code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-server</code></pre></div>
-<p>Alternatively, if you have the server DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb</code></pre></div>
-<h2 id="install-on-docker-containers">Install on Docker containers</h2>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-server
+</code></pre></div><p>Alternatively, if you have the server DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
+</code></pre></div><h2 id="install-on-docker-containers">Install on Docker containers</h2>
 <p>To run GoCD on container please use our official <a href="https://hub.docker.com/u/gocd">docker container images</a></p>
-
 <p>For installing GoCD server using rpm/deb packages on containers, starting from release 19.7.0 the following additional dependencies will be required.</p>
-
 <p>On Fedora, install <code>procps</code> package, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install procps</code></pre></div>
-<p>On CentOS/RHEL, install <code>sysvinit-tools</code> package, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install sysvinit-tools</code></pre></div>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install procps
+</code></pre></div><p>On CentOS/RHEL, install <code>sysvinit-tools</code> package, execute</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install sysvinit-tools
+</code></pre></div>
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
-
 <p>The GoCD server script must be run with one of the following arguments:</p>
-
 <table>
 <thead>
 <tr>
@@ -380,38 +359,29 @@ sudo apt-get update</code></pre></div>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>service go-server console</td>
 <td>The GoCD server will be started in the foreground</td>
 </tr>
-
 <tr>
 <td>service go-server start</td>
 <td>The GoCD server will be started as a daemon in the background</td>
 </tr>
-
 <tr>
 <td>service go-server stop</td>
 <td>The GoCD server will be stopped</td>
 </tr>
-
 <tr>
 <td>service go-server restart</td>
 <td>The GoCD server will be restarted</td>
 </tr>
 </tbody>
 </table>
-
 <p><code>service</code> utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.</p>
-
 <p>Once the GoCD server is started it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
-
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
-
 <p>The GoCD server installs its files in the following locations on your filesystem:</p>
-
 <table>
 <thead>
 <tr>
@@ -419,51 +389,40 @@ sudo apt-get update</code></pre></div>
 <th>Description</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td><code>/var/lib/go-server/db</code></td>
 <td>the GoCD server database</td>
 </tr>
-
 <tr>
 <td><code>/var/lib/go-server/artifacts</code></td>
 <td>the GoCD server artifacts</td>
 </tr>
-
 <tr>
 <td><code>/var/lib/go-server/plugins</code></td>
 <td>the GoCD server plugins</td>
 </tr>
-
 <tr>
 <td><code>/etc/go</code></td>
 <td>the GoCD server configuration</td>
 </tr>
-
 <tr>
 <td><code>/var/log/go-server</code></td>
 <td>the GoCD server log files</td>
 </tr>
-
 <tr>
 <td><code>/usr/share/go-server</code></td>
 <td>the GoCD server binaries and startup scripts</td>
 </tr>
-
 <tr>
 <td><code>/usr/share/go-server/wrapper-config/wrapper-properties.conf</code></td>
 <td>the configuration file to alter GoCD server properties</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
-
 Users can override default startup arguments in a editing the file <code>/usr/share/go-server/wrapper-config/wrapper-properties.conf</code>.
-
 <h3 id="also-see">Also see</h3>
-
 <ul>
 <li><a href="../../installing_go_agent.html">Installing GoCD agents</a></li>
 <li><a href="../../configuring_server_details.html">Configuring server details</a></li>
@@ -511,17 +470,14 @@ Users can override default startup arguments in a editing the file <code>/usr/sh
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#installing-gocd-server-on-linux">Installing GoCD server on Linux</a>
-<ul>
-<li><a href="#rpm-based-distributions-ie-redhat-centos-fedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
-<li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
-<li><a href="#install-on-docker-containers">Install on Docker containers</a></li>
-<li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
-<li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
-<li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
+    <li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
+    <li><a href="#install-on-docker-containers">Install on Docker containers</a></li>
+    <li><a href="#managing-the-gocd-server-process">Managing the GoCD server process</a></li>
+    <li><a href="#location-of-gocd-server-files">Location of GoCD server files</a></li>
+    <li><a href="#overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</a></li>
+  </ul>
 </nav>
   </aside>
 

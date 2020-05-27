@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Introduction on GoCD User Documentation</title>
@@ -11,53 +11,15 @@
     
     
     <item>
-      <title></title>
-      <link>/installation/configure_proxy.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/configure_proxy.html</guid>
-      <description>  Redirecting   Redirecting...  This page has moved to .  Click here if you are not redirected.  window.location.href = &#34;../configure-reverse-proxy.html&#34;;    </description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>/installation/ssl_tls/custom_certificate.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/ssl_tls/custom_certificate.html</guid>
-      <description>  Redirecting   Redirecting...  This page has moved to custom_server_certificate.html.  Click here if you are not redirected.  window.location.href = &#34;custom_server_certificate.html&#34;;    </description>
-    </item>
-    
-    <item>
       <title>Access tokens</title>
       <link>/configuration/access_tokens.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/configuration/access_tokens.html</guid>
       <description>Access Tokens From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
-Usage instructions  A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
+Usage instructions   A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
  Before 19.2.0
  curl &amp;#39;https://ci.</description>
-    </item>
-    
-    <item>
-      <title>Add Material to Existing Pipeline</title>
-      <link>/configuration/admin_add_material.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_add_material.html</guid>
-      <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.</description>
-    </item>
-    
-    <item>
-      <title>Add Stage to Existing Pipeline</title>
-      <link>/configuration/admin_add_stage.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/configuration/admin_add_stage.html</guid>
-      <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.</description>
     </item>
     
     <item>
@@ -78,6 +40,26 @@ Usage instructions  A token can be used to access GoCD APIs and cctray.xml by pa
       <guid>/configuration/admin_add_job.html</guid>
       <description>Add a new job to an existing GoCD stage Now that we have a pipeline with stage(s), we can add more jobs to any of the existing stages. You can now use the tree navigation on the left side of the screen to edit a stage or a job under a pipeline.
  Click on the stage name that you want to edit on the tree as shown below. The &amp;ldquo;defaultStage&amp;rdquo; is being edited.</description>
+    </item>
+    
+    <item>
+      <title>Add Material to Existing Pipeline</title>
+      <link>/configuration/admin_add_material.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_material.html</guid>
+      <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.</description>
+    </item>
+    
+    <item>
+      <title>Add Stage to Existing Pipeline</title>
+      <link>/configuration/admin_add_stage.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_stage.html</guid>
+      <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.</description>
     </item>
     
     <item>
@@ -149,7 +131,7 @@ Configuration Specify artifact purge start and end limits You must be logged in 
       
       <guid>/advanced_usage/agent_auto_register.html</guid>
       <description>Auto registration of remote agents As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.
- Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;ldquo;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present.  &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt; &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt; ... &amp;lt;/cruise&amp;gt;  On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.</description>
+ Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;quot;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present.  &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt; &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt; ... &amp;lt;/cruise&amp;gt;   On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.</description>
     </item>
     
     <item>
@@ -159,9 +141,9 @@ Configuration Specify artifact purge start and end limits You must be logged in 
       
       <guid>/advanced_usage/one_click_backup.html</guid>
       <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform a backup using the API.
-Steps to initiate backup  After you are logged into gocd, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
+Steps to initiate backup   After you are logged into gocd, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
  Note: GoCD will be unusable during the backup process.
- Backup time is proportional to the database and configuration size.</description>
+   Backup time is proportional to the database and configuration size.</description>
     </item>
     
     <item>
@@ -179,7 +161,7 @@ Steps to initiate backup  After you are logged into gocd, click on the Admin &am
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/faq/rm_what_is_deployed.html</guid>
-      <description> Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
+      <description>Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
 Example usage For this example, we will assume we have a stage name &amp;ldquo;production&amp;rdquo; that will automatically deploy a binary onto a production server
  Start at the environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The stage details page will show every time GoCD has deployed your application  </description>
     </item>
@@ -278,15 +260,6 @@ NOTE: This repo must not be altered externally as this will lead to errors in Go
     </item>
     
     <item>
-      <title>Configure SSH Keys for dockerized GoCD</title>
-      <link>/faq/docker_container_ssh_keys.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/faq/docker_container_ssh_keys.html</guid>
-      <description>Using SSH keys to access GoCD materials in a containerized GoCD server and agent If you have configured a git repository as a GoCD material, then there are several ways to let GoCD access the repository. One of the popular methods to do so is configuring SSH keys. When using docker for gocd server and agents, it becomes slightly more complex to do this. Below are the steps to configure the ssh keys that can be used with multiple containers at once.</description>
-    </item>
-    
-    <item>
       <title>Configure a Reverse Proxy</title>
       <link>/installation/configure-reverse-proxy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -310,6 +283,15 @@ Proxy support is configured with GoCD agents by passing certain system propertie
     </item>
     
     <item>
+      <title>Configure SSH Keys for dockerized GoCD</title>
+      <link>/faq/docker_container_ssh_keys.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/docker_container_ssh_keys.html</guid>
+      <description>Using SSH keys to access GoCD materials in a containerized GoCD server and agent If you have configured a git repository as a GoCD material, then there are several ways to let GoCD access the repository. One of the popular methods to do so is configuring SSH keys. When using docker for gocd server and agents, it becomes slightly more complex to do this. Below are the steps to configure the ssh keys that can be used with multiple containers at once.</description>
+    </item>
+    
+    <item>
       <title>Configuring HSTS Header</title>
       <link>/installation/ssl_tls/configuring_hsts_header.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -320,15 +302,6 @@ Proxy support is configured with GoCD agents by passing certain system propertie
     </item>
     
     <item>
-      <title>Configuring SSL/TLS</title>
-      <link>/installation/ssl_tls_config.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/ssl_tls_config.html</guid>
-      <description>CONFIGURING SSL/TLS</description>
-    </item>
-    
-    <item>
       <title>Configuring Server Details</title>
       <link>/installation/configuring_server_details.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -336,6 +309,15 @@ Proxy support is configured with GoCD agents by passing certain system propertie
       <guid>/installation/configuring_server_details.html</guid>
       <description>Configuring GoCD server details Artifact repository configuration GoCD needs no configuration once installed. However, we recommend that you create a separate partition on your computer&amp;rsquo;s hard disk for GoCD server artifacts. The artifact repository can grow in size very quickly. If located on your system&amp;rsquo;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.
 Once you have created a new disk partition, you need to tell GoCD where to find it.</description>
+    </item>
+    
+    <item>
+      <title>Configuring SSL/TLS</title>
+      <link>/installation/ssl_tls_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls_config.html</guid>
+      <description>  CONFIGURING SSL/TLS    </description>
     </item>
     
     <item>
@@ -534,7 +516,7 @@ To navigate to the Graphs:  Click on the stage bar of the relevant stage on the 
       <guid>/gocd_on_kubernetes/importing_a_sample_workflow.html</guid>
       <description>Getting Started with GoCD on Kubernetes Step 3: Import sample pipeline to build and deploy a sample application In this section, we&amp;rsquo;ll import a set of GoCD pipelines that build and deploy a sample application with a Docker based build workflow.
 This section uses GoCDs pipelines as code capability to import sample pipeline definitions from an external Git repository.
-Prerequisites  The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
+Prerequisites   The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
     </item>
     
     <item>
@@ -555,18 +537,8 @@ kubectl create ns gocd helm install gocd stable/gocd --namespace gocd If you&amp
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/installing_go_agent.html</guid>
-      <description> Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.
+      <description>Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.
 Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
-Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
-    </item>
-    
-    <item>
-      <title>Installing GoCD Server</title>
-      <link>/installation/installing_go_server.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/installation/installing_go_server.html</guid>
-      <description> Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
 Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
     </item>
     
@@ -590,6 +562,16 @@ sudo curl https://download.</description>
       <guid>/installation/install/agent/windows.html</guid>
       <description>Installing GoCD agent on Windows You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.
  Download a version of go-agent from the downloads page. Double-click the go-agent-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD Server</title>
+      <link>/installation/installing_go_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/installing_go_server.html</guid>
+      <description>Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
+Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
     </item>
     
     <item>
@@ -822,6 +804,16 @@ Scaling GoCD As the number of pipelines, agents and concurrent users increase in
     </item>
     
     <item>
+      <title>Pipeline activity</title>
+      <link>/advanced_usage/pipeline_activity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/pipeline_activity.html</guid>
+      <description>Pipeline activity The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)
+Overview    Actions Description     Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</description>
+    </item>
+    
+    <item>
       <title>Pipeline Group Administration</title>
       <link>/configuration/pipeline_group_admin_config.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -863,16 +855,6 @@ Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following f
     </item>
     
     <item>
-      <title>Pipeline activity</title>
-      <link>/advanced_usage/pipeline_activity.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/advanced_usage/pipeline_activity.html</guid>
-      <description>Pipeline activity The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)
-Overview    Actions Description     Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</description>
-    </item>
-    
-    <item>
       <title>Pipelines as code</title>
       <link>/advanced_usage/pipelines_as_code.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -907,7 +889,7 @@ A permission consists of 3 values:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/configuration/dev_upload_test_report.html</guid>
-      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you understand why the build is broken. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD.</description>
+      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you understand why the build is broken. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.</description>
     </item>
     
     <item>
@@ -940,16 +922,6 @@ GoCD will stop scheduling new pipelines until you make more room, either by comp
     </item>
     
     <item>
-      <title>SCM Extension</title>
-      <link>/extension_points/scm_extension.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/extension_points/scm_extension.html</guid>
-      <description>SCM Material Introduction A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS &amp;amp; Perforce. Users can use SCM plugins to integrate with other SCMs.
-SCMs and Materials Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is not contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM.</description>
-    </item>
-    
-    <item>
       <title>Sample pipelines explained</title>
       <link>/gocd_on_kubernetes/sample_pipelines_explained.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -958,6 +930,16 @@ SCMs and Materials Unlike built-in VCS/SCM materials, the material definition in
       <description>Getting Started with GoCD on Kubernetes Explanation of the sample pipelines In this section, we&amp;rsquo;ll explain the details of each of the pipelines imported in the previous section.
 1. Build and publish image This pipeline builds an application artifact and publishes it to an artifact store.
 The material A GoCD pipeline&amp;rsquo;s material is the trigger for a pipeline. Often it is a source code repository. It could also be another GoCD repository.</description>
+    </item>
+    
+    <item>
+      <title>SCM Extension</title>
+      <link>/extension_points/scm_extension.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/scm_extension.html</guid>
+      <description>SCM Material Introduction A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS &amp;amp; Perforce. Users can use SCM plugins to integrate with other SCMs.
+SCMs and Materials Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is not contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM.</description>
     </item>
     
     <item>
@@ -1081,7 +1063,7 @@ Windows The first step is to disable the GoCD agent service. To do this:
       
       <guid>/installation/upgrading_go.html</guid>
       <description>Upgrading GoCD The steps in this page can be followed to upgrade GoCD. It is recommended to understand any breaking changes between the releases to see if they impact your upgrades in any way.
-Before you start  Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under Admin &amp;gt; Server Maintenance Mode Navigate to the backup page under Admin &amp;gt; Backups and take a backup.</description>
+Before you start   Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under Admin &amp;gt; Server Maintenance Mode</description>
     </item>
     
     <item>
@@ -1110,7 +1092,7 @@ A value stream map can be drawn for every instance of a pipeline. It provides yo
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/faq/dev_understand_why_build_broken.html</guid>
-      <description> Why is the build broken? Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
+      <description>Why is the build broken? Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
 Example usage Usage: As a developer, I want to understand why the build is broken.
 Let&amp;rsquo;s assume that in this case, we are on a java project using JUnit as our testing library.
  If we&amp;rsquo;re not already, we need to configure Go to upload JUnit xml reports Click on the Pipelines tab   Click on the failed stage you want to investigate   Click on the failed job   The &amp;ldquo;Failures&amp;rdquo; sub-tab should help you diagnose what is wrong with your build   If you need more information, the &amp;ldquo;Console&amp;rdquo; sub-tab contains everything that was written out to the console (including extra information from Go)  </description>
@@ -1123,7 +1105,7 @@ Let&amp;rsquo;s assume that in this case, we are on a java project using JUnit a
       
       <guid>/extension_points/yum_repository_poller.html</guid>
       <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package, Ubuntu, CentOS)
-Introduction The Yum repository poller is a bundled package material plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server.</description>
+Introduction The Yum repository poller is a bundled package material plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.</description>
     </item>
     
   </channel>

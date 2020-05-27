@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -25,7 +26,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -82,15 +83,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -104,7 +102,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -144,7 +141,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -202,7 +198,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -233,7 +228,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -249,7 +243,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -265,7 +258,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -330,41 +322,29 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="installing-gocd">Installing GoCD</h1>
-
+<article class="markdown"><h1 id="installing-gocd">Installing GoCD</h1>
 <p>GoCD consists of two installable components. The GoCD Server and one or more GoCD Agents. They have a one-to-many
 relationship in that many GoCD agents can connect to one GoCD Server. To do any real work, you need at least one agent,
 since agents are the real builders or work executors in the system.</p>
-
 <p>Since installation instructions vary per operating system, the installation instruction pages linked below will ask you
 to choose your operating system and then provide you instructions for that operating system.</p>
-
 <div id="go-to-gocd-server-installation-instructions-installing-go-server-html">
   Go to: <a href="installing_go_server.html">GoCD Server installation instructions</a>
 </div>
-
 <div id="also-go-to-gocd-agent-installation-instructions-installing-go-agent-html">
   Also, go to: <a href="installing_go_agent.html">GoCD Agent installation instructions</a>
 </div>
-
 <p>Whatever operating systems you install the GoCD server and (at least one) GoCD agent on, the default ports used by the
 server are 8153 (HTTP port) and 8154 (HTTPS port). So, after installation you should be able to access either
 <code>http://localhost:8153</code> or <code>http://your-server-installation-hostname:8153</code> and you should see a screen
 such as this:</p>
-
-<p><img src="../images/gocd_new_installation_startup.png" alt="Initial screen, upon installation" /></p>
-
+<p><img src="../images/gocd_new_installation_startup.png" alt="Initial screen, upon installation"></p>
 <p>Once the agent is started, switching to the agents tab by clicking on the &ldquo;Agents&rdquo; link in the header should take you to
 a screen where the agent shows up and is idle. Like this:</p>
-
-<p><img src="../images/gocd_new_installation_agents_page.png" alt="Agents screen, with one idle agent" /></p>
-
+<p><img src="../images/gocd_new_installation_agents_page.png" alt="Agents screen, with one idle agent"></p>
 <p>An agent or agents can be installed on any node, and not necessarily the node that the GoCD Server is installed on. The
 only requirements are that ports 8153 and 8154 of the GoCD Server are accessible from the node that the agents are
 installed on.</p>
-
 <p>If you are still having trouble with the installation, take a look at the <a href="troubleshoot_installer.html">troubleshooting guide</a>.</p>
 </article>
 

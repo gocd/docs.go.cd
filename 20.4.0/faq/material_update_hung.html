@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,47 +320,40 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-unable-to-poll-for-changes">GoCD unable to poll for changes</h1>
-
+<article class="markdown"><h1 id="gocd-unable-to-poll-for-changes">GoCD unable to poll for changes</h1>
 <p>GoCD server polls for changes to all materials of &lsquo;Auto Triggered&rsquo; pipelines. By default, polling occurs every minute and ten materials at a time. The polling interval and the number of materials to be polled simultaneously are configurable.</p>
-
 <p>GoCD uses SCM commands to poll for changes. For example, to check for any new changes in SVN repository the following command is used:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">svn log --non-interactive --xml -v -r HEAD:<span style="color:#b44">&#39;revision&#39;</span> <span style="color:#b44">&#39;repository-URL&#39;</span></code></pre></div>
-<p>The SCM command used by GoCD server can hang with no output. Invalid configuration, network issues, console input block are some of the causes for such a situation. Such scenarios cause pipeline scheduling delays and also lead to performance degradation</p>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">svn log --non-interactive --xml -v -r HEAD:<span style="color:#b44">&#39;revision&#39;</span> <span style="color:#b44">&#39;repository-URL&#39;</span>
+</code></pre></div><p>The SCM command used by GoCD server can hang with no output. Invalid configuration, network issues, console input block are some of the causes for such a situation. Such scenarios cause pipeline scheduling delays and also lead to performance degradation</p>
 <p>Such a scenario is notified to the users by a warning in Server Health; when clicked shows a message similar to the one below.</p>
-
-<p><img src="../images/material_update_hung.png" alt="" /></p>
-
+<p><img src="../images/material_update_hung.png" alt=""></p>
 <h2 id="what-can-i-do-with-the-information">What can I do with the information</h2>
-
 <p>When you see warning messages like the one above</p>
-
 <ul>
-<li><p>Identify the processes running as children of GoCD Server</p>
-
+<li>
+<p>Identify the processes running as children of GoCD Server</p>
 <blockquote>
-<p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &lsquo;ps waux | grep &lsquo;material-type&rdquo;</p>
-</blockquote></li>
-
-<li><p>Determine the process that&rsquo;s hung. The extra information like URL: <code>https://test@bitbucket.org/test/git_repo.git</code> in the warning information should help you with this.</p></li>
-
-<li><p>On linux system, you should see lines like these:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go <span style="color:#666">31201</span> <span style="color:#666">1</span>  <span style="color:#666">0</span> Feb07 ?  <span style="color:#666">00</span>:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816</code></pre></div></li>
-
-<li><p>Kill the process and all its children (the whole process tree).</p></li>
-
-<li><p>Ensure that the warning message goes away from Server Health.</p>
-
+<p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &lsquo;ps waux | grep &lsquo;material-type&rsquo;&rsquo;</p>
+</blockquote>
+</li>
+<li>
+<p>Determine the process that&rsquo;s hung. The extra information like URL: <code>https://test@bitbucket.org/test/git_repo.git</code> in the warning information should help you with this.</p>
+</li>
+<li>
+<p>On linux system, you should see lines like these:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go <span style="color:#666">31201</span> <span style="color:#666">1</span>  <span style="color:#666">0</span> Feb07 ?  00:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816
+</code></pre></div></li>
+<li>
+<p>Kill the process and all its children (the whole process tree).</p>
+</li>
+<li>
+<p>Ensure that the warning message goes away from Server Health.</p>
 <blockquote>
 <p>Please note the folder name (of the form &hellip;/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the GoCD installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.</p>
-</blockquote></li>
+</blockquote>
+</li>
 </ul>
-
 <h2 id="configuring-warning-time">Configuring warning time</h2>
-
 <p>GoCD server waits for 15 minutes (of no output) before it warns user about possible hung material update. User can modify this wait time (in minutes) using a system property <code>material.update.inactive.timeout</code>. This system property can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
 
@@ -410,13 +395,10 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-unable-to-poll-for-changes">GoCD unable to poll for changes</a>
-<ul>
-<li><a href="#what-can-i-do-with-the-information">What can I do with the information</a></li>
-<li><a href="#configuring-warning-time">Configuring warning time</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#what-can-i-do-with-the-information">What can I do with the information</a></li>
+    <li><a href="#configuring-warning-time">Configuring warning time</a></li>
+  </ul>
 </nav>
   </aside>
 

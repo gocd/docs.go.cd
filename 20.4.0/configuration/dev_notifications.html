@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,42 +320,35 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="notifications">Notifications</h1>
-
+<article class="markdown"><h1 id="notifications">Notifications</h1>
 <p>It is often useful to receive an email when certain status changes occur in a stage. For example, a developer might want to know when their own check-in has broken the build. Alternatively, a manager might want an email whenever a project is deployed into production. Both of these scenarios can be covered by Notification Filters</p>
-
 <p>Notifications will only work if <a href="dev_authentication.html">Security</a> is enabled and <a href="admin_mailhost_info.html">mailhost information</a> is correct.</p>
-
 <h2 id="example-usage">Example usage</h2>
-
 <p><strong>Usage: As a developer, I want to be notified when I break a build on &ldquo;acceptance&rdquo; pipeline.</strong></p>
-
 <ul>
-<li><p>Click on the <strong>Preferences</strong> tab</p>
-
-<p><img src="../images/topnav_preferences.png" alt="" /></p></li>
-
-<li><p>Click &ldquo;Edit&rdquo; and enter the email address, and make sure &ldquo;Enable email notification&rdquo; is checked</p></li>
-
-<li><p>When I check in, my source control log in will be either &ldquo;User&rdquo; or &ldquo;username&rdquo;, so enter both of those into the &ldquo;My check-in aliases&rdquo; box</p></li>
+<li>
+<p>Click on the <strong>Preferences</strong> tab</p>
+<p><img src="../images/topnav_preferences.png" alt=""></p>
+</li>
+<li>
+<p>Click &ldquo;Edit&rdquo; and enter the email address, and make sure &ldquo;Enable email notification&rdquo; is checked</p>
+</li>
+<li>
+<p>When I check in, my source control log in will be either &ldquo;User&rdquo; or &ldquo;username&rdquo;, so enter both of those into the &ldquo;My check-in aliases&rdquo; box</p>
+</li>
 </ul>
-
-<p><img src="../images/3_email_and_matcher.png" alt="" /></p>
-
+<p><img src="../images/3_email_and_matcher.png" alt=""></p>
 <ul>
-<li><p>Click &ldquo;Save&rdquo; to store these values</p></li>
-
-<li><p>Add a filter for the &ldquo;twist-plugins&rdquo; stage of &ldquo;acceptance&rdquo; pipeline to notify me when a check-in of mine breaks the build</p></li>
+<li>
+<p>Click &ldquo;Save&rdquo; to store these values</p>
+</li>
+<li>
+<p>Add a filter for the &ldquo;twist-plugins&rdquo; stage of &ldquo;acceptance&rdquo; pipeline to notify me when a check-in of mine breaks the build</p>
+</li>
 </ul>
-
-<p><img src="../images/4_add_filter.png" alt="" /></p>
-
+<p><img src="../images/4_add_filter.png" alt=""></p>
 <h3 id="events">Events</h3>
-
 <p>You can set up notifications for different events</p>
-
 <ul>
 <li>All - all the runs for the stage</li>
 <li>Passes - the passed runs for the stage</li>
@@ -372,11 +357,8 @@ if (!doNotTrack) {
 <li>Fixed - the stage run that fixed the previous failure</li>
 <li>Cancelled - the stage run that was cancelled</li>
 </ul>
-
 <p><strong>Previous state influences Event type</strong></p>
-
 <p>The table below shows how the previous state can influence the triggered event:</p>
-
 <table>
 <thead>
 <tr>
@@ -385,26 +367,22 @@ if (!doNotTrack) {
 <th><strong>Event</strong></th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>Pass</td>
 <td>Fail</td>
 <td>Breaks</td>
 </tr>
-
 <tr>
 <td>Fail</td>
 <td>Fail</td>
 <td>Fails</td>
 </tr>
-
 <tr>
 <td>Fail</td>
 <td>Pass</td>
 <td>Fixed</td>
 </tr>
-
 <tr>
 <td>Pass</td>
 <td>Pass</td>
@@ -412,23 +390,21 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
-
-<p><img src="../images/5_added_filter.png" alt="" /></p>
-
+<p><img src="../images/5_added_filter.png" alt=""></p>
 <blockquote>
 <p>I&rsquo;ll be emailed whenever the &ldquo;twist-plugins&rdquo; stage of &ldquo;acceptance&rdquo; pipeline breaks due to my check-in</p>
-
+</blockquote>
+<blockquote>
 <p>I&rsquo;ll be emailed whenever the &ldquo;build&rdquo; stage of &ldquo;plugins&rdquo; pipeline fails due to my check-in</p>
-
+</blockquote>
+<blockquote>
 <p>I&rsquo;ll be emailed whenever the &ldquo;upload-installers&rdquo; stage of &ldquo;distributions-all&rdquo; pipeline passes for any check-in</p>
-
+</blockquote>
+<blockquote>
 <p>I&rsquo;ll be emailed on all events for any stage of &ldquo;regression&rdquo; pipeline for my check-in</p>
 </blockquote>
-
 <p>Users can also select to get notifications for a particular (or all) event on any stage of any pipeline.</p>
-
-<p><img src="../images/6_added_filter_any_pipeline.png" alt="" /></p>
-
+<p><img src="../images/6_added_filter_any_pipeline.png" alt=""></p>
 <blockquote>
 <p>I&rsquo;ll be emailed whenever any stage of any pipeline fails due to my check-in</p>
 </blockquote>
@@ -472,15 +448,13 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#notifications">Notifications</a>
-<ul>
-<li><a href="#example-usage">Example usage</a>
-<ul>
-<li><a href="#events">Events</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#example-usage">Example usage</a>
+      <ul>
+        <li><a href="#events">Events</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

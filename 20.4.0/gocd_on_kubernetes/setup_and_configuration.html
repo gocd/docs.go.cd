@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,87 +320,61 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h2 id="getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</h2>
-
+<article class="markdown"><h2 id="getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</h2>
 <h1 id="step-1-setup-your-kubernetes-cluster">Step 1: Setup your Kubernetes cluster</h1>
-
 <p>Before you can get started with GoCD on Kubernetes, make sure that you have taken a look at the list below.</p>
-
 <h2 id="1-install-kubectl">1. Install kubectl</h2>
-
 <p>The Kubernetes CLI <code>kubectl</code> is used for cluster management purposes. The Kubernetes <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">install documentation</a> provides various ways of installing kubectl for different platforms.</p>
-
 <h2 id="2-setup-a-kubernetes-cluster">2. Setup a Kubernetes Cluster</h2>
-
 <p>Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popular options are:</p>
-
-<h3 id="option-1-minikube-setup-guide-https-kubernetes-io-docs-getting-started-guides-minikube">Option 1: Minikube (<a href="https://kubernetes.io/docs/getting-started-guides/minikube/">setup guide</a>)</h3>
-
+<h3 id="option-1-minikube-setup-guidehttpskubernetesiodocsgetting-started-guidesminikube">Option 1: Minikube (<a href="https://kubernetes.io/docs/getting-started-guides/minikube/">setup guide</a>)</h3>
 <p>Once minikube is installed, start minikube with the <code>kubeadm</code> bootstrapper. The <code>kubeadm</code> toolkit helps to easily bootstrap a cluster so that appropriate privileges are granted for performing read-write operations on Kubernetes authentication and authorization (RBAC) resources.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  minikube start --vm-driver<span style="color:#666">=</span>virtualbox --bootstrapper<span style="color:#666">=</span>kubeadm --memory <span style="color:#666">4096</span></code></pre></div>
-<p><em>Tip: You can enable Ingress on minikube with this command</em></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  minikube addons <span style="color:#a2f">enable</span> ingress</code></pre></div>
-<h3 id="option-2-google-kubernetes-engine-or-gke-setup-guide-https-cloud-google-com-kubernetes-engine-docs-how-to-creating-a-container-cluster">Option 2: Google Kubernetes Engine or GKE (<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster">setup guide</a>)</h3>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube start --vm-driver<span style="color:#666">=</span>virtualbox --bootstrapper<span style="color:#666">=</span>kubeadm --memory <span style="color:#666">4096</span>
+</code></pre></div><p><em>Tip: You can enable Ingress on minikube with this command</em></p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube addons <span style="color:#a2f">enable</span> ingress
+</code></pre></div><h3 id="option-2-google-kubernetes-engine-or-gke-setup-guidehttpscloudgooglecomkubernetes-enginedocshow-tocreating-a-container-cluster">Option 2: Google Kubernetes Engine or GKE (<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster">setup guide</a>)</h3>
 <p><em>Tip: Once the cluster is running, execute the following command to see if kubectl is using right context.</em></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">  kubectl config current-context</code></pre></div>
-<h3 id="option-3-amazon-elastic-kubernetes-service-eks-getting-started-https-docs-aws-amazon-com-eks-latest-userguide-getting-started-html">Option 3: Amazon Elastic Kubernetes Service (EKS) (<a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html">Getting Started</a>)</h3>
-
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl config current-context
+</code></pre></div><h3 id="option-3-amazon-elastic-kubernetes-service-eks-getting-startedhttpsdocsawsamazoncomekslatestuserguidegetting-startedhtml">Option 3: Amazon Elastic Kubernetes Service (EKS) (<a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html">Getting Started</a>)</h3>
 <p><em>Tip: <a href="https://github.com/weaveworks/eksctl">eksctl</a> is a useful CLI for setting up Kubernetes clusters on Amazon EKS</em></p>
-
-<h2 id="3-install-and-configure-helm-the-kubernetes-package-manager">3. Install and configure Helm - The Kubernetes package manager</h2>
-
+<h2 id="3-install-and-configure-helm---the-kubernetes-package-manager">3. Install and configure Helm - The Kubernetes package manager</h2>
 <p>Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.</p>
-
 <h3 id="install-the-helm-client">Install the Helm client</h3>
-
 <p>The helm client is a CLI that let&rsquo;s you install and update packaged applications on Kubernetes. Helm&rsquo;s <a href="https://github.com/helm/helm#user-content-install">installation documentation</a> details various ways to install the Helm client.</p>
-
 <p>Upon installation, verify Helm version</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-terminal" data-lang="terminal">$ helm version
-version.BuildInfo{Version:&#34;v3.0.3&#34;, GitCommit:&#34;ac925eb7279f4a6955df663a0128044a8a6b7593&#34;, GitTreeState:&#34;clean&#34;, GoVersion:&#34;go1.13.7&#34;}</code></pre></div>
-<h3 id="for-helm-client-v2-and-below">For Helm Client v2 and below:</h3>
-
+<pre><code class="language-terminal" data-lang="terminal">$ helm version
+version.BuildInfo{Version:&quot;v3.0.3&quot;, GitCommit:&quot;ac925eb7279f4a6955df663a0128044a8a6b7593&quot;, GitTreeState:&quot;clean&quot;, GoVersion:&quot;go1.13.7&quot;}
+</code></pre><h3 id="for-helm-client-v2-and-below">For Helm Client v2 and below:</h3>
 <h4 id="install-the-helm-server-tiller-with-rbac">Install the Helm server (Tiller) with RBAC</h4>
-
 <p>With Helm, it is a good practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer the
 <a href="https://kubernetes.io/rbac/">Kubernetes RBAC documentation</a> for more on Kubernetes service accounts and RBAC.</p>
-
 <p>To create a service account for Tiller with the rather permissive cluster-admin role, create a file called <code>rbac-config.yaml</code> with this content:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml">apiVersion:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
-</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>ServiceAccount<span style="color:#bbb">
-</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>tiller<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>namespace:<span style="color:#bbb"> </span>kube-system<span style="color:#bbb">
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#a2f;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>v1<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>ServiceAccount<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">metadata</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">name</span>:<span style="color:#bbb"> </span>tiller<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">namespace</span>:<span style="color:#bbb"> </span>kube-system<span style="color:#bbb">
 </span><span style="color:#bbb"></span>---<span style="color:#bbb">
-</span><span style="color:#bbb"></span>apiVersion:<span style="color:#bbb"> </span>rbac.authorization.k8s.io/v1<span style="color:#bbb">
-</span><span style="color:#bbb"></span>kind:<span style="color:#bbb"> </span>ClusterRoleBinding<span style="color:#bbb">
-</span><span style="color:#bbb"></span>metadata:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>tiller<span style="color:#bbb">
-</span><span style="color:#bbb"></span>roleRef:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>apiGroup:<span style="color:#bbb"> </span>rbac.authorization.k8s.io<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>kind:<span style="color:#bbb"> </span>ClusterRole<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>name:<span style="color:#bbb"> </span>cluster-admin<span style="color:#bbb">
-</span><span style="color:#bbb"></span>subjects:<span style="color:#bbb">
-</span><span style="color:#bbb">  </span>-<span style="color:#bbb"> </span>kind:<span style="color:#bbb"> </span>ServiceAccount<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>name:<span style="color:#bbb"> </span>tiller<span style="color:#bbb">
-</span><span style="color:#bbb">    </span>namespace:<span style="color:#bbb"> </span>kube-system</code></pre></div>
-<p>Note: The <code>cluster-admin</code> role is available by default in a Kubernetes cluster, you don&rsquo;t have to create it.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create -f rbac-config.yaml</code></pre></div>
-<p>Now that we have the Helm service account created and assigned to a role, let&rsquo;s deploy Tiller with this service account.</p>
-
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">apiVersion</span>:<span style="color:#bbb"> </span>rbac.authorization.k8s.io/v1<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>ClusterRoleBinding<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">metadata</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">name</span>:<span style="color:#bbb"> </span>tiller<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">roleRef</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">apiGroup</span>:<span style="color:#bbb"> </span>rbac.authorization.k8s.io<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>ClusterRole<span style="color:#bbb">
+</span><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">name</span>:<span style="color:#bbb"> </span>cluster-admin<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">subjects</span>:<span style="color:#bbb">
+</span><span style="color:#bbb">  </span>- <span style="color:#a2f;font-weight:bold">kind</span>:<span style="color:#bbb"> </span>ServiceAccount<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">name</span>:<span style="color:#bbb"> </span>tiller<span style="color:#bbb">
+</span><span style="color:#bbb">    </span><span style="color:#a2f;font-weight:bold">namespace</span>:<span style="color:#bbb"> </span>kube-system<span style="color:#bbb">
+</span></code></pre></div><p>Note: The <code>cluster-admin</code> role is available by default in a Kubernetes cluster, you don&rsquo;t have to create it.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kubectl create -f rbac-config.yaml
+</code></pre></div><p>Now that we have the Helm service account created and assigned to a role, let&rsquo;s deploy Tiller with this service account.</p>
 <pre><code>helm init --service-account tiller
-</code></pre>
-
-<h3 id="for-helm-client-v3">For Helm Client v3:</h3>
-
+</code></pre><h3 id="for-helm-client-v3">For Helm Client v3:</h3>
 <p>As part of Helm v3, Tiller has been removed from Helm in order to simplify the experience of using Helm.
 There is no need any more to have cluster admin privileges or to install Tiller in every namespace. With Tiller removed, Helm v3 now uses the settings and access defined in the local kubeconfig file.</p>
-
 <p>Know more about removal of Tiller at <a href="https://helm.sh/docs/faq/#changes-since-helm-2">Helm v3 Changelog</a>.</p>
-
 <p>Helm&rsquo;s permissions are now evaluated using your kubeconfig file. Refer the <a href="https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/">Organizing Cluster Access Using kubeconfig Files</a> and <a href="https://helm.sh/docs/topics/rbac/">Helm RBAC guide</a> for configuring more secure and advanced RBAC for your cluster.</p>
 </article>
 

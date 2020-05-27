@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,42 +320,29 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-system-requirements">GoCD System requirements</h1>
-
+<article class="markdown"><h1 id="gocd-system-requirements">GoCD System requirements</h1>
 <p>These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or
 memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.</p>
-
 <blockquote>
 <p>Also see: <a href="./hardware_specifications.html">GoCD hardware specifications</a></p>
 </blockquote>
-
 <h3 id="client-browser-requirements">Client (browser) requirements</h3>
-
 <p>GoCD supports the two most recent versions of the following browsers:</p>
-
 <ul>
 <li>Google Chrome</li>
 <li>Mozilla Firefox</li>
 <li>Microsoft Edge</li>
 <li>Apple Safari</li>
 </ul>
-
 <hr>
-
 <h3 id="gocd-server-requirements">GoCD Server requirements</h3>
-
 <h4 id="hardware">Hardware</h4>
-
 <ul>
 <li><strong>RAM</strong> - minimum 1GB, 2GB recommended</li>
 <li><strong>CPU</strong> - minimum 2 cores, 2GHz</li>
 <li><strong>Disk</strong> - minimum 1GB free space</li>
 </ul>
-
 <h4 id="supported-operating-systems">Supported Operating Systems</h4>
-
 <ul>
 <li><strong>Windows</strong> - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10</li>
 <li><strong>Mac OSX</strong> - 10.7 (Lion) and above with Intel processor</li>
@@ -372,25 +351,18 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 <li><strong>Ubuntu</strong> - Ubuntu 14 and above</li>
 <li><strong>Alpine Linux</strong> - Alpine Linux 3.6 and above</li>
 </ul>
-
 <h4 id="additional-requirements-for-gocd-server">Additional requirements for GoCD server</h4>
-
 <p>The host that runs your GoCD server should have a separate disk partition to store GoCD artifacts. The artifact repository
 can fill up quickly (especially if you are storing large binaries). If you don&rsquo;t create a separate partition for
 artifacts and your system disk fills up, GoCD and other applications on your system will behave unexpectedly. You are
 also likely to end up with corrupted data. Check the section on
 <a href="configuring_server_details.html">configuring the GoCD server</a> for more information on configuring your artifact
 repository.</p>
-
 <p>Client software for your source code control tool (Git, SVN, etc) must be installed on both the GoCD server and all GoCD
 build agents.</p>
-
 <hr>
-
 <h3 id="gocd-agent-requirements">GoCD Agent requirements</h3>
-
 <h4 id="supported-operating-systems-1">Supported Operating Systems</h4>
-
 <ul>
 <li><strong>Windows</strong> - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10</li>
 <li><strong>Mac OSX</strong> - 10.7 (Lion) and above with Intel processor</li>
@@ -399,28 +371,20 @@ build agents.</p>
 <li><strong>Ubuntu</strong> - Ubuntu 14 and above</li>
 <li><strong>Alpine Linux</strong> - Alpine Linux 3.6 and above</li>
 </ul>
-
 <h4 id="hardware-1">Hardware</h4>
-
 <ul>
 <li><strong>RAM</strong> - minimum 128MB, 256MB recommended</li>
 <li><strong>CPU</strong> - minimum 2GHz</li>
 </ul>
-
 <h4 id="additional-requirements-for-gocd-agent">Additional requirements for GoCD Agent</h4>
-
 <p>GoCD agent, on its own, does not require much memory or CPU. However, you need to ensure that the nodes deployed as
 build agents have adequate resources to build your projects &ndash; including sufficient disk space to check source code out
 of source control.</p>
-
 <p>Client software for your source code control tool (Git, SVN, etc) needs to be installed on all build agents. Also, any
 other software required to build your application (if not accessed directly from the project source checked out from
 source control) needs to be installed (for instance, Maven or Rake).</p>
-
 <hr>
-
 <h3 id="supported-source-control-tools">Supported Source Control Tools</h3>
-
 <ul>
 <li><strong>Git</strong> &gt;= 1.9</li>
 <li><strong>Mercurial</strong> &gt;= 2.2.2</li>
@@ -428,23 +392,14 @@ source control) needs to be installed (for instance, Maven or Rake).</p>
 <li><strong>TFS</strong> SDK 14.0.3 (TFS 2012, 2013, 2015 and Visual Studio Team Services are supported by GoCD)</li>
 <li><strong>Perforce</strong> &gt;= 2016.1</li>
 </ul>
-
 <hr>
-
 <h3 id="supported-network-file-systems">Supported network file systems</h3>
-
 <p>This part is applicable only if using a network file system for GoCD&rsquo;s working directory. The latency of network file systems can directly affect the GoCD server&rsquo;s performance. It is recommended to use local storage instead of network storage.</p>
-
 <p>GoCD is tested with its working directory on <strong>AWS EFS (NFS v4)</strong> , <strong>GCP Filestore (NFS v3)</strong> and <strong>Azure Files service (SMB 3.0)</strong>. While it works out of the box on AWS EFS and GCP Filestore, Azure Files service needs a workaround as explained in this <a href="https://github.com/gocd/gocd/issues/5631#issuecomment-460945202">issue</a>. This is needed due to this jgit <a href="https://bugs.eclipse.org/bugs/show_bug.cgi?id=544164">issue</a> and some <a href="https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service">features not supported</a> in Azure Files service.</p>
-
 <p>These are the only network file systems GoCD is officially tested on. If you find an issue with any other file systems, please <a href="https://github.com/gocd/gocd/issues/new">open a GoCD issue</a>.</p>
-
 <hr>
-
 <h3 id="java-dependencies-for-gocd-server-and-agent">Java Dependencies for GoCD (Server and Agent)</h3>
-
 <p>This version of GoCD works with Java Runtime Environment (JRE) versions 11 and 12.</p>
-
 <p>Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer to this <a href="https://www.gocd.org/2019/05/21/official-stance-on-java/">blog post</a> for GoCD&rsquo;s official stance on supported Java versions.</p>
 </article>
 
@@ -486,30 +441,18 @@ source control) needs to be installed (for instance, Maven or Rake).</p>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-system-requirements">GoCD System requirements</a>
-<ul>
-<li>
-<ul>
-<li><a href="#client-browser-requirements">Client (browser) requirements</a></li>
-<li><a href="#gocd-server-requirements">GoCD Server requirements</a>
-<ul>
-<li><a href="#hardware">Hardware</a></li>
-<li><a href="#supported-operating-systems">Supported Operating Systems</a></li>
-<li><a href="#additional-requirements-for-gocd-server">Additional requirements for GoCD server</a></li>
-</ul></li>
-<li><a href="#gocd-agent-requirements">GoCD Agent requirements</a>
-<ul>
-<li><a href="#supported-operating-systems-1">Supported Operating Systems</a></li>
-<li><a href="#hardware-1">Hardware</a></li>
-<li><a href="#additional-requirements-for-gocd-agent">Additional requirements for GoCD Agent</a></li>
-</ul></li>
-<li><a href="#supported-source-control-tools">Supported Source Control Tools</a></li>
-<li><a href="#supported-network-file-systems">Supported network file systems</a></li>
-<li><a href="#java-dependencies-for-gocd-server-and-agent">Java Dependencies for GoCD (Server and Agent)</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#client-browser-requirements">Client (browser) requirements</a></li>
+        <li><a href="#gocd-server-requirements">GoCD Server requirements</a></li>
+        <li><a href="#gocd-agent-requirements">GoCD Agent requirements</a></li>
+        <li><a href="#supported-source-control-tools">Supported Source Control Tools</a></li>
+        <li><a href="#supported-network-file-systems">Supported network file systems</a></li>
+        <li><a href="#java-dependencies-for-gocd-server-and-agent">Java Dependencies for GoCD (Server and Agent)</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,41 +320,28 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="policy">Policy</h1>
-
+<article class="markdown"><h1 id="policy">Policy</h1>
 <p>A policy is a set of permissions for GoCD entities such as environments, configuration repositories, etc. The policy defines the access of a GoCD entity for the users in a role. GoCD supports a restrictive model of access i.e. until access is granted, the entity can&rsquo;t be accessed by anyone (except admins).</p>
-
 <p>A permission consists of 3 values:</p>
-
 <ol>
 <li><strong>Type</strong>: The type of GoCD entity. Supported values are <code>environment, config_repo, cluster_profile, elastic_agent_profile</code>. Wildcard(<code>*</code>) is also permitted which means all supported values.</li>
 <li><strong>Action</strong>: The action which is controlled. Supported values are <code>view</code> and <code>administer</code></li>
-<li><strong>Resource</strong>: The resource can be the name of entity or a pattern consisting of wildcard (<code>*</code>) matching one or more entities and can optionally be namespaced within parent entity using <code>:</code> separator.<br />
-<br /></li>
+<li><strong>Resource</strong>: The resource can be the name of entity or a pattern consisting of wildcard (<code>*</code>) matching one or more entities and can optionally be namespaced within parent entity using <code>:</code> separator.</li>
 </ol>
-
 <p>Currently, GoCD has 2 types of permissions:</p>
-
 <ul>
 <li>Allow: The allow permission grants access to the specified entity for the specific action.</li>
 <li>Deny: The deny permission restricts the access to the specified entity for the specific action.</li>
 </ul>
-
 <blockquote>
 <p><strong>Note: If both the permission are specified for the same entity, the <code>deny</code> permission takes precendence.</strong></p>
 </blockquote>
-
 <h2 id="privilege-action-matrix">Privilege-Action Matrix</h2>
-
 <p>Each GoCD entity has a set of actions which grants/restricts control on a granular level. The following matrix describes the same.</p>
-
 <h3 id="environment">Environment</h3>
-
 <ol>
-<li><p>API</p>
-
+<li>
+<p>API</p>
 <table>
 <thead>
 <tr>
@@ -375,32 +354,30 @@ if (!doNotTrack) {
 <th>Delete</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
-
-<li><p>UI</p>
-
+</table>
+</li>
+<li>
+<p>UI</p>
 <table>
 <thead>
 <tr>
@@ -411,32 +388,29 @@ if (!doNotTrack) {
 <th>Delete</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ol>
-
 <h3 id="config-repo">Config Repo</h3>
-
 <ol>
-<li><p>API</p>
-
+<li>
+<p>API</p>
 <table>
 <thead>
 <tr>
@@ -448,30 +422,28 @@ if (!doNotTrack) {
 <th>Delete</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
-
-<li><p>UI</p>
-
+</table>
+</li>
+<li>
+<p>UI</p>
 <table>
 <thead>
 <tr>
@@ -483,46 +455,38 @@ if (!doNotTrack) {
 <th>Delete</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ol>
-
 <h3 id="elastic-agent-configuration">Elastic Agent Configuration</h3>
-
 <p>GoCD supports dynamic provisioning of agents using Elastic Agents. To Configure an elastic agent in GoCD, a user is required to configure Cluster Profiles and Elastic Agent Profiles.</p>
-
 <p>In most cases, a single GoCD instance is being utilized by multiple teams.
 Each team can have their own build environments e.g. development, staging, production, etc. Where each build environment is mapped to a cluster profile.
 And the type and the configurations of the agent is specified as an elastic agent profile.</p>
-
 <p>As Cluster Profiles and Elastic Agent Profiles are inter-dependent, a specific permission policy can be specified to provide granular access as per teams.</p>
-
 <h4 id="basic-permissions">Basic Permissions</h4>
-
 <h5 id="cluster-profile">Cluster Profile</h5>
-
 <ol>
-<li><p>API</p>
-
+<li>
+<p>API</p>
 <table>
 <thead>
 <tr>
@@ -534,30 +498,28 @@ And the type and the configurations of the agent is specified as an elastic agen
 <th>Delete</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
-
-<li><p>UI</p>
-
+</table>
+</li>
+<li>
+<p>UI</p>
 <table>
 <thead>
 <tr>
@@ -569,34 +531,31 @@ And the type and the configurations of the agent is specified as an elastic agen
 <th>Cluster Status Report</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+<td>✔</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ol>
-
 <h5 id="elastic-agent-profile">Elastic Agent Profile</h5>
-
 <ol>
-<li><p>API</p>
-
+<li>
+<p>API</p>
 <table>
 <thead>
 <tr>
@@ -608,30 +567,28 @@ And the type and the configurations of the agent is specified as an elastic agen
 <th>Delete</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
-
-<li><p>UI</p>
-
+</table>
+</li>
+<li>
+<p>UI</p>
 <table>
 <thead>
 <tr>
@@ -644,36 +601,33 @@ And the type and the configurations of the agent is specified as an elastic agen
 <th>Elastic Profiles Usage</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td>View</td>
-<td>&#x2714;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2718;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✘</td>
+<td>✘</td>
+<td>✘</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
-
 <tr>
 <td>Administer</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
-<td>&#x2714;</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
+<td>✔</td>
 </tr>
 </tbody>
-</table></li>
+</table>
+</li>
 </ol>
-
 <h4 id="implicit-permission">Implicit Permission</h4>
-
 <ol>
-<li><p>Any permission on the Cluster profile is implicitly applied to all the Elastic Agent Profiles of the same cluster.</p>
-
+<li>
+<p>Any permission on the Cluster profile is implicitly applied to all the Elastic Agent Profiles of the same cluster.</p>
 <p><em>Example</em>:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
@@ -695,12 +649,12 @@ And the type and the configurations of the agent is specified as an elastic agen
                <span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;frontend_team_uat_cluster&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.contrib.docker&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
           <span style="color:#008000;font-weight:bold">&lt;/clusterProfiles&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/elastic&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<p>In the give role, The user <code>Bob</code> has given administrative access on the <code>frontend_team_uat_cluster</code> cluster.
-With implicit permissions, the user <code>Bob</code> is allowed to administer <code>frontend_team_uat_cluster</code> cluster profile and <code>node6-agent</code>, <code>node8-agent</code> elastic agent profiles.</p></li>
-
-<li><p>Any permission on the Elastic Agent profile provides the <strong>view</strong> permission to the associated Cluster Profile.</p>
-
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</code></pre></div><p>In the give role, The user <code>Bob</code> has given administrative access on the <code>frontend_team_uat_cluster</code> cluster.
+With implicit permissions, the user <code>Bob</code> is allowed to administer <code>frontend_team_uat_cluster</code> cluster profile and <code>node6-agent</code>, <code>node8-agent</code> elastic agent profiles.</p>
+</li>
+<li>
+<p>Any permission on the Elastic Agent profile provides the <strong>view</strong> permission to the associated Cluster Profile.</p>
 <p><em>Example</em>:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
@@ -721,19 +675,16 @@ With implicit permissions, the user <code>Bob</code> is allowed to administer <c
                <span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;frontend_team_uat_cluster&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.contrib.docker&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
           <span style="color:#008000;font-weight:bold">&lt;/clusterProfiles&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/elastic&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<p>In the give role, The user <code>Bob</code> has given administrative access on the <code>node6-agent</code> elastic agent profile.
-With implicit permissions, the user <code>Bob</code> is allowed to administer <code>node6-agent</code> elastic agent profile and is also able to view <code>frontend_team_uat_cluster</code> cluster profile.</p></li>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</code></pre></div><p>In the give role, The user <code>Bob</code> has given administrative access on the <code>node6-agent</code> elastic agent profile.
+With implicit permissions, the user <code>Bob</code> is allowed to administer <code>node6-agent</code> elastic agent profile and is also able to view <code>frontend_team_uat_cluster</code> cluster profile.</p>
+</li>
 </ol>
-
 <h4 id="namespaced-permission">Namespaced Permission</h4>
-
 <p>In a distributed teams setup, along with granting permissions to create GoCD entities, we often want to restrict users from performing certain operations.
 Within namespaced resource permissions we can restrict user permissions to a particular entity.</p>
-
 <p>Namespaced resource permissions can be specified using colon (<code>:</code>) separator. Example: <code>parent_entity:child_entity</code>.
 This would enforce the given user has access to operate on <code>child_entity</code> only within <code>parent_entity</code>.</p>
-
 <p>While creating elastic agent configurations we often to restrict users to to their team&rsquo;s cluster profiles and elastic profiles.
 Following is the example which demonstrates permission restrictions using namespaced resource as per teams.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
@@ -761,41 +712,41 @@ Following is the example which demonstrates permission restrictions using namesp
            <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;elastic_agent_profiles&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*:*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
          <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
      <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span></code></pre></div>
-<p>In the given example:</p>
-
+<span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+</code></pre></div><p>In the given example:</p>
 <ol>
 <li>As part of role <code>frontend_team</code>, the user <code>Bob</code> has given administrative access on all the Elastic agent profiles which refers to the <code>frontend_*</code> cluster profile(s).</li>
 <li>As part of role <code>backend_team</code>, the user <code>John</code> has given administrative access on all the Elastic agent profiles which refers to the <code>backend_*</code> cluster profile(s).</li>
 <li>As part of role <code>devops_team</code>, the user <code>Admin</code> has given administrative access on all the Elastic agent profiles. This can also be achieved specifying <code>*</code> as resource.</li>
 </ol>
-
 <h2 id="configure-policy">Configure policy</h2>
-
 <ol>
-<li><p>Login into your GoCD server.</p></li>
-
-<li><p>Go to <strong>Admin</strong> menu &rarr; <strong>Role Configuration</strong>.</p>
-
-<p><img src="../images/configuration/policy/1_navigate_to_role_configuration.png" alt="&quot;Navigate to role configuration&quot;" /></p></li>
-
-<li><p>Click on <code>Add</code> button.</p>
-
-<p><img src="../images/configuration/policy/2_click_on_add.png" alt="&quot;Add Role Button&quot;" /></p></li>
-
-<li><p>Enter a unique name for role configuration.</p></li>
-
-<li><p>Click on <code>Add Permission</code> button.</p>
-
-<p><img src="../images/configuration/policy/3_click_on_add_permission.png" alt="&quot;Add Permission Button&quot;" /></p></li>
-
-<li><p>Select permission as <code>Allow</code>, type as <code>Environment</code>, action as <code>View</code>. Enter <code>resource</code> value as <code>*</code>. This will grant view permission for all environments to the users which has this role.</p>
-
-<p><img src="../images/configuration/policy/4_define_permission.png" alt="&quot;Define Permission&quot;" /></p></li>
-
-<li><p>Click on <code>Save</code> button.</p></li>
+<li>
+<p>Login into your GoCD server.</p>
+</li>
+<li>
+<p>Go to <strong>Admin</strong> menu → <strong>Role Configuration</strong>.</p>
+<p><img src="../images/configuration/policy/1_navigate_to_role_configuration.png" alt="&ldquo;Navigate to role configuration&rdquo;"></p>
+</li>
+<li>
+<p>Click on <code>Add</code> button.</p>
+<p><img src="../images/configuration/policy/2_click_on_add.png" alt="&ldquo;Add Role Button&rdquo;"></p>
+</li>
+<li>
+<p>Enter a unique name for role configuration.</p>
+</li>
+<li>
+<p>Click on <code>Add Permission</code> button.</p>
+<p><img src="../images/configuration/policy/3_click_on_add_permission.png" alt="&ldquo;Add Permission Button&rdquo;"></p>
+</li>
+<li>
+<p>Select permission as <code>Allow</code>, type as <code>Environment</code>, action as <code>View</code>. Enter <code>resource</code> value as <code>*</code>. This will grant view permission for all environments to the users which has this role.</p>
+<p><img src="../images/configuration/policy/4_define_permission.png" alt="&ldquo;Define Permission&rdquo;"></p>
+</li>
+<li>
+<p>Click on <code>Save</code> button.</p>
+</li>
 </ol>
-
 <p>Once the role has been created, go ahead and add users to the same. The access to the GoCD entities for these users will governed as per permissions configured.</p>
 </article>
 
@@ -837,27 +788,16 @@ Following is the example which demonstrates permission restrictions using namesp
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#policy">Policy</a>
-<ul>
-<li><a href="#privilege-action-matrix">Privilege-Action Matrix</a>
-<ul>
-<li><a href="#environment">Environment</a></li>
-<li><a href="#config-repo">Config Repo</a></li>
-<li><a href="#elastic-agent-configuration">Elastic Agent Configuration</a>
-<ul>
-<li><a href="#basic-permissions">Basic Permissions</a>
-<ul>
-<li><a href="#cluster-profile">Cluster Profile</a></li>
-<li><a href="#elastic-agent-profile">Elastic Agent Profile</a></li>
-</ul></li>
-<li><a href="#implicit-permission">Implicit Permission</a></li>
-<li><a href="#namespaced-permission">Namespaced Permission</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#configure-policy">Configure policy</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#privilege-action-matrix">Privilege-Action Matrix</a>
+      <ul>
+        <li><a href="#environment">Environment</a></li>
+        <li><a href="#config-repo">Config Repo</a></li>
+        <li><a href="#elastic-agent-configuration">Elastic Agent Configuration</a></li>
+      </ul>
+    </li>
+    <li><a href="#configure-policy">Configure policy</a></li>
+  </ul>
 </nav>
   </aside>
 

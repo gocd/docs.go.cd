@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,48 +320,28 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="scm-material">SCM Material</h1>
-
+<article class="markdown"><h1 id="scm-material">SCM Material</h1>
 <h2 id="introduction">Introduction</h2>
-
 <p>A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS &amp; Perforce. Users can use SCM plugins to integrate with other SCMs.</p>
-
 <h3 id="scms-and-materials">SCMs and Materials</h3>
-
 <p>Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is <em>not</em> contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM. When there is a new revision in the SCM, interested pipelines will get scheduled.</p>
-
 <h4 id="scm-definition">SCM Definition</h4>
-
 <p>A SCM material plugin lets pipeline group admins provide details of the corresponding SCM type to GoCD.</p>
-
-<p><img src="../images/scm-select-material.png" alt="" /></p>
-
-<p><img src="../images/scm-add-material.png" alt="" /></p>
-
-<p><img src="../images/scm-errors.png" alt="" /></p>
-
+<p><img src="../images/scm-select-material.png" alt=""></p>
+<p><img src="../images/scm-add-material.png" alt=""></p>
+<p><img src="../images/scm-errors.png" alt=""></p>
 <h5 id="note">Note:</h5>
-
 <ol>
 <li>The SCM name is not used by the SCM material plugin - it is used by Go to construct the material name. Two SCMs cannot have the same name.</li>
 <li>Use the check connection button to ensure that Go can work with this SCM.</li>
 <li>On &ldquo;Save&rdquo; plugin validates user inputs.</li>
 </ol>
-
 <p>Note: Currently to associate an existing SCM material to a pipeline you will need to edit the Config XML.</p>
-
 <h4 id="scm-material-uniqueness-fingerprint">SCM material uniqueness (fingerprint):</h4>
-
 <p>Each SCM material plugin defines a subset of its properties as a <em>SCM fingerprint</em>. e.g. SCM <code>url</code> and <code>branch</code> could be included while <code>username</code> and <code>password</code> could be excluded. SCM names are <strong>not</strong> part of SCM fingerprint. It is not permitted to multiple SCMs having the same SCM fingerprint. An attempt to do so will result in an error message like this:</p>
-
 <pre><code>The following error(s) need to be resolved in order to perform this action:&lt;br&gt;
 Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
-</code></pre>
-
-<h4 id="sample-xml-configuration">Sample XML Configuration</h4>
-
+</code></pre><h4 id="sample-xml-configuration">Sample XML Configuration</h4>
 <p>Here is a XML view of an SCM. Note the relation between SCM and pipeline material. Loosely typed property, key and value tags are used for SCM configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn&rsquo;t necessary to provide SCM IDs, GoCD server wil auto-generate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;scms&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;3bfc282e-43a6-4795-ba9c-6c50665220dd&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;git-repo&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -392,25 +364,16 @@ Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
         <span style="color:#008000;font-weight:bold">&lt;/filter&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/scm&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  ...</code></pre></div>
-<h3 id="permissions">Permissions</h3>
-
+  ...
+</code></pre></div><h3 id="permissions">Permissions</h3>
 <p>Since SCMs are global entities changing a SCM definition will reflect on all pipelines that consume it - even those not in the same pipeline group as that of the person editing. To make the decision to &ldquo;edit&rdquo; / &ldquo;remove&rdquo; and &ldquo;add&rdquo; new material easier, we list all pipelines consuming the SCM.</p>
-
 <p>Note: Change to the SCM definition causes all dependent pipelines to schedule.</p>
-
-<p><img src="../images/scm-edit-material.png" alt="" /></p>
-
+<p><img src="../images/scm-edit-material.png" alt=""></p>
 <h3 id="polling">Polling</h3>
-
 <p>Even if no pipelines use a SCM, GoCD polls for newer revisions every minute. This may be turned off at a SCM level by setting <a href="../configuration/configuration_reference.html#config-repo-scm"><code>autoUpdate</code></a> to false via the config xml (GoCD admins only). <code>autoUpdate</code> is turned on by default. When a newer revision is found for a SCM, the pipelines for which it is a material get scheduled (assuming <a href="../configuration/pipeline_scheduling.html">auto scheduling of pipelines</a> is on). Also see <a href="https://api.gocd.org/current/#scheduling-pipelines">API scheduling</a>.</p>
-
 <p><em>Filters:</em> At times you may not want GoCD to trigger pipelines for every commit. e.g. you might not want to &lsquo;build&rsquo; if its a &lsquo;documentation&rsquo; change. You can setup a <a href="../configuration/configuration_reference.html#filter">filter</a> at pipeline level asking GoCD to skip pipeline scheduling if commit contains only files that match a pattern.</p>
-
 <h3 id="scm-information-display">SCM information display</h3>
-
 <p>The following information is expected from the SCM material plugin (which in turn obtains it from the SCM metadata if available)</p>
-
 <ol>
 <li>SCM revision</li>
 <li>Commit time</li>
@@ -418,17 +381,11 @@ Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
 <li>Comment for the commit</li>
 <li>Files in the commit along with action (added/modified/deleted)</li>
 </ol>
-
 <p>At the time of building the SCM, it is recommended to include as much of the above information as possible so that it is available for GoCD to display as below.</p>
-
-<p><img src="../images/scm-revision-details.png" alt="" /></p>
-
+<p><img src="../images/scm-revision-details.png" alt=""></p>
 <h3 id="scm-checkout-on-agent">SCM checkout on Agent</h3>
-
 <p>VCS/SCM plugin will by default checkout code into <code>destination</code> directory on Agent before the job begins.</p>
-
 <h2 id="references">References:</h2>
-
 <ul>
 <li><a href="https://plugin-api.gocd.org/current/scm/">Developer docs</a></li>
 <li><a href="https://www.gocd.org/community/plugins.html#scm-plugins-count">SCM Plugins</a></li>
@@ -474,28 +431,18 @@ Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#scm-material">SCM Material</a>
-<ul>
-<li><a href="#introduction">Introduction</a>
-<ul>
-<li><a href="#scms-and-materials">SCMs and Materials</a>
-<ul>
-<li><a href="#scm-definition">SCM Definition</a>
-<ul>
-<li><a href="#note">Note:</a></li>
-</ul></li>
-<li><a href="#scm-material-uniqueness-fingerprint">SCM material uniqueness (fingerprint):</a></li>
-<li><a href="#sample-xml-configuration">Sample XML Configuration</a></li>
-</ul></li>
-<li><a href="#permissions">Permissions</a></li>
-<li><a href="#polling">Polling</a></li>
-<li><a href="#scm-information-display">SCM information display</a></li>
-<li><a href="#scm-checkout-on-agent">SCM checkout on Agent</a></li>
-</ul></li>
-<li><a href="#references">References:</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#introduction">Introduction</a>
+      <ul>
+        <li><a href="#scms-and-materials">SCMs and Materials</a></li>
+        <li><a href="#permissions">Permissions</a></li>
+        <li><a href="#polling">Polling</a></li>
+        <li><a href="#scm-information-display">SCM information display</a></li>
+        <li><a href="#scm-checkout-on-agent">SCM checkout on Agent</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References:</a></li>
+  </ul>
 </nav>
   </aside>
 

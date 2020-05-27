@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,36 +320,26 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="conditional-task-execution">Conditional task execution</h1>
-
+<article class="markdown"><h1 id="conditional-task-execution">Conditional task execution</h1>
 <p>At times there are certain steps you need to execute only when you know that the build has already failed. For example, when a test suite fails you might want to output additional environment information to the console output</p>
-
 <h2 id="using-web-interface">Using web interface</h2>
-
 <p>Check the appropriate <strong>Run if conditions</strong> when defining the <strong>Task</strong></p>
-
-<p><img src="../images/conditional_task_execution.png" alt="" /></p>
-
+<p><img src="../images/conditional_task_execution.png" alt=""></p>
 <h2 id="using-xml-configuration">Using XML configuration</h2>
-
 <p>Usage: As a developer, I want to run a task only when the build has already failed.</p>
-
 <ul>
 <li>On the <em>Admin &gt; Pipelines</em> tab, edit the jobs that should run a task when the build has failed</li>
 <li>Ensure the following &ldquo;task&rdquo; block is in the job configuration</li>
-<li><img src="../images/2_conditional_task_config.png" alt="" /></li>
+<li><img src="../images/2_conditional_task_config.png" alt=""></li>
 <li>Now we will get extra output only when the tests fail!</li>
 </ul>
-
-<p>Possible run_if conditions:
- * passed
- * failed
- * any</p>
-
+<p>Possible run_if conditions:</p>
+<ul>
+<li>passed</li>
+<li>failed</li>
+<li>any</li>
+</ul>
 <h2 id="also-see">Also See</h2>
-
 <ul>
 <li><a href="../faq/job_rerun.html">Re-running job(s)</a></li>
 </ul>
@@ -401,14 +383,11 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#conditional-task-execution">Conditional task execution</a>
-<ul>
-<li><a href="#using-web-interface">Using web interface</a></li>
-<li><a href="#using-xml-configuration">Using XML configuration</a></li>
-<li><a href="#also-see">Also See</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#using-web-interface">Using web interface</a></li>
+    <li><a href="#using-xml-configuration">Using XML configuration</a></li>
+    <li><a href="#also-see">Also See</a></li>
+  </ul>
 </nav>
   </aside>
 

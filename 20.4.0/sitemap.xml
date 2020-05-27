@@ -1,25 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>/installation/configure_proxy.html</loc>
-  </url>
-  
-  <url>
-    <loc>/installation/ssl_tls/custom_certificate.html</loc>
-  </url>
-  
-  <url>
     <loc>/configuration/access_tokens.html</loc>
-  </url>
-  
-  <url>
-    <loc>/configuration/admin_add_material.html</loc>
-  </url>
-  
-  <url>
-    <loc>/configuration/admin_add_stage.html</loc>
   </url>
   
   <url>
@@ -28,6 +12,14 @@
   
   <url>
     <loc>/configuration/admin_add_job.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_add_material.html</loc>
+  </url>
+  
+  <url>
+    <loc>/configuration/admin_add_stage.html</loc>
   </url>
   
   <url>
@@ -68,7 +60,6 @@
   
   <url>
     <loc>/categories.html</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -120,15 +111,15 @@
   </url>
   
   <url>
-    <loc>/faq/docker_container_ssh_keys.html</loc>
-  </url>
-  
-  <url>
     <loc>/installation/configure-reverse-proxy.html</loc>
   </url>
   
   <url>
     <loc>/installation/configure-agent-proxy.html</loc>
+  </url>
+  
+  <url>
+    <loc>/faq/docker_container_ssh_keys.html</loc>
   </url>
   
   <url>
@@ -140,11 +131,11 @@
   </url>
   
   <url>
-    <loc>/installation/ssl_tls_config.html</loc>
+    <loc>/installation/configuring_server_details.html</loc>
   </url>
   
   <url>
-    <loc>/installation/configuring_server_details.html</loc>
+    <loc>/installation/ssl_tls_config.html</loc>
   </url>
   
   <url>
@@ -188,11 +179,11 @@
   </url>
   
   <url>
-    <loc>/faq/</loc>
+    <loc>/advanced_usage/fan_in.html</loc>
   </url>
   
   <url>
-    <loc>/advanced_usage/fan_in.html</loc>
+    <loc>/faq/</loc>
   </url>
   
   <url>
@@ -213,7 +204,6 @@
   
   <url>
     <loc>/gocd_on_kubernetes.html</loc>
-    <priority>0</priority>
   </url>
   
   <url>
@@ -249,15 +239,15 @@
   </url>
   
   <url>
-    <loc>/installation/installing_go_server.html</loc>
-  </url>
-  
-  <url>
     <loc>/installation/install/agent/linux.html</loc>
   </url>
   
   <url>
     <loc>/installation/install/agent/windows.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/installing_go_server.html</loc>
   </url>
   
   <url>
@@ -361,6 +351,10 @@
   </url>
   
   <url>
+    <loc>/advanced_usage/pipeline_activity.html</loc>
+  </url>
+  
+  <url>
     <loc>/configuration/pipeline_group_admin_config.html</loc>
   </url>
   
@@ -374,10 +368,6 @@
   
   <url>
     <loc>/configuration/pipeline_templates.html</loc>
-  </url>
-  
-  <url>
-    <loc>/advanced_usage/pipeline_activity.html</loc>
   </url>
   
   <url>
@@ -409,11 +399,11 @@
   </url>
   
   <url>
-    <loc>/extension_points/scm_extension.html</loc>
+    <loc>/gocd_on_kubernetes/sample_pipelines_explained.html</loc>
   </url>
   
   <url>
-    <loc>/gocd_on_kubernetes/sample_pipelines_explained.html</loc>
+    <loc>/extension_points/scm_extension.html</loc>
   </url>
   
   <url>
@@ -442,7 +432,6 @@
   
   <url>
     <loc>/tags.html</loc>
-    <priority>0</priority>
   </url>
   
   <url>

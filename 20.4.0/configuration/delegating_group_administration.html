@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,27 +320,18 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="delegating-group-administration">Delegating Group Administration</h1>
-
+<article class="markdown"><h1 id="delegating-group-administration">Delegating Group Administration</h1>
 <p>A GoCD Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section &ldquo;Privileges of a Group Administrator&rdquo;.</p>
-
 <h2 id="steps-to-assign-group-administrators">Steps to assign Group Administrators</h2>
-
 <p>To assign a user as a group administrator:</p>
-
 <ol>
 <li>Click on &ldquo;Pipelines&rdquo; tab on the <strong>Admin</strong> section</li>
 <li>Locate the group you want to assign a group administrator to</li>
 <li>Click the &ldquo;Edit&rdquo; link for that group</li>
 <li>Here, you can define permissions for users and roles</li>
 </ol>
-
-<p><img src="../images/group_admin_permissions.png" alt="" /></p>
-
+<p><img src="../images/group_admin_permissions.png" alt=""></p>
 <p>In the above screenshot, the GoCD admin has delegated group admin privileges to a user &ldquo;jez&rdquo; and all users defined under the role &ldquo;groupAdminRole&rdquo;. The privileges of a Group Administrator have been described in the next section.</p>
-
 <p>For power users, here&rsquo;s how you&rsquo;d assign the same permissions via Config XML:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
@@ -360,11 +343,10 @@ if (!doNotTrack) {
      <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
      ...
      <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span></code></pre></div>
-<h2 id="privileges-of-a-group-administrator">Privileges of a Group Administrator</h2>
+<span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
 
+</code></pre></div><h2 id="privileges-of-a-group-administrator">Privileges of a Group Administrator</h2>
 <p>As a group administrator of a pipeline group, a user is privileged to:</p>
-
 <ul>
 <li>View and operate (trigger, rerun stages etc.) all the pipelines in this group.</li>
 <li>Add other group administrators to this group</li>
@@ -375,7 +357,6 @@ if (!doNotTrack) {
 <li>Use APIs to view and operate (trigger, rerun stages etc.) all the pipelines in this group.</li>
 <li>Use APIs to edit pipelines belonging to this group.</li>
 </ul>
-
 <blockquote>
 <p><strong>Note:</strong> A group administrator can access &ldquo;Pipelines&rdquo; and &ldquo;Config XML&rdquo; tabs on the Administration page to <a href="pipeline_group_admin_config.html">view and edit his/her pipeline groups</a>. He/She cannot access Server Configuration or perform user management. While a group administrator cannot access Pipeline Templates either, they can use existing templates for pipelines within their pipeline group.</p>
 </blockquote>
@@ -419,13 +400,10 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#delegating-group-administration">Delegating Group Administration</a>
-<ul>
-<li><a href="#steps-to-assign-group-administrators">Steps to assign Group Administrators</a></li>
-<li><a href="#privileges-of-a-group-administrator">Privileges of a Group Administrator</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#steps-to-assign-group-administrators">Steps to assign Group Administrators</a></li>
+    <li><a href="#privileges-of-a-group-administrator">Privileges of a Group Administrator</a></li>
+  </ul>
 </nav>
   </aside>
 

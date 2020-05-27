@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Advanced usage on GoCD User Documentation</title>
@@ -29,7 +29,7 @@ Configurations The API uses the following configurable agent system properties.
       
       <guid>/advanced_usage/agent_auto_register.html</guid>
       <description>Auto registration of remote agents As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.
- Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;ldquo;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present.  &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt; &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt; ... &amp;lt;/cruise&amp;gt;  On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.</description>
+ Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;quot;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present.  &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt; &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt; ... &amp;lt;/cruise&amp;gt;   On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.</description>
     </item>
     
     <item>
@@ -39,9 +39,9 @@ Configurations The API uses the following configurable agent system properties.
       
       <guid>/advanced_usage/one_click_backup.html</guid>
       <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform a backup using the API.
-Steps to initiate backup  After you are logged into gocd, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
+Steps to initiate backup   After you are logged into gocd, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
  Note: GoCD will be unusable during the backup process.
- Backup time is proportional to the database and configuration size.</description>
+   Backup time is proportional to the database and configuration size.</description>
     </item>
     
     <item>

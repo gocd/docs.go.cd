@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,20 +320,12 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="parameterize-your-configuration">Parameterize your Configuration</h1>
-
+<article class="markdown"><h1 id="parameterize-your-configuration">Parameterize your Configuration</h1>
 <p>GoCD allows you to parameterize your pipelines and pipeline templates. This powerful feature can help reduce repetition within your configurations and also allows for complex setups using a combination of parameters and pipeline templates.</p>
-
 <h2 id="using-web-interface">Using Web Interface</h2>
-
 <p>Edit the <strong>Parameters</strong> tab when defining a <strong>pipeline</strong> .</p>
-
-<p><img src="../images/use_parameters_in_configuration.png" alt="" /></p>
-
+<p><img src="../images/use_parameters_in_configuration.png" alt=""></p>
 <h2 id="defining-and-using-a-parameter">Defining and using a parameter</h2>
-
 <p>Parameter values are defined in the <code>&lt;params&gt;</code> tag within a pipeline and can be used anywhere within that pipeline using #{param_name}. The following example defines a new parameter called &ldquo;myParam&rdquo; and uses it in a job.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
@@ -356,11 +340,11 @@ if (!doNotTrack) {
       <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<blockquote>
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+
+</code></pre></div><blockquote>
 <p><strong>NOTE:</strong> If you want to use the <strong>#</strong> literal, you can escape it using another <strong>#</strong> literal. For example, if the parameter &ldquo;foo&rdquo; has the value &ldquo;one&rdquo;, then:</p>
 </blockquote>
-
 <table>
 <thead>
 <tr>
@@ -368,27 +352,22 @@ if (!doNotTrack) {
 <th align="center">Evaluates to</th>
 </tr>
 </thead>
-
 <tbody>
 <tr>
 <td align="left">#{foo}</td>
 <td align="center">one</td>
 </tr>
-
 <tr>
 <td align="left">##{foo}</td>
 <td align="center">#{foo}</td>
 </tr>
-
 <tr>
 <td align="left">###{foo}</td>
 <td align="center">#one</td>
 </tr>
 </tbody>
 </table>
-
 <h2 id="using-parameters-in-pipeline-templates">Using parameters in pipeline templates</h2>
-
 <p>Parameter usage within <a href="pipeline_templates.html">templates</a> is similar to usage within pipelines. The only difference is that you cannot <strong>define</strong> parameters in a template.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;trunk&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
@@ -402,8 +381,9 @@ if (!doNotTrack) {
     <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;WORKING_DIR&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>branch<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
   ...
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<p>The parameter defined above is used the template below.</p>
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+
+</code></pre></div><p>The parameter defined above is used the template below.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
@@ -414,13 +394,11 @@ if (!doNotTrack) {
       <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span></code></pre></div>
-<h2 id="rules-around-usage-of-parameters">Rules around usage of parameters</h2>
+<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 
+</code></pre></div><h2 id="rules-around-usage-of-parameters">Rules around usage of parameters</h2>
 <p>While parameters are generally very flexible, there are some restrictions.</p>
-
 <p><strong>You cannot use a parameter to define:</strong></p>
-
 <ul>
 <li>Pipeline name</li>
 <li>Stage name</li>
@@ -433,9 +411,7 @@ if (!doNotTrack) {
 <li>Material passwords (however, for Git and Mercurial, passwords are not captured as separate attribute, hence can be parameterized)</li>
 <li>Trigger-type for Stage</li>
 </ul>
-
 <p><strong>Other restrictions:</strong></p>
-
 <ul>
 <li>Parameters can currently only be defined within a pipeline.</li>
 <li>A parameter cannot be composed with another parameter i.e. #{foo#{bar}} will not be evaluated recursively.</li>
@@ -481,15 +457,12 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#parameterize-your-configuration">Parameterize your Configuration</a>
-<ul>
-<li><a href="#using-web-interface">Using Web Interface</a></li>
-<li><a href="#defining-and-using-a-parameter">Defining and using a parameter</a></li>
-<li><a href="#using-parameters-in-pipeline-templates">Using parameters in pipeline templates</a></li>
-<li><a href="#rules-around-usage-of-parameters">Rules around usage of parameters</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#using-web-interface">Using Web Interface</a></li>
+    <li><a href="#defining-and-using-a-parameter">Defining and using a parameter</a></li>
+    <li><a href="#using-parameters-in-pipeline-templates">Using parameters in pipeline templates</a></li>
+    <li><a href="#rules-around-usage-of-parameters">Rules around usage of parameters</a></li>
+  </ul>
 </nav>
   </aside>
 

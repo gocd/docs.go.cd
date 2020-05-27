@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,37 +320,23 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="authorization">Authorization</h1>
-
+<article class="markdown"><h1 id="authorization">Authorization</h1>
 <p>With no security switched on, there is of course no authorization either. Once you have configured security, the default is that any user can perform any operation. However, GoCD can limit certain operations to particular Users or Roles, and manage membership of those Roles.</p>
-
 <h2 id="administrators">Administrators</h2>
-
 <p>GoCD allows you to restrict the users who can perform certain functions. Administrators is a special role that allows its members to perform any action in GoCD. Specifying administrators is optional &ndash; without it, all users are automatically made administrators.</p>
-
 <p>If administrators are specified, only they can perform the following actions:</p>
-
 <ul>
 <li>Access the &ldquo;administration&rdquo; tab</li>
 <li>Add/Edit Pipeline Templates</li>
 <li>Enable agents</li>
 <li>Add / remove agent resources</li>
 </ul>
-
 <p>Users can be made administrators from the &ldquo;Users Management&rdquo; section found under the &ldquo;Admin&rdquo; menu.</p>
-
-<p><img src="../images/user_summary_system_admin.png" alt="" /></p>
-
+<p><img src="../images/user_summary_system_admin.png" alt=""></p>
 <p>To give admin privileges to users and/or roles via &ldquo;Config xml&rdquo;, please refer to the example in the section below, where members of the &ldquo;go_admin&rdquo; role (jhumble and qiao), along with the user chris, can administer GoCD.</p>
-
 <h2 id="role-based-access-control">Role-based Access Control</h2>
-
 <p>You can define roles that can be used anywhere that authorization is required. A role is just a group of users. Administrators can add users to a new or existing role from the &ldquo;User Summary&rdquo; tab in the &ldquo;Admin&rdquo; section. Here, you can select any number of users and assign a new or existing role to them. In this example, user &ldquo;aantony&rdquo; is being added to the role &ldquo;analyst&rdquo;</p>
-
-<p><img src="../images/user_summary_add_user_to_role.png" alt="" /></p>
-
+<p><img src="../images/user_summary_add_user_to_role.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure roles via &ldquo;Config XML&rdquo;:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
@@ -387,12 +365,11 @@ if (!doNotTrack) {
       <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/security&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span></code></pre></div>
-<p>In this example, the &ldquo;qa&rdquo; role has two users: dyang and pavan. The &ldquo;go_admin&rdquo; role also has two users: jhumble and qiao.</p>
+<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
 
+</code></pre></div><p>In this example, the &ldquo;qa&rdquo; role has two users: dyang and pavan. The &ldquo;go_admin&rdquo; role also has two users: jhumble and qiao.</p>
 <p>Starting GoCD 19.11.0, the roles can be configured to allow how the users assigned the role can access a GoCD entity.
 GoCD system administrators can now define a role with a <code>policy</code> that will contain a set of permissions to govern access of a GoCD entity for the users belonging to the role.</p>
-
 <p>The following role definition would grant <code>view</code> action permissions for GoCD entity type <code>environment</code> with the matching wild card pattern:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">...
     <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
@@ -402,38 +379,24 @@ GoCD system administrators can now define a role with a <code>policy</code> that
             <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
-...</code></pre></div>
-<p>This means that any user which has the role <code>view-permissions</code> will get <code>view</code> access to the environments which have the name starting with <code>env</code>.
+...
+</code></pre></div><p>This means that any user which has the role <code>view-permissions</code> will get <code>view</code> access to the environments which have the name starting with <code>env</code>.
 You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
-
 <h2 id="specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</h2>
-
 <p>GoCD allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.</p>
-
-<hr />
-
+<hr>
 <p><strong>Note:</strong> If no authorization is defined for a pipeline group, it is viewable and operable only by GoCD system administrators.</p>
-
-<hr />
-
+<hr>
 <p>The <strong>&ldquo;view&rdquo; permission</strong> allows users to view the pipeline. It does not give permission to trigger pipelines, approve stages, or re-run stages. In the below example, the users &ldquo;akrishna&rdquo; and &ldquo;aantony&rdquo; can view the pipelines in this group, but they cannot perform any operations on it.</p>
-
 <p>The <strong>&ldquo;operate&rdquo; permission</strong> allows users to trigger pipelines and its stages. In the below example, the role &ldquo;developer&rdquo; is being granted the operate permission and will be able to trigger pipelines and its stages within this group.</p>
-
 <p>The <strong>&ldquo;admin&rdquo; permission</strong> makes the user a <a href="delegating_group_administration.html">Pipeline Group Administrator</a> allowing them to view, operate and administer the pipeline group. In the below example, role &ldquo;admins&rdquo; has been granted this permission.</p>
-
 <blockquote>
 <p>Note that is is possible to give a user or role only the operate permission. In the example below, the user &ldquo;bot&rdquo; only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of GoCD.</p>
 </blockquote>
-
 <p>To edit the permissions for a pipeline group, navigate to the &ldquo;Pipelines&rdquo; tab on the &ldquo;Admin&rdquo; section:</p>
-
-<p><img src="../images/group_list.png" alt="" /></p>
-
+<p><img src="../images/group_list.png" alt=""></p>
 <p>Then, click the &ldquo;Edit&rdquo; link for the pipeline group you want to manage permissions for:</p>
-
-<p><img src="../images/group_permission.png" alt="" /></p>
-
+<p><img src="../images/group_permission.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;Shine&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
@@ -451,15 +414,11 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
     <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
   ...
-<span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span></code></pre></div>
-<h2 id="adding-authorization-to-approvals">Adding authorization to approvals</h2>
-
+<span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
+</code></pre></div><h2 id="adding-authorization-to-approvals">Adding authorization to approvals</h2>
 <p>In GoCD, it is possible to specify <a href="managing_pipelines.html">manual approvals</a> between stages. You can also specify which user is allowed to trigger manual approvals.</p>
-
 <p>The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role &ldquo;admin&rdquo;, and the user &ldquo;goleys&rdquo;, can trigger the approval.</p>
-
-<p><img src="../images/stage_permissions.png" alt="" /></p>
-
+<p><img src="../images/stage_permissions.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure authorization for approvals for a stage via &ldquo;Config XML&rdquo;:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;defaultStage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
 
@@ -480,21 +439,15 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
       <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span></code></pre></div>
-<p><a id="template-admin"></a></p>
+<span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
 
+</code></pre></div><p><a id="template-admin"></a></p>
 <h2 id="specifying-permissions-for-templates">Specifying permissions for templates</h2>
-
 <p>A GoCD Administrator can make any user a template administrator for a specific template. As a template administrator, a user can now view and edit the template to which he has permissions.</p>
-
 <p>To edit the permissions for a template, navigate to the &ldquo;Templates&rdquo; tab on the &ldquo;Admin&rdquo; section:</p>
-
-<p><img src="../images/templates_tab_on_admin_page.png" alt="" /></p>
-
+<p><img src="../images/templates_tab_on_admin_page.png" alt=""></p>
 <p>Then, click the &ldquo;Permissions&rdquo; link for the template you want to manage permissions for:</p>
-
-<p><img src="../images/add_template_permissions.png" alt="" /></p>
-
+<p><img src="../images/add_template_permissions.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;templates&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;app-1-template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -505,9 +458,8 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
       <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
       ...
     <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/templates&gt;</span></code></pre></div>
-<h3 id="also-see">Also See</h3>
-
+  <span style="color:#008000;font-weight:bold">&lt;/templates&gt;</span>
+</code></pre></div><h3 id="also-see">Also See</h3>
 <ul>
 <li><a href="delegating_group_administration.html">Delegating group administration</a></li>
 </ul>
@@ -551,19 +503,17 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#authorization">Authorization</a>
-<ul>
-<li><a href="#administrators">Administrators</a></li>
-<li><a href="#role-based-access-control">Role-based Access Control</a></li>
-<li><a href="#specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</a></li>
-<li><a href="#adding-authorization-to-approvals">Adding authorization to approvals</a></li>
-<li><a href="#specifying-permissions-for-templates">Specifying permissions for templates</a>
-<ul>
-<li><a href="#also-see">Also See</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#administrators">Administrators</a></li>
+    <li><a href="#role-based-access-control">Role-based Access Control</a></li>
+    <li><a href="#specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</a></li>
+    <li><a href="#adding-authorization-to-approvals">Adding authorization to approvals</a></li>
+    <li><a href="#specifying-permissions-for-templates">Specifying permissions for templates</a>
+      <ul>
+        <li><a href="#also-see">Also See</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

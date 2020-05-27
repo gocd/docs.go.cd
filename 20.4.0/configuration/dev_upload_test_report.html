@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,59 +320,38 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="publishing-artifacts">Publishing artifacts</h1>
-
+<article class="markdown"><h1 id="publishing-artifacts">Publishing artifacts</h1>
 <p>When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you <a href="../faq/dev_understand_why_build_broken.html">understand why the build is broken</a>. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.</p>
-
 <p>To publish artifacts you add a an <a href="configuration_reference.html#artifact">&lt; artifact &gt;</a> to the job configuration. More information can be found on the <a href="managing_artifacts_and_reports.html">Managing artifacts and reports</a> page.</p>
-
 <h2 id="example-usages">Example usages</h2>
-
 <h3 id="uploading-junit-xml-reports">Uploading JUnit xml reports</h3>
-
 <p>We are going to assume that the JUnit test reports are being placed in the &ldquo;target/reports&rdquo; folder.</p>
-
 <p>Click on the <strong>Administration</strong> tab</p>
-
-<p><img src="../images/topnav_admin.png" alt="" /></p>
-
+<p><img src="../images/topnav_admin.png" alt=""></p>
 <p>Click on your pipeline</p>
-
-<p><img src="../images/2_click_pipeline.png" alt="" /></p>
-
+<p><img src="../images/2_click_pipeline.png" alt=""></p>
 <p>For each job that runs JUnit:</p>
-
 <ul>
 <li>Click on the job name to edit job config</li>
-<li><img src="../images/3_click_edit_job.png" alt="" /></li>
+<li><img src="../images/3_click_edit_job.png" alt=""></li>
 <li>Add the source of the test artifact. For tests, choose the type of artifact as Test artifact</li>
-<li><img src="../images/4_add_test_artifacts_tag.png" alt="" /></li>
+<li><img src="../images/4_add_test_artifacts_tag.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;</li>
 </ul>
-
 <h3 id="uploading-a-flash-video-and-displaying-it-as-a-sub-tab">Uploading a flash video and displaying it as a sub-tab</h3>
-
 <p>We are going to assume that the flash file, and the html file referencing it, are being created in the &ldquo;target/reports&rdquo; folder.</p>
-
 <p>Click on the <em>Admin &gt; Pipelines</em> tab tab</p>
-
-<p><img src="../images/topnav_admin.png" alt="" /></p>
-
+<p><img src="../images/topnav_admin.png" alt=""></p>
 <p>Click on your pipeline</p>
-
-<p><img src="../images/2_click_pipeline.png" alt="" /></p>
-
+<p><img src="../images/2_click_pipeline.png" alt=""></p>
 <p>For each job that creates a flash video</p>
-
 <ul>
 <li>Click on the job name to edit the job config</li>
-<li><img src="../images/3_click_edit_job.png" alt="" /></li>
+<li><img src="../images/3_click_edit_job.png" alt=""></li>
 <li>Navigate to the &ldquo;Artifacts&rdquo;. Add the source of the artifact. Choose the type of artifact as Build artifact. This will copy all files from the &ldquo;target/reports&rdquo; folder on the agent to the &ldquo;Recording&rdquo; folder on Go server</li>
-<li><img src="../images/7_add_artifact_section.png" alt="" /></li>
+<li><img src="../images/7_add_artifact_section.png" alt=""></li>
 <li>Navigate to &ldquo;Custom Tabs&rdquo;. Add the tab name and the source of the html file. This will create a tab called &ldquo;Recording&rdquo; that shows the html page found at &ldquo;recording/twist-recording.html&rdquo; on GoCD server.</li>
-<li><img src="../images/8_add_tab_section.png" alt="" /></li>
+<li><img src="../images/8_add_tab_section.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;</li>
 <li><a href="../faq/dev_see_artifact_as_tab.html">Watch the flash video as a sub-tab on the Job Details page</a></li>
 </ul>
@@ -424,16 +395,14 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#publishing-artifacts">Publishing artifacts</a>
-<ul>
-<li><a href="#example-usages">Example usages</a>
-<ul>
-<li><a href="#uploading-junit-xml-reports">Uploading JUnit xml reports</a></li>
-<li><a href="#uploading-a-flash-video-and-displaying-it-as-a-sub-tab">Uploading a flash video and displaying it as a sub-tab</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#example-usages">Example usages</a>
+      <ul>
+        <li><a href="#uploading-junit-xml-reports">Uploading JUnit xml reports</a></li>
+        <li><a href="#uploading-a-flash-video-and-displaying-it-as-a-sub-tab">Uploading a flash video and displaying it as a sub-tab</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

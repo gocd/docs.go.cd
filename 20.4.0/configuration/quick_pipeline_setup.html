@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,116 +320,77 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="add-a-new-pipeline">Add a New Pipeline</h1>
-
+<article class="markdown"><h1 id="add-a-new-pipeline">Add a New Pipeline</h1>
 <p>There are many ways of creating pipelines in GoCD:</p>
-
 <ol>
 <li>You can create them by using <a href="../advanced_usage/pipelines_as_code.html">Pipelines as Code</a>, by adding pipeline definitions to a repository in formats such as Yaml, JSON, Groovy, etc.</li>
 <li>You can use GoCD&rsquo;s extensive APIs to create a pipeline. See <a href="https://api.gocd.org/current/#create-a-pipeline">Pipeline Config API</a>.</li>
 <li>You can use GoCD&rsquo;s UI to create a pipeline (see below).</li>
 <li>By <a href="#clone-an-existing-gocd-pipeline">cloning an existing pipeline</a>.</li>
 </ol>
-
 <h2 id="new-pipeline-wizard">New Pipeline Wizard</h2>
-
 <p>Clicking on the <strong>Admin</strong> -&gt; <strong>Pipelines</strong> menu item will take you to the pipelines administration page. Clicking on &ldquo;Create a new pipeline within this group&rdquo; button will take you to the &ldquo;Add pipeline&rdquo; page.</p>
-
 <h3 id="step-1-basic-settings">Step 1: Basic Settings</h3>
-
-<p><img src="../images/new_pipeline_1.png" alt="" /></p>
-
+<p><img src="../images/new_pipeline_1.png" alt=""></p>
 <ol>
 <li>Fill in the pipeline name</li>
 <li>Fill in the pipeline group</li>
 </ol>
-
 <h3 id="step-2-material">Step 2: Material</h3>
-
-<p><img src="../images/new_pipeline_2.png" alt="" /></p>
-
+<p><img src="../images/new_pipeline_2.png" alt=""></p>
 <ol>
 <li>Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a <a href="../extension_points/package_repository_extension.html">package repository</a> (e.g. <a href="../extension_points/yum_repository_poller.html">yum</a>). Currently Go supports the following SCMs:
-
 <ol>
 <li>Subversion</li>
 <li>Mercurial</li>
 <li>Git</li>
 <li>Team Foundation Server.</li>
 <li>Perforce</li>
-</ol></li>
 </ol>
-
+</li>
+</ol>
 <p>and the package repository and material plugins.</p>
-
-<ol>
+<ol start="2">
 <li>Fill in settings specific to the material type.</li>
 </ol>
-
 <h3 id="step-3-stage-and-job">Step 3: Stage and Job</h3>
-
-<p><img src="../images/new_pipeline_3.png" alt="" /></p>
-
+<p><img src="../images/new_pipeline_3.png" alt=""></p>
 <p>A pipeline contains one or more stages. Define the first stage of your pipeline</p>
-
 <ol>
 <li>Fill in the Stage name.</li>
 <li>Fill in the Job name.</li>
 <li>Fill in the task type and the command for the task.</li>
 <li>If you use Ant, NAnt or Rake for scripting, Go provides convenience wrappers for these tools. To use any other scripting tool (e.g: Maven, msbuild, etc.), choose the &ldquo;More&hellip;&rdquo; option to use the <a href="../advanced_usage/command_repository.html">command repository</a> or specify the command line syntax for that tool.</li>
 </ol>
-
 <p>See the <a href="managing_pipelines.html">Managing pipelines</a> documentation for editing these settings following the creation of your pipeline.</p>
-
 <h2 id="initial-task-settings">Initial task settings</h2>
-
 <h3 id="ant">Ant</h3>
-
 <p>The Ant task allows you to run an ant script. GoCD does not include Ant and so you must ensure that it is already on the command path. By default it will use build.xml in the agent&rsquo;s working directory as the build file. If you want to customize the build file or build target, click the <strong>edit</strong> link to change the defaults.</p>
-
 <p>For this option to work, Ant needs to be installed on the GoCD Agent(s) and the <em>go user</em> should be able to execute it.</p>
-
 <h3 id="nant">NAnt</h3>
-
 <p>The NAnt task allows you to run a NAnt script. GoCD does not include NAnt and so you must ensure that it is already on the command path. By default it will use default.build as build file in the agent&rsquo;s working directory. If you want to customize the build file or build target, click the <strong>edit</strong> link to change the defaults.</p>
-
 <p>For this option to work, NAnt needs to be installed on the GoCD Agent(s) and the <em>go user</em> should be able to execute it.</p>
-
 <h3 id="rake">Rake</h3>
-
 <p>The Rake task allows you to run a ruby rake build. GoCD does not include ruby or rake and so you must ensure that it is correctly installed on the agents. GoCD will assume the standard <strong>rakefile</strong> exists in the working directory of the agent.</p>
-
 <p>For this option to work, Rake needs to be installed on the Go Agent(s) and the <em>go user</em> should be able to execute it.</p>
-
 <h3 id="more">More&hellip;</h3>
-
 <p>In addition to the above tasks, GoCD allows you to run anything on the command line. You can use the <a href="../advanced_usage/command_repository.html">command repository</a> to help you choose the command. Alternately you can specify a command on your own.</p>
-
 <p>You can see the complete configuration reference <a href="configuration_reference.html">here</a>.</p>
-
 <p><a name="clone-an-existing-gocd-pipeline"></a></p>
-
 <h1 id="clone-an-existing-gocd-pipeline">Clone an existing GoCD pipeline</h1>
-
 <p>Clone pipeline functionality helps you create a new pipeline from an existing pipeline by giving it a new name. Typically when setting up a pipeline for a new branch, it is very useful to take an existing pipeline and clone it.</p>
-
 <p>If the user is a pipeline group admin, they can clone the new pipeline into a group that they have access to. If the user is an admin they can clone the pipeline into any group or can create a new group by providing a new group name.</p>
-
 <ul>
 <li>Navigate to the Admin tab</li>
 <li>Locate the pipeline that needs to be cloned</li>
 <li>In that row, click on the &ldquo;Clone&rdquo; icon.
-<img src="../images/clone_icon.png" alt="" /></li>
+<img src="../images/clone_icon.png" alt=""></li>
 <li>Fill in the name of the new pipeline
-<img src="../images/clone_pipeline.png" alt="" /></li>
+<img src="../images/clone_pipeline.png" alt=""></li>
 <li>Select a pipeline group. If you are an admin, you will be able to enter the name of the pipeline group using the auto suggest or enter a new group name</li>
 <li>Click &ldquo;Save&rdquo;</li>
 </ul>
-
 <h4 id="also-see">Also See</h4>
-
 <ul>
 <li><a href="admin_add_material.html">Adding a material to an existing pipeline</a></li>
 <li><a href="admin_add_stage.html">Adding a stage to an existing pipeline</a></li>
@@ -484,34 +437,31 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#add-a-new-pipeline">Add a New Pipeline</a>
-<ul>
-<li><a href="#new-pipeline-wizard">New Pipeline Wizard</a>
-<ul>
-<li><a href="#step-1-basic-settings">Step 1: Basic Settings</a></li>
-<li><a href="#step-2-material">Step 2: Material</a></li>
-<li><a href="#step-3-stage-and-job">Step 3: Stage and Job</a></li>
-</ul></li>
-<li><a href="#initial-task-settings">Initial task settings</a>
-<ul>
-<li><a href="#ant">Ant</a></li>
-<li><a href="#nant">NAnt</a></li>
-<li><a href="#rake">Rake</a></li>
-<li><a href="#more">More&hellip;</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#clone-an-existing-gocd-pipeline">Clone an existing GoCD pipeline</a>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#also-see">Also See</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#new-pipeline-wizard">New Pipeline Wizard</a>
+      <ul>
+        <li><a href="#step-1-basic-settings">Step 1: Basic Settings</a></li>
+        <li><a href="#step-2-material">Step 2: Material</a></li>
+        <li><a href="#step-3-stage-and-job">Step 3: Stage and Job</a></li>
+      </ul>
+    </li>
+    <li><a href="#initial-task-settings">Initial task settings</a>
+      <ul>
+        <li><a href="#ant">Ant</a></li>
+        <li><a href="#nant">NAnt</a></li>
+        <li><a href="#rake">Rake</a></li>
+        <li><a href="#more">More&hellip;</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,61 +320,49 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="add-a-new-material-to-an-existing-gocd-pipeline">Add a new material to an existing GoCD pipeline</h1>
-
+<article class="markdown"><h1 id="add-a-new-material-to-an-existing-gocd-pipeline">Add a new material to an existing GoCD pipeline</h1>
 <p>Now that you have a pipeline, lets add another material to it.</p>
-
 <ul>
 <li>Navigate to the new pipeline you created by clicking on the <strong>Edit</strong> link under the Actions against it. You can also click on the name of the pipeline.
-<img src="../images/edit_pipeline_link.png" alt="" /></li>
+<img src="../images/edit_pipeline_link.png" alt=""></li>
 <li>Click on the Materials tab.
-<img src="../images/pipeline_general_options.png" alt="" /></li>
+<img src="../images/pipeline_general_options.png" alt=""></li>
 <li>You will notice an existing material . Click on the &ldquo;Add new material&rdquo; link.
-<img src="../images/add_new_material.png" alt="" /></li>
+<img src="../images/add_new_material.png" alt=""></li>
 <li>You will get the following message
-<img src="../images/define_destination_folder.png" alt="" /></li>
+<img src="../images/define_destination_folder.png" alt=""></li>
 <li>Edit the existing material and specify the destination directory
-<img src="../images/edit_material.png" alt="" /></li>
+<img src="../images/edit_material.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;.</li>
 </ul>
-
 <h2 id="blacklist">Blacklist</h2>
-
 <p>Often you do want to specify a set of files that GoCD should ignore when it checks for changes. Repository changesets which contain only these files will not automatically trigger a pipeline. These are detailed in the <a href="configuration_reference.html#ignore">ignore</a> section of the <a href="configuration_reference.html">configuration reference.</a></p>
-
 <ul>
 <li>Enter the items to blacklist using ant-style syntax below
-<img src="../images/edit_material_blacklist.png" alt="" /></li>
+<img src="../images/edit_material_blacklist.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;.</li>
 </ul>
-
 <h2 id="whitelist">Whitelist</h2>
-
 <p>There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD whitelisting, you can allow a pipeline to trigger on certain repository changesets.</p>
-
 <ul>
 <li>Click on &ldquo;Invert the file filter&hellip;.&rdquo; to enable whitelisting
-<img src="../images/edit_material_whitelist.png" alt="" /></li>
+<img src="../images/edit_material_whitelist.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;.</li>
 </ul>
-
 <p><strong>Note</strong> - <code>GoCD uses '**' for folder/path and '*' for files.</code></p>
-
 <h2 id="examples">Examples:</h2>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/**/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span></code></pre></div>
-<p>Ignore everything under the folder <strong>&lsquo;doc&rsquo;</strong>, even deeper levels of subfolders/files under doc folder.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span></code></pre></div>
-<p>Ignore files under the folder <strong>&lsquo;doc&rsquo;</strong>, excluding any subfolder.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;framework/helper/*.doc&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span></code></pre></div>
-<p>Ignore files that are under the directory &lsquo;framework/helper&rsquo; and the file extension is <strong>.doc</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span></code></pre></div>
-<p>Ignore files that are under the root directory of SCM repository and the file extension is <strong>.pdf</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;**/helper/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span></code></pre></div>
-<p>Ignore all the files that is under any <strong>&lsquo;helper&rsquo;</strong> folder and the file extension is <strong>.pdf</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;helper/**/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span></code></pre></div>
-<p>Ignore all the files that are in the nested directory under folder <strong>&lsquo;helper&rsquo;</strong> of the repository and the file extension is <strong>.pdf</strong>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/**/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</code></pre></div><p>Ignore everything under the folder <strong>&lsquo;doc&rsquo;</strong>, even deeper levels of subfolders/files under doc folder.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</code></pre></div><p>Ignore files under the folder <strong>&lsquo;doc&rsquo;</strong>, excluding any subfolder.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;framework/helper/*.doc&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</code></pre></div><p>Ignore files that are under the directory &lsquo;framework/helper&rsquo; and the file extension is <strong>.doc</strong>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</code></pre></div><p>Ignore files that are under the root directory of SCM repository and the file extension is <strong>.pdf</strong>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;**/helper/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</code></pre></div><p>Ignore all the files that is under any <strong>&lsquo;helper&rsquo;</strong> folder and the file extension is <strong>.pdf</strong>.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;helper/**/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</code></pre></div><p>Ignore all the files that are in the nested directory under folder <strong>&lsquo;helper&rsquo;</strong> of the repository and the file extension is <strong>.pdf</strong>.</p>
 </article>
 
       
@@ -423,14 +403,11 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#add-a-new-material-to-an-existing-gocd-pipeline">Add a new material to an existing GoCD pipeline</a>
-<ul>
-<li><a href="#blacklist">Blacklist</a></li>
-<li><a href="#whitelist">Whitelist</a></li>
-<li><a href="#examples">Examples:</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#blacklist">Blacklist</a></li>
+    <li><a href="#whitelist">Whitelist</a></li>
+    <li><a href="#examples">Examples:</a></li>
+  </ul>
 </nav>
   </aside>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,186 +320,117 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h2 id="getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</h2>
-
+<article class="markdown"><h2 id="getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</h2>
 <h1 id="explanation-of-the-sample-pipelines">Explanation of the sample pipelines</h1>
-
 <p>In this section, we&rsquo;ll explain the details of each of the pipelines imported in the previous section.</p>
-
-<p><img src="../images/gocd-helm-chart/sample_k8s_workflow_vsm.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/sample_k8s_workflow_vsm.png" alt=""></p>
 <h2 id="1-build-and-publish-image">1. Build and publish image</h2>
-
 <p>This pipeline builds an application artifact and publishes it to an artifact store.</p>
-
 <h3 id="the-material">The material</h3>
-
 <p>A GoCD pipeline&rsquo;s <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#materials">material</a> is the trigger for a pipeline. Often it is a source code repository. It could also be another GoCD repository. A change in a material causes a pipeline to run.</p>
-
 <p>The material for the <code>build_and_publish_image</code> pipeline is a Git repository.</p>
-
-<p><img src="../images/gocd-helm-chart/build_and_publish_pipeline_material_yaml.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/build_and_publish_pipeline_material_yaml.png" alt=""></p>
 <p>When the pipeline is imported, the material is rendered on the <a href="https://docs.gocd.org/current/navigation/value_stream_map.html">Value Stream Map</a> page as the trigger for the <code>build_and_publish_image</code> pipeline.</p>
-
-<p><img src="../images/gocd-helm-chart/build_and_publish_image_vsm_material.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/build_and_publish_image_vsm_material.png" alt=""></p>
 <h3 id="stages-and-jobs">Stages and jobs</h3>
-
 <p>In GoCD, <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#stage">stages</a> and <a href="https://docs.gocd.org/current/introduction/concepts_in_go.html#job">jobs</a> are workflow constructs that allow for sequential or parallel execution of build tasks.</p>
-
 <p>The <code>build_and_publish_image</code> pipeline has one stage called <code>build_and_publish_image</code> with one job called <code>build_image</code>.</p>
-
-<p><img src="../images/gocd-helm-chart/build_and_publish_pipeline_stage_and_job_yaml.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/build_and_publish_pipeline_stage_and_job_yaml.png" alt=""></p>
 <p>Clicking on a stage or a job on the GoCD user interface shows you the results of execution of the stage and its constituent jobs.</p>
-
-<p><img src="../images/gocd-helm-chart/build_and_publish_image_stage_details.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/build_and_publish_image_stage_details.png" alt=""></p>
 <h4 id="job-details">Job details</h4>
-
 <p>The <code>build_image</code> job builds a Docker image <a href="https://docs.gocd.org/current/configuration/managing_artifacts_and_reports.html">artifact</a> for the sample application. It then publishes the Docker image to a Docker registry configured under <code>Admin -&gt; Artifact Stores</code>.</p>
-
 <h5 id="elastic-profile">Elastic profile</h5>
-
 <p>The <code>elastic_profile_id</code> assigns this job to an elastic profile. When this job is triggered, an elastic agent is provisioned based on the elastic profile and is assigned to this job.</p>
-
 <h5 id="external-artifacts">External artifacts</h5>
-
 <p>The external artifact configuration in the job definition uses the <a href="https://github.com/gocd/docker-registry-artifact-plugin">Docker registry artifact plugin</a> to push the docker image to the Docker registry once it is built.</p>
-
 <p>The console tab for the <code>build_image</code> job shows this interaction.</p>
-
-<p><img src="../images/gocd-helm-chart/build_image_job_console.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/build_image_job_console.png" alt=""></p>
 <h2 id="2-test-application">2. Test application</h2>
-
 <p>This pipeline fetches the Docker image built in the previous <code>build_and_publish_image</code> pipeline and runs tests against it.</p>
-
 <h3 id="the-material-1">The material</h3>
-
 <p>The material for the <code>test_application</code> pipeline is the previous <code>build_and_publish_image</code> pipeline. By specifying a pipeline material, <code>test_pipeline</code> will be triggered whenever the previous <code>build_and_publish_image</code> pipeline completes successfully.</p>
-
 <p>The <code>test_application</code> pipeline can also reach out and fetch any artifacts that the <code>build_and_publish_image</code> pipeline generates and stores on the GoCD server.</p>
-
-<p><img src="../images/gocd-helm-chart/test_application_pipeline_material.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/test_application_pipeline_material.png" alt=""></p>
 <p><em>Note: Build artifacts could either be stored on the GoCD server or an external artifact store like a Docker registry.</em></p>
-
 <h3 id="stages-and-jobs-1">Stages and jobs</h3>
-
 <p>The <code>test_application</code> pipeline has one stage called <code>test_app_image</code> with one job called <code>test_app_image</code>.</p>
-
-<p><img src="../images/gocd-helm-chart/test_application_stages_and_jobs.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/test_application_stages_and_jobs.png" alt=""></p>
 <p>The stage details page shows the result of exection of the stage and its constituent jobs.</p>
-
-<p><img src="../images/gocd-helm-chart/test_application_stage_details.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/test_application_stage_details.png" alt=""></p>
 <h4 id="job-details-1">Job details</h4>
-
 <p>GoCD build agents run as Docker In Docker containers. The <code>test_app_image</code> job fetches the application&rsquo;s Docker image and runs the application&rsquo;s test command on an application container. It does so by executing the <code>docker run</code> command.</p>
-
 <h5 id="elastic-profile-1">Elastic profile</h5>
-
 <p>The <code>elastic_profile_id</code> assigns this job to an elastic profile. When this job is triggered, an elastic agent is provisioned based on the elastic profile and is assigned to this job.</p>
-
 <h5 id="fetching-artifacts">Fetching artifacts</h5>
-
 <p>The <code>fetch</code> task is configured with the application image to be pulled from the Docker registry configured under <code>Admin -&gt; Artifact Stores</code>.</p>
-
 <p>This interaction is shown in the console tab of the <code>test_app_image</code> job.</p>
-
-<p><img src="../images/gocd-helm-chart/test_app_image_console_output.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/test_app_image_console_output.png" alt=""></p>
 <h2 id="3-deploy-to-cluster">3. Deploy to cluster</h2>
-
 <p>This pipeline deploys an application artifact to a Kubernetes cluster.</p>
-
 <h3 id="the-material-2">The material</h3>
-
 <p>The <code>deploy_to_cluster</code> pipeline has two materials.</p>
-
 <p>The first material is the previous <code>test_application</code> pipeline. The second material is a Git respository where the deployment scripts are stored.</p>
-
-<p><img src="../images/gocd-helm-chart/deploy_to_cluster_pipeline_materials.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/deploy_to_cluster_pipeline_materials.png" alt=""></p>
 <p>The <code>deploy_to_cluster</code> pipeline will be triggered either on successful completion of the upstream <code>test_application</code> pipeline, or on a commit to the Git repository material.</p>
-
 <h3 id="stages-and-jobs-2">Stages and jobs</h3>
-
 <p>The <code>deploy_to_cluster</code> pipeline has one stage called <code>deploy_to_cluster</code> with one job called <code>Deploy</code>.</p>
-
-<p><img src="../images/gocd-helm-chart/deploy_to_cluster_stages_and_jobs.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/deploy_to_cluster_stages_and_jobs.png" alt=""></p>
 <p>The stage details page shows the result of exection of the stage and its constituent jobs.</p>
-
-<p><img src="../images/gocd-helm-chart/deploy_to_cluster_stage_details.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/deploy_to_cluster_stage_details.png" alt=""></p>
 <h4 id="job-details-2">Job details</h4>
-
 <p>The <code>Deploy</code> job fetches the application&rsquo;s Docker image metadata and makes it available for use in the environment. It then calls a deployment script to deploy the application to Kubernetes.</p>
-
 <h5 id="elastic-profile-2">Elastic profile</h5>
-
 <p>The <code>elastic_profile_id</code> assigns this job to an elastic profile. When this job is triggered, an elastic agent is provisioned based on the elastic profile and is assigned to this job.</p>
-
 <h5 id="fetching-image-metadata">Fetching image metadata</h5>
-
 <p>Since deploying to Kubernetes doesn&rsquo;t require the application image to be pulled down to the build agent, the <code>fetch</code> task is configured to fetch the application image metadata. The metadata is then made available for further tasks in the job.</p>
-
 <p>This interaction is shown in the console tab of the <code>deploy</code> job.</p>
-
-<p><img src="../images/gocd-helm-chart/deploy_console_output.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/deploy_console_output.png" alt=""></p>
 <h4 id="access-your-application">Access your application</h4>
-
 <p>Once the pipeline has run successfully, go to <code>http://&lt;ingress-ip&gt;/bulletin-board</code> to see your deployed sample application.</p>
-
 <p>Getting the new ingress IP address for the deployed application:</p>
-
 <ul>
-<li><p>For Minikube:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube ip</code></pre></div></li>
-
-<li><p>For other Kubernetes implementations:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#a2f;font-weight:bold">$(</span>kubectl get ingress bulletin-board-ingress --namespace <span style="color:#b8860b">$NAMESPACE</span> -o <span style="color:#b8860b">jsonpath</span><span style="color:#666">=</span><span style="color:#b44">&#34;{.status.loadBalancer.ingress[0][&#39;ip&#39;]}&#34;</span><span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44">&#34;</span></code></pre></div></li>
+<li>
+<p>For Minikube:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube ip
+</code></pre></div></li>
+<li>
+<p>For other Kubernetes implementations:</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#a2f;font-weight:bold">$(</span>kubectl get ingress bulletin-board-ingress --namespace <span style="color:#b8860b">$NAMESPACE</span> -o <span style="color:#b8860b">jsonpath</span><span style="color:#666">=</span><span style="color:#b44">&#34;{.status.loadBalancer.ingress[0][&#39;ip&#39;]}&#34;</span><span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44">&#34;</span>
+</code></pre></div></li>
 </ul>
-
-<p><img src="../images/gocd-helm-chart/sample_application.png" alt="" /></p>
-
+<p><img src="../images/gocd-helm-chart/sample_application.png" alt=""></p>
 <h2 id="check-the-status-of-agents-with-agent-status-report">Check the status of agents with Agent Status Report</h2>
-
 <p>When the pipeline is running (signified by a yellow bar), you can take a look at the status of the agents that are assigned to run the jobs in the pipeline. You can find the following information here:</p>
-
 <ul>
-<li><p>Pod details &amp; configuration</p></li>
-
-<li><p>Pod events</p></li>
-
-<li><p>Logs for the agents</p></li>
+<li>
+<p>Pod details &amp; configuration</p>
+</li>
+<li>
+<p>Pod events</p>
+</li>
+<li>
+<p>Logs for the agents</p>
+</li>
 </ul>
-
 <p>This can be useful to troubleshoot when an agent is not picking up the job.</p>
-
 <p>To access the agent status report:</p>
-
 <ol>
-<li><p>Click on a stage of your choice when the pipeline is being built.</p></li>
-
-<li><p>You&rsquo;ll see the stage detail page with a list of jobs. Click on the job that you wish to see the agents of.</p></li>
-
-<li><p>This is the job detail page which has a console log. Click on the button titled &lsquo;Check Agent Status&rsquo;.</p>
-
-<p><img src="../images/gocd-helm-chart/job_details.png" alt="" /></p></li>
-
-<li><p>Clicking on this will take you to the Agent Status Report. The <code>Events</code> and <code>Logs</code> tabs display the GoCD elastic agent pod events and logs.</p>
-
-<p><img src="../images/gocd-helm-chart/agent_status_report.png" alt="" /></p>
-
-<p><em>Note: The Agent Status Report is only visible when a job is running. Once the job completes, this status is no longer visible.</em></p></li>
+<li>
+<p>Click on a stage of your choice when the pipeline is being built.</p>
+</li>
+<li>
+<p>You&rsquo;ll see the stage detail page with a list of jobs. Click on the job that you wish to see the agents of.</p>
+</li>
+<li>
+<p>This is the job detail page which has a console log. Click on the button titled &lsquo;Check Agent Status&rsquo;.</p>
+<p><img src="../images/gocd-helm-chart/job_details.png" alt=""></p>
+</li>
+<li>
+<p>Clicking on this will take you to the Agent Status Report. The <code>Events</code> and <code>Logs</code> tabs display the GoCD elastic agent pod events and logs.</p>
+<p><img src="../images/gocd-helm-chart/agent_status_report.png" alt=""></p>
+<p><em>Note: The Agent Status Report is only visible when a job is running. Once the job completes, this status is no longer visible.</em></p>
+</li>
 </ol>
 </article>
 
@@ -549,53 +472,31 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</a></li>
-</ul></li>
-<li><a href="#explanation-of-the-sample-pipelines">Explanation of the sample pipelines</a>
-<ul>
-<li><a href="#1-build-and-publish-image">1. Build and publish image</a>
-<ul>
-<li><a href="#the-material">The material</a></li>
-<li><a href="#stages-and-jobs">Stages and jobs</a>
-<ul>
-<li><a href="#job-details">Job details</a>
-<ul>
-<li><a href="#elastic-profile">Elastic profile</a></li>
-<li><a href="#external-artifacts">External artifacts</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#2-test-application">2. Test application</a>
-<ul>
-<li><a href="#the-material-1">The material</a></li>
-<li><a href="#stages-and-jobs-1">Stages and jobs</a>
-<ul>
-<li><a href="#job-details-1">Job details</a>
-<ul>
-<li><a href="#elastic-profile-1">Elastic profile</a></li>
-<li><a href="#fetching-artifacts">Fetching artifacts</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-<li><a href="#3-deploy-to-cluster">3. Deploy to cluster</a>
-<ul>
-<li><a href="#the-material-2">The material</a></li>
-<li><a href="#stages-and-jobs-2">Stages and jobs</a>
-<ul>
-<li><a href="#job-details-2">Job details</a>
-<ul>
-<li><a href="#elastic-profile-2">Elastic profile</a></li>
-<li><a href="#fetching-image-metadata">Fetching image metadata</a></li>
-</ul></li>
-<li><a href="#access-your-application">Access your application</a></li>
-</ul></li>
-</ul></li>
-<li><a href="#check-the-status-of-agents-with-agent-status-report">Check the status of agents with Agent Status Report</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#getting-started-with-gocd-on-kubernetes">Getting Started with GoCD on Kubernetes</a></li>
+  </ul>
+
+  <ul>
+    <li><a href="#1-build-and-publish-image">1. Build and publish image</a>
+      <ul>
+        <li><a href="#the-material">The material</a></li>
+        <li><a href="#stages-and-jobs">Stages and jobs</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-test-application">2. Test application</a>
+      <ul>
+        <li><a href="#the-material-1">The material</a></li>
+        <li><a href="#stages-and-jobs-1">Stages and jobs</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-deploy-to-cluster">3. Deploy to cluster</a>
+      <ul>
+        <li><a href="#the-material-2">The material</a></li>
+        <li><a href="#stages-and-jobs-2">Stages and jobs</a></li>
+      </ul>
+    </li>
+    <li><a href="#check-the-status-of-agents-with-agent-status-report">Check the status of agents with Agent Status Report</a></li>
+  </ul>
 </nav>
   </aside>
 

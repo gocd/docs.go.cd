@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,18 +320,11 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="releasing-into-an-environment">Releasing into an environment</h1>
-
+<article class="markdown"><h1 id="releasing-into-an-environment">Releasing into an environment</h1>
 <p>One of the most useful aspects of having your build mapped as a pipeline, is being able to know exactly what is in a particular environment. For example, you might have a User Acceptance Testing environment into which you want GoCD to automatically deploy your binary. Due to process restriction within your company, you might want to manually install a binary yourself, but have GoCD still retain the information of what is currently released.</p>
-
 <h2 id="example-usages">Example usages</h2>
-
 <h3 id="automatically-deploy-to-uat">Automatically deploy to UAT</h3>
-
 <p>For this example, we&rsquo;ll assume that there is already an ant task defined in your build that will take a binary and deploy it to your environment. A separate task will verify the install was successful. If it is not, a task will run to rollback the deployment. We will also assume that earlier in the pipeline there is a <strong>dist</strong> stage with a <strong>create-installers</strong> job that will have already created the binary for us to use.</p>
-
 <ul>
 <li><a href="../configuration/admin_add_stage.html">Add a new stage</a> named <strong>UAT</strong> with a job named <strong>deploy</strong></li>
 <li><a href="../configuration/dev_choose_when_stage_runs.html">Ensure that the <strong>UAT</strong> stage is manual</a></li>
@@ -352,63 +337,47 @@ if (!doNotTrack) {
   <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;rollback_to_previous_install_in_uat&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;runif</span> <span style="color:#b44">status=</span><span style="color:#b44">&#34;failed&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/ant&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span></code></pre></div>
-<p>When you are ready to deploy something into the UAT environment&hellip;</p>
-
+<span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</code></pre></div><p>When you are ready to deploy something into the UAT environment&hellip;</p>
 <ul>
 <li>Navigate to the pipeline history page</li>
 <li>Find the check-in you want to deploy</li>
 <li>Click on the manual transition into the <strong>UAT</strong> stage</li>
 </ul>
-
-<p><img src="../images/1_click_manual_to_uat.png" alt="" /></p>
-
+<p><img src="../images/1_click_manual_to_uat.png" alt=""></p>
 <ul>
 <li>When the deploy is successful, the stage will be green and the UAT environment will contain the selected check-in</li>
 </ul>
-
-<p><img src="../images/2_successful_to_uat.png" alt="" /></p>
-
+<p><img src="../images/2_successful_to_uat.png" alt=""></p>
 <ul>
 <li>When the deploy fails for some reason, the stage will be red and the UAT environment will contain the original check-in</li>
 </ul>
-
-<p><img src="../images/3_failure_to_uat.png" alt="" /></p>
-
+<p><img src="../images/3_failure_to_uat.png" alt=""></p>
 <h3 id="manually-deploy-to-production">Manually deploy to production</h3>
-
 <p>For this example, we&rsquo;ll assume that there is a known way to rollback to a previous installation. We will also assume that earlier in the pipeline there is a <strong>dist</strong> stage with a <strong>create-installers</strong> job that will have already created the binary for us to use.</p>
-
 <ul>
 <li><a href="../configuration/admin_add_stage.html">Add a new stage</a> named <strong>production</strong> with a job named <strong>deploy</strong></li>
 <li><a href="../configuration/dev_choose_when_stage_runs.html">Ensure that the <strong>production</strong> stage is manual</a></li>
 <li>Ensure there is no task block in the <strong>deploy</strong> job configuration</li>
 </ul>
-
 <p>When you are ready to deploy something into the production
 environment&hellip;</p>
-
 <ul>
 <li>Navigate to the pipeline history page</li>
 <li>Find the check-in you want to deploy</li>
 <li>Click on the details link of the <strong>dist</strong> stage</li>
 </ul>
-
-<p><img src="../images/4_click_stage_details.png" alt="" /></p>
-
+<p><img src="../images/4_click_stage_details.png" alt=""></p>
 <ul>
 <li>Download the installer binary in the artifacts tab</li>
 </ul>
-
-<p><img src="../images/5_download_artifact.png" alt="" /></p>
-
+<p><img src="../images/5_download_artifact.png" alt=""></p>
 <ul>
 <li>Manually install the binary into production</li>
 <li>If there are issues, manually rollback to the last known good installation</li>
 <li>If everything seems to be working correctly, click on the manual transition into the <strong>production</strong> stage</li>
 </ul>
-
-<p><img src="../images/6_click_manual_to_prod.png" alt="" /></p>
+<p><img src="../images/6_click_manual_to_prod.png" alt=""></p>
 </article>
 
       
@@ -449,16 +418,14 @@ environment&hellip;</p>
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#releasing-into-an-environment">Releasing into an environment</a>
-<ul>
-<li><a href="#example-usages">Example usages</a>
-<ul>
-<li><a href="#automatically-deploy-to-uat">Automatically deploy to UAT</a></li>
-<li><a href="#manually-deploy-to-production">Manually deploy to production</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#example-usages">Example usages</a>
+      <ul>
+        <li><a href="#automatically-deploy-to-uat">Automatically deploy to UAT</a></li>
+        <li><a href="#manually-deploy-to-production">Manually deploy to production</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 

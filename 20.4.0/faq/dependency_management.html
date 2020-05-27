@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 
 
+
 <html>
 
 <head>
@@ -24,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.335888bb94782ee94b7f94e72257cc14ef1e2e11ee3ee363dcfc71e0026467e3.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -81,15 +82,12 @@ if (!doNotTrack) {
 <div class="search-input-container">
   <input id="search" type="text" placeholder="Type to search">
 </div>
-
 <ul>
   <li class="level1">
     <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
   </li>
 </ul>
-
 <hr>
-
 <ul>
   <li class="level1 has-children">
     <figure class="menu-arrow">
@@ -103,7 +101,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -143,7 +140,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -201,7 +197,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -232,7 +227,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -248,7 +242,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -264,7 +257,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
     </ul>
   </li>
-
   <li class="level1 has-children">
     <figure class="menu-arrow">
     <img src="../images/arrow.png"/> 
@@ -328,33 +320,21 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown">
-
-<h1 id="gocd-dependency-management">GoCD Dependency Management</h1>
-
+<article class="markdown"><h1 id="gocd-dependency-management">GoCD Dependency Management</h1>
 <p>When you have non-trivial dependency pipeline chains, you may have concerns about how dependent pipelines and materials interact. For example, code and tests are checked in as part of the same commit. But code is built and tested in sequence, so the same material version has to be used for pipelines that build and test your code. This section covers some Dependency Management concepts and how GoCD handles certain complex scenarios.</p>
-
 <h2 id="propagate-material-revision-throughout-the-dependency-chain">Propagate material revision throughout the dependency chain</h2>
-
 <p>If you have frequent material updates coupled with long running dependent pipelines sharing that same material, you may encounter situations where the revision that triggered the dependency chain is no longer the latest revision. Go keeps track of what revision triggered a dependency chain and ensures that the same version propagates throughout all members of that chain. This helps ensure that all artifacts generated as part of that build share a common revision.</p>
-
 <h3 id="example">Example</h3>
-
 <p>Consider the following dependency chain:</p>
-
-<p><img src="../images/revision_propagation.png" alt="" /></p>
-
+<p><img src="../images/revision_propagation.png" alt=""></p>
 <h4 id="legend">Legend</h4>
-
 <ul>
 <li><strong>SCM</strong> : Repository</li>
 <li><strong>rev1, rev2</strong> : Check-ins to the repository</li>
 <li><strong>A</strong> : Pipeline for development build</li>
 <li>dependent <strong>B</strong> : Pipeline for acceptance tests</li>
 </ul>
-
 <h4 id="how-it-works">How it works</h4>
-
 <ul>
 <li>Code is checked in to SCM (rev1)</li>
 <li>Development build (A) is triggered by the check-in</li>
@@ -402,19 +382,13 @@ if (!doNotTrack) {
   
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
-<ul>
-<li><a href="#gocd-dependency-management">GoCD Dependency Management</a>
-<ul>
-<li><a href="#propagate-material-revision-throughout-the-dependency-chain">Propagate material revision throughout the dependency chain</a>
-<ul>
-<li><a href="#example">Example</a>
-<ul>
-<li><a href="#legend">Legend</a></li>
-<li><a href="#how-it-works">How it works</a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#propagate-material-revision-throughout-the-dependency-chain">Propagate material revision throughout the dependency chain</a>
+      <ul>
+        <li><a href="#example">Example</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </aside>
 
