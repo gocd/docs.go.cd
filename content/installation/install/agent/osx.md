@@ -13,6 +13,6 @@ title: Installing GoCD server on Mac OS X
 
 ## Configuring the GoCD agent
 
-{{< include file="installation/install/agent/_wrapper_configuration_agent.md" markdown="true" config-prefix="/usr/share/go-agent/wrapper-config" service-prefix="/etc/init.d">}}
+{{< include file="installation/install/agent/_wrapper_configuration_agent.md" markdown="true" config-prefix="./wrapper-config" service-prefix="/etc/init.d">}}
 
 {{< include file="installation/install/agent/_register_with_server.md" markdown="true" >}}
