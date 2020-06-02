@@ -64,6 +64,3 @@ DEPENDENCIES
   nokogiri
   parallel
   rake
-
-BUNDLED WITH
-   1.17.2
