@@ -331,7 +331,7 @@ if (!doNotTrack) {
   <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://jira.atlassian.com/go/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-</code></pre></div><p>Now, when a user commits code with comments like &ldquo;#3301 - Make sure the TrackingToolConfig and&hellip;&quot;, GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:</p>
+</code></pre></div><p>Now, when a user commits code with comments like &ldquo;#3301 - Make sure the TrackingToolConfig and&hellip;&rdquo;, GoCD detects the modifications and automatically links story/bug numbers to the configured tracking tool:</p>
 <p><img src="../images/pipeline_activity_tracking_tool.png" alt=""></p>
 <h2 id="monitoring-your-builds-with-client-tools">Monitoring your builds with client tools</h2>
 <p>GoCD allows you to monitor your builds with CCTray through the url &lsquo;http://[your_go_server]:8153/go/cctray.xml.</p>

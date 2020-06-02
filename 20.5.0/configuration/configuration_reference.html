@@ -878,7 +878,7 @@ various combinations of the allowed special characters for that field. The field
 <p><code>,</code> - used to specify additional values. For example, &ldquo;MON,WED,FRI&rdquo; in the day-of-week field means <em>&ldquo;the days Monday, Wednesday, and Friday&rdquo;</em>.</p>
 </li>
 <li>
-<p><code>/</code> - used to specify increments. For example, &ldquo;0/15&rdquo; in the seconds field means <em>&ldquo;the seconds 0, 15, 30, and 45&rdquo;</em>. And &ldquo;5/15&rdquo; in the seconds field means <em>&ldquo;the seconds 5, 20, 35, and 50&rdquo;</em>. You can also specify &lsquo;/&rsquo; after the &lsquo;<strong>&rsquo; character - in this case &lsquo;</strong>&rsquo; is equivalent to having &lsquo;0&rsquo; before the &lsquo;/'. &lsquo;1/3&rsquo; in the day-of-month field means <em>&ldquo;fire every 3 days starting on the first day of the month&rdquo;</em>.</p>
+<p><code>/</code> - used to specify increments. For example, &ldquo;0/15&rdquo; in the seconds field means <em>&ldquo;the seconds 0, 15, 30, and 45&rdquo;</em>. And &ldquo;5/15&rdquo; in the seconds field means <em>&ldquo;the seconds 5, 20, 35, and 50&rdquo;</em>. You can also specify &lsquo;/&rsquo; after the &lsquo;<strong>&rsquo; character - in this case &lsquo;</strong>&rsquo; is equivalent to having &lsquo;0&rsquo; before the &lsquo;/&rsquo;. &lsquo;1/3&rsquo; in the day-of-month field means <em>&ldquo;fire every 3 days starting on the first day of the month&rdquo;</em>.</p>
 </li>
 <li>
 <p><code>L</code> (<em>&ldquo;last&rdquo;</em>) - has different meaning in each of the two fields in which it is allowed. For example, the value &ldquo;L&rdquo; in the day-of-month field means <em>&ldquo;the last day of the month&rdquo;</em> - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means &ldquo;7&rdquo; or &ldquo;SAT&rdquo;. But if used in the day-of-week field after another value, it means <em>&ldquo;the last xxx day of the month&rdquo;</em> - for example &ldquo;6L&rdquo; means <em>&ldquo;the last friday of the month&rdquo;</em>. When using the &lsquo;L&rsquo; option, it is important not to specify lists, or ranges of values, as you&rsquo;ll get confusing results.</p>
@@ -1671,7 +1671,7 @@ can be used to <strong>customize how config repo plugin works when parsing this 
 <tr>
 <td>url</td>
 <td>Yes</td>
-<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///'.</td>
+<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///&rsquo;.</td>
 </tr>
 <tr>
 <td>username</td>
@@ -2469,7 +2469,7 @@ pipeline group).</p>
 <tr>
 <td>labeltemplate</td>
 <td>No</td>
-<td>Both of material names and ${COUNT} are available in the labeltemplate and the default value of labeltemplate is &lsquo;${COUNT}'. If you just specify labeltemplate=&quot;foo-1.0-${COUNT}&quot;, your pipeline will show foo-1.0-1, foo-1.0-2, and so on. When you reference material names in the labeltemplate, Go will use the revisions of the reference materials to populate the pipeline label. For example, given a mateial name is &lsquo;svnrepo&rsquo; in a pipeline, when you specify labeltemplate=&quot;foo-1.0-${svnrepo}&quot;, then your pipeline would show foo-1.0-3123, foo-1.0-3124, and so on. Material names are case insensitive. The max length of a pipeline label is 255. If a material name is &lsquo;svnrepo&rsquo;, the following labeltemplates are valid: ${COUNT}, ${svnrepo}, foo-${COUNT}-${SVNrepo}, foo-${svnrepo}-${COUNT}-bar.</td>
+<td>Both of material names and ${COUNT} are available in the labeltemplate and the default value of labeltemplate is &lsquo;${COUNT}&rsquo;. If you just specify labeltemplate=&quot;foo-1.0-${COUNT}&rdquo;, your pipeline will show foo-1.0-1, foo-1.0-2, and so on. When you reference material names in the labeltemplate, Go will use the revisions of the reference materials to populate the pipeline label. For example, given a mateial name is &lsquo;svnrepo&rsquo; in a pipeline, when you specify labeltemplate=&quot;foo-1.0-${svnrepo}&rdquo;, then your pipeline would show foo-1.0-3123, foo-1.0-3124, and so on. Material names are case insensitive. The max length of a pipeline label is 255. If a material name is &lsquo;svnrepo&rsquo;, the following labeltemplates are valid: ${COUNT}, ${svnrepo}, foo-${COUNT}-${SVNrepo}, foo-${svnrepo}-${COUNT}-bar.</td>
 </tr>
 <tr>
 <td>lockBehavior</td>
@@ -2535,7 +2535,7 @@ can use to take you to your tracking tool (JIRA issue, Trac issue etc).</p>
 <tr>
 <td>link</td>
 <td>Yes</td>
-<td>a URL with a string &lsquo;${ID}'. Go will replace the string &lsquo;${ID}&rsquo; with the first matched group value at run-time.</td>
+<td>a URL with a string &lsquo;${ID}&rsquo;. Go will replace the string &lsquo;${ID}&rsquo; with the first matched group value at run-time.</td>
 </tr>
 <tr>
 <td>regex</td>
@@ -2659,7 +2659,7 @@ various combinations of the allowed special characters for that field. The field
 <p><code>,</code> - used to specify additional values. For example, &ldquo;MON,WED,FRI&rdquo; in the day-of-week field means <em>&ldquo;the days Monday, Wednesday, and Friday&rdquo;</em>.</p>
 </li>
 <li>
-<p><code>/</code> - used to specify increments. For example, &ldquo;0/15&rdquo; in the seconds field means <em>&ldquo;the seconds 0, 15, 30, and 45&rdquo;</em>. And &ldquo;5/15&rdquo; in the seconds field means <em>&ldquo;the seconds 5, 20, 35, and 50&rdquo;</em>. You can also specify &lsquo;/&rsquo; after the &lsquo;<strong>&rsquo; character - in this case &lsquo;</strong>&rsquo; is equivalent to having &lsquo;0&rsquo; before the &lsquo;/'. &lsquo;1/3&rsquo; in the day-of-month field means <em>&ldquo;fire every 3 days starting on the first day of the month&rdquo;</em>.</p>
+<p><code>/</code> - used to specify increments. For example, &ldquo;0/15&rdquo; in the seconds field means <em>&ldquo;the seconds 0, 15, 30, and 45&rdquo;</em>. And &ldquo;5/15&rdquo; in the seconds field means <em>&ldquo;the seconds 5, 20, 35, and 50&rdquo;</em>. You can also specify &lsquo;/&rsquo; after the &lsquo;<strong>&rsquo; character - in this case &lsquo;</strong>&rsquo; is equivalent to having &lsquo;0&rsquo; before the &lsquo;/&rsquo;. &lsquo;1/3&rsquo; in the day-of-month field means <em>&ldquo;fire every 3 days starting on the first day of the month&rdquo;</em>.</p>
 </li>
 <li>
 <p><code>L</code> (<em>&ldquo;last&rdquo;</em>) - has different meaning in each of the two fields in which it is allowed. For example, the value &ldquo;L&rdquo; in the day-of-month field means <em>&ldquo;the last day of the month&rdquo;</em> - day 31 for January, day 28 for February on non-leap years. If used in the day-of-week field by itself, it simply means &ldquo;7&rdquo; or &ldquo;SAT&rdquo;. But if used in the day-of-week field after another value, it means <em>&ldquo;the last xxx day of the month&rdquo;</em> - for example &ldquo;6L&rdquo; means <em>&ldquo;the last friday of the month&rdquo;</em>. When using the &lsquo;L&rsquo; option, it is important not to specify lists, or ranges of values, as you&rsquo;ll get confusing results.</p>
@@ -2857,7 +2857,7 @@ contain these files will not trigger a pipeline automatically.</p>
 <tr>
 <td>url</td>
 <td>Yes</td>
-<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///'.</td>
+<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///&rsquo;.</td>
 </tr>
 <tr>
 <td>username</td>
@@ -3517,7 +3517,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 </tr>
 <tr>
 <td><code>GO_DEPENDENCY_LABEL_ &lt;upstream_pipeline_name&gt;_&lt;upstream_stage_name&gt;</code></td>
-<td>The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: &lsquo;GO_DEPENDENCY_LABEL_FRAMEWORK_DEV&rsquo; is the environment variable where the name of the upstream pipeline is &lsquo;framework&rsquo; and the upstream stage is &lsquo;dev&rsquo;. Hyphen ('-') is an illegal character in an environment variable. So if a pipeline name or stage name contains &lsquo;-', it will be converted into an underscore. For example, &lsquo;pipeline-foo&rsquo; with stage &lsquo;stage-foo&rsquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO.</td>
+<td>The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: &lsquo;GO_DEPENDENCY_LABEL_FRAMEWORK_DEV&rsquo; is the environment variable where the name of the upstream pipeline is &lsquo;framework&rsquo; and the upstream stage is &lsquo;dev&rsquo;. Hyphen ('-') is an illegal character in an environment variable. So if a pipeline name or stage name contains &lsquo;-&rsquo;, it will be converted into an underscore. For example, &lsquo;pipeline-foo&rsquo; with stage &lsquo;stage-foo&rsquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO.</td>
 </tr>
 <tr>
 <td><span id="env-var-GO_TO_REVISION"><code>GO_TO_REVISION_&lt;material_name&gt;</code></span></td>
@@ -3878,7 +3878,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 <h2 id="runif">&lt;runif&gt;</h2>
 <p>Specifies when a task should be allowed to run. Multiple conditions may be defined for each task.</p>
 <p>A running job on an agent has two possible states: passed or failed. A job starts in the state &ldquo;passed&rdquo;. If any task fails, it transitions to
-the state &ldquo;failed&rdquo;&quot;&quot;.</p>
+the state &ldquo;failed&rdquo;&quot;&rdquo;.</p>
 <p>A task can specify any of three possible runif filters: &lsquo;passed&rsquo;, &lsquo;failed&rsquo; or &lsquo;any&rsquo;. (&lsquo;passed&rsquo; is the default)</p>
 <p><strong>Attributes</strong></p>
 <table>
