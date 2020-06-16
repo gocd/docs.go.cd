@@ -7,7 +7,7 @@ title: Enabling GoCD to use PostgreSQL Database
 ### Step 1: Install PostgreSQL Server
 
 In order to use PostgreSQL database with GoCD, an external PostgreSQL database server is needed to host the GoCD Server's database.
-Refer [PostgreSQL Installtion](https://www.postgresql.org/docs/current/tutorial-install.html) documentation to install the latest postgreSQL Database Server based on your environment.
+Refer [PostgreSQL Installation](https://www.postgresql.org/docs/current/tutorial-install.html) documentation to install the latest postgreSQL Database Server based on your environment. GoCD supports PostgreSQL versions 9.6, 10, 11 and 12.
 
 
 ### Step 2: Initialize an empty database
@@ -21,11 +21,9 @@ GRANT ALL PRIVILEGES ON DATABASE "cruise" TO "gocd_database_user";
 ALTER ROLE "gocd_database_user" SUPERUSER;
 ```
 
-The GoCD Server uses `cruise` as the default database name. You're free to choose any valid PostgreSQL database name for your database. While configuring the GoCD Server in a later step, the chosen name can be configured.
 There is no need to create any schema in that database, since the GoCD Server does it automatically.
 
-
-**NOTE:**  Ensure that owner of the database has superuser privilege the first time the GoCD server starts. This is required to be done because the pgcrypto and citext entensions need to be created initially.The default user for PostgreSQL database is postgres and has superuser privilege. If you are creating a separate database user please grant necessary privileges to this user as demonstrated in the example above. The superuser privilege can be revoked after the first time the GoCD server starts as it will no longer be needed.
+**NOTE:**  Ensure that owner of the database has superuser privilege the first time the GoCD server starts. This is required to be done because the pgcrypto and citext entensions need to be created initially. The default user for PostgreSQL database is postgres and has superuser privilege. If you are creating a separate database user please grant necessary privileges to this user as demonstrated in the example above. The superuser privilege can be revoked after the first time the GoCD server starts as it will no longer be needed.
 
 
 ### Step 3: Configure GoCD with PostgreSQL connection details
