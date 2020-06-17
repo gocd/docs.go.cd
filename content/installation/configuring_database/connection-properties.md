@@ -7,7 +7,7 @@ title: GoCD Database Connection Properties
 This section describes the configuration properties of the external database server (such as PostgreSQL, MySQL) which GoCD Server will connect and use.
 Optionally, you can also specify the database SSL config properties for secure communication between GoCD and the database server.
 
-A Java properties file with the name `db.properties` needs to be created in the GoCD's configuration directory (`config/`). The location of GoCD’s configuration directory varies per operating system. Refer [Location of GoCD server files](https://docs.gocd.org/current/installation/installing_go_server.html#location-of-files-after-installation-of-go-server) to know the location of GoCD Server config directory.
+A Java properties file with the name `db.properties` needs to be created in the GoCD's configuration directory (`config/`). The location of GoCD's configuration directory varies per operating system. Refer [Location of GoCD server files](https://docs.gocd.org/current/installation/installing_go_server.html#location-of-files-after-installation-of-go-server) to know the location of GoCD Server config directory.
 
 The valid keys in the configuration file are mentioned below:
 
