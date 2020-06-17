@@ -8,7 +8,7 @@ title: Upgrading to GoCD 20.5.0 and higher
 
 GoCD 20.5.0 introduced several changes to its database implementation in order to build a more flexible model that allows integrating with multiple databases. As part of these changes GoCD changed the technologies used for automated database migrations (from the unmaintained DBDeploy to Liquibase). These changes require a one-time migration of the GoCD database <= 20.4.0 to one compliant with GoCD 20.5.0 and beyond.
 
-GoCD 20.5.0, while continuing to support H2 by default, provides an ability to use PostgreSQL and MySQL. As part of this one-time database migration users can also choose to move to a database of their choice. Supported migrations are:
+GoCD 20.5.0, while continuing to support H2 by default, provides an ability to use PostgreSQL and MySQL. As part of this one-time database migration users can also choose to move to a database of their choice. Possible migrations are:
 
 1. **H2** => **PostgreSQL** <small>[Recommended]</small>
 2. **PostgreSQL** => **PostgreSQL**
@@ -28,7 +28,7 @@ Follow the instructions below to migrate your exisiting GoCD <= 20.4.0 database 
 
 ### Step 1: Upgrade to GoCD 20.4.0
 
-You should be able to migrate from any older version of GoCD to 20.5.0. However, over the last few releases there have been multiple changes to GoCD around installers and agent communication which could involve necessary changes to your setup. Hence it is recommended to do a normal upgrade to GoCD 20.4.0 and run it before performing an upgrade to GoCD 20.5.0.
+You should be able to migrate from any older version of GoCD to 20.5.0. However, over the last few releases there have been multiple changes to GoCD around installers and agent communication which could involve necessary changes to your setup. Hence it is recommended to do a normal upgrade to GoCD 20.4.0 and start GoCD 20.4.0 before performing an upgrade to GoCD 20.5.0.
 
 ### Step 2: Backup
 
@@ -65,10 +65,14 @@ Stop your GoCD server, if it is running.
       --target-db-user='sa' \
       --target-db-password=''
     ```
+    
+    **Note**: The `source-db-url` and `target-db-url` contain just the prefixes of the file names (`cruise` and `new_cruise`), even though the actual files are named: `cruise.h2.db` and `new_cruise.mv.db`.
 
 3. Delete, take a backup of or move away the file **/var/lib/go-server/db/h2db/cruise.h2.db**.
 
 4. Replace the old database with the migrated database by moving the file **/var/lib/go-server/db/h2db/new_cruise.mv.db** to **/var/lib/go-server/db/h2db/cruise.mv.db**.
+
+5. Ensure that the file permissions and ownership of the new `cruise.mv.db` file are correct (same as that of the old `cruise.h2.db` file).
 
 #### 4.2 Migrating data from PostgreSQL to PostgreSQL
 
@@ -144,3 +148,23 @@ With GoCD now providing support for PostgreSQL, the previously commercial Postgr
 ### Step 7: Start GoCD Server 
 
 > TODO TODO: Don't they need to upgrade GoCD server to 20.5.0 _here_ and not before? Otherwise, it will fail.
+
+
+
+## Troubleshooting:
+
+Possible issues you might see are:
+
+#### 1. Database is read-only
+
+You might see a message such as this, after upgrade, in the GoCD server logs:
+
+```
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; SQL statement:
+UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = '10.16.0.5 (10.16.0.5)', LOCKGRANTED = '2020-06-17 15:07:20.707' WHERE ID = 1 AND LOCKED = FALSE [90097-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+```
+
+This can happen due to the H2 DB file (usually at `/var/lib/go-server/db/h2db/cruise.mv.db` on Linux) having the wrong permissions or ownership.
