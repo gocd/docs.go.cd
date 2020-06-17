@@ -44,6 +44,14 @@ headless: true
           <li class="level3"><a href="{{< relref "installation/install/agent/zip.md" >}}">Generic Zip</a></li>
         </ul>
       </li>
+      <li class="level2"><a href="{{< relref "installation/configuring_database.md" >}}">Configuring GoCD Database</a></li>
+        <ul>
+          <li class="level3"><a href="{{< relref "installation/configuring_database/h2.md" >}}">H2</a></li>
+          <li class="level3"><a href="{{< relref "installation/configuring_database/postgres.md" >}}">PostgreSQL</a></li>
+          <li class="level3"><a href="{{< relref "installation/configuring_database/mysql.md" >}}">MySQL</a></li>
+          <li class="level3"><a href="{{< relref "installation/configuring_database/connection-properties.md" >}}">Database Connection Properties</a></li>
+        </ul>
+      </li>
       <li class="level2"><a href="{{< relref "installation/upgrading_go.md" >}}">Upgrading GoCD</a></li>
       <li class="level2"><a href="{{< relref "installation/configuring_server_details.md" >}}">Configuring Server Details</a></li>
       <li class="level2"><a href="{{< relref "installation/configure-reverse-proxy.md" >}}">Configure a Reverse Proxy</a></li>
