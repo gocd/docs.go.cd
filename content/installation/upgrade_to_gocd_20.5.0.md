@@ -32,7 +32,7 @@ You should be able to migrate from any older version of GoCD to 20.5.0. However,
 
 ### Step 2: Backup
 
-Backup your GoCD server. Refer the [Backup GoCD Server](https://docs.gocd.org/current/advanced_usage/one_click_backup.html) documentation for instructions.
+Backup your GoCD server. Refer the [Backup GoCD Server](../advanced_usage/one_click_backup.html) documentation for instructions.
 
 ### Step 3: Stop GoCD Server
 
@@ -40,7 +40,7 @@ Stop your GoCD server, if it is running.
 
 ### Step 4: Database Migration
 
-1. Download the migrator tool from the [GitHub releases section](https://github.com/gocd/gocd-database-migrator/releases) of the [GoCD database migration tool's repository](https://github.com/gocd/gocd-database-migrator).
+1. Download the latest stable version of the migrator tool from the [GitHub releases section](https://github.com/gocd/gocd-database-migrator/releases) of the [GoCD database migration tool's repository](https://github.com/gocd/gocd-database-migrator).
 
 2. Uncompress it and `cd` into the directory.
 
@@ -50,7 +50,7 @@ Stop your GoCD server, if it is running.
  
 #### 4.1 Migrating data from H2 to H2
 
-1. The `gocd-database-migrator` requires the `source-db-url` which consists of the location of the GoCD H2 database. The location of the database depends on the distribution your GoCD server is running on. Please refer to [GoCD installation](https://docs.gocd.org/current/installation/installing_go_server.html) documentation to identfiy the file location.
+1. The `gocd-database-migrator` requires the `source-db-url` which consists of the location of the GoCD H2 database. The location of the database depends on the distribution your GoCD server is running on. Please refer to [GoCD installation](./installing_go_server.html) documentation to identfiy the file location.
 
 2. Run the command (The below example is for a GoCD server running on Linux) -
 
@@ -65,7 +65,20 @@ Stop your GoCD server, if it is running.
       --target-db-user='sa' \
       --target-db-password=''
     ```
-    
+
+    For GoCD server running on Windows refer the below example -
+    ```bash
+    bin\gocd-database-migrator.bat ^
+    --insert ^
+    --progress ^
+    --source-db-url="jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\cruise" ^
+    --source-db-user="sa" ^
+    --source-db-password="" ^
+    --target-db-url="jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\new_cruise" ^
+    --target-db-user="sa" ^
+    --target-db-password=""
+    ```
+
     **Note**: The `source-db-url` and `target-db-url` contain just the prefixes of the file names (`cruise` and `new_cruise`), even though the actual files are named: `cruise.h2.db` and `new_cruise.mv.db`.
 
 3. Delete, take a backup of or move away the file **/var/lib/go-server/db/h2db/cruise.h2.db**.
@@ -76,9 +89,7 @@ Stop your GoCD server, if it is running.
 
 #### 4.2 Migrating data from PostgreSQL to PostgreSQL
 
-> TODO TODO: The doc link needs to be changed.
-
-1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](docs) for information on creating an empty database. 
+1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](./configuring_database/postgres.html) for information on creating an empty database.
 
 2. Run the command by providing the right parameters for the required options. An example is shown below:
 
@@ -96,11 +107,9 @@ Stop your GoCD server, if it is running.
 
 #### 4.3 Migrating data from H2 to PostgreSQL
 
-> TODO TODO: The doc link needs to be changed.
+1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](./configuring_database/postgres.html) for information on creating an empty database.
 
-1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](docs) for information on creating an empty database. 
-
-2. Run the command by providing the right parameters for the required options, 
+2. Run the command by providing the right parameters for the required options,
 
    ```bash
    ./bin/gocd-database-migrator \
@@ -114,27 +123,43 @@ Stop your GoCD server, if it is running.
      --target-db-password='pass'
    ```
 
+#### 4.4 Migrating data from H2 to MySQL
+
+1. Create an empty database in MySQL. Refer the [MySQL docs](./configuring_database/mysql.html ) for information on creating an empty database.
+
+2. Run the command by providing the right parameters for the required options,
+
+   ```bash
+   ./bin/gocd-database-migrator \
+     --insert \
+     --progress \
+     --source-db-url='jdbc:h2:/var/lib/go-server/db/h2db/cruise' \
+     --source-db-user='sa' \
+     --source-db-password='' \
+     --target-db-url='jdbc:mysql://localhost:3306/new_cruise'
+     --target-db-user='root' \
+     --target-db-password='password'
+   ```
+
 ### Step 5: Configure `db.properties` for your GoCD server
 
 #### 5.1 Enabling GoCD to use H2 Database
 
 GoCD runs on H2 by default. Configuring the `db.properties` is **not** required. Just make sure that the directory `<<GoCD_installation_directory>>/db/h2db/` does not contain `cruise.h2.db` and contains `cruise.mv.db`.
 
-#### 5.2 Enabling GoCD to use PostgreSQL Database
+#### 5.2 Enabling GoCD to use PostgreSQL or MySQL Database
 
-> TODO TODO: The doc link needs to be changed.
+A Java properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer the [GoCD Database Connection Properties documentation](./configuring_database/connection-properties.html) for more information about the format of this file and valid keys.
 
-A Java properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL server, so that the GoCD Server can connect to it. Refer the [GoCD Database Connection Properties documentation](docs) for more information about the format of this file and valid keys.
-
-The location of GoCD’s configuration directory varies per operating system. Usually, on a Linux system using the RPM or Debian installers, this file will need to be at `/etc/go/db.properties`. The [installation documentation](https://docs.gocd.org/current/installation/installing_go_server.html) provides information about the locations.
+The location of GoCD's configuration directory varies per operating system. Usually, on a Linux system using the RPM or Debian installers, this file will need to be at `/etc/go/db.properties`. The [installation documentation](./installing_go_server.html) provides information about the locations.
 
 - Sample configuration for `db.properties`:
 
 ```
 db.driver=org.postgresql.Driver
-db.url=jdbc:postgresql://localhost:5432/go
+db.url=jdbc:postgresql://localhost:5432/new_cruise
 db.user=postgres
-db.password=postgres
+db.password=pass
 ```
 
 ### Step 6: Only for users using the (old) commercial PostgreSQL Addon
@@ -145,11 +170,9 @@ With GoCD now providing support for PostgreSQL, the previously commercial Postgr
 
 - Remove the `postgresqldb.properties` file from the configuration directory (typically `/etc/go` on Linux).
 
-### Step 7: Start GoCD Server 
+### Step 7: Upgrade GoCD Server
 
-> TODO TODO: Don't they need to upgrade GoCD server to 20.5.0 _here_ and not before? Otherwise, it will fail.
-
-
+Upgrade your GoCD server to 20.5.0+ and start the server.
 
 ## Troubleshooting:
 
