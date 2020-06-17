@@ -43,6 +43,17 @@ Proxy support is configured with GoCD agents by passing certain system propertie
     </item>
     
     <item>
+      <title>Configuring GoCD Database</title>
+      <link>/installation/configuring_database.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database.html</guid>
+      <description>Configuring GoCD Database As part of GoCD release v20.5.0, GoCD introduced the ability to integrate with H2, PostgreSQL and MySQL databases.
+This section describes how to bring up a new GoCD Server instance, using the database of your choice. In case you are looking to migrate the data from an existing GoCD Server instance, please take a look GoCD Database Migration documentation.
+GoCD Supports following databases (with mentioned versions):  H2 (v1.</description>
+    </item>
+    
+    <item>
       <title>Configuring HSTS Header</title>
       <link>/installation/ssl_tls/configuring_hsts_header.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -84,6 +95,34 @@ Configuring GoCD agent The default transport protocol that the GoCD uses to comm
     </item>
     
     <item>
+      <title>Enabling GoCD to use H2 Database</title>
+      <link>/installation/configuring_database/h2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/h2.html</guid>
+      <description>Enabling GoCD to use H2 Database  GoCD installers ship with H2 database and no external configuration is required to use GoCD with H2 database. </description>
+    </item>
+    
+    <item>
+      <title>Enabling GoCD to use MySQL Database</title>
+      <link>/installation/configuring_database/mysql.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/mysql.html</guid>
+      <description>Enabling GoCD to use MySQL Step 1: Install MySQL Server In order to use MySQL database with GoCD, an external MySQL database server is needed to host the GoCD Server&amp;rsquo;s database. Refer MySQL Installation documentation to install the latest MySQL Database Server based on your environment. GoCD supports MySQL version 8.0.
+Step 2: Initialize an empty database Once the MySQL Server is started, an empty database can be created from the command-line using the mysql or mysqladmin utilities, which MySQL ships with.</description>
+    </item>
+    
+    <item>
+      <title>Enabling GoCD to use PostgreSQL Database</title>
+      <link>/installation/configuring_database/postgres.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/postgres.html</guid>
+      <description>Enabling GoCD to use PostgreSQL Database Step 1: Install PostgreSQL Server In order to use PostgreSQL database with GoCD, a PostgreSQL database server is needed to host the GoCD Server&amp;rsquo;s database. If the Postgres server is not yet initialized, it needs to be, before GoCD is able to use it. Along with PostgreSQL server, you need to install postgresql-client and postgresql-contrib packages. The postgresql-contrib package contains the citext and pgcrypto module which is necessary for the initial schema creation.</description>
+    </item>
+    
+    <item>
       <title>End to end transport security</title>
       <link>/installation/ssl_tls/end_to_end_transport_security.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -113,6 +152,16 @@ The agent by default trusts any and all certificates offered to it, which may po
       <guid>/installation/install/server/zip.html</guid>
       <description>Advanced installation of GoCD server using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
  Download the zip installer for GoCD server Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version} Ensure that java executable is available on the PATH environment variable.</description>
+    </item>
+    
+    <item>
+      <title>GoCD Database Connection Properties</title>
+      <link>/installation/configuring_database/connection-properties.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/connection-properties.html</guid>
+      <description>GoCD Database Connection Properties This section describes the configuration properties of the external database server (such as PostgreSQL, MySQL) which GoCD Server will connect and use. Optionally, you can also specify the database SSL config properties for secure communication between GoCD and the database server.
+A Java properties file with the name db.properties needs to be created in the GoCD&amp;rsquo;s configuration directory (config/). The location of GoCD&amp;rsquo;s configuration directory varies per operating system.</description>
     </item>
     
     <item>
@@ -241,7 +290,18 @@ Scaling GoCD As the number of pipelines, agents and concurrent users increase in
       
       <guid>/installation/upgrading_go.html</guid>
       <description>Upgrading GoCD The steps in this page can be followed to upgrade GoCD. It is recommended to understand any breaking changes between the releases to see if they impact your upgrades in any way.
-Before you start   Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under Admin &amp;gt; Server Maintenance Mode</description>
+ Note: If upgrading from a GoCD release &amp;lt;= 20.4.0, there is a the one-time DB migration that needs to be performed as well.
+ Before you start   Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading to GoCD 20.5.0 and higher</title>
+      <link>/installation/upgrade_to_gocd_20.5.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/upgrade_to_gocd_20.5.0.html</guid>
+      <description>Upgrading to GoCD 20.5.0 and higher GoCD 20.5.0 introduced several changes to its database implementation in order to build a more flexible model that allows integrating with multiple databases. As part of these changes GoCD changed the technologies used for automated database migrations (from the unmaintained DBDeploy to Liquibase). These changes require a one-time migration of the GoCD database &amp;lt;= 20.4.0 to one compliant with GoCD 20.5.0 and beyond.
+GoCD 20.</description>
     </item>
     
   </channel>

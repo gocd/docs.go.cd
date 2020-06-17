@@ -7,12 +7,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Change SSL Certificates | GoCD User Documentation</title>
+<title>Enabling GoCD to use PostgreSQL Database | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/installation/ssl_tls/custom_server_certificate.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/installation/configuring_database/postgres.html"/>
 <script src="../../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.6.min.js"></script>
 
@@ -42,7 +42,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/installation/ssl_tls/custom_server_certificate.html">
+<body data-rel-permalink="/installation/configuring_database/postgres.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -74,7 +74,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2finstallation\2fssl_tls\2f custom_server_certificate.html"] {
+  nav ul a[href$="\2finstallation\2f configuring_database\2fpostgres.html"] {
   color: #004ed0;
   }
 </style>
@@ -316,7 +316,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../svg/menu.svg" />
   </label>
-  <strong>Change SSL Certificates</strong>
+  <strong>Enabling GoCD to use PostgreSQL Database</strong>
 </header>
 
       
@@ -329,8 +329,30 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown"><h1 id="using-your-own-ssl-certificates-on-the-server">Using your own SSL certificates on the Server</h1>
-<p><strong>Note</strong> GoCD version 20.2 no longer supports configuring TLS. See <a href="https://github.com/gocd/gocd/pull/7669#issuecomment-580290432">this GitHub issue</a> for more details.</p>
+<article class="markdown"><h1 id="enabling-gocd-to-use-postgresql-database">Enabling GoCD to use PostgreSQL Database</h1>
+<h3 id="step-1-install-postgresql-server">Step 1: Install PostgreSQL Server</h3>
+<p>In order to use PostgreSQL database with GoCD, a PostgreSQL database server is needed to host the GoCD Server&rsquo;s database.
+If the Postgres server is not yet <a href="https://www.postgresql.org/docs/current/app-initdb.html" target="_blank">initialized</a>, it needs to be, before GoCD is able to use it. Along with PostgreSQL server, you need to install postgresql-client and postgresql-contrib packages. The postgresql-contrib package contains the citext and pgcrypto module which is necessary for the initial schema creation.</p>
+<h3 id="step-2-initialize-an-empty-database">Step 2: Initialize an empty database</h3>
+<p>Once the PostgreSQL Server is started, an empty database can be created from the command-line using the <code>psql</code> utility, which PostgreSQL ships with.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#a2f;font-weight:bold">CREATE</span> <span style="color:#a2f;font-weight:bold">ROLE</span> <span style="color:#b44">&#34;gocd_database_user&#34;</span> PASSWORD <span style="color:#b44">&#39;gocd_database_password&#39;</span> NOSUPERUSER <span style="color:#a2f;font-weight:bold">NOCREATEDB</span> NOCREATEROLE INHERIT LOGIN;
+<span style="color:#a2f;font-weight:bold">CREATE</span> <span style="color:#a2f;font-weight:bold">DATABASE</span> <span style="color:#b44">&#34;cruise&#34;</span> <span style="color:#a2f;font-weight:bold">ENCODING</span><span style="color:#666">=</span><span style="color:#b44">&#34;UTF8&#34;</span> <span style="color:#a2f;font-weight:bold">TEMPLATE</span><span style="color:#666">=</span><span style="color:#b44">&#34;template0&#34;</span>;
+<span style="color:#a2f;font-weight:bold">GRANT</span> <span style="color:#a2f;font-weight:bold">ALL</span> <span style="color:#a2f;font-weight:bold">PRIVILEGES</span> <span style="color:#a2f;font-weight:bold">ON</span> <span style="color:#a2f;font-weight:bold">DATABASE</span> <span style="color:#b44">&#34;cruise&#34;</span> <span style="color:#a2f;font-weight:bold">TO</span> <span style="color:#b44">&#34;gocd_database_user&#34;</span>;
+<span style="color:#a2f;font-weight:bold">ALTER</span> <span style="color:#a2f;font-weight:bold">ROLE</span> <span style="color:#b44">&#34;gocd_database_user&#34;</span> SUPERUSER;
+</code></pre></div><p>There is no need to create any schema in that database, since the GoCD Server does it automatically.</p>
+<p><strong>NOTE:</strong>  Ensure that the DB role used for that database has superuser privilege the first time the GoCD server starts. This is required to be done because the pgcrypto and citext entensions need to be created initially. The default user for PostgreSQL database is postgres and has superuser privilege. If you are creating a separate database user please grant necessary privileges to this user as demonstrated in the example above. The superuser privilege can be revoked after the first time the GoCD server starts as it will no longer be needed.</p>
+<h3 id="step-3-configure-gocd-with-postgresql-connection-details">Step 3: Configure GoCD with PostgreSQL connection details</h3>
+<p>A Java properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>).
+The location of GoCD&rsquo;s configuration directory varies per operating system. Refer <a href="../installing_go_server.html">GoCD server installation docs</a> to know the location of GoCD Server config directory.</p>
+<p>This file should contain information about the database server, so that the GoCD Server can connect to it.</p>
+<p>See <a href="connection-properties.html">GoCD Database Configuration Properties</a> to know the full list of configuration properties that can be specified under <code>db.properties</code>.</p>
+<p>An example properties file to connect to PostgreSQL database:</p>
+<pre><code class="language-properties" data-lang="properties">db.driver=org.postgresql.Driver
+db.url=jdbc:postgresql://localhost:5432/gocd
+db.user=postgres
+db.password=password
+</code></pre><h3 id="step-4-start-the-gocd-server">Step 4: Start the GoCD Server</h3>
+<p>See <a href="https://docs.gocd.org/current/installation/installing_go_server.html">Managing the GoCD server process</a> to start your GoCD Server.</p>
 </article>
 
       
@@ -347,7 +369,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/ssl_tls/custom_server_certificate.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/configuring_database/postgres.md" target="_blank" rel="noopener">
       <img src="../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -370,7 +392,18 @@ if (!doNotTrack) {
 
   
   <aside class="book-toc fixed">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#step-1-install-postgresql-server">Step 1: Install PostgreSQL Server</a></li>
+        <li><a href="#step-2-initialize-an-empty-database">Step 2: Initialize an empty database</a></li>
+        <li><a href="#step-3-configure-gocd-with-postgresql-connection-details">Step 3: Configure GoCD with PostgreSQL connection details</a></li>
+        <li><a href="#step-4-start-the-gocd-server">Step 4: Start the GoCD Server</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </aside>
 
 

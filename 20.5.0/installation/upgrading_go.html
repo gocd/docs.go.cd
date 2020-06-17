@@ -126,7 +126,16 @@ if (!doNotTrack) {
           <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
         </ul>
       </li>
+      <li class="level2"><a href="../installation/configuring_database.html">Configuring GoCD Database</a></li>
+        <ul>
+          <li class="level3"><a href="../installation/configuring_database/h2.html">H2</a></li>
+          <li class="level3"><a href="../installation/configuring_database/postgres.html">PostgreSQL</a></li>
+          <li class="level3"><a href="../installation/configuring_database/mysql.html">MySQL</a></li>
+          <li class="level3"><a href="../installation/configuring_database/connection-properties.html">Database Connection Properties</a></li>
+        </ul>
+      </li>
       <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <li class="level2"><a href="../installation/upgrade_to_gocd_20.5.0.html">Upgrading to GoCD 20.5.0 and higher</a></li>
       <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
       <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
       <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
@@ -322,6 +331,9 @@ if (!doNotTrack) {
       
 <article class="markdown"><h1 id="upgrading-gocd">Upgrading GoCD</h1>
 <p>The steps in this page can be followed to upgrade GoCD. It is recommended to understand any <a href="https://www.gocd.org/releases/">breaking changes</a> between the releases to see if they impact your upgrades in any way.</p>
+<hr>
+<p><strong>Note</strong>: If upgrading from a GoCD release &lt;= 20.4.0, there is a <a href="./upgrade_to_gocd_20.5.0.html">the one-time DB migration</a> that needs to be performed as well.</p>
+<hr>
 <h3 id="before-you-start">Before you start</h3>
 <ul>
 <li>
@@ -354,12 +366,12 @@ if (!doNotTrack) {
 </li>
 </ul>
 <h3 id="upgrading-to-the-new-version">Upgrading to the new version</h3>
-<p>You do not need to stop the Agents to perform an upgrade. GoCD agents will automatically update to the correct version of the software. You do not need to upgrade the GoCD agents. Any builds in progress will be rescheduled, and the existing pipelines will complete as expected. We ensure that the installed server will remain compatible with a version of a GoCD agent that is atleast 1 year old.</p>
-<p>GoCD will perform upgrades of its configuration and database when it starts. This process may take some time for installations with a large number of historical builds (10 to 15 minutes on very large installations). If you suspect that there is a problem with the upgrade, check the go-server.log to see if there are any reported errors. This is a one-time migration and subsequent restarts will be much faster.</p>
+<p>You do not need to stop the Agents to perform an upgrade. GoCD agents will automatically update to the correct version of the software. You do not need to upgrade the GoCD agents. Any builds in progress will be rescheduled, and the existing pipelines will complete as expected. Typically, the installed server will remain compatible with a version of a GoCD agent that is atleast 1 year old.</p>
+<p>GoCD will perform upgrades of its configuration and database when it starts. This process may take some time for installations with a large number of historical builds (10 to 15 minutes on very large installations). If you suspect that there is a problem with the upgrade, check the <code>go-server.log</code> file to see if there are any reported errors. This migration happens only upon an upgrade, and subsequent restarts will be much faster.</p>
 <h4 id="windows">Windows</h4>
 <p>Run the GoCD installer. Make sure that you specify the same directory as your previously installed version.</p>
 <p>If you have changed the GoCD Server Windows service to run as a different user, you will need to repeat this configuration change.</p>
-<p>The installer will automatically start the service. Once GoCD completes its internal data changes, you should be able to see the GoCD webpage. Any existing Agents should automatically reconnect. Any builds in progress should continue, or be rescheduled.</p>
+<p>The installer will automatically start the service. Once GoCD completes its internal data changes, you should be able to see the GoCD webpage. Any existing agents should automatically reconnect. Any builds in progress should continue, or be rescheduled.</p>
 <h4 id="linux">Linux</h4>
 <h4 id="debian-based-distributions-ie-ubuntu">Debian based distributions (i.e. Ubuntu)</h4>
 <p>Run the GoCD installer as described</p>
@@ -371,8 +383,8 @@ sudo apt-get install go-server
 <p>Run the GoCD installer as described</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo rpm -Uvh /path/to/go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
 sudo yum upgrade go-server
-</code></pre></div><h4 id="macintosh-osx">Macintosh OSX</h4>
-<p>The Macintosh OSX edition of Go does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.</p>
+</code></pre></div><h4 id="mac-os-x">Mac OS X</h4>
+<p>The Mac OS X edition of GoCD does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.</p>
 </article>
 
       

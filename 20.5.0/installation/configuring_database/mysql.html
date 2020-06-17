@@ -7,12 +7,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Change SSL Certificates | GoCD User Documentation</title>
+<title>Enabling GoCD to use MySQL Database | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/installation/ssl_tls/custom_server_certificate.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/installation/configuring_database/mysql.html"/>
 <script src="../../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.6.min.js"></script>
 
@@ -42,7 +42,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/installation/ssl_tls/custom_server_certificate.html">
+<body data-rel-permalink="/installation/configuring_database/mysql.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -74,7 +74,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2finstallation\2fssl_tls\2f custom_server_certificate.html"] {
+  nav ul a[href$="\2finstallation\2f configuring_database\2fmysql.html"] {
   color: #004ed0;
   }
 </style>
@@ -316,7 +316,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../svg/menu.svg" />
   </label>
-  <strong>Change SSL Certificates</strong>
+  <strong>Enabling GoCD to use MySQL Database</strong>
 </header>
 
       
@@ -329,8 +329,30 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown"><h1 id="using-your-own-ssl-certificates-on-the-server">Using your own SSL certificates on the Server</h1>
-<p><strong>Note</strong> GoCD version 20.2 no longer supports configuring TLS. See <a href="https://github.com/gocd/gocd/pull/7669#issuecomment-580290432">this GitHub issue</a> for more details.</p>
+<article class="markdown"><h1 id="enabling-gocd-to-use-mysql">Enabling GoCD to use MySQL</h1>
+<h3 id="step-1-install-mysql-server">Step 1: Install MySQL Server</h3>
+<p>In order to use MySQL database with GoCD, an external MySQL database server is needed to host the GoCD Server&rsquo;s database.
+Refer <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/">MySQL Installation</a> documentation to install the latest MySQL Database Server based on your environment. GoCD supports MySQL version 8.0.</p>
+<h3 id="step-2-initialize-an-empty-database">Step 2: Initialize an empty database</h3>
+<p>Once the MySQL Server is started, an empty database can be created from the command-line using the <code>mysql</code> or <code>mysqladmin</code> utilities, which MySQL ships with.
+Refer <a href="https://dev.mysql.com/doc/refman/8.0/en/create-database.html">create database</a> documentation to setup database.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#a2f;font-weight:bold">CREATE</span> <span style="color:#a2f;font-weight:bold">DATABASE</span> gocd;
+<span style="color:#a2f;font-weight:bold">CREATE</span> <span style="color:#a2f;font-weight:bold">USER</span> <span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span> IDENTIFIED <span style="color:#a2f;font-weight:bold">BY</span> <span style="color:#b44">&#39;password&#39;</span>;
+<span style="color:#a2f;font-weight:bold">GRANT</span> <span style="color:#a2f;font-weight:bold">ALL</span> <span style="color:#a2f;font-weight:bold">ON</span> gocd.<span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">TO</span> <span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span>;
+<span style="color:#a2f;font-weight:bold">GRANT</span> SUPER <span style="color:#a2f;font-weight:bold">ON</span> <span style="color:#666">*</span>.<span style="color:#666">*</span> <span style="color:#a2f;font-weight:bold">TO</span> <span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span>;
+</code></pre></div><p><strong>Note</strong>: You need to add the <code>SUPER</code> privilege for the first time, since there is a trigger created. MySQL doesn&rsquo;t allow that trigger to be created without the SUPER privilege and will fail with <a href="https://dev.mysql.com/doc/refman/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super">error 1419</a> if it is not provided. This privilege can be removed after the first startup.</p>
+<h3 id="step-3-configure-gocd-with-mysql-connection-details">Step 3: Configure GoCD with MySQL connection details</h3>
+<p>A Java properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>).
+The location of GoCD&rsquo;s configuration directory varies per operating system. Refer <a href="../installing_go_server.html">GoCD server installation docs</a> to know the location of GoCD Server config directory.</p>
+<p>This file should contain information about the database server, so that the GoCD Server can connect to it.</p>
+<p>See <a href="connection-properties.html">GoCD Database Configuration Properties</a> to know the full list of configuration properties that can be specified under <code>db.properties</code>.</p>
+<p>An example properties file to connect to MySQL database:</p>
+<pre><code class="language-properties" data-lang="properties">db.driver=com.mysql.cj.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/gocd
+db.user=root
+db.password=password
+</code></pre><h3 id="step-4-start-the-gocd-server">Step 4: Start the GoCD Server</h3>
+<p>See <a href="https://docs.gocd.org/current/installation/installing_go_server.html">Managing the GoCD server process</a> to start your GoCD Server.</p>
 </article>
 
       
@@ -347,7 +369,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/ssl_tls/custom_server_certificate.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/configuring_database/mysql.md" target="_blank" rel="noopener">
       <img src="../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -370,7 +392,18 @@ if (!doNotTrack) {
 
   
   <aside class="book-toc fixed">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#step-1-install-mysql-server">Step 1: Install MySQL Server</a></li>
+        <li><a href="#step-2-initialize-an-empty-database">Step 2: Initialize an empty database</a></li>
+        <li><a href="#step-3-configure-gocd-with-mysql-connection-details">Step 3: Configure GoCD with MySQL connection details</a></li>
+        <li><a href="#step-4-start-the-gocd-server">Step 4: Start the GoCD Server</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </aside>
 
 

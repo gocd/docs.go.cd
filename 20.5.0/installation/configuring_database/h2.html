@@ -7,12 +7,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Change SSL Certificates | GoCD User Documentation</title>
+<title>Enabling GoCD to use H2 Database | GoCD User Documentation</title>
 
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/installation/ssl_tls/custom_server_certificate.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/installation/configuring_database/h2.html"/>
 <script src="../../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.6.min.js"></script>
 
@@ -42,7 +42,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/installation/ssl_tls/custom_server_certificate.html">
+<body data-rel-permalink="/installation/configuring_database/h2.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -74,7 +74,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2finstallation\2fssl_tls\2f custom_server_certificate.html"] {
+  nav ul a[href$="\2finstallation\2f configuring_database\2fh2.html"] {
   color: #004ed0;
   }
 </style>
@@ -316,7 +316,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../svg/menu.svg" />
   </label>
-  <strong>Change SSL Certificates</strong>
+  <strong>Enabling GoCD to use H2 Database</strong>
 </header>
 
       
@@ -329,8 +329,9 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown"><h1 id="using-your-own-ssl-certificates-on-the-server">Using your own SSL certificates on the Server</h1>
-<p><strong>Note</strong> GoCD version 20.2 no longer supports configuring TLS. See <a href="https://github.com/gocd/gocd/pull/7669#issuecomment-580290432">this GitHub issue</a> for more details.</p>
+<article class="markdown"><h1 id="enabling-gocd-to-use-h2-database">Enabling GoCD to use H2 Database</h1>
+<br/>
+GoCD installers ship with H2 database and no external configuration is required to use GoCD with H2 database.
 </article>
 
       
@@ -347,7 +348,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/ssl_tls/custom_server_certificate.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/configuring_database/h2.md" target="_blank" rel="noopener">
       <img src="../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>

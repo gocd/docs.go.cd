@@ -127,6 +127,10 @@
   </url>
   
   <url>
+    <loc>/installation/configuring_database.html</loc>
+  </url>
+  
+  <url>
     <loc>/installation/ssl_tls/configuring_hsts_header.html</loc>
   </url>
   
@@ -171,6 +175,18 @@
   </url>
   
   <url>
+    <loc>/installation/configuring_database/h2.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/configuring_database/mysql.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/configuring_database/postgres.html</loc>
+  </url>
+  
+  <url>
     <loc>/installation/ssl_tls/end_to_end_transport_security.html</loc>
   </url>
   
@@ -200,6 +216,10 @@
   
   <url>
     <loc>/faq/material_update_hung.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/configuring_database/connection-properties.html</loc>
   </url>
   
   <url>
@@ -456,6 +476,10 @@
   
   <url>
     <loc>/installation/upgrading_go.html</loc>
+  </url>
+  
+  <url>
+    <loc>/installation/upgrade_to_gocd_20.5.0.html</loc>
   </url>
   
   <url>
