@@ -6,15 +6,15 @@ title: Enabling GoCD to use PostgreSQL Database
 
 ### Step 1: Install PostgreSQL Server
 
-In order to use PostgreSQL database with GoCD, an external PostgreSQL database server is needed to host the GoCD Server's database.
-Refer [PostgreSQL Installation](https://www.postgresql.org/docs/current/tutorial-install.html) documentation to install the latest postgreSQL Database Server based on your environment. GoCD supports PostgreSQL versions 9.6, 10, 11 and 12.
+In order to use PostgreSQL database with GoCD, a PostgreSQL database server is needed to host the GoCD Server's database.
+Refer [PostgreSQL Installation](https://www.postgresql.org/docs/current/tutorial-install.html) documentation to install the latest PostgreSQL Database Server based on your environment. GoCD supports PostgreSQL versions 9.6, 10, 11 and 12.
 
 
 ### Step 2: Initialize an empty database
 
 Once the PostgreSQL Server is started, an empty database can be created from the command-line using the `psql` utility, which PostgreSQL ships with.
 
-```bash
+```sql
 CREATE ROLE "gocd_database_user" PASSWORD 'gocd_database_password' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN;
 CREATE DATABASE "cruise" ENCODING="UTF8" TEMPLATE="template0";
 GRANT ALL PRIVILEGES ON DATABASE "cruise" TO "gocd_database_user";
@@ -29,7 +29,7 @@ There is no need to create any schema in that database, since the GoCD Server do
 ### Step 3: Configure GoCD with PostgreSQL connection details
 
 A Java properties file with the name `db.properties` needs to be created in the GoCD's configuration directory (`config/`). 
-The location of GoCD’s configuration directory varies per operating system. Refer [Location of GoCD server files](https://docs.gocd.org/current/installation/installing_go_server.html#location-of-files-after-installation-of-go-server) to know the location of GoCD Server config directory.
+The location of GoCD’s configuration directory varies per operating system. Refer [Location of GoCD server files](../installing_go_server.html#location-of-files-after-installation-of-go-server) to know the location of GoCD Server config directory.
 
 This file should contain information about the database server, so that the GoCD Server can connect to it.
 

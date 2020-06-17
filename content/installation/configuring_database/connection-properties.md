@@ -13,16 +13,16 @@ The valid keys in the configuration file are mentioned below:
 
 | Key                          | Description |
 |:----------------------------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `db.driver`                  | The JDBC database driver.<br/><br/><b>Mandatory :</b> `Yes` &nbsp; &nbsp;<b>Default : </b> `none`  |
+| `db.driver`                  | The JDBC database driver depending on the database. For example: `org.postgresql.Driver` or `com.mysql.cj.jdbc.Driver`.<br/><br/><b>Mandatory :</b> `Yes` &nbsp; &nbsp;<b>Default : </b> `none` |
 | `db.url`                     | The database connection url. Specify the url in format <b>`jdbc:databaseType://server[:port]/databaseName`</b>. <br/>Where, `databaseType` is the type of the database (Example: `h2`, `postgresql`, `mysql`); `server[:port]` is the name and optional port of the server hosting your database and `databaseName` is the name of the database. <br/>For example, the URL <b>`jdbc:postgresql://localhost:5432/cruise`</b> represents the database url for the locally running PostgreSQL database named `cruise`. <br/><br/><b>Mandatory :</b> `Yes` &nbsp; &nbsp;<b>Default : </b> `none`. |
 | `db.user`                    | The database user which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> `Yes` &nbsp; &nbsp;<b>Default : </b> `none`                                                                                                                                                                                                                                                                                                                                                                                                                           |
 | `db.password`                | The password for the user specified by "db.user" property which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`                                                                                                                                                                                                                                                                                                                                                                                    |
-| `db.encryptedPassword`       | The encrypted password for the user specified by "db.user" property which GoCD should use to connect to the schema. GoCD will decrypt the specified encrypted password using the GoCD cipher file, before using it. Note: Users should specify either `db.password` or `db.encryptedPassword`<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`.                                                                                                                                                                                                 |
+| `db.encryptedPassword`       | The encrypted password for the user specified by "db.user" property which GoCD should use to connect to the schema. GoCD will decrypt the specified encrypted password using the GoCD cipher file, before using it. Note: Users should specify either `db.password` or `db.encryptedPassword`.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`.                                                                                                                                                                                                |
 | `db.maxActive`               | Maximum number of active connections that should be established with the Database server.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b>`32`                                                                                                                                                                                                                                                                                                                                                                                                   |
 | `db.maxIdle`                 | Maximum number of idle connections that should be maintained with the Database server.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b>`32`                                                                                                                                                                                                                                                                                                                                                                                                      |
 | `db.extraBackupCommandArgs`  | Specify custom database backup arguments. This config property is used to specify the additional arguments to the backup utility while backing up the database using [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_backup.html) feature of GoCD. See [GoCD Database Extra Backup Command Arguments](#gocd-database-extra-backup-command-arguments) for more information.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`  |
 | `db.extraBackupEnv`          | Specify custom environment variables to the database backup utility. This config property is used to specify the additional environment variables to the backup utility while backing up the database using [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_backup.html) feature of GoCD. See [GoCD Database Extra Backup Environment Variables](#gocd-database-extra-backup-environment-variables) for more information.<br/><br/><b>Mandatory :</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`  |
-| `db.connectionProperties`    | Specify the database SSL config properties for secure communication between GoCD and the database server. See [GoCD Database Connection Properties](#gocd-database-connection-properties) for more information.<br/><br/><b>Mandatory:</b> `No` &nbsp; &nbsp;<b>Default : </b> `none`  |
+| `db.connectionProperties`    | Specify the database SSL config properties for secure communication between GoCD and the database server. See [Database-specific Connection Properties](#database-specific-connection-properties) for more information.<br/><br/><b>Mandatory:</b> `No` &nbsp; &nbsp;<b>Default : </b> `none` |
 
 
 ## GoCD Database Extra Backup Command Arguments
@@ -34,10 +34,9 @@ GoCD uses [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) uti
 **Example:** <br/>
 Specify `db.extraBackupCommandArgs=--format=plain` property to specify `--format=plain` option to the `pg_dump` backup utility, which causes it to take a plain text backup.
 
-
 GoCD uses [mysqldump](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) utility for backing up a MySQL database. Refer [mysqldump docs](https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html) to know all available MySQL database backup options.
 
-**Example:**<br/>
+**Example:** <br/>
 Specify `db.extraBackupCommandArgs=--compact` property to specify `--compact` option to the `mysqldump` backup utility, which causes it to produce more compact output.
 
 
@@ -51,7 +50,7 @@ See [PostgreSQL Environment Variables](https://www.postgresql.org/docs/current/l
 Specify `db.extraBackupEnv.PGCLIENTENCODING=UTF8` property to specify `PGCLIENTENCODING` environment variable with value `UTF8`.
 
 
-## GoCD Database Connection Properties
+## Database-specific Connection Properties
 
 Specify `db.connectionProperties` to encrypt the communication between the GoCD Server applications and your database instance.
 Depending on the type of the database server, different connection properties could be specified for your SSL configuration.
