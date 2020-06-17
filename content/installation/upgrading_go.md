@@ -8,6 +8,12 @@ title: Upgrading GoCD
 
 The steps in this page can be followed to upgrade GoCD. It is recommended to understand any [breaking changes](https://www.gocd.org/releases/) between the releases to see if they impact your upgrades in any way.
 
+<hr>
+
+**Note**: If upgrading from a GoCD release <= 20.4.0, there is a [the one-time DB migration](./upgrade_to_gocd_20.5.0.html) that needs to be performed as well.
+
+<hr>
+
 ### Before you start
 
 - Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under _Admin > Server Maintenance Mode_
@@ -23,9 +29,9 @@ The steps in this page can be followed to upgrade GoCD. It is recommended to und
 
 ### Upgrading to the new version
 
-You do not need to stop the Agents to perform an upgrade. GoCD agents will automatically update to the correct version of the software. You do not need to upgrade the GoCD agents. Any builds in progress will be rescheduled, and the existing pipelines will complete as expected. We ensure that the installed server will remain compatible with a version of a GoCD agent that is atleast 1 year old.
+You do not need to stop the Agents to perform an upgrade. GoCD agents will automatically update to the correct version of the software. You do not need to upgrade the GoCD agents. Any builds in progress will be rescheduled, and the existing pipelines will complete as expected. Typically, the installed server will remain compatible with a version of a GoCD agent that is atleast 1 year old.
 
-GoCD will perform upgrades of its configuration and database when it starts. This process may take some time for installations with a large number of historical builds (10 to 15 minutes on very large installations). If you suspect that there is a problem with the upgrade, check the go-server.log to see if there are any reported errors. This is a one-time migration and subsequent restarts will be much faster.
+GoCD will perform upgrades of its configuration and database when it starts. This process may take some time for installations with a large number of historical builds (10 to 15 minutes on very large installations). If you suspect that there is a problem with the upgrade, check the `go-server.log` file to see if there are any reported errors. This migration happens only upon an upgrade, and subsequent restarts will be much faster.
 
 #### Windows
 
@@ -33,7 +39,7 @@ Run the GoCD installer. Make sure that you specify the same directory as your pr
 
 If you have changed the GoCD Server Windows service to run as a different user, you will need to repeat this configuration change.
 
-The installer will automatically start the service. Once GoCD completes its internal data changes, you should be able to see the GoCD webpage. Any existing Agents should automatically reconnect. Any builds in progress should continue, or be rescheduled.
+The installer will automatically start the service. Once GoCD completes its internal data changes, you should be able to see the GoCD webpage. Any existing agents should automatically reconnect. Any builds in progress should continue, or be rescheduled.
 
 #### Linux
 
@@ -56,6 +62,6 @@ sudo rpm -Uvh /path/to/go-server-${version}.deb
 sudo yum upgrade go-server
 ```
 
-#### Macintosh OSX
+#### Mac OS X
 
-The Macintosh OSX edition of Go does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.
+The Mac OS X edition of GoCD does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.
