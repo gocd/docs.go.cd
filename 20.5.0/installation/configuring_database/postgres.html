@@ -342,7 +342,7 @@ If the Postgres server is not yet <a href="https://www.postgresql.org/docs/curre
 </code></pre></div><p>There is no need to create any schema in that database, since the GoCD Server does it automatically.</p>
 <p><strong>NOTE:</strong>  Ensure that the DB role used for that database has superuser privilege the first time the GoCD server starts. This is required to be done because the pgcrypto and citext entensions need to be created initially. The default user for PostgreSQL database is postgres and has superuser privilege. If you are creating a separate database user please grant necessary privileges to this user as demonstrated in the example above. The superuser privilege can be revoked after the first time the GoCD server starts as it will no longer be needed.</p>
 <h3 id="step-3-configure-gocd-with-postgresql-connection-details">Step 3: Configure GoCD with PostgreSQL connection details</h3>
-<p>A Java properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>).
+<p>A properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>).
 The location of GoCD&rsquo;s configuration directory varies per operating system. Refer <a href="../installing_go_server.html">GoCD server installation docs</a> to know the location of GoCD Server config directory.</p>
 <p>This file should contain information about the database server, so that the GoCD Server can connect to it.</p>
 <p>See <a href="connection-properties.html">GoCD Database Configuration Properties</a> to know the full list of configuration properties that can be specified under <code>db.properties</code>.</p>

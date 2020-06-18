@@ -430,8 +430,8 @@ Developers can start building their own elastic-agent plugins by forking the ske
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/configuring_database/mysql.html</guid>
-      <description>Enabling GoCD to use MySQL Step 1: Install MySQL Server In order to use MySQL database with GoCD, an external MySQL database server is needed to host the GoCD Server&amp;rsquo;s database. Refer MySQL Installation documentation to install the latest MySQL Database Server based on your environment. GoCD supports MySQL version 8.0.
-Step 2: Initialize an empty database Once the MySQL Server is started, an empty database can be created from the command-line using the mysql or mysqladmin utilities, which MySQL ships with.</description>
+      <description>Enabling GoCD to use MySQL Note: While, support for MySQL is added in GoCD 20.5.0 and a basic round of migration tests has been completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD&amp;rsquo;s build pipelines.
+Step 1: Install MySQL Server In order to use MySQL database with GoCD, an external MySQL database server is needed to host the GoCD Server&amp;rsquo;s database.</description>
     </item>
     
     <item>
@@ -514,7 +514,7 @@ svn log --non-interactive --xml -v -r HEAD:&amp;#39;revision&amp;#39; &amp;#39;r
       
       <guid>/installation/configuring_database/connection-properties.html</guid>
       <description>GoCD Database Connection Properties This section describes the configuration properties of the external database server (such as PostgreSQL, MySQL) which GoCD Server will connect and use. Optionally, you can also specify the database SSL config properties for secure communication between GoCD and the database server.
-A Java properties file with the name db.properties needs to be created in the GoCD&amp;rsquo;s configuration directory (config/). The location of GoCD&amp;rsquo;s configuration directory varies per operating system.</description>
+A properties file with the name db.properties needs to be created in the GoCD&amp;rsquo;s configuration directory (config/). The location of GoCD&amp;rsquo;s configuration directory varies per operating system.</description>
     </item>
     
     <item>
