@@ -149,22 +149,31 @@ GoCD runs on H2 by default. Configuring the `db.properties` is **not** required.
 
 #### 5.2 Enabling GoCD to use PostgreSQL or MySQL Database
 
-A Java properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer the [GoCD Database Connection Properties documentation](./configuring_database/connection-properties.html) for more information about the format of this file and valid keys.
+A properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer the [GoCD Database Connection Properties documentation](./configuring_database/connection-properties.html) for more information about the format of this file and valid keys.
 
 The location of GoCD's configuration directory varies per operating system. Usually, on a Linux system using the RPM or Debian installers, this file will need to be at `/etc/go/db.properties`. The [installation documentation](./installing_go_server.html) provides information about the locations.
 
-- Sample configuration for `db.properties`:
+- Sample configuration for `db.properties` for PostgreSQL:
 
-```
-db.driver=org.postgresql.Driver
-db.url=jdbc:postgresql://localhost:5432/new_cruise
-db.user=postgres
-db.password=pass
-```
+    ```
+    db.driver=org.postgresql.Driver
+    db.url=jdbc:postgresql://localhost:5432/new_cruise
+    db.user=postgres
+    db.password=pass
+    ```
 
-### Step 6: Only for users using the (old) commercial PostgreSQL Addon
+- Sample configuration for `db.properties` for MySQL:
 
-With GoCD now providing support for PostgreSQL, the previously commercial PostgreSQL Addon is no longer required. You will, however, need to perform the PostgreSQL to PostgreSQL migration mentioned above and follow the instructions to configure `db.properties`. Once done:
+    ```
+    db.driver=com.mysql.cj.jdbc.Driver
+    db.url=jdbc:mysql://localhost:3306/gocd
+    db.user=root
+    db.password=password
+    ```
+
+### Step 6: Only for users using the (old) commercial PostgreSQL addon
+
+With GoCD now providing support for PostgreSQL, the previously commercial PostgreSQL addon is no longer required. You will, however, need to perform the PostgreSQL to PostgreSQL migration mentioned above and follow the instructions to configure `db.properties`. Once done:
 
 - Remove the PostgreSQL addon jar from the addons directory (typically `/var/lib/go-server/addons` on Linux)
 

@@ -33,7 +33,7 @@ GRANT SUPER ON *.* TO 'gocd_user'@'localhost';
 
 ### Step 3: Configure GoCD with MySQL connection details
 
-A Java properties file with the name `db.properties` needs to be created in the GoCD's configuration directory (`config/`). 
+A properties file with the name `db.properties` needs to be created in the GoCD's configuration directory (`config/`). 
 The location of GoCD's configuration directory varies per operating system. Refer [GoCD server installation docs](../installing_go_server.html) to know the location of GoCD Server config directory.
 
 This file should contain information about the database server, so that the GoCD Server can connect to it.
