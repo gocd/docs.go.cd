@@ -330,31 +330,59 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="backup-gocd-server">Backup GoCD Server</h1>
-<p>You can use GoCD&rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform a backup <a href="https://api.gocd.org/#backups">using the API</a>.</p>
+<p>You can use GoCD&rsquo;s administration interface to perform an One-Click Backup of GoCD. You can also perform a backup <a href="https://api.gocd.org/#backups">using the API</a>.</p>
 <h2 id="steps-to-initiate-backup">Steps to initiate backup</h2>
 <ul>
 <li>
-<p>After you are logged into gocd, click on the <em>Admin &gt; Backup</em> link, and click the <em>Perform Backup</em> button.</p>
+<p>After you are logged into GoCD, click on the <em>Admin &gt; Backup</em> link, and click the <em>Perform Backup</em> button.</p>
 <blockquote>
 <p><strong>Note:</strong> GoCD will be unusable during the backup process.</p>
 </blockquote>
 </li>
 <li>
-<p>Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On backup completion they will be redirected to the page they were on.</p>
-</li>
-<li>
-<p>If you are using PostgreSQL Addon please refer to our documentation <a href="https://extensions-docs.gocd.org/postgresql/current/backup-restore-database">here</a> for back and restore process.</p>
+<p>Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle. Users who are logged into the GoCD Dashboard will be redirected to a maintenance page during the backup. On completion of the backup they will be redirected to the page they were on.</p>
 </li>
 </ul>
 <h3 id="what-is-backed-up">What is backed up?</h3>
 <p>The backup will be performed into the <code>${ARTIFACT_REPOSITORY_LOCATION}/serverBackups</code> directory. <code>${ARTIFACT_REPOSITORY_LOCATION}</code> for your server can be found as mentioned <a href="../installation/configuring_server_details.html#artifact-repository-configuration">here</a>.</p>
 <p>The backup directory will be named <code>backup_{TIMESTAMP}</code> where the <code>${TIMESTAMP}</code> is the time when the backup was initiated.</p>
 <ul>
-<li>Database - This is in a zip called <code>db.zip</code> . The zip has a single DB file called <code>cruise.h2.db</code></li>
-<li>Configuration - This is in a zip called <code>config-dir.zip</code> . This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD&rsquo;s internal configurations.</li>
-<li>Wrapper Configuration - This is in a zip called <code>wrapper-config-dir.zip</code> . This zip contains configuration files for startup properties for the server.</li>
-<li>XML Configuration Version Repo - This is in a zip called <code>config-repo.zip</code> . This zip contains the Git repository of the XML configuration file.</li>
-<li>GoCD version - This is a file called <code>version.txt</code> . This file contains the version of the GoCD server when the backup was initiated</li>
+<li>
+<p>Database - This depends on the kind of database being used:</p>
+<ul>
+<li>
+<p>If you&rsquo;re using H2: This is in a zip called <code>db.zip</code>. The zip has a single DB file called <code>cruise.mv.db</code>.</p>
+</li>
+<li>
+<p>If you&rsquo;re using PostgreSQL:</p>
+<ul>
+<li>The database backup is a single file called <code>db.DATABASE_NAME</code>, where <code>DATABASE_NAME</code> is the name of the database. For instance, it could be called: <code>db.gocd</code>.</li>
+<li>See <a href="https://www.postgresql.org/docs/current/backup.html">PostgreSQL documentation</a> regarding backup and restoration.</li>
+<li>Note that the configured <a href="../installation/configuring_database/connection-properties.html#gocd-database-extra-backup-command-arguments">PostgreSQL database connection properties</a> can affect the output and contents of the backup.</li>
+</ul>
+</li>
+<li>
+<p>If you&rsquo;re using MySQL:</p>
+<ul>
+<li>The database backup is a single file called <code>db.DATABASE_NAME</code>, where <code>DATABASE_NAME</code> is the name of the database. For instance, it could be called: <code>db.gocd</code>.</li>
+<li>See <a href="https://dev.mysql.com/doc/refman/8.0/en/using-mysqldump.html">MySQL documentation</a> regarding backup and restore.</li>
+<li>Note that the configured <a href="../installation/configuring_database/connection-properties.html#gocd-database-extra-backup-command-arguments">MySQL database connection properties</a> can affect the output and contents of the backup.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Configuration - This is in a zip called <code>config-dir.zip</code>. This zip contains the XML configuration, Jetty server configuration, Keystores and all other GoCD&rsquo;s internal configurations.</p>
+</li>
+<li>
+<p>Wrapper Configuration - This is in a zip called <code>wrapper-config-dir.zip</code>. This zip contains configuration files for startup properties for the server.</p>
+</li>
+<li>
+<p>XML Configuration Version Repo - This is in a zip called <code>config-repo.zip</code>. This zip contains the Git repository of the XML configuration file.</p>
+</li>
+<li>
+<p>GoCD version - This is a file called <code>version.txt</code>. This file contains the version of the GoCD server when the backup was initiated</p>
+</li>
 </ul>
 <h3 id="what-is-not-backed-up">What is not backed up?</h3>
 <p>The following are not backed up as a part of the GoCD backup process. Please ensure that these are manually backed up regularly.</p>
@@ -386,7 +414,24 @@ if (!doNotTrack) {
 </blockquote>
 </li>
 <li>
-<p>Database - Unzip the <code>db.zip</code> found in the backup directory. Unzip will create a file called <code>cruise.h2.db</code> . Copy this file to the directory <code>${SERVER_INSTALLATION_DIR}/db/h2db</code> .</p>
+<p>Database - This depends on the kind of database being used:</p>
+<ul>
+<li>
+<p>If you&rsquo;re using H2: Unzip <code>db.zip</code> and copy the file <code>cruise.mv.db</code> found inside it to the directory <code>${SERVER_INSTALLATION_DIR}/db/h2db</code>.</p>
+</li>
+<li>
+<p>If you&rsquo;re using PostgreSQL: Use <code>psql</code> to restore using the database backup file (for instance <code>db.gocd</code>). This depends on how you connect to the database. Example:</p>
+<pre><code>psql -d my_new_db -h my.db.host.com --password &lt;db.gocd
+</code></pre>
+<p>See <a href="https://www.postgresql.org/docs/current/backup.html">PostgreSQL documentation</a> regarding backup and restoration.</p>
+</li>
+<li>
+<p>If you&rsquo;re using MySQL: Use <code>mysql</code> to restore using the database backup file (for instance <code>db.gocd</code>). This depends on how you connect to the database. Example:</p>
+<pre><code>mysql -D my_new_db -h my.db.host.com -u root -p &lt;db.gocd
+</code></pre>
+<p>See <a href="https://dev.mysql.com/doc/refman/8.0/en/using-mysqldump.html">MySQL documentation</a> regarding backup and restore.</p>
+</li>
+</ul>
 </li>
 <li>
 <p>Configuration - Unzip the <code>config-dir.zip</code> into a temp directory. Copy all the files from this directory to <code>${SERVER_INSTALLATION_DIR}/config</code> directory on Windows and Mac or <code>/etc/go</code> on Linux.</p>

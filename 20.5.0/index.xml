@@ -140,8 +140,8 @@ Configuration Specify artifact purge start and end limits You must be logged in 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/one_click_backup.html</guid>
-      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of Go. You can also perform a backup using the API.
-Steps to initiate backup   After you are logged into gocd, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
+      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of GoCD. You can also perform a backup using the API.
+Steps to initiate backup   After you are logged into GoCD, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
  Note: GoCD will be unusable during the backup process.
    Backup time is proportional to the database and configuration size.</description>
     </item>
