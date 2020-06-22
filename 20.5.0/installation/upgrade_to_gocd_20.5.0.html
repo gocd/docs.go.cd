@@ -498,7 +498,7 @@ db.password=password
 <p>Upgrade your GoCD server to 20.5.0+ and start the server.</p>
 <h2 id="troubleshooting">Troubleshooting</h2>
 <p>Possible issues you might see are:</p>
-<h4 id="1-database-is-read-only">1. Database is read-only</h4>
+<h4 id="database-is-read-only">Database is read-only</h4>
 <p>You might see a message such as this, after upgrade, in the GoCD server logs:</p>
 <pre><code>Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; SQL statement:
 UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = '10.16.0.5 (10.16.0.5)', LOCKGRANTED = '2020-06-17 15:07:20.707' WHERE ID = 1 AND LOCKED = FALSE [90097-200]
@@ -506,7 +506,8 @@ UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = '10.16.0.5 (10
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
 </code></pre><p>This can happen due to the H2 DB file (usually at <code>/var/lib/go-server/db/h2db/cruise.mv.db</code> on Linux) having the wrong permissions or ownership.</p>
-<h4 id="2-mysql-identifier-case-senitivity">2. MySQL: Identifier case senitivity</h4>
+
+<h4 id="mysql-identifier-case-senitivity">MySQL: Identifier case senitivity</h4>
 <p>You might see a message such as this in the GoCD server logs, if you are using MySQL:</p>
 <pre><code>Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.commons.dbcp2.BasicDataSource]: Factory method 'getDataSource' threw exception; nested exception is java.sql.SQLException: Unable to migrate the database
         at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
@@ -560,6 +561,7 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'gocd.buildStateTransitions' 
         at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:398)
         ... 91 common frames omitted
 </code></pre><p>If you see this, the most probable cause is that your MySQL instance has <a href="https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html">case-sensitive identifiers</a> turned on. GoCD needs case-insensitive identifiers and you will need to change your MySQL instance to enable that. Please note that, according to the documentation, it is not possible to <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">change the <code>lower_case_table_names</code> variable</a> once the MySQL instance is initialized. You might need to recreate the instance.</p>
+
 </article>
 
       
@@ -612,11 +614,7 @@ Caused by: java.sql.SQLSyntaxErrorException: Table 'gocd.buildStateTransitions' 
         <li><a href="#step-7-upgrade-gocd-server">Step 7: Upgrade GoCD Server</a></li>
       </ul>
     </li>
-    <li><a href="#troubleshooting">Troubleshooting</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
   </ul>
 </nav>
   </aside>

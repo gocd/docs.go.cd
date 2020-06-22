@@ -100,7 +100,8 @@ Configuring GoCD agent The default transport protocol that the GoCD uses to comm
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/configuring_database/h2.html</guid>
-      <description>Enabling GoCD to use H2 Database  GoCD installers ship with H2 database and no external configuration is required to use GoCD with H2 database. </description>
+      <description>Enabling GoCD to use H2 Database  GoCD installers ship with H2 database and no external configuration is required to use GoCD with H2 database. Troubleshooting Database is read-only You might see a message such as this, after upgrade, in the GoCD server logs:
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; SQL statement: UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = &#39;10.16.0.5 (10.16.0.5)&#39;, LOCKGRANTED = &#39;2020-06-17 15:07:20.707&#39; WHERE ID = 1 AND LOCKED = FALSE [90097-200] at org.</description>
     </item>
     
     <item>

@@ -332,6 +332,16 @@ if (!doNotTrack) {
 <article class="markdown"><h1 id="enabling-gocd-to-use-h2-database">Enabling GoCD to use H2 Database</h1>
 <br/>
 GoCD installers ship with H2 database and no external configuration is required to use GoCD with H2 database.
+<h2 id="troubleshooting">Troubleshooting</h2>
+<h4 id="database-is-read-only">Database is read-only</h4>
+<p>You might see a message such as this, after upgrade, in the GoCD server logs:</p>
+<pre><code>Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; SQL statement:
+UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = '10.16.0.5 (10.16.0.5)', LOCKGRANTED = '2020-06-17 15:07:20.707' WHERE ID = 1 AND LOCKED = FALSE [90097-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+</code></pre><p>This can happen due to the H2 DB file (usually at <code>/var/lib/go-server/db/h2db/cruise.mv.db</code> on Linux) having the wrong permissions or ownership.</p>
+
 </article>
 
       
@@ -371,7 +381,11 @@ GoCD installers ship with H2 database and no external configuration is required 
 
   
   <aside class="book-toc fixed">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ul>
+</nav>
   </aside>
 
 
