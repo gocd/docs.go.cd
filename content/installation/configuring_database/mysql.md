@@ -54,4 +54,7 @@ db.password=password
 
 See [Managing the GoCD server process](https://docs.gocd.org/current/installation/installing_go_server.html) to start your GoCD Server.  
 
+## Troubleshooting
+
+{{< include file="installation/configuring_database/_mysql_troubleshooting.md" markdown="true" >}}
 
