@@ -74,7 +74,6 @@ Welcome to <a href="https://www.gocd.org" target="_blank" rel="noopener">GoCD</a
   <ul class="noindent">
     <li><a href="https://api.gocd.org/" target="_blank" rel="noopener">GoCD API documentation</a></li>
     <li><a href="https://plugin-api.gocd.org/" target="_blank" rel="noopener">GoCD Plugin API documentation</a></li>
-    <li><a href="https://extensions-docs.gocd.org/" target="_blank" rel="noopener">GoCD commercial extensions documentation</a></li>
     <li><a href="https://www.gocd.org/plugins/" target="_blank" rel="noopener">GoCD plugins listing page</a></li>
     <li><a href="https://www.gocd.org/releases/" target="_blank" rel="noopener">GoCD release notes</a></li>
   </ul>

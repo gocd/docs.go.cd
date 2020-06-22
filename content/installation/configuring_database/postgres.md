@@ -16,7 +16,7 @@ Once the PostgreSQL Server is started, an empty database can be created from the
 
 ```sql
 CREATE ROLE "gocd_database_user" PASSWORD 'gocd_database_password' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN;
-CREATE DATABASE "cruise" ENCODING="UTF8" TEMPLATE="template0";
+CREATE DATABASE "gocd" ENCODING="UTF8" TEMPLATE="template0";
 GRANT ALL PRIVILEGES ON DATABASE "cruise" TO "gocd_database_user";
 ALTER ROLE "gocd_database_user" SUPERUSER;
 ```
@@ -40,8 +40,8 @@ An example properties file to connect to PostgreSQL database:
 ```properties
 db.driver=org.postgresql.Driver
 db.url=jdbc:postgresql://localhost:5432/gocd
-db.user=postgres
-db.password=password
+db.user=gocd_database_user
+db.password=gocd_database_password
 ```
 
 ### Step 4: Start the GoCD Server
