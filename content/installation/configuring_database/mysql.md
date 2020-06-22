@@ -45,7 +45,7 @@ An example properties file to connect to MySQL database:
 ```properties
 db.driver=com.mysql.cj.jdbc.Driver
 db.url=jdbc:mysql://localhost:3306/gocd
-db.user=root
+db.user=gocd_user
 db.password=password
 ```
 

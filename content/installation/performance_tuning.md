@@ -212,11 +212,11 @@ These snapshots will be saved in the yourkit configured snapshots folder. They c
 
 If the GoCD server continues to behave poorly, send us the following data.
 
-1. Database file ```cruise.h2.db```. Stop the server and take a backup of the database. Location:
+1. Database file ```cruise.mv.db```. Stop the server and take a backup of the database. Location:
 
-    Linux: ```/var/lib/db/h2db/cruise.h2.db```
+    Linux: ```/var/lib/db/h2db/cruise.mv.db```
 
-    Windows: ```[go_installation_dir]\db\h2db\cruise.h2.db```
+    Windows: ```[go_installation_dir]\db\h2db\cruise.mv.db```
 
 2. Log file ```go-server.log```. Location:
 
