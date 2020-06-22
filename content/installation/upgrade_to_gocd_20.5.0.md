@@ -15,6 +15,11 @@ GoCD 20.5.0, while continuing to support H2 by default, provides an ability to u
 3. **H2** => **H2**
 4. **H2** => **MySQL** <small>[Warning! See note below]</small>
 
+#### GoCD Supports following database versions
+
+- PostgreSQL (**`v9.6`, `v10`, `v11` and `v12`**)
+- MySQL (**`v8.0`**)
+
 Follow the instructions below to migrate your exisiting GoCD <= 20.4.0 database to a GoCD 20.5.0 (and beyond) compliant database. The time taken by this migration is dependent on the size of your database. While testing we have seen the migration taking few minutes to **more than an hour** based on the size of the database. Please test on a backup of your GoCD server to understand the time taken for your particular database.
 
 **Note**: 
