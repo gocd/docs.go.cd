@@ -87,11 +87,11 @@ How to configure:
 
 ## Limitations
 
-- **Fan-in and blacklist** : If the pipelines contributing to the fan-in have blacklist in their material definitions, the target pipeline does not adhere to fan-in behavior.
+- **Fan-in and material filters** : If the pipelines contributing to the fan-in have filters in their material definitions, the target pipeline does not adhere to fan-in behavior.
 
     ![](../images/ignored_files.png)
 
-    For example, refer to the scenario above. P1 and P2 are two pipelines which use the same mercurial (hg) repository, with two folders say "p1" and "p2". P1 is configured with "p2" folder in the blacklist. Likewise P2 is configured with "p1" folder in the blacklist.
+    For example, refer to the scenario above. P1 and P2 are two pipelines which use the same mercurial (hg) repository, with two folders say "p1" and "p2". P1 is configured with "p2" folder in a deny filter. Likewise P2 is configured with "p1" folder in the deny filter.
 
     The first run of P1 happens when a check-in happens in "p1" folder. The first run of P2 happens when there is a check-in to "p2".
 

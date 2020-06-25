@@ -1,6 +1,6 @@
 ---
 description: Add new material to an existing GoCD pipeline
-keywords: material, continuous delivery pipeline, GoCD configuration, blacklist, CD pipeline
+keywords: material, continuous delivery pipeline, GoCD configuration, denylist, CD pipeline
 title: Add Material to Existing Pipeline
 ---
 
@@ -20,20 +20,20 @@ Now that you have a pipeline, lets add another material to it.
 ![](../images/edit_material.png)
 - Click "Save".
 
-## Blacklist
+## Deny / Denylist filters
 
-Often you do want to specify a set of files that GoCD should ignore when it checks for changes. Repository changesets which contain only these files will not automatically trigger a pipeline. These are detailed in the [ignore](configuration_reference.html#ignore) section of the [configuration reference.](configuration_reference.html)
+Often you want to specify a set of files that GoCD should ignore when it checks for changes. Repository changesets which contain _only_ these files will not automatically trigger a pipeline. These are detailed in the [ignore](configuration_reference.html#ignore) section of the [configuration reference.](configuration_reference.html)
 
-- Enter the items to blacklist using ant-style syntax below
-![](../images/edit_material_blacklist.png)
+- Enter the items to add to the denylist using ant-style syntax below
+![](../images/edit_material_denylist.png)
 - Click "Save".
 
-## Whitelist
+## Allow / Allowlist filters
 
-There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD whitelisting, you can allow a pipeline to trigger on certain repository changesets.
+There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD's allowlist filtering, you can allow a pipeline to trigger on _only a set of chosen_ repository changesets.
 
-- Click on "Invert the file filter...." to enable whitelisting
-![](../images/edit_material_whitelist.png)
+- Click on "Invert the file filter" checkbox to enable allowlist filtering.
+![](../images/edit_material_allowlist.png)
 - Click "Save".
 
 **Note** - ```GoCD uses '**' for folder/path and '*' for files.```
