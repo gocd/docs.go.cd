@@ -8,7 +8,8 @@ title: Reference
 
 # GoCD Configuration Reference
 
-<big><pre>
+<big>
+<pre>
 <a href="#cruise">&lt;cruise&gt;</a>
     <a href="#server">&lt;server&gt;</a>
         <a href="#siteUrls">&lt;siteUrls&gt;</a>
@@ -2281,7 +2282,7 @@ The `<svn>` element specifies the location of your code base in Subversion repos
 | dest | Required if there are multiple materials | The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent's sandbox. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material or it receives a notification through a post-commit hook. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
-| invertFilter | No | Inverts any `filter` elements, turning them into whitelists. Only files that *match* the filter will trigger a new build. |
+| invertFilter | No | Inverts any `filter` elements, turning them into allowlists. Only files that *match* the filter will trigger a new build. |
 
 **Notes:**
 
@@ -2323,7 +2324,7 @@ You must install Mercurial 1.5 or above on the Go Server and Go Agents for the j
 | dest | Only for multiple materials | The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent's sandbox. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
-| invertFilter | No | Inverts any `filter` elements, turning them into whitelists. Only files that *match* the filter will trigger a new build. |
+| invertFilter | No | Inverts any `filter` elements, turning them into allowlists. Only files that *match* the filter will trigger a new build. |
 
 **Examples**
 
@@ -2371,7 +2372,7 @@ Go will use directory under pipelines/{pipelineName} in agent side as Perforce r
 | view | Yes | Valid Perforce view. The view should be a sub-element of P4. Click [here](http://www.perforce.com/perforce/doc.082/manuals/p4guide/02_config.html#1066090) to see details about VIEW of Perforce. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
-| invertFilter | No | Inverts any `filter` elements, turning them into whitelists. Only files that *match* the filter will trigger a new build. |
+| invertFilter | No | Inverts any `filter` elements, turning them into allowlists. Only files that *match* the filter will trigger a new build. |
 
 **Notes:**
 
@@ -2438,7 +2439,7 @@ directory where the .ssh/ directory is located.
 | dest | Only for multiple materials | The directory under the sandbox of Go Agent. Go will check out the source code into this directory. |
 | materialName | Required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
 | autoUpdate | No | By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate. |
-| invertFilter | No | Inverts any `filter` elements, turning them into whitelists. Only files that *match* the filter will trigger a new build. |
+| invertFilter | No | Inverts any `filter` elements, turning them into allowlists. Only files that *match* the filter will trigger a new build. |
 
 **Examples are:**
 
@@ -2476,7 +2477,7 @@ The `<tfs>` element specifies the location of your code base in a TFS Source rep
 | Password | Yes | Password of the account to access the TFS collection. |
 | Project Path| Yes | The project path within the TFS collection. |
 | dest | Only for multiple materials | The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent's sandbox. |
-| invertFilter | No | Inverts any `filter` elements, turning them into whitelists. Only files that *match* the filter will trigger a new build. |
+| invertFilter | No | Inverts any `filter` elements, turning them into allowlists. Only files that *match* the filter will trigger a new build. |
 
 **Examples are:**
 
