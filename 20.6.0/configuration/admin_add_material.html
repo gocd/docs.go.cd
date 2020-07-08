@@ -10,7 +10,7 @@
 <title>Add Material to Existing Pipeline | GoCD User Documentation</title>
 
 <meta name="description" content="Add new material to an existing GoCD pipeline"/>
-<meta name="keywords" content="[material, continuous delivery pipeline, GoCD configuration, blacklist, CD pipeline]"/>
+<meta name="keywords" content="[material, continuous delivery pipeline, GoCD configuration, denylist, CD pipeline]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/admin_add_material.html"/>
 <script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -344,18 +344,18 @@ if (!doNotTrack) {
 <img src="../images/edit_material.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;.</li>
 </ul>
-<h2 id="blacklist">Blacklist</h2>
-<p>Often you do want to specify a set of files that GoCD should ignore when it checks for changes. Repository changesets which contain only these files will not automatically trigger a pipeline. These are detailed in the <a href="configuration_reference.html#ignore">ignore</a> section of the <a href="configuration_reference.html">configuration reference.</a></p>
+<h2 id="deny--denylist-filters">Deny / Denylist filters</h2>
+<p>Often you want to specify a set of files that GoCD should ignore when it checks for changes. Repository changesets which contain <em>only</em> these files will not automatically trigger a pipeline. These are detailed in the <a href="configuration_reference.html#ignore">ignore</a> section of the <a href="configuration_reference.html">configuration reference.</a></p>
 <ul>
-<li>Enter the items to blacklist using ant-style syntax below
-<img src="../images/edit_material_blacklist.png" alt=""></li>
+<li>Enter the items to add to the denylist using ant-style syntax below
+<img src="../images/edit_material_denylist.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;.</li>
 </ul>
-<h2 id="whitelist">Whitelist</h2>
-<p>There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD whitelisting, you can allow a pipeline to trigger on certain repository changesets.</p>
+<h2 id="allow--allowlist-filters">Allow / Allowlist filters</h2>
+<p>There are cases where instead of ignoring those files or folder/s, you want GoCD to consider only the specified files or folders when checking for changes and ignore the rest. With GoCD&rsquo;s allowlist filtering, you can allow a pipeline to trigger on <em>only a set of chosen</em> repository changesets.</p>
 <ul>
-<li>Click on &ldquo;Invert the file filter&hellip;.&rdquo; to enable whitelisting
-<img src="../images/edit_material_whitelist.png" alt=""></li>
+<li>Click on &ldquo;Invert the file filter&rdquo; checkbox to enable allowlist filtering.
+<img src="../images/edit_material_allowlist.png" alt=""></li>
 <li>Click &ldquo;Save&rdquo;.</li>
 </ul>
 <p><strong>Note</strong> - <code>GoCD uses '**' for folder/path and '*' for files.</code></p>
@@ -413,8 +413,8 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#blacklist">Blacklist</a></li>
-    <li><a href="#whitelist">Whitelist</a></li>
+    <li><a href="#deny--denylist-filters">Deny / Denylist filters</a></li>
+    <li><a href="#allow--allowlist-filters">Allow / Allowlist filters</a></li>
     <li><a href="#examples">Examples:</a></li>
   </ul>
 </nav>

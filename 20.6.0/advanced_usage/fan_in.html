@@ -397,9 +397,9 @@ if (!doNotTrack) {
 <h2 id="limitations">Limitations</h2>
 <ul>
 <li>
-<p><strong>Fan-in and blacklist</strong> : If the pipelines contributing to the fan-in have blacklist in their material definitions, the target pipeline does not adhere to fan-in behavior.</p>
+<p><strong>Fan-in and material filters</strong> : If the pipelines contributing to the fan-in have filters in their material definitions, the target pipeline does not adhere to fan-in behavior.</p>
 <p><img src="../images/ignored_files.png" alt=""></p>
-<p>For example, refer to the scenario above. P1 and P2 are two pipelines which use the same mercurial (hg) repository, with two folders say &ldquo;p1&rdquo; and &ldquo;p2&rdquo;. P1 is configured with &ldquo;p2&rdquo; folder in the blacklist. Likewise P2 is configured with &ldquo;p1&rdquo; folder in the blacklist.</p>
+<p>For example, refer to the scenario above. P1 and P2 are two pipelines which use the same mercurial (hg) repository, with two folders say &ldquo;p1&rdquo; and &ldquo;p2&rdquo;. P1 is configured with &ldquo;p2&rdquo; folder in a deny filter. Likewise P2 is configured with &ldquo;p1&rdquo; folder in the deny filter.</p>
 <p>The first run of P1 happens when a check-in happens in &ldquo;p1&rdquo; folder. The first run of P2 happens when there is a check-in to &ldquo;p2&rdquo;.</p>
 <p>In this scenario, P3, which is dependant on P1 and P2 does not trigger.</p>
 </li>

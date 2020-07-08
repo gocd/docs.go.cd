@@ -331,278 +331,279 @@ if (!doNotTrack) {
       
 <article class="markdown"><p><a id="top"></a></p>
 <h1 id="gocd-configuration-reference">GoCD Configuration Reference</h1>
-<p><big><pre>
+<big>
+<pre>
 <a href="#cruise">&lt;cruise&gt;</a>
-<a href="#server">&lt;server&gt;</a>
-<a href="#siteUrls">&lt;siteUrls&gt;</a>
-<a href="#siteUrl">&lt;siteUrl/&gt;</a>
-<a href="#secureSiteUrl">&lt;secureSiteUrl/&gt;</a>
-<a href="#site_urls">&lt;/siteUrls&gt;</a>
-<a href="#security">&lt;security&gt;</a>
-<a href="#ldap">&lt;ldap&gt;</a>
-<a href="#bases">&lt;bases&gt;</a>
-<a href="#base">&lt;base/&gt;</a>
-<a href="#bases">&lt;/bases&gt;</a>
-<a href="#ldap">&lt;/ldap&gt;</a>
-<a href="#passwordFile">&lt;passwordFile/&gt;</a>
-<a href="#authConfigs">&lt;authConfigs&gt;</a>
-<a href="#authConfig">&lt;authConfig&gt;</a>
-<a href="#property">&lt;property&gt;</a>
-<a href="#key">&lt;key/&gt;</a>
-<a href="#value">&lt;value/&gt;</a>
-<a href="#property">&lt;/property&gt;</a>
-<a href="#authConfig">&lt;/authConfig&gt;</a>
-<a href="#authConfigs">&lt;/authConfigs&gt;</a>
-<a href="#roles">&lt;roles&gt;</a>
-<a href="#role_definition">&lt;role&gt;</a>
-<a href="#policyinrole">&lt;policy&gt;</a>
-<a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
-<a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
-<a href="#policyinrole">&lt;/policy&gt;</a>
-<a href="#usersinrole">&lt;users/&gt;</a>
-<a href="#userinrole">&lt;user/&gt;</a>
-<a href="#role_definition">&lt;/role&gt;</a>
-<a href="#plugin_role_definition">&lt;pluginRole/&gt;</a>
-<a href="#policyinrole">&lt;policy&gt;</a>
-<a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
-<a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
-<a href="#policyinrole">&lt;/policy&gt;</a>
-<a href="#property">&lt;property&gt;</a>
-<a href="#key">&lt;key/&gt;</a>
-<a href="#value">&lt;value/&gt;</a>
-<a href="#property">&lt;/property&gt;</a>
-<a href="#plugin_role_definition">&lt;/pluginRole&gt;</a>
-<a href="#roles">&lt;/roles&gt;</a>
-<a href="#admins">&lt;admins&gt;</a>
-<a href="#roleinadmin">&lt;role/&gt;</a>
-<a href="#user">&lt;user/&gt;</a>
-<a href="#admins">&lt;/admins&gt;</a>
-<a href="#security">&lt;/security&gt;</a>
-<a href="#mailhost">&lt;mailhost/&gt;</a>
-<a href="#backup">&lt;backup/&gt;</a>
-<a href="#artifacts">&lt;artifacts&gt;</a>
-<a href="#artifactDir">&lt;artifactsDir/&gt;</a>
-<a href="#purgeSettings">&lt;purgeSettings&gt;</a>
-<a href="#purgeStartDiskSpace">&lt;purgeStartDiskSpace/&gt;</a>
-<a href="#purgeUptoDiskSpace">&lt;purgeUptoDiskSpace/&gt;</a>
-<a href="#purgeSettings">&lt;/purgeSettings/&gt;</a>
-<a href="#artifacts">&lt;/artifacts&gt;</a>
-<a href="#server">&lt;/server&gt;</a>
-<a href="#elastic">&lt;elastic&gt;</a>
-<a href="#agentProfiles">&lt;agentProfiles&gt;</a>
-<a href="#agentProfile">&lt;agentProfile&gt;</a>
-<a href="#property">&lt;property&gt;</a>
-<a href="#key">&lt;key/&gt;</a>
-<a href="#value">&lt;value/&gt;</a>
-<a href="#property">&lt;/property&gt;</a>
-<a href="#agentProfile">&lt;/agentProfile&gt;</a>
-<a href="#agentProfiles">&lt;/agentProfiles&gt;</a>
-<a href="#clusterProfiles">&lt;clusterProfiles&gt;</a>
-<a href="#clusterProfile">&lt;clusterProfile/&gt;</a>
-<a href="#clusterProfiles">&lt;/clusterProfiles&gt;</a>
-<a href="#elastic">&lt;/elastic&gt;</a>
-<a href="#repositories">&lt;repositories&gt;</a>
-<a href="#repository">&lt;repository&gt;</a>
-<a href="#pluginConfiguration">&lt;pluginConfiguration/&gt;</a>
-<a href="#configuration">&lt;configuration&gt;</a>
-<a href="#property">&lt;property&gt;</a>
-<a href="#key">&lt;key/&gt;</a>
-<a href="#value">&lt;value/&gt;</a>
-<a href="#property">&lt;/property&gt;</a>
-<a href="#configuration">&lt;/configuration&gt;</a>
-<a href="#packages">&lt;packages&gt;</a>
-<a href="#package">&lt;package&gt;</a>
-<a href="#configuration">&lt;configuration&gt;</a>
-<a href="#property">&lt;property&gt;</a>
-<a href="#key">&lt;key/&gt;</a>
-<a href="#value">&lt;value/&gt;</a>
-<a href="#property">&lt;/property&gt;</a>
-<a href="#configuration">&lt;/configuration&gt;</a>
-<a href="#package">&lt;/package&gt;</a>
-<a href="#packages">&lt;/packages&gt;</a>
-<a href="#repository">&lt;/repository&gt;</a>
-<a href="#repositories">&lt;/repositories&gt;</a>
-<a href="#config-repos">&lt;config-repos&gt;</a>
-<a href="#config-repo">&lt;config-repo&gt;</a>
-<a href="#config-repo-svn">&lt;svn /&gt;</a>
-<a href="#config-repo-hg">&lt;hg /&gt;</a>
-<a href="#config-repo-p4">&lt;p4 /&gt;</a>
-<a href="#config-repo-git">&lt;git /&gt;</a>
-<a href="#config-repo-tfs">&lt;tfs /&gt;</a>
-<a href="#config-repo-scm">&lt;scm /&gt;</a>
-<a href="#config-repo-configuration">&lt;configuration&gt;</a>
-<a href="#config-repo-property">&lt;property&gt;</a>
-<a href="#config-repo-property-key">&lt;key/&gt;</a>
-<a href="#config-repo-property-value">&lt;value/&gt;</a>
-<a href="#config-repo-property">&lt;/property&gt;</a>
-<a href="#config-repo-configuration">&lt;/configuration&gt;</a>
-<a href="#config-repo-rules">&lt;rules&gt;</a>
-<a href="#config-repo-allow">&lt;allow&gt;</a>
-<a href="#config-repo-allow">&lt;/allow&gt;</a>
-<a href="#config-repo-deny">&lt;deny&gt;</a>
-<a href="#config-repo-deny">&lt;/deny&gt;</a>
-<a href="#config-repo-rules">&lt;/rules&gt;</a>
-<a href="#config-repo">&lt;/config-repo&gt;</a>
-<a href="#config-repos">&lt;/config-repos&gt;</a>
-<a href="#artifactStores">&lt;artifactStores&gt;</a>
-<a href="#artifactStore">&lt;artifactStore&gt;</a>
-<a href="#property">&lt;property&gt;</a>
-<a href="#key">&lt;key/&gt;</a>
-<a href="#value">&lt;value/&gt;</a>
-<a href="#property">&lt;/property&gt;</a>
-<a href="#artifactStore">&lt;/artifactStore&gt;</a>
-<a href="#artifactStores">&lt;/artifactStores&gt;</a>
-<a href="#secretConfigs">&lt;secretConfigs&gt;</a>
-<a href="#secretConfig">&lt;secretConfig&gt;</a>
-<a href="#description">&lt;description&gt;</a>
-<a href="#description">&lt;/description&gt;</a>
-<a href="#configuration">&lt;configuration&gt;</a>
-<a href="#property">&lt;property&gt;</a>
-<a href="#key">&lt;key/&gt;</a>
-<a href="#value">&lt;value/&gt;</a>
-<a href="#property">&lt;/property&gt;</a>
-<a href="#configuration">&lt;/configuration&gt;</a>
-<a href="#rules">&lt;rules&gt;</a>
-<a href="#allow">&lt;allow&gt;</a>
-<a href="#allow">&lt;/allow&gt;</a>
-<a href="#deny">&lt;deny&gt;</a>
-<a href="#deny">&lt;/deny&gt;</a>
-<a href="#rules">&lt;/rules&gt;</a>
-<a href="#secretConfig">&lt;/secretConfig&gt;</a>
-<a href="#secretConfigs">&lt;/secretConfigs&gt;</a>
-<a href="#pipelines">&lt;pipelines&gt;</a>
-<a href="#group_authorization">&lt;authorization&gt;</a>
-<a href="#group_admins">&lt;admins&gt;</a>
-<a href="#user">&lt;user/&gt;</a>
-<a href="#role">&lt;role/&gt;</a>
-<a href="#group_admins">&lt;/admins&gt;</a>
-<a href="#view">&lt;view&gt;</a>
-<a href="#user">&lt;user/&gt;</a>
-<a href="#role">&lt;role/&gt;</a>
-<a href="#view">&lt;/view&gt;</a>
-<a href="#group_operate">&lt;operate&gt;</a>
-<a href="#user">&lt;user/&gt;</a>
-<a href="#role">&lt;role/&gt;</a>
-<a href="#group_operate">&lt;/operate&gt;</a>
-<a href="#group_authorization">&lt;/authorization&gt;</a>
-<a href="#pipeline">&lt;pipeline&gt;</a>
-<a href="#params">&lt;params&gt;</a>
-<a href="#param">&lt;param/&gt;</a>
-<a href="#params">&lt;/params&gt;</a>
-<a href="#trackingtool">&lt;trackingtool/&gt;</a>
-<a href="#timer">&lt;timer/&gt;</a>
-<a href="#environmentvariables">&lt;environmentvariables&gt;</a>
-<a href="#variable">&lt;variable&gt;</a>
-&lt;value/&gt;
-<a href="#variable">&lt;/variable&gt;</a>
-<a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-<a href="#materials">&lt;materials&gt;</a>
-<a href="#svn">&lt;svn&gt;</a>
-<a href="#filter">&lt;filter&gt;</a>
-<a href="#ignore">&lt;ignore/&gt;</a>
-<a href="#filter">&lt;/filter&gt;</a>
-<a href="#svn">&lt;/svn&gt;</a>
-<a href="#hg">&lt;hg&gt;</a>
-<a href="#filter">&lt;filter&gt;</a>
-<a href="#ignore">&lt;ignore/&gt;</a>
-<a href="#filter">&lt;/filter&gt;</a>
-<a href="#hg">&lt;/hg&gt;</a>
-<a href="#p4">&lt;p4&gt;</a>
-&lt;view/&gt;
-<a href="#filter">&lt;filter&gt;</a>
-<a href="#ignore">&lt;ignore/&gt;</a>
-<a href="#filter">&lt;/filter&gt;</a>
-<a href="#p4">&lt;/p4&gt;</a>
-<a href="#git">&lt;git&gt;</a>
-<a href="#filter">&lt;filter&gt;</a>
-<a href="#ignore">&lt;ignore/&gt;</a>
-<a href="#filter">&lt;/filter&gt;</a>
-<a href="#git">&lt;/git&gt;</a>
-<a href="#tfs">&lt;tfs&gt;</a>
-<a href="#filter">&lt;filter&gt;</a>
-<a href="#ignore">&lt;ignore/&gt;</a>
-<a href="#filter">&lt;/filter&gt;</a>
-<a href="#tfs">&lt;/tfs&gt;</a>
-<a href="#package-material">&lt;package/&gt;</a>
-<a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
-<a href="#materials">&lt;/materials&gt;</a>
-<a href="#stage">&lt;stage&gt;</a>
-<a href="#approval">&lt;approval&gt;</a>
-<a href="#authorization">&lt;authorization&gt;</a>
-<a href="#role">&lt;role/&gt;</a>
-<a href="#user">&lt;user/&gt;</a>
-<a href="#authorization">&lt;/authorization&gt;</a>
-<a href="#approval">&lt;/approval&gt;</a>
-<a href="#environmentvariables">&lt;environmentvariables&gt;</a>
-<a href="#variable">&lt;variable&gt;</a>
-&lt;value/&gt;
-<a href="#variable">&lt;/variable&gt;</a>
-<a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-<a href="#jobs">&lt;jobs&gt;</a>
-<a href="#job">&lt;job&gt;</a>
-<a href="#environmentvariables">&lt;environmentvariables&gt;</a>
-<a href="#variable">&lt;variable&gt;</a>
-&lt;value/&gt;
-<a href="#variable">&lt;/variable&gt;</a>
-<a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-<a href="#resources">&lt;resources&gt;</a>
-<a href="#resource">&lt;resource/&gt;</a>
-<a href="#resources">&lt;/resources&gt;</a>
-<a href="#tasks">&lt;tasks&gt;</a>
-<a href="#fetchartifact">&lt;fetchartifact&gt;</a>
-<a href="#runif">&lt;runif/&gt;</a>
-<a href="#oncancel">&lt;oncancel/&gt;</a>
-<a href="#fetchartifact">&lt;/fetchartifact&gt;</a>
-<a href="#ant">&lt;ant&gt;</a>
-<a href="#runif%20">&lt;runif/&gt;</a>
-<a href="#oncancel">&lt;oncancel/&gt;</a>
-<a href="#ant">&lt;/ant&gt;</a>
-<a href="#nant">&lt;nant&gt;</a>
-<a href="#runif%20">&lt;runif/&gt;</a>
-<a href="#oncancel">&lt;oncancel/&gt;</a>
-<a href="#nant">&lt;/nant&gt;</a>
-<a href="#rake">&lt;rake&gt;</a>
-<a href="#runif%20">&lt;runif/&gt;</a>
-<a href="#oncancel">&lt;oncancel/&gt;</a>
-<a href="#rake">&lt;/rake&gt;</a>
-<a href="#exec">&lt;exec&gt;</a>
-<a href="#arg">&lt;arg/&gt;</a>
-<a href="#runif%20">&lt;runif/&gt;</a>
-<a href="#oncancel">&lt;oncancel/&gt;</a>
-<a href="#exec">&lt;/exec&gt;</a>
-<a href="#tasks">&lt;/tasks&gt;</a>
-<a href="#artifacts">&lt;artifacts&gt;</a>
-<a href="#artifact">&lt;artifact/&gt;</a>
-<a href="#artifacts">&lt;/artifacts&gt;</a>
-<a href="#tabs">&lt;tabs&gt;</a>
-<a href="#tab">&lt;tab/&gt;</a>
-<a href="#tabs">&lt;/tabs&gt;</a>
-<a href="#job">&lt;/job&gt;</a>
-<a href="#jobs">&lt;/jobs&gt;</a>
-<a href="#stage">&lt;/stage&gt;</a>
-<a href="#pipeline">&lt;/pipeline&gt;</a>
-<a href="#pipelines">&lt;/pipelines&gt;</a>
-<a href="#templates">&lt;templates&gt;</a>
-<a href="#pipeline-template">&lt;pipeline&gt;</a>
-<a href="#stage">&lt;stage&gt;</a>
-&hellip;
-<a href="#stage">&lt;/stage&gt;</a>
-<a href="#pipeline-template">&lt;/pipeline&gt;</a>
-<a href="#templates">&lt;/templates&gt;</a>
-<a href="#environments">&lt;environments&gt;</a>
-<a href="#environment">&lt;environment&gt;</a>
-<a href="#environmentvariables">&lt;environmentvariables&gt;</a>
-<a href="#variable">&lt;variable&gt;</a>
-&lt;value/&gt;
-<a href="#variable">&lt;/variable&gt;</a>
-<a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
-<a href="#environment-pipelines">&lt;pipelines&gt;</a>
-<a href="#environment-pipeline">&lt;pipeline/&gt;</a>
-<a href="#environment-pipelines">&lt;/pipelines&gt;</a>
-<a href="#environment">&lt;/environment&gt;</a>
-<a href="#environments">&lt;/environments&gt;</a>
+    <a href="#server">&lt;server&gt;</a>
+        <a href="#siteUrls">&lt;siteUrls&gt;</a>
+            <a href="#siteUrl">&lt;siteUrl/&gt;</a>
+            <a href="#secureSiteUrl">&lt;secureSiteUrl/&gt;</a>
+        <a href="#site_urls">&lt;/siteUrls&gt;</a>
+        <a href="#security">&lt;security&gt;</a>
+            <a href="#ldap">&lt;ldap&gt;</a>
+                <a href="#bases">&lt;bases&gt;</a>
+                    <a href="#base">&lt;base/&gt;</a>
+                <a href="#bases">&lt;/bases&gt;</a>
+            <a href="#ldap">&lt;/ldap&gt;</a>
+            <a href="#passwordFile">&lt;passwordFile/&gt;</a>
+            <a href="#authConfigs">&lt;authConfigs&gt;</a>
+              <a href="#authConfig">&lt;authConfig&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                  <a href="#key">&lt;key/&gt;</a>
+                  <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+              <a href="#authConfig">&lt;/authConfig&gt;</a>
+            <a href="#authConfigs">&lt;/authConfigs&gt;</a>
+            <a href="#roles">&lt;roles&gt;</a>
+                <a href="#role_definition">&lt;role&gt;</a>
+                    <a href="#policyinrole">&lt;policy&gt;</a>
+                      <a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
+                      <a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
+                    <a href="#policyinrole">&lt;/policy&gt;</a>
+                    <a href="#usersinrole">&lt;users/&gt;</a>
+                        <a href="#userinrole">&lt;user/&gt;</a>
+                <a href="#role_definition">&lt;/role&gt;</a>
+                <a href="#plugin_role_definition">&lt;pluginRole/&gt;</a>
+                    <a href="#policyinrole">&lt;policy&gt;</a>
+                      <a href="#allow_permission_in_policy">&lt;allow/&gt;</a>
+                      <a href="#deny_permission_in_policy">&lt;deny/&gt;</a>
+                    <a href="#policyinrole">&lt;/policy&gt;</a>
+                    <a href="#property">&lt;property&gt;</a>
+                      <a href="#key">&lt;key/&gt;</a>
+                      <a href="#value">&lt;value/&gt;</a>
+                    <a href="#property">&lt;/property&gt;</a>
+                <a href="#plugin_role_definition">&lt;/pluginRole&gt;</a>
+            <a href="#roles">&lt;/roles&gt;</a>
+            <a href="#admins">&lt;admins&gt;</a>
+                <a href="#roleinadmin">&lt;role/&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+            <a href="#admins">&lt;/admins&gt;</a>
+        <a href="#security">&lt;/security&gt;</a>
+        <a href="#mailhost">&lt;mailhost/&gt;</a>
+        <a href="#backup">&lt;backup/&gt;</a>
+        <a href="#artifacts">&lt;artifacts&gt;</a>
+            <a href="#artifactDir">&lt;artifactsDir/&gt;</a>
+            <a href="#purgeSettings">&lt;purgeSettings&gt;</a>
+                <a href="#purgeStartDiskSpace">&lt;purgeStartDiskSpace/&gt;</a>
+                <a href="#purgeUptoDiskSpace">&lt;purgeUptoDiskSpace/&gt;</a>
+            <a href="#purgeSettings">&lt;/purgeSettings/&gt;</a>
+         <a href="#artifacts">&lt;/artifacts&gt;</a>
+    <a href="#server">&lt;/server&gt;</a>
+    <a href="#elastic">&lt;elastic&gt;</a>
+        <a href="#agentProfiles">&lt;agentProfiles&gt;</a>
+            <a href="#agentProfile">&lt;agentProfile&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                    <a href="#key">&lt;key/&gt;</a>
+                    <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+            <a href="#agentProfile">&lt;/agentProfile&gt;</a>
+        <a href="#agentProfiles">&lt;/agentProfiles&gt;</a>
+        <a href="#clusterProfiles">&lt;clusterProfiles&gt;</a>
+            <a href="#clusterProfile">&lt;clusterProfile/&gt;</a>
+        <a href="#clusterProfiles">&lt;/clusterProfiles&gt;</a>
+    <a href="#elastic">&lt;/elastic&gt;</a>
+    <a href="#repositories">&lt;repositories&gt;</a>
+        <a href="#repository">&lt;repository&gt;</a>
+            <a href="#pluginConfiguration">&lt;pluginConfiguration/&gt;</a>
+            <a href="#configuration">&lt;configuration&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                    <a href="#key">&lt;key/&gt;</a>
+                    <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+            <a href="#configuration">&lt;/configuration&gt;</a>
+            <a href="#packages">&lt;packages&gt;</a>
+                <a href="#package">&lt;package&gt;</a>
+                    <a href="#configuration">&lt;configuration&gt;</a>
+                        <a href="#property">&lt;property&gt;</a>
+                            <a href="#key">&lt;key/&gt;</a>
+                            <a href="#value">&lt;value/&gt;</a>
+                        <a href="#property">&lt;/property&gt;</a>
+                    <a href="#configuration">&lt;/configuration&gt;</a>
+                <a href="#package">&lt;/package&gt;</a>
+            <a href="#packages">&lt;/packages&gt;</a>
+        <a href="#repository">&lt;/repository&gt;</a>
+    <a href="#repositories">&lt;/repositories&gt;</a>
+    <a href="#config-repos">&lt;config-repos&gt;</a>
+      <a href="#config-repo">&lt;config-repo&gt;</a>
+        <a href="#config-repo-svn">&lt;svn /&gt;</a>
+        <a href="#config-repo-hg">&lt;hg /&gt;</a>
+        <a href="#config-repo-p4">&lt;p4 /&gt;</a>
+        <a href="#config-repo-git">&lt;git /&gt;</a>
+        <a href="#config-repo-tfs">&lt;tfs /&gt;</a>
+        <a href="#config-repo-scm">&lt;scm /&gt;</a>
+        <a href="#config-repo-configuration">&lt;configuration&gt;</a>
+            <a href="#config-repo-property">&lt;property&gt;</a>
+                <a href="#config-repo-property-key">&lt;key/&gt;</a>
+                <a href="#config-repo-property-value">&lt;value/&gt;</a>
+            <a href="#config-repo-property">&lt;/property&gt;</a>
+        <a href="#config-repo-configuration">&lt;/configuration&gt;</a>
+        <a href="#config-repo-rules">&lt;rules&gt;</a>
+            <a href="#config-repo-allow">&lt;allow&gt;</a>
+            <a href="#config-repo-allow">&lt;/allow&gt;</a>
+            <a href="#config-repo-deny">&lt;deny&gt;</a>
+            <a href="#config-repo-deny">&lt;/deny&gt;</a>
+        <a href="#config-repo-rules">&lt;/rules&gt;</a>
+      <a href="#config-repo">&lt;/config-repo&gt;</a>
+    <a href="#config-repos">&lt;/config-repos&gt;</a>
+    <a href="#artifactStores">&lt;artifactStores&gt;</a>
+        <a href="#artifactStore">&lt;artifactStore&gt;</a>
+            <a href="#property">&lt;property&gt;</a>
+                <a href="#key">&lt;key/&gt;</a>
+                <a href="#value">&lt;value/&gt;</a>
+            <a href="#property">&lt;/property&gt;</a>
+        <a href="#artifactStore">&lt;/artifactStore&gt;</a>
+    <a href="#artifactStores">&lt;/artifactStores&gt;</a>
+    <a href="#secretConfigs">&lt;secretConfigs&gt;</a>
+        <a href="#secretConfig">&lt;secretConfig&gt;</a>
+            <a href="#description">&lt;description&gt;</a>
+            <a href="#description">&lt;/description&gt;</a>
+            <a href="#configuration">&lt;configuration&gt;</a>
+                <a href="#property">&lt;property&gt;</a>
+                    <a href="#key">&lt;key/&gt;</a>
+                    <a href="#value">&lt;value/&gt;</a>
+                <a href="#property">&lt;/property&gt;</a>
+            <a href="#configuration">&lt;/configuration&gt;</a>
+            <a href="#rules">&lt;rules&gt;</a>
+                <a href="#allow">&lt;allow&gt;</a>
+                <a href="#allow">&lt;/allow&gt;</a>
+                <a href="#deny">&lt;deny&gt;</a>
+                <a href="#deny">&lt;/deny&gt;</a>
+            <a href="#rules">&lt;/rules&gt;</a>
+        <a href="#secretConfig">&lt;/secretConfig&gt;</a>
+    <a href="#secretConfigs">&lt;/secretConfigs&gt;</a>
+    <a href="#pipelines">&lt;pipelines&gt;</a>
+        <a href="#group_authorization">&lt;authorization&gt;</a>
+            <a href="#group_admins">&lt;admins&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+                <a href="#role">&lt;role/&gt;</a>
+            <a href="#group_admins">&lt;/admins&gt;</a>
+            <a href="#view">&lt;view&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+                <a href="#role">&lt;role/&gt;</a>
+            <a href="#view">&lt;/view&gt;</a>
+            <a href="#group_operate">&lt;operate&gt;</a>
+                <a href="#user">&lt;user/&gt;</a>
+                <a href="#role">&lt;role/&gt;</a>
+            <a href="#group_operate">&lt;/operate&gt;</a>
+        <a href="#group_authorization">&lt;/authorization&gt;</a>
+        <a href="#pipeline">&lt;pipeline&gt;</a>
+            <a href="#params">&lt;params&gt;</a>
+                <a href="#param">&lt;param/&gt;</a>
+            <a href="#params">&lt;/params&gt;</a>
+            <a href="#trackingtool">&lt;trackingtool/&gt;</a>
+            <a href="#timer">&lt;timer/&gt;</a>
+            <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                <a href="#variable">&lt;variable&gt;</a>
+                    &lt;value/&gt;
+                <a href="#variable">&lt;/variable&gt;</a>
+            <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
+            <a href="#materials">&lt;materials&gt;</a>
+                <a href="#svn">&lt;svn&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#svn">&lt;/svn&gt;</a>
+                <a href="#hg">&lt;hg&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#hg">&lt;/hg&gt;</a>
+                <a href="#p4">&lt;p4&gt;</a>
+                    &lt;view/&gt;
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#p4">&lt;/p4&gt;</a>
+                <a href="#git">&lt;git&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#git">&lt;/git&gt;</a>
+                <a href="#tfs">&lt;tfs&gt;</a>
+                    <a href="#filter">&lt;filter&gt;</a>
+                        <a href="#ignore">&lt;ignore/&gt;</a>
+                    <a href="#filter">&lt;/filter&gt;</a>
+                <a href="#tfs">&lt;/tfs&gt;</a>
+                <a href="#package-material">&lt;package/&gt;</a>
+                <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
+            <a href="#materials">&lt;/materials&gt;</a>
+            <a href="#stage">&lt;stage&gt;</a>
+                <a href="#approval">&lt;approval&gt;</a>
+                    <a href="#authorization">&lt;authorization&gt;</a>
+                        <a href="#role">&lt;role/&gt;</a>
+                        <a href="#user">&lt;user/&gt;</a>
+                    <a href="#authorization">&lt;/authorization&gt;</a>
+                <a href="#approval">&lt;/approval&gt;</a>
+                <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                    <a href="#variable">&lt;variable&gt;</a>
+                        &lt;value/&gt;
+                    <a href="#variable">&lt;/variable&gt;</a>
+                <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
+                <a href="#jobs">&lt;jobs&gt;</a>
+                    <a href="#job">&lt;job&gt;</a>
+                        <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                            <a href="#variable">&lt;variable&gt;</a>
+                                &lt;value/&gt;
+                            <a href="#variable">&lt;/variable&gt;</a>
+                        <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
+                        <a href="#resources">&lt;resources&gt;</a>
+                            <a href="#resource">&lt;resource/&gt;</a>
+                        <a href="#resources">&lt;/resources&gt;</a>
+                        <a href="#tasks">&lt;tasks&gt;</a>
+                            <a href="#fetchartifact">&lt;fetchartifact&gt;</a>
+                                <a href="#runif">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#fetchartifact">&lt;/fetchartifact&gt;</a>
+                            <a href="#ant">&lt;ant&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#ant">&lt;/ant&gt;</a>
+                            <a href="#nant">&lt;nant&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#nant">&lt;/nant&gt;</a>
+                            <a href="#rake">&lt;rake&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#rake">&lt;/rake&gt;</a>
+                            <a href="#exec">&lt;exec&gt;</a>
+                                <a href="#arg">&lt;arg/&gt;</a>
+                                <a href="#runif%20">&lt;runif/&gt;</a>
+                                <a href="#oncancel">&lt;oncancel/&gt;</a>
+                            <a href="#exec">&lt;/exec&gt;</a>
+                        <a href="#tasks">&lt;/tasks&gt;</a>
+                        <a href="#artifacts">&lt;artifacts&gt;</a>
+                            <a href="#artifact">&lt;artifact/&gt;</a>
+                        <a href="#artifacts">&lt;/artifacts&gt;</a>
+                        <a href="#tabs">&lt;tabs&gt;</a>
+                            <a href="#tab">&lt;tab/&gt;</a>
+                        <a href="#tabs">&lt;/tabs&gt;</a>
+                    <a href="#job">&lt;/job&gt;</a>
+                <a href="#jobs">&lt;/jobs&gt;</a>
+            <a href="#stage">&lt;/stage&gt;</a>
+        <a href="#pipeline">&lt;/pipeline&gt;</a>
+    <a href="#pipelines">&lt;/pipelines&gt;</a>
+    <a href="#templates">&lt;templates&gt;</a>
+        <a href="#pipeline-template">&lt;pipeline&gt;</a>
+            <a href="#stage">&lt;stage&gt;</a>
+                ...
+            <a href="#stage">&lt;/stage&gt;</a>
+        <a href="#pipeline-template">&lt;/pipeline&gt;</a>
+    <a href="#templates">&lt;/templates&gt;</a>
+    <a href="#environments">&lt;environments&gt;</a>
+        <a href="#environment">&lt;environment&gt;</a>
+            <a href="#environmentvariables">&lt;environmentvariables&gt;</a>
+                <a href="#variable">&lt;variable&gt;</a>
+                    &lt;value/&gt;
+                <a href="#variable">&lt;/variable&gt;</a>
+            <a href="#environmentvariables">&lt;/environmentvariables&gt;</a>
+            <a href="#environment-pipelines">&lt;pipelines&gt;</a>
+                <a href="#environment-pipeline">&lt;pipeline/&gt;</a>
+            <a href="#environment-pipelines">&lt;/pipelines&gt;</a>
+        <a href="#environment">&lt;/environment&gt;</a>
+    <a href="#environments">&lt;/environments&gt;</a>
 <a href="#cruise">&lt;/cruise&gt;</a>
-</pre></big></p>
+</pre></big>
 <p><a href="#gocd-configuration-reference">top</a></p>
 <h1 id="configuration-reference">Configuration reference</h1>
 <h2 id="cruise">&lt;cruise&gt;</h2>
@@ -2901,7 +2902,7 @@ contain these files will not trigger a pipeline automatically.</p>
 <tr>
 <td>invertFilter</td>
 <td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
+<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
@@ -2956,7 +2957,7 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <tr>
 <td>invertFilter</td>
 <td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
+<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
@@ -3033,7 +3034,7 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <tr>
 <td>invertFilter</td>
 <td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
+<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
@@ -3117,7 +3118,7 @@ directory where the .ssh/ directory is located.</p>
 <tr>
 <td>invertFilter</td>
 <td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
+<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
@@ -3180,7 +3181,7 @@ directory where the .ssh/ directory is located.</p>
 <tr>
 <td>invertFilter</td>
 <td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into whitelists. Only files that <em>match</em> the filter will trigger a new build.</td>
+<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
 </tr>
 </tbody>
 </table>
