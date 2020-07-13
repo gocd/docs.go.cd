@@ -17,7 +17,7 @@ Once the PostgreSQL Server is started, an empty database can be created from the
 ```sql
 CREATE ROLE "gocd_database_user" PASSWORD 'gocd_database_password' NOSUPERUSER NOCREATEDB NOCREATEROLE INHERIT LOGIN;
 CREATE DATABASE "gocd" ENCODING="UTF8" TEMPLATE="template0";
-GRANT ALL PRIVILEGES ON DATABASE "cruise" TO "gocd_database_user";
+GRANT ALL PRIVILEGES ON DATABASE "gocd" TO "gocd_database_user";
 ALTER ROLE "gocd_database_user" SUPERUSER;
 ```
 
