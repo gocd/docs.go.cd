@@ -147,6 +147,15 @@ headless: true
       <li class="level2"><a href="{{< relref "advanced_usage/agent-health-check-api.md" >}}">Agent Health Check API</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/maintenance_mode.md" >}}">Maintenance Mode</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/pipeline_activity.md" >}}">Pipeline activity</a></li>
+      <li class="level2"><a href="{{< relref "advanced_usage/business_continuity.md" >}}">GoCD Business Continuity</a>
+        <ul>
+          <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/introduction.html" >}}">Introduction</a></li>
+          <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/initial_setup.md" >}}">Initial Setup</a></li>
+          <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/configuration.md" >}}">Configure Agents and Shared Drive</a></li>
+          <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/monitor_switch_to_sec.md" >}}">Monitoring and Recovery</a></li>
+          <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/upgrade.md" >}}">Server Upgrades</a></li>
+        </ul>
+      </li>
       <li class="level2"><a href="{{< relref "integration/_index.md" >}}">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
