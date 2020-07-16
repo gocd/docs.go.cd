@@ -19,12 +19,12 @@ commercial aspects of GoCD, the add-on was integrated into GoCD core in `20.6.0`
 
 Summarised support matrix:
 
-| GoCD Version         | BC Availability     | BC Security Status                                                                     | Wider GoCD Security Status                                                      |
-|----------------------|---------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
-| <= `20.5.0`          | ✅ Commercial add-on | ✅                                                                                      | Known vulnerabilities exist                                                     |
-| `20.6.0` -- `21.2.0` | ✅ Free, core GoCD   | ❌ [See advisory](https://github.com/gocd/gocd/security/advisories/GHSA-f8j3-9pqx-h88g) | Known vulnerabilities exist                                                     |
-| >= `21.3.0`          | ❌ Removed           | ✅                                                                                      | Review [here](https://github.com/gocd/gocd/security/advisories?state=published) |
-| latest               | ❌ Removed           | ✅                                                                                      | Supported                                                                       |
+| GoCD Version         | BC Availability        | BC Security Status                                                                   | Wider GoCD Security Status                                                      |
+|----------------------|------------------------|--------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| <= `20.5.0`          | Yes, commercial add-on | No known issues                                                                      | Known vulnerabilities exist                                                     |
+| `20.6.0` -- `21.2.0` | Yes, free in core GoCD | [See advisory](https://github.com/gocd/gocd/security/advisories/GHSA-f8j3-9pqx-h88g) | Known vulnerabilities exist                                                     |
+| >= `21.3.0`          | No, removed            | No known issues                                                                      | Review [here](https://github.com/gocd/gocd/security/advisories?state=published) |
+| latest               | No, removed            | No known issues                                                                      | Supported                                                                       |
 
 ## Design
 
