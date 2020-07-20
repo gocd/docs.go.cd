@@ -331,8 +331,21 @@ if (!doNotTrack) {
       
 <article class="markdown"><h1 id="installing-gocd-agent-on-mac-os-x">Installing GoCD agent on Mac OS X</h1>
 <ul>
-<li>Download the Mac OSX installer for GoCD agent from <a href="https://www.gocd.org/download/">downloads page</a></li>
-<li>Unzip the installer in a folder of your choice. It creates a subfolder with the name <code>go-agent-${version}</code></li>
+<li>
+<p>Download the Mac OS X installer for GoCD Agent from <a href="https://www.gocd.org/download/">downloads page</a>.</p>
+</li>
+<li>
+<p>Unzip the installer in a directory of your choice. It creates a sub-directory with the name <code>go-agent-${version}</code>.</p>
+</li>
+<li>
+<p>Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Agent to be started:</p>
+<pre><code># Assuming, for example, that the directory is &quot;go-agent-20.5.0&quot;.
+$ cd go-agent-20.5.0
+$ xattr -d -r com.apple.quarantine .
+xattr: [Errno 13] Permission denied: './jre/Contents/Home/lib/server/classes.jsa'
+xattr: [Errno 13] Permission denied: './jre/Contents/Home/legal/jdk.dynalink/dynalink.md'
+... # These &quot;Permission denied&quot; warnings can be ignored.
+</code></pre></li>
 </ul>
 <h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 <p>The GoCD agent script must be run with one of the following arguments:</p>
