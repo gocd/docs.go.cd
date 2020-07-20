@@ -4,8 +4,19 @@ title: Installing GoCD server on Mac OS X
 
 # Installing GoCD agent on Mac OS X
 
-- Download the Mac OSX installer for GoCD agent from [downloads page](https://www.gocd.org/download/)
-- Unzip the installer in a folder of your choice. It creates a subfolder with the name ```go-agent-${version}```
+- Download the Mac OS X installer for GoCD Agent from [downloads page](https://www.gocd.org/download/).
+- Unzip the installer in a directory of your choice. It creates a sub-directory with the name ```go-agent-${version}```.
+- Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Agent to be started:
+
+    ```
+    # Assuming, for example, that the directory is "go-agent-20.5.0".
+    $ cd go-agent-20.5.0
+    $ xattr -d -r com.apple.quarantine .
+    xattr: [Errno 13] Permission denied: './jre/Contents/Home/lib/server/classes.jsa'
+    xattr: [Errno 13] Permission denied: './jre/Contents/Home/legal/jdk.dynalink/dynalink.md'
+    ... # These "Permission denied" warnings can be ignored.
+    ```
+
 
 ## Managing the GoCD agent process
 
