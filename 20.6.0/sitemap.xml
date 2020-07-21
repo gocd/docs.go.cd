@@ -115,6 +115,10 @@
   </url>
   
   <url>
+    <loc>/advanced_usage/business_continuity/configuration.html</loc>
+  </url>
+  
+  <url>
     <loc>/installation/configure-agent-proxy.html</loc>
   </url>
   
@@ -219,6 +223,10 @@
   </url>
   
   <url>
+    <loc>/advanced_usage/business_continuity.html</loc>
+  </url>
+  
+  <url>
     <loc>/installation/configuring_database/connection-properties.html</loc>
   </url>
   
@@ -244,6 +252,10 @@
   
   <url>
     <loc>/gocd_on_kubernetes/importing_a_sample_workflow.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/business_continuity/initial_setup.html</loc>
   </url>
   
   <url>
@@ -295,6 +307,10 @@
   </url>
   
   <url>
+    <loc>/advanced_usage/business_continuity/introduction.html</loc>
+  </url>
+  
+  <url>
     <loc>/gocd_on_kubernetes/introduction.html</loc>
   </url>
   
@@ -336,6 +352,10 @@
   
   <url>
     <loc>/configuration/managing_users.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/business_continuity/monitor_switch_to_sec.html</loc>
   </url>
   
   <url>
@@ -472,6 +492,10 @@
   
   <url>
     <loc>/advanced_usage/ui_testing.html</loc>
+  </url>
+  
+  <url>
+    <loc>/advanced_usage/business_continuity/upgrade.html</loc>
   </url>
   
   <url>

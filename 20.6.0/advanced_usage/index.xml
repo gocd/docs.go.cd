@@ -97,12 +97,31 @@ NOTE: This repo must not be altered externally as this will lead to errors in Go
     </item>
     
     <item>
+      <title>Configure Agents and Shared Drive</title>
+      <link>/advanced_usage/business_continuity/configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/configuration.html</guid>
+      <description>Configuration For Agents and Artifacts Directory Setup a virtual IP for the agents to use To make sure that all the GoCD Agents can continue working when a primary GoCD Server goes down and is switched to a standby GoCD Server, a virtual IP will be used. GoCD agents need to be setup to use the virtual IP rather than the address of any specific server.
+Assigning the virtual IP Follow the instructions provided below to setup a virtual IP.</description>
+    </item>
+    
+    <item>
       <title>Fan In</title>
       <link>/advanced_usage/fan_in.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/fan_in.html</guid>
       <description>GoCD Fan-in Dependency Management GoCD supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.</description>
+    </item>
+    
+    <item>
+      <title>GoCD Business Continuity</title>
+      <link>/advanced_usage/business_continuity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity.html</guid>
+      <description>GoCD Business Continuity  Introduction Initial Setup Configure Agents and Shared Drive Monitoring and Recovery Server Upgrades  </description>
     </item>
     
     <item>
@@ -113,6 +132,26 @@ NOTE: This repo must not be altered externally as this will lead to errors in Go
       <guid>/advanced_usage/stage_duration_chart.html</guid>
       <description>Graphs Stage Duration Chart GoCD provides a chart on the stage details page which can be used for trend analysis of the stage&amp;rsquo;s periodic runs. This graph shows two line graphs, one each for passed and failed stage instances which are plotted using the total duration of the last 300 stage instances.
 To navigate to the Graphs:  Click on the stage bar of the relevant stage on the pipelines dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Initial Setup</title>
+      <link>/advanced_usage/business_continuity/initial_setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/initial_setup.html</guid>
+      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL documentation.
+Enable replication on the primary PostgreSQL instance The recommended replication setup is PostgreSQL streaming replication with log shipping . In this case, the two PostgreSQL servers, called &amp;ldquo;Primary&amp;rdquo; and &amp;ldquo;Standby&amp;rdquo;, will be setup such that the standby continuously replicates the primary.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/advanced_usage/business_continuity/introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/introduction.html</guid>
+      <description>GoCD Business Continuity Addon This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
+To implement a set up such as this, the recommendation will be to set up redundancy for nearly every moving piece (detailed later in this document), but based on your situation, you might want to reduce certain redundancies, if you&amp;rsquo;re willing to accept the risk.</description>
     </item>
     
     <item>
@@ -135,6 +174,15 @@ Note: The system property deals with configuring the log location for the GoCD s
       <description>Maintenance Mode Note: Using this feature requires atleast version 19.1.0 of the GoCD server.
 The GoCD system includes a lot of internal subsystems and processes, which continuously do work. Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.
 Maintenance mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring and Recovery</title>
+      <link>/advanced_usage/business_continuity/monitor_switch_to_sec.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/monitor_switch_to_sec.html</guid>
+      <description>Monitoring and Switching Over to Secondary Server Monitoring the progress of the sync As mentioned in the details part of the &amp;ldquo;Setup a standby (secondary) GoCD Server&amp;rdquo; section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in red denotes the sync hasn&amp;rsquo;t happened, whereas an entry in black denotes that the standby is in sync with the server. You should monitor that the Last Config/Plugins Update Time under Primary Details and Last Successful Sync time under Standby Details are not off by a huge time gap.</description>
     </item>
     
     <item>
@@ -217,6 +265,17 @@ Trigger with options Information The following information are displayed for the
       <description>UI testing Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&amp;rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&amp;rsquo;s how you do it.
 Windows The first step is to disable the GoCD agent service. To do this:
  Log in to your Windows machine as an Administrative user.</description>
+    </item>
+    
+    <item>
+      <title>Upgrade server with Business-Continuity Addon</title>
+      <link>/advanced_usage/business_continuity/upgrade.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/upgrade.html</guid>
+      <description>Upgrading Primary and Secondary GoCD Servers with Business Continuity Addon Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
+Please take appropriate backups before proceeding with your server upgrade    Shutdown down both the Primary and Secondary GoCD server.
+  Perform server upgrade by following our documentation here for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade.</description>
     </item>
     
   </channel>

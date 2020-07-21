@@ -272,6 +272,16 @@ Assumptions:
     </item>
     
     <item>
+      <title>Configure Agents and Shared Drive</title>
+      <link>/advanced_usage/business_continuity/configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/configuration.html</guid>
+      <description>Configuration For Agents and Artifacts Directory Setup a virtual IP for the agents to use To make sure that all the GoCD Agents can continue working when a primary GoCD Server goes down and is switched to a standby GoCD Server, a virtual IP will be used. GoCD agents need to be setup to use the virtual IP rather than the address of any specific server.
+Assigning the virtual IP Follow the instructions provided below to setup a virtual IP.</description>
+    </item>
+    
+    <item>
       <title>Configure an agent with proxy</title>
       <link>/installation/configure-agent-proxy.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -509,6 +519,15 @@ svn log --non-interactive --xml -v -r HEAD:&amp;#39;revision&amp;#39; &amp;#39;r
     </item>
     
     <item>
+      <title>GoCD Business Continuity</title>
+      <link>/advanced_usage/business_continuity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity.html</guid>
+      <description>GoCD Business Continuity  Introduction Initial Setup Configure Agents and Shared Drive Monitoring and Recovery Server Upgrades  </description>
+    </item>
+    
+    <item>
       <title>GoCD Database Connection Properties</title>
       <link>/installation/configuring_database/connection-properties.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -567,6 +586,16 @@ To navigate to the Graphs:  Click on the stage bar of the relevant stage on the 
       <description>Getting Started with GoCD on Kubernetes Step 3: Import sample pipeline to build and deploy a sample application In this section, we&amp;rsquo;ll import a set of GoCD pipelines that build and deploy a sample application with a Docker based build workflow.
 This section uses GoCDs pipelines as code capability to import sample pipeline definitions from an external Git repository.
 Prerequisites   The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
+    </item>
+    
+    <item>
+      <title>Initial Setup</title>
+      <link>/advanced_usage/business_continuity/initial_setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/initial_setup.html</guid>
+      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL documentation.
+Enable replication on the primary PostgreSQL instance The recommended replication setup is PostgreSQL streaming replication with log shipping . In this case, the two PostgreSQL servers, called &amp;ldquo;Primary&amp;rdquo; and &amp;ldquo;Standby&amp;rdquo;, will be setup such that the standby continuously replicates the primary.</description>
     </item>
     
     <item>
@@ -668,6 +697,16 @@ sudo curl https://download.</description>
       <guid>/installation/install/server/windows.html</guid>
       <description>Installing GoCD server on Windows You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.
  Download a version of go-server from the downloads page. Double-click the go-server-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/advanced_usage/business_continuity/introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/introduction.html</guid>
+      <description>GoCD Business Continuity Addon This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
+To implement a set up such as this, the recommendation will be to set up redundancy for nearly every moving piece (detailed later in this document), but based on your situation, you might want to reduce certain redundancies, if you&amp;rsquo;re willing to accept the risk.</description>
     </item>
     
     <item>
@@ -782,6 +821,15 @@ Creating a new environment An Environment is a grouping of pipelines and agents.
       <description>Managing Users GoCD&amp;rsquo;s user management features allow you to control access to GoCD and grant role-based permissions.
 All user management features depend on an authentication mechanism having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.
 Adding Users  Click on the menu item: Admin -&amp;gt; Users Management. Click the &amp;ldquo;Import User&amp;rdquo; button Enter a name/email to search for (minimum 2 characters) and click &amp;ldquo;Search&amp;rdquo; This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc) From the list of results, select the user to add and click &amp;ldquo;Import User&amp;rdquo;  Assigning Roles Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring and Recovery</title>
+      <link>/advanced_usage/business_continuity/monitor_switch_to_sec.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/monitor_switch_to_sec.html</guid>
+      <description>Monitoring and Switching Over to Secondary Server Monitoring the progress of the sync As mentioned in the details part of the &amp;ldquo;Setup a standby (secondary) GoCD Server&amp;rdquo; section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in red denotes the sync hasn&amp;rsquo;t happened, whereas an entry in black denotes that the standby is in sync with the server. You should monitor that the Last Config/Plugins Update Time under Primary Details and Last Successful Sync time under Standby Details are not off by a huge time gap.</description>
     </item>
     
     <item>
@@ -1108,6 +1156,17 @@ Trigger with options Information The following information are displayed for the
       <description>UI testing Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&amp;rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&amp;rsquo;s how you do it.
 Windows The first step is to disable the GoCD agent service. To do this:
  Log in to your Windows machine as an Administrative user.</description>
+    </item>
+    
+    <item>
+      <title>Upgrade server with Business-Continuity Addon</title>
+      <link>/advanced_usage/business_continuity/upgrade.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/upgrade.html</guid>
+      <description>Upgrading Primary and Secondary GoCD Servers with Business Continuity Addon Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
+Please take appropriate backups before proceeding with your server upgrade    Shutdown down both the Primary and Secondary GoCD server.
+  Perform server upgrade by following our documentation here for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade.</description>
     </item>
     
     <item>
