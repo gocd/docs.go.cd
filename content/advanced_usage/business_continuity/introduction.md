@@ -2,7 +2,7 @@
 title: Introduction
 ---
 
-# GoCD Business Continuity Addon
+# GoCD Business Continuity
 
 This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
 
