@@ -705,7 +705,7 @@ sudo curl https://download.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity/introduction.html</guid>
-      <description>GoCD Business Continuity Addon This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
+      <description>GoCD Business Continuity This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
 To implement a set up such as this, the recommendation will be to set up redundancy for nearly every moving piece (detailed later in this document), but based on your situation, you might want to reduce certain redundancies, if you&amp;rsquo;re willing to accept the risk.</description>
     </item>
     
@@ -1164,7 +1164,7 @@ Windows The first step is to disable the GoCD agent service. To do this:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity/upgrade.html</guid>
-      <description>Upgrading Primary and Secondary GoCD Servers with Business Continuity Addon Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
+      <description>Upgrading Primary and Secondary GoCD Servers using Business Continuity Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
 Please take appropriate backups before proceeding with your server upgrade    Shutdown down both the Primary and Secondary GoCD server.
   Perform server upgrade by following our documentation here for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade.</description>
     </item>
