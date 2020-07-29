@@ -1,6 +1,6 @@
 import cd.go.contrib.plugins.configrepo.groovy.dsl.*
 
-def olderReleases = ['19.5.0', '19.6.0', '19.7.0', '19.8.0', '19.9.0', '19.10.0', '19.11.0', '19.12.0', '20.1.0', '20.2.0', '20.3.0', '20.4.0', '20.5.0']
+def olderReleases = ['19.6.0', '19.7.0', '19.8.0', '19.9.0', '19.10.0', '19.11.0', '19.12.0', '20.1.0', '20.2.0', '20.3.0', '20.4.0', '20.5.0', '20.6.0']
 
 def secureEnvironmentVariable = [
         S3_BUCKET            : 'AES:mL2zKhw4ubTrkW6VpSeyzA==:18KxKvOYTeRz1Q66Ku4wR5OudnR/fg242hnV9U/xluvkgXZfJKilC/fTrAbeEvg1',
