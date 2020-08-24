@@ -19,38 +19,46 @@ There are many ways of creating pipelines in GoCD:
 
 Clicking on the **Admin** -> **Pipelines** menu item will take you to the pipelines administration page. Clicking on "Create a new pipeline within this group" button will take you to the "Add pipeline" page.
 
-### Step 1: Basic Settings
+### Step 1: Material
+
+![](../images/new_pipeline_2.png)
+
+1. Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a [package repository](../extension_points/package_repository_extension.html) (e.g. [yum](../extension_points/yum_repository_poller.html)). Currently Go supports the following:
+    - SCMs
+        1. Subversion
+        2. Mercurial
+        3. Git
+        4. Team Foundation Server.
+        5. Perforce
+    - Package repository
+    - Material Plugins
+
+2. Fill in settings specific to the material type.
+
+### Step 2: Basic Settings
 
 ![](../images/new_pipeline_1.png)
 
 1. Fill in the pipeline name
-2. Fill in the pipeline group
+2. Select a pipeline group. Also fill in the parameter if using a template.
 
-### Step 2: Material
-
-![](../images/new_pipeline_2.png)
-
-1. Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a [package repository](../extension_points/package_repository_extension.html) (e.g. [yum](../extension_points/yum_repository_poller.html)). Currently Go supports the following SCMs:
-    1. Subversion
-    2. Mercurial
-    3. Git
-    4. Team Foundation Server.
-    5. Perforce
-
-  and the package repository and material plugins.
-
-2. Fill in settings specific to the material type.
-
-### Step 3: Stage and Job
-
+### Step 3: Stage Details       
+ 
 ![](../images/new_pipeline_3.png)
 
 A pipeline contains one or more stages. Define the first stage of your pipeline
 
 1. Fill in the Stage name.
-2. Fill in the Job name.
-3. Fill in the task type and the command for the task.
-4. If you use Ant, NAnt or Rake for scripting, Go provides convenience wrappers for these tools. To use any other scripting tool (e.g: Maven, msbuild, etc.), choose the "More..." option to use the [command repository](../advanced_usage/command_repository.html) or specify the command line syntax for that tool.
+
+### Step 4: Job and Task Details
+
+![](../images/new_pipeline_4.png)
+
+1. Fill in the Job name.
+2. Fill in the command for the task.
+   If you use Ant, NAnt or Rake for scripting, specify the command line syntax for that tool.
+   GoCD provides a convenience wrapper for these tools. You can make use of them on the materials tabs of pipeline config edit page.
+3. Click on "Save + Run This Pipeline" will save the pipeline and try to schedule a build for the same. Clicking on "Save + Edit Full Config" will save the pipeline and open the edit page for further configuration.
 
 See the [Managing pipelines](managing_pipelines.html) documentation for editing these settings following the creation of your pipeline.
 
@@ -74,9 +82,9 @@ The Rake task allows you to run a ruby rake build. GoCD does not include ruby or
 
 For this option to work, Rake needs to be installed on the Go Agent(s) and the *go user* should be able to execute it.
 
-### More...
+### Custom Command
 
-In addition to the above tasks, GoCD allows you to run anything on the command line. You can use the [command repository](../advanced_usage/command_repository.html) to help you choose the command. Alternately you can specify a command on your own.
+In addition to the above tasks, GoCD allows you to run anything on the command line.
 
 You can see the complete configuration reference [here](configuration_reference.html).
 
@@ -91,11 +99,11 @@ If the user is a pipeline group admin, they can clone the new pipeline into a gr
 - Navigate to the Admin tab
 - Locate the pipeline that needs to be cloned
 - In that row, click on the "Clone" icon.
-![](../images/clone_icon.png)
+    ![](../images/clone_icon.png)
 - Fill in the name of the new pipeline
-![](../images/clone_pipeline.png)
-- Select a pipeline group. If you are an admin, you will be able to enter the name of the pipeline group using the auto suggest or enter a new group name
-- Click "Save"
+    ![](../images/clone_pipeline.png)
+- Select a pipeline group. If you are an admin, you will be able to enter the name of the pipeline group or enter a new group name
+- Click "Clone"
 
 #### Also See
 

@@ -40,9 +40,8 @@ You can also select a pipeline by browsing the pipeline history.
 
 Steps to select a particular instance from the history:
 
-1. Click on the search box
-2. Click on "Browse the timeline"
-3. Browse the history and select a pipeline
+1. Click on the "Browse the timeline" link below either of the search box
+2. Browse the history and select a pipeline
 
 ## Understanding Non-sequential Material Revision
 

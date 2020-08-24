@@ -20,7 +20,7 @@ Note that the hostname is as reported by the agent, and the IP address is as rep
 
 To add the agent to the cloud, click "Enable". Note that even after you have clicked "Enable", the agent will not be enabled until it next contacts the server -- so if your agent has stopped talking to the server, nothing will happen.
 
-Once your agent has successfully been enabled, it should no longer appear greyed out and will and be marked "idle". At this point your agent will automatically begin picking up jobs. Agents will automatically check out any code they need in order to start running jobs.
+Once your agent has successfully been enabled, it will be marked "Idle". At this point your agent will automatically begin picking up jobs. Agents will automatically check out any code they need in order to start running jobs.
 
 ## Matching jobs to agents
 

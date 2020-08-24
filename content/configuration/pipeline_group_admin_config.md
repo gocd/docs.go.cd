@@ -10,7 +10,7 @@ Pipeline Group Administrators in GoCD can add, remove and edit pipelines in thei
 
 ## Administration using UI
 
-The administration page for a pipeline group administrator looks as follows. The controls on the "Pipelines" tab allows her to edit, clone, delete and move any pipeline.
+The Pipelines page for a pipeline group administrator looks as follows. The controls on the page allows her to edit, clone, delete and move any pipeline.
 
 ![](../images/group_admin_config_ui.png)
 
