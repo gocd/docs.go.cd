@@ -18,31 +18,41 @@ You can create an environment in the admin UI through the following steps. This 
 
 - Click on the Environments tab
 
-![](../images/topnav_environments.png)
+    ![](../images/topnav_environments.png)
 
 - Click on the "Add a new environment"
 
-![](../images/env_click_new.png)
+    ![](../images/env_click_new.png)
 
 - Provide a name for the environment
 
-![](../images/env_name.png)
+    ![](../images/env_name.png)
+    
+- Click on "Save". Now the environment has been created. You can go ahead and add pipelines, agents and/or environment variables for the same.
 
-- Add one or more pipelines that need to run on the environment
+    ![](../images/env_saved.png)
+
+Add one or more pipelines that need to run on the environment
+
+![](../images/env_edit_pipelines.png)
 
 ![](../images/env_pipelines.png)
 
-- Add one or more agents associated with the environment
+Add one or more agents associated with the environment
+
+![](../images/env_edit_agents.png)
 
 ![](../images/env_agents.png)
 
-- Add one or more environment variables or secure environment variables that need to be passed.
+Add one or more environment variables or secure environment variables that need to be passed.
+
+![](../images/env_edit_env_vars.png)
 
 ![](../images/env_env_variables.png)
 
-- Click on finish
-
 Setting up an environment through the xml can be found in the [configuration reference](configuration_reference.html#environments)
+
+![](../images/env_completed.png)
 
 ## Add a new agent to an existing environment
 

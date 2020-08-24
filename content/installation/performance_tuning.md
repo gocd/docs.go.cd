@@ -19,8 +19,6 @@ The minimum requirements for a GoCD server can be found [here](../installation/s
 
 As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.
 
-If you have questions or have custom requirements, please contact support@thoughtworks.com to help with capacity planning for GoCD server
-
 ### Things to Remember
 
 #### Server
@@ -206,28 +204,4 @@ Use the following steps to take profile the application and take snapshots. The 
 
 In case of windows, delete the file ```C:\yjpagent.dll```. If you were using the variable ```YOURKIT_PATH```, then remove the environment variable.
 
-These snapshots will be saved in the yourkit configured snapshots folder. They can be sent to the GoCD Support so that they can be examined to help find the root cause of the performance.
-
-### Contact GoCD Support
-
-If the GoCD server continues to behave poorly, send us the following data.
-
-1. Database file ```cruise.mv.db```. Stop the server and take a backup of the database. Location:
-
-    Linux: ```/var/lib/db/h2db/cruise.mv.db```
-
-    Windows: ```[go_installation_dir]\db\h2db\cruise.mv.db```
-
-2. Log file ```go-server.log```. Location:
-
-    Linux: ```/var/log/go-server/go-server.log```
-
-    Windows: ```[go_installation_dir]\go-server.log```
-
-3. GoCD config file ```cruise-config.xml```. Location:
-
-    Linux: ```/etc/go/cruise-config.xml```
-
-    Windows: ```[go_installation_dir]\config\cruise-config.xml```
-
-4. If any Yourkit and jconsole snapshots as mentioned in the previous points, its useful if that can be sent too.
+These snapshots will be saved in the yourkit configured snapshots folder. Those can be examined to help find the root cause of the performance.

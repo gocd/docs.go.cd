@@ -25,8 +25,8 @@ You must be logged in as an admin user to configure this step.
 
 1. Navigate to the Admin section on the GoCD dashboard.
 2. Navigate to Server configuration
-3. Navigate to the pipeline management sub-section
-![Job timeout](../images/pipeline_management_timeout.png)
+3. Navigate to the 'Job Timeout Management' sub-section
+    ![Job timeout](../images/pipeline_management_timeout.png)
 4. Enter the default timeout for a job.
 
 ### Configure timeout behavior for a job
@@ -37,7 +37,7 @@ You can configure timeouts for each job if the timeout behavior needs to be diff
 
 1. Navigate to the Admin section on the GoCD dashboard.
 2. Navigate to the job settings page for the job.
-![Job timeout settings](../images/job_timeout_individual.png)
+    ![Job timeout settings](../images/job_timeout_individual.png)
 3. Choose the desired timeout behavior. You can choose to never timeout the job, provide a specific value or use the default job timeout.
 
 ### Also see...

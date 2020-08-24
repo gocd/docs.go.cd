@@ -20,13 +20,14 @@ Usage: As a developer, I want to run a task only when the build has already fail
 
 - On the _Admin > Pipelines_ tab, edit the jobs that should run a task when the build has failed
 - Ensure the following "task" block is in the job configuration
-- ![](../images/2_conditional_task_config.png)
+    ![](../images/2_conditional_task_config.png)
 - Now we will get extra output only when the tests fail!
 
-Possible run_if conditions:
- * passed
- * failed
- * any
+Possible run_if conditions
+
+- passed
+- failed
+- any
 
 ## Also See
 

@@ -112,6 +112,8 @@ Then, click the "Edit" link for the pipeline group you want to manage permission
 
 ![](../images/group_permission.png)
 
+![](../images/group_permission1.png)
+
 For power users, here's how you would configure permissions via "Config XML":
 
 ```xml
@@ -119,7 +121,7 @@ For power users, here's how you would configure permissions via "Config XML":
   <authorization>
     <view>
       <user>aantony</user>
-      <user>akrishna</user>
+      <user>krishna</user>
       <role>developer</role>
     </view>
     <operate>
@@ -138,19 +140,19 @@ For power users, here's how you would configure permissions via "Config XML":
 
 In GoCD, it is possible to specify [manual approvals](managing_pipelines.html) between stages. You can also specify which user is allowed to trigger manual approvals.
 
-The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role "admin", and the user "goleys", can trigger the approval.
+The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role "dev", and the user "operate", can trigger the approval.
 
 ![](../images/stage_permissions.png)
 
 For power users, here's how you would configure authorization for approvals for a stage via "Config XML":
 
 ```xml
-<stage name="defaultStage">
+<stage name="stage">
 
   <approval type="manual">
     <authorization>
-      <role>admin</role>
-      <user>goleys</user>
+      <role>dev</role>
+      <user>operate</user>
     </authorization>
   </approval>
 
@@ -187,8 +189,11 @@ For power users, here's how you would configure permissions via "Config XML":
 <templates>
     <pipeline name="app-1-template">
       <authorization>
+        <view>
+            <role>dev</role>
+        </view>
         <admins>
-          <user>operate</user>
+          <user>tez</user>
         </admins>
       </authorization>
       ...

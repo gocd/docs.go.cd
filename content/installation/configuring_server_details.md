@@ -12,7 +12,7 @@ GoCD needs no configuration once installed. However, we recommend that you creat
 
 Once you have created a new disk partition, you need to tell GoCD where to find it.
 
-Click on "Server Configuration" tab of the "Admin" tab. GoCD to the "Pipeline Management" section.
+Click on "Server Configuration" tab of the "Admin" tab. Click on the "Artifacts Management" section.
 
 ![Specify artifact location](../images/artifact_location.png)
 
@@ -23,7 +23,10 @@ Admin section:
 
 ```xml
 <cruise>
-  <server artifactsdir="/path/to/artifacts/directory">
+  <server>
+    <artifacts>
+        <artifactsDir>/path/to/artifacts/directory</artifactsDir>
+    </artifacts>
   ...
   </server>
 </cruise>
@@ -33,7 +36,10 @@ In Windows, you may need to assign your artifact repository partition a separate
 
 ```xml
 <cruise>
-  <server artifactsdir="E:\go-artifacts">
+  <server>
+    <artifacts>
+        <artifactsDir>E:\go-artifacts</artifactsDir>
+    </artifacts>
   ...
   </server>
 </cruise>
@@ -55,7 +61,7 @@ Even when all active jobs on the agent grid have stopped, users may still be upl
 
 ## Configure site URLs
 
-Click on "Server Configuration" tab of the "Admin" tab. GoCD to the "Server Management" section.
+Click on "Server Configuration" tab of the "Admin" tab. Go to the "Server Management" section.
 
 ![Specify site url](../images/site_url.png)
 
@@ -65,7 +71,11 @@ Power users, if they so desire, can directly update the [server](../configuratio
 
 ```xml
 <cruise>
-      <server siteUrl="http://<host>:<port>" secureSiteUrl="https://<host>:<securePort>">
+      <server>
+        <siteUrls>
+            <siteUrl>http://host:port</siteUrl>
+            <secureSiteUrl>https://host:securePort</secureSiteUrl>
+        </siteUrls>
         ...
       </server>
 </cruise>

@@ -8,16 +8,16 @@ title: Add Material to Existing Pipeline
 
 Now that you have a pipeline, lets add another material to it.
 
-- Navigate to the new pipeline you created by clicking on the **Edit** link under the Actions against it. You can also click on the name of the pipeline.
-![](../images/edit_pipeline_link.png)
+- Navigate to the new pipeline you created by clicking on the **Edit** link under the Actions against it.
+    ![](../images/edit_pipeline_link.png)
 - Click on the Materials tab.
-![](../images/pipeline_general_options.png)
+    ![](../images/pipeline_general_options.png)
 - You will notice an existing material . Click on the "Add new material" link.
-![](../images/add_new_material.png)
+    ![](../images/add_new_material.png)
 - You will get the following message
-![](../images/define_destination_folder.png)
+    ![](../images/define_destination_folder.png)
 - Edit the existing material and specify the destination directory
-![](../images/edit_material.png)
+    ![](../images/edit_material.png)
 - Click "Save".
 
 ## Deny / Denylist filters
