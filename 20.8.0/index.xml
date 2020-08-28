@@ -39,7 +39,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_job.html</guid>
       <description>Add a new job to an existing GoCD stage Now that we have a pipeline with stage(s), we can add more jobs to any of the existing stages. You can now use the tree navigation on the left side of the screen to edit a stage or a job under a pipeline.
- Click on the stage name that you want to edit on the tree as shown below. The &amp;ldquo;defaultStage&amp;rdquo; is being edited.</description>
+ Click on the stage name that you want to edit on the tree as shown below.  Click on the Jobs tab Click on &amp;ldquo;Add new job&amp;rdquo;  Fill job name and job details  Fill in the details for the initial task belonging to this job.</description>
     </item>
     
     <item>
@@ -49,7 +49,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_material.html</guid>
       <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.</description>
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.  You will get the following message  Edit the existing material and specify the destination directory  Click &amp;ldquo;Save&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -59,7 +59,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_stage.html</guid>
       <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. You can also click on the name of the pipeline.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.</description>
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.  Fill stage name and trigger type.</description>
     </item>
     
     <item>
@@ -69,7 +69,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_task.html</guid>
       <description>Add a new task to an existing GoCD Job Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a job under a stage.
- Click on the job name that you want to edit on the tree as shown below. The &amp;ldquo;defaultJob&amp;rdquo; is being edited.</description>
+ Click on the job name that you want to edit on the tree as shown below.  Click on &amp;ldquo;Add new task&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -790,7 +790,7 @@ Publishing artifacts The first step in using the artifact repository is to tell 
       
       <guid>/configuration/managing_dependencies.html</guid>
       <description>Managing dependencies Sometimes you need more complex triggers than a simple pipeline of stages and jobs. In particular, you may want a pipeline to trigger based on the result of a stage in another pipeline. This is possible by adding pipelines as materials.
-Creating a dependency Say we have two pipelines - upstream_pipeline and downstream_pipeline . We want downstream_pipeline to automatically trigger following the successful completion of the stage AutoStage1 in pipeline upstream_pipeline.</description>
+Creating a dependency Say we have two pipelines - upstream1 and downstream_pipeline . We want downstream_pipeline to automatically trigger following the successful completion of the stage stage in pipeline upstream1.</description>
     </item>
     
     <item>
@@ -922,7 +922,7 @@ Overview    Actions Description     Pause pipeline Pipeline can be paused by cli
       
       <guid>/configuration/pipeline_group_admin_config.html</guid>
       <description>GoCD Pipeline Groups Administration Pipeline Group Administrators in GoCD can add, remove and edit pipelines in their respective pipeline groups. They can do these operations via the UI as well by editing the config XML of the pipeline group. They can also manage the templates and add any package repositories with the help of plugins.
-Administration using UI The administration page for a pipeline group administrator looks as follows. The controls on the &amp;ldquo;Pipelines&amp;rdquo; tab allows her to edit, clone, delete and move any pipeline.</description>
+Administration using UI The Pipelines page for a pipeline group administrator looks as follows. The controls on the page allows her to edit, clone, delete and move any pipeline.</description>
     </item>
     
     <item>

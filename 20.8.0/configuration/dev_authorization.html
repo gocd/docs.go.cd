@@ -415,12 +415,13 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 <p><img src="../images/group_list.png" alt=""></p>
 <p>Then, click the &ldquo;Edit&rdquo; link for the pipeline group you want to manage permissions for:</p>
 <p><img src="../images/group_permission.png" alt=""></p>
+<p><img src="../images/group_permission1.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;Shine&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>aantony<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>akrishna<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>krishna<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>developer<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;operate&gt;</span>
@@ -435,15 +436,15 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 <span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
 </code></pre></div><h2 id="adding-authorization-to-approvals">Adding authorization to approvals</h2>
 <p>In GoCD, it is possible to specify <a href="managing_pipelines.html">manual approvals</a> between stages. You can also specify which user is allowed to trigger manual approvals.</p>
-<p>The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role &ldquo;admin&rdquo;, and the user &ldquo;goleys&rdquo;, can trigger the approval.</p>
+<p>The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role &ldquo;dev&rdquo;, and the user &ldquo;operate&rdquo;, can trigger the approval.</p>
 <p><img src="../images/stage_permissions.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure authorization for approvals for a stage via &ldquo;Config XML&rdquo;:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;defaultStage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
 
   <span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>admin<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>goleys<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>operate<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/approval&gt;</span>
 
@@ -470,8 +471,11 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;templates&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;app-1-template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>operate<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+          <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>tez<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
       ...

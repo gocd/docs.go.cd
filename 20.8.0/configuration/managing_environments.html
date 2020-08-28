@@ -345,33 +345,34 @@ if (!doNotTrack) {
 <p>However, once an agent is associated with one or more environments, it is no longer capable of picking up jobs on pipelines that do not belong to environments. Pipelines outside of environments will only be assigned to agents in the default pool (not associated with any environment).</p>
 <p>You can create an environment in the admin UI through the following steps. This example creates a production environment, adding the deployment pipeline and the agent installed on the production server.</p>
 <ul>
-<li>Click on the Environments tab</li>
-</ul>
+<li>
+<p>Click on the Environments tab</p>
 <p><img src="../images/topnav_environments.png" alt=""></p>
-<ul>
-<li>Click on the &ldquo;Add a new environment&rdquo;</li>
-</ul>
+</li>
+<li>
+<p>Click on the &ldquo;Add a new environment&rdquo;</p>
 <p><img src="../images/env_click_new.png" alt=""></p>
-<ul>
-<li>Provide a name for the environment</li>
-</ul>
+</li>
+<li>
+<p>Provide a name for the environment</p>
 <p><img src="../images/env_name.png" alt=""></p>
-<ul>
-<li>Add one or more pipelines that need to run on the environment</li>
+</li>
+<li>
+<p>Click on &ldquo;Save&rdquo;. Now the environment has been created. You can go ahead and add pipelines, agents and/or environment variables for the same.</p>
+<p><img src="../images/env_saved.png" alt=""></p>
+</li>
 </ul>
+<p>Add one or more pipelines that need to run on the environment</p>
+<p><img src="../images/env_edit_pipelines.png" alt=""></p>
 <p><img src="../images/env_pipelines.png" alt=""></p>
-<ul>
-<li>Add one or more agents associated with the environment</li>
-</ul>
+<p>Add one or more agents associated with the environment</p>
+<p><img src="../images/env_edit_agents.png" alt=""></p>
 <p><img src="../images/env_agents.png" alt=""></p>
-<ul>
-<li>Add one or more environment variables or secure environment variables that need to be passed.</li>
-</ul>
+<p>Add one or more environment variables or secure environment variables that need to be passed.</p>
+<p><img src="../images/env_edit_env_vars.png" alt=""></p>
 <p><img src="../images/env_env_variables.png" alt=""></p>
-<ul>
-<li>Click on finish</li>
-</ul>
 <p>Setting up an environment through the xml can be found in the <a href="configuration_reference.html#environments">configuration reference</a></p>
+<p><img src="../images/env_completed.png" alt=""></p>
 <h2 id="add-a-new-agent-to-an-existing-environment">Add a new agent to an existing environment</h2>
 <p>You can do this very easily in the Agents tab. Just select the agents you want to add to your environment and click on the Environments button. All existing environments will appear in alphabetical order. Select one of three states for all environments you want to add and then click the &ldquo;Apply&rdquo; button.</p>
 <ul>

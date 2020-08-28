@@ -346,7 +346,7 @@ if (!doNotTrack) {
 <p><img src="../images/enable_agent.png" alt=""></p>
 <p>Note that the hostname is as reported by the agent, and the IP address is as reported by the server.</p>
 <p>To add the agent to the cloud, click &ldquo;Enable&rdquo;. Note that even after you have clicked &ldquo;Enable&rdquo;, the agent will not be enabled until it next contacts the server &ndash; so if your agent has stopped talking to the server, nothing will happen.</p>
-<p>Once your agent has successfully been enabled, it should no longer appear greyed out and will and be marked &ldquo;idle&rdquo;. At this point your agent will automatically begin picking up jobs. Agents will automatically check out any code they need in order to start running jobs.</p>
+<p>Once your agent has successfully been enabled, it will be marked &ldquo;Idle&rdquo;. At this point your agent will automatically begin picking up jobs. Agents will automatically check out any code they need in order to start running jobs.</p>
 <h2 id="matching-jobs-to-agents">Matching jobs to agents</h2>
 <p>In its default state, GoCD server will assign scheduled jobs to the first available agent. GoCD doesn&rsquo;t have the ability to determine what operating system or other resources are present on a given agent. If you want particular jobs to run on particular agents, you&rsquo;ll need to specify <strong>resources</strong> .</p>
 <p>You can specify one or more resources that a particular job needs in order to execute. In the same way, you can specify that an agent has one or more resources. Go will then match jobs to agents, such that a job will only run on agents which have at least the resources required for that job.</p>

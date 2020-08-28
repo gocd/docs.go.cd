@@ -345,7 +345,6 @@ if (!doNotTrack) {
 <p>The minimum requirements for a GoCD server can be found <a href="../installation/system_requirements.html">here</a></p>
 <h3 id="scaling-gocd">Scaling GoCD</h3>
 <p>As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.</p>
-<p>If you have questions or have custom requirements, please contact <a href="mailto:support@thoughtworks.com">support@thoughtworks.com</a> to help with capacity planning for GoCD server</p>
 <h3 id="things-to-remember">Things to Remember</h3>
 <h4 id="server">Server</h4>
 <p>Do not run any other CPU intensive applications on the same box as the GoCD Server.</p>
@@ -465,29 +464,7 @@ set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>-Xms128m -Xmx1024m
 </code></pre></div></li>
 </ol>
 <p>In case of windows, delete the file <code>C:\yjpagent.dll</code>. If you were using the variable <code>YOURKIT_PATH</code>, then remove the environment variable.</p>
-<p>These snapshots will be saved in the yourkit configured snapshots folder. They can be sent to the GoCD Support so that they can be examined to help find the root cause of the performance.</p>
-<h3 id="contact-gocd-support">Contact GoCD Support</h3>
-<p>If the GoCD server continues to behave poorly, send us the following data.</p>
-<ol>
-<li>
-<p>Database file <code>cruise.mv.db</code>. Stop the server and take a backup of the database. Location:</p>
-<p>Linux: <code>/var/lib/db/h2db/cruise.mv.db</code></p>
-<p>Windows: <code>[go_installation_dir]\db\h2db\cruise.mv.db</code></p>
-</li>
-<li>
-<p>Log file <code>go-server.log</code>. Location:</p>
-<p>Linux: <code>/var/log/go-server/go-server.log</code></p>
-<p>Windows: <code>[go_installation_dir]\go-server.log</code></p>
-</li>
-<li>
-<p>GoCD config file <code>cruise-config.xml</code>. Location:</p>
-<p>Linux: <code>/etc/go/cruise-config.xml</code></p>
-<p>Windows: <code>[go_installation_dir]\config\cruise-config.xml</code></p>
-</li>
-<li>
-<p>If any Yourkit and jconsole snapshots as mentioned in the previous points, its useful if that can be sent too.</p>
-</li>
-</ol>
+<p>These snapshots will be saved in the yourkit configured snapshots folder. Those can be examined to help find the root cause of the performance.</p>
 </article>
 
       
@@ -544,7 +521,6 @@ set.AGENT_STARTUP_ARGS<span style="color:#666">=</span>-Xms128m -Xmx1024m
         <li><a href="#enable-gc-logging">Enable GC Logging</a></li>
         <li><a href="#using-jconsole">Using JConsole</a></li>
         <li><a href="#cpu-and-memory-profiling">CPU and memory profiling</a></li>
-        <li><a href="#contact-gocd-support">Contact GoCD Support</a></li>
       </ul>
     </li>
   </ul>

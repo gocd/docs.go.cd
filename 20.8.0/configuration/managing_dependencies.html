@@ -341,39 +341,41 @@ if (!doNotTrack) {
 <article class="markdown"><h1 id="managing-dependencies">Managing dependencies</h1>
 <p>Sometimes you need more complex triggers than a simple pipeline of stages and jobs. In particular, you may want a pipeline to trigger based on the result of a stage in another pipeline. This is possible by adding pipelines as materials.</p>
 <h2 id="creating-a-dependency">Creating a dependency</h2>
-<p>Say we have two pipelines - <strong>upstream_pipeline</strong> and <strong>downstream_pipeline</strong> . We want downstream_pipeline to automatically trigger following the successful completion of the stage AutoStage1 in pipeline upstream_pipeline. Here&rsquo;s how we&rsquo;d achieve this:</p>
+<p>Say we have two pipelines - <strong>upstream1</strong> and <strong>downstream_pipeline</strong> . We want downstream_pipeline to automatically trigger following the successful completion of the stage stage in pipeline upstream1. Here&rsquo;s how we&rsquo;d achieve this:</p>
 <ul>
 <li>Navigate to the <strong>Admin</strong> section.</li>
-<li>On the Pipelines screen, locate the <strong>downstream_pipeline</strong>    pipeline and <strong>Edit</strong> it.</li>
+<li>On the Pipelines screen, locate the <strong>downstream_pipeline</strong> pipeline and <strong>Edit</strong> it.</li>
 <li>Click on the <strong>Materials</strong> tab.</li>
 <li>Add a new pipeline dependency material by clicking <strong>Add Material</strong> and then selecting <strong>Pipeline</strong> .</li>
-<li>You&rsquo;ll be presented with an <strong>Add Material</strong> popup (see screenshot)</li>
-<li>Enter <strong>upstream_pipeline [AutoStage1]</strong> in the <strong>Pipeline [stage]</strong> field (it can also auto-complete)</li>
+<li>You&rsquo;ll be presented with an <strong>Add Material</strong> popup</li>
+<li>Select <strong>upstream1</strong> in the <strong>Pipeline</strong> field (it can also auto-complete)
+<img src="../images/pipeline_add_material.png" alt=""></li>
+<li>Select <strong>stage</strong> in the <strong>Stage</strong> field
+<img src="../images/pipeline_add_material_select_stage.png" alt=""></li>
 </ul>
-<p><img src="../images/pipeline_add_material.png" alt=""></p>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the Admin section (Configuration reference is <a href="../configuration/configuration_reference.html">here</a>):</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream_pipeline&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;AutoStage1&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 
-</code></pre></div><p>Now, when the stage &ldquo;AutoStage1&rdquo; of &ldquo;upstream_pipeline&rdquo; completes, the pipeline &ldquo;downstream_pipeline&rdquo; will start building.</p>
+</code></pre></div><p>Now, when the stage &ldquo;stage&rdquo; of &ldquo;upstream1&rdquo; completes, the pipeline &ldquo;downstream_pipeline&rdquo; will start building.</p>
 <p>If you want to view the materials that are associated with &ldquo;downstream_pipeline&rdquo;, the pipeline details page for that specific instance of the downstream pipeline will show you all this information.</p>
 <p><img src="../images/downstream_pipeline.png" alt=""></p>
 <h3 id="fetching-artifacts-from-an-upstream-pipeline">Fetching artifacts from an upstream pipeline</h3>
 <p>GoCD can automatically fetch artifacts from a previous stage of the current pipeline or from any ancestor pipeline it depends on. This is useful when a pipeline depends on binaries that are produced earlier in the pipeline.</p>
 <p>Note that you can not specify two (or more) dependencies for the same upstream pipeline.</p>
-<p>For example, in the following configuration, when the stage &ldquo;AutoStage1&rdquo; of pipeline &ldquo;upstream_pipeline&rdquo; passes, the pipeline &ldquo;downstream_pipeline&rdquo; starts, and the artifacts are fetched from the upstream pipeline in the stage &lsquo;Stage&rsquo; of &ldquo;downstream_pipeline&rdquo;. You can see the exact pipeline and stage that triggered this in the sub-tab &lsquo;Materials&rsquo; on the stage details page.</p>
-<p>You can do this via the admin screens for the respective pipelines. You&rsquo;ll need to first define the artifact in the &ldquo;upstream_pipeline&rdquo; at the job level:</p>
+<p>For example, in the following configuration, when the stage &ldquo;stage&rdquo; of pipeline &ldquo;upstream1&rdquo; passes, the pipeline &ldquo;downstream_pipeline&rdquo; starts, and the artifacts are fetched from the upstream pipeline in the stage &lsquo;Stage&rsquo; of &ldquo;downstream_pipeline&rdquo;. You can see the exact pipeline and stage that triggered this in the sub-tab &lsquo;Materials&rsquo; on the stage details page.</p>
+<p>You can do this via the admin screens for the respective pipelines. You&rsquo;ll need to first define the artifact in the &ldquo;upstream1&rdquo; at the job level:</p>
 <p><img src="../images/job_artifacts.png" alt=""></p>
-<p>Then, you&rsquo;ll want to retrieve (fetch) that artifact from within the &ldquo;downstream_pipeline.&rdquo; You can do this by creating a &ldquo;Fetch Artifact&rdquo; task within a job in that pipeline. Since you have already defined &ldquo;upstream_pipeline&rdquo; as a dependency material, artifacts from that pipeline are accessible in this pipeline.</p>
+<p>Then, you&rsquo;ll want to retrieve (fetch) that artifact from within the &ldquo;downstream_pipeline&rdquo;. You can do this by creating a &ldquo;Fetch Artifact&rdquo; task within a job in that pipeline. Since you have already defined &ldquo;upstream1&rdquo; as a dependency material, artifacts from that pipeline are accessible in this pipeline.</p>
 <p><img src="../images/task_fetch_artifact.png" alt=""></p>
-<p>A fetch task can also be instructed to retrieve (fetch) an artifact from an ancestor pipeline. For example, lets assume that the &ldquo;upstream_pipeline&rdquo; used in this example, depends on another pipeline &ldquo;topmost_pipeline&rdquo;. Then you can define a a &ldquo;Fetch Artifact&rdquo; task to fetch artifacts from &ldquo;topmost_pipeline&rdquo; by defining the hierarchy of these pipelines as follows. You have to specify the hierarchy by separting the pipelines with a /. For example: topmost_pipeline/upstream_pipeline.</p>
+<p>A fetch task can also be instructed to retrieve (fetch) an artifact from an ancestor pipeline. For example, lets assume that the &ldquo;upstream1&rdquo; used in this example, depends on another pipeline &ldquo;topmost&rdquo;. Then you can define a a &ldquo;Fetch Artifact&rdquo; task to fetch artifacts from &ldquo;topmost&rdquo; by defining the hierarchy of these pipelines as follows. You have to specify the hierarchy by separting the pipelines with a <code>/</code>. For example: &ldquo;topmost/upstream1&rdquo;.</p>
 <p><img src="../images/task_fetch_artifact_ancestor.png" alt=""></p>
 <p>For power users, here&rsquo;s how you can configure this via the <strong>Config XML</strong> tab on the Admin section (Configuration reference is <a href="../configuration/configuration_reference.html">here</a>):</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topmost_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topmost&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;....&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
@@ -391,13 +393,13 @@ if (!doNotTrack) {
    <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;upstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;upstream1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;....&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;topmost_pipeline&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;TopStage1&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;topmost&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;TopStage1&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
-  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;AutoStage1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;firstJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
@@ -412,18 +414,18 @@ if (!doNotTrack) {
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream_pipeline&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;AutoStage1&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;fetchFromParentJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;upstream_pipeline&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;AutoStage1&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;firstJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;pkg/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;stage&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;firstJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;pkg/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;fetchFromAncestorJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;topmost_pipeline/upstream_pipeline&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;TopStage1&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;topJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;lib/mylib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;topmost/upstream1&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;TopStage1&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;topJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;lib/mylib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>

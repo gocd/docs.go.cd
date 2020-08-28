@@ -342,19 +342,25 @@ if (!doNotTrack) {
 <h2 id="artifact-repository-configuration">Artifact repository configuration</h2>
 <p>GoCD needs no configuration once installed. However, we recommend that you create a separate partition on your computer&rsquo;s hard disk for GoCD server artifacts. The artifact repository can grow in size very quickly. If located on your system&rsquo;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.</p>
 <p>Once you have created a new disk partition, you need to tell GoCD where to find it.</p>
-<p>Click on &ldquo;Server Configuration&rdquo; tab of the &ldquo;Admin&rdquo; tab. GoCD to the &ldquo;Pipeline Management&rdquo; section.</p>
+<p>Click on &ldquo;Server Configuration&rdquo; tab of the &ldquo;Admin&rdquo; tab. Click on the &ldquo;Artifacts Management&rdquo; section.</p>
 <p><img src="../images/artifact_location.png" alt="Specify artifact location"></p>
 <p>Specify the artifacts directory location and click on &ldquo;Save&rdquo;</p>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the
 Admin section:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;/path/to/artifacts/directory&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>/path/to/artifacts/directory<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
 </code></pre></div><p>In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;E:\go-artifacts&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>E:\go-artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
+    <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
@@ -370,12 +376,16 @@ Admin section:</p>
 </ol>
 <p>Even when all active jobs on the agent grid have stopped, users may still be uploading artifacts using the RESTful URLs. This is why we need to stop GoCD server completely in order to be safe.</p>
 <h2 id="configure-site-urls">Configure site URLs</h2>
-<p>Click on &ldquo;Server Configuration&rdquo; tab of the &ldquo;Admin&rdquo; tab. GoCD to the &ldquo;Server Management&rdquo; section.</p>
+<p>Click on &ldquo;Server Configuration&rdquo; tab of the &ldquo;Admin&rdquo; tab. Go to the &ldquo;Server Management&rdquo; section.</p>
 <p><img src="../images/site_url.png" alt="Specify site url"></p>
 <p>GoCD generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where GoCD cannot rely upon publishing URLs relative to a request. If you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.</p>
 <p>Power users, if they so desire, can directly update the <a href="../configuration/configuration_reference.html#server">server</a> section.</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">siteUrl=</span><span style="color:#b44">&#34;http://&lt;host&gt;:&lt;port&gt;&#34;</span> <span style="color:#b44">secureSiteUrl=</span><span style="color:#b44">&#34;https://&lt;host&gt;:&lt;securePort&gt;&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+      <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://host:port<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
+            <span style="color:#008000;font-weight:bold">&lt;secureSiteUrl&gt;</span>https://host:securePort<span style="color:#008000;font-weight:bold">&lt;/secureSiteUrl&gt;</span>
+        <span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span>
         ...
       <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>

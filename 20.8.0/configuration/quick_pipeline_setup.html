@@ -348,16 +348,13 @@ if (!doNotTrack) {
 </ol>
 <h2 id="new-pipeline-wizard">New Pipeline Wizard</h2>
 <p>Clicking on the <strong>Admin</strong> -&gt; <strong>Pipelines</strong> menu item will take you to the pipelines administration page. Clicking on &ldquo;Create a new pipeline within this group&rdquo; button will take you to the &ldquo;Add pipeline&rdquo; page.</p>
-<h3 id="step-1-basic-settings">Step 1: Basic Settings</h3>
-<p><img src="../images/new_pipeline_1.png" alt=""></p>
-<ol>
-<li>Fill in the pipeline name</li>
-<li>Fill in the pipeline group</li>
-</ol>
-<h3 id="step-2-material">Step 2: Material</h3>
+<h3 id="step-1-material">Step 1: Material</h3>
 <p><img src="../images/new_pipeline_2.png" alt=""></p>
 <ol>
-<li>Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a <a href="../extension_points/package_repository_extension.html">package repository</a> (e.g. <a href="../extension_points/yum_repository_poller.html">yum</a>). Currently Go supports the following SCMs:
+<li>
+<p>Choose the material type. The material can be your Source Control Management (SCM or version control) repository or another pipeline or a <a href="../extension_points/package_repository_extension.html">package repository</a> (e.g. <a href="../extension_points/yum_repository_poller.html">yum</a>). Currently Go supports the following:</p>
+<ul>
+<li>SCMs
 <ol>
 <li>Subversion</li>
 <li>Mercurial</li>
@@ -366,19 +363,34 @@ if (!doNotTrack) {
 <li>Perforce</li>
 </ol>
 </li>
+<li>Package repository</li>
+<li>Material Plugins</li>
+</ul>
+</li>
+<li>
+<p>Fill in settings specific to the material type.</p>
+</li>
 </ol>
-<p>and the package repository and material plugins.</p>
-<ol start="2">
-<li>Fill in settings specific to the material type.</li>
+<h3 id="step-2-basic-settings">Step 2: Basic Settings</h3>
+<p><img src="../images/new_pipeline_1.png" alt=""></p>
+<ol>
+<li>Fill in the pipeline name</li>
+<li>Select a pipeline group. Also fill in the parameter if using a template.</li>
 </ol>
-<h3 id="step-3-stage-and-job">Step 3: Stage and Job</h3>
+<h3 id="step-3-stage-details">Step 3: Stage Details</h3>
 <p><img src="../images/new_pipeline_3.png" alt=""></p>
 <p>A pipeline contains one or more stages. Define the first stage of your pipeline</p>
 <ol>
 <li>Fill in the Stage name.</li>
+</ol>
+<h3 id="step-4-job-and-task-details">Step 4: Job and Task Details</h3>
+<p><img src="../images/new_pipeline_4.png" alt=""></p>
+<ol>
 <li>Fill in the Job name.</li>
-<li>Fill in the task type and the command for the task.</li>
-<li>If you use Ant, NAnt or Rake for scripting, Go provides convenience wrappers for these tools. To use any other scripting tool (e.g: Maven, msbuild, etc.), choose the &ldquo;More&hellip;&rdquo; option to use the <a href="../advanced_usage/command_repository.html">command repository</a> or specify the command line syntax for that tool.</li>
+<li>Fill in the command for the task.
+If you use Ant, NAnt or Rake for scripting, specify the command line syntax for that tool.
+GoCD provides a convenience wrapper for these tools. You can make use of them on the materials tabs of pipeline config edit page.</li>
+<li>Click on &ldquo;Save + Run This Pipeline&rdquo; will save the pipeline and try to schedule a build for the same. Clicking on &ldquo;Save + Edit Full Config&rdquo; will save the pipeline and open the edit page for further configuration.</li>
 </ol>
 <p>See the <a href="managing_pipelines.html">Managing pipelines</a> documentation for editing these settings following the creation of your pipeline.</p>
 <h2 id="initial-task-settings">Initial task settings</h2>
@@ -391,8 +403,8 @@ if (!doNotTrack) {
 <h3 id="rake">Rake</h3>
 <p>The Rake task allows you to run a ruby rake build. GoCD does not include ruby or rake and so you must ensure that it is correctly installed on the agents. GoCD will assume the standard <strong>rakefile</strong> exists in the working directory of the agent.</p>
 <p>For this option to work, Rake needs to be installed on the Go Agent(s) and the <em>go user</em> should be able to execute it.</p>
-<h3 id="more">More&hellip;</h3>
-<p>In addition to the above tasks, GoCD allows you to run anything on the command line. You can use the <a href="../advanced_usage/command_repository.html">command repository</a> to help you choose the command. Alternately you can specify a command on your own.</p>
+<h3 id="custom-command">Custom Command</h3>
+<p>In addition to the above tasks, GoCD allows you to run anything on the command line.</p>
 <p>You can see the complete configuration reference <a href="configuration_reference.html">here</a>.</p>
 <p><a name="clone-an-existing-gocd-pipeline"></a></p>
 <h1 id="clone-an-existing-gocd-pipeline">Clone an existing GoCD pipeline</h1>
@@ -405,8 +417,8 @@ if (!doNotTrack) {
 <img src="../images/clone_icon.png" alt=""></li>
 <li>Fill in the name of the new pipeline
 <img src="../images/clone_pipeline.png" alt=""></li>
-<li>Select a pipeline group. If you are an admin, you will be able to enter the name of the pipeline group using the auto suggest or enter a new group name</li>
-<li>Click &ldquo;Save&rdquo;</li>
+<li>Select a pipeline group. If you are an admin, you will be able to enter the name of the pipeline group or enter a new group name</li>
+<li>Click &ldquo;Clone&rdquo;</li>
 </ul>
 <h4 id="also-see">Also See</h4>
 <ul>
@@ -458,9 +470,10 @@ if (!doNotTrack) {
   <ul>
     <li><a href="#new-pipeline-wizard">New Pipeline Wizard</a>
       <ul>
-        <li><a href="#step-1-basic-settings">Step 1: Basic Settings</a></li>
-        <li><a href="#step-2-material">Step 2: Material</a></li>
-        <li><a href="#step-3-stage-and-job">Step 3: Stage and Job</a></li>
+        <li><a href="#step-1-material">Step 1: Material</a></li>
+        <li><a href="#step-2-basic-settings">Step 2: Basic Settings</a></li>
+        <li><a href="#step-3-stage-details">Step 3: Stage Details</a></li>
+        <li><a href="#step-4-job-and-task-details">Step 4: Job and Task Details</a></li>
       </ul>
     </li>
     <li><a href="#initial-task-settings">Initial task settings</a>
@@ -468,7 +481,7 @@ if (!doNotTrack) {
         <li><a href="#ant">Ant</a></li>
         <li><a href="#nant">NAnt</a></li>
         <li><a href="#rake">Rake</a></li>
-        <li><a href="#more">More&hellip;</a></li>
+        <li><a href="#custom-command">Custom Command</a></li>
       </ul>
     </li>
   </ul>
