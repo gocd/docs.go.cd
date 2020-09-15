@@ -65,9 +65,9 @@ The rules have the following attributes,
 
 | Attribute | Description                                                                                                                                                       |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type      | This attribute represents the type of GoCD config entity, can be either `pipeline_group` or `environment`. To represent any entity type use the wildcard **(*)**. |
+| type      | This attribute represents the type of GoCD config entity. Can be one of `environment`, `pipeline_group`, `pluggable_scm` or `package_repository`. To represent any entity type use the wildcard **(*)**. |
 | action    | This attribute represents the allowed action on the Secret Configuration, currently the only allowed action is `refer`.                                           |
-| resource  | The name of resource. Should be the name of a `pipeline_group` or `environment` since they are the only supported values for the `type` attribute.                |
+| resource  | The name of resource. E.g. name of the environment when `type` = `environment`.                |
 
 
 - By default if no rule is defined, none of the GoCD entities will have access to the Secret Manager. Hence the Secret Manager would be unusable.
@@ -95,6 +95,18 @@ Currently, GoCD allows Secret Params to be added in the following places,
 
     !["Environment variables"][5]
 
+  - Any configuration field of a Pluggable SCM
+
+    !["Plugin Configuration for Pluggable SCM"][7]
+
+  - Any configuration field of a Package Repository
+
+    !["Plugin Configuration for Package Repository"][8]
+
+  - Any configuration field of a Package
+
+    !["Plugin Configuration for Package"][9]
+
 Secret Params defined anywhere else other than the above would be ignored and treated as a string.
 
 **Secret Param resolution**
@@ -103,6 +115,10 @@ Secrets from an external Secrets Manager are never stored in GoCD, hence the Sec
 
   - Secret Params defined as a password in a SCM Material are resolved just before a Material is picked up for an update.
   - Secret Params defined as an environment variable is resolved before assigning work to an agent.
+  - Secret Params defined in Pluggable SCM, Package Repository and Package will be resolved during
+    - A check connection
+    - Save/Validation of the configuration
+    - For Plugin and Package materials, the secret params are resolved before being picked up for an update
 
 If a Secret Param resolution fails the corresponding task would fail as well. This can lead to a failed job or a failed material update.
 
@@ -124,9 +140,9 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
 
   - Wildcards **(*)** in **type**:
 
-    Using a wildcard **(*)** for type implies a given rule applies to all entity types. In this case, the supported entities are `pipeline_group` and `environment`.
+    Using a wildcard **(*)** for type implies a given rule applies to all entity types. In this case, the supported entities are `pipeline_group`, `environment`, `pluggable_scm` and `package_repository`.
 
-    > In the given example, a Secret Configuration can be referred by any `pipeline_group` or `environment` with the name `production`.
+    > In the given example, a Secret Configuration can be referred by any of the supported entity with the name `production`.
 
     ```xml
     <rules>
@@ -182,3 +198,6 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
 [4]: ../images/configuration/secret-management/4_edit_rules.png
 [5]: ../images/configuration/secret-management/5_usage_in_environments_variables.png
 [6]: ../images/configuration/secret-management/6_usage_in_scm_material.png
+[7]: ../images/configuration/secret-management/7_usage_in_pluggable_scm.png
+[8]: ../images/configuration/secret-management/8_usage_in_package_repository.png
+[9]: ../images/configuration/secret-management/9_usage_in_package.png
