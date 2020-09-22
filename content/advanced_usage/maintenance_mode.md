@@ -54,3 +54,22 @@ After all the sub-systems of GoCD are stopped during maintenance mode, GoCD serv
 
 The [maintenance mode API](https://api.gocd.org/current/#maintenance-mode) allows GoCD Administrators to enable, disable and monitor the server maintenance mode state.
 
+
+# Starting GoCD Server in Maintenance Mode
+
+**Note:** Using this feature requires atleast version `19.9.0`  of the GoCD server.
+
+The GoCD system includes a lot of internal subsystems and processes, which are kicked off on server startup. 
+Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.
+
+After the GoCD Server restart or the system upgrade, GoCD System Administrators may want to confirm that the system upgrade or the configurations changes are fine, before resuming the work on GoCD.
+To do so, GoCD allows starting the GoCD server in maintenance mode.
+
+### Steps to start the GoCD Server in Maintenance Mode:
+
+1. Stop the running GoCD Server.
+2. Specify the system property `gocd.server.start.in.maintenance.mode` with value `true`.
+   To configure the system properties, edit the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file. 
+3. Start the GoCD Server.
+
+**NOTE:** `Specifying the system property 'gocd.server.start.in.maintenance.mode=true' will always start the GoCD server in maintenance mode.`
