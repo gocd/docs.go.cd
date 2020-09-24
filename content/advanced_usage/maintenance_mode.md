@@ -57,7 +57,7 @@ The [maintenance mode API](https://api.gocd.org/current/#maintenance-mode) allow
 
 # Starting GoCD Server in Maintenance Mode
 
-**Note:** Using this feature requires atleast version `19.9.0`  of the GoCD server.
+**Note:** Using this feature requires atleast version `20.9.0`  of the GoCD server.
 
 The GoCD system includes a lot of internal subsystems and processes, which are kicked off on server startup. 
 Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.
