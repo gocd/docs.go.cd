@@ -69,7 +69,7 @@ To do so, GoCD allows starting the GoCD server in maintenance mode.
 
 1. Stop the running GoCD Server.
 2. Specify the system property `gocd.server.start.in.maintenance.mode` with value `true`.
-   To configure the system properties, edit the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file. 
+   To configure the system properties, edit the file `wrapper-properties.conf` on the GoCD server to add the system property described above. See the [installation documentation](/installation/installing_go_server.html) for the location of `wrapper-properties.conf` file. 
 3. Start the GoCD Server.
 
 **NOTE:** `Specifying the system property 'gocd.server.start.in.maintenance.mode=true' will always start the GoCD server in maintenance mode.`
