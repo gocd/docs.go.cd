@@ -408,6 +408,20 @@ Hence, GoCD does not allow cancellation of MDUs even during maintenance mode. Go
 <p><img src="../images/advanced_usage/maintenance_mode/completed_maintenance_mode.png" alt=""></p>
 <p><strong>NOTE:</strong> <code>Upon a restart, the GoCD server will no longer be in maintenance mode and will start all subsystems.</code></p>
 <p>The <a href="https://api.gocd.org/current/#maintenance-mode">maintenance mode API</a> allows GoCD Administrators to enable, disable and monitor the server maintenance mode state.</p>
+<h1 id="starting-gocd-server-in-maintenance-mode">Starting GoCD Server in Maintenance Mode</h1>
+<p><strong>Note:</strong> Using this feature requires atleast version <code>20.9.0</code>  of the GoCD server.</p>
+<p>The GoCD system includes a lot of internal subsystems and processes, which are kicked off on server startup.
+Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.</p>
+<p>After the GoCD Server restart or the system upgrade, GoCD System Administrators may want to confirm that the system upgrade or the configurations changes are fine, before resuming the work on GoCD.
+To do so, GoCD allows starting the GoCD server in maintenance mode.</p>
+<h3 id="steps-to-start-the-gocd-server-in-maintenance-mode">Steps to start the GoCD Server in Maintenance Mode:</h3>
+<ol>
+<li>Stop the running GoCD Server.</li>
+<li>Specify the system property <code>gocd.server.start.in.maintenance.mode</code> with value <code>true</code>.
+To configure the system properties, edit the file <code>wrapper-properties.conf</code> on the GoCD server to add the system property described above. See the <a href="../installation/installing_go_server.html">installation documentation</a> for the location of <code>wrapper-properties.conf</code> file.</li>
+<li>Start the GoCD Server.</li>
+</ol>
+<p><strong>NOTE:</strong> <code>Specifying the system property 'gocd.server.start.in.maintenance.mode=true' will always start the GoCD server in maintenance mode.</code></p>
 </article>
 
       
@@ -454,6 +468,14 @@ Hence, GoCD does not allow cancellation of MDUs even during maintenance mode. Go
         <li><a href="#the-maintenance-mode-implementation">The maintenance mode implementation:</a></li>
         <li><a href="#in-progress-maintenance-mode">In Progress Maintenance Mode:</a></li>
         <li><a href="#maintenance-mode-completion">Maintenance Mode Completion:</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#steps-to-start-the-gocd-server-in-maintenance-mode">Steps to start the GoCD Server in Maintenance Mode:</a></li>
       </ul>
     </li>
   </ul>
