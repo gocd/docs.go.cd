@@ -343,10 +343,14 @@ if (!doNotTrack) {
 <p>GoCD can be configured to automatically cancel jobs that do not generate any console output for a period of time. Default Job timeout options include:</p>
 <ul>
 <li>Never : Jobs will never be timed out by default. You can override this behavior when configuring the job in the job editor</li>
-<li>Timeout after a period of inactivity : A job will be cancelled if it did not have any console output for a period of time (in minutes)</li>
+<li>Timeout after a period of inactivity : A job will be cancelled if:
+<ul>
+<li>it did not have any console output for a period of time (in minutes)</li>
+<li>it was not assigned an agent</li>
+</ul>
+</li>
 </ul>
 <p>When a job is timed out, the onCancel task for the job will be triggered.</p>
-<p><em>Note: GoCD will use this property and cancel jobs that are in <code>Building</code> state only.</em></p>
 <h2 id="configuration">Configuration</h2>
 <h3 id="specify-default-job-timeout-at-the-server-level">Specify default job timeout at the server level</h3>
 <p>You must be logged in as an admin user to configure this step.</p>
