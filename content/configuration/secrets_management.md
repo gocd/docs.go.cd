@@ -65,7 +65,7 @@ The rules have the following attributes,
 
 | Attribute | Description                                                                                                                                                       |
 | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| type      | This attribute represents the type of GoCD config entity. Can be one of `environment`, `pipeline_group`, `pluggable_scm` or `package_repository`. To represent any entity type use the wildcard **(*)**. |
+| type      | This attribute represents the type of GoCD config entity. Can be one of `environment`, `pipeline_group`, `pluggable_scm`, `package_repository` or `cluster_profile`. To represent any entity type use the wildcard **(*)**. |
 | action    | This attribute represents the allowed action on the Secret Configuration, currently the only allowed action is `refer`.                                           |
 | resource  | The name of resource. E.g. name of the environment when `type` = `environment`.                |
 
@@ -107,6 +107,14 @@ Currently, GoCD allows Secret Params to be added in the following places,
 
     !["Plugin Configuration for Package"][9]
 
+  - Any configuration field for Cluster Profile
+
+    !["Plugin Configuration for Cluster Profile"][10]
+
+  - Any configuration field for Elastic Agent Profile
+
+    !["Plugin Configuration for Elastic Agent Profile"][11]
+
 Secret Params defined anywhere else other than the above would be ignored and treated as a string.
 
 **Secret Param resolution**
@@ -119,6 +127,9 @@ Secrets from an external Secrets Manager are never stored in GoCD, hence the Sec
     - A check connection
     - Save/Validation of the configuration
     - For Plugin and Package materials, the secret params are resolved before being picked up for an update
+  - Secret Params defined in Elastic Configuration will be resolved during
+    - Save/Validation of the configuration
+    - The secret params are resolved just before GoCD makes a request to the the elastic agent plugin. The secret params are only resolved for requests with custer profile and elastic agent profile in the message.
 
 If a Secret Param resolution fails the corresponding task would fail as well. This can lead to a failed job or a failed material update.
 
@@ -140,7 +151,7 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
 
   - Wildcards **(*)** in **type**:
 
-    Using a wildcard **(*)** for type implies a given rule applies to all entity types. In this case, the supported entities are `pipeline_group`, `environment`, `pluggable_scm` and `package_repository`.
+    Using a wildcard **(*)** for type implies a given rule applies to all entity types. In this case, the supported entities are `pipeline_group`, `environment`, `pluggable_scm`, `package_repository` and `cluster_profile`.
 
     > In the given example, a Secret Configuration can be referred by any of the supported entity with the name `production`.
 
@@ -201,3 +212,5 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
 [7]: ../images/configuration/secret-management/7_usage_in_pluggable_scm.png
 [8]: ../images/configuration/secret-management/8_usage_in_package_repository.png
 [9]: ../images/configuration/secret-management/9_usage_in_package.png
+[10]: ../images/configuration/secret-management/10_usage_in_cluster_profile.png
+[11]: ../images/configuration/secret-management/11_usage_in_elastic_agent_profile.png
