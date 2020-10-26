@@ -202,7 +202,7 @@ title: Reference
                     <a href="#filter">&lt;/filter&gt;</a>
                 <a href="#tfs">&lt;/tfs&gt;</a>
                 <a href="#package-material">&lt;package/&gt;</a>
-                <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
+                <a href="#pipeline-dependency-material">&lt;pipeline/&gt;</a>
             <a href="#materials">&lt;/materials&gt;</a>
             <a href="#stage">&lt;stage&gt;</a>
                 <a href="#approval">&lt;approval&gt;</a>
