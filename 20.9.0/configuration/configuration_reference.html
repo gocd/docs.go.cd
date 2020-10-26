@@ -534,7 +534,7 @@ if (!doNotTrack) {
                     <a href="#filter">&lt;/filter&gt;</a>
                 <a href="#tfs">&lt;/tfs&gt;</a>
                 <a href="#package-material">&lt;package/&gt;</a>
-                <a href="#pipeline-dependency">&lt;pipeline/&gt;</a>
+                <a href="#pipeline-dependency-material">&lt;pipeline/&gt;</a>
             <a href="#materials">&lt;/materials&gt;</a>
             <a href="#stage">&lt;stage&gt;</a>
                 <a href="#approval">&lt;approval&gt;</a>
@@ -3324,7 +3324,7 @@ directory where the .ssh/ directory is located.</p>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-</code></pre></div><p>If instead, we want the <code>Server</code> pipeline to run when the stage <code>commonLib2/distStage</code> passes but not on <code>commonLib1/pkgStage</code>, we can set the <code>ignoreForScheduling</code> to <code>true</code> on the <code>commonLib1/pkgStage</code> material:</p>
+</code></pre></div><p>If instead, we want the <code>Server</code> pipeline to run when the stage <code>commonLib2/distStage</code> passes but not on <code>commonLib1/pkgStage</code>, we can set the <code>ignoreForScheduling</code> flag to <code>true</code> on the <code>commonLib1/pkgStage</code> material:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;distStage&#34;</span> <span style="color:#b44">ignoreForScheduling=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
