@@ -2554,7 +2554,7 @@ The `<package>` element refers to package which is defined as part of repositori
 
 [top](#top)
 
-## &lt;pipeline&gt; {#pipeline}
+## &lt;pipeline&gt; {#pipeline-dependency-material}
 
 The `<pipeline>` element specifies that successful completion of a stage in another pipeline will trigger the current pipeline to start.
 
@@ -2569,17 +2569,22 @@ Note that you can not specify two (or more) dependencies for the same upstream p
 | pipelineName | Yes | The name of a pipeline that this pipeline depends on. |
 | stageName | Yes | The name of a stage which will trigger this pipeline once it is successful. |
 | materialName | By default the materialName is the name of the upstream pipeline (the pipelineName). This is required if this material is referenced in pipeline labeltemplate | The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters. |
-| ignoreForScheduling | No (false by default) | When set to true, the pipeline will not be automatically scheduled for changes to this material. However, when the pipeline is triggered (either by another material, or a manual or timer trigger), it will always pick up the latest available version of this material |
+| ignoreForScheduling | No (false by default) | Controls whether the pipeline will run if the specified upstream pipeline/stage passes. <ul><li>When set to `false`, the pipeline will run.</li><li>When set to `true`, the pipeline will not run.</li></ul><p>However, if the pipeline is triggered through other means (e.g., by another material, manually, or via timer), it will always pick up the latest successful run of the upstream pipeline stage specified by this material. |
 
 **Notes:**
 
-The downstream pipeline wouldn't be triggered if there was no passed stage in the upstream pipeline.
+The downstream pipeline will only run if the upstream pipeline stage has passed.
 
 **Examples**
 
-Suppose there are four pipelines, and they are commonLib1, commonLib2, Server and Client. For example, the stage 'distStage' in commonLib1
-pipeline can trigger the other two pipelines, and the stage 'pkgstage' in commonLib2 pipeline can trigger Server pipeline. The configuration
-would be:
+Suppose there are four pipelines: `commonLib1`, `commonLib2`, `Server`, and `Client`.
+
+We can configure these such that:
+
+- When the stage `distStage` from pipeline `commonLib1` passes, it will run pipelines `Server` and `Client`
+- When the stage `pkgstage` from pipeline `commonLib2` passes, it will run the `Server` pipeline
+
+The corresponding configuration would be:
 
 ```xml
 <pipeline name="Server">
@@ -2597,7 +2602,7 @@ would be:
 </pipeline>
 ```
 
-If the Server pipeline needs to be triggered only when commonLib2 changes, the `ignoreForScheduling` flag can be set for the commonLib1 material:
+If instead, we want the `Server` pipeline to run when the stage `commonLib2/distStage` passes but not on `commonLib1/pkgStage`, we can set the `ignoreForScheduling` to `true` on the `commonLib1/pkgStage` material:
 
 ```xml
 <pipeline name="Server">
