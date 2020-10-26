@@ -3265,7 +3265,7 @@ directory where the .ssh/ directory is located.</p>
    <span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
-<h2 id="pipeline">&lt;pipeline&gt;</h2>
+<h2 id="pipeline-dependency-material">&lt;pipeline&gt;</h2>
 <p>The <code>&lt;pipeline&gt;</code> element specifies that successful completion of a stage in another pipeline will trigger the current pipeline to start.</p>
 <p>If there are multiple pipeline dependencies, then any one of them passing will trigger a new pipeline.</p>
 <p>Note that you can not specify two (or more) dependencies for the same upstream pipeline.</p>
@@ -3297,16 +3297,20 @@ directory where the .ssh/ directory is located.</p>
 <tr>
 <td>ignoreForScheduling</td>
 <td>No (false by default)</td>
-<td>When set to true, the pipeline will not be automatically scheduled for changes to this material. However, when the pipeline is triggered (either by another material, or a manual or timer trigger), it will always pick up the latest available version of this material</td>
+<td>Controls whether the pipeline will run if the specified upstream pipeline/stage passes. <ul><li>When set to <code>false</code>, the pipeline will run.</li><li>When set to <code>true</code>, the pipeline will not run.</li></ul><p>However, if the pipeline is triggered through other means (e.g., by another material, manually, or via timer), it will always pick up the latest successful run of the upstream pipeline stage specified by this material.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Notes:</strong></p>
-<p>The downstream pipeline wouldn&rsquo;t be triggered if there was no passed stage in the upstream pipeline.</p>
+<p>The downstream pipeline will only run if the upstream pipeline stage has passed.</p>
 <p><strong>Examples</strong></p>
-<p>Suppose there are four pipelines, and they are commonLib1, commonLib2, Server and Client. For example, the stage &lsquo;distStage&rsquo; in commonLib1
-pipeline can trigger the other two pipelines, and the stage &lsquo;pkgstage&rsquo; in commonLib2 pipeline can trigger Server pipeline. The configuration
-would be:</p>
+<p>Suppose there are four pipelines: <code>commonLib1</code>, <code>commonLib2</code>, <code>Server</code>, and <code>Client</code>.</p>
+<p>We can configure these such that:</p>
+<ul>
+<li>When the stage <code>distStage</code> from pipeline <code>commonLib1</code> passes, it will run pipelines <code>Server</code> and <code>Client</code></li>
+<li>When the stage <code>pkgstage</code> from pipeline <code>commonLib2</code> passes, it will run the <code>Server</code> pipeline</li>
+</ul>
+<p>The corresponding configuration would be:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;distStage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -3320,7 +3324,7 @@ would be:</p>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-</code></pre></div><p>If the Server pipeline needs to be triggered only when commonLib2 changes, the <code>ignoreForScheduling</code> flag can be set for the commonLib1 material:</p>
+</code></pre></div><p>If instead, we want the <code>Server</code> pipeline to run when the stage <code>commonLib2/distStage</code> passes but not on <code>commonLib1/pkgStage</code>, we can set the <code>ignoreForScheduling</code> to <code>true</code> on the <code>commonLib1/pkgStage</code> material:</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;distStage&#34;</span> <span style="color:#b44">ignoreForScheduling=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -4459,7 +4463,7 @@ allow certain variable names and/or values.</p>
     <li><a href="#git">&lt;git&gt;</a></li>
     <li><a href="#tfs">&lt;tfs&gt;</a></li>
     <li><a href="#package">&lt;package&gt;</a></li>
-    <li><a href="#pipeline">&lt;pipeline&gt;</a></li>
+    <li><a href="#pipeline-dependency-material">&lt;pipeline&gt;</a></li>
     <li><a href="#stage">&lt;stage&gt;</a></li>
     <li><a href="#jobs">&lt;jobs&gt;</a></li>
     <li><a href="#job">&lt;job&gt;</a></li>
