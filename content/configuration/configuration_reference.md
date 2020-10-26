@@ -2602,7 +2602,7 @@ The corresponding configuration would be:
 </pipeline>
 ```
 
-If instead, we want the `Server` pipeline to run when the stage `commonLib2/distStage` passes but not on `commonLib1/pkgStage`, we can set the `ignoreForScheduling` to `true` on the `commonLib1/pkgStage` material:
+If instead, we want the `Server` pipeline to run when the stage `commonLib2/distStage` passes but not on `commonLib1/pkgStage`, we can set the `ignoreForScheduling` flag to `true` on the `commonLib1/pkgStage` material:
 
 ```xml
 <pipeline name="Server">
