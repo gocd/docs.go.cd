@@ -81,7 +81,9 @@ function renderResults(query, results) {
         searchUI(SearchStatus.noResults);
         return;
     }
-    searchUI(SearchStatus.publishResults, `${results.length} results matching : <span class="search-query">${query}</span>`);
+
+    let searchTitle = $("<span>", { text: `${results.length} results matching : `}).append($("<span>", { class: 'search-query', text: query }));
+    searchUI(SearchStatus.publishResults, searchTitle);
     results.slice(0, 20).forEach(function (result) {
         let $result = $("<li>");
         $result.append($("<a>", {
@@ -116,7 +118,7 @@ function searchUI(searchStatus, searchTitle) {
             $content.hide();
             $noResultDiv.hide();
             $searchResultTitle.show();
-            $searchResultTitle.html(searchTitle);
+            $searchResultTitle.empty().wrapInner(searchTitle);
             break;
     }
 }
