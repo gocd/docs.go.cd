@@ -1,0 +1,88 @@
+# This workflow will build a hugo project with bundle
+
+name: Build and Publish
+
+on:
+  push:
+    branches:
+      - release-20.9.0
+      - release-20.8.0
+      - release-20.7.0
+      - release-20.6.0
+      - release-20.5.0
+      - release-20.4.0
+      - release-20.3.0
+      - release-20.2.0
+      - release-20.1.0
+      - release-19.12.0
+      - release-19.11.0
+      - release-19.10.0
+      - release-19.9.0
+
+jobs:
+  complete_build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true # would run bundle install
+      - name: Set GOCD_VERSION env
+        run: |
+          echo "GOCD_VERSION=$(echo $GITHUB_REF | sed  's/[a-z-]*//')" >> $GITHUB_ENV
+          echo "GOCD_VERSION set to ${GOCD_VERSION}"
+      - name: Run the build
+        run: bundle exec rake complete_build
+        env:
+          RUN_EXTERNAL_CHECKS: true
+  push_to_gh_pages:
+    needs: complete_build
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_PASSWORD: "${{ secrets.GITHUB_TOKEN }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - name: Set GOCD_VERSION env
+        run: |
+          echo "GOCD_VERSION=$(echo $GITHUB_REF | sed  's/[a-z-]*//')" >> $GITHUB_ENV
+          echo "GOCD_VERSION set to ${GOCD_VERSION}"
+      - name: Set up upstream
+        run: git remote add upstream 'https://\${GITHUB_ACTOR}:\${GITHUB_PASSWORD}@github.com/gocd/docs.go.cd'
+      - name: Install dependencies
+        run: bundle install
+      - name: Publish to gh-pages
+        run: bundle exec rake publish
+        env:
+          REMOTE_NAME: "origin" # might need to update to upstream
+          ALLOW_DIRTY: true
+  sync_to_s3:
+    needs: push_to_gh_pages
+    runs-on: ubuntu-latest
+    env:
+      S3_BUCKET: "${{ secrets.S3_BUCKET }}"
+      AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
+      AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Set up Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+          bundler-cache: true # would run bundle install
+      - name: Set GOCD_VERSION env
+        run: |
+          echo "GOCD_VERSION=$(echo $GITHUB_REF | sed  's/[a-z-]*//')" >> $GITHUB_ENV
+          echo "GOCD_VERSION set to ${GOCD_VERSION}"
+      - name: Upload to S3
+        run: bundle exec rake upload_to_s3
+
