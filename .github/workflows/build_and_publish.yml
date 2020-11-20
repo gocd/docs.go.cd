@@ -34,12 +34,11 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-      - name: Set up upstream
-        run: git remote add upstream 'https://\${GITHUB_ACTOR}:\${GITHUB_PASSWORD}@github.com/gocd/docs.go.cd'
-      - name: Install dependencies
-        run: bundle install
-      - name: Publish to gh-pages
-        run: bundle exec rake publish
+      - name: Set up upstream and publish to gh pages
+        run: |
+          git remote add upstream 'https://\${GITHUB_ACTOR}:\${GITHUB_PASSWORD}@github.com/gocd/docs.go.cd'
+          bundle install
+          bundle exec rake publish
         env:
           REMOTE_NAME: "origin" # might need to update to upstream
           ALLOW_DIRTY: true
