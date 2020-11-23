@@ -605,9 +605,8 @@ Enable replication on the primary PostgreSQL instance The recommended replicatio
       
       <guid>/gocd_on_kubernetes/helm_install.html</guid>
       <description>Getting Started with GoCD on Kubernetes Step 2: Install the GoCD Helm chart Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
-First verify your Helm version using command helm version.
-For Helm version 3 and bove, install the official GoCD Helm chart with this command:
-kubectl create ns gocd helm install gocd stable/gocd --namespace gocd If you&amp;rsquo;re using an older version of Helm, then use this command:</description>
+First verify your Helm version using command helm version, then install the official GoCD Helm chart as follows:
+ Add the GoCD helm chart repository:  helm repo add gocd https://gocd.github.io/helm-chart helm repo update Run the install command:  For Helm v3:</description>
     </item>
     
     <item>
