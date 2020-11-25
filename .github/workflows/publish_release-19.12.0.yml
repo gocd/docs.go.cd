@@ -5,19 +5,10 @@ name: Build and Publish
 on:
   push:
     branches:
-      - release-20.9.0
-      - release-20.8.0
-      - release-20.7.0
-      - release-20.6.0
-      - release-20.5.0
-      - release-20.4.0
-      - release-20.3.0
-      - release-20.2.0
-      - release-20.1.0
       - release-19.12.0
-      - release-19.11.0
-      - release-19.10.0
-      - release-19.9.0
+
+env:
+  GOCD_VERSION: '19.12.0'
 
 jobs:
   complete_build:
@@ -29,11 +20,8 @@ jobs:
         with:
           ruby-version: 2.7.2
           bundler-cache: true # would run bundle install
-      - name: Set GOCD_VERSION env and run complete build
-        run: |
-          echo "GOCD_VERSION=$(echo $GITHUB_REF | sed  's/[a-z-]*//')" >> $GITHUB_ENV
-          echo "GOCD_VERSION set to ${GOCD_VERSION}"
-          bundle exec rake complete_build
+      - name: Run complete build
+        run: bundle exec rake complete_build
         env:
           RUN_EXTERNAL_CHECKS: true
   push_to_gh_pages:
@@ -49,10 +37,8 @@ jobs:
         uses: ruby/setup-ruby@v1
         with:
           ruby-version: 2.7.2
-      - name: Set GOCD_VERSION env and publish to gh-pages
+      - name: Publish to gh-pages
         run: |
-          echo "GOCD_VERSION=$(echo $GITHUB_REF | sed  's/[a-z-]*//')" >> $GITHUB_ENV
-          echo "GOCD_VERSION set to ${GOCD_VERSION}"
           git remote add upstream 'https://\${GITHUB_ACTOR}:\${GITHUB_PASSWORD}@github.com/gocd/docs.go.cd'
           bundle install
           bundle exec rake publish
@@ -75,9 +61,6 @@ jobs:
         with:
           ruby-version: 2.7.2
           bundler-cache: true # would run bundle install
-      - name: Set GOCD_VERSION env and upload to s3
-        run: |
-          echo "GOCD_VERSION=$(echo $GITHUB_REF | sed  's/[a-z-]*//')" >> $GITHUB_ENV
-          echo "GOCD_VERSION set to ${GOCD_VERSION}"
-          bundle exec rake upload_to_s3
+      - name: Upload to s3
+        run: bundle exec rake upload_to_s3
 
