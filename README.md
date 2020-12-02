@@ -54,10 +54,10 @@ yarn run hugo [arguments]
 
 ### Releasing a new version of the documentation
 
-Assuming current stable is `17.4.0`, you are about to release `17.5.0` and the next version is going to be `17.6.0`, you would execute -
+Assuming current stable is `17.5.0`, you are about to release `17.6.0` and the next version is going to be `17.7.0`, you would execute -
 
 ```
-CURRENT_VERSION=17.4.0 VERSION_TO_RELEASE=17.5.0  NEXT_VERSION=17.6.0 REMOTE_NAME=upstream rake bump_version
+CURRENT_VERSION=17.5.0 VERSION_TO_RELEASE=17.6.0  NEXT_VERSION=17.7.0 REMOTE_NAME=upstream rake bump_version
 ```
 
 ## License
