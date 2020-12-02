@@ -1,6 +1,6 @@
 # This workflow will build a hugo project with bundle
 
-name: Build and Publish
+name: Build and Publish 20.1.0
 
 on:
   push:
