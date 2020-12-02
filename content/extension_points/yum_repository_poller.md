@@ -132,4 +132,3 @@ Although the support for package as material in GoCD isn't concerned with how th
 2. This plugin makes use of buildtime in rpm metadata to determine if a poll has returned a new result. If for some reason (e.g. timezone misconfiguration), the buildtime of pkg-1.1 is less than that of pkg-1.0, then the plugin will not register pkg-1.1 as a newer package.
 3. The only way to update an rpm is to change the version or release. [Republishing](http://unix.stackexchange.com/questions/71288/does-yum-use-package-buildtime-to-decide-if-a-package-is-newer) a different file with the same name and different buildtime won't do.
 4. Package groups are not supported.
-5. The [GoCD command repository](https://github.com/gocd/go-command-repo/tree/master/package/rpm) has a bunch of commands related to rpm packages.
