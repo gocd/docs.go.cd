@@ -43,7 +43,7 @@ jobs:
           git config --global user.email "github-actions@github.com"
       - name: Publish to gh-pages
         run: |
-          git remote add upstream 'https://github-actions:${GITHUB_PASSWORD}@github.com/gocd/docs.go.cd'
+          git remote add upstream "https://github-actions:${GITHUB_PASSWORD}@github.com/gocd/docs.go.cd"
           bundle install
           bundle exec rake publish
         env:
