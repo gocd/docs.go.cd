@@ -332,7 +332,8 @@ is not defined at the stage and job levels, the value of `ENV_PIP` will be 2. Th
 
 # Templates {#templates}
 
-This section is a work in progress.
+Templating helps to create reusable workflows in order to make tasks like creating and maintaining branches, and managing large number of pipelines easier.
+Pipeline Templates can be managed from the Templates tab on the Administration Page.
 
 
 # Image attributions
