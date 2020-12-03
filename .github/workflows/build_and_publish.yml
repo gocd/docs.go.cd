@@ -1,11 +1,13 @@
 # This workflow will build a middleman project with bundle
 
-name: Master Build and Publish
+name: Build and Publish
 
 on:
   push:
     branches:
       - master
+      # Push events to branches matching refs/heads/release-*
+      - 'release-*'
 
 env:
   RUN_EXTERNAL_CHECKS: true
