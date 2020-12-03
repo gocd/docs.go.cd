@@ -250,7 +250,7 @@ From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signe
 - Version 20.5 of GoCD server will no longer contain any functionality to configure TLS. At this point, users will be expected to terminate
   SSL elsewhere.
 
-More information can be found [in issue #7872](https://github.com/gocd/gocd/issues/7872).
+More information can be found in [issue #7872](https://github.com/gocd/gocd/issues/7872).
 
 <a name="ports-in-use"></a>
 ### Port 8153 (HTTP) or 8154 (HTTPS) could not be opened
