@@ -58,7 +58,7 @@ sudo apt-get install go-server
 
 Run the GoCD installer as described
 ```bash
-sudo rpm -Uvh /path/to/go-server-${version}.deb
+sudo rpm -Uvh /path/to/go-server-${version}.rpm
 sudo yum upgrade go-server
 ```
 
