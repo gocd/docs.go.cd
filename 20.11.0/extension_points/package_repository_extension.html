@@ -225,7 +225,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
       <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
       <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
-      <li class="level2"><a href="../advanced_usage/command_repository.html">Command Repository</a></li>
       <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
       <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
       <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
@@ -466,7 +465,6 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 </blockquote>
 <h3 id="publishing-a-package">Publishing a Package</h3>
 <p>At the moment, GoCD does not create or publish the package for you. But it is simple enough for each type of package. e.g. <a href="yum_repository_poller.html#creating-and-publishing-rpms">rpm</a></p>
-<p>You could also explore the command repository on <a href="https://github.com/gocd/go-command-repo/tree/master/deploy">GitHub</a> for helpful commands. What is command repository? Please see <a href="../advanced_usage/command_repository.html">this</a>.</p>
 <h3 id="package-dependencies">Package Dependencies</h3>
 <p>Please note that GoCD does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let</p>
 <div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install componentA-1.2.0-b234-noarch

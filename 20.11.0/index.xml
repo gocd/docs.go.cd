@@ -198,15 +198,6 @@ By default, GoCD will kill any currently running tasks . There are two other alt
     </item>
     
     <item>
-      <title>Command Repository</title>
-      <link>/advanced_usage/command_repository.html</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>/advanced_usage/command_repository.html</guid>
-      <description>GoCD Command Repository Introduction This feature is an enhancement to Custom Commands in GoCD. Rather than start from scratch with command name and arguments, you now have the option to look up a command from a repository of useful commands maintained by the Go team. The lookup provides a starting point, you may need to edit the arguments, specify a working directory etc. Once saved, the behaviour is the same as a manually entered custom command.</description>
-    </item>
-    
-    <item>
       <title>Compare Builds</title>
       <link>/advanced_usage/compare_pipelines.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
