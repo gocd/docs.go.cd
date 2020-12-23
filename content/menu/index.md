@@ -139,7 +139,6 @@ headless: true
       <li class="level2"><a href="{{< relref "advanced_usage/ui_testing.md" >}}">UI Testing</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/compare_pipelines.md" >}}">Compare Builds</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/stage_duration_chart.md" >}}">Graphs</a></li>
-      <li class="level2"><a href="{{< relref "advanced_usage/command_repository.md" >}}">Command Repository</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/one_click_backup.md" >}}">Backup GoCD Server</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/cron_backup.md" >}}">Timer Based GoCD Server Backup</a></li>
       <li class="level2"><a href="{{< relref "advanced_usage/config_repo.md" >}}">Config Repository</a></li>
