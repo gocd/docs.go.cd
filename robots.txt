@@ -6,8 +6,9 @@ Allow: /current
 Allow: /current/
 
 # Disallow versioned directories
-Disallow: /20.9.0
-Disallow: /20.11.0
+Disallow: /20.10.0
+Disallow: /21.2.0
+Disallow: /21.1.0
 Disallow: /20.10.0
 Disallow: /20.9.0
 Disallow: /20.8.0
