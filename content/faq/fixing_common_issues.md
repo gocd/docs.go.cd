@@ -122,6 +122,28 @@ at the end of these files might be interesting. Some common errors are:
     this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
     needs Java 7.
 
+4. **Agent tokens have been invalidated or you are trying to switch to another server**
+
+    You already have successfully enabled the agent on the server, but now the agent doesn't show up anymore on the server.
+    
+    go-agent.log reads like this:
+
+        java.lang.RuntimeException: org.apache.http.client.ClientProtocolException: The server returned status code 403. Possible reasons include:
+        - This agent has been deleted from the configuration
+        - This agent is pending approval
+        - There is possibly a reverse proxy (or load balancer) that has been misconfigured. See https://docs.gocd.org/21.1.0/installation/configure-reverse-proxy.html#agents-and-reverse-proxies for details.
+
+    Scenario 1: You have re-installed the server from scratch or cleaned up a few files on the server.
+    Thereby you have invalidated the tokens of all agents and no agent can connect to the server anymore.
+    
+    Scenario 2: You are trying to connect the agent to a different server. Of course, the agent's token isn't valid for the new server.
+    
+    Unfortunately, the agent cannot simply drop the invalidated token, because it might be one of the other reasons above - and then
+    dropping the token wouldn't be a good idea.
+    
+    Instead, you have to deleted the invalidated token manually. Find the agent's config directory (/var/lib/go-agent/config by default under Linux) and delete the files `guid.txt` and `token`.
+
+
 <a id="path_issues"></a>
 ### Command not found (git, svn, mvn, ant or others)
 
