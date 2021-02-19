@@ -125,7 +125,7 @@ at the end of these files might be interesting. Some common errors are:
 4. **Agent tokens have been invalidated or you are trying to switch to another server**
 
     You already have successfully enabled the agent on the server, but now the agent doesn't show up anymore on the server.
-    
+
     go-agent.log reads like this:
 
         java.lang.RuntimeException: org.apache.http.client.ClientProtocolException: The server returned status code 403. Possible reasons include:
@@ -135,12 +135,12 @@ at the end of these files might be interesting. Some common errors are:
 
     Scenario 1: You have re-installed the server from scratch or cleaned up a few files on the server.
     Thereby you have invalidated the tokens of all agents and no agent can connect to the server anymore.
-    
+
     Scenario 2: You are trying to connect the agent to a different server. Of course, the agent's token isn't valid for the new server.
-    
+
     Unfortunately, the agent cannot simply drop the invalidated token, because it might be one of the other reasons above - and then
     dropping the token wouldn't be a good idea.
-    
+
     Instead, you have to deleted the invalidated token manually. Find the agent's config directory (/var/lib/go-agent/config by default under Linux) and delete the files `guid.txt` and `token`.
 
 
@@ -258,10 +258,10 @@ The AJAX API request has a timeout set to 5000 milliseconds, if the server does 
 Resolution: If this is happening, consider increase the timeout period by specifying the [go.spa.timeout](../advanced_usage/other_config_options.html#go-spa-timeout)
 
 <a name="https-port-not-started"></a>
-### Application not listening to port 8154 (HTTPS) 
+### Application not listening to port 8154 (HTTPS)
 
 From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL certificates or listen to port 8154 (HTTPS) by default. To keep backward compatibility and minimize disruption:
-    
+
 - New versions of GoCD (>= 20.2) will not bring up TLS port 8154. There will be no way for such users to configure built-in TLS. A reverse
   proxy will need to be the one terminating TLS if needed.
 
