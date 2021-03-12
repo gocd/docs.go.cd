@@ -26,6 +26,7 @@ namespace :static_checks do
       :external_only        => false ,
       :check_html           => false,
       :typhoeus => {
+          :followlocation => true,
           :ssl_verifypeer => false,
           :connecttimeout => 500,
       },
