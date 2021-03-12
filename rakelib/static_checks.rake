@@ -17,7 +17,7 @@ namespace :static_checks do
       :url_ignore           => [/([https]:\/\/(localhost):*)|([a-z0-9:\/-]*:8154)|([a-z0-9:\/-]*:8153)|(your)|(svn)|([a-zA-z@:\/_]*.git|(docs.gocd.org))/],
       :allow_hash_href      => true,
       :allow_missing_href   => true,
-      :href_ignore          => ['/https:\/\/www\.youtube\.com\/.*/'],
+      :href_ignore          => ['/https:\/\/www\.youtube\.com\/.*/', '/https:\/\/www\.fastmail\.com\/.*/'],
       :validation           => {
           :report_invalid_tags  => false,
           :report_script_embeds => false,
