@@ -26,4 +26,4 @@ If your email server uses STARTTLS, then you need to set the system property ```
 
 #### References:
 
-- External site: [SSL vs TLS vs STARTTLS](https://www.fastmail.com/help/technical/ssltlsstarttls.html)
+- External site: <a href="https://www.fastmail.com/help/technical/ssltlsstarttls.html" data-proofer-ignore>SSL vs TLS vs STARTTLS</a>
