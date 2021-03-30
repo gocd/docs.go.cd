@@ -104,6 +104,6 @@ These are the only network file systems GoCD is officially tested on. If you fin
 
 ### Java Dependencies for GoCD (Server and Agent)
 
-This version of GoCD works with Java Runtime Environment (JRE) versions 11 and 12.
+All GoCD installers except for the Generic Zip installer are bundled with an appropriate version of the JRE, hence you do not need to install Java separately to run GoCD Server or Agent. If you still want to use a specific JRE, this version of GoCD requires Java Runtime Environment (JRE) versions 13 and above.
 
-Given Java has moved to a 6-month release cycle, GoCD will work with the latest 3 available versions of Java at the time of the release. Please refer to this [blog post](https://www.gocd.org/2019/05/21/official-stance-on-java/) for GoCD's official stance on supported Java versions.
+Given Java has moved to a 6-month release cycle, GoCD comes bundled with the latest version of JRE. Please refer to this [blog post](https://www.gocd.org/2019/05/21/official-stance-on-java/) for GoCD's official stance on supported Java versions.
