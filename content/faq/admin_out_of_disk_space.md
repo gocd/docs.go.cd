@@ -30,7 +30,7 @@ GoCD can be configured to automatically delete artifacts if the available disk s
 > You must be logged in as an admin user to configure this step.
 
 1. Navigate to the Admin section on the GoCD dashboard.
-2. Navigate to the Pipeline Management sub-section
+2. Navigate to the Artifacts Management sub-section
 3. Specify when GoCD should begin to purge artifacts in the first edit box.
 4. Specify when GoCD should stop purging artifacts in the second edit box.
 
