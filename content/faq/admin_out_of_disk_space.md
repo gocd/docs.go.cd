@@ -29,8 +29,8 @@ GoCD can be configured to automatically delete artifacts if the available disk s
 
 > You must be logged in as an admin user to configure this step.
 
-1. Navigate to the Admin section on the GoCD dashboard.
-2. Navigate to the Pipeline Management sub-section
+1. Navigate to the "Admin -> Server Configuration" section from the header on any page in GoCD.
+2. Navigate to the Artifacts Management sub-section.
 3. Specify when GoCD should begin to purge artifacts in the first edit box.
 4. Specify when GoCD should stop purging artifacts in the second edit box.
 
@@ -42,9 +42,9 @@ GoCD can be configured to automatically delete artifacts if the available disk s
 
 You can disallow deletion of artifacts from a particular stage so that those artifacts are excluded during deletion. This option can be set in the stage editor for a pipeline. This option can be set for stages that are important so that artifacts for the stage are preserved.
 
-1. Navigate to the admin section on the GoCD dashboard.
-2. Navigate to the pipelines section and choose a pipeline to edit
-3. Navigate to the stage settings for the stage
+1. Navigate to the Admin section on the GoCD dashboard.
+2. Navigate to the Pipelines section and choose a pipeline to edit.
+3. Navigate to the Stage settings for the stage.
 
 ![Disable artifact cleanup](../images/artifact_disable_stage.png)
 
