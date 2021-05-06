@@ -406,7 +406,7 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 <li>
 <p>The first scenario is where the package is published from some pipeline in GoCD. Say pipeline X publishes package P to an external repo and pipeline Y consumes P. To trigger Y after publication of P, there are two options:</p>
 <ol>
-<li>Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this <a href="http://support.thoughtworks.com/entries/23754976-Pass-variables-to-other-pipelines">tip</a> may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the <a href="../navigation/value_stream_map.html">value stream map.</a></li>
+<li>Pipeline dependency: X becomes a material for Y. Y resolves the exact version of P and downloads it on its own (although this <a href="https://groups.google.com/g/go-cd/c/uhvtmYfoRMs">tip</a> may be used to pass package version information from X to Y). X will appear as an upstream component of Y in the <a href="../navigation/value_stream_map.html">value stream map.</a></li>
 <li>Package material: Y adds P as a package material. Y no longer has to resolve P.</li>
 </ol>
 <p>It isn&rsquo;t advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option #1 makes sense.</p>
