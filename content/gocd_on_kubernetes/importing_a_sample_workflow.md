@@ -90,7 +90,7 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
     spec:
       containers:
         - name: gocd-agent-container-{{ CONTAINER_POSTFIX }}
-          image: gocddemo/gocd-agent-dind:webinar
+          image: gocd/gocd-agent-docker-dind:v21.2.0
           env:
             - name: KUBE_TOKEN
               valueFrom:
@@ -114,6 +114,8 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
           securityContext:
             privileged: true
     ```
+
+>**Note** - The provided pod yaml uses the agent image [gocd/gocd-agent-docker-dind](https://hub.docker.com/r/gocd/gocd-agent-docker-dind) and uses the tag `v21.2.0`. Please use the version which corresponds to the GoCD server you have installed.
 
 ### Setup external pipeline configuration repository
 
