@@ -24,7 +24,7 @@ To perform a custom cleanup through the web interface, edit the desired **task c
 
 ### Example: Override task to perform custom cleanup
 
-Usage: As a developer, I want to stop running my [Twist](http://www.thoughtworks.com/products/twist-agile-testing) tests and clean up the environment on each job when I cancel the stage.
+Usage: As a developer, I want to stop running my [Twist](https://en.wikipedia.org/wiki/Twist_(software)) tests and clean up the environment on each job when I cancel the stage.
 
 - On the _Admin > Pipelines_ tab, edit the jobs that should handle canceling correctly
 - Ensure the following "task" block is in the job configuration
