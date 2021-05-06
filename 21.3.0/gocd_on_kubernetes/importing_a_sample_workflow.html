@@ -395,7 +395,7 @@ metadata:
 spec:
   containers:
     - name: gocd-agent-container-{{ CONTAINER_POSTFIX }}
-      image: gocddemo/gocd-agent-dind:webinar
+      image: gocd/gocd-agent-docker-dind:v21.2.0
       env:
         - name: KUBE_TOKEN
           valueFrom:
@@ -420,6 +420,9 @@ spec:
         privileged: true
 </code></pre></li>
 </ol>
+<blockquote>
+<p><strong>Note</strong> - The provided pod yaml uses the agent image <a href="https://hub.docker.com/r/gocd/gocd-agent-docker-dind">gocd/gocd-agent-docker-dind</a> and uses the tag <code>v21.2.0</code>. Please use the version which corresponds to the GoCD server you have installed.</p>
+</blockquote>
 <h3 id="setup-external-pipeline-configuration-repository">Setup external pipeline configuration repository</h3>
 <p>GoCD pipelines can be defined in code in either YAML or JSON format. These pipeline definitions can be stored in a source code repository, either in your application&rsquo;s repository or a separate repository.</p>
 <p>The GoCD sample pipelines build and publish an image of a <a href="https://github.com/gocd-demo/node-bulletin-board">sample nodejs application</a> called &lsquo;Bulletin Board&rsquo;. These pipeline configurations are available in the repository:</p>
