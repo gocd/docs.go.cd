@@ -9,6 +9,6 @@ title: Multiple Agents on One Machine
 
 In order to fully utilize your hardware, it is often useful to install multiple agents on a single machine.
 
-See the file `README-running-multiple-agents.md` in your GoCD agent installation for details on setting up multiple agents.
+See the file [`README-running-multiple-agents.md`](https://github.com/gocd/gocd/blob/master/installers/go-agent/release/README-running-multiple-agents.md) in your GoCD agent installation for details on setting up multiple agents.
 
 On Linux, it is usually available in `/usr/share/doc/go-agent`. The recommended way to get the instructions file is to find it in the ZIP distribution of the specific version of the GoCD agent you want to run multiple instances of.
