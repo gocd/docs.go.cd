@@ -58,7 +58,7 @@ There can be cases wherein Admins might want to restrict the usage of Secret Man
   - `Deny`  - Explicitly denies usage of the Secret Manager to a GoCD entity.
     
      ```xml
-     <deny type="environment" action="refer">resource_identifier</allow>
+     <deny type="environment" action="refer">resource_identifier</deny>
      ```
 
 The rules have the following attributes,
