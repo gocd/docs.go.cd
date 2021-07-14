@@ -283,3 +283,15 @@ This issue shows up an error when starting GoCD Server:
     Port 8154 could not be opened. Please Check if it is available
 
 This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties `cruise.server.port` and `cruise.server.ssl.port` to appropriate values. These system properties can be set in the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
+
+<a name="expand-shell-profile"></a>
+### Expand the shell profile
+
+GoCD agents use a restricted shell profile. The go user profile is not sourced when the agent starts or a shell command is run. This can result in the GoCD agent being unable to run applications installed in non default locations.
+
+To expand the PATH variable, the wrapper-properties.conf file should be updated to include the required PATH locations. The example below shows how to expand the PATH to support rbenv.
+
+```shell
+# On Unix/Linux/macOS. Note that you must use %PATH%, and not $PATH, as you'd normally do on this platform
+set.PATH=var/go/.rbenv/plugins/ruby-build/bin:/var/go/.rbenv/shims:%PATH%
+```
