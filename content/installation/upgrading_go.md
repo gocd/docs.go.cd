@@ -16,7 +16,7 @@ The steps in this page can be followed to upgrade GoCD. It is recommended to und
 
 ### Before you start
 
-- Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.1). Maintainance mode can be turned on under _Admin > Server Maintenance Mode_
+- Before you begin upgrading, it is recommended that you turn on maintenance mode on your GoCD server (available since version 19.1). Maintenance mode can be turned on under _Admin > Server Maintenance Mode_
 - Navigate to the backup page under _Admin > Backups_ and take a backup. This may take several minutes, depending on the size of your GoCD database and configuration.
 - The GoCD server acts as a repository for all your build artifacts. While it is not essential to backup the artifacts before an upgrade, it is good practice to make regular backups of this directory.
 
