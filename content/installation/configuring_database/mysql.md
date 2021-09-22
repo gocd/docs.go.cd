@@ -28,7 +28,7 @@ GRANT ALL ON gocd.* TO 'gocd_user'@'localhost';
 GRANT SUPER ON *.* TO 'gocd_user'@'localhost';
 ```
 
-**Note**: You need to add the `SUPER` privilege for the first time, since there is a trigger created. MySQL doesn't allow that trigger to be created without the SUPER privilege and will fail with [error 1419](https://dev.mysql.com/doc/refman/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super) if it is not provided. This privilege can be revoked after the first startup.
+**Note**: You need to add the `SUPER` privilege for the first time, since there is a trigger created. MySQL doesn't allow that trigger to be created without the SUPER privilege and will fail with [error 1419](https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super) if it is not provided. This privilege can be revoked after the first startup.
 
 
 ### Step 3: Configure GoCD with MySQL connection details
