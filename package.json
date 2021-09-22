@@ -18,7 +18,7 @@
     "lunr": "2.3.8",
     "markdown-it": "^11.0.0",
     "string": "^3.3.3",
-    "gray-matter": "^4.0.2",
+    "gray-matter": "^4.0.3",
     "he": "^1.2.0"
   },
   "hugo-bin": {
