@@ -15,7 +15,7 @@
   "dependencies": {
     "grunt": "^1.1.0",
     "hugo-bin": "^0.60.0",
-    "lunr": "2.3.8",
+    "lunr": "2.3.9",
     "markdown-it": "^11.0.0",
     "string": "^3.3.3",
     "gray-matter": "^4.0.2",
