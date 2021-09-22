@@ -296,7 +296,7 @@ Scaling GoCD As the number of pipelines, agents and concurrent users increase in
       <guid>/installation/upgrading_go.html</guid>
       <description>Upgrading GoCD The steps in this page can be followed to upgrade GoCD. It is recommended to understand any breaking changes between the releases to see if they impact your upgrades in any way.
  Note: If upgrading from a GoCD release &amp;lt;= 20.4.0, there is a the one-time DB migration that needs to be performed as well.
- Before you start   Before you begin upgrading, it is recommended that you turn on maintainance mode on your GoCD server (available since version 19.</description>
+ Before you start   Before you begin upgrading, it is recommended that you turn on maintenance mode on your GoCD server (available since version 19.</description>
     </item>
     
     <item>
