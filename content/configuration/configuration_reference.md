@@ -3202,7 +3202,7 @@ The task 'start\_server' starts a process on an agent. When the stage is cancell
 ## &lt;artifact&gt; {#artifact}
 
 Publish build or test artifacts to the artifact repository for the job. The src attribute should point towards a folder that contains the test output files. Go will use these to generate a test report if the artifact type is `test`. Test
-information is placed in the Failures and Test sub-tabs. Test results from multiple jobs are aggregated on the stage detail pages. This allows you to see the results of tests from both functional and unit tests even if they are run in different jobs.
+information is placed in the Tests sub-tab.
 
 **Attributes**
 

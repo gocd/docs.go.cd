@@ -86,8 +86,6 @@ For power users, here's how you would configure this via Config XML:
 GoCD will:
 
 - add a tab called Tests that lists the tests in the project
-- add a list of the failed tests to the Failures tab
-- set the properties associated with tests on the job. These include failed-test-count, ignored-test-count, test-time and total-test-count
 - copy the artifacts into the repository. In this case the test reports will be copied into a new directory test-reports in the artifact repository
 
 ### RESTful API

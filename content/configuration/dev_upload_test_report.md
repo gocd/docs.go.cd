@@ -6,9 +6,14 @@ title: Publish Reports and Artifacts
 
 # Publishing artifacts
 
-When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you [understand why the build is broken](../faq/dev_understand_why_build_broken.html). You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.
+When executing a job on an agent there are often artifacts created that we need to keep around.
 
-To publish artifacts you add a an [< artifact >](configuration_reference.html#artifact) to the job configuration. More information can be found on the [Managing artifacts and reports](managing_artifacts_and_reports.html) page.
+For example
+* JUnit creates xml reports that GoCD is able to parse in order to help us [understand why the build is broken](../faq/dev_understand_why_build_broken.html). We can use GoCD with any JUnit style xml reports.
+* a build automation tool might product an HTML report for test, or code coverage report that we wish to view alongside the build results
+* we might create a video of our UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.
+
+To publish artifacts we add an [< artifact >](configuration_reference.html#artifact) to the job configuration. More information can be found on the [Managing artifacts and reports](managing_artifacts_and_reports.html) page.
 
 ## Example usages
 
