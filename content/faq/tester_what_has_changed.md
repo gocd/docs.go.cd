@@ -5,7 +5,7 @@ title: See changes in new binary
 ---
 
 
-# What has changed in the current GOCD version?
+# What has changed in the current GoCD version?
 
 When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
 
