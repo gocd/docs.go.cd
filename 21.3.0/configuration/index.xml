@@ -325,7 +325,9 @@ A permission consists of 3 values:
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/configuration/dev_upload_test_report.html</guid>
-      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you understand why the build is broken. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.</description>
+      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around.
+For example
+ JUnit creates xml reports that GoCD is able to parse in order to help us understand why the build is broken. We can use GoCD with any JUnit style xml reports. a build automation tool might product an HTML report for test, or code coverage report that we wish to view alongside the build results we might create a video of our UI tests that we want displayed in GoCD.</description>
     </item>
     
     <item>

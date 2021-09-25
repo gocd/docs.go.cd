@@ -337,23 +337,17 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown"><h1 id="what-has-changed-in-the-current-gocd-version">What has changed in the current GOCD version?</h1>
+<article class="markdown"><h1 id="what-has-changed-in-the-current-gocd-version">What has changed in the current GoCD version?</h1>
 <p>When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.</p>
 <h2 id="example-usage">Example usage</h2>
 <p>For this example, we&rsquo;ll assume that there is a manual &ldquo;UAT&rdquo; stage will automatically deploy and install an executable on your user acceptance testing machine.</p>
-<ul>
-<li>On the <em>Dashboard</em> page, click on the name of your pipeline</li>
-</ul>
-<p><img src="../images/1_click_pipeline_name.png" alt=""></p>
-<ul>
-<li>Now that you&rsquo;re on the pipeline history page, you can see exactly how far each check-in has gotten in your pipeline</li>
-<li>Find the check-in that&rsquo;s currently in UAT. In this example, it has the pipeline label of <strong>2.0.0.5077</strong></li>
-</ul>
-<p><img src="../images/2_find_in_uat.png" alt=""></p>
-<ul>
-<li>For every check-in earlier than the one in UAT, click to see the comments</li>
-</ul>
-<p><img src="../images/3_click_modifications.png" alt=""></p>
+<p>On the <em>Dashboard</em> page, find your pipeline, and click to navigate to the pipeline history</p>
+<p><img src="../images/dashboard_click_pipeline_history.png" alt=""></p>
+<p>Now that you&rsquo;re on the pipeline history page, you can see exactly how far each check-in has gotten in your pipeline</p>
+<p>Find the check-in that&rsquo;s currently in UAT. In this example, it has the pipeline label of <strong>2.0.0.5077</strong></p>
+<p><img src="../images/pipeline_history_find_in_uat_stage.png" alt=""></p>
+<p>For every check-in earlier than the one in UAT, click to see the comments</p>
+<p><img src="../images/pipeline_history_click_modifications.png" alt=""></p>
 </article>
 
       

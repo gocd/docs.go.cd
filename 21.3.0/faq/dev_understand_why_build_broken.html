@@ -7,10 +7,10 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Why the Build is Broken? | GoCD User Documentation</title>
+<title>Why is the Build Broken? | GoCD User Documentation</title>
 
 <meta name="description" content="Why is the build broken?"/>
-<meta name="keywords" content="[broken build, fix build, failed build, faild stages, failed job]"/>
+<meta name="keywords" content="[broken build, fix build, failed build, failed stages, failed job, build output, console, tests tab]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/faq/dev_understand_why_build_broken.html"/>
 <script src="../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
@@ -324,7 +324,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../svg/menu.svg" />
   </label>
-  <strong>Why the Build is Broken?</strong>
+  <strong>Why is the Build Broken?</strong>
 </header>
 
       
@@ -339,30 +339,26 @@ if (!doNotTrack) {
       
 <article class="markdown"><h1 id="why-is-the-build-broken">Why is the build broken?</h1>
 <p>Knowing the build is broken is only the first step. Now we need to understand what caused it to break.</p>
-<h3 id="example-usage">Example usage</h3>
+<h2 id="with-console-output">With Console output</h2>
 <p>Usage: As a developer, I want to understand why the build is broken.</p>
-<p>Let&rsquo;s assume that in this case, we are on a java project using JUnit as our testing library.</p>
-<ul>
-<li>If we&rsquo;re not already, we need to configure Go to <a href="../configuration/dev_upload_test_report.html">upload JUnit xml reports</a></li>
-<li>Click on the <strong>Pipelines</strong> tab</li>
-</ul>
-<p><img src="../images/topnav_pipelines.png" alt=""></p>
-<ul>
-<li>Click on the failed stage you want to investigate</li>
-</ul>
-<p><img src="../images/click_on_stage.png" alt=""></p>
-<ul>
-<li>Click on the failed job</li>
-</ul>
-<p><img src="../images/7_click_failed_job.png" alt=""></p>
-<ul>
-<li>The &ldquo;Failures&rdquo; sub-tab should help you diagnose what is wrong with your build</li>
-</ul>
-<p><img src="../images/8_failures_tab.png" alt=""></p>
-<ul>
-<li>If you need more information, the &ldquo;Console&rdquo; sub-tab contains everything that was written out to the console (including extra information from Go)</li>
-</ul>
-<p><img src="../images/9_console_tab.png" alt=""></p>
+<p>Click on the <strong>Dashboard</strong> tab</p>
+<p><img src="../images/topnav_dashboard.png" alt=""></p>
+<p>Determine the failed stage you want to investigate, and click on it</p>
+<p><img src="../images/dashboard_click_failed_stage.png" alt=""></p>
+<p>Determine which job within the stage failed, and click on it <strong>[1]</strong></p>
+<p><img src="../images/dashboard_stage_overview_popup.png" alt=""></p>
+<p>Review the console log to determine the reason for failure. This includes environment variables and metadata written by GoCD along with output from the tasks within the job.</p>
+<p><img src="../images/stage_details_console_tab.png" alt=""></p>
+<p>By reviewing the output of our tasks we can generally understand which task failed, and thus why the build failed.</p>
+<h3 id="via-stage-details">Via Stage Details</h3>
+<p>We can also navigate to the console log from the stage details page, highlighted as <strong>[2]</strong> from the Dashboard stage overview pop-up
+<img src="../images/stage_details_click_job.png" alt=""></p>
+<h2 id="with-the-tests-tab">With the Tests Tab</h2>
+<p>What if we are working on a project that can produces JUnit or NUnit test results? In this case, we might want
+to configure GoGD to <a href="../configuration/dev_upload_test_report.html">upload JUnit xml reports</a> which can be parsed by GoCD.</p>
+<p>If we have done this we can look at the &ldquo;Tests&rdquo; sub-tab to determine whether the build failure was due to test failures, how many tests failed
+and which tests failed.
+<img src="../images/stage_details_tests_tab.png" alt=""></p>
 </article>
 
       
@@ -404,11 +400,12 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#with-console-output">With Console output</a>
       <ul>
-        <li><a href="#example-usage">Example usage</a></li>
+        <li><a href="#via-stage-details">Via Stage Details</a></li>
       </ul>
     </li>
+    <li><a href="#with-the-tests-tab">With the Tests Tab</a></li>
   </ul>
 </nav>
   </aside>

@@ -149,7 +149,10 @@ GoCD will stop scheduling new pipelines until you make more room, either by comp
       
       <guid>/faq/dev_see_artifact_as_tab.html</guid>
       <description>See artifacts as sub-tabs in GoCD After uploading html reports, it is often useful to be able to easily view this information when trying to understand why the build is broken.
-Example usage  Suppose we have configured GoCD to upload a flash video and html file and display it as a tab Click on the Dashboard tab   Click on the stage you want to investigate   Click on the job you want to investigate   Click on the tab you created   Clicking on the tab will load the page, which will start the video!</description>
+Example usage Suppose we have configured GoCD to upload a flash video and html file and display it as a tab
+Click on the Dashboard tab
+Click on the stage you want to investigate
+Click on the job you want to investigate [1]</description>
     </item>
     
     <item>
@@ -158,7 +161,7 @@ Example usage  Suppose we have configured GoCD to upload a flash video and html 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/faq/tester_what_has_changed.html</guid>
-      <description>What has changed in the current GOCD version? When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
+      <description>What has changed in the current GoCD version? When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
 Example usage For this example, we&amp;rsquo;ll assume that there is a manual &amp;ldquo;UAT&amp;rdquo; stage will automatically deploy and install an executable on your user acceptance testing machine.</description>
     </item>
     
@@ -172,15 +175,16 @@ Example usage For this example, we&amp;rsquo;ll assume that there is a manual &a
     </item>
     
     <item>
-      <title>Why the Build is Broken?</title>
+      <title>Why is the Build Broken?</title>
       <link>/faq/dev_understand_why_build_broken.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/faq/dev_understand_why_build_broken.html</guid>
       <description>Why is the build broken? Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
-Example usage Usage: As a developer, I want to understand why the build is broken.
-Let&amp;rsquo;s assume that in this case, we are on a java project using JUnit as our testing library.
- If we&amp;rsquo;re not already, we need to configure Go to upload JUnit xml reports Click on the Pipelines tab   Click on the failed stage you want to investigate   Click on the failed job   The &amp;ldquo;Failures&amp;rdquo; sub-tab should help you diagnose what is wrong with your build   If you need more information, the &amp;ldquo;Console&amp;rdquo; sub-tab contains everything that was written out to the console (including extra information from Go)  </description>
+With Console output Usage: As a developer, I want to understand why the build is broken.
+Click on the Dashboard tab
+Determine the failed stage you want to investigate, and click on it
+Determine which job within the stage failed, and click on it [1]</description>
     </item>
     
   </channel>

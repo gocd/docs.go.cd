@@ -338,8 +338,14 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="publishing-artifacts">Publishing artifacts</h1>
-<p>When executing a job on an agent there are often artifacts created that we need to keep around. For example, JUnit creates xml reports that GoCD is able to parse in order to help you <a href="../faq/dev_understand_why_build_broken.html">understand why the build is broken</a>. You can use GoCD with any JUnit style xml reports. Or you might create a flash video of your UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.</p>
-<p>To publish artifacts you add a an <a href="configuration_reference.html#artifact">&lt; artifact &gt;</a> to the job configuration. More information can be found on the <a href="managing_artifacts_and_reports.html">Managing artifacts and reports</a> page.</p>
+<p>When executing a job on an agent there are often artifacts created that we need to keep around.</p>
+<p>For example</p>
+<ul>
+<li>JUnit creates xml reports that GoCD is able to parse in order to help us <a href="../faq/dev_understand_why_build_broken.html">understand why the build is broken</a>. We can use GoCD with any JUnit style xml reports.</li>
+<li>a build automation tool might product an HTML report for test, or code coverage report that we wish to view alongside the build results</li>
+<li>we might create a video of our UI tests that we want displayed in GoCD. You can upload any html file from your build and view it in GoCD.</li>
+</ul>
+<p>To publish artifacts we add an <a href="configuration_reference.html#artifact">&lt; artifact &gt;</a> to the job configuration. More information can be found on the <a href="managing_artifacts_and_reports.html">Managing artifacts and reports</a> page.</p>
 <h2 id="example-usages">Example usages</h2>
 <h3 id="uploading-junit-xml-reports">Uploading JUnit xml reports</h3>
 <p>We are going to assume that the JUnit test reports are being placed in the &ldquo;target/reports&rdquo; folder.</p>
