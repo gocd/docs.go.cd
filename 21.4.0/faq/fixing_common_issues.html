@@ -585,7 +585,13 @@ SSL elsewhere.</p>
 Port 8154 could not be opened. Please Check if it is available
 </code></pre>
 <p>This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties <code>cruise.server.port</code> and <code>cruise.server.ssl.port</code> to appropriate values. These system properties can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
-</article>
+<p><a name="expand-shell-profile"></a></p>
+<h3 id="expand-the-shell-profile">Expand the shell profile</h3>
+<p>GoCD agents use a restricted shell profile. The go user profile is not sourced when the agent starts or a shell command is run. This can result in the GoCD agent being unable to run applications installed in non default locations.</p>
+<p>To expand the PATH variable, the wrapper-properties.conf file should be updated to include the required PATH locations. The example below shows how to expand the PATH to support rbenv.</p>
+<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#080;font-style:italic"># On Unix/Linux/macOS. Note that you must use %PATH%, and not $PATH, as you&#39;d normally do on this platform</span>
+set.PATH<span style="color:#666">=</span>var/go/.rbenv/plugins/ruby-build/bin:/var/go/.rbenv/shims:%PATH%
+</code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -634,6 +640,7 @@ Port 8154 could not be opened. Please Check if it is available
         <li><a href="#gocd-spa-pages---there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
         <li><a href="#application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</a></li>
         <li><a href="#port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
+        <li><a href="#expand-the-shell-profile">Expand the shell profile</a></li>
       </ul>
     </li>
   </ul>
