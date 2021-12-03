@@ -7,7 +7,7 @@ title: Yum Repository Poller
 
 # Yum Repository Poller
 
-**Note:** This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the [yum-utils](http://linux.die.net/man/1/yum-utils) package, [Ubuntu](http://manpages.ubuntu.com/manpages/cosmic/en/man1/yum-utils.1.html), [CentOS](http://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&system=centos))
+**Note:** This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the [yum-utils](http://linux.die.net/man/1/yum-utils) package, [Ubuntu](https://manpages.ubuntu.com/manpages/focal/en/man1/yum-utils.1.html), [CentOS](http://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&system=centos))
 
 ## Introduction
 
