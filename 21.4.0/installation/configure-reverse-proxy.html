@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -346,7 +339,7 @@ if (!doNotTrack) {
 <li>You have Apache with <code>mod_proxy</code> installed</li>
 <li>The Apache server sits on the same machine as the GoCD server (localhost)</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#a2f">Listen</span> nnn.nnn.nnn.nnn:80
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#a2f">Listen</span> nnn.nnn.nnn.nnn:80
 <span style="color:#a2f">NameVirtualHost</span> nnn.nnn.nnn.nnn:80
 
 <span style="color:#008000;font-weight:bold">&lt;VirtualHost</span> <span style="color:#b44">nnn.nnn.nnn.nnn:80</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -366,7 +359,7 @@ if (!doNotTrack) {
   <span style="color:#a2f">ProxyPreserveHost</span> <span style="color:#a2f;font-weight:bold">On</span>
 <span style="color:#008000;font-weight:bold">&lt;/VirtualHost&gt;</span>
 </code></pre></div><p>If you&rsquo;re additionally using SSL (highly recommended), you may use the following snippet -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#a2f">Listen</span> nnn.nnn.nnn.nnn:80
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-apache" data-lang="apache"><span style="color:#a2f">Listen</span> nnn.nnn.nnn.nnn:80
 <span style="color:#a2f">NameVirtualHost</span> nnn.nnn.nnn.nnn:80
 
 <span style="color:#008000;font-weight:bold">&lt;VirtualHost</span> <span style="color:#b44">nnn.nnn.nnn.nnn:80</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -399,7 +392,7 @@ if (!doNotTrack) {
   <span style="color:#a2f">SSLCertificateChainFile</span> <span style="color:#008000">/etc/pki/tls/certs/gocd.example.com.pem.chained.pem</span>
 <span style="color:#008000;font-weight:bold">&lt;/VirtualHost&gt;</span>
 </code></pre></div><h2 id="gocd-with-nginx">GoCD with NGINX</h2>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">server</span> {
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-nginx" data-lang="nginx"><span style="color:#a2f;font-weight:bold">server</span> {
   <span style="color:#080;font-style:italic"># Redirect any http requests to https
 </span><span style="color:#080;font-style:italic"></span>  <span style="color:#a2f;font-weight:bold">listen</span>         <span style="color:#666">80</span>;
   <span style="color:#a2f;font-weight:bold">server_name</span>    <span style="color:#b44">gocd.example.com</span>;

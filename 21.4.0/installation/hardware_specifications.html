@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -419,7 +412,7 @@ if (!doNotTrack) {
 <h5 id="buffer-cache">Buffer Cache</h5>
 <p>Reading from a disk is very slow as compared to reading from memory. Additionally, it is common to read the same part of a disk several times during relatively short periods of time. For example, consider how often the command <code>git</code> might be run on a GoCD server. By reading the information from disk only once and then keeping it in memory until no longer needed, one can speed up all but the first read. This is called disk buffering, and the memory used for the purpose is called the buffer cache.</p>
 <p>Generally speaking, you should ensure that there is sufficient free memory for buffer cache to ensure optimal performance and reduced disk IO.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#666">[</span>root@fmtgocdgo01 ~<span style="color:#666">]</span><span style="color:#080;font-style:italic"># free -m</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#666">[</span>root@fmtgocdgo01 ~<span style="color:#666">]</span><span style="color:#080;font-style:italic"># free -m</span>
              total       used       free     shared    buffers     cached
 Mem:         <span style="color:#666">11912</span>      <span style="color:#666">11633</span>        <span style="color:#666">278</span>          <span style="color:#666">0</span>         <span style="color:#666">20</span>       <span style="color:#666">2128</span>
 -/+ buffers/cache:       <span style="color:#666">9484</span>       <span style="color:#666">2427</span>

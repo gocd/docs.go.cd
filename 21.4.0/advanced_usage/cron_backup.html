@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -338,40 +331,40 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="perform-gocd-server-backups-on-a-schedule">Perform GoCD server backups on a schedule</h1>
-<p>To run a GoCD server backup at a given time, use a timer. Timers understand a cron-like specification for when to perform a backup. The GoCD server can be optionally configured to invoke a post-backup script to allow you to copy the backup to an external machine or service (like AWS&rsquo; S3).</p>
+<p>To run a GoCD server backup at a given time, use a timer. Timers understand a cron-like specification for when to perform a backup. The GoCD server can be optionally configured to invoke a post-backup script to allow you to copy the backup to an external machine or service (like AWS' S3).</p>
 <h1 id="the-post-backup-script">The post backup script</h1>
 <p>The post backup script, if configured, will be invoked regardless of success or failure of the script, and will receive the following environment variables:</p>
 <table>
 <thead>
 <tr>
-<th align="left">Name</th>
-<th align="left">Description</th>
+<th style="text-align:left">Name</th>
+<th style="text-align:left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left"><code>GOCD_BACKUP_STATUS</code></td>
-<td align="left">The status of the backup. Can be <code>failure</code> or <code>success</code>.</td>
+<td style="text-align:left"><code>GOCD_BACKUP_STATUS</code></td>
+<td style="text-align:left">The status of the backup. Can be <code>failure</code> or <code>success</code>.</td>
 </tr>
 <tr>
-<td align="left"><code>GOCD_BACKUP_INITIATED_VIA</code></td>
-<td align="left">If the backup was initiated via a timer, this will contain the value <code>timer</code>.</td>
+<td style="text-align:left"><code>GOCD_BACKUP_INITIATED_VIA</code></td>
+<td style="text-align:left">If the backup was initiated via a timer, this will contain the value <code>timer</code>.</td>
 </tr>
 <tr>
-<td align="left"><code>GOCD_BACKUP_INITIATED_BY_USER</code></td>
-<td align="left">If the backup was initiated by a user, the login name of the user that triggered the backup.</td>
+<td style="text-align:left"><code>GOCD_BACKUP_INITIATED_BY_USER</code></td>
+<td style="text-align:left">If the backup was initiated by a user, the login name of the user that triggered the backup.</td>
 </tr>
 <tr>
-<td align="left"><code>GOCD_BACKUP_TIMESTAMP</code></td>
-<td align="left">The ISO8601 formatted timestamp when the backup was attempted. E.g. <code>2018-08-29T14:00:35Z</code>.</td>
+<td style="text-align:left"><code>GOCD_BACKUP_TIMESTAMP</code></td>
+<td style="text-align:left">The ISO8601 formatted timestamp when the backup was attempted. E.g. <code>2018-08-29T14:00:35Z</code>.</td>
 </tr>
 <tr>
-<td align="left"><code>GOCD_BACKUP_BASE_DIR</code></td>
-<td align="left">If the status was <code>success</code>, this variable will contain the backup base directory. E.g. <code>/var/lib/go-server/artifacts/serverBackups</code>.</td>
+<td style="text-align:left"><code>GOCD_BACKUP_BASE_DIR</code></td>
+<td style="text-align:left">If the status was <code>success</code>, this variable will contain the backup base directory. E.g. <code>/var/lib/go-server/artifacts/serverBackups</code>.</td>
 </tr>
 <tr>
-<td align="left"><code>GOCD_BACKUP_PATH</code></td>
-<td align="left">If the status was <code>success</code>, this variable will contain the directory where the current backup snapshot was stored. E.g. <code>/var/lib/go-server/artifacts/serverBackups/backup_20180829-140035</code>.</td>
+<td style="text-align:left"><code>GOCD_BACKUP_PATH</code></td>
+<td style="text-align:left">If the status was <code>success</code>, this variable will contain the directory where the current backup snapshot was stored. E.g. <code>/var/lib/go-server/artifacts/serverBackups/backup_20180829-140035</code>.</td>
 </tr>
 </tbody>
 </table>

@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -345,49 +338,49 @@ Optionally, you can also specify the database SSL config properties for secure c
 <table>
 <thead>
 <tr>
-<th align="center">Key</th>
+<th style="text-align:center">Key</th>
 <th>Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="center"><code>db.driver</code></td>
+<td style="text-align:center"><code>db.driver</code></td>
 <td>The JDBC database driver depending on the database. For example: <b><code>org.postgresql.Driver</code></b> if using PostgreSQL or <b><code>com.mysql.cj.jdbc.Driver</code></b> for MySQL.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
 </tr>
 <tr>
-<td align="center"><code>db.url</code></td>
+<td style="text-align:center"><code>db.url</code></td>
 <td>The database connection url. Specify the url in format <b><code>jdbc:databaseType://server[:port]/databaseName</code></b>. <br/>Where, <code>databaseType</code> is the type of the database (Example: <code>h2</code>, <code>postgresql</code>, <code>mysql</code>); <code>server[:port]</code> is the name and optional port of the server hosting your database and <code>databaseName</code> is the name of the database. <br/>For example, the URL <b><code>jdbc:postgresql://localhost:5432/cruise</code></b> represents the database url for the locally running PostgreSQL database named <code>cruise</code>. <br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code>.</td>
 </tr>
 <tr>
-<td align="center"><code>db.user</code></td>
+<td style="text-align:center"><code>db.user</code></td>
 <td>The database user which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
 </tr>
 <tr>
-<td align="center"><code>db.password</code></td>
+<td style="text-align:center"><code>db.password</code></td>
 <td>The password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
 </tr>
 <tr>
-<td align="center"><code>db.encryptedPassword</code></td>
+<td style="text-align:center"><code>db.encryptedPassword</code></td>
 <td>The encrypted password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema. GoCD will decrypt the specified encrypted password using the GoCD cipher file, before using it. Note: Users should specify either <code>db.password</code> or <code>db.encryptedPassword</code>.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code>.</td>
 </tr>
 <tr>
-<td align="center"><code>db.maxActive</code></td>
+<td style="text-align:center"><code>db.maxActive</code></td>
 <td>Maximum number of active connections that should be established with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
 </tr>
 <tr>
-<td align="center"><code>db.maxIdle</code></td>
+<td style="text-align:center"><code>db.maxIdle</code></td>
 <td>Maximum number of idle connections that should be maintained with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
 </tr>
 <tr>
-<td align="center"><code>db.extraBackupCommandArgs</code></td>
+<td style="text-align:center"><code>db.extraBackupCommandArgs</code></td>
 <td>Specify custom database backup arguments. This config property is used to specify the additional arguments to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
 </tr>
 <tr>
-<td align="center"><code>db.extraBackupEnv</code></td>
+<td style="text-align:center"><code>db.extraBackupEnv</code></td>
 <td>Specify custom environment variables to the database backup utility. This config property is used to specify the additional environment variables to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-environment-variables">GoCD Database Extra Backup Environment Variables</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
 </tr>
 <tr>
-<td align="center"><code>db.connectionProperties</code></td>
+<td style="text-align:center"><code>db.connectionProperties</code></td>
 <td>Specify the database SSL config properties for secure communication between GoCD and the database server. See <a href="#database-specific-connection-properties">Database-specific Connection Properties</a> for more information.<br/><br/><b>Mandatory:</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
 </tr>
 </tbody>
@@ -416,7 +409,7 @@ Depending on the type of the database server, different connection properties co
 <li>see <a href="https://www.postgresql.org/docs/current/libpq-connect.html">libpq connection parameters</a> to see all the available options.</li>
 </ul>
 <p>Below is an example of PostgreSQL SSL connection properties:</p>
-<pre><code class="language-properties" data-lang="properties">db.connectionProperties.sslmode=verify-full
+<pre tabindex="0"><code class="language-properties" data-lang="properties">db.connectionProperties.sslmode=verify-full
 db.connectionProperties.sslcert=/var/lib/go-server/client-cert.pem
 db.connectionProperties.sslkey=/var/lib/go-server/client-key.pem
 db.connectionProperties.sslrootcert=/var/lib/go-server/ca.pem
@@ -424,7 +417,7 @@ db.connectionProperties.sslcrl=/var/lib/go-server/root.crl
 </code></pre><h3 id="2-mysql-ssl-configuration">2. MySQL SSL Configuration:</h3>
 <p>Refer <a href="https://dev.mysql.com/doc/refman/8.0/en/connection-options.html#encrypted-connection-options">MySQL Command Options for Encrypted Connections</a> documentation to know about all the available options for that are specified to use encrypted connections with the server.</p>
 <p>Below is an example of MySQL SSL connection properties:</p>
-<pre><code class="language-properties" data-lang="properties">db.connectionProperties.ssl-mode=verify-full
+<pre tabindex="0"><code class="language-properties" data-lang="properties">db.connectionProperties.ssl-mode=verify-full
 db.connectionProperties.ssl-cert=/var/lib/go-server/client-cert.pem
 db.connectionProperties.ssl-key=/var/lib/go-server/client-key.pem
 db.connectionProperties.ssl-ca=/var/lib/go-server/ca.pem

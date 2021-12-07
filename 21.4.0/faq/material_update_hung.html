@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -340,7 +333,7 @@ if (!doNotTrack) {
 <article class="markdown"><h1 id="gocd-unable-to-poll-for-changes">GoCD unable to poll for changes</h1>
 <p>GoCD server polls for changes to all materials of &lsquo;Auto Triggered&rsquo; pipelines. By default, polling occurs every minute and ten materials at a time. The polling interval and the number of materials to be polled simultaneously are configurable.</p>
 <p>GoCD uses SCM commands to poll for changes. For example, to check for any new changes in SVN repository the following command is used:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">svn log --non-interactive --xml -v -r HEAD:<span style="color:#b44">&#39;revision&#39;</span> <span style="color:#b44">&#39;repository-URL&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">svn log --non-interactive --xml -v -r HEAD:<span style="color:#b44">&#39;revision&#39;</span> <span style="color:#b44">&#39;repository-URL&#39;</span>
 </code></pre></div><p>The SCM command used by GoCD server can hang with no output. Invalid configuration, network issues, console input block are some of the causes for such a situation. Such scenarios cause pipeline scheduling delays and also lead to performance degradation</p>
 <p>Such a scenario is notified to the users by a warning in Server Health; when clicked shows a message similar to the one below.</p>
 <p><img src="../images/material_update_hung.png" alt=""></p>
@@ -358,7 +351,7 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>On linux system, you should see lines like these:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go <span style="color:#666">31201</span> <span style="color:#666">1</span>  <span style="color:#666">0</span> Feb07 ?  00:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">go <span style="color:#666">31201</span> <span style="color:#666">1</span>  <span style="color:#666">0</span> Feb07 ?  00:00:00 git clone https://test@bitbucket.org/test/git_repo.git /var/lib/cruise-server/pipelines/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816
 </code></pre></div></li>
 <li>
 <p>Kill the process and all its children (the whole process tree).</p>

@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -647,7 +640,7 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">jobTimeout=</span><span style="color:#b44">&#39;30&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
@@ -662,7 +655,7 @@ if (!doNotTrack) {
 <li>If only <code>&lt;secureSiteUrl&gt;</code> is defined, GoCD URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the <code>&lt;secureSiteUrl&gt;</code> entry.</li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://siteUrl.com<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;secureSiteUrl&gt;</span>https://secureSiteUrl.com<span style="color:#008000;font-weight:bold">&lt;/secureSiteUrl&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span>
@@ -670,7 +663,7 @@ if (!doNotTrack) {
 <h2 id="siteUrl">&lt;siteUrl&gt;</h2>
 <p>The <code>&lt;siteUrl&gt;</code> element is used by GoCD Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. <code>Format: [protocol]://[host]:[port]</code>. You need to define the [port] in case GoCD uses a non-standard port. The [Protocol] can be HTTP or HTTPs.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://siteUrl.com<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span>
@@ -678,7 +671,7 @@ if (!doNotTrack) {
 <h2 id="secureSiteUrl">&lt;secureSiteUrl&gt;</h2>
 <p>The <code>&lt;secureSiteUrl&gt;</code> element is used to specify value of the base HTTPS URL.Certain features in GoCD require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL,you can use this element. Format: <code>https://[host]:[port]</code>. You need to define the [port] in case GoCD uses a non-standard port.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;secureSiteUrl&gt;</span>https://secureSiteUrl.com<span style="color:#008000;font-weight:bold">&lt;/secureSiteUrl&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span>
@@ -686,7 +679,7 @@ if (!doNotTrack) {
 <h2 id="security">&lt;security&gt;</h2>
 <p>The <code>&lt;security&gt;</code> element can be used to enable authentication. If the element is not defined anyone can use Go without logging in. We currently support enabling authentication using Authorization plugin endpoint. Support for LDAP and simple password-file authentication is available out of box via the bundled plugins for the same. You can use more than one authentication mechanism if you want. Support for inbuilt <a href="#ldap">LDAP</a> and <a href="#passwordFile">password file</a> tags in configuration has been deprecated.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;/var/lib/go/big-artifacts-folder&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsdir=</span><span style="color:#b44">&#34;/var/lib/go/big-artifacts-folder&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authConfigs&gt;</span>
      <span style="color:#008000;font-weight:bold">&lt;authConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;profile-id&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.authentication.ldap&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -741,7 +734,7 @@ if (!doNotTrack) {
 <tr>
 <td>hostname</td>
 <td>Yes</td>
-<td>The SMTP mail server which Go will use to send email. For example, hostname=&quot;mailhost.yourcompany.com&rdquo;</td>
+<td>The SMTP mail server which Go will use to send email. For example, hostname=&ldquo;mailhost.yourcompany.com&rdquo;</td>
 </tr>
 <tr>
 <td>port</td>
@@ -766,7 +759,7 @@ if (!doNotTrack) {
 <tr>
 <td>from</td>
 <td>Yes</td>
-<td>Go will attempt to set this email address as the &lsquo;from&rsquo; address for email that it sends. Note that this setting may not be honoured by the SMTP server that you use. For example, from=&quot;go-admin@yourcompany.com&rdquo;.</td>
+<td>Go will attempt to set this email address as the &lsquo;from&rsquo; address for email that it sends. Note that this setting may not be honoured by the SMTP server that you use. For example, from=&ldquo;<a href="mailto:go-admin@yourcompany.com">go-admin@yourcompany.com</a>&rdquo;.</td>
 </tr>
 <tr>
 <td>admin</td>
@@ -776,44 +769,44 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;mailhost</span> <span style="color:#b44">hostname=</span><span style="color:#b44">&#34;mailhost.yourcompany.com&#34;</span> <span style="color:#b44">port=</span><span style="color:#b44">&#34;25&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;go-user&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;crs123&#34;</span> <span style="color:#b44">tls=</span><span style="color:#b44">&#34;false&#34;</span> <span style="color:#b44">from=</span><span style="color:#b44">&#34;go@yourcompany.com&#34;</span> <span style="color:#b44">admin=</span><span style="color:#b44">&#34;goadministrator@yourcompany.com&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;mailhost</span> <span style="color:#b44">hostname=</span><span style="color:#b44">&#34;mailhost.yourcompany.com&#34;</span> <span style="color:#b44">port=</span><span style="color:#b44">&#34;25&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;go-user&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;crs123&#34;</span> <span style="color:#b44">tls=</span><span style="color:#b44">&#34;false&#34;</span> <span style="color:#b44">from=</span><span style="color:#b44">&#34;go@yourcompany.com&#34;</span> <span style="color:#b44">admin=</span><span style="color:#b44">&#34;goadministrator@yourcompany.com&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="backup">&lt;backup&gt;</h2>
 <p>The <code>&lt;backup&gt;</code> element is used to configure backups.</p>
 <table>
 <thead>
 <tr>
-<th align="left">Attribute</th>
-<th align="left">Required</th>
-<th align="left">Description</th>
+<th style="text-align:left">Attribute</th>
+<th style="text-align:left">Required</th>
+<th style="text-align:left">Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">schedule</td>
-<td align="left">No</td>
-<td align="left">The cron-like specification to perform a backup.</td>
+<td style="text-align:left">schedule</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">The cron-like specification to perform a backup.</td>
 </tr>
 <tr>
-<td align="left">postBackupScript</td>
-<td align="left">No</td>
-<td align="left">A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See <a href="../advanced_usage/cron_backup.html">cron backups</a> for details about this script.</td>
+<td style="text-align:left">postBackupScript</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See <a href="../advanced_usage/cron_backup.html">cron backups</a> for details about this script.</td>
 </tr>
 <tr>
-<td align="left">emailOnSuccess</td>
-<td align="left">No</td>
-<td align="left">Boolean indicating whether email should be sent on a successful backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
+<td style="text-align:left">emailOnSuccess</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Boolean indicating whether email should be sent on a successful backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
 </tr>
 <tr>
-<td align="left">emailOnFailure</td>
-<td align="left">No</td>
-<td align="left">Boolean indicating whether email should be sent on a failed backup backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
+<td style="text-align:left">emailOnFailure</td>
+<td style="text-align:left">No</td>
+<td style="text-align:left">Boolean indicating whether email should be sent on a failed backup backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>For example: to perform a backup once a night at 10pm on weekdays and call the <code>/usr/local/bin/upload-to-s3</code> script after the backup is done.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;backup</span> <span style="color:#b44">schedule=</span><span style="color:#b44">&#34;0 0 22 ? * MON-FRI&#34;</span> <span style="color:#b44">postBackupScript=</span><span style="color:#b44">&#34;/usr/local/bin/upload-to-s3&#34;</span> <span style="color:#b44">emailOnSuccess=</span><span style="color:#b44">&#34;false&#34;</span> <span style="color:#b44">emailOnFailure=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
@@ -1001,7 +994,7 @@ various combinations of the allowed special characters for that field. The field
 <h2 id="artifacts">&lt;artifacts&gt;</h2>
 <p>The <code>&lt;artifacts&gt;</code> element can be used to define information related to artifacts.In this, artifact directory can be defined using  <a href="#artifactDir"><code>&lt;artifactsDir&gt;</code></a> and purge settings can be using <a href="#purgeSettings"><code>&lt;purgeSettings&gt;</code></a></p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;purgeStartDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeStartDiskSpace&gt;</span>
@@ -1014,7 +1007,7 @@ various combinations of the allowed special characters for that field. The field
 <p><strong>Notes:</strong></p>
 <p>If you specify the attribute, please check whether GoCD has permission to access that directory. Also you should be aware of that changing this value while Go Server is running won&rsquo;t take effect until GoCD Server is restarted.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
@@ -1032,7 +1025,7 @@ various combinations of the allowed special characters for that field. The field
 </li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;purgeStartDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeStartDiskSpace&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;purgeUptoDiskSpace&gt;</span>60.0<span style="color:#008000;font-weight:bold">&lt;/purgeUptoDiskSpace&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/purgeSettings&gt;</span>
@@ -1044,7 +1037,7 @@ various combinations of the allowed special characters for that field. The field
 <li>It should be smaller than <code>&lt;purgeUptoDiskSpace&gt;</code>.</li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;purgeStartDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeStartDiskSpace&gt;</span>
     ...
 <span style="color:#008000;font-weight:bold">&lt;/purgeSettings&gt;</span>
@@ -1056,7 +1049,7 @@ various combinations of the allowed special characters for that field. The field
 <li>It should be greater than <code>&lt;purgeStartDiskSpace&gt;</code>.</li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;purgeSettings&gt;</span>
     ...
     <span style="color:#008000;font-weight:bold">&lt;purgeUptoDiskSpace&gt;</span>30.0<span style="color:#008000;font-weight:bold">&lt;/purgeUptoDiskSpace&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/purgeSettings&gt;</span>
@@ -1077,12 +1070,12 @@ with their username and password from this ldap server.</p>
 <tr>
 <td>uri</td>
 <td>Yes</td>
-<td>uri for the ldap server. For example, uri=&quot;ldap://ldap.yourcompany.com&rdquo;</td>
+<td>uri for the ldap server. For example, uri=&ldquo;ldap://ldap.yourcompany.com&rdquo;</td>
 </tr>
 <tr>
 <td>managerDn</td>
 <td>Yes</td>
-<td>For example, managerDn=&quot;cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxxx,dc=yyyy,dc=com&rdquo;</td>
+<td>For example, managerDn=&ldquo;cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxxx,dc=yyyy,dc=com&rdquo;</td>
 </tr>
 <tr>
 <td>managerPassword</td>
@@ -1092,12 +1085,12 @@ with their username and password from this ldap server.</p>
 <tr>
 <td>searchFilter</td>
 <td>No</td>
-<td>e.g. searchFilter=&rdquo;(sAMAccountName={0})&rdquo;</td>
+<td>e.g. searchFilter=&quot;(sAMAccountName={0})&quot;</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;ldap</span> <span style="color:#b44">uri=</span><span style="color:#b44">&#34;ldap://xxx.yourcompany.com&#34;</span>
      <span style="color:#b44">managerDn=</span><span style="color:#b44">&#34;cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com&#34;</span>
      <span style="color:#b44">managerPassword=</span><span style="color:#b44">&#34;password&#34;</span>
@@ -1141,7 +1134,7 @@ the directory from which the LDAP search begins.</p>
 </tr>
 </tbody>
 </table>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;ldap</span> <span style="color:#b44">uri=</span><span style="color:#b44">&#34;ldap://xxx.yourcompany.com&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;ldap</span> <span style="color:#b44">uri=</span><span style="color:#b44">&#34;ldap://xxx.yourcompany.com&#34;</span>
      <span style="color:#b44">managerDn=</span><span style="color:#b44">&#34;cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com&#34;</span>
      <span style="color:#b44">managerPassword=</span><span style="color:#b44">&#34;password&#34;</span>
      <span style="color:#b44">searchFilter=</span><span style="color:#b44">&#34;(sAMAccountName={0})&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -1175,17 +1168,17 @@ the directory from which the LDAP search begins.</p>
 <li>the other one is <strong>lqiao</strong>, the password encrypted with SHA1 is <strong>TfkgShslgJepX80c2JY1trwEskT=</strong></li>
 </ul>
 <p>The configuration could look like:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;passwordFile</span> <span style="color:#b44">path=</span><span style="color:#b44">&#34;/home/go/admins.properties&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/security&gt;</span>
 </code></pre></div><p>The username and password could be set in admins.properties as follows:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">Jez</span><span style="color:#666">=</span>ThmbShxAtJepX80c2JY1FzOEmUk
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#b8860b">Jez</span><span style="color:#666">=</span>ThmbShxAtJepX80c2JY1FzOEmUk
 <span style="color:#b8860b">lqiao</span><span style="color:#666">=</span>TfkgShslgJepX80c2JY1trwEskT
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="authConfigs">&lt;authConfigs&gt;</h2>
 <p>Using <code>&lt;authConfigs&gt;</code> element GoCD administrators can provide one or more authorization configurations to connect with the authorization server(s).</p>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;authConfigs&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;authConfigs&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;file-auth-config&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.authentication.passwordfile&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
     <span style="color:#008000;font-weight:bold">&lt;/authConfig&gt;</span>
@@ -1226,7 +1219,7 @@ the directory from which the LDAP search begins.</p>
 </table>
 <p>Refer to your plugin&rsquo;s documentation to know the <code>property</code> keys to be configured.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;authConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;file-auth-config&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.authentication.passwordfile&#34;</span> <span style="color:#b44">allowOnlyKnownUsersToLogin=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;authConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;file-auth-config&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.authentication.passwordfile&#34;</span> <span style="color:#b44">allowOnlyKnownUsersToLogin=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>PasswordFilePath<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>/etc/go/password.properties<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -1236,7 +1229,7 @@ the directory from which the LDAP search begins.</p>
 <h2 id="roles">&lt;roles&gt;</h2>
 <p>The <code>&lt;roles&gt;</code> element is a container for roles that users defined. It can&rsquo;t be defined without <code>&lt;role&gt;</code>.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go-admin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1272,7 +1265,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </table>
 <p><strong>Examples</strong></p>
 <p>Two users would be in the role &lsquo;environment-operators&rsquo;, they are <strong>Jez</strong> and <strong>lqiao</strong> have access to administer all the environments expect environments matching <code>prod_*</code> name.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;environment-operators&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
@@ -1297,7 +1290,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </ul>
 <p><strong>Examples</strong></p>
 <p>Two users would be in the role &lsquo;pipeline-operators&rsquo;, they are <strong>Jez</strong> and <strong>lqiao</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;pipeline-operators&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;pipeline-operators&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Jez<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
@@ -1308,7 +1301,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <p>In a <code>&lt;policy&gt;</code> element, the <em>allow</em> permission can added by adding the sub-tag <a href="#allow_permission_in_policy"><code>&lt;allow&gt;</code></a> and <em>deny</em> permission can be added by adding the sub-tag <a href="#deny_permission_in_policy"><code>&lt;deny&gt;</code></a>.</p>
 <p><strong>Examples</strong></p>
 <p>The following policy would grant users the permissions to <code>administer</code> to all environments expect environments matching <code>prod_*</code> name.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
@@ -1339,10 +1332,10 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </table>
 <p><strong>Examples</strong></p>
 <p>The following policy would grant users the permissions to <code>administer</code> to all environments matching <code>prod_*</code> name.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 </code></pre></div><p>An administrator can use <code>*</code> to provide allow access of all type and action.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 </code></pre></div><h2 id="deny_permission_in_policy">&lt;deny&gt;</h2>
 <p>The <code>&lt;deny&gt;</code> element under <code>policy</code> deny the access to the defined GoCD entity based on the type, action and resource.</p>
 <p>The value of the <code>deny</code> element defines the resource on which policy should be applied.</p>
@@ -1370,10 +1363,10 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </table>
 <p><strong>Examples</strong></p>
 <p>The following policy would deny the <code>administer</code> access to all environments matching <code>prod_*</code> name.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
 </code></pre></div><p>An administrator can use <code>*</code> to deny all the access of all type and action.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">     <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="plugin_role_definition">&lt;pluginRole&gt;</h2>
 <p>The <code>&lt;pluginRole&gt;</code> element is used to define roles in GoCD. Unlike <code>role</code> which contains a list of <code>users</code>, <code>pluginRole</code> provides <a href="#property">configuration</a> to map a GoCD role to a role defined in an external authorization server managed by an Authorization plugin. e.g pluginRole can be used to define mappings between LDAP group and GoCD roles.</p>
@@ -1402,7 +1395,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </table>
 <p>Refer to your plugin&rsquo;s documentation to know the <code>property</code> keys to be configured for the <code>pluginRole</code>.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;pluginRole</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;SuperAdmin&#34;</span> <span style="color:#b44">authConfigId=</span><span style="color:#b44">&#34;auth_config_id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;administer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
@@ -1424,7 +1417,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <p><strong>Notes:</strong></p>
 <p>The user must be in your <a href="#ldap">LDAP</a> or <a href="#passwordFile">passwordFile</a>.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>go-admin<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
@@ -1440,7 +1433,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </ul>
 <p><strong>Examples</strong></p>
 <p>The users in role &lsquo;<strong>go-admin</strong>&rsquo; would be administrators.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>go-admin<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
@@ -1452,7 +1445,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </ul>
 <p><strong>Examples</strong></p>
 <p>Two users would be administrators, they are <strong>Jez</strong> and <strong>lqiao</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Jez<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
@@ -1463,7 +1456,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <li>The role must be defined in <a href="#roles"><code>&lt;roles&gt;</code></a>.</li>
 </ul>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
    <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;user&gt;</span>
    <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>_readonly_member<span style="color:#008000;font-weight:bold">&lt;role&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
@@ -1486,7 +1479,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;elastic</span> <span style="color:#b44">jobStarvationTimeout=</span><span style="color:#b44">&#34;10&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;elastic</span> <span style="color:#b44">jobStarvationTimeout=</span><span style="color:#b44">&#34;10&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;agentProfiles&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       ...
@@ -1498,7 +1491,7 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <p><code>&lt;agentProfiles&gt;</code> element specifies the profiles to configure elastic agents.</p>
 <p>There can be zero or more profiles.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;agentProfiles&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;agentProfiles&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;aws.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span> <span style="color:#008000;font-weight:bold">&gt;</span>
     ...
   <span style="color:#008000;font-weight:bold">&lt;/agentProfile&gt;</span>
@@ -1535,7 +1528,7 @@ A profile should have a unique <code>id</code> attribute, should be associated w
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ec2.small-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ec2.small-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>ami-id<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>ami-6ac7408f<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -1550,7 +1543,7 @@ A profile should have a unique <code>id</code> attribute, should be associated w
 <p><code>&lt;clusterProfiles&gt;</code> element specifies the profiles to configure clusters.</p>
 <p>There can be zero or more cluster profile.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;clusterProfiles&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;clusterProfiles&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;cluster.small&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;aws&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
   <span style="color:#008000;font-weight:bold">&lt;/clusterProfile&gt;</span>
@@ -1582,7 +1575,7 @@ A cluster profile should have a unique <code>id</code> attribute and should be a
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;cluster-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;cluster-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>GoServerUrl<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>https://your-server-host:8154/go<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -1596,7 +1589,7 @@ A cluster profile should have a unique <code>id</code> attribute and should be a
 <h2 id="config-repos">&lt;config-repos&gt;</h2>
 <p>The <code>&lt;config-repos&gt;</code> element is a container of many <code>&lt;config-repo&gt;</code>.</p>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;config-repos&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;gocd-json-config-example&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1639,7 +1632,7 @@ A cluster profile should have a unique <code>id</code> attribute and should be a
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
     ...
     <span style="color:#008000;font-weight:bold">&lt;config-repos&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;yaml.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;gocd-yaml-config-example&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1658,7 +1651,7 @@ A cluster profile should have a unique <code>id</code> attribute and should be a
 Keys and values are specified and handled by particular plugin. This section
 can be used to <strong>customize how config repo plugin works when parsing this specific repository</strong>.</p>
 <p>#<strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>file_pattern<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>*.go.yaml<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -1722,7 +1715,7 @@ can be used to <strong>customize how config repo plugin works when parsing this 
 <p>Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server,
 and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store the certificates in the cache permanently.</p>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span>  <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://svn-server.com/framework&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
@@ -1758,11 +1751,11 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://username:password@your-hg/&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
 </code></pre></div><p>#<strong>Specifying a mercurial branch.</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://username:password@your-hg#branch_name&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
 </code></pre></div><p>Note: Do not use <strong>configrepo</strong> material type for config-repo pipeline material configuration when using mercurial branch as it will result in merge error.</p>
@@ -1831,7 +1824,7 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <p>Go views are in the same format as that used by Perforce itself. In fact you should be able to copy a Perforce view from your existing Perforce
 setup and paste it into the view section.</p>
 <p>For example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;p4</span> <span style="color:#b44">port=</span><span style="color:#b44">&#34;10.18.3.102:1666&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;userName&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;passwd&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;view&gt;</span><span style="color:#080">&lt;![CDATA[
 </span><span style="color:#080">    //depot/dev/src...          //anything/src/...
@@ -1884,7 +1877,7 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;git://127.0.0.1/precommit.git&#34;</span> <span style="color:#b44">branch=</span><span style="color:#b44">&#34;1.3branch&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
@@ -1943,7 +1936,7 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;tfs</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://10.21.3.210:8080/tfs/New&#34;</span> <span style="color:#b44">domain=</span><span style="color:#b44">&#34;DOMAIN&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;jim&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;as802nsk9==&#34;</span> <span style="color:#b44">projectPath=</span><span style="color:#b44">&#34;$/webapp&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
@@ -1967,14 +1960,14 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;e289f497-057b-46bc-bb69-8043454f5c1b&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="config-repo-rules">&lt;rules&gt;</h2>
 <p>The config repo <code>&lt;rules&gt;</code> rules element is a container for <code>allow</code> and <code>deny</code> rule. More about <code>rules</code> can be read from <a href="../advanced_usage/pipelines_as_code.html#specifying-rules">here</a>.</p>
 <p><strong>Examples are:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>prod<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
@@ -2004,7 +1997,7 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="config-repo-deny">&lt;deny&gt;</h2>
 <p>The <code>&lt;deny&gt;</code> element is the rule which denies the referral of the defined type and resource.</p>
@@ -2031,12 +2024,12 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="repositories">&lt;repositories&gt;</h2>
 <p>The <code>&lt;repositories&gt;</code> element is a container of package repositories.</p>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;repositories&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;repository</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo-id&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;repo-name&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -2088,7 +2081,7 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;repositories&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;repository</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo-id&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;repo-name&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -2188,7 +2181,7 @@ directory where the .ssh/ directory is located.</p>
 <h2 id="artifactStores">&lt;artifactStores&gt;</h2>
 <p>The <code>&lt;artifactStores&gt;</code> element is a container of many <code>&lt;artifactStore&gt;</code>.</p>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;artifactStores&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;artifactStore</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;dockerhub&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;cd.go.artifact.docker.registry&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -2237,7 +2230,7 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;secretConfigs&gt;</code> element is a container of secret configurations.</p>
 <p>There can be zero or more secret configurations.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;secretConfigs&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;secretConfigs&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;secretConfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;secret-plugin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
   <span style="color:#008000;font-weight:bold">&lt;/secretConfig&gt;</span>
@@ -2269,7 +2262,7 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;secretconfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;secret-plugin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;secretconfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;secret-plugin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>SecretsFilePath<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
@@ -2281,14 +2274,14 @@ directory where the .ssh/ directory is located.</p>
 <h2 id="description">&lt;description&gt;</h2>
 <p>The <code>&lt;description&gt;</code> element specifies description for the element.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;description&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;description&gt;</span>
 This is a sample description.
 <span style="color:#008000;font-weight:bold">&lt;/description&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="rules">&lt;rules&gt;</h2>
 <p>The <code>&lt;rules&gt;</code> element is a container for <code>allow</code> and <code>deny</code> rule. More about <code>rules</code> can be read from <a href="./secrets_management.html#more-about-rules">here</a>.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
@@ -2318,7 +2311,7 @@ This is a sample description.
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="deny">&lt;deny&gt;</h2>
 <p>The <code>&lt;deny&gt;</code> element is the rule which denies the usage of the defined secret based on action, configured type and resource.</p>
@@ -2345,7 +2338,7 @@ This is a sample description.
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <h2 id="pipelines">&lt;pipelines&gt;</h2>
 <p>The <code>&lt;pipelines&gt;</code> element is a container of pipelines.</p>
@@ -2367,7 +2360,7 @@ This is a sample description.
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">labeltemplate=</span><span style="color:#b44">&#34;foo-1.0.${COUNT}&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -2399,7 +2392,7 @@ This is a sample description.
 <p><strong>Note:</strong> Go Administrators (<a href="#admins">admins</a>) defined in <a href="#security">security</a> tab, can administer all pipeline groups.</p>
 <p><strong>Examples</strong></p>
 <p>Given the following configuration only <a href="#admins">admins</a>, lqiao and any users having the role &lsquo;studios_group_admin&rsquo;.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
@@ -2419,7 +2412,7 @@ This is a sample description.
 <p>**Note:**Administrators (<a href="#admins">admins</a>) can see all pipeline groups. Any other users or roles that are not listed under the <code>&lt;view&gt;</code> tag will be unable to see this pipeline group</p>
 <p><strong>Examples</strong></p>
 <p>Given the following configuration only administrators can operate the pipeline group, and only <a href="#admins">admins</a>, lqiao and any users having the role &lsquo;go_readonly_member&rsquo; can see the pipeline.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
@@ -2439,7 +2432,7 @@ This is a sample description.
 <p>**Note:**Any users/roles that are not listed under the <a href="#view"><code>&lt;view&gt;</code></a> tag will be unable to see this pipeline group (even if they are listed as being allowed to <code>&lt;operate&gt;</code> that pipeline group)</p>
 <p><strong>Examples</strong></p>
 <p>Given the following configuration, only <a href="#admins">admins</a>, lqiao, jez and the users having the role &lsquo;go_core_member&rsquo; can operate the pipeline group. Only <a href="#admins">admins</a>, lqiao and the users having the role &lsquo;go_readonly_member&rsquo; can see the pipeline (jez and go_core_member cannot).</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
@@ -2482,7 +2475,7 @@ pipeline group).</p>
 <tr>
 <td>labeltemplate</td>
 <td>No</td>
-<td>Both of material names and ${COUNT} are available in the labeltemplate and the default value of labeltemplate is &lsquo;${COUNT}&rsquo;. If you just specify labeltemplate=&quot;foo-1.0-${COUNT}&rdquo;, your pipeline will show foo-1.0-1, foo-1.0-2, and so on. When you reference material names in the labeltemplate, Go will use the revisions of the reference materials to populate the pipeline label. For example, given a mateial name is &lsquo;svnrepo&rsquo; in a pipeline, when you specify labeltemplate=&quot;foo-1.0-${svnrepo}&rdquo;, then your pipeline would show foo-1.0-3123, foo-1.0-3124, and so on. Material names are case insensitive. The max length of a pipeline label is 255. If a material name is &lsquo;svnrepo&rsquo;, the following labeltemplates are valid: ${COUNT}, ${svnrepo}, foo-${COUNT}-${SVNrepo}, foo-${svnrepo}-${COUNT}-bar.</td>
+<td>Both of material names and ${COUNT} are available in the labeltemplate and the default value of labeltemplate is &lsquo;${COUNT}&rsquo;. If you just specify labeltemplate=&ldquo;foo-1.0-${COUNT}&rdquo;, your pipeline will show foo-1.0-1, foo-1.0-2, and so on. When you reference material names in the labeltemplate, Go will use the revisions of the reference materials to populate the pipeline label. For example, given a mateial name is &lsquo;svnrepo&rsquo; in a pipeline, when you specify labeltemplate=&ldquo;foo-1.0-${svnrepo}&rdquo;, then your pipeline would show foo-1.0-3123, foo-1.0-3124, and so on. Material names are case insensitive. The max length of a pipeline label is 255. If a material name is &lsquo;svnrepo&rsquo;, the following labeltemplates are valid: ${COUNT}, ${svnrepo}, foo-${COUNT}-${SVNrepo}, foo-${svnrepo}-${COUNT}-bar.</td>
 </tr>
 <tr>
 <td>lockBehavior</td>
@@ -2497,7 +2490,7 @@ pipeline group).</p>
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">labeltemplate=</span><span style="color:#b44">&#34;foo-1.0.${COUNT}-${svn}&#34;</span> <span style="color:#b44">lockBehavior=</span><span style="color:#b44">&#34;lockOnFailure&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
      <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;&lt;/variable&gt;</span>
@@ -2527,7 +2520,7 @@ pipeline group).</p>
 <p>A <code>&lt;param&gt;</code> defines the parameter name that will be substituted with the paramerter value that will be substituted in a pipeline or a pipeline
 template.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;COMMAND&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>echo<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;WORKING_DIR&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>/repo/branch<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
@@ -2560,14 +2553,14 @@ can use to take you to your tracking tool (JIRA issue, Trac issue etc).</p>
 <p><strong>Examples</strong></p>
 <p>Suppose you are using a Web Application to manage your tasks or bugs, and the link looks like <code>http://your-trackingtool/yourproject/512</code>, &lsquo;512&rsquo;
 is your task ID. Your configuration would be:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;http://your-trackingtool/yourproject/${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;evo-(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 </code></pre></div><p>If you check in some code with a commit message which includes the characters &lsquo;evo-512&rsquo; then that will appear in the modification pop-up
 box as a link. When you click it, Go will take you to the web page <code>http://your-trackingtool/yourproject/512</code>.</p>
 <p>For example: If you use Jira for your task manager, the configuration would be:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;trackingtool</span> <span style="color:#b44">link=</span><span style="color:#b44">&#34;https://your-jira-server/browse/yourproject-${ID}&#34;</span> <span style="color:#b44">regex=</span><span style="color:#b44">&#34;##(\d+)&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
@@ -2594,7 +2587,7 @@ box as a link. When you click it, Go will take you to the web page <code>http://
 </table>
 <p><strong>Examples</strong></p>
 <p>For example to run a pipeline once a night at 10pm on weekdays:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;timer&gt;</span>0 0 22 ? * MON-FRI<span style="color:#008000;font-weight:bold">&lt;/timer&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
@@ -2785,14 +2778,14 @@ various combinations of the allowed special characters for that field. The field
 <p>Go supports multiple materials with the restriction that every material must contain a unique &ldquo;dest&rdquo; folder (that is not a subfolder of any
 other material). Go will check out the source code into this folder for each material.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">labeltemplate=</span><span style="color:#b44">&#34;foo-1.0.${COUNT}&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">labeltemplate=</span><span style="color:#b44">&#34;foo-1.0.${COUNT}&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://your-svn/&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 </code></pre></div><p>Multiple materials:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">labeltemplate=</span><span style="color:#b44">&#34;foo-1.0.${COUNT}&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">labeltemplate=</span><span style="color:#b44">&#34;foo-1.0.${COUNT}&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://your-svn/&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;svn-folder&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;git://127.0.0.1/precommit.git&#34;</span> <span style="color:#b44">branch=</span><span style="color:#b44">&#34;1.3branch&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;git-folder&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -2809,7 +2802,7 @@ other material). Go will check out the source code into this folder for each mat
 <h2 id="filter">&lt;filter&gt;</h2>
 <p>The <code>&lt;filter&gt;</code> element specifies files in changesets that should not trigger a pipeline automatically. When a pipeline is triggered by files that are not ignored the filtered files will still be updated with other files. You can only define one filter under each SCM material. When you trigger a pipeline manually, it will update to most recent revision, including filtered files.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://your-svn/&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://your-svn/&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;filter&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/**/*.*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/filter&gt;</span>
@@ -2842,17 +2835,17 @@ contain these files will not trigger a pipeline automatically.</p>
 <li>Ignored files are still updated when other files are updated.</li>
 </ul>
 <p><strong>Examples:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/**/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/**/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </code></pre></div><p>Ignore everything under the folder <strong>&lsquo;doc&rsquo;</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;doc/*&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </code></pre></div><p>Ignore files under the folder <strong>&lsquo;doc&rsquo;</strong>, excluding any subfolder.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;framework/helper/*.doc&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;framework/helper/*.doc&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </code></pre></div><p>Ignore files that are under the directory &lsquo;framework/helper&rsquo; and the file extension is <strong>.doc</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </code></pre></div><p>Ignore files that are under the root directory of SCM repository and the file extension is <strong>.pdf</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;**/helper/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;**/helper/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </code></pre></div><p>Ignore all the files that is under any <strong>&lsquo;helper&rsquo;</strong> folder and the file extension is <strong>.pdf</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;helper/**/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;helper/**/*.pdf&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </code></pre></div><p>Ignore all the files that are in the nested directory under folder <strong>&lsquo;helper&rsquo;</strong> of the repository and the file extension is <strong>.pdf</strong>.</p>
 <p><a href="#top">top</a></p>
 <h2 id="svn">&lt;svn&gt;</h2>
@@ -2914,7 +2907,7 @@ contain these files will not trigger a pipeline automatically.</p>
 and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store the certificates in the cache permanently.</p>
 <p><strong>Examples:</strong></p>
 <p>For a Go Agent on linux with the following configuration:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;myproduct&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;myproduct&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span>  <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://svn-server.com/framework&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;framework&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span>  <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://svn-server.com/componentOne&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;mycomponent&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -2965,14 +2958,14 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://username:password@your-hg/&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 </code></pre></div><p>#<strong>Specifying a mercurial branch.</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject_branch&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject_branch&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://username:password@your-hg##branch_name&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
@@ -3054,7 +3047,7 @@ configuration, Go will overwrite them before running p4.</p>
 <p>Go views are in the same format as that used by Perforce itself. In fact you should be able to copy a Perforce view from your existing Perforce
 setup and paste it into the view section.</p>
 <p>For example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;perforce-example&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;perforce-example&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;p4</span> <span style="color:#b44">port=</span><span style="color:#b44">&#34;10.18.3.102:1666&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;userName&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;passwd&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;view&gt;</span><span style="color:#080">&lt;![CDATA[
@@ -3126,13 +3119,13 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;git://127.0.0.1/precommit.git&#34;</span> <span style="color:#b44">branch=</span><span style="color:#b44">&#34;1.3branch&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;git</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://ccegit:pst@goserver.yourcompany.com/httpgit.git&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
@@ -3189,13 +3182,13 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;webproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;webproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;tfs</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://10.21.3.210:8080/tfs/New&#34;</span> <span style="color:#b44">domain=</span><span style="color:#b44">&#34;DOMAIN&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;jim&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;as802nsk9==&#34;</span> <span style="color:#b44">projectPath=</span><span style="color:#b44">&#34;$/webapp&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;myproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;myproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;tfs</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;http://tfshost.tw.com:8080/tfs/DefaultCollection&#34;</span> <span style="color:#b44">domain=</span><span style="color:#b44">&#34;DOMAIN&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;jim&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;as802nsk9==&#34;</span> <span style="color:#b44">projectPath=</span><span style="color:#b44">&#34;$/webapp/component/branch&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
@@ -3222,7 +3215,7 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Example</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;repositories&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;repository</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo-id&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;repo-name&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3305,7 +3298,7 @@ directory where the .ssh/ directory is located.</p>
 <li>When the stage <code>pkgstage</code> from pipeline <code>commonLib2</code> passes, it will run the <code>Server</code> pipeline</li>
 </ul>
 <p>The corresponding configuration would be:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;distStage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib2&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;pkgStage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -3319,7 +3312,7 @@ directory where the .ssh/ directory is located.</p>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 </code></pre></div><p>If instead, we want the <code>Server</code> pipeline to run when the stage <code>commonLib2/distStage</code> passes but not on <code>commonLib1/pkgStage</code>, we can set the <code>ignoreForScheduling</code> flag to <code>true</code> on the <code>commonLib1/pkgStage</code> material:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;distStage&#34;</span> <span style="color:#b44">ignoreForScheduling=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;commonLib2&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;pkgStage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -3364,7 +3357,7 @@ directory where the .ssh/ directory is located.</p>
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ut&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
@@ -3388,7 +3381,7 @@ directory where the .ssh/ directory is located.</p>
 <p><strong>Note:</strong></p>
 <p><code>&lt;jobs&gt;</code> can contain several <a href="#job"><code>&lt;job&gt;</code></a> elements. These jobs can run in parallel on different agents.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ut&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ut&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
@@ -3446,7 +3439,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -3459,12 +3452,12 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
     <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;unit-test&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;run-upgrade&#34;</span> <span style="color:#b44">runOnAllAgents=</span><span style="color:#b44">&#34;true&#34;</span> <span style="color:#b44">timeout=</span><span style="color:#b44">&#39;30&#39;</span> <span style="color:#b44">elasticProfileId=</span><span style="color:#b44">&#34;aws.small&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;run-upgrade&#34;</span> <span style="color:#b44">runOnAllAgents=</span><span style="color:#b44">&#34;true&#34;</span> <span style="color:#b44">timeout=</span><span style="color:#b44">&#39;30&#39;</span> <span style="color:#b44">elasticProfileId=</span><span style="color:#b44">&#34;aws.small&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;upgrade&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;run-upgrade&#34;</span> <span style="color:#b44">runInstanceCount=</span><span style="color:#b44">&#34;5&#34;</span> <span style="color:#b44">timeout=</span><span style="color:#b44">&#39;30&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;run-upgrade&#34;</span> <span style="color:#b44">runInstanceCount=</span><span style="color:#b44">&#34;5&#34;</span> <span style="color:#b44">timeout=</span><span style="color:#b44">&#39;30&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>linux<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/resources&gt;</span>
@@ -3477,7 +3470,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <p><code>&lt;resources&gt;</code> specifies the <a href="#resource">resources</a> needed for a job. A job can have zero or more resources.</p>
 <p>If a job has no resources it can be built on any agent.</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>jdk5<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>tomcat5<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
@@ -3490,7 +3483,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <p><strong>Validations:</strong></p>
 <p>Resources are case-insensitive. A resource name can contain alphanumeric characters, hyphens (-), spaces, periods (.) and pipes (|).</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>jdk5<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>tomcat5<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>mercurial<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
@@ -3547,7 +3540,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;unit-test&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
@@ -3587,13 +3580,13 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <ul>
 <li>
 <p>Invoke Ant, specifying a set of targets to run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;-Drun=all clean.ivy.localivy clean ft.long_running&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
 </code></pre></div></li>
 <li>
 <p>Invoke Ant in a specific working directory with a set of targets:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">workingdir=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">buildfile=</span><span style="color:#b44">&#34;mybuild.xml&#34;</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;-Drun=all clean.ivy.localivy clean ft.long_running&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
 </code></pre></div></li>
@@ -3633,7 +3626,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <ul>
 <li>
 <p>Invoke ruby, specifying the working directory as <strong>tools/my-ruby-tool</strong> and executing the ruby script <strong>backup.rb</strong>.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/usr/local/bin/ruby&#34;</span> <span style="color:#b44">args=</span><span style="color:#b44">&#34;backup.rb&#34;</span> <span style="color:#b44">workingdir=</span><span style="color:#b44">&#34;tools/my-ruby-tool&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
 </code></pre></div></li>
@@ -3649,7 +3642,7 @@ use of any character required for making argument. For example, you can specify 
 <ul>
 <li>
 <p>Echo something on Windows:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;cmd&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;cmd&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>/c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>echo<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>something to print out<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
@@ -3657,7 +3650,7 @@ use of any character required for making argument. For example, you can specify 
 </code></pre></div></li>
 <li>
 <p>Run command with pipe character in arguments:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;MsBuild&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;MsBuild&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>D:\projects\project\project-8.sln<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>/REBUILD<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>/CFG=&#34;Release_99|Win32&#34;<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
@@ -3702,7 +3695,7 @@ use of any character required for making argument. For example, you can specify 
 </table>
 <p><strong>Examples</strong></p>
 <p>Invoke NAnt, specifying a set of targets to run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;nant</span> <span style="color:#b44">buildfile=</span><span style="color:#b44">&#34;myproject.build&#34;</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;smoke-test&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
@@ -3738,7 +3731,7 @@ use of any character required for making argument. For example, you can specify 
 </table>
 <p><strong>Examples</strong></p>
 <p>Invoke rake, specifying a set of targets to run:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;rake</span> <span style="color:#b44">buildfile=</span><span style="color:#b44">&#34;rakefile&#34;</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;smoke-test&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
@@ -3814,7 +3807,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 <ol>
 <li>
 <p>Fetch all artifacts in the directory &lsquo;pkg&rsquo; from the previous stage in the same pipeline and put them under the directory &lsquo;lib&rsquo;</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
     <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dev&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3856,7 +3849,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 </code></pre></div></li>
 <li>
 <p>Fetch a single artifact from a stage in the upstream pipeline &lsquo;framework&rsquo; and put it under the directory &lsquo;lib&rsquo;</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;framework&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;ft&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
@@ -3874,7 +3867,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 </code></pre></div></li>
 <li>
 <p>Fetch a single artifact from a stage in an ancestor pipeline &lsquo;Build&rsquo; and put it under the directory &lsquo;pkg&rsquo;</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;acceptance&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;ft&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
@@ -3895,7 +3888,7 @@ Go will not fetch the artifact again if it has not changed. The directory path i
 <h2 id="runif">&lt;runif&gt;</h2>
 <p>Specifies when a task should be allowed to run. Multiple conditions may be defined for each task.</p>
 <p>A running job on an agent has two possible states: passed or failed. A job starts in the state &ldquo;passed&rdquo;. If any task fails, it transitions to
-the state &ldquo;failed&rdquo;&quot;&rdquo;.</p>
+the state &ldquo;failed&rdquo;&quot;&quot;.</p>
 <p>A task can specify any of three possible runif filters: &lsquo;passed&rsquo;, &lsquo;failed&rsquo; or &lsquo;any&rsquo;. (&lsquo;passed&rsquo; is the default)</p>
 <p><strong>Attributes</strong></p>
 <table>
@@ -3916,13 +3909,13 @@ the state &ldquo;failed&rdquo;&quot;&rdquo;.</p>
 </table>
 <p><strong><strong>Notes:</strong></strong></p>
 <p><a href="#runif"><code>&lt;runif&gt;</code></a> can also be defined under <a href="#exec"><code>&lt;exec&gt;</code></a> task even if <code>&lt;exec&gt;</code> has some <code>&lt;arg&gt;</code>s e.g.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;echo&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">    <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;echo&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
        <span style="color:#008000;font-weight:bold">&lt;arg</span> <span style="color:#b44">value=</span><span style="color:#b44">&#34;test&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
        <span style="color:#008000;font-weight:bold">&lt;runif</span> <span style="color:#b44">status=</span><span style="color:#b44">&#34;passed&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span>
 </code></pre></div><p><strong>Examples</strong></p>
 <p>Given the tasks in a job is following:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;ant</span>  <span style="color:#b44">buildfile=</span><span style="color:#b44">&#34;build.xml&#34;</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;complie-test-source&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">origin=</span><span style="color:#b44">&#34;gocd&#34;</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;my_app&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;dist&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;package-artifact&#34;</span> <span style="color:#b44">srcdir=</span><span style="color:#b44">&#34;pkg&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
        <span style="color:#008000;font-weight:bold">&lt;runif</span>  <span style="color:#b44">status=</span><span style="color:#b44">&#34;passed&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -3951,7 +3944,7 @@ the state &ldquo;failed&rdquo;&quot;&rdquo;.</p>
 <p>If a job is cancelled during the completing phase, the agent will ignore the request and complete as planned</p>
 <p><strong>Examples</strong></p>
 <p>The task &lsquo;start_server&rsquo; starts a process on an agent. When the stage is cancelled, the agent will invoke the cancel task &lsquo;kill_server&rsquo; to kill the process early and clean up any extra files.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;start_server&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;oncancel&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;kill_server&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -3962,7 +3955,7 @@ the state &ldquo;failed&rdquo;&quot;&rdquo;.</p>
 <h2 id="artifacts">&lt;artifacts&gt;</h2>
 <p><code>&lt;artifacts&gt;</code> specifies what files the agent will publish to the server or an external artifact store.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/deployable.jar&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;pkg&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;test&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/junit-output&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;junit&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -4030,31 +4023,31 @@ information is placed in the Tests sub-tab.</p>
 would upload all xml files in the target directory and any of its subdirectories. The original directory structure is preserved on the
 server.</p>
 <p><strong>Examples for build artifact</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/deployable.jar&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;pkg&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/**/*Test.xml&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;pkg&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
 </code></pre></div><p>The following will upload all xml files to the server&rsquo;s artifact repository.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/**/*.xml&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
 </code></pre></div><p><a href="#top">top</a></p>
 <p><strong>Examples for test artifact</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;test&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/junit-output&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;junit&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
 </code></pre></div><p><strong>Examples for external artifact</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;build_image&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;build_image&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;external&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;docker-image&#34;</span> <span style="color:#b44">storeId=</span><span style="color:#b44">&#34;dockerhub&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
@@ -4074,7 +4067,7 @@ server.</p>
 <h2 id="tabs">&lt;tabs&gt;</h2>
 <p>The <code>&lt;tabs&gt;</code> element allows you to add tabs to the Job Details page. You can put any artifact that can be rendered by a web browser into a tab. For example, if your coverage tool produces an html report, you can easily place that report into a tab. Tabs are implemented as iframes (see W3C iframe definition ).</p>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/jcoverage&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;Jcoverage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
@@ -4109,7 +4102,7 @@ server.</p>
 </table>
 <p><strong>Example:</strong></p>
 <p>Given some coverage information in &lsquo;target/Jcoverage&rsquo; folder on the agent side, We configure a tab to show the coverage information by specifying a tab with the index.html file.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;unit&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;build&#34;</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/jcoverage&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;Jcoverage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
@@ -4149,7 +4142,7 @@ server.</p>
 <li>If attribute <code>allowOnlyOnSuccess</code> is not specified, then the behaviour is same as <code>false</code>.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ut&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ut&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span> <span style="color:#b44">allowOnlyOnSuccess=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   ...
 <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
@@ -4158,13 +4151,13 @@ server.</p>
 <p>You can use <code>&lt;authorization&gt;</code> under an <a href="#approval"><code>&lt;approval&gt;</code></a> with a &lsquo;manual&rsquo; or &lsquo;success&rsquo; type to specify who can approve this stage. There
 are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href="#role"><code>&lt;role&gt;</code></a>.</p>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>go_admins<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/approval&gt;</span>
-</code></pre></div><div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;success&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</code></pre></div><div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;success&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>lqiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>go_admins<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
@@ -4194,7 +4187,7 @@ are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href=
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span> <span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;project-template&#34;</span> <span style="color:#008000;font-weight:bold">&gt;</span>
@@ -4249,7 +4242,7 @@ are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href=
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   ...
   <span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span> <span style="color:#b44">labeltemplate=</span><span style="color:#b44">&#34;foo-1.0.${COUNT}&#34;</span> <span style="color:#008000;font-weight:bold">&gt;</span>
@@ -4298,7 +4291,7 @@ allow certain variable names and/or values.</p>
 </tbody>
 </table>
 <p><strong>Example:</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">  <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
      <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;&lt;/variable&gt;</span>
      <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;MULTIPLE_LINES&#34;</span><span style="color:#008000;font-weight:bold">&gt;&lt;value&gt;</span>multiplelines<span style="color:#008000;font-weight:bold">&lt;/value&gt;&lt;/variable&gt;</span>
      <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;COMPLEX&#34;</span><span style="color:#008000;font-weight:bold">&gt;&lt;value&gt;</span>![CDATA[This has very <span style="color:#008000;font-weight:bold">&lt;complex&gt;</span> data]]<span style="color:#008000;font-weight:bold">&lt;/value&gt;&lt;/variable&gt;</span>
@@ -4327,7 +4320,7 @@ allow certain variable names and/or values.</p>
 </tbody>
 </table>
 <p><strong>Examples</strong></p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>

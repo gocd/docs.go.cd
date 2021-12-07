@@ -5,11 +5,7 @@
     <link>/extension_points/</link>
     <description>Recent content in Extension Points Of GoCD on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/extension_points/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/extension_points/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Package Repository Extension</title>
       <link>/extension_points/package_repository_extension.html</link>

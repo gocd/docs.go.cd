@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -347,18 +340,18 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>On the primary PostgreSQL instance, enable a replication user by running this as superuser:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">  <span style="color:#a2f;font-weight:bold">CREATE</span> <span style="color:#a2f;font-weight:bold">USER</span> rep REPLICATION LOGIN <span style="color:#a2f;font-weight:bold">CONNECTION</span> <span style="color:#a2f;font-weight:bold">LIMIT</span> <span style="color:#666">1</span> <span style="color:#a2f;font-weight:bold">ENCRYPTED</span> PASSWORD <span style="color:#b44">&#39;rep&#39;</span>;
-</code></pre></div><p>In the example above, the replication user, &ldquo;rep&rdquo;, has a password &ldquo;rep&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#bbb">  </span><span style="color:#a2f;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">USER</span><span style="color:#bbb"> </span>rep<span style="color:#bbb"> </span>REPLICATION<span style="color:#bbb"> </span>LOGIN<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">CONNECTION</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">LIMIT</span><span style="color:#bbb"> </span><span style="color:#666">1</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ENCRYPTED</span><span style="color:#bbb"> </span>PASSWORD<span style="color:#bbb"> </span><span style="color:#b44">&#39;rep&#39;</span>;<span style="color:#bbb">
+</span></code></pre></div><p>In the example above, the replication user, &ldquo;rep&rdquo;, has a password &ldquo;rep&rdquo;.</p>
 </li>
 <li>
 <p>Then, give the replication user enough permission to login to the primary PostgreSQL instance, from the standby PostgreSQL instance. This is done by adding this to <code>pg_hba.conf</code>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">  # pg_hba.conf
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">  # pg_hba.conf
   host  replication  rep  &lt;ip_address_of_standby_postgres_server&gt;/32  md5
 </code></pre></div><p><strong>Note:</strong> Usually the file <code>pg_hba.conf</code> is found either in the PostgreSQL data directory or in <code>/etc/postgres&lt;pg-version&gt;/main/pg_hba.conf</code>. This depends on your setup of PostgreSQL and where you ran <code>initdb</code>. Please refer to the <a href="http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html">pg_hba.conf guide</a> in the PostgreSQL documentation, for more details, including information about reducing the strictness of the IP Address filter in the lines above.</p>
 </li>
 <li>
 <p>The primary PostgreSQL server is nearly ready. It now needs to be setup to allow replication. Update <code>postgresql.conf</code> with these options:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  archive_mode <span style="color:#666">=</span> on
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  archive_mode <span style="color:#666">=</span> on
   archive_command <span style="color:#666">=</span> <span style="color:#b44">&#39;test ! -f /share/primary_wal/%f &amp;&amp; (mkdir -p /share/primary_wal || true) &amp;&amp; cp %p /share/primary_wal/%f &amp;&amp; chmod 644 /share/primary_wal/%f&#39;</span>
   archive_timeout <span style="color:#666">=</span> <span style="color:#666">60</span>
   max_wal_senders <span style="color:#666">=</span> <span style="color:#666">1</span>
@@ -382,7 +375,7 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Choose an empty directory to serve as the <a href="https://www.postgresql.org/docs/9.6/static/runtime-config-file-locations.html">data directory</a> for the new instance, and create a <a href="https://www.postgresql.org/docs/9.6/static/app-pgbasebackup.html">base backup</a> from the primary PostgreSQL instance. This is how a base backup is taken:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  pg_basebackup -h &lt;ip_address_of_primary_postgres_server&gt; -U rep -D &lt;empty_data_directory_on_standby&gt;
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  pg_basebackup -h &lt;ip_address_of_primary_postgres_server&gt; -U rep -D &lt;empty_data_directory_on_standby&gt;
 </code></pre></div><p><strong>Note:</strong> Please note that this is a backup of the whole instance, and not a specific database. PostgreSQL streaming replication always works with the whole instance.</p>
 <p>At this point you should also look at your <a href="https://www.postgresql.org/docs/9.6/runtime-config-connection.html">Secondary PostgreSQL Connection and Authentication settings</a> for the secondary server. For e.g you might have to alter postgresql.conf on your secondary server and change &ldquo;listen_addresses&rdquo; property, so that it reflects the secondary node host.</p>
 <p><strong>Note:</strong> If you choose to use <code>rsync</code> or a manual copy instead, for security reasons, please ensure that only the postgres user has read/write access to the data folder.</p>
@@ -390,20 +383,20 @@ if (!doNotTrack) {
 <li>
 <p>Setup the standby instance to replicate from the primary instance. Create a file called <code>recovery.conf</code> in the PostgreSQL data directory (the one used in <code>pg_basebackup</code> above) and populate it with:</p>
 <p>On Linux:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  standby_mode <span style="color:#666">=</span> on
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  standby_mode <span style="color:#666">=</span> on
   primary_conninfo <span style="color:#666">=</span> <span style="color:#b44">&#39;host=&lt;ip_address_of_primary_postgres_server&gt; port=5432 user=rep password=rep&#39;</span>
   restore_command <span style="color:#666">=</span> <span style="color:#b44">&#39;cp /sharedDrive/primary_wal/%f %p&#39;</span>
   trigger_file <span style="color:#666">=</span> <span style="color:#b44">&#39;/path/to/postgresql.trigger.5432&#39;</span>
 </code></pre></div><p>On Windows:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  standby_mode <span style="color:#666">=</span> on
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  standby_mode <span style="color:#666">=</span> on
   primary_conninfo <span style="color:#666">=</span> <span style="color:#b44">&#39;host=&lt;ip_address_of_primary_postgres_server&gt; port=5432 user=rep password=rep&#39;</span>
   restore_command <span style="color:#666">=</span> <span style="color:#b44">&#39;copy \\sharedDrive\primary_wal\%f %p&#39;</span>
   trigger_file <span style="color:#666">=</span> <span style="color:#b44">&#39;\path\to\postgresql.trigger.5432&#39;</span>
 </code></pre></div><p>You may optionally setup archive cleanup. This would keep clearing the <a href="https://www.postgresql.org/docs/9.6/static/runtime-config-wal.html">WAL</a> files from the archive location as the changes are replicated successfully to the standby postgres server. Just append the below lines to <code>recovery.conf</code></p>
 <p>On Linux:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  archive_cleanup_command <span style="color:#666">=</span> <span style="color:#b44">&#39;pg_archivecleanup /sharedDrive/primary_wal %r&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  archive_cleanup_command <span style="color:#666">=</span> <span style="color:#b44">&#39;pg_archivecleanup /sharedDrive/primary_wal %r&#39;</span>
 </code></pre></div><p>On Windows:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  archive_cleanup_command <span style="color:#666">=</span> <span style="color:#b44">&#39;pg_archivecleanup \\sharedDrive\primary_wal %r&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-ruby" data-lang="ruby">  archive_cleanup_command <span style="color:#666">=</span> <span style="color:#b44">&#39;pg_archivecleanup \\sharedDrive\primary_wal %r&#39;</span>
 </code></pre></div><p>References for these options are at: <a href="https://www.postgresql.org/docs/9.6/static/recovery-config.html">Recovery Configuration</a>.</p>
 <p><strong>Note:</strong> The trigger file is a file whose presence (creation) makes the standby PostgreSQL instance become the primary PostgreSQL instance. It&rsquo;ll stop replication from happening, and the instance starts accepting write requests (updates to databases). Ensure that this file can only be created by an administrator, and accessible by the <code>postgres</code> user.</p>
 </li>
@@ -420,7 +413,7 @@ if (!doNotTrack) {
 <li>
 <p>Create a file <code>business-continuity-token</code> in the GoCD server config directory (usually <code>/etc/go/</code> on Linux and <code>&lt;GoCD server installation dir&gt;/config/</code> on Windows) on the primary server. Setup plain text business continuity token in this file, which will only be used for Business Continuity sync and login.</p>
 <p>Sample file:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">  #business-continuity-token
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">  #business-continuity-token
   user = password
   OR
   user:password
@@ -445,13 +438,13 @@ The Business Continuity token passed in the token file is only used for Business
 </li>
 <li>
 <p>Start up the standby GoCD Server in passive state, by setting the system property <code>go.server.mode</code> to the value <code>standby</code> and the system property <code>bc.primary.url</code> to the base URL of the primary GoCD Server (for instance, <code>https://primarygo:8154</code>). So, your standby GoCD Server instance should be started with arguments such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  -Dgo.server.mode<span style="color:#666">=</span>standby -Dbc.primary.url<span style="color:#666">=</span><span style="color:#b44">&#34;https://primarygo:8154&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  -Dgo.server.mode<span style="color:#666">=</span>standby -Dbc.primary.url<span style="color:#666">=</span><span style="color:#b44">&#34;https://primarygo:8154&#34;</span>
 </code></pre></div><p>Edit the file <code>wrapper-properties.conf</code> on your GoCD server and add the following options (replace <code>primarygo</code> with the IP of your primary GoCD server). The location of the <code>wrapper-properties.conf</code> can be found in the <a href="https://docs.gocd.org/current/installation/installing_go_server.html">installation documentation</a> of the GoCD server.</p>
-<pre><code class="language-properties" data-lang="properties">  # We recommend that you begin with the index `100` and increment the index for each system property
+<pre tabindex="0"><code class="language-properties" data-lang="properties">  # We recommend that you begin with the index `100` and increment the index for each system property
   wrapper.java.additional.100=-Dgo.server.mode=standby
   wrapper.java.additional.101=-Dbc.primary.url=&quot;https://primarygo:8154
 </code></pre><p>If you&rsquo;re running on docker using one of the supported GoCD server images, set the environment variable <code>GOCD_SERVER_JVM_OPTIONS</code>, replacing <code>primarygo</code> with the IP of your primary GoCD server:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  docker run -e <span style="color:#b44">&#34;GOCD_SERVER_JVM_OPTIONS=-Dgo.server.mode=standby -Dbc.primary.url=&#34;</span>https://primarygo:8154<span style="color:#b44">&#34; ...
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  docker run -e <span style="color:#b44">&#34;GOCD_SERVER_JVM_OPTIONS=-Dgo.server.mode=standby -Dbc.primary.url=&#34;</span>https://primarygo:8154<span style="color:#b44">&#34; ...
 </span></code></pre></div></li>
 <li>
 <p>After you have completed all of the aforementioned steps and restarted standby GoCD server, login to the standby dashboard using the business continuity token you setup in <code>Step2</code> above in <code>business-continuity-token</code> file.</p>
@@ -488,7 +481,7 @@ The Business Continuity token passed in the token file is only used for Business
 <p>Since the &ldquo;value&rdquo; of the virtual IP never changes, the DNS record does not need to have a low TTL (time to live).</p>
 <h3 id="setup-to-ease-changing-of-gocd-server-from-standby-to-primary">Setup to ease changing of GoCD Server from standby to primary</h3>
 <p>Just like the PostgreSQL recovery trigger file, you can setup a trigger file which helps you control whether a GoCD Server starts up in an active state or in a standby mode (the <code>go.server.mode</code> system property). In a startup file such as <code>/etc/default/go-server</code>, you can have a few lines such as:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> -e <span style="color:#b44">&#34;/etc/go/start.in.standby&#34;</span> <span style="color:#666">]</span>; <span style="color:#a2f;font-weight:bold">then</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  <span style="color:#a2f;font-weight:bold">if</span> <span style="color:#666">[</span> -e <span style="color:#b44">&#34;/etc/go/start.in.standby&#34;</span> <span style="color:#666">]</span>; <span style="color:#a2f;font-weight:bold">then</span>
     <span style="color:#a2f">export</span> <span style="color:#b8860b">GOCD_SERVER_JVM_OPTIONS</span><span style="color:#666">=</span><span style="color:#b44">&#34;</span><span style="color:#b8860b">$GOCD_SERVER_JVM_OPTIONS</span><span style="color:#b44"> -Dgo.server.mode=standby -Dbc.primary.url=https://primarygo:8154&#34;</span>
   <span style="color:#a2f;font-weight:bold">fi</span>
 </code></pre></div><p>This will ensure that the GoCD Server starts up in standby mode only if the file <code>/etc/go/start.in.standby</code> exists. When you want to switch this GoCD Server to become primary instead, you can remove this file, and the GoCD Server, upon restart, will not start in standby mode.</p>

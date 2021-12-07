@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -344,7 +337,7 @@ if (!doNotTrack) {
 <p><img src="../images/use_parameters_in_configuration.png" alt=""></p>
 <h2 id="defining-and-using-a-parameter">Defining and using a parameter</h2>
 <p>Parameter values are defined in the <code>&lt;params&gt;</code> tag within a pipeline and can be used anywhere within that pipeline using #{param_name}. The following example defines a new parameter called &ldquo;myParam&rdquo; and uses it in a job.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;myParam&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>hello world<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
@@ -365,28 +358,28 @@ if (!doNotTrack) {
 <table>
 <thead>
 <tr>
-<th align="left">String</th>
-<th align="center">Evaluates to</th>
+<th style="text-align:left">String</th>
+<th style="text-align:center">Evaluates to</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td align="left">#{foo}</td>
-<td align="center">one</td>
+<td style="text-align:left">#{foo}</td>
+<td style="text-align:center">one</td>
 </tr>
 <tr>
-<td align="left">##{foo}</td>
-<td align="center">#{foo}</td>
+<td style="text-align:left">##{foo}</td>
+<td style="text-align:center">#{foo}</td>
 </tr>
 <tr>
-<td align="left">###{foo}</td>
-<td align="center">#one</td>
+<td style="text-align:left">###{foo}</td>
+<td style="text-align:center">#one</td>
 </tr>
 </tbody>
 </table>
 <h2 id="using-parameters-in-pipeline-templates">Using parameters in pipeline templates</h2>
 <p>Parameter usage within <a href="pipeline_templates.html">templates</a> is similar to usage within pipelines. The only difference is that you cannot <strong>define</strong> parameters in a template.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;trunk&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;trunk&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;WORKING_DIR&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>trunk<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
@@ -401,7 +394,7 @@ if (!doNotTrack) {
 <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 
 </code></pre></div><p>The parameter defined above is used the template below.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>

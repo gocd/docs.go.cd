@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -388,12 +381,12 @@ in <code>cmd /c</code>. So, environment variables get interpolated automatically
   <figcaption>Figure 8: Result of usage of environment variable on Windows</figcaption>
 </figure>
 <p>Similarly, it works when used in a batch file (say, &ldquo;env_var.cmd&rdquo;), with content such as this:</p>
-<pre><code>echo Environment variable ENV_VAR_1 is: %ENV_VAR_1%
+<pre tabindex="0"><code>echo Environment variable ENV_VAR_1 is: %ENV_VAR_1%
 </code></pre><p>Notice that, unlike on Unix/Linux, the way to access an environment variable on Windows is to use %, instead of $.</p>
 <h3 id="3-using-an-environment-variable-in-a-shell-script---on-unixlinux">3. Using an environment variable in a shell-script - On Unix/Linux</h3>
 <p>Using an environment variable inside a shell-script is not special at all. You can directly use it, as you would any
 environment variable. For instance, a shell-script with this content, will work when executed normally:</p>
-<pre><code>#!/bin/sh
+<pre tabindex="0"><code>#!/bin/sh
 
 echo &quot;Value of environment variable ENV_VAR_1 is: $ENV_VAR_1&quot;
 </code></pre><p>This works when executed directly, with a config such as this:</p>
@@ -410,7 +403,7 @@ echo &quot;Value of environment variable ENV_VAR_1 is: $ENV_VAR_1&quot;
 <p>Again, using an environment variable inside a ruby script is not special at all. This has been mentioned here, just to
 show that scripts written in different languages have to use different mechanisms to access environment variables. A
 ruby script such as this works as expected:</p>
-<pre><code>#!/usr/bin/env ruby
+<pre tabindex="0"><code>#!/usr/bin/env ruby
 
 puts &quot;Environment variable ENV_VAR_1 has the value: #{ENV['ENV_VAR_1']}&quot;
 </code></pre><h2 id="standard-gocd-environment-variables">Standard GoCD environment variables</h2>
@@ -530,7 +523,7 @@ environment variables available during every job run, set by GoCD. They are:</p>
 <ul>
 <li>Add the following target to your ant <code>build.xml</code></li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;test-build&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;test-build&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">environment=</span><span style="color:#b44">&#34;env&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;target</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dist&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;echo</span> <span style="color:#b44">message=</span><span style="color:#b44">&#34;Building pipeline ${env.GO_PIPELINE_NAME}&#34;</span>
@@ -540,7 +533,7 @@ environment variables available during every job run, set by GoCD. They are:</p>
 </code></pre></div><ul>
 <li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline on revision 123, the file deploy-123.txt will be created, with the following content:</li>
 </ul>
-<pre><code>deploy-123.txt
+<pre tabindex="0"><code>deploy-123.txt
 
 Building pipeline my-app
 </code></pre><h4 id="multiple-materials">Multiple materials</h4>
@@ -549,7 +542,7 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
 <ul>
 <li>Ensure the pipeline materials look like this</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;multiple-materials&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;multiple-materials&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;...&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;code&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;hg</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;...&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;configuration/latest&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -559,7 +552,7 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
 </code></pre></div><ul>
 <li>Add the following target to your ant <code>build.xml</code></li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-app&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;project</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-app&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;property</span> <span style="color:#b44">environment=</span><span style="color:#b44">&#34;env&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;target</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dist&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;echo</span> <span style="color:#b44">message=</span><span style="color:#b44">&#34;Building pipeline ${env.GO_PIPELINE_NAME}&#34;</span>
@@ -572,19 +565,19 @@ the code and a <a href="http://www.selenic.com/mercurial/wiki/">Mercurial</a> re
 </code></pre></div><ul>
 <li>Now, when GoCD runs the &lsquo;my-app&rsquo; pipeline with the code at revision &lsquo;123&rsquo; and the configuration at revision &lsquo;59cab75ccf231b9e338c96cff0f4adad5cb7d335&rsquo;, the file deploy-123.txt will be created with the following content:</li>
 </ul>
-<pre><code>deploy-123.txt
+<pre tabindex="0"><code>deploy-123.txt
 
 Building pipeline my-app
 Configuration version: 59cab75ccf231b9e338c96cff0f4adad5cb7d335
 </code></pre><h2 id="pass-environment-variables-to-a-job">Pass environment variables to a job</h2>
 <p>You can specify variables for Environments, Pipelines, Stages and Jobs. If a variable is specified more than once, the
-most specific scope is used. For example if you specify variable FOO='foo&rsquo; for an environment, and FOO='bar&rsquo; for a Job,
+most specific scope is used. For example if you specify variable FOO=&lsquo;foo&rsquo; for an environment, and FOO=&lsquo;bar&rsquo; for a Job,
 then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
 <h2 id="setting-variables-on-an-environment">Setting variables on an environment</h2>
 <p>You can add variables to an environment by editing the configuration of the environment. Click on the name of the environment to edit configuration.</p>
 <p><img src="../images/env_variables_environment.png" alt=""></p>
 <p>You specify variables on an environment in the Config XML by adding an <a href="../configuration/configuration_reference.html#environmentvariables">&lt; environmentvariables &gt;</a> section to the environment definition.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
             <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
@@ -606,7 +599,7 @@ then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
 </code></pre></div><p>You can add variables for a job by editing the job configuration.</p>
 <p><img src="../images/env_variables_job.png" alt=""></p>
 <p>You specify variables on an job in the Config XML by adding an <a href="../configuration/configuration_reference.html#environmentvariables">&lt; environmentvariables &gt;</a> section to the job definition.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my-job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
        <span style="color:#008000;font-weight:bold">&lt;variable</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;FOO&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
             <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>bar<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>

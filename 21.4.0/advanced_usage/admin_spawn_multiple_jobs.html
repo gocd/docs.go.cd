@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -348,7 +341,7 @@ if (!doNotTrack) {
 <h3 id="configure-through-the-config-xml">Configure through the Config XML</h3>
 <p>To specify that a job should run on all agents, add the attribute <code>runOnAllAgents=&quot;true&quot;</code></p>
 <p>to the job&rsquo;s definition (see configuration reference for <a href="../configuration/configuration_reference.html#job"><code>&lt;job&gt;</code></a>)</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span> <span style="color:#b44">runOnAllAgents=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span> <span style="color:#b44">runOnAllAgents=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
 </code></pre></div><h2 id="run-x-instances-of-a-job">Run &lsquo;X&rsquo; instances of a Job</h2>
@@ -361,7 +354,7 @@ if (!doNotTrack) {
 <h3 id="configure-through-the-config-xml-1">Configure through the Config XML</h3>
 <p>To specify that &lsquo;x&rsquo; instances of a job should run, add the attribute <code>runInstanceCount=&quot;5&quot;</code></p>
 <p>to the job&rsquo;s definition (see configuration reference for <a href="../configuration/configuration_reference.html#job"><code>&lt;job&gt;</code></a>)</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;test&#34;</span> <span style="color:#b44">runInstanceCount=</span><span style="color:#b44">&#34;5&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;test&#34;</span> <span style="color:#b44">runInstanceCount=</span><span style="color:#b44">&#34;5&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
 <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
 </code></pre></div><h4 id="also-see">Also See&hellip;</h4>

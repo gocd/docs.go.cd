@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -377,7 +370,7 @@ if (!doNotTrack) {
 </ul>
 <h2 id="compress-large-log-files">Compress large log files</h2>
 <p>In many cases, the easiest thing to do is compress some of the larger artifacts that you won&rsquo;t frequently have need for. For example, if you have a large log file named &lsquo;test.log&rsquo; and you&rsquo;re running GoCD server on a unix machine, the following script will gzip those files that haven&rsquo;t been modified in the last 10 days</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v <span style="color:#b44">&#39;{}&#39;</span> <span style="color:#b62;font-weight:bold">\;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v <span style="color:#b44">&#39;{}&#39;</span> <span style="color:#b62;font-weight:bold">\;</span>
 </code></pre></div><p>Now, if you add this to a system <a href="http://en.wikipedia.org/wiki/Cron">crontab</a>, your server can compress large artifacts automatically.</p>
 <h2 id="move-the-artifact-repository-to-a-new-larger-drive">Move the artifact repository to a new (larger) drive</h2>
 <p>If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it&rsquo;s artifact repository.</p>
@@ -392,7 +385,7 @@ if (!doNotTrack) {
 <li>Copy all files from the original artifact repository location to the new drive</li>
 <li>Change the artifact repository location in the configuration file</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsDir=</span><span style="color:#b44">&#34;/path/to/new/artifacts&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">artifactsDir=</span><span style="color:#b44">&#34;/path/to/new/artifacts&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     ...
 <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 </code></pre></div><ul>
@@ -401,7 +394,7 @@ if (!doNotTrack) {
 <h2 id="delete-unused-artifacts">Delete unused artifacts</h2>
 <p>Another option for making more room is to remove unused (or easily recreatable) artifacts. You may also have old pipelines that you no longer need.</p>
 <p>The directory structure of the artifact repository makes selecting which artifacts are safe to delete easier. The format is:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>artifacts-dir<span style="color:#666">]</span>/pipelines/<span style="color:#666">[</span>pipelineName<span style="color:#666">]</span>/<span style="color:#666">[</span>pipelineLabel<span style="color:#666">]</span>/<span style="color:#666">[</span>stageName<span style="color:#666">]</span>/<span style="color:#666">[</span>stageCounter<span style="color:#666">]</span>/<span style="color:#666">[</span>jobName<span style="color:#666">]</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell"><span style="color:#666">[</span>artifacts-dir<span style="color:#666">]</span>/pipelines/<span style="color:#666">[</span>pipelineName<span style="color:#666">]</span>/<span style="color:#666">[</span>pipelineLabel<span style="color:#666">]</span>/<span style="color:#666">[</span>stageName<span style="color:#666">]</span>/<span style="color:#666">[</span>stageCounter<span style="color:#666">]</span>/<span style="color:#666">[</span>jobName<span style="color:#666">]</span>
 </code></pre></div></article>
 
       

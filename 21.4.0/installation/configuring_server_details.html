@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -346,7 +339,7 @@ if (!doNotTrack) {
 <p>Specify the artifacts directory location and click on &ldquo;Save&rdquo;</p>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the
 Admin section:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>/path/to/artifacts/directory<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
@@ -355,7 +348,7 @@ Admin section:</p>
   <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
 </code></pre></div><p>In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>E:\go-artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
@@ -379,7 +372,7 @@ Admin section:</p>
 <p><img src="../images/site_url.png" alt="Specify site url"></p>
 <p>GoCD generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where GoCD cannot rely upon publishing URLs relative to a request. If you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.</p>
 <p>Power users, if they so desire, can directly update the <a href="../configuration/configuration_reference.html#server">server</a> section.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
       <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
             <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://host:port<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>

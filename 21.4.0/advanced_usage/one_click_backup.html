@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -403,7 +396,7 @@ if (!doNotTrack) {
 <h4 id="strategy-to-backup-artifacts-and-test-reporting-data">Strategy to backup Artifacts and Test Reporting Data</h4>
 <p>Artifacts and the Test Reporting Data keep getting new files and directories added to them. So, it is a good idea to use <code>rsync</code> to copy the contents of these two into a backup location.</p>
 <p><em>For Instance:</em> Lets say you have a copy of all the files till 12-02-2012 in a location. On 20-02-2012, you can do something like:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rsync -avzP <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">ARTIFACT_LOCATION</span><span style="color:#b68;font-weight:bold">}</span> <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">BACKUP_LOCATION</span><span style="color:#b68;font-weight:bold">}</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rsync -avzP <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">ARTIFACT_LOCATION</span><span style="color:#b68;font-weight:bold">}</span> <span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">BACKUP_LOCATION</span><span style="color:#b68;font-weight:bold">}</span>
 </code></pre></div><p>This makes sure that only the files and directories that got newly added will be synced to the <code>${BACKUP_LOCATION}</code> and not the entire contents.</p>
 <h3 id="restoring-gocd-using-backup">Restoring GoCD using backup</h3>
 <p>The restoration process is not automated and needs to be done manually. Please refer to the previous sections about the contents of the backup.</p>

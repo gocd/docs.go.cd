@@ -5,11 +5,7 @@
     <link>/faq/</link>
     <description>Recent content in FAQ on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/faq/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/faq/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Artifact integrity verification</title>
       <link>/faq/artifact_integrity.html</link>

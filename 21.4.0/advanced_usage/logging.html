@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -523,7 +516,7 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <blockquote>
 <p><strong>Note:</strong> It is recommended that you do not set the log level to <code>DEBUG</code> or <code>TRACE</code> for long periods of time since this can significantly affect performance.</p>
 </blockquote>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 
 <span style="color:#080;font-style:italic">&lt;!-- since this file is included in another file, use `&lt;included /&gt;` and not `&lt;configuration /&gt;`  --&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
@@ -559,7 +552,7 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
 </code></pre></div><h2 id="example-enable-web-request-logs">Example: Enable web-request logs</h2>
 <p>To turn on web request logs, add below content to logback-include.xml.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
 
   <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;web-request-appender&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -601,7 +594,7 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </li>
 </ul>
 <p>Then follow the instructions on the <a href="https://github.com/logstash/logstash-logback-encoder#readme">README</a> to configure your <code>logback-include.xml</code> to setup relevant appenders and encoders:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
 
   <span style="color:#080;font-style:italic">&lt;!-- see https://github.com/logstash/logstash-logback-encoder for more examples and configuration --&gt;</span>
@@ -617,7 +610,7 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </code></pre></div><h2 id="override-existing-logbackxml">Override Existing logback.xml</h2>
 <p>If you&rsquo;d like to completely override the packaged <code>logback.xml</code>, create a <code>CONFIG_DIR\logback.xml</code> file. If such a file is present, GoCD will use the loggers and file appender provided in the file for logging. You can read more about logback configuration in the <a href="https://logback.qos.ch/manual/configuration.html">logback configuration documentation</a></p>
 <p>The following is a sample <code>logback.xml</code> users can use to override logging for GoCD root logger. The example uses a user defined directory for writing logs.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
 
   <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;CustomFileAppender&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -649,10 +642,10 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <p>Another example setup using GELF (Graylog Extended Log Format) using <a href="https://github.com/osiegmar/logback-gelf">logback-gelf</a>:</p>
 <p>Download <code>logback-gelf-1.1.0.jar</code> and place it in <code>libs</code> directory.
 On typical linux server, that can be done with</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget <span style="color:#b44">&#34;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget <span style="color:#b44">&#34;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
 </code></pre></div><p>Configure <code>logback-include.xml</code> with any of the gelf appenders as defined on <a href="https://github.com/osiegmar/logback-gelf#example">project documentation</a>:
 An example logging over UDP could look like this:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;GELF&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;de.siegmar.logbackgelf.GelfUdpAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;graylogHost&gt;</span>graylog.mycompany.com<span style="color:#008000;font-weight:bold">&lt;/graylogHost&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;graylogPort&gt;</span>12201<span style="color:#008000;font-weight:bold">&lt;/graylogPort&gt;</span>

@@ -5,11 +5,7 @@
     <link>/introduction/</link>
     <description>Recent content in Concepts In GoCD on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/introduction/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Concepts in GoCD</title>
       <link>/introduction/concepts_in_go.html</link>

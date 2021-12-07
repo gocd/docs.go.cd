@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -342,30 +335,30 @@ if (!doNotTrack) {
 <h2 id="rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 <p>The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
 <p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
 </code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-agent
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install -y go-agent
 </code></pre></div><p>Alternatively, if you have the agent RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
 </code></pre></div><h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
 <p>The GoCD agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell -</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
 curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
 sudo apt-get update
 </code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-agent
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo apt-get install go-agent
 </code></pre></div><p>Alternatively, if you have the agent DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
 </code></pre></div><h2 id="install-on-docker-containers">Install on Docker containers</h2>
 <p>To run GoCD on container please use our official <a href="https://hub.docker.com/u/gocd">docker container images</a></p>
 <p>For installing GoCD agent using rpm/deb packages on containers, starting from release 19.7.0 the following additional dependencies will be required.</p>
 <p>On Fedora, install <code>procps</code> package, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install procps
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install procps
 </code></pre></div><p>On CentOS/RHEL, install <code>sysvinit-tools</code> package, execute</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install sysvinit-tools
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">sudo yum install sysvinit-tools
 </code></pre></div>
 <h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 <p>The GoCD agent script must be run with one of the following arguments:</p>

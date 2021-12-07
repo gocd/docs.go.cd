@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -353,7 +346,7 @@ if (!doNotTrack) {
 <img src="../images/pipeline_add_material_select_stage.png" alt=""></li>
 </ul>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the Admin section (Configuration reference is <a href="../configuration/configuration_reference.html">here</a>):</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
@@ -374,7 +367,7 @@ if (!doNotTrack) {
 <p>A fetch task can also be instructed to retrieve (fetch) an artifact from an ancestor pipeline. For example, lets assume that the &ldquo;upstream1&rdquo; used in this example, depends on another pipeline &ldquo;topmost&rdquo;. Then you can define a a &ldquo;Fetch Artifact&rdquo; task to fetch artifacts from &ldquo;topmost&rdquo; by defining the hierarchy of these pipelines as follows. You have to specify the hierarchy by separting the pipelines with a <code>/</code>. For example: &ldquo;topmost/upstream1&rdquo;.</p>
 <p><img src="../images/task_fetch_artifact_ancestor.png" alt=""></p>
 <p>For power users, here&rsquo;s how you can configure this via the <strong>Config XML</strong> tab on the Admin section (Configuration reference is <a href="../configuration/configuration_reference.html">here</a>):</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topmost&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topmost&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;....&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>

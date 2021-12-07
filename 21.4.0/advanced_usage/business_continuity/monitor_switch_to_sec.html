@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -356,12 +349,12 @@ if (!doNotTrack) {
 <li>
 <p><strong>Turn off PostgreSQL replication</strong></p>
 <p>The details part of the <a href="initial_setup.html">&ldquo;Setup a standby PostgreSQL instance for replication&rdquo;</a> section mentions a <code>trigger_file</code>, which is a file which allows the standby PostgreSQL instance to become the primary PostgreSQL instance. Create that file now. For instance:</p>
-<pre><code>touch /path/to/postgresql.trigger.5432
+<pre tabindex="0"><code>touch /path/to/postgresql.trigger.5432
 </code></pre></li>
 <li>
 <p><strong>Switch standby GoCD Server to primary</strong></p>
 <p>As mentioned in the <a href="introduction.html#you-need-to-know-that">&ldquo;You need to know that &hellip;&quot;</a> section, the standby GoCD Server needs to be restarted before it can become the primary GoCD Server. While doing this, you need to set the <code>go.server.mode</code> system property to the value <code>primary</code>.</p>
-<pre><code>-Dgo.server.mode=primary
+<pre tabindex="0"><code>-Dgo.server.mode=primary
 </code></pre><p>This property was originally mentioned in the details part of <a href="initial_setup.html#setup-a-standby-secondary-gocd-server">&ldquo;Setup a standby (secondary) GoCD Server&rdquo;</a> section of the current document. You can also completely remove this property, since the default value is <code>primary</code>.</p>
 </li>
 <li>
@@ -395,7 +388,7 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Use <code>pg_basebackup</code> with <code>-X fetch</code> flag to recreate the database on to PG1.  This makes sure that all the changes made to the database during the time GO1 was down are brought back to it.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  pg_basebackup -h &lt;ip_address_of_secondary_postgres_server&gt; -U rep -D &lt;empty_data_directory_on_primary&gt; -X fetch
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  pg_basebackup -h &lt;ip_address_of_secondary_postgres_server&gt; -U rep -D &lt;empty_data_directory_on_primary&gt; -X fetch
 </code></pre></div><p><strong>Note:</strong> There have been cases where the <code>pg_basebackup</code> command has hung with the default WAL (write-ahead logs) <code>stream</code> backup on an idle server. Therefore, we suggest to add <code>-X fetch</code> flag to <code>pg_basebackup</code>. For further details, please refer to the <a href="https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SEGMENTS">wal_keep_segments </a> and <a href="https://www.postgresql.org/docs/current/app-pgbasebackup.html">fetch flag </a> (search for the fetch option value under -X) in the PostgreSQL documentation.</p>
 </li>
 <li>

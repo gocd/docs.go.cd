@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -362,7 +355,7 @@ if (!doNotTrack) {
 <p>To allow a deployment script to be able to communicate with the target Kubernetes cluster, you must create a service account for deployments. The API token for this service account can then be stored in a Kubernetes secret.</p>
 <p>Refer the <a href="https://kubernetes.io/rbac/">Kubernetes RBAC guide</a> for instructions on creating service accounts and assigning them to roles.</p>
 <p>You can create a secret with these credentials with the following Kubernetes configuration:</p>
-<pre><code>cat &lt;&lt;EOF &gt;./secrets-for-gocd.yaml
+<pre tabindex="0"><code>cat &lt;&lt;EOF &gt;./secrets-for-gocd.yaml
 apiVersion: v1
 kind: Secret
 metadata:
@@ -374,9 +367,9 @@ data:
   DOCKERHUB_ORG: &lt;Base64 encoded Dockerhub organization&gt;
 EOF
 </code></pre><p><em>Encoding note: The serialized JSON and YAML values of secret data are encoded as base64 strings. Newlines are not valid within these strings and must be omitted. The following pipeline will strip newlines before base64 encoding strings.</em></p>
-<pre><code>echo -n &quot;string&quot; | base64
+<pre tabindex="0"><code>echo -n &quot;string&quot; | base64
 </code></pre><p>Apply the secrets-for-gocd.yaml file to create a secret with these credentials</p>
-<pre><code>kubectl apply -f secrets-for-gocd.yaml -n gocd
+<pre tabindex="0"><code>kubectl apply -f secrets-for-gocd.yaml -n gocd
 </code></pre></li>
 <li>
 <p>Configure the elastic profile.</p>
@@ -386,7 +379,7 @@ EOF
 <p><img src="../images/gocd-helm-chart/default_elastic_profile.png" alt=""></p>
 <p>The GoCD elastic agents need to be configured with secrets such as a Kubernetes API token to allow it to be able to perform deployments of applications to the cluster.</p>
 <p>We configure the secrets created in the previous step in the configuration of the elastic profile mentioned earlier. Replace the pod yaml with one below.</p>
-<pre><code>apiVersion: v1
+<pre tabindex="0"><code>apiVersion: v1
 kind: Pod
 metadata:
   name: pod-name-prefix-{{ POD_POSTFIX }}

@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -349,7 +342,7 @@ if (!doNotTrack) {
 </ol>
 <h1 id="silent-headless-installation">Silent (Headless) Installation</h1>
 <p>You may use this method if you would like to script the installation of the GoCD agent.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>-setup.exe /S /START_AGENT<span style="color:#666">=</span>NO /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;&lt;SERVERURL&gt;&#34;</span> /D<span style="color:#666">=</span>&lt;PATH_TO_AGENT_DIRECTORY&gt;
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>-setup.exe /S /START_AGENT<span style="color:#666">=</span>NO /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;&lt;SERVERURL&gt;&#34;</span> /D<span style="color:#666">=</span>&lt;PATH_TO_AGENT_DIRECTORY&gt;
 </code></pre></div><table>
 <thead>
 <tr>
@@ -377,7 +370,7 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>For example:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;https://10.12.20.47:8154/go&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;https://10.12.20.47:8154/go&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent
 </code></pre></div><p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 

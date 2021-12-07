@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -356,11 +349,11 @@ if (!doNotTrack) {
 <p>Note: Currently to associate an existing SCM material to a pipeline you will need to edit the Config XML.</p>
 <h4 id="scm-material-uniqueness-fingerprint">SCM material uniqueness (fingerprint):</h4>
 <p>Each SCM material plugin defines a subset of its properties as a <em>SCM fingerprint</em>. e.g. SCM <code>url</code> and <code>branch</code> could be included while <code>username</code> and <code>password</code> could be excluded. SCM names are <strong>not</strong> part of SCM fingerprint. It is not permitted to multiple SCMs having the same SCM fingerprint. An attempt to do so will result in an error message like this:</p>
-<pre><code>The following error(s) need to be resolved in order to perform this action:&lt;br&gt;
+<pre tabindex="0"><code>The following error(s) need to be resolved in order to perform this action:&lt;br&gt;
 Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
 </code></pre><h4 id="sample-xml-configuration">Sample XML Configuration</h4>
 <p>Here is a XML view of an SCM. Note the relation between SCM and pipeline material. Loosely typed property, key and value tags are used for SCM configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn&rsquo;t necessary to provide SCM IDs, GoCD server wil auto-generate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;scms&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;scms&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;3bfc282e-43a6-4795-ba9c-6c50665220dd&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;git-repo&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;jgit&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1.0&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>

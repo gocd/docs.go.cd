@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -646,7 +639,7 @@ And the type and the configurations of the agent is specified as an elastic agen
 <li>
 <p>Any permission on the Cluster profile is implicitly applied to all the Elastic Agent Profiles of the same cluster.</p>
 <p><em>Example</em>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;frontend_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
             <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
@@ -673,7 +666,7 @@ With implicit permissions, the user <code>Bob</code> is allowed to administer <c
 <li>
 <p>Any permission on the Elastic Agent profile provides the <strong>view</strong> permission to the associated Cluster Profile.</p>
 <p><em>Example</em>:</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;frontend_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
             <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
@@ -704,7 +697,7 @@ Within namespaced resource permissions we can restrict user permissions to a par
 This would enforce the given user has access to operate on <code>child_entity</code> only within <code>parent_entity</code>.</p>
 <p>While creating elastic agent configurations we often to restrict users to to their team&rsquo;s cluster profiles and elastic profiles.
 Following is the example which demonstrates permission restrictions using namespaced resource as per teams.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
     <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;frontend_team&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
         <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
           <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>Bob<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>

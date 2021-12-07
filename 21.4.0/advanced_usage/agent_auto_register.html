@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -340,9 +333,9 @@ if (!doNotTrack) {
 <article class="markdown"><h1 id="auto-registration-of-remote-agents">Auto registration of remote agents</h1>
 <p>As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.</p>
 <ul>
-<li>Add an attribute named &ldquo;agentAutoRegisterKey&rdquo;, for e.g., agentAutoRegisterKey=&quot;388b633a88de126531afa41eff9aa69e&rdquo;, in the server configuration fragment, in case it is not present.</li>
+<li>Add an attribute named &ldquo;agentAutoRegisterKey&rdquo;, for e.g., agentAutoRegisterKey=&ldquo;388b633a88de126531afa41eff9aa69e&rdquo;, in the server configuration fragment, in case it is not present.</li>
 </ul>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
 <span style="color:#008000;font-weight:bold">&lt;cruise</span> <span style="color:#b44">xmlns:xsi=</span><span style="color:#b44">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#b44">xsi:noNamespaceSchemaLocation=</span><span style="color:#b44">&#34;cruise-config.xsd&#34;</span> <span style="color:#b44">schemaVersion=</span><span style="color:#b44">&#34;75&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">agentAutoRegisterKey=</span><span style="color:#b44">&#34;388b633a88de126531afa41eff9aa69e&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
   ...
@@ -357,45 +350,45 @@ if (!doNotTrack) {
 <thead>
 <tr>
 <th><em>Key</em></th>
-<th align="center"><em>Required</em></th>
+<th style="text-align:center"><em>Required</em></th>
 <th><em>Description</em></th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td><code>agent.auto.register.key</code></td>
-<td align="center">yes</td>
+<td style="text-align:center">yes</td>
 <td>The value of the <code>&lt;server/&gt;</code> element&rsquo;s <code>agentAutoRegisterKey</code> attribute from <code>cruise-config.xml</code></td>
 </tr>
 <tr>
 <td><code>agent.auto.register.environments</code></td>
-<td align="center">no</td>
+<td style="text-align:center">no</td>
 <td>A comma separated list of environments that this agent should be associated with.</td>
 </tr>
 <tr>
 <td><code>agent.auto.register.resources</code></td>
-<td align="center">no</td>
+<td style="text-align:center">no</td>
 <td>This MUST not be set by agents that register as elastic-agents. A comma separated list of resources that this agent should be tagged with.</td>
 </tr>
 <tr>
 <td><code>agent.auto.register.hostname</code></td>
-<td align="center">no</td>
+<td style="text-align:center">no</td>
 <td>The name of the agent when it is registered with the server. (<strong>Version 15.2.0 onwards</strong>)</td>
 </tr>
 <tr>
 <td><code>agent.auto.register.elasticAgent.agentId</code></td>
-<td align="center">no</td>
+<td style="text-align:center">no</td>
 <td>This MUST be set by agents that register as elastic-agents. This may contain an identifier of the agent, that the plugin can identify. Can be something like a docker container ID, or AWS instance ID. (<strong>Version 16.12.0 onwards</strong>)</td>
 </tr>
 <tr>
 <td><code>agent.auto.register.elasticAgent.pluginId</code></td>
-<td align="center">no</td>
+<td style="text-align:center">no</td>
 <td>This MUST be set by agents that to register as elastic-agents. This should contain the plugin id of elastic-agent plugin that spins up the agent. (<strong>Version 16.12.0 onwards</strong>)</td>
 </tr>
 </tbody>
 </table>
 <p>Example</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">agent.auto.register.key<span style="color:#666">=</span>388b633a88de126531afa41eff9aa69e
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">agent.auto.register.key<span style="color:#666">=</span>388b633a88de126531afa41eff9aa69e
 agent.auto.register.resources<span style="color:#666">=</span>ant,java
 agent.auto.register.environments<span style="color:#666">=</span>QA,Performance
 agent.auto.register.hostname<span style="color:#666">=</span>Agent01

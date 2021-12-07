@@ -5,11 +5,7 @@
     <link>/configuration/</link>
     <description>Recent content in Configuring Go on GoCD User Documentation</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    
-	<atom:link href="/configuration/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <language>en-us</language><atom:link href="/configuration/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Access tokens</title>
       <link>/configuration/access_tokens.html</link>

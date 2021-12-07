@@ -25,7 +25,7 @@
 <link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
 <link rel="stylesheet" href="../../stylesheets/website.css"/>
 
-<link rel="stylesheet" href="../../stylesheets/book.min.a7077e2bd7cf31da3ff8aff3f6cbdc1bbdd354510a754c8b5ff5a0cac34f1ddb.css"/>
+<link rel="stylesheet" href="../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -90,8 +90,7 @@ if (!doNotTrack) {
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -102,8 +101,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -150,8 +148,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -207,8 +204,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -245,8 +241,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -260,8 +255,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -275,8 +269,7 @@ if (!doNotTrack) {
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow">
-    <img src="../../images/arrow.png"/> 
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
 </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -343,11 +336,11 @@ if (!doNotTrack) {
 If the Postgres server is not yet <a href="https://www.postgresql.org/docs/current/app-initdb.html" target="_blank">initialized</a>, it needs to be, before GoCD is able to use it. Along with PostgreSQL server, you need to install postgresql-client and postgresql-contrib packages. The postgresql-contrib package contains the citext and pgcrypto module which is necessary for the initial schema creation.</p>
 <h3 id="step-2-initialize-an-empty-database">Step 2: Initialize an empty database</h3>
 <p>Once the PostgreSQL Server is started, an empty database can be created from the command-line using the <code>psql</code> utility, which PostgreSQL ships with.</p>
-<div class="highlight"><pre style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#a2f;font-weight:bold">CREATE</span> <span style="color:#a2f;font-weight:bold">ROLE</span> <span style="color:#b44">&#34;gocd_database_user&#34;</span> PASSWORD <span style="color:#b44">&#39;gocd_database_password&#39;</span> NOSUPERUSER <span style="color:#a2f;font-weight:bold">NOCREATEDB</span> NOCREATEROLE INHERIT LOGIN;
-<span style="color:#a2f;font-weight:bold">CREATE</span> <span style="color:#a2f;font-weight:bold">DATABASE</span> <span style="color:#b44">&#34;gocd&#34;</span> <span style="color:#a2f;font-weight:bold">ENCODING</span><span style="color:#666">=</span><span style="color:#b44">&#34;UTF8&#34;</span> <span style="color:#a2f;font-weight:bold">TEMPLATE</span><span style="color:#666">=</span><span style="color:#b44">&#34;template0&#34;</span>;
-<span style="color:#a2f;font-weight:bold">GRANT</span> <span style="color:#a2f;font-weight:bold">ALL</span> <span style="color:#a2f;font-weight:bold">PRIVILEGES</span> <span style="color:#a2f;font-weight:bold">ON</span> <span style="color:#a2f;font-weight:bold">DATABASE</span> <span style="color:#b44">&#34;gocd&#34;</span> <span style="color:#a2f;font-weight:bold">TO</span> <span style="color:#b44">&#34;gocd_database_user&#34;</span>;
-<span style="color:#a2f;font-weight:bold">ALTER</span> <span style="color:#a2f;font-weight:bold">ROLE</span> <span style="color:#b44">&#34;gocd_database_user&#34;</span> SUPERUSER;
-</code></pre></div><p>There is no need to create any schema in that database, since the GoCD Server does it automatically.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#a2f;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ROLE</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;gocd_database_user&#34;</span><span style="color:#bbb"> </span>PASSWORD<span style="color:#bbb"> </span><span style="color:#b44">&#39;gocd_database_password&#39;</span><span style="color:#bbb"> </span>NOSUPERUSER<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">NOCREATEDB</span><span style="color:#bbb"> </span>NOCREATEROLE<span style="color:#bbb"> </span>INHERIT<span style="color:#bbb"> </span>LOGIN;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">DATABASE</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;gocd&#34;</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ENCODING</span><span style="color:#666">=</span><span style="color:#b44">&#34;UTF8&#34;</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">TEMPLATE</span><span style="color:#666">=</span><span style="color:#b44">&#34;template0&#34;</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">GRANT</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ALL</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">PRIVILEGES</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ON</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">DATABASE</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;gocd&#34;</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">TO</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;gocd_database_user&#34;</span>;<span style="color:#bbb">
+</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">ALTER</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ROLE</span><span style="color:#bbb"> </span><span style="color:#b44">&#34;gocd_database_user&#34;</span><span style="color:#bbb"> </span>SUPERUSER;<span style="color:#bbb">
+</span></code></pre></div><p>There is no need to create any schema in that database, since the GoCD Server does it automatically.</p>
 <p><strong>NOTE:</strong>  Ensure that the DB role used for that database has superuser privilege the first time the GoCD server starts. This is required to be done because the pgcrypto and citext entensions need to be created initially. The default user for PostgreSQL database is postgres and has superuser privilege. If you are creating a separate database user please grant necessary privileges to this user as demonstrated in the example above. The superuser privilege can be revoked after the first time the GoCD server starts as it will no longer be needed.</p>
 <h3 id="step-3-configure-gocd-with-postgresql-connection-details">Step 3: Configure GoCD with PostgreSQL connection details</h3>
 <p>A properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>).
@@ -355,7 +348,7 @@ The location of GoCD&rsquo;s configuration directory varies per operating system
 <p>This file should contain information about the database server, so that the GoCD Server can connect to it.</p>
 <p>See <a href="connection-properties.html">GoCD Database Configuration Properties</a> to know the full list of configuration properties that can be specified under <code>db.properties</code>.</p>
 <p>An example properties file to connect to PostgreSQL database:</p>
-<pre><code class="language-properties" data-lang="properties">db.driver=org.postgresql.Driver
+<pre tabindex="0"><code class="language-properties" data-lang="properties">db.driver=org.postgresql.Driver
 db.url=jdbc:postgresql://localhost:5432/gocd
 db.user=gocd_database_user
 db.password=gocd_database_password
