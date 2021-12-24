@@ -15,7 +15,12 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 2.7.2
+          ruby-version: 2.7
           bundler-cache: true # would run bundle install
+      - name: Set up NodeJS
+        uses: actions/setup-node@v2
+        with:
+          node-version: 16
+          cache: npm
       - name: Run the build
         run: bundle exec rake complete_build
