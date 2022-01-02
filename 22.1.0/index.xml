@@ -1,0 +1,1228 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Introduction on GoCD User Documentation</title>
+    <link>/</link>
+    <description>Recent content in Introduction on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Access tokens</title>
+      <link>/configuration/access_tokens.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/access_tokens.html</guid>
+      <description>Access Tokens From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
+Usage instructions   A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
+ Before 19.2.0
+ curl &amp;#39;https://ci.</description>
+    </item>
+    
+    <item>
+      <title>Add a new Pipeline</title>
+      <link>/configuration/quick_pipeline_setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/quick_pipeline_setup.html</guid>
+      <description>Add a New Pipeline There are many ways of creating pipelines in GoCD:
+ You can create them by using Pipelines as Code, by adding pipeline definitions to a repository in formats such as Yaml, JSON, Groovy, etc. You can use GoCD&amp;rsquo;s extensive APIs to create a pipeline. See Pipeline Config API. You can use GoCD&amp;rsquo;s UI to create a pipeline (see below). By cloning an existing pipeline.  New Pipeline Wizard Clicking on the Admin -&amp;gt; Pipelines menu item will take you to the pipelines administration page.</description>
+    </item>
+    
+    <item>
+      <title>Add job to Existing stage</title>
+      <link>/configuration/admin_add_job.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_job.html</guid>
+      <description>Add a new job to an existing GoCD stage Now that we have a pipeline with stage(s), we can add more jobs to any of the existing stages. You can now use the tree navigation on the left side of the screen to edit a stage or a job under a pipeline.
+ Click on the stage name that you want to edit on the tree as shown below.  Click on the Jobs tab Click on &amp;ldquo;Add new job&amp;rdquo;  Fill job name and job details  Fill in the details for the initial task belonging to this job.</description>
+    </item>
+    
+    <item>
+      <title>Add Material to Existing Pipeline</title>
+      <link>/configuration/admin_add_material.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_material.html</guid>
+      <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.  You will get the following message  Edit the existing material and specify the destination directory  Click &amp;ldquo;Save&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Add Stage to Existing Pipeline</title>
+      <link>/configuration/admin_add_stage.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_stage.html</guid>
+      <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
+ Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.  Fill stage name and trigger type.</description>
+    </item>
+    
+    <item>
+      <title>Add task to Existing Job</title>
+      <link>/configuration/admin_add_task.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_add_task.html</guid>
+      <description>Add a new task to an existing GoCD Job Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a job under a stage.
+ Click on the job name that you want to edit on the tree as shown below.  Click on &amp;ldquo;Add new task&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Agent Health Check API</title>
+      <link>/advanced_usage/agent-health-check-api.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/agent-health-check-api.html</guid>
+      <description>Agent Health Check API Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
+The health check API allows users to monitor if the agent is connected to the server and is authorized to perform a build.
+Configurations The API uses the following configurable agent system properties.
+   Property Values     go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point   go.</description>
+    </item>
+    
+    <item>
+      <title>Artifact integrity verification</title>
+      <link>/faq/artifact_integrity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/artifact_integrity.html</guid>
+      <description>GoCD Artifact integrity verification Overview GoCD verifies artifact integrity to ensure that they are unchanged from the point of origin. While executing a job, GoCD applies the following rules if the checksum of the downloaded artifact does not match the checksum at the time of generation of the artifact.
+ If the artifact was uploaded using the artifact API, a warning is displayed in the console output for the job If the downloaded artifact is different from the point of generation, the job will be failed with an error in the console output for the job.</description>
+    </item>
+    
+    <item>
+      <title>Authentication</title>
+      <link>/configuration/dev_authentication.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_authentication.html</guid>
+      <description>Authentication A newly installed GoCD server does not require users to authenticate. This is great for a trial. However, it is one of the first things you should change, as soon as you decide to use GoCD more widely.
+GoCD has two methods of authentication built into it: Password-file based authentication and LDAP/Active Directory authentication. You can also choose from a collection of community-maintained plugins for other methods of authentication, such as using Google or GitHub OAuth.</description>
+    </item>
+    
+    <item>
+      <title>Authorizing Users</title>
+      <link>/configuration/dev_authorization.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_authorization.html</guid>
+      <description>Authorization With no security switched on, there is of course no authorization either. Once you have configured security, the default is that any user can perform any operation. However, GoCD can limit certain operations to particular Users or Roles, and manage membership of those Roles.
+Administrators GoCD allows you to restrict the users who can perform certain functions. Administrators is a special role that allows its members to perform any action in GoCD.</description>
+    </item>
+    
+    <item>
+      <title>Auto Delete Artifacts</title>
+      <link>/configuration/delete_artifacts.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/delete_artifacts.html</guid>
+      <description>Auto delete artifacts Introduction GoCD can be configured to automatically delete artifacts if the available disk space on the server is low. GoCD will purge artifacts when available disk space is lower than the given value. Artifacts will be purged up to the point when available disk space is greater than a defined value.
+Configuration Specify artifact purge start and end limits You must be logged in as an admin user to configure this step.</description>
+    </item>
+    
+    <item>
+      <title>Auto Register a Remote Agent</title>
+      <link>/advanced_usage/agent_auto_register.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/agent_auto_register.html</guid>
+      <description>Auto registration of remote agents As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.
+ Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;ldquo;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present.  &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt; &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt; ... &amp;lt;/cruise&amp;gt;   On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.</description>
+    </item>
+    
+    <item>
+      <title>Backup GoCD Server</title>
+      <link>/advanced_usage/one_click_backup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/one_click_backup.html</guid>
+      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of GoCD. You can also perform a backup using the API.
+Steps to initiate backup   After you are logged into GoCD, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
+ Note: GoCD will be unusable during the backup process.
+   Backup time is proportional to the database and configuration size.</description>
+    </item>
+    
+    <item>
+      <title>Change SSL Certificates</title>
+      <link>/installation/ssl_tls/custom_server_certificate.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/custom_server_certificate.html</guid>
+      <description>Using your own SSL certificates on the Server Note GoCD version 20.2 no longer supports configuring TLS. See this GitHub issue for more details.</description>
+    </item>
+    
+    <item>
+      <title>Check What&#39;s Deployed</title>
+      <link>/faq/rm_what_is_deployed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/rm_what_is_deployed.html</guid>
+      <description>Discover what&amp;rsquo;s in an GoCD environment Before deploying something into production, it is often useful to know what is currently there.
+Example usage For this example, we will assume we have a stage name &amp;ldquo;production&amp;rdquo; that will automatically deploy a binary onto a production server
+ Start at the environments page   Click on the name of your &amp;ldquo;production&amp;rdquo; stage   The stage details page will show every time GoCD has deployed your application  </description>
+    </item>
+    
+    <item>
+      <title>Choose When a Stage Runs</title>
+      <link>/configuration/dev_choose_when_stage_runs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_choose_when_stage_runs.html</guid>
+      <description>Choose when a GoCD stage runs Often there are steps in your pipeline that you do not want to happen automatically. For example, you might want to keep binaries from being created for every pipeline (to prevent running out of disk space) or want to choose when your code is deployed to production. Stages in GoCD can be marked as &amp;lsquo;manual&amp;rsquo; just for this purpose.
+You can create a manual pipeline by setting the first stage to manual.</description>
+    </item>
+    
+    <item>
+      <title>Clean on Task Cancel</title>
+      <link>/advanced_usage/dev_clean_up_when_cancel.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/dev_clean_up_when_cancel.html</guid>
+      <description>Clean up after canceling a task When you have jobs that take a long time to run, it is very useful to have the capability to cancel it when you already know it will fail.
+By default, GoCD will kill any currently running tasks . There are two other alternatives to this behaviour
+ Specify a task to clean up your environment. This could kill the processes and cleanup any existing state.</description>
+    </item>
+    
+    <item>
+      <title>Clone/Copy an Existing Agents</title>
+      <link>/configuration/clone_existing_agents.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/clone_existing_agents.html</guid>
+      <description>Setting up a new agent by cloning an existing agent in GoCD Clone the agent An easy way to set up a new agent is to clone an existing one which is already set up and is known to work correctly. You can clone an agent in a couple different ways:
+ Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).</description>
+    </item>
+    
+    <item>
+      <title>Compare Builds</title>
+      <link>/advanced_usage/compare_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/compare_pipelines.html</guid>
+      <description>Compare Builds GoCD allows you to compare any two builds of a pipeline and see exactly what changes happened between those two instances. The information in this view will include:
+ Code checkins Upstream pipelines Story/defect numbers (when linked to a tracking tool)  Accessing Pipeline Compare There are several locations from where the Pipeline Compare feature can be invoked. These include:
+ Pipelines Dashboard page (the &amp;ldquo;Compare&amp;rdquo; link in each pipeline) Environments page Stage Details page Stage History widget within the Stage Details page  Understanding the Pipeline Compare Screen The Pipeline Compare screen lets you compare any two instances of a pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Concepts in GoCD</title>
+      <link>/introduction/concepts_in_go.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/introduction/concepts_in_go.html</guid>
+      <description>Concepts in GoCD This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and Continuous Delivery, in general, you can refer to Martin Fowler&amp;rsquo;s articles on the subject: Continuous Integration and Continuous Delivery.
+If you&amp;rsquo;re very new to GoCD, the Getting Started Guide is a good starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.</description>
+    </item>
+    
+    <item>
+      <title>Concurrent Modifications to Config</title>
+      <link>/faq/concurrent_config_modifications.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/concurrent_config_modifications.html</guid>
+      <description>Concurrent Modifications to GoCD&amp;rsquo;s Configuration GoCD handles concurrent modifications to its configuration. Multiple modifications are merged and saved successfully. Modifications to the same area of configuration would result in a conflict.
+Note: Configuration file is maintained in git version control system. GoCD leverages git&amp;rsquo;s merge feature to merge changes from multiple users. As expected, concurrent changes to the same section by users would result in a conflict.
+Successful Merge In case of a successful merge, user would see a success message as below:</description>
+    </item>
+    
+    <item>
+      <title>Conditional Task Execution</title>
+      <link>/advanced_usage/dev_conditional_task_execution.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/dev_conditional_task_execution.html</guid>
+      <description>Conditional task execution At times there are certain steps you need to execute only when you know that the build has already failed. For example, when a test suite fails you might want to output additional environment information to the console output
+Using web interface Check the appropriate Run if conditions when defining the Task
+Using XML configuration Usage: As a developer, I want to run a task only when the build has already failed.</description>
+    </item>
+    
+    <item>
+      <title>Config Repository</title>
+      <link>/advanced_usage/config_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/config_repo.html</guid>
+      <description>GoCD Configuration repository GoCD&amp;rsquo;s configuration is version controlled in a local git repository - config.git hosted on the same machine as the GoCD server. The repo is available at &amp;lt;GoCD server installation directory&amp;gt;/db/config.git. Any changes to the config, either through file-system, API or GoCD configuration UI is saved as a new commit in this repo. This allows auditing of all changes made to the configuration.
+NOTE: This repo must not be altered externally as this will lead to errors in GoCD.</description>
+    </item>
+    
+    <item>
+      <title>Configure a Reverse Proxy</title>
+      <link>/installation/configure-reverse-proxy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configure-reverse-proxy.html</guid>
+      <description>Configure a reverse proxy server to use with GoCD server It is sometimes useful to front GoCD with a proxy server. In this section, we give you some tips and examples on how to achieve this.
+GoCD with Apache An example of how to configure GoCD with Apache is shown below.
+Assumptions:
+ You have Apache with mod_proxy installed The Apache server sits on the same machine as the GoCD server (localhost)  Listen nnn.</description>
+    </item>
+    
+    <item>
+      <title>Configure Agents and Shared Drive</title>
+      <link>/advanced_usage/business_continuity/configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/configuration.html</guid>
+      <description>Configuration For Agents and Artifacts Directory Setup a virtual IP for the agents to use To make sure that all the GoCD Agents can continue working when a primary GoCD Server goes down and is switched to a standby GoCD Server, a virtual IP will be used. GoCD agents need to be setup to use the virtual IP rather than the address of any specific server.
+Assigning the virtual IP Follow the instructions provided below to setup a virtual IP.</description>
+    </item>
+    
+    <item>
+      <title>Configure an agent with proxy</title>
+      <link>/installation/configure-agent-proxy.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configure-agent-proxy.html</guid>
+      <description>Configure a GoCD agent to connect to a server through a proxy server. Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
+Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions defined by the JVM:
+ http.proxyHost http.proxyPort (default: 80) http.nonProxyHosts (default: localhost|127.*|[::1]) https.proxyHost https.proxyPort socksProxyHost socksProxyPort (default: 1080) socksProxyVersion (default: 5)  To configure an agent to use a proxy edit the wrapper-properties.</description>
+    </item>
+    
+    <item>
+      <title>Configure SSH Keys for dockerized GoCD</title>
+      <link>/faq/docker_container_ssh_keys.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/docker_container_ssh_keys.html</guid>
+      <description>Using SSH keys to access GoCD materials in a containerized GoCD server and agent If you have configured a git repository as a GoCD material, then there are several ways to let GoCD access the repository. One of the popular methods to do so is configuring SSH keys. When using docker for gocd server and agents, it becomes slightly more complex to do this. Below are the steps to configure the ssh keys that can be used with multiple containers at once.</description>
+    </item>
+    
+    <item>
+      <title>Configuring GoCD Database</title>
+      <link>/installation/configuring_database.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database.html</guid>
+      <description>Configuring GoCD Database As part of GoCD release v20.5.0, GoCD introduced the ability to integrate with H2, PostgreSQL and MySQL databases.
+This section describes how to bring up a new GoCD Server instance, using the database of your choice. In case you are looking to migrate the data from an existing GoCD Server instance, please take a look GoCD Database Migration documentation.
+GoCD Supports following databases (with mentioned versions):  H2 (v1.</description>
+    </item>
+    
+    <item>
+      <title>Configuring HSTS Header</title>
+      <link>/installation/ssl_tls/configuring_hsts_header.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/configuring_hsts_header.html</guid>
+      <description>Configuring the HSTS header The Strict-Transport-Security (HSTS) header can be enabled and configured using the following System Properties
+   Key Default value Description     gocd.enable.hsts.header false A boolean value indicating whether the HSTS header should be enabled   gocd.hsts.header.max.age 31536000 The max-age value of the header. Defaults to one year   gocd.hsts.header.include.subdomains false Whether the include-subdomains flag should be set on the header   gocd.</description>
+    </item>
+    
+    <item>
+      <title>Configuring Server Details</title>
+      <link>/installation/configuring_server_details.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_server_details.html</guid>
+      <description>Configuring GoCD server details Artifact repository configuration GoCD needs no configuration once installed. However, we recommend that you create a separate partition on your computer&amp;rsquo;s hard disk for GoCD server artifacts. The artifact repository can grow in size very quickly. If located on your system&amp;rsquo;s main partition you may experience data loss and unpredictable application behaviour as the disk fills up.
+Once you have created a new disk partition, you need to tell GoCD where to find it.</description>
+    </item>
+    
+    <item>
+      <title>Configuring SSL/TLS</title>
+      <link>/installation/ssl_tls_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls_config.html</guid>
+      <description>  CONFIGURING SSL/TLS    </description>
+    </item>
+    
+    <item>
+      <title>Customizing Ciphers</title>
+      <link>/installation/ssl_tls/setting_up_ciphers.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/setting_up_ciphers.html</guid>
+      <description>Configuring SSL/TLS ciphers You can choose which ciphers and SSL/TLS protocols GoCD will use for communication with agents and users (and their browsers)
+Configuring GoCD server Note GoCD version 20.2 no longer supports configuring TLS. See this GitHub issue for more details.
+To configure SSL, please install and configure a reverse proxy to terminate SSL.
+Configuring GoCD agent The default transport protocol that the GoCD uses to communicate with GoCD server is determined by the version of Java that runs with the agent.</description>
+    </item>
+    
+    <item>
+      <title>Delegating Group Administration</title>
+      <link>/configuration/delegating_group_administration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/delegating_group_administration.html</guid>
+      <description>Delegating Group Administration A GoCD Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section &amp;ldquo;Privileges of a Group Administrator&amp;rdquo;.
+Steps to assign Group Administrators To assign a user as a group administrator:
+ Click on &amp;ldquo;Pipelines&amp;rdquo; tab on the Admin section Locate the group you want to assign a group administrator to Click the &amp;ldquo;Edit&amp;rdquo; link for that group Here, you can define permissions for users and roles  In the above screenshot, the GoCD admin has delegated group admin privileges to a user &amp;ldquo;jez&amp;rdquo; and all users defined under the role &amp;ldquo;groupAdminRole&amp;rdquo;.</description>
+    </item>
+    
+    <item>
+      <title>Deleting Pipelines</title>
+      <link>/configuration/deleting_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/deleting_pipelines.html</guid>
+      <description>Deleting Pipelines Deleting a pipeline removes an existing pipeline from the config.
+ Warning: Pipeline history is not removed from the database and artifacts are not removed from artifact storage, which may cause conflicts if a pipeline with the same name is later re-created.
+ To delete a pipeline:
+ Navigate to the &amp;ldquo;Admin&amp;rdquo; menu and click the &amp;ldquo;Pipelines&amp;rdquo; item. Locate the pipeline that needs to be deleted. In that row, click on the &amp;ldquo;Delete&amp;rdquo; icon.</description>
+    </item>
+    
+    <item>
+      <title>Deploy a Specific Build</title>
+      <link>/faq/deploy_a_specific_build_to_an_environment.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/deploy_a_specific_build_to_an_environment.html</guid>
+      <description>Deploy specific revisions of the materials to an environment GoCD allows you to hand pick which revision of your materials you would like to deploy to your environment. This is a a very common requirement on larger projects which have multiple materials in their deployment pipeline. Sometimes you may wish to have control over which revision of the application is deployed to a particular environment (say UAT).
+Select specific revisions of materials to deploy Consider the case where a deployment pipeline &amp;lsquo;deploy_bookstore&amp;rsquo; has 2 materials - Material &amp;lsquo;svn&amp;rsquo; and upstream pipeline &amp;lsquo;bookstore&amp;rsquo;.</description>
+    </item>
+    
+    <item>
+      <title>Deploy to an environment</title>
+      <link>/faq/rm_deploy_to_environment.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/rm_deploy_to_environment.html</guid>
+      <description>Releasing into an environment One of the most useful aspects of having your build mapped as a pipeline, is being able to know exactly what is in a particular environment. For example, you might have a User Acceptance Testing environment into which you want GoCD to automatically deploy your binary. Due to process restriction within your company, you might want to manually install a binary yourself, but have GoCD still retain the information of what is currently released.</description>
+    </item>
+    
+    <item>
+      <title>Docker workflows</title>
+      <link>/gocd_on_kubernetes/docker_workflows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/docker_workflows.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Docker workflows Using docker containers to execute docker commands can be done in the following ways. This section identifies the approaches and the drawbacks to keep in mind when using these approaches.
+Docker in Docker (DinD) Docker in Docker involves setting up a docker binary and running an isolated docker daemon inside the container. This requires that the host docker container be run in privileged mode.</description>
+    </item>
+    
+    <item>
+      <title>Elastic Agents</title>
+      <link>/configuration/elastic_agents.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/elastic_agents.html</guid>
+      <description>GoCD Elastic Agents Introduction Elastic Agents is an extension-point in GoCD that allows for on-demand agents which are created and provisioned by an elastic-agent plugin when there are jobs to be executed, and terminated when the agents are running idle. These agents can be in a data center or in the cloud or both, and may be physical or virtual.
+Developers can start building their own elastic-agent plugins by forking the skeleton plugin and looking at a sample docker plugin, docker swarm plugin as an example reference implementation.</description>
+    </item>
+    
+    <item>
+      <title>Email server configuration</title>
+      <link>/configuration/admin_mailhost_info.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_mailhost_info.html</guid>
+      <description>Email server configuration In order to allow email notifications, you need to tell GoCD information about your email server.
+ Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your email server information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
+    </item>
+    
+    <item>
+      <title>Enabling GoCD to use H2 Database</title>
+      <link>/installation/configuring_database/h2.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/h2.html</guid>
+      <description>Enabling GoCD to use H2 Database  GoCD installers ship with H2 database and no external configuration is required to use GoCD with H2 database. Troubleshooting Database is read-only You might see a message such as this, after upgrade, in the GoCD server logs:
+Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; SQL statement: UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = &#39;10.16.0.5 (10.16.0.5)&#39;, LOCKGRANTED = &#39;2020-06-17 15:07:20.707&#39; WHERE ID = 1 AND LOCKED = FALSE [90097-200] at org.</description>
+    </item>
+    
+    <item>
+      <title>Enabling GoCD to use MySQL Database</title>
+      <link>/installation/configuring_database/mysql.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/mysql.html</guid>
+      <description>Enabling GoCD to use MySQL Note: While, support for MySQL is added in GoCD 20.5.0 and a basic round of migration tests has been completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD&amp;rsquo;s build pipelines.
+Step 1: Install MySQL Server In order to use MySQL database with GoCD, an external MySQL database server is needed to host the GoCD Server&amp;rsquo;s database.</description>
+    </item>
+    
+    <item>
+      <title>Enabling GoCD to use PostgreSQL Database</title>
+      <link>/installation/configuring_database/postgres.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/postgres.html</guid>
+      <description>Enabling GoCD to use PostgreSQL Database Step 1: Install PostgreSQL Server In order to use PostgreSQL database with GoCD, a PostgreSQL database server is needed to host the GoCD Server&amp;rsquo;s database. If the Postgres server is not yet initialized, it needs to be, before GoCD is able to use it. Along with PostgreSQL server, you need to install postgresql-client and postgresql-contrib packages. The postgresql-contrib package contains the citext and pgcrypto module which is necessary for the initial schema creation.</description>
+    </item>
+    
+    <item>
+      <title>End to end transport security</title>
+      <link>/installation/ssl_tls/end_to_end_transport_security.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/ssl_tls/end_to_end_transport_security.html</guid>
+      <description>Configure end-to-end transport security Note: To ensure end-to-end transport encryption, please ensure that both your GoCD server and agent are running on atleast version 16.7.0
+This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.
+The GoCD agent allows for some configuration to be able to configure and secure the end-to-end transport security to varying security levels.
+The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks.</description>
+    </item>
+    
+    <item>
+      <title>Fan In</title>
+      <link>/advanced_usage/fan_in.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/fan_in.html</guid>
+      <description>GoCD Fan-in Dependency Management GoCD supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Fixing common issues</title>
+      <link>/faq/fixing_common_issues.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/fixing_common_issues.html</guid>
+      <description>Fixing common issues This page is mainly for newer users of GoCD, to help with troubleshooting issues.
+
+GoCD Agent not registering with the GoCD Server This issue shows up either as an agent not showing up on the &amp;ldquo;Agents&amp;rdquo; page, or showing up with a status of &amp;ldquo;Missing&amp;rdquo;. If this happens, start troubleshooting by looking at the agent log files.
+See the end of the installation documentation page for your operating system to find the location of the log files.</description>
+    </item>
+    
+    <item>
+      <title>Generic Zip</title>
+      <link>/installation/install/agent/zip.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/zip.html</guid>
+      <description>Advanced installation of GoCD agent using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
+ Download the zip installer for GoCD agent Unzip the installer in a folder of your choice. It creates a subfolder with the name go-agent-${version} Ensure that java executable is available on the PATH environment variable.</description>
+    </item>
+    
+    <item>
+      <title>Generic Zip</title>
+      <link>/installation/install/server/zip.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/zip.html</guid>
+      <description>Advanced installation of GoCD server using zip installer If you want to run GoCD on a platform which does not have a native installer or want to run GoCD without installing it, you could do so by using the zip installers.
+ Download the zip installer for GoCD server Unzip the installer in a folder of your choice. It creates a subfolder with the name go-server-${version} Ensure that java executable is available on the PATH environment variable.</description>
+    </item>
+    
+    <item>
+      <title>Go unable to poll for changes</title>
+      <link>/faq/material_update_hung.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/material_update_hung.html</guid>
+      <description>GoCD unable to poll for changes GoCD server polls for changes to all materials of &amp;lsquo;Auto Triggered&amp;rsquo; pipelines. By default, polling occurs every minute and ten materials at a time. The polling interval and the number of materials to be polled simultaneously are configurable.
+GoCD uses SCM commands to poll for changes. For example, to check for any new changes in SVN repository the following command is used:
+svn log --non-interactive --xml -v -r HEAD:&amp;#39;revision&amp;#39; &amp;#39;repository-URL&amp;#39; The SCM command used by GoCD server can hang with no output.</description>
+    </item>
+    
+    <item>
+      <title>GoCD Business Continuity</title>
+      <link>/advanced_usage/business_continuity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity.html</guid>
+      <description>GoCD Business Continuity  Introduction Initial Setup Configure Agents and Shared Drive Monitoring and Recovery Server Upgrades  </description>
+    </item>
+    
+    <item>
+      <title>GoCD Database Connection Properties</title>
+      <link>/installation/configuring_database/connection-properties.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/configuring_database/connection-properties.html</guid>
+      <description>GoCD Database Connection Properties This section describes the configuration properties of the external database server (such as PostgreSQL, MySQL) which GoCD Server will connect and use. Optionally, you can also specify the database SSL config properties for secure communication between GoCD and the database server.
+A properties file with the name db.properties needs to be created in the GoCD&amp;rsquo;s configuration directory (config/). The location of GoCD&amp;rsquo;s configuration directory varies per operating system.</description>
+    </item>
+    
+    <item>
+      <title>Graphs</title>
+      <link>/advanced_usage/stage_duration_chart.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/stage_duration_chart.html</guid>
+      <description>Graphs Stage Duration Chart GoCD provides a chart on the stage details page which can be used for trend analysis of the stage&amp;rsquo;s periodic runs. This graph shows two line graphs, one each for passed and failed stage instances which are plotted using the total duration of the last 300 stage instances.
+To navigate to the Graphs:  Click on the stage bar of the relevant stage on the pipelines dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Hardware Specifications</title>
+      <link>/installation/hardware_specifications.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/hardware_specifications.html</guid>
+      <description>GoCD hardware specifications The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.
+ Also see: GoCD system requirements
+ Agent hardware requirements The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements).</description>
+    </item>
+    
+    <item>
+      <title>Historical Configuration</title>
+      <link>/faq/stage_old_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/stage_old_config.html</guid>
+      <description>GoCD Historical Configuration Trace a stage run to it&amp;rsquo;s config GoCD provides a section on the stage details page to view the GoCD configuration xml used when executing a particular instance of the stage. Admin users can use this view to trace a pipeline run back to it&amp;rsquo;s configuration. The stage history widget which can be found on the right hand side of the stage details page has markers to indicate GoCD configuration changes.</description>
+    </item>
+    
+    <item>
+      <title>How do I re-run jobs?</title>
+      <link>/faq/job_rerun.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/job_rerun.html</guid>
+      <description>Re-running Job(s) in GoCD You may sometimes encounter situations where you want to re-run only a subset of jobs within a stage rather than the entire stage or pipeline. Examples of such scenarios include:
+ Environmental problems on a particular agent caused a job to fail Unsuccessful build deployment to one (or more) servers within a cluster of servers  To re-run a job  Navigate to the Stage Details screen of the stage who&amp;rsquo;s job you want to re-run.</description>
+    </item>
+    
+    <item>
+      <title>Import a pipeline to build and deploy a sample application</title>
+      <link>/gocd_on_kubernetes/importing_a_sample_workflow.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/importing_a_sample_workflow.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Step 3: Import sample pipeline to build and deploy a sample application In this section, we&amp;rsquo;ll import a set of GoCD pipelines that build and deploy a sample application with a Docker based build workflow.
+This section uses GoCDs pipelines as code capability to import sample pipeline definitions from an external Git repository.
+Prerequisites   The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
+    </item>
+    
+    <item>
+      <title>Initial Setup</title>
+      <link>/advanced_usage/business_continuity/initial_setup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/initial_setup.html</guid>
+      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL documentation.
+Enable replication on the primary PostgreSQL instance The recommended replication setup is PostgreSQL streaming replication with log shipping . In this case, the two PostgreSQL servers, called &amp;ldquo;Primary&amp;rdquo; and &amp;ldquo;Standby&amp;rdquo;, will be setup such that the standby continuously replicates the primary.</description>
+    </item>
+    
+    <item>
+      <title>Install the GoCD Helm chart</title>
+      <link>/gocd_on_kubernetes/helm_install.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/helm_install.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Step 2: Install the GoCD Helm chart Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
+First verify your Helm version using command helm version, then install the official GoCD Helm chart as follows:
+ Add the GoCD helm chart repository:  helm repo add gocd https://gocd.github.io/helm-chart helm repo update Run the install command:  For Helm v3:</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD Agent</title>
+      <link>/installation/installing_go_agent.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/installing_go_agent.html</guid>
+      <description>Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.
+Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
+Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD agent on Linux</title>
+      <link>/installation/install/agent/linux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/linux.html</guid>
+      <description>Installing GoCD agent on Linux Installation of the GoCD agent using the package manager will require root access on the machine.
+RPM based distributions (ie RedHat/CentOS/Fedora) The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
+If you prefer to use the YUM repository and install via YUM, paste the following in your shell -
+sudo curl https://download.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD agent on Windows</title>
+      <link>/installation/install/agent/windows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/windows.html</guid>
+      <description>Installing GoCD agent on Windows You must be logged in as a user with Admin privileges to install the GoCD agent on Windows.
+ Download a version of go-agent from the downloads page. Double-click the go-agent-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD Server</title>
+      <link>/installation/installing_go_server.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/installing_go_server.html</guid>
+      <description>Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.
+Choose your operating system  Linux Windows Mac OS X Generic Zip  </description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Linux</title>
+      <link>/installation/install/server/linux.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/linux.html</guid>
+      <description>Installing GoCD server on Linux Installation of the GoCD server using the package manager will require root access on the machine.
+RPM based distributions (ie RedHat/CentOS/Fedora) The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.
+If you prefer to use the YUM repository and install via YUM, paste the following in your shell -
+sudo curl https://download.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Mac OS X</title>
+      <link>/installation/install/agent/osx.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/agent/osx.html</guid>
+      <description>Installing GoCD agent on Mac OS X   Download the Mac OS X installer for GoCD Agent from downloads page.
+  Unzip the installer in a directory of your choice. It creates a sub-directory with the name go-agent-${version}.
+  Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Agent to be started:
+# Assuming, for example, that the directory is &amp;quot;go-agent-20.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Mac OS X</title>
+      <link>/installation/install/server/osx.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/osx.html</guid>
+      <description>Installing GoCD server on Mac OS X   Download the Mac OS X installer for GoCD Server from downloads page.
+  Unzip the installer in a directory of your choice. It creates a sub-directory with the name go-server-${version}.
+  Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Server to be started:
+# Assuming, for example, that the directory is &amp;quot;go-server-20.</description>
+    </item>
+    
+    <item>
+      <title>Installing GoCD server on Windows</title>
+      <link>/installation/install/server/windows.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/install/server/windows.html</guid>
+      <description>Installing GoCD server on Windows You must be logged in as a user with Administrator privileges to install the GoCD server on Windows.
+ Download a version of go-server from the downloads page. Double-click the go-server-${version}-setup.exe installer file and follow the prompts to install Go. During installation you will be asked to select a directory that will serve as the root path for your GoCD server installation. GoCD server will store all of its associated data in this directory by default You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/advanced_usage/business_continuity/introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/introduction.html</guid>
+      <description>GoCD Business Continuity This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
+To implement a set up such as this, the recommendation will be to set up redundancy for nearly every moving piece (detailed later in this document), but based on your situation, you might want to reduce certain redundancies, if you&amp;rsquo;re willing to accept the risk.</description>
+    </item>
+    
+    <item>
+      <title>Introduction</title>
+      <link>/gocd_on_kubernetes/introduction.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/introduction.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Introduction GoCD gives you the flexibility to effectively represent CD pipelines that suit your organization&amp;rsquo;s processes. Kubernetes gives you a highly programmable delivery infrastructure platform. And together, they provide the foundation for a powerful Continuous Delivery platform.
+With this documentation guide, you&amp;rsquo;ll be able to
+ Setup and configure an instance of GoCD on a Kubernetes cluster. Install GoCD on Kubernetes the GoCD Helm chart.</description>
+    </item>
+    
+    <item>
+      <title>Job Timeout</title>
+      <link>/configuration/job_timeout.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/job_timeout.html</guid>
+      <description>Job Timeout Introduction GoCD can be configured to automatically cancel jobs that do not generate any console output for a period of time. Default Job timeout options include:
+ Never : Jobs will never be timed out by default. You can override this behavior when configuring the job in the job editor Timeout after a period of inactivity : A job will be cancelled if:  it did not have any console output for a period of time (in minutes) it was not assigned an agent    When a job is timed out, the onCancel task for the job will be triggered.</description>
+    </item>
+    
+    <item>
+      <title>Lock a Pipeline</title>
+      <link>/configuration/admin_lock_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_lock_pipelines.html</guid>
+      <description>Pipeline locking: Ensure only one instance of a GoCD pipeline can run at the same time Sometimes you want to ensure that only a single instance of a pipeline can run at a time. This is important if the stages of a pipeline are interrelated. For example the first stage may set up an environment that is used by the next stage in the pipeline.
+If a pipeline is locked then GoCD will not allow any other instance of that pipeline to be scheduled until the currently running one has been completed.</description>
+    </item>
+    
+    <item>
+      <title>Logging</title>
+      <link>/advanced_usage/logging.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/logging.html</guid>
+      <description>Logging Introduction You can turn on additional logging to diagnose and troubleshoot issues with the GoCD server and agent.
+Log location To change where the GoCD server logs or GoCD agent logs are stored, use the system properties gocd.server.log.dir and gocd.agent.log.dir respectively. Refer to the system properties documentation to find out how to set the system property on the gocd server or agent.
+Note: The system property deals with configuring the log location for the GoCD server or agent related logs and not the plugin logs.</description>
+    </item>
+    
+    <item>
+      <title>Maintenance Mode</title>
+      <link>/advanced_usage/maintenance_mode.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/maintenance_mode.html</guid>
+      <description>Maintenance Mode Note: Using this feature requires atleast version 19.1.0 of the GoCD server.
+The GoCD system includes a lot of internal subsystems and processes, which continuously do work. Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.
+Maintenance mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up.</description>
+    </item>
+    
+    <item>
+      <title>Managing Agents</title>
+      <link>/configuration/managing_a_build_cloud.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_a_build_cloud.html</guid>
+      <description>Managing GoCD agents GoCD is designed to make managing a build cloud extremely simple. This page takes you through the lifecycle of expanding your cloud and maintaining your agents.
+Adding a GoCD agent to your cloud The first thing you need to do is install Go agent on the machine you want to add to the cloud.
+Once the GoCD agent has been installed and pointed at your GoCD server, go to the Agents tab on the GoCD dashboard.</description>
+    </item>
+    
+    <item>
+      <title>Managing Artifacts and Reports</title>
+      <link>/configuration/managing_artifacts_and_reports.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_artifacts_and_reports.html</guid>
+      <description>Managing artifacts and reports Because all your work is done on remote agents, GoCD provides a mechanism for files to be automatically uploaded to GoCD server following the completion of every job. These files can then be accessed via the GoCD server dashboard, or via the RESTful API.
+Publishing artifacts The first step in using the artifact repository is to tell GoCD which files you want to publish. To do this just specify the path to the file or directory relative to the root of the source control checkout.</description>
+    </item>
+    
+    <item>
+      <title>Managing Dependencies</title>
+      <link>/configuration/managing_dependencies.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_dependencies.html</guid>
+      <description>Managing dependencies Sometimes you need more complex triggers than a simple pipeline of stages and jobs. In particular, you may want a pipeline to trigger based on the result of a stage in another pipeline. This is possible by adding pipelines as materials.
+Creating a dependency Say we have two pipelines - upstream1 and downstream_pipeline . We want downstream_pipeline to automatically trigger following the successful completion of the stage stage in pipeline upstream1.</description>
+    </item>
+    
+    <item>
+      <title>Managing Environments</title>
+      <link>/configuration/managing_environments.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_environments.html</guid>
+      <description>Managing environments GoCD is configured using an XML configuration file. This file can be edited through the GoCD server dashboard. GoCD allows you to edit sections of the configuration independently and will check the syntax of the configuration before it saves it again. You can also edit the full XML file if you wish, by clicking on the Config XML section of the Administration tab.
+Creating a new environment An Environment is a grouping of pipelines and agents.</description>
+    </item>
+    
+    <item>
+      <title>Managing Pipelines</title>
+      <link>/configuration/pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipelines.html</guid>
+      <description>Pipelines in GoCD In this section, you can learn about some of the ways you can use and manipulate pipelines in GoCD. In case you&amp;rsquo;re not familiar with the concept of pipelines, please read the concepts page first.</description>
+    </item>
+    
+    <item>
+      <title>Managing Users</title>
+      <link>/configuration/managing_users.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/managing_users.html</guid>
+      <description>Managing Users GoCD&amp;rsquo;s user management features allow you to control access to GoCD and grant role-based permissions.
+All user management features depend on an authentication mechanism having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.
+Adding Users  Click on the menu item: Admin -&amp;gt; Users Management. Click the &amp;ldquo;Import User&amp;rdquo; button Enter a name/email to search for (minimum 2 characters) and click &amp;ldquo;Search&amp;rdquo; This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc) From the list of results, select the user to add and click &amp;ldquo;Import User&amp;rdquo;  Assigning Roles Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</description>
+    </item>
+    
+    <item>
+      <title>Monitoring and Recovery</title>
+      <link>/advanced_usage/business_continuity/monitor_switch_to_sec.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/monitor_switch_to_sec.html</guid>
+      <description>Monitoring and Switching Over to Secondary Server Monitoring the progress of the sync As mentioned in the details part of the &amp;ldquo;Setup a standby (secondary) GoCD Server&amp;rdquo; section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in red denotes the sync hasn&amp;rsquo;t happened, whereas an entry in black denotes that the standby is in sync with the server. You should monitor that the Last Config/Plugins Update Time under Primary Details and Last Successful Sync time under Standby Details are not off by a huge time gap.</description>
+    </item>
+    
+    <item>
+      <title>Multiple Agents on One Machine</title>
+      <link>/advanced_usage/admin_install_multiple_agents.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/admin_install_multiple_agents.html</guid>
+      <description>Install multiple agents on the same machine In order to fully utilize your hardware, it is often useful to install multiple agents on a single machine.
+See the file README-running-multiple-agents.md in your GoCD agent installation for details on setting up multiple agents.
+On Linux, it is usually available in /usr/share/doc/go-agent. The recommended way to get the instructions file is to find it in the ZIP distribution of the specific version of the GoCD agent you want to run multiple instances of.</description>
+    </item>
+    
+    <item>
+      <title>Notifications</title>
+      <link>/configuration/dev_notifications.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_notifications.html</guid>
+      <description>Notifications It is often useful to receive an email when certain status changes occur in a stage. For example, a developer might want to know when their own check-in has broken the build. Alternatively, a manager might want an email whenever a project is deployed into production. Both of these scenarios can be covered by Notification Filters
+Notifications will only work if Security is enabled and mailhost information is correct.</description>
+    </item>
+    
+    <item>
+      <title>Ordering of Pipelines</title>
+      <link>/faq/ordering_of_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/ordering_of_pipelines.html</guid>
+      <description>Ordering of pipelines in GoCD In GoCD, we use two distinct types of ordering of pipelines:
+ Schedule order: Chronological order in which pipelines are scheduled. Natural order: Chronological order of pipelines based on material modifications  In most cases the schedule order and natural order match. The user checks in and builds incrementally so the order in which builds are scheduled is the same as the relative order in which changes are checked in.</description>
+    </item>
+    
+    <item>
+      <title>Other Config Options</title>
+      <link>/advanced_usage/other_config_options.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/other_config_options.html</guid>
+      <description>Other config options This is a list of some of the more advanced configuration options available. These will typically need to be set before the start of the GoCD Server, unless specified.
+System properties If an option specified below is of type &amp;ldquo;System property&amp;rdquo;, then it will be a Java system property, which needs to be provided to the GoCD Server, typically prefixed with -D unless otherwise stated. So, if the property is called my.</description>
+    </item>
+    
+    <item>
+      <title>Package Repository Extension</title>
+      <link>/extension_points/package_repository_extension.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/package_repository_extension.html</guid>
+      <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards. Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
+ jar, war or ear file in case of Java nuget/ chocolatey package in case of .</description>
+    </item>
+    
+    <item>
+      <title>Parameterize a pipeline</title>
+      <link>/configuration/admin_use_parameters_in_configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_use_parameters_in_configuration.html</guid>
+      <description>Parameterize your Configuration GoCD allows you to parameterize your pipelines and pipeline templates. This powerful feature can help reduce repetition within your configurations and also allows for complex setups using a combination of parameters and pipeline templates.
+Using Web Interface Edit the Parameters tab when defining a pipeline .
+Defining and using a parameter Parameter values are defined in the &amp;lt;params&amp;gt; tag within a pipeline and can be used anywhere within that pipeline using #{param_name}.</description>
+    </item>
+    
+    <item>
+      <title>Performance Tuning</title>
+      <link>/installation/performance_tuning.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/performance_tuning.html</guid>
+      <description>GoCD Performance Tuning Capacity Planning This section provides recommendations to evaluate server hardware and memory requirements for your GoCD server. It also highlights some configurations which need to be taken care of when scaling GoCD.
+Minimum server requirements The minimum requirements for a GoCD server can be found here
+Scaling GoCD As the number of pipelines, agents and concurrent users increase in your setup, GoCD server may have to be scaled up by adding more memory and cores.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline activity</title>
+      <link>/advanced_usage/pipeline_activity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/pipeline_activity.html</guid>
+      <description>Pipeline activity The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)
+Overview    Actions Description     Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Group Administration</title>
+      <link>/configuration/pipeline_group_admin_config.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_group_admin_config.html</guid>
+      <description>GoCD Pipeline Groups Administration Pipeline Group Administrators in GoCD can add, remove and edit pipelines in their respective pipeline groups. They can do these operations via the UI as well by editing the config XML of the pipeline group. They can also manage the templates and add any package repositories with the help of plugins.
+Administration using UI The Pipelines page for a pipeline group administrator looks as follows. The controls on the page allows her to edit, clone, delete and move any pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Labelling</title>
+      <link>/configuration/pipeline_labeling.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_labeling.html</guid>
+      <description>GoCD Pipeline Labeling GoCD maintains an internal counter to identify a pipeline. This number increases by 1 for each build. By default, GoCD will use this counter as the pipeline label. This label is also passed to your build as an environment variable: GO_PIPELINE_COUNTER . The pipeline counter increases even if a build fails.
+Changing the default pipeline label You can create a custom label by setting the Label Template field on your pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Scheduling</title>
+      <link>/configuration/pipeline_scheduling.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_scheduling.html</guid>
+      <description>GoCD Pipeline Scheduling Pipelines get scheduled automatically by default. Please see the knowledge base article in the Also see section below. Here we&amp;rsquo;ll see how to disable automatic scheduling.
+Disable automatic scheduling Unchecking the &amp;ldquo;Automatic Pipeline Scheduling&amp;rdquo; checkbox above disables auto scheduling. Actually this is the same as marking first stage as manual. We have just surfaced the option at a pipeline level to make it easier to spot. Please note though that this isn&amp;rsquo;t really a pipeline level configuration.</description>
+    </item>
+    
+    <item>
+      <title>Pipeline Templates</title>
+      <link>/configuration/pipeline_templates.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/pipeline_templates.html</guid>
+      <description>GoCD Pipeline Templates Templating helps to create reusable workflows in order to make tasks like creating and maintaining branches, and managing large number of pipelines easier.
+Creating Pipeline Templates Pipeline Templates can be managed from the Templates tab on the Administration Page.
+Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following form which allows you to create a fresh template, or extract it from an existing pipeline. Once saved, the pipeline indicated will also start using this newly created template.</description>
+    </item>
+    
+    <item>
+      <title>Pipelines as code</title>
+      <link>/advanced_usage/pipelines_as_code.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/pipelines_as_code.html</guid>
+      <description>Pipelines as code GoCD can store pipeline definitions in a source code repository (either in your application&amp;rsquo;s repository, or in a separate repository). This way, you can keep your pipeline definitions out of GoCD and under version control, and manage them externally. A poller in the GoCD server will check periodically for modifications to your external pipeline definitions, and merge them with the pipeline data already present in GoCD&amp;rsquo;s main XML configuration file.</description>
+    </item>
+    
+    <item>
+      <title>Plugin User Guide</title>
+      <link>/extension_points/plugin_user_guide.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/plugin_user_guide.html</guid>
+      <description>GoCD Plugin User Guide Introduction Plugins allow users to extend the functionality of GoCD. Each plugin is assigned an identifier which is determined by the id attribute provided in plugin metadata file packaged along with the plugin jar. If the metadata file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, GoCD server would try to load all the plugins.</description>
+    </item>
+    
+    <item>
+      <title>Policy in GoCD</title>
+      <link>/configuration/policy_in_gocd.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/policy_in_gocd.html</guid>
+      <description>Policy A policy is a set of permissions for GoCD entities such as environments, configuration repositories, etc. The policy defines the access of a GoCD entity for the users in a role. GoCD supports a restrictive model of access i.e. until access is granted, the entity can&amp;rsquo;t be accessed by anyone (except admins).
+A permission consists of 3 values:
+ Type: The type of GoCD entity. Supported values are environment, config_repo, cluster_profile, elastic_agent_profile.</description>
+    </item>
+    
+    <item>
+      <title>Publish Reports and Artifacts</title>
+      <link>/configuration/dev_upload_test_report.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/dev_upload_test_report.html</guid>
+      <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around.
+For example
+ JUnit creates xml reports that GoCD is able to parse in order to help us understand why the build is broken. We can use GoCD with any JUnit style xml reports. a build automation tool might product an HTML report for test, or code coverage report that we wish to view alongside the build results we might create a video of our UI tests that we want displayed in GoCD.</description>
+    </item>
+    
+    <item>
+      <title>Reference</title>
+      <link>/configuration/configuration_reference.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/configuration_reference.html</guid>
+      <description>GoCD Configuration Reference   &amp;lt;cruise&amp;gt; &amp;lt;server&amp;gt; &amp;lt;siteUrls&amp;gt; &amp;lt;siteUrl/&amp;gt; &amp;lt;secureSiteUrl/&amp;gt; &amp;lt;/siteUrls&amp;gt; &amp;lt;security&amp;gt; &amp;lt;ldap&amp;gt; &amp;lt;bases&amp;gt; &amp;lt;base/&amp;gt; &amp;lt;/bases&amp;gt; &amp;lt;/ldap&amp;gt; &amp;lt;passwordFile/&amp;gt; &amp;lt;authConfigs&amp;gt; &amp;lt;authConfig&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/authConfig&amp;gt; &amp;lt;/authConfigs&amp;gt; &amp;lt;roles&amp;gt; &amp;lt;role&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;users/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/role&amp;gt; &amp;lt;pluginRole/&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/pluginRole&amp;gt; &amp;lt;/roles&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;mailhost/&amp;gt; &amp;lt;backup/&amp;gt; &amp;lt;artifacts&amp;gt; &amp;lt;artifactsDir/&amp;gt; &amp;lt;purgeSettings&amp;gt; &amp;lt;purgeStartDiskSpace/&amp;gt; &amp;lt;purgeUptoDiskSpace/&amp;gt; &amp;lt;/purgeSettings/&amp;gt; &amp;lt;/artifacts&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;elastic&amp;gt; &amp;lt;agentProfiles&amp;gt; &amp;lt;agentProfile&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/agentProfile&amp;gt; &amp;lt;/agentProfiles&amp;gt; &amp;lt;clusterProfiles&amp;gt; &amp;lt;clusterProfile/&amp;gt; &amp;lt;/clusterProfiles&amp;gt; &amp;lt;/elastic&amp;gt; &amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;pluginConfiguration/&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;packages&amp;gt; &amp;lt;package&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/package&amp;gt; &amp;lt;/packages&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; &amp;lt;config-repos&amp;gt; &amp;lt;config-repo&amp;gt; &amp;lt;svn /&amp;gt; &amp;lt;hg /&amp;gt; &amp;lt;p4 /&amp;gt; &amp;lt;git /&amp;gt; &amp;lt;tfs /&amp;gt; &amp;lt;scm /&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;/allow&amp;gt; &amp;lt;deny&amp;gt; &amp;lt;/deny&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/config-repo&amp;gt; &amp;lt;/config-repos&amp;gt; &amp;lt;artifactStores&amp;gt; &amp;lt;artifactStore&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/artifactStore&amp;gt; &amp;lt;/artifactStores&amp;gt; &amp;lt;secretConfigs&amp;gt; &amp;lt;secretConfig&amp;gt; &amp;lt;description&amp;gt; &amp;lt;/description&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;/allow&amp;gt; &amp;lt;deny&amp;gt; &amp;lt;/deny&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/secretConfig&amp;gt; &amp;lt;/secretConfigs&amp;gt; &amp;lt;pipelines&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;view&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/view&amp;gt; &amp;lt;operate&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/operate&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;params&amp;gt; &amp;lt;param/&amp;gt; &amp;lt;/params&amp;gt; &amp;lt;trackingtool/&amp;gt; &amp;lt;timer/&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;materials&amp;gt; &amp;lt;svn&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/svn&amp;gt; &amp;lt;hg&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/hg&amp;gt; &amp;lt;p4&amp;gt; &amp;lt;view/&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/p4&amp;gt; &amp;lt;git&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/git&amp;gt; &amp;lt;tfs&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/tfs&amp;gt; &amp;lt;package/&amp;gt; &amp;lt;pipeline/&amp;gt; &amp;lt;/materials&amp;gt; &amp;lt;stage&amp;gt; &amp;lt;approval&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;/approval&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;jobs&amp;gt; &amp;lt;job&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;resources&amp;gt; &amp;lt;resource/&amp;gt; &amp;lt;/resources&amp;gt; &amp;lt;tasks&amp;gt; &amp;lt;fetchartifact&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/fetchartifact&amp;gt; &amp;lt;ant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/ant&amp;gt; &amp;lt;nant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/nant&amp;gt; &amp;lt;rake&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/rake&amp;gt; &amp;lt;exec&amp;gt; &amp;lt;arg/&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/exec&amp;gt; &amp;lt;/tasks&amp;gt; &amp;lt;artifacts&amp;gt; &amp;lt;artifact/&amp;gt; &amp;lt;/artifacts&amp;gt; &amp;lt;tabs&amp;gt; &amp;lt;tab/&amp;gt; &amp;lt;/tabs&amp;gt; &amp;lt;/job&amp;gt; &amp;lt;/jobs&amp;gt; &amp;lt;/stage&amp;gt; &amp;lt;/pipeline&amp;gt; &amp;lt;/pipelines&amp;gt; &amp;lt;templates&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;stage&amp;gt; .</description>
+    </item>
+    
+    <item>
+      <title>Run Tests against new Builds</title>
+      <link>/faq/dependency_management.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dependency_management.html</guid>
+      <description>GoCD Dependency Management When you have non-trivial dependency pipeline chains, you may have concerns about how dependent pipelines and materials interact. For example, code and tests are checked in as part of the same commit. But code is built and tested in sequence, so the same material version has to be used for pipelines that build and test your code. This section covers some Dependency Management concepts and how GoCD handles certain complex scenarios.</description>
+    </item>
+    
+    <item>
+      <title>Running out of Disk Space</title>
+      <link>/faq/admin_out_of_disk_space.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/admin_out_of_disk_space.html</guid>
+      <description>Running out of disk space After you&amp;rsquo;ve had GoCD running for a while, you may notice the following warning box when browsing GoCD:
+If you don&amp;rsquo;t do anything about it, you&amp;rsquo;ll end up seeing the following error:
+GoCD will stop scheduling new pipelines until you make more room, either by compressing large files, attaching a larger hard drive, or by deleting unused artifacts. You could also let GoCD manage artifact disk space by enabling auto purge of old artifacts.</description>
+    </item>
+    
+    <item>
+      <title>Sample pipelines explained</title>
+      <link>/gocd_on_kubernetes/sample_pipelines_explained.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/sample_pipelines_explained.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Explanation of the sample pipelines In this section, we&amp;rsquo;ll explain the details of each of the pipelines imported in the previous section.
+1. Build and publish image This pipeline builds an application artifact and publishes it to an artifact store.
+The material A GoCD pipeline&amp;rsquo;s material is the trigger for a pipeline. Often it is a source code repository. It could also be another GoCD repository.</description>
+    </item>
+    
+    <item>
+      <title>SCM Extension</title>
+      <link>/extension_points/scm_extension.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/scm_extension.html</guid>
+      <description>SCM Material Introduction A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS &amp;amp; Perforce. Users can use SCM plugins to integrate with other SCMs.
+SCMs and Materials Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is not contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM.</description>
+    </item>
+    
+    <item>
+      <title>Secret Management</title>
+      <link>/configuration/secrets_management.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/secrets_management.html</guid>
+      <description>Secrets Management Managing secrets is hard, ideally secrets should be stored securely, secrets need to have tight access controls and should be rotated on a regular interval. There are Secret Managers in the market which specialize in solving some of these problems around handling secrets. Leveraging these solutions, GoCD provides plugin endpoints to lookup for secrets defined in an external Secrets Manager. This gives GoCD users the flexibilty to use a Secret Manager of their choice to store and manage secrets.</description>
+    </item>
+    
+    <item>
+      <title>See artifacts as sub-tabs</title>
+      <link>/faq/dev_see_artifact_as_tab.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dev_see_artifact_as_tab.html</guid>
+      <description>See artifacts as sub-tabs in GoCD After uploading html reports, it is often useful to be able to easily view this information when trying to understand why the build is broken.
+Example usage Suppose we have configured GoCD to upload a flash video and html file and display it as a tab
+Click on the Dashboard tab
+Click on the stage you want to investigate
+Click on the job you want to investigate [1]</description>
+    </item>
+    
+    <item>
+      <title>See changes in new binary</title>
+      <link>/faq/tester_what_has_changed.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/tester_what_has_changed.html</guid>
+      <description>What has changed in the current GoCD version? When updating your testing environments to a new version, it is useful to know what changes have been made since it was last updated. Since there is currently no way to get this information in GoCD automatically, there are some extra steps we must take.
+Example usage For this example, we&amp;rsquo;ll assume that there is a manual &amp;ldquo;UAT&amp;rdquo; stage will automatically deploy and install an executable on your user acceptance testing machine.</description>
+    </item>
+    
+    <item>
+      <title>Setup and configuration</title>
+      <link>/gocd_on_kubernetes/setup_and_configuration.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/gocd_on_kubernetes/setup_and_configuration.html</guid>
+      <description>Getting Started with GoCD on Kubernetes Step 1: Setup your Kubernetes cluster Before you can get started with GoCD on Kubernetes, make sure that you have taken a look at the list below.
+1. Install kubectl The Kubernetes CLI kubectl is used for cluster management purposes. The Kubernetes install documentation provides various ways of installing kubectl for different platforms.
+2. Setup a Kubernetes Cluster Before installing GoCD, you need to setup a Kubernetes cluster.</description>
+    </item>
+    
+    <item>
+      <title>Spawn multiple instances of a Job</title>
+      <link>/advanced_usage/admin_spawn_multiple_jobs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/admin_spawn_multiple_jobs.html</guid>
+      <description>Run a Job on a group of Agents Sometimes there is a particular job that you may wish to run on all agents in an environment, or in all agents that match a certain resource tag. For example you may want to run a system update on all linux agents, or install a new piece of software.
+GoCD will run the Job on all agents that match the environment and resources specified in the job.</description>
+    </item>
+    
+    <item>
+      <title>System requirements</title>
+      <link>/installation/system_requirements.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/system_requirements.html</guid>
+      <description>GoCD System requirements These requirements should meet the needs of most GoCD installations. You may need to allocate additional CPUs and/or memory on the machine hosting the GoCD Server if you intend to use a very large set of pipelines and/or agents.
+ Also see: GoCD hardware specifications
+ Client (browser) requirements GoCD supports the two most recent versions of the following browsers:
+ Google Chrome Mozilla Firefox Microsoft Edge Apple Safari   GoCD Server requirements Hardware  RAM - minimum 1GB, 2GB recommended CPU - minimum 2 cores, 2GHz Disk - minimum 1GB free space  Supported Operating Systems  Windows - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10 Mac OSX - 10.</description>
+    </item>
+    
+    <item>
+      <title>Task Extension</title>
+      <link>/extension_points/task_extension.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/task_extension.html</guid>
+      <description>Task Extension Overview GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you&amp;rsquo;ll see something like this:
+A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.</description>
+    </item>
+    
+    <item>
+      <title>Timer Based GoCD Server Backup</title>
+      <link>/advanced_usage/cron_backup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/cron_backup.html</guid>
+      <description>Perform GoCD server backups on a schedule To run a GoCD server backup at a given time, use a timer. Timers understand a cron-like specification for when to perform a backup. The GoCD server can be optionally configured to invoke a post-backup script to allow you to copy the backup to an external machine or service (like AWS&#39; S3).
+The post backup script The post backup script, if configured, will be invoked regardless of success or failure of the script, and will receive the following environment variables:</description>
+    </item>
+    
+    <item>
+      <title>Timer Trigger</title>
+      <link>/configuration/admin_timer.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/configuration/admin_timer.html</guid>
+      <description>Run a GoCD pipeline on a schedule To run a pipeline at a given time, use a timer. Timers understand a cron-like specification for when to run a pipeline.
+Note that a pipeline will still schedule normally if changes are checked in. If the pipeline should only run according to the timer&amp;rsquo;s schedule then you should also set a manual approval for the first stage of the pipeline to stop it from automatically scheduling when materials change.</description>
+    </item>
+    
+    <item>
+      <title>Trigger With Options</title>
+      <link>/advanced_usage/trigger_with_options.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/trigger_with_options.html</guid>
+      <description>Trigger with a different revision of material GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).
+Trigger with options Information The following information are displayed for the last 5 revisions. For an SCM material, the following information is shown
+ Revision hash or pipeline label Committer Check-in comment for the revision Check-in time of the revision  For a pipeline material, the pipeline label and the corresponding run time is shown</description>
+    </item>
+    
+    <item>
+      <title>UI Testing</title>
+      <link>/advanced_usage/ui_testing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/ui_testing.html</guid>
+      <description>UI testing Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&amp;rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&amp;rsquo;s how you do it.
+Windows The first step is to disable the GoCD agent service. To do this:
+ Log in to your Windows machine as an Administrative user.</description>
+    </item>
+    
+    <item>
+      <title>Upgrade server with Business-Continuity Addon</title>
+      <link>/advanced_usage/business_continuity/upgrade.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/upgrade.html</guid>
+      <description>Upgrading Primary and Secondary GoCD Servers using Business Continuity Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
+Please take appropriate backups before proceeding with your server upgrade    Shutdown down both the Primary and Secondary GoCD server.
+  Perform server upgrade by following our documentation here for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading GoCD</title>
+      <link>/installation/upgrading_go.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/upgrading_go.html</guid>
+      <description>Upgrading GoCD The steps in this page can be followed to upgrade GoCD. It is recommended to understand any breaking changes between the releases to see if they impact your upgrades in any way.
+ Note: If upgrading from a GoCD release &amp;lt;= 20.4.0, there is a the one-time DB migration that needs to be performed as well.
+ Before you start   Before you begin upgrading, it is recommended that you turn on maintenance mode on your GoCD server (available since version 19.</description>
+    </item>
+    
+    <item>
+      <title>Upgrading to GoCD 20.5.0 and higher</title>
+      <link>/installation/upgrade_to_gocd_20.5.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/installation/upgrade_to_gocd_20.5.0.html</guid>
+      <description>Upgrading to GoCD 20.5.0 and higher GoCD 20.5.0 introduced several changes to its database implementation in order to build a more flexible model that allows integrating with multiple databases. As part of these changes GoCD changed the technologies used for automated database migrations (from the unmaintained DBDeploy to Liquibase). These changes require a one-time migration of the GoCD database &amp;lt;= 20.4.0 to one compliant with GoCD 20.5.0 and beyond.
+GoCD 20.</description>
+    </item>
+    
+    <item>
+      <title>Use Environment Variables in GoCD</title>
+      <link>/faq/dev_use_current_revision_in_build.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dev_use_current_revision_in_build.html</guid>
+      <description>Using Environment Variables in GoCD Accessing environment variables in tasks Every task in GoCD is provided with a set of environment variables, as a part of the context, when it is run. Depending on the kind of process used in the task, environment variables are accessed differently. Presented below are some common usage scenarios, with the assumption that a job has been configured with an environment variable called ENV_VAR_1, with the value VALUE_1.</description>
+    </item>
+    
+    <item>
+      <title>Value Stream Map</title>
+      <link>/navigation/value_stream_map.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/navigation/value_stream_map.html</guid>
+      <description>GoCD Value Stream Map Introduction Value Stream Map helps you visualize your CI/CD workflow. With a single click, it allows you to trace a commit from when it is checked in up to when it is deployed.
+A value stream map can be drawn for every instance of a pipeline. It provides you with the ability to:
+ See what caused the current pipeline to be triggered. See what downstream pipelines were triggered by the current pipeline.</description>
+    </item>
+    
+    <item>
+      <title>Why is the Build Broken?</title>
+      <link>/faq/dev_understand_why_build_broken.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/faq/dev_understand_why_build_broken.html</guid>
+      <description>Why is the build broken? Knowing the build is broken is only the first step. Now we need to understand what caused it to break.
+With Console output Usage: As a developer, I want to understand why the build is broken.
+Click on the Dashboard tab
+Determine the failed stage you want to investigate, and click on it
+Determine which job within the stage failed, and click on it [1]</description>
+    </item>
+    
+    <item>
+      <title>Yum Repository Poller</title>
+      <link>/extension_points/yum_repository_poller.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/extension_points/yum_repository_poller.html</guid>
+      <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package, Ubuntu, CentOS)
+Introduction The Yum repository poller is a bundled package material plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.</description>
+    </item>
+    
+  </channel>
+</rss>
