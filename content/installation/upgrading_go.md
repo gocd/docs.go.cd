@@ -10,7 +10,7 @@ The steps in this page can be followed to upgrade GoCD. It is recommended to und
 
 <hr>
 
-**Note**: If upgrading from a GoCD release <= 20.4.0, there is a [the one-time DB migration](./upgrade_to_gocd_20.5.0.html) that needs to be performed as well.
+**Note**: If upgrading from a GoCD release <= 20.4.0, there is a [the one-time DB migration](upgrading_go/upgrade_to_gocd_20.5.0.html) that needs to be performed as well.
 
 <hr>
 

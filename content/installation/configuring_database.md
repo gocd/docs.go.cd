@@ -8,7 +8,7 @@ title: Configuring GoCD Database
 
 As part of GoCD release `v20.5.0`, GoCD introduced the ability to integrate with `H2`, `PostgreSQL` and `MySQL` databases. 
 
-This section describes how to bring up a new GoCD Server instance, using the database of your choice. In case you are looking to migrate the data from an existing GoCD Server instance, please take a look [GoCD Database Migration](./upgrade_to_gocd_20.5.0.html) documentation.
+This section describes how to bring up a new GoCD Server instance, using the database of your choice. In case you are looking to migrate the data from an existing GoCD Server instance, please take a look [GoCD Database Migration](upgrading_go/upgrade_to_gocd_20.5.0.html) documentation.
 
 
 ### GoCD Supports following databases (with mentioned versions):

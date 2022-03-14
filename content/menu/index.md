@@ -53,7 +53,9 @@ headless: true
         </ul>
       </li>
       <li class="level2"><a href="{{< relref "installation/upgrading_go.md" >}}">Upgrading GoCD</a></li>
-      <li class="level2"><a href="{{< relref "installation/upgrade_to_gocd_20.5.0.md" >}}">Upgrading to GoCD 20.5.0 and higher</a></li>
+      <ul>
+        <li class="level3"><a href="{{< relref "installation/upgrading_go/upgrade_to_gocd_20.5.0.md" >}}">Upgrading to GoCD 20.5.0 and higher</a></li>
+      </ul>
       <li class="level2"><a href="{{< relref "installation/configuring_server_details.md" >}}">Configuring Server Details</a></li>
       <li class="level2"><a href="{{< relref "installation/configure-reverse-proxy.md" >}}">Configure a Reverse Proxy</a></li>
       <li class="level2"><a href="{{< relref "installation/configure-agent-proxy.md" >}}">Configure an agent with proxy</a></li>

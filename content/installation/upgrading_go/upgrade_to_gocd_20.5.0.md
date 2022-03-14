@@ -37,7 +37,7 @@ You should be able to migrate from any older version of GoCD to 20.5.0. However,
 
 ### Step 2: Backup
 
-Backup your GoCD server. Refer the [Backup GoCD Server](../advanced_usage/one_click_backup.html) documentation for instructions.
+Backup your GoCD server. Refer the [Backup GoCD Server](../../advanced_usage/one_click_backup.html) documentation for instructions.
 
 ### Step 3: Stop GoCD Server
 
@@ -55,7 +55,7 @@ Stop your GoCD server, if it is running.
  
 #### 4.1 Migrating data from H2 to H2
 
-1. The `gocd-database-migrator` requires the `source-db-url` which consists of the location of the GoCD H2 database. The location of the database depends on the distribution your GoCD server is running on. Please refer to [GoCD installation](./installing_go_server.html) documentation to identfiy the file location.
+1. The `gocd-database-migrator` requires the `source-db-url` which consists of the location of the GoCD H2 database. The location of the database depends on the distribution your GoCD server is running on. Please refer to [GoCD installation](../installing_go_server.html) documentation to identfiy the file location.
 
 2. Run the command (The below example is for a GoCD server running on Linux) -
 
@@ -94,7 +94,7 @@ Stop your GoCD server, if it is running.
 
 #### 4.2 Migrating data from PostgreSQL to PostgreSQL
 
-1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](./configuring_database/postgres.html) for information on creating an empty database.
+1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](../configuring_database/postgres.html) for information on creating an empty database.
 
 2. Run the command by providing the right parameters for the required options. An example is shown below:
 
@@ -112,7 +112,7 @@ Stop your GoCD server, if it is running.
 
 #### 4.3 Migrating data from H2 to PostgreSQL
 
-1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](./configuring_database/postgres.html) for information on creating an empty database.
+1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](../configuring_database/postgres.html) for information on creating an empty database.
 
 2. Run the command by providing the right parameters for the required options,
 
@@ -130,7 +130,7 @@ Stop your GoCD server, if it is running.
 
 #### 4.4 Migrating data from H2 to MySQL
 
-1. Create an empty database in MySQL. Refer the [MySQL docs](./configuring_database/mysql.html ) for information on creating an empty database.
+1. Create an empty database in MySQL. Refer the [MySQL docs](../configuring_database/mysql.html ) for information on creating an empty database.
 
 2. Run the command by providing the right parameters for the required options,
 
@@ -154,9 +154,9 @@ GoCD runs on H2 by default. Configuring the `db.properties` is **not** required.
 
 #### 5.2 Enabling GoCD to use PostgreSQL or MySQL Database
 
-A properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer the [GoCD Database Connection Properties documentation](./configuring_database/connection-properties.html) for more information about the format of this file and valid keys.
+A properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer the [GoCD Database Connection Properties documentation](../configuring_database/connection-properties.html) for more information about the format of this file and valid keys.
 
-The location of GoCD's configuration directory varies per operating system. Usually, on a Linux system using the RPM or Debian installers, this file will need to be at `/etc/go/db.properties`. The [installation documentation](./installing_go_server.html) provides information about the locations.
+The location of GoCD's configuration directory varies per operating system. Usually, on a Linux system using the RPM or Debian installers, this file will need to be at `/etc/go/db.properties`. The [installation documentation](../installing_go_server.html) provides information about the locations.
 
 - Sample configuration for `db.properties` for PostgreSQL:
 
