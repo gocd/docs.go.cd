@@ -16,7 +16,7 @@
     "gray-matter": "^4.0.3",
     "grunt": "^1.4.1",
     "he": "^1.2.0",
-    "hugo-bin": "^0.80.2",
+    "hugo-bin": "^0.83.1",
     "lunr": "2.3.9",
     "markdown-it": "^12.3.2",
     "string": "^3.3.3"
