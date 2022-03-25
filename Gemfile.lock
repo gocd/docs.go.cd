@@ -43,7 +43,7 @@ GEM
     nokogiri (1.13.3)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    parallel (1.21.0)
+    parallel (1.22.0)
     public_suffix (4.0.6)
     racc (1.6.0)
     rainbow (3.0.0)
