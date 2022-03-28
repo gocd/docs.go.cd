@@ -369,7 +369,7 @@ data:
   DOCKERHUB_ORG: &lt;Base64 encoded Dockerhub organization&gt;
 EOF
 </code></pre><p><em>Encoding note: The serialized JSON and YAML values of secret data are encoded as base64 strings. Newlines are not valid within these strings and must be omitted. The following pipeline will strip newlines before base64 encoding strings.</em></p>
-<pre tabindex="0"><code>echo -n &quot;string&quot; | base64
+<pre tabindex="0"><code>echo -n &#34;string&#34; | base64
 </code></pre><p>Apply the secrets-for-gocd.yaml file to create a secret with these credentials</p>
 <pre tabindex="0"><code>kubectl apply -f secrets-for-gocd.yaml -n gocd
 </code></pre></li>

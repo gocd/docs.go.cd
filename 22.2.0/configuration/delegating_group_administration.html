@@ -345,19 +345,18 @@ if (!doNotTrack) {
 <p><img src="../images/group_admin_permissions.png" alt=""></p>
 <p>In the above screenshot, the GoCD admin has delegated group admin privileges to a user &ldquo;jez&rdquo; and all users defined under the role &ldquo;groupAdminRole&rdquo;. The privileges of a Group Administrator have been described in the next section.</p>
 <p>For power users, here&rsquo;s how you&rsquo;d assign the same permissions via Config XML:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span> jez <span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;role&gt;</span> groupAdminRole <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-         <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
-     <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
-     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-     ...
-     <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
-
-</code></pre></div><h2 id="privileges-of-a-group-administrator">Privileges of a Group Administrator</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;studios&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span> jez <span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;role&gt;</span> groupAdminRole <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>         <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>     ...
+</span></span><span style="display:flex;"><span>     <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
+</span></span></code></pre></div><h2 id="privileges-of-a-group-administrator">Privileges of a Group Administrator</h2>
 <p>As a group administrator of a pipeline group, a user is privileged to:</p>
 <ul>
 <li>View and operate (trigger, rerun stages etc.) all the pipelines in this group.</li>

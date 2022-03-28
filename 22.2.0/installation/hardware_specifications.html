@@ -414,12 +414,12 @@ if (!doNotTrack) {
 <h5 id="buffer-cache">Buffer Cache</h5>
 <p>Reading from a disk is very slow as compared to reading from memory. Additionally, it is common to read the same part of a disk several times during relatively short periods of time. For example, consider how often the command <code>git</code> might be run on a GoCD server. By reading the information from disk only once and then keeping it in memory until no longer needed, one can speed up all but the first read. This is called disk buffering, and the memory used for the purpose is called the buffer cache.</p>
 <p>Generally speaking, you should ensure that there is sufficient free memory for buffer cache to ensure optimal performance and reduced disk IO.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#666">[</span>root@fmtgocdgo01 ~<span style="color:#666">]</span><span style="color:#080;font-style:italic"># free -m</span>
-             total       used       free     shared    buffers     cached
-Mem:         <span style="color:#666">11912</span>      <span style="color:#666">11633</span>        <span style="color:#666">278</span>          <span style="color:#666">0</span>         <span style="color:#666">20</span>       <span style="color:#666">2128</span>
--/+ buffers/cache:       <span style="color:#666">9484</span>       <span style="color:#666">2427</span>
-Swap:            <span style="color:#666">0</span>          <span style="color:#666">0</span>          <span style="color:#666">0</span>
-</code></pre></div><p>In the example above, the first line says that the amount of free memory is &ldquo;278&rdquo; mb, this makes it look like the system is running short of memory. However the second line(<code>-/+ buffers/cache</code>) shows that in reality <code>2427</code> mb is actually free. This is because about 20+2128 megs of memory is buffers + cache, which the OS can purge if it is programs request for more memory.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#666">[</span>root@fmtgocdgo01 ~<span style="color:#666">]</span><span style="color:#080;font-style:italic"># free -m</span>
+</span></span><span style="display:flex;"><span>             total       used       free     shared    buffers     cached
+</span></span><span style="display:flex;"><span>Mem:         <span style="color:#666">11912</span>      <span style="color:#666">11633</span>        <span style="color:#666">278</span>          <span style="color:#666">0</span>         <span style="color:#666">20</span>       <span style="color:#666">2128</span>
+</span></span><span style="display:flex;"><span>-/+ buffers/cache:       <span style="color:#666">9484</span>       <span style="color:#666">2427</span>
+</span></span><span style="display:flex;"><span>Swap:            <span style="color:#666">0</span>          <span style="color:#666">0</span>          <span style="color:#666">0</span>
+</span></span></code></pre></div><p>In the example above, the first line says that the amount of free memory is &ldquo;278&rdquo; mb, this makes it look like the system is running short of memory. However the second line(<code>-/+ buffers/cache</code>) shows that in reality <code>2427</code> mb is actually free. This is because about 20+2128 megs of memory is buffers + cache, which the OS can purge if it is programs request for more memory.</p>
 <h4 id="iops">IOPS</h4>
 <p>The amount of input/output operations per seconds of your storage device.</p>
 <h4 id="io-throughput">IO throughput</h4>

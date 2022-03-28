@@ -368,34 +368,33 @@ Pipelines in GoCD can poll packages in repositories similar to how they poll ver
 Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchard&rsquo;, Package Name: &lsquo;apple&rsquo;], [Repo Name: &lsquo;orchard&rsquo;, Package Name: &lsquo;orange&rsquo;]</p>
 <h4 id="sample-xml-configuration">Sample XML Configuration</h4>
 <p>Here is a XML view of an RPM package definition. Note the relation between repository, package and pipeline material. Loosely typed property, key and value tags are used for repository and package configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn&rsquo;t necessary to provide repository and package IDs, Go server will autogenerate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;repository</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;1ce5c205-977f-4c0e-ada4-882030580eed&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ora&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;yum&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>REPO_URL<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;packages&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;package</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;840b0b60-bd29-489d-b5ea-ccff5f6459a9&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;gcc&#34;</span> <span style="color:#b44">autoUpdate=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>PACKAGE_SPEC<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>gcc-4.*<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/package&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/packages&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/repository&gt;</span>
-...
-<span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;showcase&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dependsOnGcc&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;package</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;840b0b60-bd29-489d-b5ea-ccff5f6459a9&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  ...
-
-</code></pre></div><h3 id="value-stream-modeling-tip">Value stream modeling tip</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;repository</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;1ce5c205-977f-4c0e-ada4-882030580eed&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;ora&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;yum&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>REPO_URL<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;packages&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;package</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;840b0b60-bd29-489d-b5ea-ccff5f6459a9&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;gcc&#34;</span> <span style="color:#b44">autoUpdate=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>PACKAGE_SPEC<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>gcc-4.*<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/package&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/packages&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/repository&gt;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;showcase&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;dependsOnGcc&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;package</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;840b0b60-bd29-489d-b5ea-ccff5f6459a9&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span></code></pre></div><h3 id="value-stream-modeling-tip">Value stream modeling tip</h3>
 <p>Depending on whether GoCD is also publishing the package or just consuming it, there are two options for modeling a value stream that includes packages.</p>
 <ol>
 <li>
@@ -434,27 +433,27 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 <li>GO_PACKAGE_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_LOCATION</li>
 </ol>
 <p>Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let&rsquo;s say we set up a repository named ORA pointing to <a href="http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64">http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</a> and define a package gcc with a spec of gcc-4.* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:</p>
-<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
+<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&#34;/bin/bash&#34; &gt;
 &lt;arg&gt;-c&lt;/arg&gt;
 &lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
 &lt;/exec&gt;
 </code></pre><p>When the task executes on the agent, the environment variables get subsituted as below:</p>
-<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
+<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&#34;/bin/bash&#34; &gt;
 &lt;arg&gt;-c&lt;/arg&gt;
 &lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
 &lt;/exec&gt;.
 ...
-[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LABEL' to value 'gcc-4.4.7-3.el6.x86_64'
-[go] setting environment variable 'GO_REPO_ORA_GCC_REPO_URL' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64'
-[go] setting environment variable 'GO_PACKAGE_ORA_GCC_PACKAGE_SPEC' to value 'gcc-4.*'
-[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LOCATION' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm'
+[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_LABEL&#39; to value &#39;gcc-4.4.7-3.el6.x86_64&#39;
+[go] setting environment variable &#39;GO_REPO_ORA_GCC_REPO_URL&#39; to value &#39;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64&#39;
+[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_PACKAGE_SPEC&#39; to value &#39;gcc-4.*&#39;
+[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_LOCATION&#39; to value &#39;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm&#39;
 ...
 </code></pre><p>Or, to simply pass it as an argument to a deploy script on a remote server</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>ssh server &#34;cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION&#34;<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span>
-</code></pre></div><p><strong>Also see <a href="yum_repository_poller.html#installing-rpms">Installing RPMs</a></strong></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>ssh server &#34;cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION&#34;<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span>
+</span></span></code></pre></div><p><strong>Also see <a href="yum_repository_poller.html#installing-rpms">Installing RPMs</a></strong></p>
 <blockquote>
 <p><strong>Important:</strong> Please note that if you change repository credentials and then try to re-trigger (redeploy) an old package, the published environment variables will not reflect new credentials.</p>
 </blockquote>
@@ -462,8 +461,8 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 <p>At the moment, GoCD does not create or publish the package for you. But it is simple enough for each type of package. e.g. <a href="yum_repository_poller.html#creating-and-publishing-rpms">rpm</a></p>
 <h3 id="package-dependencies">Package Dependencies</h3>
 <p>Please note that GoCD does not support any sort of automatic polling or other support for package dependencies. Each package dependency has to specified as a separate material if needed. Alternatively, just poll for the packages at the root of the dependency graph and let the package manager figure out the rest at the time of installation. e.g. if componentA-1.2.0-b234-noarch.rpm depends on componentB-2.3.0 or above, simply poll for componentA and let</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install componentA-1.2.0-b234-noarch
-</code></pre></div><p>do the resolution of componentB for you.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install componentA-1.2.0-b234-noarch
+</span></span></code></pre></div><p>do the resolution of componentB for you.</p>
 </article>
 
       

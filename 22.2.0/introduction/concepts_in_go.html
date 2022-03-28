@@ -403,7 +403,7 @@ and tasks. This representation is shown below.</p>
   <figcaption>Figure 5: Pipeline (small representation)</figcaption>
 </figure>
 <h1 id="materials">Materials and triggers</h1>
-<p><span class="header smaller">(or &ldquo;<em>When</em> do these tasks, jobs, stages and pipelines run?&quot;)</span></p>
+<p><span class="header smaller">(or &ldquo;<em>When</em> do these tasks, jobs, stages and pipelines run?&rdquo;)</span></p>
 <p>A material is a cause for a pipeline to run. Often, it is a source code material repository (Git, SVN, Mercurial, etc). The GoCD Server
 continuously polls configured materials and when a new change or commit is found, the corresponding pipelines are run or &ldquo;triggered&rdquo;.</p>
 <p>There are different kinds of materials. Here&rsquo;s an example of a Git material. When a commit is made to the repository configured in the Git material,
@@ -490,7 +490,7 @@ a Fetch Artifact Task fetches an artifact from Pipeline 1, through Pipeline 2.</
   <figcaption>Figure 16: Fetch Artifact Task</figcaption>
 </figure>
 <h1 id="agent">Agent</h1>
-<p><span class="header smaller">(or &ldquo;<em>Where</em> do these tasks, jobs, stages and pipelines run?&quot;)</span></p>
+<p><span class="header smaller">(or &ldquo;<em>Where</em> do these tasks, jobs, stages and pipelines run?&rdquo;)</span></p>
 <p>GoCD Agents are the workers in the GoCD ecosystem. All tasks configured in the system run on GoCD Agents. The GoCD Server polls for changes in material (this
 happens on the GoCD Server itself) and then, when a change is detected and a pipeline needs to be triggered, the corresponding jobs are assigned to the
 agents, for them to execute the tasks.</p>

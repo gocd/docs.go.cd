@@ -342,15 +342,15 @@ if (!doNotTrack) {
 <li><a href="../configuration/dev_choose_when_stage_runs.html">Ensure that the <strong>UAT</strong> stage is manual</a></li>
 <li>Ensure the following task block is in the <strong>deploy</strong> job configuration</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;dist&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;create-installers&#34;</span> <span style="color:#b44">srcdir=</span><span style="color:#b44">&#34;pkg&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;installers&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;deploy_to_uat&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;verify_uat_works_correctly&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;rollback_to_previous_install_in_uat&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;runif</span> <span style="color:#b44">status=</span><span style="color:#b44">&#34;failed&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/ant&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-</code></pre></div><p>When you are ready to deploy something into the UAT environment&hellip;</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;dist&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;create-installers&#34;</span> <span style="color:#b44">srcdir=</span><span style="color:#b44">&#34;pkg&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;installers&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;deploy_to_uat&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;verify_uat_works_correctly&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;rollback_to_previous_install_in_uat&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;runif</span> <span style="color:#b44">status=</span><span style="color:#b44">&#34;failed&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/ant&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span></code></pre></div><p>When you are ready to deploy something into the UAT environment&hellip;</p>
 <ul>
 <li>Navigate to the pipeline history page</li>
 <li>Find the check-in you want to deploy</li>

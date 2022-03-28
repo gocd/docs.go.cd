@@ -345,11 +345,11 @@ Refer <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/">MyS
 <h3 id="step-2-create-an-empty-database">Step 2: Create an empty database</h3>
 <p>Once the MySQL Server is started, an empty database can be created from the command-line using the <code>mysql</code> or <code>mysqladmin</code> utilities, which MySQL ships with.
 Refer <a href="https://dev.mysql.com/doc/refman/8.0/en/create-database.html">create database</a> documentation to setup database.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#a2f;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">DATABASE</span><span style="color:#bbb"> </span>gocd;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">USER</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span><span style="color:#bbb"> </span>IDENTIFIED<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;password&#39;</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">GRANT</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ALL</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ON</span><span style="color:#bbb"> </span>gocd.<span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">TO</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span>;<span style="color:#bbb">
-</span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">GRANT</span><span style="color:#bbb"> </span>SUPER<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ON</span><span style="color:#bbb"> </span><span style="color:#666">*</span>.<span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">TO</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span>;<span style="color:#bbb">
-</span></code></pre></div><p><strong>Note</strong>: You need to add the <code>SUPER</code> privilege for the first time, since there is a trigger created. MySQL doesn&rsquo;t allow that trigger to be created without the SUPER privilege and will fail with <a href="https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super">error 1419</a> if it is not provided. This privilege can be revoked after the first startup.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#a2f;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">DATABASE</span><span style="color:#bbb"> </span>gocd;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">CREATE</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">USER</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span><span style="color:#bbb"> </span>IDENTIFIED<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">BY</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;password&#39;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">GRANT</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ALL</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ON</span><span style="color:#bbb"> </span>gocd.<span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">TO</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span>;<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb"></span><span style="color:#a2f;font-weight:bold">GRANT</span><span style="color:#bbb"> </span>SUPER<span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">ON</span><span style="color:#bbb"> </span><span style="color:#666">*</span>.<span style="color:#666">*</span><span style="color:#bbb"> </span><span style="color:#a2f;font-weight:bold">TO</span><span style="color:#bbb"> </span><span style="color:#b44">&#39;gocd_user&#39;</span><span style="color:#666">@</span><span style="color:#b44">&#39;localhost&#39;</span>;<span style="color:#bbb">
+</span></span></span></code></pre></div><p><strong>Note</strong>: You need to add the <code>SUPER</code> privilege for the first time, since there is a trigger created. MySQL doesn&rsquo;t allow that trigger to be created without the SUPER privilege and will fail with <a href="https://dev.mysql.com/doc/mysql-errors/8.0/en/server-error-reference.html#error_er_binlog_create_routine_need_super">error 1419</a> if it is not provided. This privilege can be revoked after the first startup.</p>
 <h3 id="step-3-configure-gocd-with-mysql-connection-details">Step 3: Configure GoCD with MySQL connection details</h3>
 <p>A properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>).
 The location of GoCD&rsquo;s configuration directory varies per operating system. Refer <a href="../installing_go_server.html">GoCD server installation docs</a> to know the location of GoCD Server config directory.</p>
@@ -365,7 +365,7 @@ db.password=password
 <h2 id="troubleshooting">Troubleshooting</h2>
 <h4 id="mysql-identifier-case-senitivity">MySQL: Identifier case senitivity</h4>
 <p>You might see a message such as this in the GoCD server logs, if you are using MySQL:</p>
-<pre tabindex="0"><code>Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.commons.dbcp2.BasicDataSource]: Factory method 'getDataSource' threw exception; nested exception is java.sql.SQLException: Unable to migrate the database
+<pre tabindex="0"><code>Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.commons.dbcp2.BasicDataSource]: Factory method &#39;getDataSource&#39; threw exception; nested exception is java.sql.SQLException: Unable to migrate the database
         at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
         at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
         ... 73 common frames omitted
@@ -379,7 +379,7 @@ Caused by: java.sql.SQLException: Unable to migrate the database
         at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
         ... 74 common frames omitted
 Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set db-migration-scripts/initial/create-trigger.xml::107::gocd(generated):
-     Reason: liquibase.exception.DatabaseException: Table 'gocd.buildStateTransitions' doesn't exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
+     Reason: liquibase.exception.DatabaseException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
                 AFTER INSERT ON buildStateTransitions
                 FOR EACH ROW
                 BEGIN
@@ -393,7 +393,7 @@ Caused by: liquibase.exception.MigrationFailedException: Migration failed for ch
         at liquibase.Liquibase.update(Liquibase.java:175)
         at com.thoughtworks.go.server.database.migration.DatabaseMigrator.migrate(DatabaseMigrator.java:54)
         ... 80 common frames omitted
-Caused by: liquibase.exception.DatabaseException: Table 'gocd.buildStateTransitions' doesn't exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
+Caused by: liquibase.exception.DatabaseException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
                 AFTER INSERT ON buildStateTransitions
                 FOR EACH ROW
                 BEGIN
@@ -406,7 +406,7 @@ Caused by: liquibase.exception.DatabaseException: Table 'gocd.buildStateTransiti
         at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258)
         at liquibase.changelog.ChangeSet.execute(ChangeSet.java:609)
         ... 86 common frames omitted
-Caused by: java.sql.SQLSyntaxErrorException: Table 'gocd.buildStateTransitions' doesn't exist
+Caused by: java.sql.SQLSyntaxErrorException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist
         at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
         at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
         at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)

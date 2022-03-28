@@ -343,23 +343,23 @@ if (!doNotTrack) {
 <h3 id="configure-through-the-config-xml">Configure through the Config XML</h3>
 <p>To specify that a job should run on all agents, add the attribute <code>runOnAllAgents=&quot;true&quot;</code></p>
 <p>to the job&rsquo;s definition (see configuration reference for <a href="../configuration/configuration_reference.html#job"><code>&lt;job&gt;</code></a>)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span> <span style="color:#b44">runOnAllAgents=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    ...
-<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-</code></pre></div><h2 id="run-x-instances-of-a-job">Run &lsquo;X&rsquo; instances of a Job</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span> <span style="color:#b44">runOnAllAgents=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span></code></pre></div><h2 id="run-x-instances-of-a-job">Run &lsquo;X&rsquo; instances of a Job</h2>
 <p>If you want to run multiple instances of the same job configuration you do not have to maintain multiple copies of same job config. You can specify how many instances of job you need &amp; Go will take care of spawing the required number of job instances during scheduling.</p>
 <p>This feature is particularly useful for test parallelization. It enables Go users to integrate with other test parallelization tools like <a href="http://test-load-balancer.github.io">TLB</a> etc. to achieve distributed test execution with minimal configuration.</p>
-<p>Jobs are given a unique name based on the name of the job in the configuration file. Example, if the job is called &lsquo;test&rsquo; and you have set runInstanceCount to 2, you would see jobs like &lsquo;test-runInstance-1&rsquo; and &lsquo;test-runInstance-2&rsquo;. Go provides index of job (GO_JOB_RUN_INDEX) &amp; total count of jobs (GO_JOB_RUN_COUNT) as environment variables to each Job.</p>
+<p>Jobs are given a unique name based on the name of the job in the configuration file. Example, if the job is called &rsquo;test&rsquo; and you have set runInstanceCount to 2, you would see jobs like &rsquo;test-runInstance-1&rsquo; and &rsquo;test-runInstance-2&rsquo;. Go provides index of job (GO_JOB_RUN_INDEX) &amp; total count of jobs (GO_JOB_RUN_COUNT) as environment variables to each Job.</p>
 <h3 id="configure-through-the-admin-ui-1">Configure through the Admin UI</h3>
 <p>To run &lsquo;x&rsquo; instances of a job, navigate to the Job settings page in the job configuration</p>
 <p><img src="../images/runxinstance_job.png" alt=""></p>
 <h3 id="configure-through-the-config-xml-1">Configure through the Config XML</h3>
 <p>To specify that &lsquo;x&rsquo; instances of a job should run, add the attribute <code>runInstanceCount=&quot;5&quot;</code></p>
 <p>to the job&rsquo;s definition (see configuration reference for <a href="../configuration/configuration_reference.html#job"><code>&lt;job&gt;</code></a>)</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;test&#34;</span> <span style="color:#b44">runInstanceCount=</span><span style="color:#b44">&#34;5&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    ...
-<span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-</code></pre></div><h4 id="also-see">Also See&hellip;</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;test&#34;</span> <span style="color:#b44">runInstanceCount=</span><span style="color:#b44">&#34;5&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span></code></pre></div><h4 id="also-see">Also See&hellip;</h4>
 <ul>
 <li><a href="../faq/job_rerun.html">Re-running job(s)</a></li>
 </ul>

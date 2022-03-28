@@ -346,10 +346,10 @@ if (!doNotTrack) {
 </ul>
 <p><img src="../images/job_artifacts.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure this via Config XML:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;pkg&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-</code></pre></div><h2 id="using-tabs">Using tabs</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;pkg&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
+</span></span></code></pre></div><h2 id="using-tabs">Using tabs</h2>
 <p>Once your artifacts are safely in GoCD server&rsquo;s artifact repository, you can have the dashboard display them in tabs.</p>
 <p>GoCD can display images, text files, or anything else that a browser will normally render in an IFrame. If you display an html page which references other resources (such as images, Flash files or whatever), so long as the resources are referenced with relative paths, they will display correctly.</p>
 <p>This mechanism is a simple way to include reports (for example code coverage) in Go.</p>
@@ -359,10 +359,10 @@ if (!doNotTrack) {
 <p>If you produce an html page with an embedded Flash file into your artifact repository:</p>
 <p><img src="../images/select_artifact.png" alt=""></p>
 <p>You can use the following configuration to display it in a tab:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;tabs&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;tab</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Recording&#34;</span> <span style="color:#b44">path=</span><span style="color:#b44">&#34;deployment/drop/smoke/smoke-recording.html&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/tabs&gt;</span>
-</code></pre></div><p>GoCD will create a tab called &ldquo;Recording&rdquo; and display the contents of the file in the tab when you click on it:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;tabs&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;tab</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Recording&#34;</span> <span style="color:#b44">path=</span><span style="color:#b44">&#34;deployment/drop/smoke/smoke-recording.html&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/tabs&gt;</span>
+</span></span></code></pre></div><p>GoCD will create a tab called &ldquo;Recording&rdquo; and display the contents of the file in the tab when you click on it:</p>
 <p><img src="../images/recording.png" alt=""></p>
 <h3 id="publishing-tests">Publishing tests</h3>
 <p>GoCD has support for publishing tests from JUnit or NUnit test reports.</p>
@@ -377,10 +377,10 @@ if (!doNotTrack) {
 </ul>
 <p><img src="../images/job_test_artifacts.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure this via Config XML:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;test</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;xstream/target/test-reports&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-</code></pre></div><p>GoCD will:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;test</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;xstream/target/test-reports&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
+</span></span></code></pre></div><p>GoCD will:</p>
 <ul>
 <li>add a tab called Tests that lists the tests in the project</li>
 <li>copy the artifacts into the repository. In this case the test reports will be copied into a new directory test-reports in the artifact repository</li>

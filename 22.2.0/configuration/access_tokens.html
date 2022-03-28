@@ -341,14 +341,14 @@ if (!doNotTrack) {
 <blockquote>
 <p>Before 19.2.0</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>       -u <span style="color:#b44">&#39;username:password&#39;</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>       -u <span style="color:#b44">&#39;username:password&#39;</span>
+</span></span></code></pre></div><blockquote>
 <p>Going forward</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>       -H <span style="color:#b44">&#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&#39;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>       -H <span style="color:#b44">&#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&#39;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>A token can not be used to create or access any access token related API(s).</p>
 </li>
@@ -372,15 +372,15 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Go to user menu → <strong>Personal Access Tokens</strong>.
-<img src="../images/configuration/access-tokens/1_navigate_to_personal_access_token.png" alt="&ldquo;Navigate to personal access token&rdquo;"></p>
+<img src="../images/configuration/access-tokens/1_navigate_to_personal_access_token.png" alt="&amp;ldquo;Navigate to personal access token&amp;rdquo;"></p>
 </li>
 <li>
 <p>Click on <code>Generate Token</code> button.
-<img src="../images/configuration/access-tokens/2_personal_access_token_spa.png" alt="&ldquo;Generate token button&rdquo;"></p>
+<img src="../images/configuration/access-tokens/2_personal_access_token_spa.png" alt="&amp;ldquo;Generate token button&amp;rdquo;"></p>
 </li>
 <li>
 <p>Add a description for the token. This is to identify what is this token for?
-<img src="../images/configuration/access-tokens/3_token_description.png" alt="&ldquo;Generate a token&rdquo;"></p>
+<img src="../images/configuration/access-tokens/3_token_description.png" alt="&amp;ldquo;Generate a token&amp;rdquo;"></p>
 </li>
 <li>
 <p>Click on <code>Generate</code> button.</p>
@@ -390,7 +390,7 @@ if (!doNotTrack) {
 <blockquote>
 <p><strong><em>Make sure you copy the token before you close the dialog. It will not be shown again.</em></strong></p>
 </blockquote>
-<p><img src="../images/configuration/access-tokens/4_newly_generated_token.png" alt="&ldquo;Newly generated token&rdquo;"></p>
+<p><img src="../images/configuration/access-tokens/4_newly_generated_token.png" alt="&amp;ldquo;Newly generated token&amp;rdquo;"></p>
 </li>
 </ol>
 <h2 id="revoke-a-personal-token">Revoke a personal token</h2>
@@ -400,25 +400,25 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Go to user menu → <strong>Personal Access Tokens</strong>.
-<img src="../images/configuration/access-tokens/1_navigate_to_personal_access_token.png" alt="&ldquo;Navigate to personal access token&rdquo;"></p>
+<img src="../images/configuration/access-tokens/1_navigate_to_personal_access_token.png" alt="&amp;ldquo;Navigate to personal access token&amp;rdquo;"></p>
 </li>
 <li>
 <p>Find the token which you wish to revoke in <code>ACTIVE TOKENS</code> tab.
-<img src="../images/configuration/access-tokens/5_active_tokens_list.png" alt="&ldquo;active access token list&rdquo;"></p>
+<img src="../images/configuration/access-tokens/5_active_tokens_list.png" alt="&amp;ldquo;active access token list&amp;rdquo;"></p>
 </li>
 <li>
 <p>Click on the <code>Revoke</code> button.</p>
 </li>
 <li>
 <p>Optionally, add a reason for revoking the token.
-<img src="../images/configuration/access-tokens/6_revoke_cause.png" alt="&ldquo;revoke access token cause&rdquo;"></p>
+<img src="../images/configuration/access-tokens/6_revoke_cause.png" alt="&amp;ldquo;revoke access token cause&amp;rdquo;"></p>
 </li>
 <li>
 <p>Click on <code>Revoke Token</code> button.</p>
 </li>
 <li>
 <p>On success, the token just revoked will be shown in <code>REVOKED TOKENS</code> tab.
-<img src="../images/configuration/access-tokens/7_revoked_access_tokens.png" alt="&ldquo;revoked access token&rdquo;"></p>
+<img src="../images/configuration/access-tokens/7_revoked_access_tokens.png" alt="&amp;ldquo;revoked access token&amp;rdquo;"></p>
 </li>
 </ol>
 <h2 id="manage-access-tokens-admin-only">Manage access tokens (admin only)</h2>
@@ -428,18 +428,18 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Go to <strong>Admin</strong> menu → Security → <strong>Access Tokens Management</strong>.
-<img src="../images/configuration/access-tokens/8_navigate_to_admin_access_token.png" alt="&ldquo;Navigate to admin access token&rdquo;"></p>
+<img src="../images/configuration/access-tokens/8_navigate_to_admin_access_token.png" alt="&amp;ldquo;Navigate to admin access token&amp;rdquo;"></p>
 </li>
 <li>
 <p>The admin will be able to see all the tokens created by all the users</p>
 <ul>
 <li>
 <p>Active tokens
-<img src="../images/configuration/access-tokens/10_admin_active_tokens.png" alt="&ldquo;active access tokens&rdquo;"></p>
+<img src="../images/configuration/access-tokens/10_admin_active_tokens.png" alt="&amp;ldquo;active access tokens&amp;rdquo;"></p>
 </li>
 <li>
 <p>Revoked tokens
-<img src="../images/configuration/access-tokens/11_admin_revoked_tokens.png" alt="&ldquo;revoked access tokens&rdquo;"></p>
+<img src="../images/configuration/access-tokens/11_admin_revoked_tokens.png" alt="&amp;ldquo;revoked access tokens&amp;rdquo;"></p>
 </li>
 </ul>
 </li>
@@ -454,25 +454,25 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Go to <strong>Admin</strong> menu → Security → <strong>Access Tokens Management</strong>.
-<img src="../images/configuration/access-tokens/8_navigate_to_admin_access_token.png" alt="&ldquo;Navigate to admin access token&rdquo;"></p>
+<img src="../images/configuration/access-tokens/8_navigate_to_admin_access_token.png" alt="&amp;ldquo;Navigate to admin access token&amp;rdquo;"></p>
 </li>
 <li>
 <p>Find the token which you wish to revoke in <code>ACTIVE TOKENS</code> tab.
-<img src="../images/configuration/access-tokens/10_admin_active_tokens.png" alt="&ldquo;active access tokens&rdquo;"></p>
+<img src="../images/configuration/access-tokens/10_admin_active_tokens.png" alt="&amp;ldquo;active access tokens&amp;rdquo;"></p>
 </li>
 <li>
 <p>Click on the <code>Revoke</code> button.</p>
 </li>
 <li>
 <p>Optionally, add a reason for revoking the token.
-<img src="../images/configuration/access-tokens/6_revoke_cause.png" alt="&ldquo;revoke access token cause&rdquo;"></p>
+<img src="../images/configuration/access-tokens/6_revoke_cause.png" alt="&amp;ldquo;revoke access token cause&amp;rdquo;"></p>
 </li>
 <li>
 <p>Click on <code>Revoke Token</code> button.</p>
 </li>
 <li>
 <p>On success, the token just revoked will be shown in <code>REVOKED TOKENS</code> tab.
-<img src="../images/configuration/access-tokens/9_admin_revoke_access_token.png" alt="&ldquo;revoked access tokens&rdquo;"></p>
+<img src="../images/configuration/access-tokens/9_admin_revoke_access_token.png" alt="&amp;ldquo;revoked access tokens&amp;rdquo;"></p>
 </li>
 </ol>
 </article>

@@ -342,24 +342,24 @@ if (!doNotTrack) {
 <li>Assuming you chose an address such as: 192.168.23.23, with a netmask of 255.255.0.0, you can now assign it to your primary GoCD Server. You can create a new virtual network interface and assign the IP address 192.168.23.23 to it, with netmask 255.255.0.0 by following the below commands:</li>
 </ol>
 <p>On Windows (run with elevated privileges):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  netsh interface ip delete arpcache
-  netsh interface ip add address <span style="color:#b8860b">name</span><span style="color:#666">=</span><span style="color:#b44">&#34;Local Area Connection&#34;</span> <span style="color:#b8860b">addr</span><span style="color:#666">=</span>192.168.23.23 <span style="color:#b8860b">mask</span><span style="color:#666">=</span>255.255.0.0
-</code></pre></div><p>On Linux:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  ip neigh del 192.168.23.23 dev eth0
-  ip address add 192.168.23.23/255.255.0.0 dev eth0:0
-</code></pre></div><p><strong>Note:</strong> On Linux, the IP assignment is not presistent across machine restarts. To make it persitent across restart add the command <code>ip address add 192.168.23.23/255.255.0.0 dev eth0:0</code> in the file <code>/etc/rc.local</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  netsh interface ip delete arpcache
+</span></span><span style="display:flex;"><span>  netsh interface ip add address <span style="color:#b8860b">name</span><span style="color:#666">=</span><span style="color:#b44">&#34;Local Area Connection&#34;</span> <span style="color:#b8860b">addr</span><span style="color:#666">=</span>192.168.23.23 <span style="color:#b8860b">mask</span><span style="color:#666">=</span>255.255.0.0
+</span></span></code></pre></div><p>On Linux:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  ip neigh del 192.168.23.23 dev eth0
+</span></span><span style="display:flex;"><span>  ip address add 192.168.23.23/255.255.0.0 dev eth0:0
+</span></span></code></pre></div><p><strong>Note:</strong> On Linux, the IP assignment is not presistent across machine restarts. To make it persitent across restart add the command <code>ip address add 192.168.23.23/255.255.0.0 dev eth0:0</code> in the file <code>/etc/rc.local</code>.</p>
 <ol start="3">
 <li>Verify that the address <code>192.168.23.23</code> is accessible now. Configure the agents to point to this IP address instead of the IP address of the primary GoCD Server. After a restart, all agents should come back online and show up in the &ldquo;Agents&rdquo; tab on GoCD dashboard.</li>
 </ol>
 <h3 id="unassigning-the-virtual-ip">Unassigning the virtual IP</h3>
 <p>To remove the virtual interface associated to a machine, run the commands as follows:</p>
 <p>On Windows (run with elevated privileges):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  netsh interface ip delete address <span style="color:#b8860b">name</span><span style="color:#666">=</span><span style="color:#b44">&#34;Local Area Connection&#34;</span> <span style="color:#b8860b">addr</span><span style="color:#666">=</span>192.168.23.23
-  netsh interface ip delete arpcache
-</code></pre></div><p>On Linux:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">  ip neigh del 192.168.23.23 dev eth0
-  ip address del 192.168.23.23/255.255.0.0 dev eth0:0
-</code></pre></div><h3 id="setup-an-artifact-share-location-on-a-network-drive">Setup an artifact share location on a network drive</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  netsh interface ip delete address <span style="color:#b8860b">name</span><span style="color:#666">=</span><span style="color:#b44">&#34;Local Area Connection&#34;</span> <span style="color:#b8860b">addr</span><span style="color:#666">=</span>192.168.23.23
+</span></span><span style="display:flex;"><span>  netsh interface ip delete arpcache
+</span></span></code></pre></div><p>On Linux:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  ip neigh del 192.168.23.23 dev eth0
+</span></span><span style="display:flex;"><span>  ip address del 192.168.23.23/255.255.0.0 dev eth0:0
+</span></span></code></pre></div><h3 id="setup-an-artifact-share-location-on-a-network-drive">Setup an artifact share location on a network drive</h3>
 <p>If you want artifacts to continue to be available on failure of the primary GoCD Server node, then, you can setup a network share, accessible by both the primary and standby GoCD Servers. The network share can be setup using NFS (out of scope for this document) or using other mechanisms. See <a href="https://docs.gocd.org/19.5.0/installation/system_requirements.html#supported-network-file-systems">GoCD&rsquo;s system requirements documentation</a> for more information about recommended NFS implementations.</p>
 <p>The following should be some points to keep in mind while choosing the mechanisms</p>
 <ol>

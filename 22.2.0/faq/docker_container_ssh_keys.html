@@ -338,17 +338,17 @@ One of the popular methods to do so is configuring SSH keys. When using docker f
 <ul>
 <li>Create a docker container using the gocd-server image:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -itd -v/some/location/on/host:/home/go/.ssh gocd/gocd-server:v18.12.0
-</code></pre></div><p>Once the container has started, the container id is provided.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -itd -v/some/location/on/host:/home/go/.ssh gocd/gocd-server:v18.12.0
+</span></span></code></pre></div><p>Once the container has started, the container id is provided.</p>
 <ul>
 <li>Exec into the container as the <code>go</code> user</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker <span style="color:#a2f">exec</span> -it -u go -w /home/go &lt;container_id&gt; /bin/bash
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker <span style="color:#a2f">exec</span> -it -u go -w /home/go &lt;container_id&gt; /bin/bash
+</span></span></code></pre></div><ul>
 <li>Generate ssh keys for the <code>go</code> user.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keygen -t rsa -b <span style="color:#666">4096</span> -C <span style="color:#b44">&#34;something to identify this key: like an email address&#34;</span>
-</code></pre></div><p>After executing the above command, you will notice that there are 2 files created in <code>/home/go/.ssh</code> called <code>id_rsa</code> and <code>id_rsa.pub</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keygen -t rsa -b <span style="color:#666">4096</span> -C <span style="color:#b44">&#34;something to identify this key: like an email address&#34;</span>
+</span></span></code></pre></div><p>After executing the above command, you will notice that there are 2 files created in <code>/home/go/.ssh</code> called <code>id_rsa</code> and <code>id_rsa.pub</code>.</p>
 <p><code>id_rsa</code> corresponds to the private key, which you will later provide GoCD to access the private repository with.
 <code>id_rsa.pub</code> is the public key that needs to be added to your SCM account.</p>
 <p>Follow the instructions provided below to add a new ssh key for your respective provider:</p>
@@ -359,31 +359,31 @@ One of the popular methods to do so is configuring SSH keys. When using docker f
 <li>Once the public key has been added to your account, try accessing a private repository by doing <code>git clone</code> on the private repository using the SSH protocol. Most SCMs provide the command to clone with SSH when you access the repository on the browser.
 A prompt appears when you execute the git clone command for the first time. Choose yes and continue with the cloning. This will create a file called <code>known_hosts</code> in <code>/home/go/.ssh</code> . Alternatively use the <code>ssh-keyscan</code> command to create <code>known_hosts</code>.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ssh-keyscan <span style="color:#666">[</span>host<span style="color:#666">]</span> &gt; /home/go/.ssh/known_hosts
-</code></pre></div><p>where [host] can be github.com, bitbucket.com, gitlab.com etc.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ssh-keyscan <span style="color:#666">[</span>host<span style="color:#666">]</span> &gt; /home/go/.ssh/known_hosts
+</span></span></code></pre></div><p>where [host] can be github.com, bitbucket.com, gitlab.com etc.</p>
 <ul>
 <li>The ownership and permissions of files in <code>/home/go/.ssh</code> is:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">-rw-------    <span style="color:#666">1</span> go       go            <span style="color:#666">3243</span> Jan <span style="color:#666">11</span> 07:00 id_rsa
--rw-r--r--    <span style="color:#666">1</span> go       go             <span style="color:#666">754</span> Jan <span style="color:#666">11</span> 07:00 id_rsa.pub
--rw-r--r--    <span style="color:#666">1</span> go       go             <span style="color:#666">407</span> Jan <span style="color:#666">11</span> 07:01 known_hosts
-</code></pre></div><p>They should <em>not</em> be tampered with.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>-rw-------    <span style="color:#666">1</span> go       go            <span style="color:#666">3243</span> Jan <span style="color:#666">11</span> 07:00 id_rsa
+</span></span><span style="display:flex;"><span>-rw-r--r--    <span style="color:#666">1</span> go       go             <span style="color:#666">754</span> Jan <span style="color:#666">11</span> 07:00 id_rsa.pub
+</span></span><span style="display:flex;"><span>-rw-r--r--    <span style="color:#666">1</span> go       go             <span style="color:#666">407</span> Jan <span style="color:#666">11</span> 07:01 known_hosts
+</span></span></code></pre></div><p>They should <em>not</em> be tampered with.</p>
 <ul>
 <li>On the host, the same files will be present as shown below:</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">ls -l /some/location/on/host
-total <span style="color:#666">24</span>
--rw-------  <span style="color:#666">1</span> <span style="color:#666">1000</span>  <span style="color:#666">1000</span>  <span style="color:#666">3243</span> Jan <span style="color:#666">10</span> 23:10 id_rsa
--rw-r--r--  <span style="color:#666">1</span> <span style="color:#666">1000</span>  <span style="color:#666">1000</span>   <span style="color:#666">754</span> Jan <span style="color:#666">10</span> 23:10 id_rsa.pub
--rw-r--r--  <span style="color:#666">1</span> <span style="color:#666">1000</span>  <span style="color:#666">1000</span>   <span style="color:#666">407</span> Jan <span style="color:#666">10</span> 23:10 known_hosts
-</code></pre></div><p>The above is for linux. It can look slightly different if you have a user on the host with UID and GID 1000. For mac, it will look slightly different.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ls -l /some/location/on/host
+</span></span><span style="display:flex;"><span>total <span style="color:#666">24</span>
+</span></span><span style="display:flex;"><span>-rw-------  <span style="color:#666">1</span> <span style="color:#666">1000</span>  <span style="color:#666">1000</span>  <span style="color:#666">3243</span> Jan <span style="color:#666">10</span> 23:10 id_rsa
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#666">1</span> <span style="color:#666">1000</span>  <span style="color:#666">1000</span>   <span style="color:#666">754</span> Jan <span style="color:#666">10</span> 23:10 id_rsa.pub
+</span></span><span style="display:flex;"><span>-rw-r--r--  <span style="color:#666">1</span> <span style="color:#666">1000</span>  <span style="color:#666">1000</span>   <span style="color:#666">407</span> Jan <span style="color:#666">10</span> 23:10 known_hosts
+</span></span></code></pre></div><p>The above is for linux. It can look slightly different if you have a user on the host with UID and GID 1000. For mac, it will look slightly different.</p>
 <ul>
 <li>Using in multiple containers</li>
 </ul>
 <p>Now that the ssh keys have been created for <code>go</code>, you can use them in different gocd servers and agents</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -itd -v/some/location/on/host:/home/go/.ssh gocd/gocd-server:v18.12.0
-docker run -itd -v/some/location/on/host:/home/go/.ssh gocd/gocd-agent-alpine-3.6:v18.12.0
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -itd -v/some/location/on/host:/home/go/.ssh gocd/gocd-server:v18.12.0
+</span></span><span style="display:flex;"><span>docker run -itd -v/some/location/on/host:/home/go/.ssh gocd/gocd-agent-alpine-3.6:v18.12.0
+</span></span></code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">

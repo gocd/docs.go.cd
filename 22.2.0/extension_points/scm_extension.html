@@ -352,32 +352,32 @@ if (!doNotTrack) {
 <h4 id="scm-material-uniqueness-fingerprint">SCM material uniqueness (fingerprint):</h4>
 <p>Each SCM material plugin defines a subset of its properties as a <em>SCM fingerprint</em>. e.g. SCM <code>url</code> and <code>branch</code> could be included while <code>username</code> and <code>password</code> could be excluded. SCM names are <strong>not</strong> part of SCM fingerprint. It is not permitted to multiple SCMs having the same SCM fingerprint. An attempt to do so will result in an error message like this:</p>
 <pre tabindex="0"><code>The following error(s) need to be resolved in order to perform this action:&lt;br&gt;
-Cannot save SCM, found duplicate SCMs. [SCM Name: 'apple'], [SCM Name: 'orange']
+Cannot save SCM, found duplicate SCMs. [SCM Name: &#39;apple&#39;], [SCM Name: &#39;orange&#39;]
 </code></pre><h4 id="sample-xml-configuration">Sample XML Configuration</h4>
 <p>Here is a XML view of an SCM. Note the relation between SCM and pipeline material. Loosely typed property, key and value tags are used for SCM configuration in order to accommodate different plugins. If you choose to configure via direct XML edit, note that it isn&rsquo;t necessary to provide SCM IDs, GoCD server wil auto-generate them. However, not all validations that are performed while configuring via UI kick in while configuring via XML edit - the resulting failures will show up later in the server health message panel at the bottom right of the browser frame.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;scms&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;3bfc282e-43a6-4795-ba9c-6c50665220dd&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;git-repo&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;jgit&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1.0&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>url<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>https://github.com/gocd/gocd.git<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/scm&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/scms&gt;</span>
-...
-<span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;sample-group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;upstream-pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;3bfc282e-43a6-4795-ba9c-6c50665220dd&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;dest&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;filter&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;*.log&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/filter&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/scm&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  ...
-</code></pre></div><h3 id="permissions">Permissions</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;scms&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;3bfc282e-43a6-4795-ba9c-6c50665220dd&#34;</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;git-repo&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;jgit&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1.0&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>url<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>https://github.com/gocd/gocd.git<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/scm&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/scms&gt;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;sample-group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;upstream-pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;scm</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;3bfc282e-43a6-4795-ba9c-6c50665220dd&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;dest&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;filter&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;ignore</span> <span style="color:#b44">pattern=</span><span style="color:#b44">&#34;*.log&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/filter&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/scm&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span></code></pre></div><h3 id="permissions">Permissions</h3>
 <p>Since SCMs are global entities changing a SCM definition will reflect on all pipelines that consume it - even those not in the same pipeline group as that of the person editing. To make the decision to &ldquo;edit&rdquo; / &ldquo;remove&rdquo; and &ldquo;add&rdquo; new material easier, we list all pipelines consuming the SCM.</p>
 <p>Note: Change to the SCM definition causes all dependent pipelines to schedule.</p>
 <p><img src="../images/scm-edit-material.png" alt=""></p>

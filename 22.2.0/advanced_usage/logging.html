@@ -518,66 +518,66 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <blockquote>
 <p><strong>Note:</strong> It is recommended that you do not set the log level to <code>DEBUG</code> or <code>TRACE</code> for long periods of time since this can significantly affect performance.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-
-<span style="color:#080;font-style:italic">&lt;!-- since this file is included in another file, use `&lt;included /&gt;` and not `&lt;configuration /&gt;`  --&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
-  <span style="color:#080;font-style:italic">&lt;!-- send logs from `com.example.component-b` to the default log file (`go-agent.log` or `go-sever.log`) --&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;logger</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;com.example.component-b&#34;</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;DEBUG&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-
-  <span style="color:#080;font-style:italic">&lt;!--
-</span><span style="color:#080;font-style:italic">    Uncomment the lines below to redirect specific logs to a file different from the default log file (`go-agent.log` or `go-sever.log`)
-</span><span style="color:#080;font-style:italic">    The configuration below will:
-</span><span style="color:#080;font-style:italic">      - rollover daily;
-</span><span style="color:#080;font-style:italic">      - each log will will be at most 10MB, keep 10 days worth of history, but at most 512 MB
-</span><span style="color:#080;font-style:italic">  --&gt;</span>
-
-  <span style="color:#080;font-style:italic">&lt;!--
-</span><span style="color:#080;font-style:italic">  &lt;appender name=&#34;my-appender&#34; class=&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;&gt;
-</span><span style="color:#080;font-style:italic">    &lt;file&gt;logs/example.log&lt;/file&gt;
-</span><span style="color:#080;font-style:italic">    &lt;encoder&gt;
-</span><span style="color:#080;font-style:italic">      &lt;pattern&gt;%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n&lt;/pattern&gt;
-</span><span style="color:#080;font-style:italic">    &lt;/encoder&gt;
-</span><span style="color:#080;font-style:italic">
-</span><span style="color:#080;font-style:italic">    &lt;rollingPolicy class=&#34;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&#34;&gt;
-</span><span style="color:#080;font-style:italic">      &lt;fileNamePattern&gt;logs/example.log.%d{yyyy-MM-dd}.%i.gz&lt;/fileNamePattern&gt;
-</span><span style="color:#080;font-style:italic">      &lt;maxFileSize&gt;10 MB&lt;/maxFileSize&gt;
-</span><span style="color:#080;font-style:italic">      &lt;maxHistory&gt;10&lt;/maxHistory&gt;
-</span><span style="color:#080;font-style:italic">      &lt;totalSizeCap&gt;512 MB&lt;/totalSizeCap&gt;
-</span><span style="color:#080;font-style:italic">    &lt;/rollingPolicy&gt;
-</span><span style="color:#080;font-style:italic">  &lt;/appender&gt;
-</span><span style="color:#080;font-style:italic">
-</span><span style="color:#080;font-style:italic">  &lt;logger name=&#34;com.example.component-a&#34; level=&#34;DEBUG&#34;&gt;
-</span><span style="color:#080;font-style:italic">    &lt;appender-ref ref=&#34;my-appender&#34; /&gt;
-</span><span style="color:#080;font-style:italic">  &lt;/logger&gt;
-</span><span style="color:#080;font-style:italic">  --&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
-</code></pre></div><h2 id="example-enable-web-request-logs">Example: Enable web-request logs</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">&lt;!-- since this file is included in another file, use `&lt;included /&gt;` and not `&lt;configuration /&gt;`  --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">&lt;!-- send logs from `com.example.component-b` to the default log file (`go-agent.log` or `go-sever.log`) --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;logger</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;com.example.component-b&#34;</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;DEBUG&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">&lt;!--
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    Uncomment the lines below to redirect specific logs to a file different from the default log file (`go-agent.log` or `go-sever.log`)
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    The configuration below will:
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">      - rollover daily;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">      - each log will will be at most 10MB, keep 10 days worth of history, but at most 512 MB
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">  --&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">&lt;!--
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">  &lt;appender name=&#34;my-appender&#34; class=&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    &lt;file&gt;logs/example.log&lt;/file&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    &lt;encoder&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">      &lt;pattern&gt;%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n&lt;/pattern&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    &lt;/encoder&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    &lt;rollingPolicy class=&#34;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">      &lt;fileNamePattern&gt;logs/example.log.%d{yyyy-MM-dd}.%i.gz&lt;/fileNamePattern&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">      &lt;maxFileSize&gt;10 MB&lt;/maxFileSize&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">      &lt;maxHistory&gt;10&lt;/maxHistory&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">      &lt;totalSizeCap&gt;512 MB&lt;/totalSizeCap&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    &lt;/rollingPolicy&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">  &lt;/appender&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">  &lt;logger name=&#34;com.example.component-a&#34; level=&#34;DEBUG&#34;&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">    &lt;appender-ref ref=&#34;my-appender&#34; /&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">  &lt;/logger&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">  --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</span></span></code></pre></div><h2 id="example-enable-web-request-logs">Example: Enable web-request logs</h2>
 <p>To turn on web request logs, add below content to logback-include.xml.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
-
-  <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;web-request-appender&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;file&gt;</span>logs/web-requests.log<span style="color:#008000;font-weight:bold">&lt;/file&gt;</span>
-    <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;encoder&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n<span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/encoder&gt;</span>
-
-    <span style="color:#008000;font-weight:bold">&lt;rollingPolicy</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;fileNamePattern&gt;</span>logs/web-requests.log.%d{yyyy-MM-dd}.%i.gz<span style="color:#008000;font-weight:bold">&lt;/fileNamePattern&gt;</span>
-      <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;maxFileSize&gt;</span>10 MB<span style="color:#008000;font-weight:bold">&lt;/maxFileSize&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;maxHistory&gt;</span>10<span style="color:#008000;font-weight:bold">&lt;/maxHistory&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;totalSizeCap&gt;</span>512 MB<span style="color:#008000;font-weight:bold">&lt;/totalSizeCap&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/rollingPolicy&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
-
-  <span style="color:#008000;font-weight:bold">&lt;logger</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;org.eclipse.jetty.server.RequestLog&#34;</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;DEBUG&#34;</span> <span style="color:#b44">additivity=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;web-request-appender&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/logger&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
-</code></pre></div><h2 id="advanced-logging-features">Advanced logging features</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;web-request-appender&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;file&gt;</span>logs/web-requests.log<span style="color:#008000;font-weight:bold">&lt;/file&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;encoder&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n<span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/encoder&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;rollingPolicy</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;fileNamePattern&gt;</span>logs/web-requests.log.%d{yyyy-MM-dd}.%i.gz<span style="color:#008000;font-weight:bold">&lt;/fileNamePattern&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;maxFileSize&gt;</span>10 MB<span style="color:#008000;font-weight:bold">&lt;/maxFileSize&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;maxHistory&gt;</span>10<span style="color:#008000;font-weight:bold">&lt;/maxHistory&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;totalSizeCap&gt;</span>512 MB<span style="color:#008000;font-weight:bold">&lt;/totalSizeCap&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/rollingPolicy&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;logger</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;org.eclipse.jetty.server.RequestLog&#34;</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;DEBUG&#34;</span> <span style="color:#b44">additivity=</span><span style="color:#b44">&#34;false&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;web-request-appender&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/logger&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</span></span></code></pre></div><h2 id="advanced-logging-features">Advanced logging features</h2>
 <p>If you&rsquo;d like to send log events to a log aggregator service (like logstash, graylog, splunk) of your choice, you may require additional configuration to be performed:</p>
 <ul>
 <li>ensure that the relevant java libraries along with their dependencies are present in the <code>libs</code> directory, relative to the working directory of the GoCD server or agent process. The working directory is usually <code>/var/lib/go-{server,agent}</code> on linux, and <code>C:\Program Files\Go {Server,Agent}</code> on windows.</li>
@@ -596,84 +596,83 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </li>
 </ul>
 <p>Then follow the instructions on the <a href="https://github.com/logstash/logstash-logback-encoder#readme">README</a> to configure your <code>logback-include.xml</code> to setup relevant appenders and encoders:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
-
-  <span style="color:#080;font-style:italic">&lt;!-- see https://github.com/logstash/logstash-logback-encoder for more examples and configuration --&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stash&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;net.logstash.logback.appender.LogstashTcpSocketAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;destination&gt;</span>127.0.0.1:4560<span style="color:#008000;font-weight:bold">&lt;/destination&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;encoder</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;net.logstash.logback.encoder.LogstashEncoder&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
-
-  <span style="color:#008000;font-weight:bold">&lt;root</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;info&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;stash&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
-</code></pre></div><h2 id="override-existing-logbackxml">Override Existing logback.xml</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#080;font-style:italic">&lt;!-- see https://github.com/logstash/logstash-logback-encoder for more examples and configuration --&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stash&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;net.logstash.logback.appender.LogstashTcpSocketAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;destination&gt;</span>127.0.0.1:4560<span style="color:#008000;font-weight:bold">&lt;/destination&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;encoder</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;net.logstash.logback.encoder.LogstashEncoder&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;root</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;info&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;stash&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</span></span></code></pre></div><h2 id="override-existing-logbackxml">Override Existing logback.xml</h2>
 <p>If you&rsquo;d like to completely override the packaged <code>logback.xml</code>, create a <code>CONFIG_DIR\logback.xml</code> file. If such a file is present, GoCD will use the loggers and file appender provided in the file for logging. You can read more about logback configuration in the <a href="https://logback.qos.ch/manual/configuration.html">logback configuration documentation</a></p>
 <p>The following is a sample <code>logback.xml</code> users can use to override logging for GoCD root logger. The example uses a user defined directory for writing logs.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
-
-  <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;CustomFileAppender&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;file&gt;</span>logs/production_server/gocd-server.log<span style="color:#008000;font-weight:bold">&lt;/file&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;encoder&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>
-        %date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n
-      <span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/encoder&gt;</span>
-
-    <span style="color:#008000;font-weight:bold">&lt;rollingPolicy</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;fileNamePattern&gt;</span>logs/production_server/gocd-server.log.%d{yyyy-MM-dd}.%i.gz<span style="color:#008000;font-weight:bold">&lt;/fileNamePattern&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;maxFileSize&gt;</span>10 MB<span style="color:#008000;font-weight:bold">&lt;/maxFileSize&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;maxHistory&gt;</span>50<span style="color:#008000;font-weight:bold">&lt;/maxHistory&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;totalSizeCap&gt;</span>512 MB<span style="color:#008000;font-weight:bold">&lt;/totalSizeCap&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/rollingPolicy&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
-
-  <span style="color:#008000;font-weight:bold">&lt;root</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;WARN&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;CustomFileAppender&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
-
-<span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
-
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;CustomFileAppender&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;file&gt;</span>logs/production_server/gocd-server.log<span style="color:#008000;font-weight:bold">&lt;/file&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;encoder&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>
+</span></span><span style="display:flex;"><span>        %date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/encoder&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;rollingPolicy</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;fileNamePattern&gt;</span>logs/production_server/gocd-server.log.%d{yyyy-MM-dd}.%i.gz<span style="color:#008000;font-weight:bold">&lt;/fileNamePattern&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;maxFileSize&gt;</span>10 MB<span style="color:#008000;font-weight:bold">&lt;/maxFileSize&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;maxHistory&gt;</span>50<span style="color:#008000;font-weight:bold">&lt;/maxHistory&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;totalSizeCap&gt;</span>512 MB<span style="color:#008000;font-weight:bold">&lt;/totalSizeCap&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/rollingPolicy&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;root</span> <span style="color:#b44">level=</span><span style="color:#b44">&#34;WARN&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;CustomFileAppender&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+</span></span></code></pre></div><ul>
 <li>Please note while overriding the logging for your GoCD server, redirect all logs to appropriate files in order to avoid any loss of logs.</li>
 </ul>
 <h3 id="example-gelf-setup">Example gelf setup</h3>
 <p>Another example setup using GELF (Graylog Extended Log Format) using <a href="https://github.com/osiegmar/logback-gelf">logback-gelf</a>:</p>
 <p>Download <code>logback-gelf-1.1.0.jar</code> and place it in <code>libs</code> directory.
 On typical linux server, that can be done with</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">wget <span style="color:#b44">&#34;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
-</code></pre></div><p>Configure <code>logback-include.xml</code> with any of the gelf appenders as defined on <a href="https://github.com/osiegmar/logback-gelf#example">project documentation</a>:
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget <span style="color:#b44">&#34;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
+</span></span></code></pre></div><p>Configure <code>logback-include.xml</code> with any of the gelf appenders as defined on <a href="https://github.com/osiegmar/logback-gelf#example">project documentation</a>:
 An example logging over UDP could look like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;GELF&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;de.siegmar.logbackgelf.GelfUdpAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;graylogHost&gt;</span>graylog.mycompany.com<span style="color:#008000;font-weight:bold">&lt;/graylogHost&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;graylogPort&gt;</span>12201<span style="color:#008000;font-weight:bold">&lt;/graylogPort&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;layout</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;de.siegmar.logbackgelf.GelfLayout&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;includeRawMessage&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeRawMessage&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;includeMarker&gt;</span>true<span style="color:#008000;font-weight:bold">&lt;/includeMarker&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;includeMdcData&gt;</span>true<span style="color:#008000;font-weight:bold">&lt;/includeMdcData&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;includeCallerData&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeCallerData&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;includeRootCauseData&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeRootCauseData&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;includeLevelName&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeLevelName&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;shortPatternLayout</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.classic.PatternLayout&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-                <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>%m%nopex<span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;/shortPatternLayout&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;fullPatternLayout</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.classic.PatternLayout&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-                <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>%m<span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;/fullPatternLayout&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;staticField&gt;</span>application:go-server<span style="color:#008000;font-weight:bold">&lt;/staticField&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;staticField&gt;</span>environment:production<span style="color:#008000;font-weight:bold">&lt;/staticField&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/layout&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
-
-    <span style="color:#008000;font-weight:bold">&lt;root&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;GELF&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;GELF&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;de.siegmar.logbackgelf.GelfUdpAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;graylogHost&gt;</span>graylog.mycompany.com<span style="color:#008000;font-weight:bold">&lt;/graylogHost&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;graylogPort&gt;</span>12201<span style="color:#008000;font-weight:bold">&lt;/graylogPort&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;layout</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;de.siegmar.logbackgelf.GelfLayout&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;includeRawMessage&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeRawMessage&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;includeMarker&gt;</span>true<span style="color:#008000;font-weight:bold">&lt;/includeMarker&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;includeMdcData&gt;</span>true<span style="color:#008000;font-weight:bold">&lt;/includeMdcData&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;includeCallerData&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeCallerData&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;includeRootCauseData&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeRootCauseData&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;includeLevelName&gt;</span>false<span style="color:#008000;font-weight:bold">&lt;/includeLevelName&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;shortPatternLayout</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.classic.PatternLayout&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>%m%nopex<span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;/shortPatternLayout&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;fullPatternLayout</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.classic.PatternLayout&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>%m<span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;/fullPatternLayout&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;staticField&gt;</span>application:go-server<span style="color:#008000;font-weight:bold">&lt;/staticField&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;staticField&gt;</span>environment:production<span style="color:#008000;font-weight:bold">&lt;/staticField&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/layout&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/appender&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;root&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;appender-ref</span> <span style="color:#b44">ref=</span><span style="color:#b44">&#34;GELF&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/root&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/included&gt;</span>
+</span></span></code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">

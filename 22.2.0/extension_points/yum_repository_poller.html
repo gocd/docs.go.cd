@@ -336,8 +336,8 @@ if (!doNotTrack) {
 <p><strong>Note:</strong> This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the <a href="http://linux.die.net/man/1/yum-utils">yum-utils</a> package, <a href="https://manpages.ubuntu.com/manpages/focal/en/man1/yum-utils.1.html">Ubuntu</a>, <a href="http://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&amp;system=centos">CentOS</a>)</p>
 <h2 id="introduction">Introduction</h2>
 <p>The Yum repository poller is a bundled <a href="package_repository_extension.html">package material</a> plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">repoquery --repofrompath<span style="color:#666">=</span>uuid,<span style="color:#b8860b">$REPO_URL</span> --repoid<span style="color:#666">=</span>uuid -q <span style="color:#b8860b">$PACKAGE_SPEC</span> -qf <span style="color:#b44">&#34;%{LOCATION}...&#34;</span>
-</code></pre></div><p>A given instance of polling is considered successful if repoquery returns a single package as output.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>repoquery --repofrompath<span style="color:#666">=</span>uuid,<span style="color:#b8860b">$REPO_URL</span> --repoid<span style="color:#666">=</span>uuid -q <span style="color:#b8860b">$PACKAGE_SPEC</span> -qf <span style="color:#b44">&#34;%{LOCATION}...&#34;</span>
+</span></span></code></pre></div><p>A given instance of polling is considered successful if repoquery returns a single package as output.</p>
 <!--
 ### Turn your Maven Nexus Repo into a Yum repo
 
@@ -374,34 +374,34 @@ epoch:name-ver-rel.arch
 <p>Individual plugins may provide additional info via additional environment variables.</p>
 <h3 id="downloading-rpms">Downloading RPMs</h3>
 <p>Let&rsquo;s say we set up a repository named ORA pointing to <a href="http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64">http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</a> and define a package gcc with a spec of gcc-4.* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:</p>
-<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
+<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&#34;/bin/bash&#34; &gt;
 &lt;arg&gt;-c&lt;/arg&gt;
 &lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
 &lt;/exec&gt;
 </code></pre><p>When the task executes on the agent, the environment variables get
 subsituted as below:</p>
-<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&quot;/bin/bash&quot; &gt;
+<pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&#34;/bin/bash&#34; &gt;
 &lt;arg&gt;-c&lt;/arg&gt;
 &lt;arg&gt;curl -o /tmp/$GO_PACKAGE_ORA_GCC_LABEL.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
 &lt;/exec&gt;.
 ...
-[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LABEL' to value 'gcc-4.4.7-3.el6.x86_64'
-[go] setting environment variable 'GO_REPO_ORA_GCC_REPO_URL' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64'
-[go] setting environment variable 'GO_PACKAGE_ORA_GCC_PACKAGE_SPEC' to value 'gcc-4.*'
-[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LOCATION' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm'
+[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_LABEL&#39; to value &#39;gcc-4.4.7-3.el6.x86_64&#39;
+[go] setting environment variable &#39;GO_REPO_ORA_GCC_REPO_URL&#39; to value &#39;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64&#39;
+[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_PACKAGE_SPEC&#39; to value &#39;gcc-4.*&#39;
+[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_LOCATION&#39; to value &#39;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm&#39;
 ...
 </code></pre><p>Or, to simply pass it as an argument to a deploy script on a remote
 server</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>ssh server &#34;cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION&#34;<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span>
-</code></pre></div><h3 id="installing-rpms">Installing RPMs</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>ssh server &#34;cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION&#34;<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span>
+</span></span></code></pre></div><h3 id="installing-rpms">Installing RPMs</h3>
 <p>For self contained packages (no external dependencies other than what is already installed on the target node), it is just enough to do:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">rpm -U /path/to/downloaded/pkg.rpm
-</code></pre></div><p>On the other hand, if the package isn&rsquo;t self-contained, we&rsquo;d run:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">yum install <span style="color:#b8860b">$GO_PACKAGE_ORA_GCC_LABEL</span>
-</code></pre></div><p>This would require that /etc/yum.repos.d contain the repository definitions.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rpm -U /path/to/downloaded/pkg.rpm
+</span></span></code></pre></div><p>On the other hand, if the package isn&rsquo;t self-contained, we&rsquo;d run:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install <span style="color:#b8860b">$GO_PACKAGE_ORA_GCC_LABEL</span>
+</span></span></code></pre></div><p>This would require that /etc/yum.repos.d contain the repository definitions.</p>
 <h3 id="creating-and-publishing-rpms">Creating and Publishing RPMs</h3>
 <p>Although the support for package as material in GoCD isn&rsquo;t concerned with how the packages are created and published, here is a short set of pointers to information on the web.</p>
 <ul>

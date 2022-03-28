@@ -342,12 +342,12 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Server to be started:</p>
-<pre tabindex="0"><code># Assuming, for example, that the directory is &quot;go-server-20.5.0&quot;.
+<pre tabindex="0"><code># Assuming, for example, that the directory is &#34;go-server-20.5.0&#34;.
 $ cd go-server-20.5.0
 $ xattr -d -r com.apple.quarantine .
-xattr: [Errno 13] Permission denied: './jre/Contents/Home/lib/server/classes.jsa'
-xattr: [Errno 13] Permission denied: './jre/Contents/Home/legal/jdk.dynalink/dynalink.md'
-... # These &quot;Permission denied&quot; warnings can be ignored.
+xattr: [Errno 13] Permission denied: &#39;./jre/Contents/Home/lib/server/classes.jsa&#39;
+xattr: [Errno 13] Permission denied: &#39;./jre/Contents/Home/legal/jdk.dynalink/dynalink.md&#39;
+... # These &#34;Permission denied&#34; warnings can be ignored.
 </code></pre></li>
 </ul>
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>

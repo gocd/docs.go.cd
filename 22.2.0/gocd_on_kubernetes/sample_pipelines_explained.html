@@ -404,12 +404,12 @@ if (!doNotTrack) {
 <ul>
 <li>
 <p>For Minikube:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">minikube ip
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>minikube ip
+</span></span></code></pre></div></li>
 <li>
 <p>For other Kubernetes implementations:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#a2f;font-weight:bold">$(</span>kubectl get ingress bulletin-board-ingress --namespace <span style="color:#b8860b">$NAMESPACE</span> -o <span style="color:#b8860b">jsonpath</span><span style="color:#666">=</span><span style="color:#b44">&#34;{.status.loadBalancer.ingress[0][&#39;ip&#39;]}&#34;</span><span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44">&#34;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;http://</span><span style="color:#a2f;font-weight:bold">$(</span>kubectl get ingress bulletin-board-ingress --namespace <span style="color:#b8860b">$NAMESPACE</span> -o <span style="color:#b8860b">jsonpath</span><span style="color:#666">=</span><span style="color:#b44">&#34;{.status.loadBalancer.ingress[0][&#39;ip&#39;]}&#34;</span><span style="color:#a2f;font-weight:bold">)</span><span style="color:#b44">&#34;</span>
+</span></span></code></pre></div></li>
 </ul>
 <p><img src="../images/gocd-helm-chart/sample_application.png" alt=""></p>
 <h2 id="check-the-status-of-agents-with-agent-status-report">Check the status of agents with Agent Status Report</h2>

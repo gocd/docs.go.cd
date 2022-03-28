@@ -384,23 +384,23 @@ if (!doNotTrack) {
 <blockquote>
 <p>The config repository defined in the example cannot refer any entity in GoCD.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#39;teamA_repo&#39;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#39;yaml.config.plugin&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-   <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
-      ...
-  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;rules/&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/secretConfig&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#39;teamA_repo&#39;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#39;yaml.config.plugin&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/secretConfig&gt;</span>
+</span></span></code></pre></div></li>
 <li>
 <p>Wildcards <strong>(*)</strong> in <strong>type</strong>:</p>
 <p>Using a wildcard <strong>(*)</strong> for type implies a given rule applies to all entity types. In this case, the supported entities are <code>environment</code>, <code>pipeline_group</code> and <code>pipeline</code>.</p>
 <blockquote>
 <p>In the given example, a config repository can refer to any <code>pipeline_group</code> or <code>environment</code> or <code>pipeline</code> with the name <code>production</code>.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>production<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
-</code></pre></div><p><strong>Note</strong>: <code>type</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>pipe*</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>production<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span></code></pre></div><p><strong>Note</strong>: <code>type</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>pipe*</code>.</p>
 </li>
 <li>
 <p>Wildcards <strong>(*)</strong> in <strong>action</strong>:</p>
@@ -442,18 +442,18 @@ if (!doNotTrack) {
 <blockquote>
 <p>In the below example pipeline_group <code>my_group</code> cannot be referred by the config repository since the first rule denies access using the pattern <code>my_*</code></p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span></code></pre></div><blockquote>
 <p>In the below example pipeline_group <code>my_group</code> can be referred by the config repository since the first rule allows access.</p>
 </blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span></code></pre></div></li>
 </ul>
 </article>
 

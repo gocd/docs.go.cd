@@ -339,22 +339,21 @@ if (!doNotTrack) {
 <p><img src="../images/use_parameters_in_configuration.png" alt=""></p>
 <h2 id="defining-and-using-a-parameter">Defining and using a parameter</h2>
 <p>Parameter values are defined in the <code>&lt;params&gt;</code> tag within a pipeline and can be used anywhere within that pipeline using #{param_name}. The following example defines a new parameter called &ldquo;myParam&rdquo; and uses it in a job.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;myParam&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>hello world<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;echo&#34;</span> <span style="color:#b44">args=</span><span style="color:#b44">&#34;#{myParam}&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-
-</code></pre></div><blockquote>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;myParam&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>hello world<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;echo&#34;</span> <span style="color:#b44">args=</span><span style="color:#b44">&#34;#{myParam}&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span></code></pre></div><blockquote>
 <p><strong>NOTE:</strong> If you want to use the <strong>#</strong> literal, you can escape it using another <strong>#</strong> literal. For example, if the parameter &ldquo;foo&rdquo; has the value &ldquo;one&rdquo;, then:</p>
 </blockquote>
 <table>
@@ -381,34 +380,32 @@ if (!doNotTrack) {
 </table>
 <h2 id="using-parameters-in-pipeline-templates">Using parameters in pipeline templates</h2>
 <p>Parameter usage within <a href="pipeline_templates.html">templates</a> is similar to usage within pipelines. The only difference is that you cannot <strong>define</strong> parameters in a template.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;trunk&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;WORKING_DIR&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>trunk<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
-  ...
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-
-<span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;branch&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;WORKING_DIR&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>branch<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
-  ...
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-
-</code></pre></div><p>The parameter defined above is used the template below.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;echo&#34;</span> <span style="color:#b44">args=</span><span style="color:#b44">&#34;Updating code from svn repository svn://codebase/#{WORKING_DIR}&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-
-</code></pre></div><h2 id="rules-around-usage-of-parameters">Rules around usage of parameters</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;trunk&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;WORKING_DIR&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>trunk<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;branch&#34;</span> <span style="color:#b44">template=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;params&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;param</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;WORKING_DIR&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>branch<span style="color:#008000;font-weight:bold">&lt;/param&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/params&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span></code></pre></div><p>The parameter defined above is used the template below.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;my_job&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;echo&#34;</span> <span style="color:#b44">args=</span><span style="color:#b44">&#34;Updating code from svn repository svn://codebase/#{WORKING_DIR}&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span></code></pre></div><h2 id="rules-around-usage-of-parameters">Rules around usage of parameters</h2>
 <p>While parameters are generally very flexible, there are some restrictions.</p>
 <p><strong>You cannot use a parameter to define:</strong></p>
 <ul>

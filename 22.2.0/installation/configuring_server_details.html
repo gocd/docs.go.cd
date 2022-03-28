@@ -341,24 +341,24 @@ if (!doNotTrack) {
 <p>Specify the artifacts directory location and click on &ldquo;Save&rdquo;</p>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the
 Admin section:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>/path/to/artifacts/directory<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-  ...
-  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
-</code></pre></div><p>In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>E:\go-artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-  ...
-  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
-</code></pre></div><p>When you have entered this information, click &ldquo;Save&rdquo; to save the configuration file.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>/path/to/artifacts/directory<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</span></span></code></pre></div><p>In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>E:\go-artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</span></span></code></pre></div><p>When you have entered this information, click &ldquo;Save&rdquo; to save the configuration file.</p>
 <p>You can change the artifacts directory location at any time using the method described above, even when GoCD is running. However GoCD will not move existing artifacts to the new location for you, and changing the location while GoCD is running won&rsquo;t take effect until GoCD Server is restarted.</p>
 <p>If you decide to move your artifact repository, the safe way to do it is:</p>
 <ol>
@@ -374,16 +374,16 @@ Admin section:</p>
 <p><img src="../images/site_url.png" alt="Specify site url"></p>
 <p>GoCD generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where GoCD cannot rely upon publishing URLs relative to a request. If you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.</p>
 <p>Power users, if they so desire, can directly update the <a href="../configuration/configuration_reference.html#server">server</a> section.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://host:port<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;secureSiteUrl&gt;</span>https://host:securePort<span style="color:#008000;font-weight:bold">&lt;/secureSiteUrl&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span>
-        ...
-      <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
-</code></pre></div><p>Certain features in GoCD require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://host:port<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;secureSiteUrl&gt;</span>https://host:securePort<span style="color:#008000;font-weight:bold">&lt;/secureSiteUrl&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span>
+</span></span><span style="display:flex;"><span>        ...
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</span></span></code></pre></div><p>Certain features in GoCD require an HTTPS(SSL) endpoint. If you wish that your primary site URL be HTTP, but still want to have HTTPS endpoints for the features that require SSL, you can specify the secureSiteUrl attribute with a value of the base HTTPS URL.</p>
 <h3 id="also-see">Also see&hellip;</h3>
 <ul>
 <li><a href="../installation/installing_go_agent.html">Installing GoCD agents</a></li>

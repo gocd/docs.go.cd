@@ -385,26 +385,26 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Run the command (The below example is for a GoCD server running on Linux) -</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/new_cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span>
-</code></pre></div><p>For GoCD server running on Windows refer the below example -</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">bin<span style="color:#b62;font-weight:bold">\g</span>ocd-database-migrator.bat ^
---insert ^
---progress ^
---source-db-url<span style="color:#666">=</span><span style="color:#b44">&#34;jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\cruise&#34;</span> ^
---source-db-user<span style="color:#666">=</span><span style="color:#b44">&#34;sa&#34;</span> ^
---source-db-password<span style="color:#666">=</span><span style="color:#b44">&#34;&#34;</span> ^
---target-db-url<span style="color:#666">=</span><span style="color:#b44">&#34;jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\new_cruise&#34;</span> ^
---target-db-user<span style="color:#666">=</span><span style="color:#b44">&#34;sa&#34;</span> ^
---target-db-password<span style="color:#666">=</span><span style="color:#b44">&#34;&#34;</span>
-</code></pre></div><p><strong>Note</strong>: The <code>source-db-url</code> and <code>target-db-url</code> contain just the prefixes of the file names (<code>cruise</code> and <code>new_cruise</code>), even though the actual files are named: <code>cruise.h2.db</code> and <code>new_cruise.mv.db</code>.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/new_cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span>
+</span></span></code></pre></div><p>For GoCD server running on Windows refer the below example -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bin<span style="color:#b62;font-weight:bold">\g</span>ocd-database-migrator.bat ^
+</span></span><span style="display:flex;"><span>--insert ^
+</span></span><span style="display:flex;"><span>--progress ^
+</span></span><span style="display:flex;"><span>--source-db-url<span style="color:#666">=</span><span style="color:#b44">&#34;jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\cruise&#34;</span> ^
+</span></span><span style="display:flex;"><span>--source-db-user<span style="color:#666">=</span><span style="color:#b44">&#34;sa&#34;</span> ^
+</span></span><span style="display:flex;"><span>--source-db-password<span style="color:#666">=</span><span style="color:#b44">&#34;&#34;</span> ^
+</span></span><span style="display:flex;"><span>--target-db-url<span style="color:#666">=</span><span style="color:#b44">&#34;jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\new_cruise&#34;</span> ^
+</span></span><span style="display:flex;"><span>--target-db-user<span style="color:#666">=</span><span style="color:#b44">&#34;sa&#34;</span> ^
+</span></span><span style="display:flex;"><span>--target-db-password<span style="color:#666">=</span><span style="color:#b44">&#34;&#34;</span>
+</span></span></code></pre></div><p><strong>Note</strong>: The <code>source-db-url</code> and <code>target-db-url</code> contain just the prefixes of the file names (<code>cruise</code> and <code>new_cruise</code>), even though the actual files are named: <code>cruise.h2.db</code> and <code>new_cruise.mv.db</code>.</p>
 </li>
 <li>
 <p>Delete, take a backup of or move away the file <strong>/var/lib/go-server/db/h2db/cruise.h2.db</strong>.</p>
@@ -423,16 +423,16 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Run the command by providing the right parameters for the required options. An example is shown below:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
-  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
+</span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
+</span></span></code></pre></div></li>
 </ol>
 <h4 id="43-migrating-data-from-h2-to-postgresql">4.3 Migrating data from H2 to PostgreSQL</h4>
 <ol>
@@ -441,16 +441,16 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Run the command by providing the right parameters for the required options,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
-  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
+</span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
+</span></span></code></pre></div></li>
 </ol>
 <h4 id="44-migrating-data-from-h2-to-mysql">4.4 Migrating data from H2 to MySQL</h4>
 <ol>
@@ -459,16 +459,16 @@ if (!doNotTrack) {
 </li>
 <li>
 <p>Run the command by providing the right parameters for the required options,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:mysql://localhost:3306/new_cruise&#39;</span>
-  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;root&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;password&#39;</span>
-</code></pre></div></li>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:mysql://localhost:3306/new_cruise&#39;</span>
+</span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;root&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;password&#39;</span>
+</span></span></code></pre></div></li>
 </ol>
 <h3 id="step-5-configure-dbproperties-for-your-gocd-server">Step 5: Configure <code>db.properties</code> for your GoCD server</h3>
 <h4 id="51-enabling-gocd-to-use-h2-database">5.1 Enabling GoCD to use H2 Database</h4>
@@ -509,7 +509,7 @@ db.password=password
 <h4 id="database-is-read-only">Database is read-only</h4>
 <p>You might see a message such as this, after upgrade, in the GoCD server logs:</p>
 <pre tabindex="0"><code>Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; SQL statement:
-UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = '10.16.0.5 (10.16.0.5)', LOCKGRANTED = '2020-06-17 15:07:20.707' WHERE ID = 1 AND LOCKED = FALSE [90097-200]
+UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = &#39;10.16.0.5 (10.16.0.5)&#39;, LOCKGRANTED = &#39;2020-06-17 15:07:20.707&#39; WHERE ID = 1 AND LOCKED = FALSE [90097-200]
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
 	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
 	at org.h2.message.DbException.get(DbException.java:205)
@@ -517,7 +517,7 @@ UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = '10.16.0.5 (10
 
 <h4 id="mysql-identifier-case-senitivity">MySQL: Identifier case senitivity</h4>
 <p>You might see a message such as this in the GoCD server logs, if you are using MySQL:</p>
-<pre tabindex="0"><code>Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.commons.dbcp2.BasicDataSource]: Factory method 'getDataSource' threw exception; nested exception is java.sql.SQLException: Unable to migrate the database
+<pre tabindex="0"><code>Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.commons.dbcp2.BasicDataSource]: Factory method &#39;getDataSource&#39; threw exception; nested exception is java.sql.SQLException: Unable to migrate the database
         at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
         at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
         ... 73 common frames omitted
@@ -531,7 +531,7 @@ Caused by: java.sql.SQLException: Unable to migrate the database
         at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
         ... 74 common frames omitted
 Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set db-migration-scripts/initial/create-trigger.xml::107::gocd(generated):
-     Reason: liquibase.exception.DatabaseException: Table 'gocd.buildStateTransitions' doesn't exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
+     Reason: liquibase.exception.DatabaseException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
                 AFTER INSERT ON buildStateTransitions
                 FOR EACH ROW
                 BEGIN
@@ -545,7 +545,7 @@ Caused by: liquibase.exception.MigrationFailedException: Migration failed for ch
         at liquibase.Liquibase.update(Liquibase.java:175)
         at com.thoughtworks.go.server.database.migration.DatabaseMigrator.migrate(DatabaseMigrator.java:54)
         ... 80 common frames omitted
-Caused by: liquibase.exception.DatabaseException: Table 'gocd.buildStateTransitions' doesn't exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
+Caused by: liquibase.exception.DatabaseException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
                 AFTER INSERT ON buildStateTransitions
                 FOR EACH ROW
                 BEGIN
@@ -558,7 +558,7 @@ Caused by: liquibase.exception.DatabaseException: Table 'gocd.buildStateTransiti
         at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258)
         at liquibase.changelog.ChangeSet.execute(ChangeSet.java:609)
         ... 86 common frames omitted
-Caused by: java.sql.SQLSyntaxErrorException: Table 'gocd.buildStateTransitions' doesn't exist
+Caused by: java.sql.SQLSyntaxErrorException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist
         at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
         at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
         at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)

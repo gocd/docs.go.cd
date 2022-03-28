@@ -342,8 +342,8 @@ if (!doNotTrack) {
 <p>The <code>-rootCertFile</code> option must point to the root certificate from the GoCD server (If you&rsquo;re using a certificate signed by a known CA, you may not need to pass the rootCertFile if the root certificate is present in the default JVM trust store). You can export it from firefox using the <a href="https://support.mozilla.org/en-US/kb/page-info-window-view-technical-details-about-page#w_security">page info window</a> by clicking &ldquo;export&rdquo; from the certificate details page as shown below:</p>
 <p><img src="../../images/agent_tls_cert_export_from_firefox.png" alt="Download TLS certificate from GoCD server using Firefox"></p>
 <p>If you have the openssl binary available then you can also run the command below to export the root certificate from the GoCD server:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">openssl s_client -showcerts -connect HOSTNAME:PORT &lt;/dev/null 2&gt;/dev/null|openssl x509 -outform PEM
-</code></pre></div><h2 id="the--sslverificationmode-option">The <code>-sslVerificationMode</code> option</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>openssl s_client -showcerts -connect HOSTNAME:PORT &lt;/dev/null 2&gt;/dev/null|openssl x509 -outform PEM
+</span></span></code></pre></div><h2 id="the--sslverificationmode-option">The <code>-sslVerificationMode</code> option</h2>
 <p>The <code>-sslVerificationMode</code> option allows you to choose the level of verification you&rsquo;d want.</p>
 <ul>
 <li><code>NONE</code> (the default) will disable all SSL/TLS verification.</li>
@@ -358,12 +358,12 @@ if (!doNotTrack) {
 <p>If the private key is encrypted using a passphrase, specify the file that contains the passphrase.</p>
 <h2 id="configuring-the-agent">Configuring the agent</h2>
 <p>Edit the file <code>wrapper-properties.conf</code> and add the following lines to it. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># wrapper-properties.conf</span>
-wrapper.app.parameter.103<span style="color:#666">=</span>-rootCertFile
-wrapper.app.parameter.104<span style="color:#666">=</span>/path/to/root-cert.pem
-wrapper.app.parameter.105<span style="color:#666">=</span>-sslVerificationMode
-wrapper.app.parameter.106<span style="color:#666">=</span>FULL
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># wrapper-properties.conf</span>
+</span></span><span style="display:flex;"><span>wrapper.app.parameter.103<span style="color:#666">=</span>-rootCertFile
+</span></span><span style="display:flex;"><span>wrapper.app.parameter.104<span style="color:#666">=</span>/path/to/root-cert.pem
+</span></span><span style="display:flex;"><span>wrapper.app.parameter.105<span style="color:#666">=</span>-sslVerificationMode
+</span></span><span style="display:flex;"><span>wrapper.app.parameter.106<span style="color:#666">=</span>FULL
+</span></span></code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">

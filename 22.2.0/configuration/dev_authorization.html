@@ -350,49 +350,48 @@ if (!doNotTrack) {
 <p>You can define roles that can be used anywhere that authorization is required. A role is just a group of users. Administrators can add users to a new or existing role from the &ldquo;User Summary&rdquo; tab in the &ldquo;Admin&rdquo; section. Here, you can select any number of users and assign a new or existing role to them. In this example, user &ldquo;aantony&rdquo; is being added to the role &ldquo;analyst&rdquo;</p>
 <p><img src="../images/user_summary_add_user_to_role.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure roles via &ldquo;Config XML&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;license...</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;passwordFile</span> <span style="color:#b44">path=</span><span style="color:#b44">&#34;/etc/go-server/passwords.properties&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-
-      <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;qa&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>dyang<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>pavan<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go_admin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>jhumble<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>qiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
-
-      <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>go_admin<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>chris<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/security&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
-
-</code></pre></div><p>In this example, the &ldquo;qa&rdquo; role has two users: dyang and pavan. The &ldquo;go_admin&rdquo; role also has two users: jhumble and qiao.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;license...</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;passwordFile</span> <span style="color:#b44">path=</span><span style="color:#b44">&#34;/etc/go-server/passwords.properties&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;qa&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>dyang<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>pavan<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;go_admin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;users&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>jhumble<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>qiao<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;/users&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>go_admin<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>chris<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/security&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</span></span></code></pre></div><p>In this example, the &ldquo;qa&rdquo; role has two users: dyang and pavan. The &ldquo;go_admin&rdquo; role also has two users: jhumble and qiao.</p>
 <p>Starting GoCD 19.11.0, the roles can be configured to allow how the users assigned the role can access a GoCD entity.
 GoCD system administrators can now define a role with a <code>policy</code> that will contain a set of permissions to govern access of a GoCD entity for the users belonging to the role.</p>
 <p>The following role definition would grant <code>view</code> action permissions for GoCD entity type <code>environment</code> with the matching wild card pattern:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml">...
-    <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;view-permissions&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
-                <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;view&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>env*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
-...
-</code></pre></div><p>This means that any user which has the role <code>view-permissions</code> will get <code>view</code> access to the environments which have the name starting with <code>env</code>.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;roles&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;role</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;view-permissions&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;policy&gt;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;environment&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;view&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>env*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;/policy&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/roles&gt;</span>
+</span></span><span style="display:flex;"><span>...
+</span></span></code></pre></div><p>This means that any user which has the role <code>view-permissions</code> will get <code>view</code> access to the environments which have the name starting with <code>env</code>.
 You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 <h2 id="specifying-permissions-for-pipeline-groups">Specifying permissions for pipeline groups</h2>
 <p>GoCD allows you to group pipelines together. If you define pipeline groups, you can specify who is able to view or operate those groups. To do this, you configure permissions to the pipeline group. System administrators will continue to have full access to the pipeline group even if they have not been explicitly granted permissions.</p>
@@ -411,50 +410,49 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 <p><img src="../images/group_permission.png" alt=""></p>
 <p><img src="../images/group_permission1.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;Shine&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>aantony<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>krishna<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>developer<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;operate&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>bot<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>developer<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/operate&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>admins<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
-  ...
-<span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
-</code></pre></div><h2 id="adding-authorization-to-approvals">Adding authorization to approvals</h2>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipelines</span> <span style="color:#b44">group=</span><span style="color:#b44">&#34;Shine&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>aantony<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>krishna<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>developer<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;operate&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>bot<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>developer<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/operate&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>admins<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipelines&gt;</span>
+</span></span></code></pre></div><h2 id="adding-authorization-to-approvals">Adding authorization to approvals</h2>
 <p>In GoCD, it is possible to specify <a href="managing_pipelines.html">manual approvals</a> between stages. You can also specify which user is allowed to trigger manual approvals.</p>
 <p>The authorization can be inherited from the pipeline group this pipeline belongs to. But defining specific permissions overrides this. In the example below, only members of the role &ldquo;dev&rdquo;, and the user &ldquo;operate&rdquo;, can trigger the approval.</p>
 <p><img src="../images/stage_permissions.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure authorization for approvals for a stage via &ldquo;Config XML&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-
-  <span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>operate<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/approval&gt;</span>
-
-  <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>uat<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/resources&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;deploy&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-
-</code></pre></div><p><a id="template-admin"></a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>operate<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/approval&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;deploy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;resources&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;resource&gt;</span>uat<span style="color:#008000;font-weight:bold">&lt;/resource&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/resources&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;ant</span> <span style="color:#b44">target=</span><span style="color:#b44">&#34;deploy&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
+</span></span></code></pre></div><p><a id="template-admin"></a></p>
 <h2 id="specifying-permissions-for-templates">Specifying permissions for templates</h2>
 <p>A GoCD Administrator can make any user a template administrator for a specific template. As a template administrator, a user can now view and edit the template to which he has permissions.</p>
 <p>To edit the permissions for a template, navigate to the &ldquo;Templates&rdquo; tab on the &ldquo;Admin&rdquo; section:</p>
@@ -462,20 +460,20 @@ You can read more about policy <a href="./policy_in_gocd.html">here</a>.</p>
 <p>Then, click the &ldquo;Permissions&rdquo; link for the template you want to manage permissions for:</p>
 <p><img src="../images/add_template_permissions.png" alt=""></p>
 <p>For power users, here&rsquo;s how you would configure permissions via &ldquo;Config XML&rdquo;:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;templates&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;app-1-template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
-            <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
-          <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>tez<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
-      ...
-    <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/templates&gt;</span>
-</code></pre></div><h3 id="also-see">Also See</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;templates&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;app-1-template&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;authorization&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;view&gt;</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;role&gt;</span>dev<span style="color:#008000;font-weight:bold">&lt;/role&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/view&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;admins&gt;</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#008000;font-weight:bold">&lt;user&gt;</span>tez<span style="color:#008000;font-weight:bold">&lt;/user&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;/admins&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/authorization&gt;</span>
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/templates&gt;</span>
+</span></span></code></pre></div><h3 id="also-see">Also See</h3>
 <ul>
 <li><a href="delegating_group_administration.html">Delegating group administration</a></li>
 </ul>

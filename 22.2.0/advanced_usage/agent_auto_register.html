@@ -337,12 +337,12 @@ if (!doNotTrack) {
 <ul>
 <li>Add an attribute named &ldquo;agentAutoRegisterKey&rdquo;, for e.g., agentAutoRegisterKey=&ldquo;388b633a88de126531afa41eff9aa69e&rdquo;, in the server configuration fragment, in case it is not present.</li>
 </ul>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;cruise</span> <span style="color:#b44">xmlns:xsi=</span><span style="color:#b44">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#b44">xsi:noNamespaceSchemaLocation=</span><span style="color:#b44">&#34;cruise-config.xsd&#34;</span> <span style="color:#b44">schemaVersion=</span><span style="color:#b44">&#34;75&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">agentAutoRegisterKey=</span><span style="color:#b44">&#34;388b633a88de126531afa41eff9aa69e&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  ...
-<span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;utf-8&#34;?&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise</span> <span style="color:#b44">xmlns:xsi=</span><span style="color:#b44">&#34;http://www.w3.org/2001/XMLSchema-instance&#34;</span> <span style="color:#b44">xsi:noNamespaceSchemaLocation=</span><span style="color:#b44">&#34;cruise-config.xsd&#34;</span> <span style="color:#b44">schemaVersion=</span><span style="color:#b44">&#34;75&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;server</span> <span style="color:#b44">agentAutoRegisterKey=</span><span style="color:#b44">&#34;388b633a88de126531afa41eff9aa69e&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
+</span></span></code></pre></div><ul>
 <li>
 <p>On the remote GoCD Agent machine, create a file named <code>&lt;agent_installation_directory&gt;/config/autoregister.properties</code>. In a native agent installation this file is usually located on <code>/var/lib/go-agent/config/</code> directory. The <code>config/</code> folder might not exist, in this case you should create it by yourself.</p>
 <p>This file supports the following properties</p>
@@ -390,15 +390,15 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>Example</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">agent.auto.register.key<span style="color:#666">=</span>388b633a88de126531afa41eff9aa69e
-agent.auto.register.resources<span style="color:#666">=</span>ant,java
-agent.auto.register.environments<span style="color:#666">=</span>QA,Performance
-agent.auto.register.hostname<span style="color:#666">=</span>Agent01
-
-<span style="color:#080;font-style:italic"># if you&#39;re using elastic agents, these would be needed as well</span>
-agent.auto.register.elasticAgent.agentId<span style="color:#666">=</span>i-123456
-agent.auto.register.elasticAgent.pluginId<span style="color:#666">=</span>com.example.aws
-</code></pre></div><ul>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>agent.auto.register.key<span style="color:#666">=</span>388b633a88de126531afa41eff9aa69e
+</span></span><span style="display:flex;"><span>agent.auto.register.resources<span style="color:#666">=</span>ant,java
+</span></span><span style="display:flex;"><span>agent.auto.register.environments<span style="color:#666">=</span>QA,Performance
+</span></span><span style="display:flex;"><span>agent.auto.register.hostname<span style="color:#666">=</span>Agent01
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># if you&#39;re using elastic agents, these would be needed as well</span>
+</span></span><span style="display:flex;"><span>agent.auto.register.elasticAgent.agentId<span style="color:#666">=</span>i-123456
+</span></span><span style="display:flex;"><span>agent.auto.register.elasticAgent.pluginId<span style="color:#666">=</span>com.example.aws
+</span></span></code></pre></div><ul>
 <li>Now, bringing up the remote agent should automatically register with the GoCD Server without the administrator having to &lsquo;Enable&rsquo; the newly added agent and configure its resources and assign it to environments.</li>
 </ul>
 </article>

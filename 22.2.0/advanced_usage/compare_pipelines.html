@@ -366,8 +366,8 @@ if (!doNotTrack) {
 </ol>
 <h2 id="understanding-non-sequential-material-revision">Understanding Non-sequential Material Revision</h2>
 <p>Sometimes the following error message will be present on the comparison page:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-text" data-lang="text">This pipeline instance was triggered with a non-sequential material revision.
-</code></pre></div><p>This means that the instance in-question was triggered with an older revision or an older run of the upstream pipeline. This occurs when the <code>Trigger with options</code> flow is chosen on the Dashboard UI to schedule a pipeline.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-text" data-lang="text"><span style="display:flex;"><span>This pipeline instance was triggered with a non-sequential material revision.
+</span></span></code></pre></div><p>This means that the instance in-question was triggered with an older revision or an older run of the upstream pipeline. This occurs when the <code>Trigger with options</code> flow is chosen on the Dashboard UI to schedule a pipeline.</p>
 <p>Let&rsquo;s consider a pipeline <code>P</code> with material <code>M</code>.</p>
 <ul>
 <li>a commit <code>c1</code> trigger an instance <code>P1</code> with a <code>natural_order</code> of 1</li>

@@ -348,14 +348,13 @@ if (!doNotTrack) {
 <img src="../images/pipeline_add_material_select_stage.png" alt=""></li>
 </ul>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the Admin section (Configuration reference is <a href="../configuration/configuration_reference.html">here</a>):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  ...
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-
-</code></pre></div><p>Now, when the stage &ldquo;stage&rdquo; of &ldquo;upstream1&rdquo; completes, the pipeline &ldquo;downstream_pipeline&rdquo; will start building.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span></code></pre></div><p>Now, when the stage &ldquo;stage&rdquo; of &ldquo;upstream1&rdquo; completes, the pipeline &ldquo;downstream_pipeline&rdquo; will start building.</p>
 <p>If you want to view the materials that are associated with &ldquo;downstream_pipeline&rdquo;, the pipeline details page for that specific instance of the downstream pipeline will show you all this information.</p>
 <p><img src="../images/downstream_pipeline.png" alt=""></p>
 <h3 id="fetching-artifacts-from-an-upstream-pipeline">Fetching artifacts from an upstream pipeline</h3>
@@ -369,65 +368,64 @@ if (!doNotTrack) {
 <p>A fetch task can also be instructed to retrieve (fetch) an artifact from an ancestor pipeline. For example, lets assume that the &ldquo;upstream1&rdquo; used in this example, depends on another pipeline &ldquo;topmost&rdquo;. Then you can define a a &ldquo;Fetch Artifact&rdquo; task to fetch artifacts from &ldquo;topmost&rdquo; by defining the hierarchy of these pipelines as follows. You have to specify the hierarchy by separting the pipelines with a <code>/</code>. For example: &ldquo;topmost/upstream1&rdquo;.</p>
 <p><img src="../images/task_fetch_artifact_ancestor.png" alt=""></p>
 <p>For power users, here&rsquo;s how you can configure this via the <strong>Config XML</strong> tab on the Admin section (Configuration reference is <a href="../configuration/configuration_reference.html">here</a>):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topmost&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;....&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  ...
-  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;TopStage1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;nant</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/mylib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;lib&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-   <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;upstream1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;....&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;topmost&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;TopStage1&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  ...
-  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;firstJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;nant</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;pkg&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-   <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;fetchFromParentJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;stage&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;firstJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;pkg/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;fetchFromAncestorJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
-        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;topmost/upstream1&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;TopStage1&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;topJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;lib/mylib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
-   <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-  ...
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-
-</code></pre></div></article>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topmost&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;....&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;TopStage1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;topJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;nant</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/mylib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;lib&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;upstream1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;svn</span> <span style="color:#b44">url=</span><span style="color:#b44">&#34;....&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;topmost&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;TopStage1&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;firstJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;nant</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;artifact</span> <span style="color:#b44">src=</span><span style="color:#b44">&#34;target/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;pkg&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/artifacts&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">&lt;/jobs&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;downstream_pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">pipelineName=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stageName=</span><span style="color:#b44">&#34;stage&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;Stage&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;fetchFromParentJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;upstream1&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;stage&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;firstJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;pkg/commonlib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;fetchFromAncestorJob&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;tasks&gt;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;fetchartifact</span> <span style="color:#b44">pipeline=</span><span style="color:#b44">&#34;topmost/upstream1&#34;</span> <span style="color:#b44">stage=</span><span style="color:#b44">&#34;TopStage1&#34;</span> <span style="color:#b44">job=</span><span style="color:#b44">&#34;topJob&#34;</span> <span style="color:#b44">srcfile=</span><span style="color:#b44">&#34;lib/mylib.dll&#34;</span> <span style="color:#b44">dest=</span><span style="color:#b44">&#34;libs&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;/tasks&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">&lt;jobs&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span></code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">

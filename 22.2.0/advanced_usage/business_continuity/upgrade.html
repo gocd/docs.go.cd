@@ -347,11 +347,11 @@ if (!doNotTrack) {
 <li>
 <p>If you are upgrading from any GoCD version before v18.8.0, please note GoCD server from <a href="https://www.gocd.org/releases/index.html#18-8-0">v18.8.0</a> is no longer an auth provider. You will have to include business-continuity-token file in the config directory on both primary and secondary and restart the individual servers.</p>
 <p>The content for the business-continuity-token file is a Business Continuity token which can be of the following form</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-plain" data-lang="plain">    #business-continuity-token
-    user = password
-    OR 
-    user:password
-</code></pre></div><p><strong>Note:</strong> The Business Continuity token passed in the token file (business-continuity-token) is only used for Business Continuity sync and log in and is independent of any existing roles configured within GoCD using any authentication/authorization plugins.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>    #business-continuity-token
+</span></span><span style="display:flex;"><span>    user = password
+</span></span><span style="display:flex;"><span>    OR 
+</span></span><span style="display:flex;"><span>    user:password
+</span></span></code></pre></div><p><strong>Note:</strong> The Business Continuity token passed in the token file (business-continuity-token) is only used for Business Continuity sync and log in and is independent of any existing roles configured within GoCD using any authentication/authorization plugins.</p>
 <p><strong>Note:</strong> You must set up the secondary server as standby to avoid any database corruption. Please look at our documentation for the same.</p>
 </li>
 <li>

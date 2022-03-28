@@ -341,19 +341,19 @@ if (!doNotTrack) {
 <p><img src="../images/timer_ui.png" alt=""></p>
 <h2 id="configure-through-the-xml">Configure through the XML</h2>
 <p>The following xml config corresponds to the UI example above.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;nightly&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;timer</span> <span style="color:#b44">onlyOnChanges=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>0 0 22 ? * MON-FRI<span style="color:#008000;font-weight:bold">&lt;/timer&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
-      ...
-  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;stages&gt;</span>
-    <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;compile&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-      <span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
-    ...
-    <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
-  <span style="color:#008000;font-weight:bold">&lt;/stages&gt;</span>
-<span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
-</code></pre></div><p>For more information see <a href="configuration_reference.html#timer">&lt; timer &gt;</a></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;nightly&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;timer</span> <span style="color:#b44">onlyOnChanges=</span><span style="color:#b44">&#34;true&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>0 0 22 ? * MON-FRI<span style="color:#008000;font-weight:bold">&lt;/timer&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;materials&gt;</span>
+</span></span><span style="display:flex;"><span>      ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/materials&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;stages&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;stage</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;compile&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;approval</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;manual&#34;</span><span style="color:#008000;font-weight:bold">/&gt;</span>
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/stages&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
+</span></span></code></pre></div><p>For more information see <a href="configuration_reference.html#timer">&lt; timer &gt;</a></p>
 </article>
 
       
