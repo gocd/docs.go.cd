@@ -23,7 +23,7 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true # would run bundle install
       - name: Set up NodeJS
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.0
         with:
           node-version: 16
           cache: npm
@@ -43,7 +43,7 @@ jobs:
         with:
           ruby-version: 2.7
       - name: Set up NodeJS
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.0
         with:
           node-version: 16
           cache: npm
@@ -76,7 +76,7 @@ jobs:
           ruby-version: 2.7
           bundler-cache: true # would run bundle install
       - name: Set up NodeJS
-        uses: actions/setup-node@v3.0.0
+        uses: actions/setup-node@v3.1.0
         with:
           node-version: 16
           cache: npm
