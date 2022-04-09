@@ -28,10 +28,11 @@ Do not run any other CPU intensive applications on the same box as the GoCD Serv
 When the GoCD server is being scaled up to run with larger number of pipeline, agents and materials, ensure that the JVM has been allocated appropriate heap sizes. The default values for the GoCD server are ```-Xms512m``` (minimum) and ```-Xmx1024m``` (maximum). To utilize more heap space, set the JVM option `-Xmx` to a higher value (for e.g. to use 8 GB heap, set the flag `-Xmx8g`). This flag can be set in the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
 
 ```shell
+# We recommend that you begin with the index `100` and increment the index for each system property.
 # use minimum JVM heap of 4gb
 wrapper.java.additional.100=-Xms4g
-# use maximum JVM heap of 8gb (this is for GoCD server and the index MUST be 2, so that it overrides the value set in wrapper.conf)
-wrapper.java.additional.2=-Xmx8g
+# use maximum JVM heap of 8gb
+wrapper.java.additional.101=-Xmx8g
 ```
 
 For linux/unix users running large setups, an exception might be seen in ```go-server.log``` mentioning "Too many open files". This may be an indication that there is a need to increase the number of file descriptors on the machine where GoCD Server is installed. On linux the command ```ulimit -n``` can be used to check the total number of file descriptors. To bump up the total number for file descriptors user and system, follow these steps:
