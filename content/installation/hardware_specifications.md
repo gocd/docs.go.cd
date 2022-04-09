@@ -110,7 +110,7 @@ The amount of memory available to the JVM running the GoCD server process (rough
 
 ##### RAM
 
-The amount of memory available to the server machine. Generally speaking, the amount of RAM should be atleast 2-3GB more than the JVM memory to allow some headroom for the operating system.
+The amount of memory available to the server machine. Generally speaking, the amount of RAM should be at least 2-3 GB more than the JVM memory to allow some headroom for the operating system.
 
 > **A note about swap**: Ensure that swap is turned off, because it negatively affects performance when the machine runs out of memory and begins swapping
 
