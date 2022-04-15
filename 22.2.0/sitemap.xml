@@ -44,9 +44,9 @@
   </url><url>
     <loc>/advanced_usage/compare_pipelines.html</loc>
   </url><url>
-    <loc>/introduction/</loc>
-  </url><url>
     <loc>/introduction/concepts_in_go.html</loc>
+  </url><url>
+    <loc>/introduction/</loc>
   </url><url>
     <loc>/faq/concurrent_config_modifications.html</loc>
   </url><url>
