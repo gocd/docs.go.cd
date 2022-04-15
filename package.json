@@ -14,7 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "grunt": "^1.4.1",
+    "grunt": "^1.5.2",
     "he": "^1.2.0",
     "hugo-bin": "^0.84.0",
     "lunr": "2.3.9",
