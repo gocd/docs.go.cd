@@ -49,17 +49,6 @@ Similar to the [`cruise.listen.host`](#cruise-listen-host) property, the value o
 this property determines which port the Go Server binds to, and accepts HTTP
 connections from. If not overridden, it is set to `8153`.
 
-### `cruise.server.ssl.port` - HTTPS port for the Go Server {#cruise-server-ssl-port}
-
-- Name: `cruise.server.ssl.port`
-- Type: [System property](#system-properties)
-- Restrictions: Should be the number of a valid port that is not used by another
-  process
-
-Similar to the [cruise.listen.host](#cruise-listen-host) property, the value of
-this property determines which port the Go Server binds to, and accepts HTTPS
-connections from. If not overridden, it is set to `8154`.
-
 ### `cruise.config.dir` - Location of the configuration files {#cruise-config-dir}
 
 - Name: `cruise.config.dir`

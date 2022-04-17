@@ -275,14 +275,13 @@ From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signe
 More information can be found [in issue #7872](https://github.com/gocd/gocd/issues/7872).
 
 <a name="ports-in-use"></a>
-### Port 8153 (HTTP) or 8154 (HTTPS) could not be opened
+### Port 8153 (HTTP) could not be opened
 
 This issue shows up an error when starting GoCD Server:
 
     Port 8153 could not be opened. Please Check if it is available
-    Port 8154 could not be opened. Please Check if it is available
 
-This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties `cruise.server.port` and `cruise.server.ssl.port` to appropriate values. These system properties can be set in the file `wrapper-properties.conf` on the GoCD server to add the system properties described above. See the installation documentation for the location of `wrapper-properties.conf` file.
+This could be happening if port 8153 is already used. In order to change default ports, set the system property `cruise.server.port` to an appropriate value in the file `wrapper-properties.conf` on the GoCD server. See the installation documentation for the location of `wrapper-properties.conf` file.
 
 <a name="expand-shell-profile"></a>
 ### Expand the shell profile
