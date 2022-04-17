@@ -369,16 +369,6 @@ process</li>
 <p>Similar to the <a href="#cruise-listen-host"><code>cruise.listen.host</code></a> property, the value of
 this property determines which port the Go Server binds to, and accepts HTTP
 connections from. If not overridden, it is set to <code>8153</code>.</p>
-<h3 id="cruise-server-ssl-port"><code>cruise.server.ssl.port</code> - HTTPS port for the Go Server</h3>
-<ul>
-<li>Name: <code>cruise.server.ssl.port</code></li>
-<li>Type: <a href="#system-properties">System property</a></li>
-<li>Restrictions: Should be the number of a valid port that is not used by another
-process</li>
-</ul>
-<p>Similar to the <a href="#cruise-listen-host">cruise.listen.host</a> property, the value of
-this property determines which port the Go Server binds to, and accepts HTTPS
-connections from. If not overridden, it is set to <code>8154</code>.</p>
 <h3 id="cruise-config-dir"><code>cruise.config.dir</code> - Location of the configuration files</h3>
 <ul>
 <li>Name: <code>cruise.config.dir</code></li>
@@ -458,7 +448,6 @@ so, it&rsquo;s not recommended to change this.</p>
       <ul>
         <li><a href="#cruise-listen-host"><code>cruise.listen.host</code> - The host that the GoCD Server should bind to</a></li>
         <li><a href="#cruise-server-por"><code>cruise.server.port</code> - HTTP port for the Go Server</a></li>
-        <li><a href="#cruise-server-ssl-port"><code>cruise.server.ssl.port</code> - HTTPS port for the Go Server</a></li>
         <li><a href="#cruise-config-dir"><code>cruise.config.dir</code> - Location of the configuration files</a></li>
         <li><a href="#go-spa-refresh-interval"><code>go.spa.refresh.interval</code> - GoCD SPA pages refresh interval time</a></li>
         <li><a href="#go-spa-timeout"><code>go.spa.timeout</code>	 - GoCD SPA pages request timeout</a></li>

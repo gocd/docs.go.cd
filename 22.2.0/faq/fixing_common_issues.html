@@ -574,12 +574,11 @@ SSL elsewhere.</p>
 </ul>
 <p>More information can be found <a href="https://github.com/gocd/gocd/issues/7872">in issue #7872</a>.</p>
 <p><a name="ports-in-use"></a></p>
-<h3 id="port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</h3>
+<h3 id="port-8153-http-could-not-be-opened">Port 8153 (HTTP) could not be opened</h3>
 <p>This issue shows up an error when starting GoCD Server:</p>
 <pre><code>Port 8153 could not be opened. Please Check if it is available
-Port 8154 could not be opened. Please Check if it is available
 </code></pre>
-<p>This could be happening if port 8153 or 8154 are already used. In order to change default ports, set the system properties <code>cruise.server.port</code> and <code>cruise.server.ssl.port</code> to appropriate values. These system properties can be set in the file <code>wrapper-properties.conf</code> on the GoCD server to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
+<p>This could be happening if port 8153 is already used. In order to change default ports, set the system property <code>cruise.server.port</code> to an appropriate value in the file <code>wrapper-properties.conf</code> on the GoCD server. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 <p><a name="expand-shell-profile"></a></p>
 <h3 id="expand-the-shell-profile">Expand the shell profile</h3>
 <p>GoCD agents use a restricted shell profile. The go user profile is not sourced when the agent starts or a shell command is run. This can result in the GoCD agent being unable to run applications installed in non default locations.</p>
@@ -634,7 +633,7 @@ Port 8154 could not be opened. Please Check if it is available
         <li><a href="#agent-is-not-being-assigned-or-nothing-gets-built">Agent is not being assigned or &ldquo;Nothing gets built&rdquo;</a></li>
         <li><a href="#gocd-spa-pages---there-was-an-unknown-error-performing-the-operation-possible-reason-timeout">GoCD SPA Pages - There was an unknown error performing the operation. Possible reason (timeout)</a></li>
         <li><a href="#application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</a></li>
-        <li><a href="#port-8153-http-or-8154-https-could-not-be-opened">Port 8153 (HTTP) or 8154 (HTTPS) could not be opened</a></li>
+        <li><a href="#port-8153-http-could-not-be-opened">Port 8153 (HTTP) could not be opened</a></li>
         <li><a href="#expand-the-shell-profile">Expand the shell profile</a></li>
       </ul>
     </li>
