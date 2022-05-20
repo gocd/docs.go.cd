@@ -151,10 +151,10 @@ If you'd like to send log events to a log aggregator service (like logstash, gra
 For e.g. to send logs to logstash (using [logstash-logback-encoder](https://github.com/logstash/logstash-logback-encoder)) one would need to perform the following:
 
 - download all logstash-logback-encoder jars and dependencies into `libs` dir:
-  - `logstash-logback-encoder-4.11.jar`
-  - `jackson-databind-2.9.1.jar`
-  - `jackson-annotations-2.9.1.jar`
-  - `jackson-core-2.9.1.jar`
+  - `logstash-logback-encoder-*.jar`
+  - `jackson-databind-*.jar`
+  - `jackson-annotations-*.jar`
+  - `jackson-core-*.jar`
 
 Then follow the instructions on the [README](https://github.com/logstash/logstash-logback-encoder#readme) to configure your `logback-include.xml` to setup relevant appenders and encoders:
 
