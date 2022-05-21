@@ -131,7 +131,6 @@ at the end of these files might be interesting. Some common errors are:
         java.lang.RuntimeException: org.apache.http.client.ClientProtocolException: The server returned status code 403. Possible reasons include:
         - This agent has been deleted from the configuration
         - This agent is pending approval
-        - There is possibly a reverse proxy (or load balancer) that has been misconfigured. See https://docs.gocd.org/21.1.0/installation/configure-reverse-proxy.html#agents-and-reverse-proxies for details.
 
     Scenario 1: You have re-installed the server from scratch or cleaned up a few files on the server.
     Thereby you have invalidated the tokens of all agents and no agent can connect to the server anymore.
