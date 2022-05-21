@@ -30,7 +30,7 @@ In this example, the password file authentication method will be tried first. If
 
 2. Click on "Add" and provide any identifier (ID) for the configuration and then choose "Password File Authentication Plugin for GoCD".
 
-3. Provide the path to a password file on the GoCD server.
+3. Provide the path to a password file on the GoCD server. Either absolute paths or paths relative to GoCD's installation directory are accepted.
 
 4. Specify allow only known users to login field. [Learn more](dev_authentication.html#controlling-user-access)
 
