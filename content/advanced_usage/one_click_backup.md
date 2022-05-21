@@ -71,9 +71,9 @@ The restoration process is not automated and needs to be done manually. Please r
 - In order to restore the GoCD server from a backup, the server must first be stopped. Make sure the process is completely dead before starting the restoration.
 - Choose the backup directory that you want to restore from.
 
-    > Note: Please ensure that you are not restoring a GoCD backup onto a GoCD version that is older than the one that was used to perform the backup.
+    > **Note:** Please ensure that you are not restoring a GoCD backup onto a GoCD version that is older than the one that was used to perform the backup.
 
-    > **For example:** A backup using GoCD version 19.3 cannot be restored onto GoCD version 19.2. See the file `version.txt` in the backup directory to know the version of GoCD that was used to perform the backup
+    > *For example:* A backup using GoCD version 19.3 cannot be restored onto GoCD version 19.2. See the file `version.txt` in the backup directory to know the version of GoCD that was used to perform the backup
 
 - Database - This depends on the kind of database being used:
 
@@ -92,7 +92,11 @@ The restoration process is not automated and needs to be done manually. Please r
     See [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/using-mysqldump.html) regarding backup and restore.
 
 - Configuration - Unzip the `config-dir.zip` into a temp directory. Copy all the files from this directory to `${SERVER_INSTALLATION_DIR}/config` directory on Windows and Mac or `/etc/go` on Linux.
-- Wrapper Configuration - Unzip the `wrapper-config-dir.zip` into a temp directory. Copy all the files from this directory to `${SERVER_INSTALLATION_DIR}/wrapper-config` directory.
+- Wrapper Configuration - Unzip the `wrapper-config-dir.zip` into a temp directory. 
+
+  > **Note:** If you are restoring a backup onto a different GoCD version, *or* you have modified the `${SERVER_INSTALLATION_DIR}/wrapper-config/wrapper.conf` please `diff` the backed up files with the pre-installed versions for any differences. Newer GoCD versions can change the default properties required to start GoCD correctly and your old configuration file may not work correctly.
+   
+  After reviewing (or merging changes into a third copy), copy all the files from your temp directory to `${SERVER_INSTALLATION_DIR}/wrapper-config` directory.
 - Configuration History - Unzip the `config-repo.zip` into temp directory. Recursively copy all the contents from this directory to `${SERVER_INSTALLATION_DIR}/db/config.git` .
 - Make sure the ownership of all the files that are restored are the same as the user running the Go server.
 
