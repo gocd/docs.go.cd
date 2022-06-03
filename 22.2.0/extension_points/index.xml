@@ -13,7 +13,7 @@
       
       <guid>/extension_points/package_repository_extension.html</guid>
       <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards. Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
- jar, war or ear file in case of Java nuget/ chocolatey package in case of .</description>
+jar, war or ear file in case of Java nuget/ chocolatey package in case of .</description>
     </item>
     
     <item>

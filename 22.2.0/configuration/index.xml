@@ -13,9 +13,9 @@
       
       <guid>/configuration/access_tokens.html</guid>
       <description>Access Tokens From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp;amp; password) as a part of API request headers.
-Usage instructions   A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
- Before 19.2.0
- curl &amp;#39;https://ci.</description>
+Usage instructions A token can be used to access GoCD APIs and cctray.xml by passing it in API header.
+Before 19.2.0
+curl &amp;#39;https://ci.example.com/go/api/pipelines/pipeline1/status&amp;#39; \ -u &amp;#39;username:password&amp;#39; Going forward</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/quick_pipeline_setup.html</guid>
       <description>Add a New Pipeline There are many ways of creating pipelines in GoCD:
- You can create them by using Pipelines as Code, by adding pipeline definitions to a repository in formats such as Yaml, JSON, Groovy, etc. You can use GoCD&amp;rsquo;s extensive APIs to create a pipeline. See Pipeline Config API. You can use GoCD&amp;rsquo;s UI to create a pipeline (see below). By cloning an existing pipeline.  New Pipeline Wizard Clicking on the Admin -&amp;gt; Pipelines menu item will take you to the pipelines administration page.</description>
+You can create them by using Pipelines as Code, by adding pipeline definitions to a repository in formats such as Yaml, JSON, Groovy, etc. You can use GoCD&amp;rsquo;s extensive APIs to create a pipeline. See Pipeline Config API. You can use GoCD&amp;rsquo;s UI to create a pipeline (see below). By cloning an existing pipeline. New Pipeline Wizard Clicking on the Admin -&amp;gt; Pipelines menu item will take you to the pipelines administration page.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_job.html</guid>
       <description>Add a new job to an existing GoCD stage Now that we have a pipeline with stage(s), we can add more jobs to any of the existing stages. You can now use the tree navigation on the left side of the screen to edit a stage or a job under a pipeline.
- Click on the stage name that you want to edit on the tree as shown below.  Click on the Jobs tab Click on &amp;ldquo;Add new job&amp;rdquo;  Fill job name and job details  Fill in the details for the initial task belonging to this job.</description>
+Click on the stage name that you want to edit on the tree as shown below. Click on the Jobs tab Click on &amp;ldquo;Add new job&amp;rdquo; Fill job name and job details Fill in the details for the initial task belonging to this job.</description>
     </item>
     
     <item>
@@ -45,7 +45,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_material.html</guid>
       <description>Add a new material to an existing GoCD pipeline Now that you have a pipeline, lets add another material to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it.  Click on the Materials tab.  You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link.  You will get the following message  Edit the existing material and specify the destination directory  Click &amp;ldquo;Save&amp;rdquo;.</description>
+Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. Click on the Materials tab. You will notice an existing material . Click on the &amp;ldquo;Add new material&amp;rdquo; link. You will get the following message Edit the existing material and specify the destination directory Click &amp;ldquo;Save&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -55,7 +55,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_stage.html</guid>
       <description>Add a new stage to an existing GoCD pipeline Now that you have a pipeline with a single stage, lets add more stages to it.
- Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it.  Click on the Stages tab.  You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link.  Fill stage name and trigger type.</description>
+Navigate to the new pipeline you created by clicking on the Edit link under the Actions against it. Click on the Stages tab. You will notice that a defaultStage exists. Click on the &amp;ldquo;Add new stage&amp;rdquo; link. Fill stage name and trigger type. Fill in the details for the first job and first task belonging to this job.</description>
     </item>
     
     <item>
@@ -65,7 +65,7 @@ Usage instructions   A token can be used to access GoCD APIs and cctray.xml by p
       
       <guid>/configuration/admin_add_task.html</guid>
       <description>Add a new task to an existing GoCD Job Now that we have a pipeline with stage(s) containing job(s) we can add tasks to any of the existing jobs. You can now use the tree navigation on the left side of the screen to edit a job under a stage.
- Click on the job name that you want to edit on the tree as shown below.  Click on &amp;ldquo;Add new task&amp;rdquo;.</description>
+Click on the job name that you want to edit on the tree as shown below. Click on &amp;ldquo;Add new task&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -115,7 +115,7 @@ You can create a manual pipeline by setting the first stage to manual.</descript
       
       <guid>/configuration/clone_existing_agents.html</guid>
       <description>Setting up a new agent by cloning an existing agent in GoCD Clone the agent An easy way to set up a new agent is to clone an existing one which is already set up and is known to work correctly. You can clone an agent in a couple different ways:
- Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).</description>
+Copy the entire agent directory structure to a new location (can be on the same machine or on a different one).</description>
     </item>
     
     <item>
@@ -126,7 +126,7 @@ You can create a manual pipeline by setting the first stage to manual.</descript
       <guid>/configuration/delegating_group_administration.html</guid>
       <description>Delegating Group Administration A GoCD Administrator can authorize users and roles to be administrators for Pipeline Groups. These group administrators have certain privileges which are explained in the section &amp;ldquo;Privileges of a Group Administrator&amp;rdquo;.
 Steps to assign Group Administrators To assign a user as a group administrator:
- Click on &amp;ldquo;Pipelines&amp;rdquo; tab on the Admin section Locate the group you want to assign a group administrator to Click the &amp;ldquo;Edit&amp;rdquo; link for that group Here, you can define permissions for users and roles  In the above screenshot, the GoCD admin has delegated group admin privileges to a user &amp;ldquo;jez&amp;rdquo; and all users defined under the role &amp;ldquo;groupAdminRole&amp;rdquo;.</description>
+Click on &amp;ldquo;Pipelines&amp;rdquo; tab on the Admin section Locate the group you want to assign a group administrator to Click the &amp;ldquo;Edit&amp;rdquo; link for that group Here, you can define permissions for users and roles In the above screenshot, the GoCD admin has delegated group admin privileges to a user &amp;ldquo;jez&amp;rdquo; and all users defined under the role &amp;ldquo;groupAdminRole&amp;rdquo;.</description>
     </item>
     
     <item>
@@ -136,9 +136,9 @@ Steps to assign Group Administrators To assign a user as a group administrator:
       
       <guid>/configuration/deleting_pipelines.html</guid>
       <description>Deleting Pipelines Deleting a pipeline removes an existing pipeline from the config.
- Warning: Pipeline history is not removed from the database and artifacts are not removed from artifact storage, which may cause conflicts if a pipeline with the same name is later re-created.
- To delete a pipeline:
- Navigate to the &amp;ldquo;Admin&amp;rdquo; menu and click the &amp;ldquo;Pipelines&amp;rdquo; item. Locate the pipeline that needs to be deleted. In that row, click on the &amp;ldquo;Delete&amp;rdquo; icon.</description>
+Warning: Pipeline history is not removed from the database and artifacts are not removed from artifact storage, which may cause conflicts if a pipeline with the same name is later re-created.
+To delete a pipeline:
+Navigate to the &amp;ldquo;Admin&amp;rdquo; menu and click the &amp;ldquo;Pipelines&amp;rdquo; item. Locate the pipeline that needs to be deleted. In that row, click on the &amp;ldquo;Delete&amp;rdquo; icon.</description>
     </item>
     
     <item>
@@ -158,7 +158,7 @@ Developers can start building their own elastic-agent plugins by forking the ske
       
       <guid>/configuration/admin_mailhost_info.html</guid>
       <description>Email server configuration In order to allow email notifications, you need to tell GoCD information about your email server.
- Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your email server information (with username and password as required)  Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
+Click on the Admin &amp;gt; Server Configuration link in the top navigation bar Add your email server information (with username and password as required) Add an Administrator email address (this account will be emailed if the Go server is running out of disk space) Click &amp;lsquo;Send test email&amp;rsquo; to verify the configuration is working correctly Click &amp;lsquo;Save&amp;rsquo; when you&amp;rsquo;re sure it&amp;rsquo;s working.</description>
     </item>
     
     <item>
@@ -168,7 +168,7 @@ Developers can start building their own elastic-agent plugins by forking the ske
       
       <guid>/configuration/job_timeout.html</guid>
       <description>Job Timeout Introduction GoCD can be configured to automatically cancel jobs that do not generate any console output for a period of time. Default Job timeout options include:
- Never : Jobs will never be timed out by default. You can override this behavior when configuring the job in the job editor Timeout after a period of inactivity : A job will be cancelled if:  it did not have any console output for a period of time (in minutes) it was not assigned an agent    When a job is timed out, the onCancel task for the job will be triggered.</description>
+Never : Jobs will never be timed out by default. You can override this behavior when configuring the job in the job editor Timeout after a period of inactivity : A job will be cancelled if: it did not have any console output for a period of time (in minutes) it was not assigned an agent When a job is timed out, the onCancel task for the job will be triggered.</description>
     </item>
     
     <item>
@@ -239,7 +239,7 @@ Creating a new environment An Environment is a grouping of pipelines and agents.
       <guid>/configuration/managing_users.html</guid>
       <description>Managing Users GoCD&amp;rsquo;s user management features allow you to control access to GoCD and grant role-based permissions.
 All user management features depend on an authentication mechanism having been configured in GoCD. Please ensure you have at least one authentication mechanism enabled before attempting to use any of the features mentioned in this chapter.
-Adding Users  Click on the menu item: Admin -&amp;gt; Users Management. Click the &amp;ldquo;Import User&amp;rdquo; button Enter a name/email to search for (minimum 2 characters) and click &amp;ldquo;Search&amp;rdquo; This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc) From the list of results, select the user to add and click &amp;ldquo;Import User&amp;rdquo;  Assigning Roles Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</description>
+Adding Users Click on the menu item: Admin -&amp;gt; Users Management. Click the &amp;ldquo;Import User&amp;rdquo; button Enter a name/email to search for (minimum 2 characters) and click &amp;ldquo;Search&amp;rdquo; This will perform a search across all authentication mechanisms configured (across authentication mechanisms such as passwordfile, AD, etc) From the list of results, select the user to add and click &amp;ldquo;Import User&amp;rdquo; Assigning Roles Roles allow you to group a set of users with similar functional duties and grant them a common set of permissions.</description>
     </item>
     
     <item>
@@ -312,7 +312,7 @@ Clicking on the &amp;ldquo;Add New Template&amp;rdquo; brings up the following f
       <guid>/configuration/policy_in_gocd.html</guid>
       <description>Policy A policy is a set of permissions for GoCD entities such as environments, configuration repositories, etc. The policy defines the access of a GoCD entity for the users in a role. GoCD supports a restrictive model of access i.e. until access is granted, the entity can&amp;rsquo;t be accessed by anyone (except admins).
 A permission consists of 3 values:
- Type: The type of GoCD entity. Supported values are environment, config_repo, cluster_profile, elastic_agent_profile.</description>
+Type: The type of GoCD entity. Supported values are environment, config_repo, cluster_profile, elastic_agent_profile.</description>
     </item>
     
     <item>
@@ -323,7 +323,7 @@ A permission consists of 3 values:
       <guid>/configuration/dev_upload_test_report.html</guid>
       <description>Publishing artifacts When executing a job on an agent there are often artifacts created that we need to keep around.
 For example
- JUnit creates xml reports that GoCD is able to parse in order to help us understand why the build is broken. We can use GoCD with any JUnit style xml reports. a build automation tool might product an HTML report for test, or code coverage report that we wish to view alongside the build results we might create a video of our UI tests that we want displayed in GoCD.</description>
+JUnit creates xml reports that GoCD is able to parse in order to help us understand why the build is broken. We can use GoCD with any JUnit style xml reports. a build automation tool might product an HTML report for test, or code coverage report that we wish to view alongside the build results we might create a video of our UI tests that we want displayed in GoCD.</description>
     </item>
     
     <item>
@@ -332,7 +332,7 @@ For example
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/configuration/configuration_reference.html</guid>
-      <description>GoCD Configuration Reference   &amp;lt;cruise&amp;gt; &amp;lt;server&amp;gt; &amp;lt;siteUrls&amp;gt; &amp;lt;siteUrl/&amp;gt; &amp;lt;secureSiteUrl/&amp;gt; &amp;lt;/siteUrls&amp;gt; &amp;lt;security&amp;gt; &amp;lt;ldap&amp;gt; &amp;lt;bases&amp;gt; &amp;lt;base/&amp;gt; &amp;lt;/bases&amp;gt; &amp;lt;/ldap&amp;gt; &amp;lt;passwordFile/&amp;gt; &amp;lt;authConfigs&amp;gt; &amp;lt;authConfig&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/authConfig&amp;gt; &amp;lt;/authConfigs&amp;gt; &amp;lt;roles&amp;gt; &amp;lt;role&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;users/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/role&amp;gt; &amp;lt;pluginRole/&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/pluginRole&amp;gt; &amp;lt;/roles&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;mailhost/&amp;gt; &amp;lt;backup/&amp;gt; &amp;lt;artifacts&amp;gt; &amp;lt;artifactsDir/&amp;gt; &amp;lt;purgeSettings&amp;gt; &amp;lt;purgeStartDiskSpace/&amp;gt; &amp;lt;purgeUptoDiskSpace/&amp;gt; &amp;lt;/purgeSettings/&amp;gt; &amp;lt;/artifacts&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;elastic&amp;gt; &amp;lt;agentProfiles&amp;gt; &amp;lt;agentProfile&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/agentProfile&amp;gt; &amp;lt;/agentProfiles&amp;gt; &amp;lt;clusterProfiles&amp;gt; &amp;lt;clusterProfile/&amp;gt; &amp;lt;/clusterProfiles&amp;gt; &amp;lt;/elastic&amp;gt; &amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;pluginConfiguration/&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;packages&amp;gt; &amp;lt;package&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/package&amp;gt; &amp;lt;/packages&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; &amp;lt;config-repos&amp;gt; &amp;lt;config-repo&amp;gt; &amp;lt;svn /&amp;gt; &amp;lt;hg /&amp;gt; &amp;lt;p4 /&amp;gt; &amp;lt;git /&amp;gt; &amp;lt;tfs /&amp;gt; &amp;lt;scm /&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;/allow&amp;gt; &amp;lt;deny&amp;gt; &amp;lt;/deny&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/config-repo&amp;gt; &amp;lt;/config-repos&amp;gt; &amp;lt;artifactStores&amp;gt; &amp;lt;artifactStore&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/artifactStore&amp;gt; &amp;lt;/artifactStores&amp;gt; &amp;lt;secretConfigs&amp;gt; &amp;lt;secretConfig&amp;gt; &amp;lt;description&amp;gt; &amp;lt;/description&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;/allow&amp;gt; &amp;lt;deny&amp;gt; &amp;lt;/deny&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/secretConfig&amp;gt; &amp;lt;/secretConfigs&amp;gt; &amp;lt;pipelines&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;view&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/view&amp;gt; &amp;lt;operate&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/operate&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;params&amp;gt; &amp;lt;param/&amp;gt; &amp;lt;/params&amp;gt; &amp;lt;trackingtool/&amp;gt; &amp;lt;timer/&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;materials&amp;gt; &amp;lt;svn&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/svn&amp;gt; &amp;lt;hg&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/hg&amp;gt; &amp;lt;p4&amp;gt; &amp;lt;view/&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/p4&amp;gt; &amp;lt;git&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/git&amp;gt; &amp;lt;tfs&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/tfs&amp;gt; &amp;lt;package/&amp;gt; &amp;lt;pipeline/&amp;gt; &amp;lt;/materials&amp;gt; &amp;lt;stage&amp;gt; &amp;lt;approval&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;/approval&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;jobs&amp;gt; &amp;lt;job&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;resources&amp;gt; &amp;lt;resource/&amp;gt; &amp;lt;/resources&amp;gt; &amp;lt;tasks&amp;gt; &amp;lt;fetchartifact&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/fetchartifact&amp;gt; &amp;lt;ant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/ant&amp;gt; &amp;lt;nant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/nant&amp;gt; &amp;lt;rake&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/rake&amp;gt; &amp;lt;exec&amp;gt; &amp;lt;arg/&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/exec&amp;gt; &amp;lt;/tasks&amp;gt; &amp;lt;artifacts&amp;gt; &amp;lt;artifact/&amp;gt; &amp;lt;/artifacts&amp;gt; &amp;lt;tabs&amp;gt; &amp;lt;tab/&amp;gt; &amp;lt;/tabs&amp;gt; &amp;lt;/job&amp;gt; &amp;lt;/jobs&amp;gt; &amp;lt;/stage&amp;gt; &amp;lt;/pipeline&amp;gt; &amp;lt;/pipelines&amp;gt; &amp;lt;templates&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;stage&amp;gt; .</description>
+      <description>GoCD Configuration Reference &amp;lt;cruise&amp;gt; &amp;lt;server&amp;gt; &amp;lt;siteUrls&amp;gt; &amp;lt;siteUrl/&amp;gt; &amp;lt;secureSiteUrl/&amp;gt; &amp;lt;/siteUrls&amp;gt; &amp;lt;security&amp;gt; &amp;lt;ldap&amp;gt; &amp;lt;bases&amp;gt; &amp;lt;base/&amp;gt; &amp;lt;/bases&amp;gt; &amp;lt;/ldap&amp;gt; &amp;lt;passwordFile/&amp;gt; &amp;lt;authConfigs&amp;gt; &amp;lt;authConfig&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/authConfig&amp;gt; &amp;lt;/authConfigs&amp;gt; &amp;lt;roles&amp;gt; &amp;lt;role&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;users/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/role&amp;gt; &amp;lt;pluginRole/&amp;gt; &amp;lt;policy&amp;gt; &amp;lt;allow/&amp;gt; &amp;lt;deny/&amp;gt; &amp;lt;/policy&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/pluginRole&amp;gt; &amp;lt;/roles&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;/security&amp;gt; &amp;lt;mailhost/&amp;gt; &amp;lt;backup/&amp;gt; &amp;lt;artifacts&amp;gt; &amp;lt;artifactsDir/&amp;gt; &amp;lt;purgeSettings&amp;gt; &amp;lt;purgeStartDiskSpace/&amp;gt; &amp;lt;purgeUptoDiskSpace/&amp;gt; &amp;lt;/purgeSettings/&amp;gt; &amp;lt;/artifacts&amp;gt; &amp;lt;/server&amp;gt; &amp;lt;elastic&amp;gt; &amp;lt;agentProfiles&amp;gt; &amp;lt;agentProfile&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/agentProfile&amp;gt; &amp;lt;/agentProfiles&amp;gt; &amp;lt;clusterProfiles&amp;gt; &amp;lt;clusterProfile/&amp;gt; &amp;lt;/clusterProfiles&amp;gt; &amp;lt;/elastic&amp;gt; &amp;lt;repositories&amp;gt; &amp;lt;repository&amp;gt; &amp;lt;pluginConfiguration/&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;packages&amp;gt; &amp;lt;package&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;/package&amp;gt; &amp;lt;/packages&amp;gt; &amp;lt;/repository&amp;gt; &amp;lt;/repositories&amp;gt; &amp;lt;config-repos&amp;gt; &amp;lt;config-repo&amp;gt; &amp;lt;svn /&amp;gt; &amp;lt;hg /&amp;gt; &amp;lt;p4 /&amp;gt; &amp;lt;git /&amp;gt; &amp;lt;tfs /&amp;gt; &amp;lt;scm /&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;/allow&amp;gt; &amp;lt;deny&amp;gt; &amp;lt;/deny&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/config-repo&amp;gt; &amp;lt;/config-repos&amp;gt; &amp;lt;artifactStores&amp;gt; &amp;lt;artifactStore&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/artifactStore&amp;gt; &amp;lt;/artifactStores&amp;gt; &amp;lt;secretConfigs&amp;gt; &amp;lt;secretConfig&amp;gt; &amp;lt;description&amp;gt; &amp;lt;/description&amp;gt; &amp;lt;configuration&amp;gt; &amp;lt;property&amp;gt; &amp;lt;key/&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/property&amp;gt; &amp;lt;/configuration&amp;gt; &amp;lt;rules&amp;gt; &amp;lt;allow&amp;gt; &amp;lt;/allow&amp;gt; &amp;lt;deny&amp;gt; &amp;lt;/deny&amp;gt; &amp;lt;/rules&amp;gt; &amp;lt;/secretConfig&amp;gt; &amp;lt;/secretConfigs&amp;gt; &amp;lt;pipelines&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;admins&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/admins&amp;gt; &amp;lt;view&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/view&amp;gt; &amp;lt;operate&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;/operate&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;params&amp;gt; &amp;lt;param/&amp;gt; &amp;lt;/params&amp;gt; &amp;lt;trackingtool/&amp;gt; &amp;lt;timer/&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;materials&amp;gt; &amp;lt;svn&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/svn&amp;gt; &amp;lt;hg&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/hg&amp;gt; &amp;lt;p4&amp;gt; &amp;lt;view/&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/p4&amp;gt; &amp;lt;git&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/git&amp;gt; &amp;lt;tfs&amp;gt; &amp;lt;filter&amp;gt; &amp;lt;ignore/&amp;gt; &amp;lt;/filter&amp;gt; &amp;lt;/tfs&amp;gt; &amp;lt;package/&amp;gt; &amp;lt;pipeline/&amp;gt; &amp;lt;/materials&amp;gt; &amp;lt;stage&amp;gt; &amp;lt;approval&amp;gt; &amp;lt;authorization&amp;gt; &amp;lt;role/&amp;gt; &amp;lt;user/&amp;gt; &amp;lt;/authorization&amp;gt; &amp;lt;/approval&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;jobs&amp;gt; &amp;lt;job&amp;gt; &amp;lt;environmentvariables&amp;gt; &amp;lt;variable&amp;gt; &amp;lt;value/&amp;gt; &amp;lt;/variable&amp;gt; &amp;lt;/environmentvariables&amp;gt; &amp;lt;resources&amp;gt; &amp;lt;resource/&amp;gt; &amp;lt;/resources&amp;gt; &amp;lt;tasks&amp;gt; &amp;lt;fetchartifact&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/fetchartifact&amp;gt; &amp;lt;ant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/ant&amp;gt; &amp;lt;nant&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/nant&amp;gt; &amp;lt;rake&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/rake&amp;gt; &amp;lt;exec&amp;gt; &amp;lt;arg/&amp;gt; &amp;lt;runif/&amp;gt; &amp;lt;oncancel/&amp;gt; &amp;lt;/exec&amp;gt; &amp;lt;/tasks&amp;gt; &amp;lt;artifacts&amp;gt; &amp;lt;artifact/&amp;gt; &amp;lt;/artifacts&amp;gt; &amp;lt;tabs&amp;gt; &amp;lt;tab/&amp;gt; &amp;lt;/tabs&amp;gt; &amp;lt;/job&amp;gt; &amp;lt;/jobs&amp;gt; &amp;lt;/stage&amp;gt; &amp;lt;/pipeline&amp;gt; &amp;lt;/pipelines&amp;gt; &amp;lt;templates&amp;gt; &amp;lt;pipeline&amp;gt; &amp;lt;stage&amp;gt; .</description>
     </item>
     
     <item>

@@ -24,7 +24,7 @@ Docker in Docker (DinD) Docker in Docker involves setting up a docker binary and
       <guid>/gocd_on_kubernetes/importing_a_sample_workflow.html</guid>
       <description>Getting Started with GoCD on Kubernetes Step 3: Import sample pipeline to build and deploy a sample application In this section, we&amp;rsquo;ll import a set of GoCD pipelines that build and deploy a sample application with a Docker based build workflow.
 This section uses GoCDs pipelines as code capability to import sample pipeline definitions from an external Git repository.
-Prerequisites   The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
+Prerequisites The sample pipelines build a sample application as a Docker image artifact and publish it to Dockerhub.</description>
     </item>
     
     <item>
@@ -35,7 +35,7 @@ Prerequisites   The sample pipelines build a sample application as a Docker imag
       <guid>/gocd_on_kubernetes/helm_install.html</guid>
       <description>Getting Started with GoCD on Kubernetes Step 2: Install the GoCD Helm chart Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
 First verify your Helm version using command helm version, then install the official GoCD Helm chart as follows:
- Add the GoCD helm chart repository:  helm repo add gocd https://gocd.github.io/helm-chart helm repo update Run the install command:  For Helm v3:</description>
+Add the GoCD helm chart repository: helm repo add gocd https://gocd.github.io/helm-chart helm repo update Run the install command: For Helm v3:</description>
     </item>
     
     <item>
@@ -46,7 +46,7 @@ First verify your Helm version using command helm version, then install the offi
       <guid>/gocd_on_kubernetes/introduction.html</guid>
       <description>Getting Started with GoCD on Kubernetes Introduction GoCD gives you the flexibility to effectively represent CD pipelines that suit your organization&amp;rsquo;s processes. Kubernetes gives you a highly programmable delivery infrastructure platform. And together, they provide the foundation for a powerful Continuous Delivery platform.
 With this documentation guide, you&amp;rsquo;ll be able to
- Setup and configure an instance of GoCD on a Kubernetes cluster. Install GoCD on Kubernetes the GoCD Helm chart.</description>
+Setup and configure an instance of GoCD on a Kubernetes cluster. Install GoCD on Kubernetes the GoCD Helm chart. Import sample workflow.</description>
     </item>
     
     <item>

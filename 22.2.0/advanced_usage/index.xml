@@ -15,7 +15,7 @@
       <description>Agent Health Check API Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
 The health check API allows users to monitor if the agent is connected to the server and is authorized to perform a build.
 Configurations The API uses the following configurable agent system properties.
-   Property Values     go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point   go.</description>
+Property Values go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point go.agent.status.api.bind.host Defaults to localhost. Set to a specific ip address or hostname to bind to that host.</description>
     </item>
     
     <item>
@@ -25,7 +25,7 @@ Configurations The API uses the following configurable agent system properties.
       
       <guid>/advanced_usage/agent_auto_register.html</guid>
       <description>Auto registration of remote agents As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.
- Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;ldquo;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present.  &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt;  &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt;  ... &amp;lt;/cruise&amp;gt;   On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.</description>
+Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;ldquo;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present. &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt; &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt; ... &amp;lt;/cruise&amp;gt; On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.properties. In a native agent installation this file is usually located on /var/lib/go-agent/config/ directory.</description>
     </item>
     
     <item>
@@ -35,9 +35,9 @@ Configurations The API uses the following configurable agent system properties.
       
       <guid>/advanced_usage/one_click_backup.html</guid>
       <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of GoCD. You can also perform a backup using the API.
-Steps to initiate backup   After you are logged into GoCD, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
- Note: GoCD will be unusable during the backup process.
-   Backup time is proportional to the database and configuration size.</description>
+Steps to initiate backup After you are logged into GoCD, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.
+Note: GoCD will be unusable during the backup process.
+Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle.</description>
     </item>
     
     <item>
@@ -48,7 +48,7 @@ Steps to initiate backup   After you are logged into GoCD, click on the Admin &a
       <guid>/advanced_usage/dev_clean_up_when_cancel.html</guid>
       <description>Clean up after canceling a task When you have jobs that take a long time to run, it is very useful to have the capability to cancel it when you already know it will fail.
 By default, GoCD will kill any currently running tasks . There are two other alternatives to this behaviour
- Specify a task to clean up your environment. This could kill the processes and cleanup any existing state.</description>
+Specify a task to clean up your environment. This could kill the processes and cleanup any existing state.</description>
     </item>
     
     <item>
@@ -58,8 +58,8 @@ By default, GoCD will kill any currently running tasks . There are two other alt
       
       <guid>/advanced_usage/compare_pipelines.html</guid>
       <description>Compare Builds GoCD allows you to compare any two builds of a pipeline and see exactly what changes happened between those two instances. The information in this view will include:
- Code checkins Upstream pipelines Story/defect numbers (when linked to a tracking tool)  Accessing Pipeline Compare There are several locations from where the Pipeline Compare feature can be invoked. These include:
- Pipelines Dashboard page (the &amp;ldquo;Compare&amp;rdquo; link in each pipeline) Environments page Stage Details page Stage History widget within the Stage Details page  Understanding the Pipeline Compare Screen The Pipeline Compare screen lets you compare any two instances of a pipeline.</description>
+Code checkins Upstream pipelines Story/defect numbers (when linked to a tracking tool) Accessing Pipeline Compare There are several locations from where the Pipeline Compare feature can be invoked. These include:
+Pipelines Dashboard page (the &amp;ldquo;Compare&amp;rdquo; link in each pipeline) Environments page Stage Details page Stage History widget within the Stage Details page Understanding the Pipeline Compare Screen The Pipeline Compare screen lets you compare any two instances of a pipeline.</description>
     </item>
     
     <item>
@@ -108,7 +108,7 @@ Assigning the virtual IP Follow the instructions provided below to setup a virtu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity.html</guid>
-      <description>GoCD Business Continuity  Introduction Initial Setup Configure Agents and Shared Drive Monitoring and Recovery Server Upgrades  </description>
+      <description>GoCD Business Continuity Introduction Initial Setup Configure Agents and Shared Drive Monitoring and Recovery Server Upgrades </description>
     </item>
     
     <item>
@@ -118,7 +118,7 @@ Assigning the virtual IP Follow the instructions provided below to setup a virtu
       
       <guid>/advanced_usage/stage_duration_chart.html</guid>
       <description>Graphs Stage Duration Chart GoCD provides a chart on the stage details page which can be used for trend analysis of the stage&amp;rsquo;s periodic runs. This graph shows two line graphs, one each for passed and failed stage instances which are plotted using the total duration of the last 300 stage instances.
-To navigate to the Graphs:  Click on the stage bar of the relevant stage on the pipelines dashboard.</description>
+To navigate to the Graphs: Click on the stage bar of the relevant stage on the pipelines dashboard. Click on the tab &amp;lsquo;Graphs&amp;rsquo;.</description>
     </item>
     
     <item>
@@ -200,7 +200,7 @@ System properties If an option specified below is of type &amp;ldquo;System prop
       
       <guid>/advanced_usage/pipeline_activity.html</guid>
       <description>Pipeline activity The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)
-Overview    Actions Description     Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</description>
+Overview Actions Description Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline. Pipeline settings Take user to pipeline settings page.</description>
     </item>
     
     <item>
@@ -240,7 +240,7 @@ The post backup script The post backup script, if configured, will be invoked re
       <guid>/advanced_usage/trigger_with_options.html</guid>
       <description>Trigger with a different revision of material GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).
 Trigger with options Information The following information are displayed for the last 5 revisions. For an SCM material, the following information is shown
- Revision hash or pipeline label Committer Check-in comment for the revision Check-in time of the revision  For a pipeline material, the pipeline label and the corresponding run time is shown</description>
+Revision hash or pipeline label Committer Check-in comment for the revision Check-in time of the revision For a pipeline material, the pipeline label and the corresponding run time is shown</description>
     </item>
     
     <item>
@@ -251,7 +251,7 @@ Trigger with options Information The following information are displayed for the
       <guid>/advanced_usage/ui_testing.html</guid>
       <description>UI testing Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&amp;rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&amp;rsquo;s how you do it.
 Windows The first step is to disable the GoCD agent service. To do this:
- Log in to your Windows machine as an Administrative user.</description>
+Log in to your Windows machine as an Administrative user.</description>
     </item>
     
     <item>
@@ -261,8 +261,8 @@ Windows The first step is to disable the GoCD agent service. To do this:
       
       <guid>/advanced_usage/business_continuity/upgrade.html</guid>
       <description>Upgrading Primary and Secondary GoCD Servers using Business Continuity Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
-Please take appropriate backups before proceeding with your server upgrade    Shutdown down both the Primary and Secondary GoCD server.
-  Perform server upgrade by following our documentation here for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade.</description>
+Please take appropriate backups before proceeding with your server upgrade Shutdown down both the Primary and Secondary GoCD server.
+Perform server upgrade by following our documentation here for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade.</description>
     </item>
     
   </channel>
