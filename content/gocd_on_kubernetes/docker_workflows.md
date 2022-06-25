@@ -27,7 +27,7 @@ This requires the docker binary to be installed in the gocd agent image because 
 
 This can be achieved by doing:
 ```bash
-docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e GO_SERVER_URL="https://<go-server-ip>:8154/go" <gocd-agent-image-with-docker>
+docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e GO_SERVER_URL="https://<go-server-ip>/go" <gocd-agent-image-with-docker>
 ```
 
 **Drawbacks:**

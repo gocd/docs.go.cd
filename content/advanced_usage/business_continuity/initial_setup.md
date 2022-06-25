@@ -132,10 +132,10 @@ Given that a standby PostgreSQL instance has been setup for replication, we can 
 
 4. Setup `db.properties` to point to the standby PostgreSQL instance. Usually this file is extremely similar to the `/etc/go/db.properties` (on Linux) Or `<GoCD server installation dir>/config/db.properties` (on Windows) file of the primary GoCD Server, with the database host changed to point to the standby PostgreSQL instance.
 
-5. Start up the standby GoCD Server in passive state, by setting the system property `go.server.mode` to the value `standby` and the system property `bc.primary.url` to the base URL of the primary GoCD Server (for instance, `https://primarygo:8154`). So, your standby GoCD Server instance should be started with arguments such as:
+5. Start up the standby GoCD Server in passive state, by setting the system property `go.server.mode` to the value `standby` and the system property `bc.primary.url` to the base URL of the primary GoCD Server (for instance, `https://primarygo`). So, your standby GoCD Server instance should be started with arguments such as:
 
     ```shell
-      -Dgo.server.mode=standby -Dbc.primary.url="https://primarygo:8154"
+      -Dgo.server.mode=standby -Dbc.primary.url="https://primarygo"
     ```
 
     Edit the file `wrapper-properties.conf` on your GoCD server and add the following options (replace `primarygo` with the IP of your primary GoCD server). The location of the `wrapper-properties.conf` can be found in the [installation documentation](https://docs.gocd.org/current/installation/installing_go_server.html) of the GoCD server.
@@ -143,13 +143,13 @@ Given that a standby PostgreSQL instance has been setup for replication, we can 
     ```properties
       # We recommend that you begin with the index `100` and increment the index for each system property
       wrapper.java.additional.100=-Dgo.server.mode=standby
-      wrapper.java.additional.101=-Dbc.primary.url="https://primarygo:8154
+      wrapper.java.additional.101=-Dbc.primary.url="https://primarygo
     ```
 
     If you're running on docker using one of the supported GoCD server images, set the environment variable `GOCD_SERVER_JVM_OPTIONS`, replacing `primarygo` with the IP of your primary GoCD server:
 
     ```shell
-      docker run -e "GOCD_SERVER_JVM_OPTIONS=-Dgo.server.mode=standby -Dbc.primary.url="https://primarygo:8154" ...
+      docker run -e "GOCD_SERVER_JVM_OPTIONS=-Dgo.server.mode=standby -Dbc.primary.url="https://primarygo" ...
     ```
 
 6. After you have completed all of the aforementioned steps and restarted standby GoCD server, login to the standby dashboard using the business continuity token you setup in ` Step2 ` above in `business-continuity-token` file.
@@ -194,7 +194,7 @@ Just like the PostgreSQL recovery trigger file, you can setup a trigger file whi
 
 ```shell
   if [ -e "/etc/go/start.in.standby" ]; then
-    export GOCD_SERVER_JVM_OPTIONS="$GOCD_SERVER_JVM_OPTIONS -Dgo.server.mode=standby -Dbc.primary.url=https://primarygo:8154"
+    export GOCD_SERVER_JVM_OPTIONS="$GOCD_SERVER_JVM_OPTIONS -Dgo.server.mode=standby -Dbc.primary.url=https://primarygo"
   fi
 ```
 
