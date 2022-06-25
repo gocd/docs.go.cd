@@ -33,17 +33,17 @@ at the end of these files might be interesting. Some common errors are:
         INFO  apache.commons.httpclient.HttpMethodDirector:438 - I/O exception (java.net.ConnectException) caught when processing request: Connection refused
         INFO  apache.commons.httpclient.HttpMethodDirector:444 - Retrying request
 
-    The problem here is that the agent cannot reach the server, either because of
-    a problem with the network or because the ports used by the server are not
-    accessible due to firewall restrictions. The GoCD server uses two ports, 8153
-    and 8154 (by default). These two ports need to be accessible by the agents.
+    The problem here is that the agent cannot reach the server, either because of a problem with the network or because 
+    the ports used by the server are not accessible due to firewall restrictions. The GoCD server uses port 8153 by 
+    default over HTTP, but if you have configured a [reverse proxy](../installation/configure-reverse-proxy.html) to 
+    terminate TLS, you should ensure the agent is configured with the correct protocol/host/port for the server.
 
 2. **Unable to connect - SSL handshake error or connection reset**
 
     This manifests itself as logs in go-agent-bootstrapper.out.log with lines similar to this:
 
-        180679 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
-        java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+        180679 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
+        java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER/go/admin/agent-launcher.jar: javax.net.ssl.SSLHandshakeException: Remote host closed connection during handshake
         at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
         at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.headers(ServerBinaryDownloader.java:130)
         at com.thoughtworks.go.agent.launcher.ServerBinaryDownloader.downloadIfNecessary(ServerBinaryDownloader.java:106)
@@ -81,25 +81,18 @@ at the end of these files might be interesting. Some common errors are:
 
     or this:
 
-        2986 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
-        java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER:8154/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+        2986 [main] ERROR com.thoughtworks.go.agent.launcher.ServerCall  - Couldn't access Go Server with base url: https://YOUR_SERVER/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
+        java.lang.Exception: Couldn't access Go Server with base url: https://YOUR_SERVER/go/admin/agent-launcher.jar: java.net.SocketException: Connection reset
         at com.thoughtworks.go.agent.launcher.ServerCall.invoke(ServerCall.java:78)
         ...
 
-    The problem here is that the agent is not able to connect securely to the
-    server, which points to an invalid certificate. This can happen if an agent
-    has connected to one GoCD server and is then pointed to another GoCD
-    server. It will try to connect to the new server using the certificate that
-    was for the older server and it will fail.
+    The problem here is that the agent is not able to connect securely to the server, which points to an invalid 
+    certificate or a certificate that the agent does not trust.
 
-    The resolution is to move or rename the agent.jks file found the in the
-    config/ directory of the agent and restarting the agent. That should make it
-    connect using the correct certificate.
-
-    If you're using full
-    [end-to-end transport security](../installation/ssl_tls/end_to_end_transport_security.html),
-    this error might mean that the server's certificate has changed and you need
-    to provide the update certificate.
+    If you're using full [end-to-end transport security](../installation/ssl_tls/end_to_end_transport_security.html) 
+    with a [reverse proxy](../installation/configure-reverse-proxy.html) or load balancer terminating TLS, this error 
+    might mean that the server's certificate has changed or that the agent's configuration needs to be updated to
+    trust the server's current certificate.
 
 3. **Incompatible Java version**
 
@@ -259,19 +252,14 @@ Resolution: If this is happening, consider increase the timeout period by specif
 <a name="https-port-not-started"></a>
 ### Application not listening to port 8154 (HTTPS)
 
-From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL certificates or listen to port 8154 (HTTPS) by default. To keep backward compatibility and minimize disruption:
+From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL/TLS certificates or listen to port 8154 (HTTPS) *by default*.
+From GoCD 20.5.0 the server no longer contains any functionality to configure TLS on the server.
 
-- New versions of GoCD (>= 20.2) will not bring up TLS port 8154. There will be no way for such users to configure built-in TLS. A reverse
-  proxy will need to be the one terminating TLS if needed.
+Users are expected to terminate TLS elsewhere, for example using a [reverse proxy](../installation/configure-reverse-proxy.html)
+or load balancer.
 
-- Users upgrading to GoCD (20.2-20.4) will notice that the server does not bring up TLS on port 8154, but emits a warning indicating how
-  they can turn it on, and go back to how it was earlier. The warning message will include a timeline when the toggle will go away, along
-  with instructions on how to set it up correctly using a reverse proxy.
-
-- Version 20.5 of GoCD server will no longer contain any functionality to configure TLS. At this point, users will be expected to terminate
-  SSL elsewhere.
-
-More information can be found [in issue #7872](https://github.com/gocd/gocd/issues/7872).
+Versions between 20.2.0 and 20.5.0 allowed fallback to use previous configuration as a temporary measure. More information
+can be found [in issue #7872](https://github.com/gocd/gocd/issues/7872).
 
 <a name="ports-in-use"></a>
 ### Port 8153 (HTTP) could not be opened
