@@ -6,7 +6,7 @@ title: Configure an agent with proxy
 
 # Configure a GoCD agent to connect to a server through a proxy server.
 
-**Note:** Using this feature requires atleast version `17.11.0` of the GoCD server and agent.
+**Note:** Using this feature requires at least version `17.11.0` of the GoCD server and agent.
 
 Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions [defined by the JVM](https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html):
 

@@ -29,7 +29,7 @@ The steps in this page can be followed to upgrade GoCD. It is recommended to und
 
 ### Upgrading to the new version
 
-You do not need to stop the Agents to perform an upgrade. GoCD agents will automatically update to the correct version of the software. You do not need to upgrade the GoCD agents. Any builds in progress will be rescheduled, and the existing pipelines will complete as expected. Typically, the installed server will remain compatible with a version of a GoCD agent that is atleast 1 year old.
+You do not need to stop the Agents to perform an upgrade. GoCD agents will automatically update to the correct version of the software. You do not need to upgrade the GoCD agents. Any builds in progress will be rescheduled, and the existing pipelines will complete as expected. Typically, the installed server will remain compatible with a version of a GoCD agent that is at least 1 year old.
 
 GoCD will perform upgrades of its configuration and database when it starts. This process may take some time for installations with a large number of historical builds (10 to 15 minutes on very large installations). If you suspect that there is a problem with the upgrade, check the `go-server.log` file to see if there are any reported errors. This migration happens only upon an upgrade, and subsequent restarts will be much faster.
 
