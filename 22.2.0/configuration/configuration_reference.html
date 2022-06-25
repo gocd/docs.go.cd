@@ -654,7 +654,7 @@ if (!doNotTrack) {
 <li>If both <code>&lt;siteUrl&gt;</code> and <code>&lt;secureSiteUrl&gt;</code> are not defined, GoCD URLs will use the default domain which in most cases will be <code>http://your-go-server:8153</code></li>
 <li>If only <code>&lt;siteUrl&gt;</code> is defined and is not HTTPS, GoCD URLs will be composed from the <code>&lt;siteUrl&gt;</code> entry. In this case, the secure pages of GoCD will not be navigable.</li>
 <li>If only <code>&lt;siteUrl&gt;</code> is defined and is HTTPS, GoCD URLs will be composed from the <code>&lt;siteUrl&gt;</code> entry and all pages will be HTTPS.</li>
-<li>If only <code>&lt;secureSiteUrl&gt;</code> is defined, GoCD URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the <code>&lt;secureSiteUrl&gt;</code> entry.</li>
+<li>If only <code>&lt;secureSiteUrl&gt;</code> is defined, GoCD URLs will use the default domain for non-HTTPS pages, while HTTPS pages will be composed from the <code>&lt;secureSiteUrl&gt;</code> entry.</li>
 </ul>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
@@ -663,7 +663,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/siteUrls&gt;</span>
 </span></span></code></pre></div><p><a href="#top">top</a></p>
 <h2 id="siteUrl">&lt;siteUrl&gt;</h2>
-<p>The <code>&lt;siteUrl&gt;</code> element is used by GoCD Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. <code>Format: [protocol]://[host]:[port]</code>. You need to define the [port] in case GoCD uses a non-standard port. The [Protocol] can be HTTP or HTTPs.</p>
+<p>The <code>&lt;siteUrl&gt;</code> element is used by GoCD Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. <code>Format: [protocol]://[host]:[port]</code>. You need to define the [port] in case GoCD uses a non-standard port. The [Protocol] can be HTTP or HTTPS.</p>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://siteUrl.com<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>
@@ -1580,7 +1580,7 @@ A cluster profile should have a unique <code>id</code> attribute and should be a
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;cluster-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>GoServerUrl<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>https://your-server-host:8154/go<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;value&gt;</span>https://your-server-host/go<span style="color:#008000;font-weight:bold">&lt;/value&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/property&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;key&gt;</span>ClusterName<span style="color:#008000;font-weight:bold">&lt;/key&gt;</span>
@@ -3505,7 +3505,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <tbody>
 <tr>
 <td><code>GO_SERVER_URL</code></td>
-<td>The base URL for the server, including &lsquo;/go&rsquo;. For example: <code>https://localhost:8154/go</code></td>
+<td>The base URL for the server, including &lsquo;/go&rsquo;. For example: <code>http://localhost:8153/go</code></td>
 </tr>
 <tr>
 <td><code>GO_PIPELINE_NAME</code></td>
@@ -3528,7 +3528,7 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <td>The name of the job that is being run</td>
 </tr>
 <tr>
-<td><code>GO_DEPENDENCY_LABEL_ &lt;upstream_pipeline_name&gt;_&lt;upstream_stage_name&gt;</code></td>
+<td><code>GO_DEPENDENCY_LABEL_&lt;upstream_pipeline_name&gt;_&lt;upstream_stage_name&gt;</code></td>
 <td>The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: &lsquo;GO_DEPENDENCY_LABEL_FRAMEWORK_DEV&rsquo; is the environment variable where the name of the upstream pipeline is &lsquo;framework&rsquo; and the upstream stage is &lsquo;dev&rsquo;. Hyphen (&rsquo;-&rsquo;) is an illegal character in an environment variable. So if a pipeline name or stage name contains &lsquo;-&rsquo;, it will be converted into an underscore. For example, &lsquo;pipeline-foo&rsquo; with stage &lsquo;stage-foo&rsquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO.</td>
 </tr>
 <tr>

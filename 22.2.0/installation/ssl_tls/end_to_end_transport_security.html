@@ -333,11 +333,10 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="configure-end-to-end-transport-security">Configure end-to-end transport security</h1>
-<p><strong>Note:</strong> To ensure end-to-end transport encryption, please ensure that both your GoCD server and agent are running on atleast version 16.7.0</p>
 <p>This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.</p>
 <p>The GoCD agent allows for some configuration to be able to configure and secure the end-to-end transport security to varying security levels.</p>
 <p>The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you&rsquo;d like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.</p>
-<p><code>java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST] [-sslCertificate /path/to/certificate.pem] [-sslPrivateKey /path/to/private-key.pem] [-sslPrivateKeyPassphraseFile /path/to/private-key-passphrase]</code></p>
+<p><code>java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST] [-sslCertificate /path/to/certificate.pem] [-sslPrivateKey /path/to/private-key.pem] [-sslPrivateKeyPassphraseFile /path/to/private-key-passphrase]</code></p>
 <h2 id="the--rootcertfile-option">The <code>-rootCertFile</code> option</h2>
 <p>The <code>-rootCertFile</code> option must point to the root certificate from the GoCD server (If you&rsquo;re using a certificate signed by a known CA, you may not need to pass the rootCertFile if the root certificate is present in the default JVM trust store). You can export it from firefox using the <a href="https://support.mozilla.org/en-US/kb/page-info-window-view-technical-details-about-page#w_security">page info window</a> by clicking &ldquo;export&rdquo; from the certificate details page as shown below:</p>
 <p><img src="../../images/agent_tls_cert_export_from_firefox.png" alt="Download TLS certificate from GoCD server using Firefox"></p>
@@ -351,9 +350,9 @@ if (!doNotTrack) {
 <li><code>FULL</code> will perform complete certificate validation.</li>
 </ul>
 <h2 id="the--sslcertificate-option">The <code>-sslCertificate</code> option</h2>
-<p>For performing mutual TLS between the GoCD agent and server, specify the certificate (in PEM format) that the agent should use to authenticate with the HTTPs server.</p>
+<p>For performing mutual TLS between the GoCD agent and server, specify the certificate (in PEM format) that the agent should use to authenticate with the HTTPS server.</p>
 <h2 id="the--sslprivatekey-option">The <code>-sslPrivateKey</code> option</h2>
-<p>For performing mutual TLS between the GoCD agent and server, specify the private key (in PEM format) that the agent should use to authenticate with the HTTPs server.</p>
+<p>For performing mutual TLS between the GoCD agent and server, specify the private key (in PEM format) that the agent should use to authenticate with the HTTPS server.</p>
 <h2 id="the--sslprivatekeypassphrasefile-option">The <code>-sslPrivateKeyPassphraseFile</code> option</h2>
 <p>If the private key is encrypted using a passphrase, specify the file that contains the passphrase.</p>
 <h2 id="configuring-the-agent">Configuring the agent</h2>

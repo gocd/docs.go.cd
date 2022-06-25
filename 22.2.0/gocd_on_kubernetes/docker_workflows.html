@@ -343,7 +343,7 @@ if (!doNotTrack) {
 <p>Docker outside of Docker involves volume mounting the host&rsquo;s docker socket onto the GoCD agent container and use the host&rsquo;s docker daemon to execute docker related commands from the CI.</p>
 <p>This requires the docker binary to be installed in the gocd agent image because the Docker Engine is no longer distributed as (almost) static libraries.</p>
 <p>This can be achieved by doing:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e <span style="color:#b8860b">GO_SERVER_URL</span><span style="color:#666">=</span><span style="color:#b44">&#34;https://&lt;go-server-ip&gt;:8154/go&#34;</span> &lt;gocd-agent-image-with-docker&gt;
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>docker run -it -v /var/run/docker.sock:/var/run/docker.sock -e <span style="color:#b8860b">GO_SERVER_URL</span><span style="color:#666">=</span><span style="color:#b44">&#34;https://&lt;go-server-ip&gt;/go&#34;</span> &lt;gocd-agent-image-with-docker&gt;
 </span></span></code></pre></div><p><strong>Drawbacks:</strong></p>
 <ul>
 <li>Maintaining a custom gocd agent image with docker.</li>

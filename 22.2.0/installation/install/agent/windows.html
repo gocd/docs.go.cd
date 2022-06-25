@@ -339,7 +339,7 @@ if (!doNotTrack) {
 <li>Double-click the <code>go-agent-${version}-setup.exe</code> installer file and follow the prompts to install Go.</li>
 <li>During installation you will be asked to select a root path for your GoCD agent. In addition to being the agent installation directory, this directory will contain also contain a directory where your source code is checked out and built.</li>
 <li>You will next be prompted to choose the bundled JRE or specify the location of JRE (or JDK) installed on your system.</li>
-<li>After installing the files, the installer will prompt you for the hostname or IP address of the GoCD server. Leaving this blank it will default to <code>https://localhost:8154/go</code>.</li>
+<li>After installing the files, the installer will prompt you for the hostname or IP address of the GoCD server. Leaving this blank it will default to <code>http://localhost:8153/go</code>.</li>
 <li>At the end of the installation, GoCD agent registers itself as a windows service and starts running automatically.</li>
 </ol>
 <h1 id="silent-headless-installation">Silent (Headless) Installation</h1>
@@ -357,12 +357,12 @@ if (!doNotTrack) {
 <tr>
 <td><code>/D</code></td>
 <td>No</td>
-<td>The path where the server should be installed. Defaults to <code>C:\Program Files(x86)\Go Server</code>. <strong>Must be the last parameter on the command line and must not contain quotes even if the path contains blank spaces.</strong></td>
+<td>The path where the server should be installed. Defaults to <code>C:\Program Files (x86)\Go Server</code>. <strong>Must be the last parameter on the command line and must not contain quotes even if the path contains blank spaces.</strong></td>
 </tr>
 <tr>
 <td><code>/SERVERURL</code></td>
 <td>No</td>
-<td>The URL of the GoCD server. Defaults to <code>https://127.0.0.1:8154/go</code>.</td>
+<td>The URL of the GoCD server. Defaults to <code>http://127.0.0.1:8153/go</code>.</td>
 </tr>
 <tr>
 <td><code>/START_AGENT</code></td>
@@ -372,7 +372,7 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>For example:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;https://10.12.20.47:8154/go&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>C:<span style="color:#b62;font-weight:bold">\&gt;</span> go-agent-16.1.0-1234-setup.exe /S /SERVERURL<span style="color:#666">=</span><span style="color:#b44">&#34;https://10.12.20.47/go&#34;</span> /D<span style="color:#666">=</span>C:<span style="color:#b62;font-weight:bold">\g</span>o<span style="color:#b62;font-weight:bold">\a</span>gent
 </span></span></code></pre></div><p>If User Access Control feature is enabled on your Windows system, it needs to be turned off for silent installation to work.</p>
 <p>If you are using the silent installation to upgrade GoCD, you should not specify the Installation-Directory option.</p>
 

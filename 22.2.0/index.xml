@@ -74,10 +74,10 @@ Click on the job name that you want to edit on the tree as shown below. Click on
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/agent-health-check-api.html</guid>
-      <description>Agent Health Check API Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
+      <description>Agent Health Check API Note: Using this feature requires at least version 17.11.0 of the GoCD server and agent.
 The health check API allows users to monitor if the agent is connected to the server and is authorized to perform a build.
 Configurations The API uses the following configurable agent system properties.
-Property Values go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point go.agent.status.api.bind.host Defaults to localhost. Set to a specific ip address or hostname to bind to that host.</description>
+Property Values go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point go.agent.status.api.bind.host Defaults to localhost.</description>
     </item>
     
     <item>
@@ -274,7 +274,7 @@ Assigning the virtual IP Follow the instructions provided below to setup a virtu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/configure-agent-proxy.html</guid>
-      <description>Configure a GoCD agent to connect to a server through a proxy server. Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
+      <description>Configure a GoCD agent to connect to a server through a proxy server. Note: Using this feature requires at least version 17.11.0 of the GoCD server and agent.
 Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions defined by the JVM:
 http.proxyHost http.proxyPort (default: 80) http.nonProxyHosts (default: localhost|127.*|[::1]) https.proxyHost https.proxyPort socksProxyHost socksProxyPort (default: 1080) socksProxyVersion (default: 5) To configure an agent to use a proxy edit the wrapper-properties.</description>
     </item>
@@ -447,10 +447,9 @@ Step 1: Install MySQL Server In order to use MySQL database with GoCD, an extern
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/ssl_tls/end_to_end_transport_security.html</guid>
-      <description>Configure end-to-end transport security Note: To ensure end-to-end transport encryption, please ensure that both your GoCD server and agent are running on atleast version 16.7.0
-This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.
+      <description>Configure end-to-end transport security This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.
 The GoCD agent allows for some configuration to be able to configure and secure the end-to-end transport security to varying security levels.
-The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks.</description>
+The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you&amp;rsquo;d like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.</description>
     </item>
     
     <item>
@@ -742,7 +741,7 @@ Note: The system property deals with configuring the log location for the GoCD s
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/maintenance_mode.html</guid>
-      <description>Maintenance Mode Note: Using this feature requires atleast version 19.1.0 of the GoCD server.
+      <description>Maintenance Mode Note: Using this feature requires at least version 19.1.0 of the GoCD server.
 The GoCD system includes a lot of internal subsystems and processes, which continuously do work. Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.
 Maintenance mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up.</description>
     </item>

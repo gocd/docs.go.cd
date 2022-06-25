@@ -346,17 +346,16 @@ to choose your operating system and then provide you instructions for that opera
 <div id="also-go-to-gocd-agent-installation-instructions-installing-go-agent-html">
   Also, go to: <a href="installing_go_agent.html">GoCD Agent installation instructions</a>
 </div>
-<p>Whatever operating systems you install the GoCD server and (at least one) GoCD agent on, the default ports used by the
-server are 8153 (HTTP port) and 8154 (HTTPS port). So, after installation you should be able to access either
-<code>http://localhost:8153</code> or <code>http://your-server-installation-hostname:8153</code> and you should see a screen
+<p>Whatever operating systems you install the GoCD server and (at least one) GoCD agent on, the default port used by the
+server is 8153 (HTTP). So, after installation you should be able to access <code>http://localhost:8153</code> and see a screen
 such as this:</p>
 <p><img src="../images/gocd_new_installation_startup.png" alt="Initial screen, upon installation"></p>
 <p>Once the agent is started, switching to the agents tab by clicking on the &ldquo;Agents&rdquo; link in the header should take you to
 a screen where the agent shows up and is idle. Like this:</p>
 <p><img src="../images/gocd_new_installation_agents_page.png" alt="Agents screen, with one idle agent"></p>
 <p>An agent or agents can be installed on any node, and not necessarily the node that the GoCD Server is installed on. The
-only requirements are that ports 8153 and 8154 of the GoCD Server are accessible from the node that the agents are
-installed on.</p>
+only requirement is that port 8153 of the GoCD Server (or an alternative HTTPS port, if using a fronting <a href="configure-reverse-proxy.html">reverse proxy</a>)
+is accessible from the node that the agents are installed on.</p>
 <p>If you are still having trouble with the installation, take a look at the <a href="troubleshoot_installer.html">troubleshooting guide</a>.</p>
 </article>
 

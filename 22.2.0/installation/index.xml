@@ -33,7 +33,7 @@ You have Apache with mod_proxy installed The Apache server sits on the same mach
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/configure-agent-proxy.html</guid>
-      <description>Configure a GoCD agent to connect to a server through a proxy server. Note: Using this feature requires atleast version 17.11.0 of the GoCD server and agent.
+      <description>Configure a GoCD agent to connect to a server through a proxy server. Note: Using this feature requires at least version 17.11.0 of the GoCD server and agent.
 Proxy support is configured with GoCD agents by passing certain system properties to the Java Virtual Machine (JVM) on startup. These properties follow the conventions defined by the JVM:
 http.proxyHost http.proxyPort (default: 80) http.nonProxyHosts (default: localhost|127.*|[::1]) https.proxyHost https.proxyPort socksProxyHost socksProxyPort (default: 1080) socksProxyVersion (default: 5) To configure an agent to use a proxy edit the wrapper-properties.</description>
     </item>
@@ -125,10 +125,9 @@ Step 1: Install MySQL Server In order to use MySQL database with GoCD, an extern
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/ssl_tls/end_to_end_transport_security.html</guid>
-      <description>Configure end-to-end transport security Note: To ensure end-to-end transport encryption, please ensure that both your GoCD server and agent are running on atleast version 16.7.0
-This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.
+      <description>Configure end-to-end transport security This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.
 The GoCD agent allows for some configuration to be able to configure and secure the end-to-end transport security to varying security levels.
-The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks.</description>
+The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you&amp;rsquo;d like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.</description>
     </item>
     
     <item>
