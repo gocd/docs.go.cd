@@ -325,7 +325,7 @@ The `<siteUrls>` element is used to define [`<siteUrl>`](#siteUrl) and [`<secure
 - If both `<siteUrl>` and `<secureSiteUrl>` are not defined, GoCD URLs will use the default domain which in most cases will be `http://your-go-server:8153`
 - If only `<siteUrl>` is defined and is not HTTPS, GoCD URLs will be composed from the `<siteUrl>` entry. In this case, the secure pages of GoCD will not be navigable.
 - If only `<siteUrl>` is defined and is HTTPS, GoCD URLs will be composed from the `<siteUrl>` entry and all pages will be HTTPS.
-- If only `<secureSiteUrl>` is defined, GoCD URLs will use the default domain for non-HTTPS pages, while HTTPs pages will be composed from the `<secureSiteUrl>` entry.
+- If only `<secureSiteUrl>` is defined, GoCD URLs will use the default domain for non-HTTPS pages, while HTTPS pages will be composed from the `<secureSiteUrl>` entry.
 
 
 **Examples**
@@ -341,7 +341,7 @@ The `<siteUrls>` element is used to define [`<siteUrl>`](#siteUrl) and [`<secure
 
 ## &lt;siteUrl&gt; {#siteUrl}
 
-The `<siteUrl>` element is used by GoCD Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. `Format: [protocol]://[host]:[port]`. You need to define the [port] in case GoCD uses a non-standard port. The [Protocol] can be HTTP or HTTPs.
+The `<siteUrl>` element is used by GoCD Server to generate links for emails, feeds etc., where we cannot have relative URLs. For example, if you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. `Format: [protocol]://[host]:[port]`. You need to define the [port] in case GoCD uses a non-standard port. The [Protocol] can be HTTP or HTTPS.
 
 **Examples**
 

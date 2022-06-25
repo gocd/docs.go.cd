@@ -36,11 +36,11 @@ The `-sslVerificationMode` option allows you to choose the level of verification
 
 ## The `-sslCertificate` option
 
-For performing mutual TLS between the GoCD agent and server, specify the certificate (in PEM format) that the agent should use to authenticate with the HTTPs server.
+For performing mutual TLS between the GoCD agent and server, specify the certificate (in PEM format) that the agent should use to authenticate with the HTTPS server.
 
 ## The `-sslPrivateKey` option
 
-For performing mutual TLS between the GoCD agent and server, specify the private key (in PEM format) that the agent should use to authenticate with the HTTPs server.
+For performing mutual TLS between the GoCD agent and server, specify the private key (in PEM format) that the agent should use to authenticate with the HTTPS server.
 
 ## The `-sslPrivateKeyPassphraseFile` option
 
