@@ -12,7 +12,7 @@ The GoCD agent allows for some configuration to be able to configure and secure 
 
 The agent by default trusts any and all certificates offered to it, which may possibly allow for MITM attacks. If you'd like to improve security further, by providing your own server certificate, you may provide one of the following options before starting the agent process.
 
-`java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com:8154/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST] [-sslCertificate /path/to/certificate.pem] [-sslPrivateKey /path/to/private-key.pem] [-sslPrivateKeyPassphraseFile /path/to/private-key-passphrase]`
+`java -jar agent-bootstrapper.jar -serverUrl https://ci.example.com/go [-rootCertFile /path/to/root-cert.pem] [-sslVerificationMode FULL|NONE|NO_VERIFY_HOST] [-sslCertificate /path/to/certificate.pem] [-sslPrivateKey /path/to/private-key.pem] [-sslPrivateKeyPassphraseFile /path/to/private-key-passphrase]`
 
 ## The `-rootCertFile` option
 
