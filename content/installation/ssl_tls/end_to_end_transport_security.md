@@ -4,8 +4,6 @@ title: End to end transport security
 
 # Configure end-to-end transport security
 
-**Note:** To ensure end-to-end transport encryption, please ensure that both your GoCD server and agent are running on at least version 16.7.0
-
 This section will help you configure and improve the security of the agent-to-server communication using correct SSL/TLS certificates and verification process.
 
 The GoCD agent allows for some configuration to be able to configure and secure the end-to-end transport security to varying security levels.
