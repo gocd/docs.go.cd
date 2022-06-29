@@ -113,6 +113,13 @@ server {
     # setting to `0` will disable checking for body size.
     # See https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size
     client_max_body_size  10000m;
+    
+    # To be able to download huge artifacts (> 1GB) from GoCD, ensure that you disable
+    # the buffering of responses from GoCD in nginx for this location.
+    # Otherwise the download will fail for slow clients.
+    # See https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering
+    # See also https://github.com/gocd/gocd/issues/10559
+    proxy_buffering off;
   }
 }
 ```
