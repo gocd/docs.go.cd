@@ -428,7 +428,18 @@ if (!doNotTrack) {
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># setting to `0` will disable checking for body size.
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># See https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size
 </span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#a2f;font-weight:bold">client_max_body_size</span>  <span style="color:#666">10000m</span>;
-</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic"># If you are intending to allow downloading of large artifacts (&gt; 1GB) from GoCD you may need to adjust one of the
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># following two proxy buffering settings to prevent downloads failing for slow clients due to server idle timeouts.
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">#
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># See https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">#
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># 1) disable the buffering of responses entirely (enabled by default on NGINX) OR
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># proxy_buffering off;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic">#
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># 2) increase the max temporary file size (setting to `0` will disable the limit)
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>    <span style="color:#080;font-style:italic"># proxy_max_temp_file_size 2048m;
+</span></span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"></span>  }
 </span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div><h2 id="also-see">Also see&hellip;</h2>
 <ul>
