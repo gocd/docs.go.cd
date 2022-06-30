@@ -114,12 +114,16 @@ server {
     # See https://nginx.org/en/docs/http/ngx_http_core_module.html#client_max_body_size
     client_max_body_size  10000m;
     
-    # To be able to download huge artifacts (> 1GB) from GoCD, ensure that you disable
-    # the buffering of responses from GoCD in nginx for this location.
-    # Otherwise the download will fail for slow clients.
+    # If you are intending to allow downloading of large artifacts (> 1GB) from GoCD you may need to adjust one of the
+    # following two proxy buffering settings to prevent downloads failing for slow clients due to server idle timeouts.
+    #
     # See https://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_buffering
-    # See also https://github.com/gocd/gocd/issues/10559
-    proxy_buffering off;
+    #
+    # 1) disable the buffering of responses entirely (enabled by default on NGINX) OR
+    # proxy_buffering off;
+    #
+    # 2) increase the max temporary file size (setting to `0` will disable the limit)
+    # proxy_max_temp_file_size 2048m;
   }
 }
 ```
