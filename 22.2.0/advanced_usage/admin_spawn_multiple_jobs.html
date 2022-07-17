@@ -348,7 +348,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/job&gt;</span>
 </span></span></code></pre></div><h2 id="run-x-instances-of-a-job">Run &lsquo;X&rsquo; instances of a Job</h2>
 <p>If you want to run multiple instances of the same job configuration you do not have to maintain multiple copies of same job config. You can specify how many instances of job you need &amp; Go will take care of spawing the required number of job instances during scheduling.</p>
-<p>This feature is particularly useful for test parallelization. It enables Go users to integrate with other test parallelization tools like <a href="http://test-load-balancer.github.io">TLB</a> etc. to achieve distributed test execution with minimal configuration.</p>
+<p>This feature is particularly useful for test parallelization. It enables Go users to integrate with other test parallelization tools like <a href="https://test-load-balancer.github.io">TLB</a> etc. to achieve distributed test execution with minimal configuration.</p>
 <p>Jobs are given a unique name based on the name of the job in the configuration file. Example, if the job is called &rsquo;test&rsquo; and you have set runInstanceCount to 2, you would see jobs like &rsquo;test-runInstance-1&rsquo; and &rsquo;test-runInstance-2&rsquo;. Go provides index of job (GO_JOB_RUN_INDEX) &amp; total count of jobs (GO_JOB_RUN_COUNT) as environment variables to each Job.</p>
 <h3 id="configure-through-the-admin-ui-1">Configure through the Admin UI</h3>
 <p>To run &lsquo;x&rsquo; instances of a job, navigate to the Job settings page in the job configuration</p>

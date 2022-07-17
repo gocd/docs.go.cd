@@ -373,7 +373,7 @@ if (!doNotTrack) {
 <h2 id="compress-large-log-files">Compress large log files</h2>
 <p>In many cases, the easiest thing to do is compress some of the larger artifacts that you won&rsquo;t frequently have need for. For example, if you have a large log file named &rsquo;test.log&rsquo; and you&rsquo;re running GoCD server on a unix machine, the following script will gzip those files that haven&rsquo;t been modified in the last 10 days</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v <span style="color:#b44">&#39;{}&#39;</span> <span style="color:#b62;font-weight:bold">\;</span>
-</span></span></code></pre></div><p>Now, if you add this to a system <a href="http://en.wikipedia.org/wiki/Cron">crontab</a>, your server can compress large artifacts automatically.</p>
+</span></span></code></pre></div><p>Now, if you add this to a system <a href="https://en.wikipedia.org/wiki/Cron">crontab</a>, your server can compress large artifacts automatically.</p>
 <h2 id="move-the-artifact-repository-to-a-new-larger-drive">Move the artifact repository to a new (larger) drive</h2>
 <p>If compressing large artifacts is not giving you enough free space, another thing you can do is attach a larger disk drive to store artifacts. After the drive is attached to the system, we can easily change the location GoCD uses for it&rsquo;s artifact repository.</p>
 <ul>

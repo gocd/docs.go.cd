@@ -638,7 +638,7 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <p>Another example setup using GELF (Graylog Extended Log Format) using <a href="https://github.com/osiegmar/logback-gelf">logback-gelf</a>:</p>
 <p>Download <code>logback-gelf-1.1.0.jar</code> and place it in <code>libs</code> directory.
 On typical linux server, that can be done with</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget <span style="color:#b44">&#34;http://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>wget <span style="color:#b44">&#34;https://repo1.maven.org/maven2/de/siegmar/logback-gelf/1.1.0/logback-gelf-1.1.0.jar&#34;</span> -O /var/lib/go-server/libs/logback-gelf-1.1.0.jar
 </span></span></code></pre></div><p>Configure <code>logback-include.xml</code> with any of the gelf appenders as defined on <a href="https://github.com/osiegmar/logback-gelf#example">project documentation</a>:
 An example logging over UDP could look like this:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;included&gt;</span>

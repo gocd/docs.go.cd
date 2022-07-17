@@ -333,9 +333,9 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="initial-setup">Initial setup</h1>
-<p><strong>Assumption</strong>: You already have a setup resembling <a href="introduction.html/#fig-1">Figure 1</a>, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL <a href="../../installation/configuring_database/postgres.html">documentation</a>.</p>
+<p><strong>Assumption</strong>: You already have a setup resembling <a href="introduction.html#fig-1">Figure 1</a>, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL <a href="../../installation/configuring_database/postgres.html">documentation</a>.</p>
 <h2 id="enable-replication-on-the-primary-postgresql-instance">Enable replication on the primary PostgreSQL instance</h2>
-<p>The recommended replication setup is PostgreSQL <a href="http://www.postgresql.org/docs/9.6/static/warm-standby.html#STREAMING-REPLICATION">streaming replication with log shipping</a> . In this case, the two PostgreSQL servers, called &ldquo;Primary&rdquo; and &ldquo;Standby&rdquo;, will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.</p>
+<p>The recommended replication setup is PostgreSQL <a href="https://www.postgresql.org/docs/9.6/static/warm-standby.html#STREAMING-REPLICATION">streaming replication with log shipping</a> . In this case, the two PostgreSQL servers, called &ldquo;Primary&rdquo; and &ldquo;Standby&rdquo;, will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.</p>
 <ol>
 <li>
 <p>As log shipping needs a shared drive, it is assumed that you have a shared drive mounted at <code>/share</code>, on both the PostgreSQL server hosts. This acts as a bridge between the two.</p>
@@ -349,7 +349,7 @@ if (!doNotTrack) {
 <p>Then, give the replication user enough permission to login to the primary PostgreSQL instance, from the standby PostgreSQL instance. This is done by adding this to <code>pg_hba.conf</code>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-plain" data-lang="plain"><span style="display:flex;"><span>  # pg_hba.conf
 </span></span><span style="display:flex;"><span>  host  replication  rep  &lt;ip_address_of_standby_postgres_server&gt;/32  md5
-</span></span></code></pre></div><p><strong>Note:</strong> Usually the file <code>pg_hba.conf</code> is found either in the PostgreSQL data directory or in <code>/etc/postgres&lt;pg-version&gt;/main/pg_hba.conf</code>. This depends on your setup of PostgreSQL and where you ran <code>initdb</code>. Please refer to the <a href="http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html">pg_hba.conf guide</a> in the PostgreSQL documentation, for more details, including information about reducing the strictness of the IP Address filter in the lines above.</p>
+</span></span></code></pre></div><p><strong>Note:</strong> Usually the file <code>pg_hba.conf</code> is found either in the PostgreSQL data directory or in <code>/etc/postgres&lt;pg-version&gt;/main/pg_hba.conf</code>. This depends on your setup of PostgreSQL and where you ran <code>initdb</code>. Please refer to the <a href="https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html">pg_hba.conf guide</a> in the PostgreSQL documentation, for more details, including information about reducing the strictness of the IP Address filter in the lines above.</p>
 </li>
 <li>
 <p>The primary PostgreSQL server is nearly ready. It now needs to be setup to allow replication. Update <code>postgresql.conf</code> with these options:</p>
@@ -360,7 +360,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  hot_standby <span style="color:#666">=</span> on
 </span></span><span style="display:flex;"><span>  wal_level <span style="color:#666">=</span> hot_standby
 </span></span><span style="display:flex;"><span>  wal_keep_segments <span style="color:#666">=</span> <span style="color:#666">30</span>
-</span></span></code></pre></div><p>Learn more about these options at <a href="http://www.postgresql.org/docs/9.3/static/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVING">Archiving WAL files</a> and <a href="http://www.postgresql.org/docs/9.3/static/runtime-config-replication.html">Replication</a>.</p>
+</span></span></code></pre></div><p>Learn more about these options at <a href="https://www.postgresql.org/docs/9.3/static/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVING">Archiving WAL files</a> and <a href="https://www.postgresql.org/docs/9.3/static/runtime-config-replication.html">Replication</a>.</p>
  <aside class="notice">
    This is where the shared drive mentioned in Step 1 is used.
  </aside>

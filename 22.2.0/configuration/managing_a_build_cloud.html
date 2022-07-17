@@ -368,7 +368,7 @@ if (!doNotTrack) {
 <p>If an agent is working on a job, it will turn orange, and display the name of the job it is working on. You can click on the job description to go to the job details page for that job:</p>
 <h2 id="removing-agents">Removing agents</h2>
 <p>If you want to remove an agent from GoCD&rsquo;s build cloud, go to the agents tab, locate the agent you want to remove, and click on the button marked &ldquo;Disable&rdquo;. GoCD will record in its configuration that this agent should be excluded from the build cloud. If you restart Go server, the agent will continue to be disabled. Disabled agents do not count towards GoCD&rsquo;s licensed agents.</p>
-<p>To permanently remove an agent from Go&rsquo;s configuration, you can use the <a href="https://api.gocd.org/#agents">agent api</a> or delete from the agents tab. The agent must be disabled before it can be deleted</p>
+<p>To permanently remove an agent from Go&rsquo;s configuration, you can use the <a href="https://api.gocd.org/current/#agents">agent api</a> or delete from the agents tab. The agent must be disabled before it can be deleted</p>
 <p>Following this procedure, if you restart the agent, GoCD server will see it as a new agent, and you can enable it again in the same way as described above.</p>
 <p><img src="../images/delete_agent.png" alt=""></p>
 <h2 id="pausing-agents">Pausing agents</h2>

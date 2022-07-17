@@ -338,7 +338,7 @@ if (!doNotTrack) {
 Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:</p>
 <ol>
 <li>jar, war or ear file in case of Java</li>
-<li><a href="http://nuget.org/">nuget</a>/ <a href="https://chocolatey.org/">chocolatey</a> package in case of .NET</li>
+<li><a href="https://nuget.org/">nuget</a>/ <a href="https://chocolatey.org/">chocolatey</a> package in case of .NET</li>
 <li><a href="https://en.wikipedia.org/wiki/Package_management_system#Package_formats">Linux system package</a> (e.g rpm, deb) in case of any application platform</li>
 <li>Other <a href="https://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers">application level package formats</a> like gem, npm, <a href="https://www.php.net/manual/en/book.phar.php">phar</a>, <a href="https://www.python.org/dev/peps/pep-0427/">wheel</a> etc.</li>
 </ol>
@@ -432,7 +432,7 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 <li>GO_REPO_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_REPO_URL</li>
 <li>GO_PACKAGE_&lt; REPO-NAME &gt;_&lt; PACKAGE-NAME &gt;_LOCATION</li>
 </ol>
-<p>Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let&rsquo;s say we set up a repository named ORA pointing to <a href="http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64">http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</a> and define a package gcc with a spec of gcc-4.* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:</p>
+<p>Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let&rsquo;s say we set up a repository named ORA pointing to <a href="https://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64">https://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64</a> and define a package gcc with a spec of gcc-4.* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:</p>
 <pre tabindex="0"><code>[go] Start to execute task: &lt;exec command=&#34;/bin/bash&#34; &gt;
 &lt;arg&gt;-c&lt;/arg&gt;
 &lt;arg&gt;curl -o /tmp/gcc.rpm $GO_PACKAGE_ORA_GCC_LOCATION&lt;/arg&gt;
@@ -444,9 +444,9 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 &lt;/exec&gt;.
 ...
 [go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_LABEL&#39; to value &#39;gcc-4.4.7-3.el6.x86_64&#39;
-[go] setting environment variable &#39;GO_REPO_ORA_GCC_REPO_URL&#39; to value &#39;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64&#39;
+[go] setting environment variable &#39;GO_REPO_ORA_GCC_REPO_URL&#39; to value &#39;https://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64&#39;
 [go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_PACKAGE_SPEC&#39; to value &#39;gcc-4.*&#39;
-[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_LOCATION&#39; to value &#39;http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm&#39;
+[go] setting environment variable &#39;GO_PACKAGE_ORA_GCC_LOCATION&#39; to value &#39;https://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm&#39;
 ...
 </code></pre><p>Or, to simply pass it as an argument to a deploy script on a remote server</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
