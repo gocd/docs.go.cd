@@ -345,6 +345,9 @@ if (!doNotTrack) {
 </code></pre></div><ul>
 <li>
 <p>On the remote GoCD Agent machine, create a file named <code>&lt;agent_installation_directory&gt;/config/autoregister.properties</code>. In a native agent installation this file is usually located on <code>/var/lib/go-agent/config/</code> directory. The <code>config/</code> folder might not exist, in this case you should create it by yourself.</p>
+<blockquote>
+<p>If generating this file programmatically note that it <strong>must be UTF-8 encoded</strong>. Although line-endings are not important, some platforms will generate files with other encodings or platform default encodings such as UTF-16 w/BOM which will not work correctly.</p>
+</blockquote>
 <p>This file supports the following properties</p>
 </li>
 </ul>
@@ -390,7 +393,8 @@ if (!doNotTrack) {
 </tbody>
 </table>
 <p>Example</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">agent.auto.register.key<span style="color:#666">=</span>388b633a88de126531afa41eff9aa69e
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#080;font-style:italic"># Auto-registration properties in key=value format, encoded in UTF-8</span>
+agent.auto.register.key<span style="color:#666">=</span>388b633a88de126531afa41eff9aa69e
 agent.auto.register.resources<span style="color:#666">=</span>ant,java
 agent.auto.register.environments<span style="color:#666">=</span>QA,Performance
 agent.auto.register.hostname<span style="color:#666">=</span>Agent01
@@ -399,7 +403,7 @@ agent.auto.register.hostname<span style="color:#666">=</span>Agent01
 agent.auto.register.elasticAgent.agentId<span style="color:#666">=</span>i-123456
 agent.auto.register.elasticAgent.pluginId<span style="color:#666">=</span>com.example.aws
 </code></pre></div><ul>
-<li>Now, bringing up the remote agent should automatically register with the GoCD Server without the administrator having to &lsquo;Enable&rsquo; the newly added agent and configure its resources and assign it to environments.</li>
+<li>Bringing up the remote agent should now automatically register with the GoCD Server without the administrator having to &lsquo;Enable&rsquo; the newly added agent and configure its resources and assign it to environments.</li>
 </ul>
 </article>
 
