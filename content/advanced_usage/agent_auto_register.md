@@ -20,12 +20,14 @@ As a GoCD administrator, you can auto approve remote agents by using a shared ke
 
 - On the remote GoCD Agent machine, create a file named `<agent_installation_directory>/config/autoregister.properties`. In a native agent installation this file is usually located on `/var/lib/go-agent/config/` directory. The `config/` folder might not exist, in this case you should create it by yourself.
 
+  > If generating this file programmatically note that it **must be UTF-8 encoded**. Although line-endings are not important, some platforms will generate files with other encodings or platform default encodings such as UTF-16 w/BOM which will not work correctly.
+
     This file supports the following properties
 
 | *Key*                                       | *Required* | *Description*                                                                                                                                                                                                                         |
 |---------------------------------------------|:----------:|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `agent.auto.register.key`                   |    yes     | The value of the `<server/>` element's `agentAutoRegisterKey` attribute from `cruise-config.xml`                                                                                                                                      |
-| `agent.auto.register.environments`          |     no     | A comma separated list of environments that this agent should be associated with.                                                                                                               |
+| `agent.auto.register.environments`          |     no     | A comma separated list of environments that this agent should be associated with.                                                                                                                                                     |
 | `agent.auto.register.resources`             |     no     | This MUST not be set by agents that register as elastic-agents. A comma separated list of resources that this agent should be tagged with.                                                                                            |
 | `agent.auto.register.hostname`              |     no     | The name of the agent when it is registered with the server. (**Version 15.2.0 onwards**)                                                                                                                                             |
 | `agent.auto.register.elasticAgent.agentId`  |     no     | This MUST be set by agents that register as elastic-agents. This may contain an identifier of the agent, that the plugin can identify. Can be something like a docker container ID, or AWS instance ID. (**Version 16.12.0 onwards**) |
@@ -34,6 +36,7 @@ As a GoCD administrator, you can auto approve remote agents by using a shared ke
 Example
 
 ```bash
+# Auto-registration properties in key=value format, encoded in UTF-8
 agent.auto.register.key=388b633a88de126531afa41eff9aa69e
 agent.auto.register.resources=ant,java
 agent.auto.register.environments=QA,Performance
@@ -44,4 +47,4 @@ agent.auto.register.elasticAgent.agentId=i-123456
 agent.auto.register.elasticAgent.pluginId=com.example.aws
 ```
 
-- Now, bringing up the remote agent should automatically register with the GoCD Server without the administrator having to 'Enable' the newly added agent and configure its resources and assign it to environments.
+- Bringing up the remote agent should now automatically register with the GoCD Server without the administrator having to 'Enable' the newly added agent and configure its resources and assign it to environments.
