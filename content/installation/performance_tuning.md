@@ -108,13 +108,13 @@ Select the local process ```go.jar``` when the jconsole GUI opens up. This shows
 
 > Please note that in case of linux, jconsole will have to be started as 'go' user. In Windows, starting the process as administrator should suffice.
 
-More information about jconsole can be found [here](http://download.oracle.com/javase/1.5.0/docs/guide/management/jconsole.html).
+More information about jconsole can be found [here](https://docs.oracle.com/javase/7/docs/technotes/guides/management/jconsole.html).
 
 ### CPU and memory profiling
 
 Yourkit java profiler is a recommended tool for profiling the CPU and memory of the GO Server.
 
-To start using yourkit, download the latest version of the Yourkit java profiler from http://www.yourkit.com/download/index.jsp. Unpack to [yourkit\_profiler\_directory] The following steps will enable the GoCD server to pick up the yourkit profiler agent and enable us to take memory and cpu snapshots.
+To start using yourkit, download the latest version of the Yourkit java profiler from https://www.yourkit.com/download/index.jsp. Unpack to [yourkit\_profiler\_directory] The following steps will enable the GoCD server to pick up the yourkit profiler agent and enable us to take memory and cpu snapshots.
 
 For Linux
 

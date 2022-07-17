@@ -6,7 +6,7 @@ title: Backup GoCD Server
 
 # Backup GoCD Server
 
-You can use GoCD's administration interface to perform an One-Click Backup of GoCD. You can also perform a backup [using the API](https://api.gocd.org/#backups).
+You can use GoCD's administration interface to perform an One-Click Backup of GoCD. You can also perform a backup [using the API](https://api.gocd.org/current/#backups).
 
 ## Steps to initiate backup
 

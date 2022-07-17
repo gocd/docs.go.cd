@@ -36,7 +36,7 @@ to the job's definition (see configuration reference for [`<job>`](../configurat
 
 If you want to run multiple instances of the same job configuration you do not have to maintain multiple copies of same job config. You can specify how many instances of job you need & Go will take care of spawing the required number of job instances during scheduling.
 
-This feature is particularly useful for test parallelization. It enables Go users to integrate with other test parallelization tools like [TLB](http://test-load-balancer.github.io) etc. to achieve distributed test execution with minimal configuration.
+This feature is particularly useful for test parallelization. It enables Go users to integrate with other test parallelization tools like [TLB](https://test-load-balancer.github.io) etc. to achieve distributed test execution with minimal configuration.
 
 Jobs are given a unique name based on the name of the job in the configuration file. Example, if the job is called 'test' and you have set runInstanceCount to 2, you would see jobs like 'test-runInstance-1' and 'test-runInstance-2'. Go provides index of job (GO_JOB_RUN_INDEX) & total count of jobs (GO_JOB_RUN_COUNT) as environment variables to each Job.
 

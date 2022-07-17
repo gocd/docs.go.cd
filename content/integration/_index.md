@@ -21,7 +21,7 @@ For power users, here's how you'd do it from Config XML:
 
 ```xml
 <pipeline name="mypipeline">
-  <trackingtool link="http://jira.atlassian.com/go/${ID}" regex="##(\d+)"/>
+  <trackingtool link="https://jira.atlassian.com/go/${ID}" regex="##(\d+)"/>
   ...
 </pipeline>
 ```

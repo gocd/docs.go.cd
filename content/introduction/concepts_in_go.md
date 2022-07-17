@@ -9,8 +9,8 @@ title: Concepts in GoCD
 
 This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and
 Continuous Delivery, in general, you can refer to Martin Fowler's articles on the subject: [Continuous
-Integration](http://martinfowler.com/articles/continuousIntegration.html) and [Continuous
-Delivery](http://martinfowler.com/bliki/ContinuousDelivery.html).
+Integration](https://martinfowler.com/articles/continuousIntegration.html) and [Continuous
+Delivery](https://martinfowler.com/bliki/ContinuousDelivery.html).
 
 If you're very new to GoCD, the [Getting Started Guide](https://www.gocd.org/getting-started/part-1/) is a good
 starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.

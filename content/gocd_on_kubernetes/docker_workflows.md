@@ -17,7 +17,7 @@ Docker in Docker involves setting up a docker binary and running an isolated doc
 
 **Drawbacks:**
 
-As explained by [jpetazzo in his blogpost](http://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/), there are some cases where DinD may not work for you. Additionally, there is a security risk of running a container in privileged mode as well.
+As explained by [jpetazzo in his blogpost](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/), there are some cases where DinD may not work for you. Additionally, there is a security risk of running a container in privileged mode as well.
 
 ## Docker Outside of Docker (DooD)
 

@@ -182,7 +182,7 @@ Building pipeline my-app
 #### Multiple materials
 
 For this example we are going to assume we are using a [Subversion](https://subversion.apache.org/) repository containing
-the code and a [Mercurial](http://www.selenic.com/mercurial/wiki/) repository containing configuration scripts.
+the code and a [Mercurial](https://www.selenic.com/mercurial/wiki/) repository containing configuration scripts.
 
 - Ensure the pipeline materials look like this
 

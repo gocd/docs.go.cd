@@ -12,7 +12,7 @@ Poll from GoCD packages and more from GoCD 13.3 onwards.
 Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:
 
 1. jar, war or ear file in case of Java
-2. [nuget](http://nuget.org/)/ [chocolatey](https://chocolatey.org/) package in case of .NET
+2. [nuget](https://nuget.org/)/ [chocolatey](https://chocolatey.org/) package in case of .NET
 3. [Linux system package](https://en.wikipedia.org/wiki/Package_management_system#Package_formats) (e.g rpm, deb) in case of any application platform
 4. Other [application level package formats](https://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers) like gem, npm, [phar](https://www.php.net/manual/en/book.phar.php), [wheel](https://www.python.org/dev/peps/pep-0427/) etc.
 
@@ -132,7 +132,7 @@ The package isn't automatically downloaded on the agent and made available to th
 2. GO\_REPO\_< REPO-NAME >\_< PACKAGE-NAME >\_REPO\_URL
 3. GO\_PACKAGE\_< REPO-NAME >\_< PACKAGE-NAME >\_LOCATION
 
-Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let's say we set up a repository named ORA pointing to http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64 and define a package gcc with a spec of gcc-4.\* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:
+Repository and package names are converted to all uppercase and hyphens are converted to underscores before inclusion in the environment variable names. For example, let's say we set up a repository named ORA pointing to https://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64 and define a package gcc with a spec of gcc-4.\* and set it up as material for a pipeline. To download the package locally on the agent, we could write a task like this:
 
 ```
 [go] Start to execute task: <exec command="/bin/bash" >
@@ -150,9 +150,9 @@ When the task executes on the agent, the environment variables get subsituted as
 </exec>.
 ...
 [go] setting environment variable 'GO_PACKAGE_ORA_GCC_LABEL' to value 'gcc-4.4.7-3.el6.x86_64'
-[go] setting environment variable 'GO_REPO_ORA_GCC_REPO_URL' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64'
+[go] setting environment variable 'GO_REPO_ORA_GCC_REPO_URL' to value 'https://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64'
 [go] setting environment variable 'GO_PACKAGE_ORA_GCC_PACKAGE_SPEC' to value 'gcc-4.*'
-[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LOCATION' to value 'http://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm'
+[go] setting environment variable 'GO_PACKAGE_ORA_GCC_LOCATION' to value 'https://public-yum.oracle.com/repo/OracleLinux/OL6/latest/x86_64/getPackage/gcc-4.4.7-3.el6.x86_64.rpm'
 ...
 ```
 

@@ -60,7 +60,7 @@ Depending on the type of the database server, different connection properties co
 PostgreSQL application uses [`libpq`](https://www.postgresql.org/docs/9.5/libpq.html) as the interface for the underlying communication with the PostgreSQL Server.
 
 To configure SSL for the PostgreSQL database: <br/> 
-  - take a look at the [libpq SSL support](http://www.postgresql.org/docs/current/static/libpq-ssl.html#LIBPQ-SSL-PROTECTION) documentation.  <br/>
+  - take a look at the [libpq SSL support](https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION) documentation.  <br/>
   - see [libpq connection parameters](https://www.postgresql.org/docs/current/libpq-connect.html) to see all the available options.
 
 Below is an example of PostgreSQL SSL connection properties:
