@@ -4,11 +4,11 @@ title: Initial Setup
 
 # Initial setup
 
-**Assumption**: You already have a setup resembling [Figure 1](introduction.html/#fig-1), with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL [documentation](/installation/configuring_database/postgres.html).
+**Assumption**: You already have a setup resembling [Figure 1](introduction.html#fig-1), with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL [documentation](/installation/configuring_database/postgres.html).
 
 ## Enable replication on the primary PostgreSQL instance
 
-The recommended replication setup is PostgreSQL [streaming replication with log shipping](http://www.postgresql.org/docs/9.6/static/warm-standby.html#STREAMING-REPLICATION) . In this case, the two PostgreSQL servers, called "Primary" and "Standby", will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.
+The recommended replication setup is PostgreSQL [streaming replication with log shipping](https://www.postgresql.org/docs/9.6/static/warm-standby.html#STREAMING-REPLICATION) . In this case, the two PostgreSQL servers, called "Primary" and "Standby", will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.
 
 1. As log shipping needs a shared drive, it is assumed that you have a shared drive mounted at `/share`, on both the PostgreSQL server hosts. This acts as a bridge between the two.
 2. On the primary PostgreSQL instance, enable a replication user by running this as superuser:
@@ -24,7 +24,7 @@ The recommended replication setup is PostgreSQL [streaming replication with log 
       # pg_hba.conf
       host  replication  rep  <ip_address_of_standby_postgres_server>/32  md5
     ```
-    **Note:** Usually the file <code>pg_hba.conf</code> is found either in the PostgreSQL data directory or in <code>/etc/postgres&lt;pg-version&gt;/main/pg_hba.conf</code>. This depends on your setup of PostgreSQL and where you ran <code>initdb</code>. Please refer to the <a href="http://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html">pg_hba.conf guide</a> in the PostgreSQL documentation, for more details, including information about reducing the strictness of the IP Address filter in the lines above.
+    **Note:** Usually the file <code>pg_hba.conf</code> is found either in the PostgreSQL data directory or in <code>/etc/postgres&lt;pg-version&gt;/main/pg_hba.conf</code>. This depends on your setup of PostgreSQL and where you ran <code>initdb</code>. Please refer to the <a href="https://www.postgresql.org/docs/current/static/auth-pg-hba-conf.html">pg_hba.conf guide</a> in the PostgreSQL documentation, for more details, including information about reducing the strictness of the IP Address filter in the lines above.
 
 4. The primary PostgreSQL server is nearly ready. It now needs to be setup to allow replication. Update `postgresql.conf` with these options:
 
@@ -38,7 +38,7 @@ The recommended replication setup is PostgreSQL [streaming replication with log 
       wal_keep_segments = 30
     ```
 
-    Learn more about these options at [Archiving WAL files](http://www.postgresql.org/docs/9.3/static/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVING) and [Replication](http://www.postgresql.org/docs/9.3/static/runtime-config-replication.html).
+    Learn more about these options at [Archiving WAL files](https://www.postgresql.org/docs/9.3/static/runtime-config-wal.html#RUNTIME-CONFIG-WAL-ARCHIVING) and [Replication](https://www.postgresql.org/docs/9.3/static/runtime-config-replication.html).
 
     <aside class="notice">
       This is where the shared drive mentioned in Step 1 is used.

@@ -104,5 +104,5 @@ VCS/SCM plugin will by default checkout code into `destination` directory on Age
 ## References:
 
 * [Developer docs](https://plugin-api.gocd.org/current/scm/)
-* [SCM Plugins](https://www.gocd.org/community/plugins.html#scm-plugins-count)
+* [SCM Plugins](https://www.gocd.org/plugins/#scm)
 * [Github issue](https://github.com/gocd/gocd/issues/818)

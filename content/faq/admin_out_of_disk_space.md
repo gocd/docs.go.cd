@@ -64,7 +64,7 @@ In many cases, the easiest thing to do is compress some of the larger artifacts 
 find /var/lib/go-server/logs/pipelines -name test.log -mtime +10 -type f -exec gzip -v '{}' \;
 ```
 
-Now, if you add this to a system [crontab](http://en.wikipedia.org/wiki/Cron), your server can compress large artifacts automatically.
+Now, if you add this to a system [crontab](https://en.wikipedia.org/wiki/Cron), your server can compress large artifacts automatically.
 
 ## Move the artifact repository to a new (larger) drive
 
