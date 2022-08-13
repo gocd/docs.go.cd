@@ -22,17 +22,8 @@ helm repo update
 
 2. Run the install command:
 
-For Helm v3:
-
 ```bash
-kubectl create ns gocd
-helm install gocd gocd/gocd --namespace gocd
-```
-
-If you're using an older version of Helm, then use this command:
-
-```bash
-helm install gocd/gocd --name gocd --namespace gocd
+helm install gocd gocd/gocd --namespace gocd --create-namespace
 ```
 
 ## Access the GoCD server
