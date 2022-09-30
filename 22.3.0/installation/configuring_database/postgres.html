@@ -350,11 +350,11 @@ The location of GoCD&rsquo;s configuration directory varies per operating system
 <p>This file should contain information about the database server, so that the GoCD Server can connect to it.</p>
 <p>See <a href="connection-properties.html">GoCD Database Configuration Properties</a> to know the full list of configuration properties that can be specified under <code>db.properties</code>.</p>
 <p>An example properties file to connect to PostgreSQL database:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">db.driver=org.postgresql.Driver
-db.url=jdbc:postgresql://localhost:5432/gocd
-db.user=gocd_database_user
-db.password=gocd_database_password
-</code></pre><h3 id="step-4-start-the-gocd-server">Step 4: Start the GoCD Server</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#b44">db.driver</span><span style="color:#666">=</span><span style="color:#b44">org.postgresql.Driver</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.url</span><span style="color:#666">=</span><span style="color:#b44">jdbc:postgresql://localhost:5432/gocd</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.user</span><span style="color:#666">=</span><span style="color:#b44">gocd_database_user</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.password</span><span style="color:#666">=</span><span style="color:#b44">gocd_database_password</span>
+</span></span></code></pre></div><h3 id="step-4-start-the-gocd-server">Step 4: Start the GoCD Server</h3>
 <p>See <a href="https://docs.gocd.org/current/installation/installing_go_server.html">Managing the GoCD server process</a> to start your GoCD Server.</p>
 </article>
 

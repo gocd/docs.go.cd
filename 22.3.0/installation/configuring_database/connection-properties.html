@@ -411,20 +411,20 @@ Depending on the type of the database server, different connection properties co
 <li>see <a href="https://www.postgresql.org/docs/current/libpq-connect.html">libpq connection parameters</a> to see all the available options.</li>
 </ul>
 <p>Below is an example of PostgreSQL SSL connection properties:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">db.connectionProperties.sslmode=verify-full
-db.connectionProperties.sslcert=/var/lib/go-server/client-cert.pem
-db.connectionProperties.sslkey=/var/lib/go-server/client-key.pem
-db.connectionProperties.sslrootcert=/var/lib/go-server/ca.pem
-db.connectionProperties.sslcrl=/var/lib/go-server/root.crl
-</code></pre><h3 id="2-mysql-ssl-configuration">2. MySQL SSL Configuration:</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslmode</span><span style="color:#666">=</span><span style="color:#b44">verify-full</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslcert</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-cert.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslkey</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-key.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslrootcert</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/ca.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslcrl</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/root.crl</span>
+</span></span></code></pre></div><h3 id="2-mysql-ssl-configuration">2. MySQL SSL Configuration:</h3>
 <p>Refer <a href="https://dev.mysql.com/doc/refman/8.0/en/connection-options.html#encrypted-connection-options">MySQL Command Options for Encrypted Connections</a> documentation to know about all the available options for that are specified to use encrypted connections with the server.</p>
 <p>Below is an example of MySQL SSL connection properties:</p>
-<pre tabindex="0"><code class="language-properties" data-lang="properties">db.connectionProperties.ssl-mode=verify-full
-db.connectionProperties.ssl-cert=/var/lib/go-server/client-cert.pem
-db.connectionProperties.ssl-key=/var/lib/go-server/client-key.pem
-db.connectionProperties.ssl-ca=/var/lib/go-server/ca.pem
-db.connectionProperties.ssl-crl=/var/lib/go-server/root.crl
-</code></pre><style>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-mode</span><span style="color:#666">=</span><span style="color:#b44">verify-full</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-cert</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-cert.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-key</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-key.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-ca</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/ca.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-crl</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/root.crl</span>
+</span></span></code></pre></div><style>
   th:first-child { 
     width: 225px; 
   }
