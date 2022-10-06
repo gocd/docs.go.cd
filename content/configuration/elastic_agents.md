@@ -18,7 +18,7 @@ A feature like this can allow for more efficient use of agent machines, can allo
 
 ## Configuration of elastic agents
 
-> **Note:** GoCD version 19.3.0 introduces the concept of cluster profile. The plugin settings are being removed from elastic agent extension in the favour of cluster profiles. If you are on an older version of GoCD, please refer [this](https://docs.gocd.org/19.2.0/configuration/elastic_agents.html).
+> **Note:** GoCD version `19.3.0` introduces the concept of cluster profile. The plugin settings are being removed from elastic agent extension in the favour of cluster profiles. If you are on an older version of GoCD, please refer [this](https://docs.gocd.org/19.2.0/configuration/elastic_agents.html).
 
 Using GoCD elastic agents requires downloading and installing one of the available [elastic agents plugin](https://www.gocd.org/plugins/#elastic-agents).
 

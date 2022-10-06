@@ -6,12 +6,12 @@ title: Access tokens
 
 # Access Tokens
 
-From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username & password) as a part of API request headers. 
+From GoCD server version `19.2.0` onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username & password) as a part of API request headers. 
 
 ## Usage instructions
 1. A token can be used to access GoCD APIs and `cctray.xml` by passing it in API header.
 
-    > Before 19.2.0
+    > Before `19.2.0`
     
     ```bash
     curl 'https://ci.example.com/go/api/pipelines/pipeline1/status' \

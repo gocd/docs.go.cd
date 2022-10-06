@@ -67,7 +67,7 @@ For power users, here's how you would configure roles via "Config XML":
 
 In this example, the "qa" role has two users: dyang and pavan. The "go\_admin" role also has two users: jhumble and qiao.
 
-Starting GoCD 19.11.0, the roles can be configured to allow how the users assigned the role can access a GoCD entity.
+Starting GoCD `19.11.0`, the roles can be configured to allow how the users assigned the role can access a GoCD entity.
 GoCD system administrators can now define a role with a `policy` that will contain a set of permissions to govern access of a GoCD entity for the users belonging to the role.
 
 The following role definition would grant `view` action permissions for GoCD entity type `environment` with the matching wild card pattern:

@@ -14,7 +14,7 @@ title: Upgrade server with Business-Continuity Addon
 
 2. Perform server upgrade by following our documentation [here](https://docs.gocd.org/current/installation/upgrading_go.html) for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade. 
 
-3. If you are upgrading from any GoCD version before v18.8.0, please note GoCD server from [v18.8.0](https://www.gocd.org/releases/index.html#18-8-0) is no longer an auth provider. You will have to include business-continuity-token file in the config directory on both primary and secondary and restart the individual servers.
+3. If you are upgrading from any GoCD version before `18.8.0`, please note GoCD server from [`18.8.0`](https://www.gocd.org/releases/index.html#18-8-0) is no longer an auth provider. You will have to include business-continuity-token file in the config directory on both primary and secondary and restart the individual servers.
 
     The content for the business-continuity-token file is a Business Continuity token which can be of the following form 
 
