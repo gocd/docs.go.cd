@@ -182,7 +182,7 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
 
   - When multiple rules are defined, rules will be applied from top to bottom.
 
-    > In the below example pipeline_group `my_group` cannot refer the secret_config since the first rule denies access using the pattern `my_*`
+    > In the below example pipeline_group `my_group` cannot refer to the secret_config since the first rule denies access using the pattern `my_*`
 
     ```xml
      <rules>
@@ -191,7 +191,7 @@ If a Secret Param resolution fails the corresponding task would fail as well. Th
      </rules>
     ```
 
-    > In the below example pipeline_group `my_group` can refer the secret_config since the first rule allows access.
+    > In the below example pipeline_group `my_group` can refer to the secret_config since the first rule allows access.
 
     ```xml
     <rules>

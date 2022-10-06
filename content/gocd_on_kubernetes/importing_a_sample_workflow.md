@@ -40,7 +40,7 @@ This section uses GoCDs [pipelines as code](https://docs.gocd.org/current/advanc
 
     To allow a deployment script to be able to communicate with the target Kubernetes cluster, you must create a service account for deployments. The API token for this service account can then be stored in a Kubernetes secret.
 
-    Refer the [Kubernetes RBAC guide](https://kubernetes.io/rbac/) for instructions on creating service accounts and assigning them to roles.
+    Refer to the [Kubernetes RBAC guide](https://kubernetes.io/rbac/) for instructions on creating service accounts and assigning them to roles.
 
     You can create a secret with these credentials with the following Kubernetes configuration:
     ```
