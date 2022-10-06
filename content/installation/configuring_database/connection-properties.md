@@ -29,7 +29,7 @@ The valid keys in the configuration file are mentioned below:
 
 The [One Click Backup](https://docs.gocd.org/current/advanced_usage/one_click_backup.html) feature of GoCD backs up both the configuration and database. Depending upon the type of the database, additional arguments can be specified, which will be used by underlying utility by GoCD while backing up the database.
 
-GoCD uses [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility for backing up a PostgreSQL database. Refer [pg_dump docs](https://www.postgresql.org/docs/9.6/app-pgdump.html) to know all available PostgreSQL database backup options.
+GoCD uses [pg_dump](https://www.postgresql.org/docs/current/app-pgdump.html) utility for backing up a PostgreSQL database. Refer [pg_dump docs](https://www.postgresql.org/docs/current/app-pgdump.html) to know all available PostgreSQL database backup options.
 
 **Example:** <br/>
 Specify `db.extraBackupCommandArgs=--format=plain` property to specify `--format=plain` option to the `pg_dump` backup utility, which causes it to take a plain text backup.

@@ -4,11 +4,11 @@ title: Initial Setup
 
 # Initial setup
 
-**Assumption**: You already have a setup resembling [Figure 1](introduction.html#fig-1), with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL [documentation](/installation/configuring_database/postgres.html).
+**Assumption**: You already have a setup resembling [Figure 1](introduction.html#fig-1), with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer to the configure PostgreSQL [documentation](/installation/configuring_database/postgres.html).
 
 ## Enable replication on the primary PostgreSQL instance
 
-The recommended replication setup is PostgreSQL [streaming replication with log shipping](https://www.postgresql.org/docs/9.6/static/warm-standby.html#STREAMING-REPLICATION) . In this case, the two PostgreSQL servers, called "Primary" and "Standby", will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.
+The recommended replication setup is PostgreSQL [streaming replication with log shipping](https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION) . In this case, the two PostgreSQL servers, called "Primary" and "Standby", will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.
 
 1. As log shipping needs a shared drive, it is assumed that you have a shared drive mounted at `/share`, on both the PostgreSQL server hosts. This acts as a bridge between the two.
 2. On the primary PostgreSQL instance, enable a replication user by running this as superuser:
@@ -50,14 +50,14 @@ The recommended replication setup is PostgreSQL [streaming replication with log 
 Given that the primary PostgreSQL instance has been setup for replication, the standby PostgreSQL instance needs to be setup with an initial backup of the primary instance, and then setup to continuously replicate from the primary.
 
 1. Ensure that the version of the PostgreSQL instance on the standby is the same as the version of that on the primary.
-2. Choose an empty directory to serve as the [data directory](https://www.postgresql.org/docs/9.6/static/runtime-config-file-locations.html) for the new instance, and create a [base backup](https://www.postgresql.org/docs/9.6/static/app-pgbasebackup.html) from the primary PostgreSQL instance. This is how a base backup is taken:
+2. Choose an empty directory to serve as the [data directory](https://www.postgresql.org/docs/current/static/runtime-config-file-locations.html) for the new instance, and create a [base backup](https://www.postgresql.org/docs/current/static/app-pgbasebackup.html) from the primary PostgreSQL instance. This is how a base backup is taken:
 
     ```shell
       pg_basebackup -h <ip_address_of_primary_postgres_server> -U rep -D <empty_data_directory_on_standby>
     ```
     **Note:** Please note that this is a backup of the whole instance, and not a specific database. PostgreSQL streaming replication always works with the whole instance.
     
-    At this point you should also look at your [Secondary PostgreSQL Connection and Authentication settings](https://www.postgresql.org/docs/9.6/runtime-config-connection.html) for the secondary server. For e.g you might have to alter postgresql.conf on your secondary server and change "listen_addresses" property, so that it reflects the secondary node host.
+    At this point you should also look at your [Secondary PostgreSQL Connection and Authentication settings](https://www.postgresql.org/docs/current/runtime-config-connection.html) for the secondary server. For e.g you might have to alter postgresql.conf on your secondary server and change "listen_addresses" property, so that it reflects the secondary node host.
 
     **Note:** If you choose to use <code>rsync</code> or a manual copy instead, for security reasons, please ensure that only the postgres user has read/write access to the data folder.
 
@@ -81,7 +81,7 @@ Given that the primary PostgreSQL instance has been setup for replication, the s
       trigger_file = '\path\to\postgresql.trigger.5432'
     ```
 
-    You may optionally setup archive cleanup. This would keep clearing the [WAL](https://www.postgresql.org/docs/9.6/static/runtime-config-wal.html) files from the archive location as the changes are replicated successfully to the standby postgres server. Just append the below lines to `recovery.conf`
+    You may optionally setup archive cleanup. This would keep clearing the [WAL](https://www.postgresql.org/docs/current/static/runtime-config-wal.html) files from the archive location as the changes are replicated successfully to the standby postgres server. Just append the below lines to `recovery.conf`
 
     On Linux:
 
@@ -95,7 +95,7 @@ Given that the primary PostgreSQL instance has been setup for replication, the s
       archive_cleanup_command = 'pg_archivecleanup \\sharedDrive\primary_wal %r'
     ```
 
-    References for these options are at: [Recovery Configuration](https://www.postgresql.org/docs/9.6/static/recovery-config.html).
+    References for these options are at: [Recovery Configuration](https://www.postgresql.org/docs/current/static/recovery-config.html).
 
     **Note:** The trigger file is a file whose presence (creation) makes the standby PostgreSQL instance become the primary PostgreSQL instance. It'll stop replication from happening, and the instance starts accepting write requests (updates to databases). Ensure that this file can only be created by an administrator, and accessible by the <code>postgres</code> user.
 
