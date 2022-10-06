@@ -355,7 +355,7 @@ if (!doNotTrack) {
 <p>For deployment pipelines that need access to the Kubernetes API for target deployment Kubernetes clusters, an API token must be provided and made available to deployment scripts. Deployment scripts also need other secrets such as Dockerhub credentials. We setup these secrets in Kubernetes and make them available to the GoCD agents in the elastic agent&rsquo;s pod yaml configuration.</p>
 <p><strong>Kubernetes API Tokens</strong></p>
 <p>To allow a deployment script to be able to communicate with the target Kubernetes cluster, you must create a service account for deployments. The API token for this service account can then be stored in a Kubernetes secret.</p>
-<p>Refer the <a href="https://kubernetes.io/rbac/">Kubernetes RBAC guide</a> for instructions on creating service accounts and assigning them to roles.</p>
+<p>Refer to the <a href="https://kubernetes.io/rbac/">Kubernetes RBAC guide</a> for instructions on creating service accounts and assigning them to roles.</p>
 <p>You can create a secret with these credentials with the following Kubernetes configuration:</p>
 <pre tabindex="0"><code>cat &lt;&lt;EOF &gt;./secrets-for-gocd.yaml
 apiVersion: v1

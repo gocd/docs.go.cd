@@ -333,13 +333,13 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="access-tokens">Access Tokens</h1>
-<p>From GoCD server version 19.2.0 onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp; password) as a part of API request headers.</p>
+<p>From GoCD server version <code>19.2.0</code> onwards, you will be able to create personal access tokens to access GoCD API(s). This will allow users to make an API call without specifying their credentials (username &amp; password) as a part of API request headers.</p>
 <h2 id="usage-instructions">Usage instructions</h2>
 <ol>
 <li>
 <p>A token can be used to access GoCD APIs and <code>cctray.xml</code> by passing it in API header.</p>
 <blockquote>
-<p>Before 19.2.0</p>
+<p>Before <code>19.2.0</code></p>
 </blockquote>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
 </span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>       -u <span style="color:#b44">&#39;username:password&#39;</span>

@@ -127,7 +127,7 @@ To navigate to the Graphs: Click on the stage bar of the relevant stage on the p
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity/initial_setup.html</guid>
-      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL documentation.
+      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer to the configure PostgreSQL documentation.
 Enable replication on the primary PostgreSQL instance The recommended replication setup is PostgreSQL streaming replication with log shipping . In this case, the two PostgreSQL servers, called &amp;ldquo;Primary&amp;rdquo; and &amp;ldquo;Standby&amp;rdquo;, will be setup such that the standby continuously replicates the primary.</description>
     </item>
     

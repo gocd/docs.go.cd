@@ -333,9 +333,9 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="initial-setup">Initial setup</h1>
-<p><strong>Assumption</strong>: You already have a setup resembling <a href="introduction.html#fig-1">Figure 1</a>, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL <a href="../../installation/configuring_database/postgres.html">documentation</a>.</p>
+<p><strong>Assumption</strong>: You already have a setup resembling <a href="introduction.html#fig-1">Figure 1</a>, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer to the configure PostgreSQL <a href="../../installation/configuring_database/postgres.html">documentation</a>.</p>
 <h2 id="enable-replication-on-the-primary-postgresql-instance">Enable replication on the primary PostgreSQL instance</h2>
-<p>The recommended replication setup is PostgreSQL <a href="https://www.postgresql.org/docs/9.6/static/warm-standby.html#STREAMING-REPLICATION">streaming replication with log shipping</a> . In this case, the two PostgreSQL servers, called &ldquo;Primary&rdquo; and &ldquo;Standby&rdquo;, will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.</p>
+<p>The recommended replication setup is PostgreSQL <a href="https://www.postgresql.org/docs/current/static/warm-standby.html#STREAMING-REPLICATION">streaming replication with log shipping</a> . In this case, the two PostgreSQL servers, called &ldquo;Primary&rdquo; and &ldquo;Standby&rdquo;, will be setup such that the standby continuously replicates the primary. Along with this, log shipping will be setup. This requires a network drive which is shared between the two PostgreSQL servers. Log shipping allows the replication to continue even if one of the PostgreSQL servers has to be restarted briefly.</p>
 <ol>
 <li>
 <p>As log shipping needs a shared drive, it is assumed that you have a shared drive mounted at <code>/share</code>, on both the PostgreSQL server hosts. This acts as a bridge between the two.</p>
@@ -376,10 +376,10 @@ if (!doNotTrack) {
 <p>Ensure that the version of the PostgreSQL instance on the standby is the same as the version of that on the primary.</p>
 </li>
 <li>
-<p>Choose an empty directory to serve as the <a href="https://www.postgresql.org/docs/9.6/static/runtime-config-file-locations.html">data directory</a> for the new instance, and create a <a href="https://www.postgresql.org/docs/9.6/static/app-pgbasebackup.html">base backup</a> from the primary PostgreSQL instance. This is how a base backup is taken:</p>
+<p>Choose an empty directory to serve as the <a href="https://www.postgresql.org/docs/current/static/runtime-config-file-locations.html">data directory</a> for the new instance, and create a <a href="https://www.postgresql.org/docs/current/static/app-pgbasebackup.html">base backup</a> from the primary PostgreSQL instance. This is how a base backup is taken:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  pg_basebackup -h &lt;ip_address_of_primary_postgres_server&gt; -U rep -D &lt;empty_data_directory_on_standby&gt;
 </span></span></code></pre></div><p><strong>Note:</strong> Please note that this is a backup of the whole instance, and not a specific database. PostgreSQL streaming replication always works with the whole instance.</p>
-<p>At this point you should also look at your <a href="https://www.postgresql.org/docs/9.6/runtime-config-connection.html">Secondary PostgreSQL Connection and Authentication settings</a> for the secondary server. For e.g you might have to alter postgresql.conf on your secondary server and change &ldquo;listen_addresses&rdquo; property, so that it reflects the secondary node host.</p>
+<p>At this point you should also look at your <a href="https://www.postgresql.org/docs/current/runtime-config-connection.html">Secondary PostgreSQL Connection and Authentication settings</a> for the secondary server. For e.g you might have to alter postgresql.conf on your secondary server and change &ldquo;listen_addresses&rdquo; property, so that it reflects the secondary node host.</p>
 <p><strong>Note:</strong> If you choose to use <code>rsync</code> or a manual copy instead, for security reasons, please ensure that only the postgres user has read/write access to the data folder.</p>
 </li>
 <li>
@@ -394,12 +394,12 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  primary_conninfo <span style="color:#666">=</span> <span style="color:#b44">&#39;host=&lt;ip_address_of_primary_postgres_server&gt; port=5432 user=rep password=rep&#39;</span>
 </span></span><span style="display:flex;"><span>  restore_command <span style="color:#666">=</span> <span style="color:#b44">&#39;copy \\sharedDrive\primary_wal\%f %p&#39;</span>
 </span></span><span style="display:flex;"><span>  trigger_file <span style="color:#666">=</span> <span style="color:#b44">&#39;\path\to\postgresql.trigger.5432&#39;</span>
-</span></span></code></pre></div><p>You may optionally setup archive cleanup. This would keep clearing the <a href="https://www.postgresql.org/docs/9.6/static/runtime-config-wal.html">WAL</a> files from the archive location as the changes are replicated successfully to the standby postgres server. Just append the below lines to <code>recovery.conf</code></p>
+</span></span></code></pre></div><p>You may optionally setup archive cleanup. This would keep clearing the <a href="https://www.postgresql.org/docs/current/static/runtime-config-wal.html">WAL</a> files from the archive location as the changes are replicated successfully to the standby postgres server. Just append the below lines to <code>recovery.conf</code></p>
 <p>On Linux:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  archive_cleanup_command <span style="color:#666">=</span> <span style="color:#b44">&#39;pg_archivecleanup /sharedDrive/primary_wal %r&#39;</span>
 </span></span></code></pre></div><p>On Windows:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-ruby" data-lang="ruby"><span style="display:flex;"><span>  archive_cleanup_command <span style="color:#666">=</span> <span style="color:#b44">&#39;pg_archivecleanup \\sharedDrive\primary_wal %r&#39;</span>
-</span></span></code></pre></div><p>References for these options are at: <a href="https://www.postgresql.org/docs/9.6/static/recovery-config.html">Recovery Configuration</a>.</p>
+</span></span></code></pre></div><p>References for these options are at: <a href="https://www.postgresql.org/docs/current/static/recovery-config.html">Recovery Configuration</a>.</p>
 <p><strong>Note:</strong> The trigger file is a file whose presence (creation) makes the standby PostgreSQL instance become the primary PostgreSQL instance. It&rsquo;ll stop replication from happening, and the instance starts accepting write requests (updates to databases). Ensure that this file can only be created by an administrator, and accessible by the <code>postgres</code> user.</p>
 </li>
 <li>
@@ -421,7 +421,7 @@ if (!doNotTrack) {
 </span></span><span style="display:flex;"><span>  user:password
 </span></span></code></pre></div><p><strong>Note:</strong> Please provide only single set of business continuity token in this file.
 The Business Continuity token passed in the token file is only used for Business Continuity sync log in and is independent of any existing roles configured within GoCD using any authentication/authorization plugins.</p>
-<p><strong>Note:</strong> Users upgrading from previous versions of GoCD server (v18.7.0 or earlier) will need to setup this file as the plugin will no longer support OAuth client based setup.</p>
+<p><strong>Note:</strong> Users upgrading from previous versions of GoCD server (<code>18.7.0</code> or earlier) will need to setup this file as the plugin will no longer support OAuth client based setup.</p>
 </li>
 <li>
 <p>Get a base backup of the primary GoCD Server.</p>

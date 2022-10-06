@@ -333,7 +333,9 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="enabling-gocd-to-use-mysql">Enabling GoCD to use MySQL</h1>
-<p><em>Note</em>: While, support for MySQL is added in GoCD 20.5.0 and a basic round of migration tests has been completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD&rsquo;s build pipelines.</p>
+<blockquote>
+<p><strong>Note</strong>: Support for MySQL was added in GoCD <code>20.5.0</code> and while a basic round of migration tests was completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD&rsquo;s build pipelines.</p>
+</blockquote>
 <h3 id="step-1-install-mysql-server">Step 1: Install MySQL Server</h3>
 <p>In order to use MySQL database with GoCD, an external MySQL database server is needed to host the GoCD Server&rsquo;s database.
 Refer <a href="https://dev.mysql.com/doc/mysql-installation-excerpt/8.0/en/">MySQL Installation</a> documentation to install the latest MySQL Database Server based on your environment. GoCD supports MySQL version 8.0.</p>
