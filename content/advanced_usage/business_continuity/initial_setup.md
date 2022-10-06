@@ -120,7 +120,7 @@ Given that a standby PostgreSQL instance has been setup for replication, we can 
     **Note:** Please provide only single set of business continuity token in this file.
     The Business Continuity token passed in the token file is only used for Business Continuity sync log in and is independent of any existing roles configured within GoCD using any authentication/authorization plugins.
 
-    **Note:** Users upgrading from previous versions of GoCD server (v18.7.0 or earlier) will need to setup this file as the plugin will no longer support OAuth client based setup.
+    **Note:** Users upgrading from previous versions of GoCD server (`18.7.0` or earlier) will need to setup this file as the plugin will no longer support OAuth client based setup.
 
 3. Get a base backup of the primary GoCD Server.
 

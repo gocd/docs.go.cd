@@ -112,7 +112,7 @@ at the end of these files might be interesting. Some common errors are:
           at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
 
     The problem here is that the version of Java used by the agent is too old. In
-    this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
+    this example, Java 6 was used by an agent, with a `16.2.0` GoCD server, which
     needs Java 7.
 
 4. **Agent tokens have been invalidated or you are trying to switch to another server**
@@ -252,13 +252,13 @@ Resolution: If this is happening, consider increase the timeout period by specif
 <a name="https-port-not-started"></a>
 ### Application not listening to port 8154 (HTTPS)
 
-From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL/TLS certificates or listen to port 8154 (HTTPS) *by default*.
-From GoCD 20.5.0 the server no longer contains any functionality to configure TLS on the server.
+From GoCD `20.2.0` onwards, the GoCD server will no longer generate any self-signed SSL/TLS certificates or listen to port 8154 (HTTPS) *by default*.
+From GoCD `20.5.0` the server no longer contains any functionality to configure TLS on the server.
 
 Users are expected to terminate TLS elsewhere, for example using a [reverse proxy](../installation/configure-reverse-proxy.html)
 or load balancer.
 
-Versions between 20.2.0 and 20.5.0 allowed fallback to use previous configuration as a temporary measure. More information
+Versions between `20.2.0` and `20.5.0` allowed fallback to use previous configuration as a temporary measure. More information
 can be found [in issue #7872](https://github.com/gocd/gocd/issues/7872).
 
 <a name="ports-in-use"></a>

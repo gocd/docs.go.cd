@@ -67,14 +67,14 @@ Once you've added a config repository, you'll see new pipelines in the pipeline 
 
 ### Exporting pipeline configuration data
 
-As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD's main XML configuration file.
+As of GoCD `19.1.0`, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD's main XML configuration file.
 
 ![Config repo yaml](../images/advanced_usage/pipeline-export.gif)
 
 
 ### Specifying Rules
 
-Starting with GoCD 20.2.0, you can defines `rules` on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.
+Starting with GoCD `20.2.0`, you can defines `rules` on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.
 
 Previously, giving access to a config repository's backing SCM repository meant giving full access to the GoCD instance, almost. Such users used to have access to all environments/pipeline groups and could, possibly, add tasks to expose the secrets configured.
 
