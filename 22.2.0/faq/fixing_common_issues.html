@@ -427,7 +427,7 @@ trust the server&rsquo;s current certificate.</p>
    at java.security.SecureClassLoader.defineClass(SecureClassLoader.java:142)
 </code></pre>
 <p>The problem here is that the version of Java used by the agent is too old. In
-this example, Java 6 was used by an agent, with a 16.2.0 GoCD server, which
+this example, Java 6 was used by an agent, with a <code>16.2.0</code> GoCD server, which
 needs Java 7.</p>
 </li>
 <li>
@@ -549,11 +549,11 @@ needs to be a part of that environment as well.</p>
 <p>Resolution: If this is happening, consider increase the timeout period by specifying the <a href="../advanced_usage/other_config_options.html#go-spa-timeout">go.spa.timeout</a></p>
 <p><a name="https-port-not-started"></a></p>
 <h3 id="application-not-listening-to-port-8154-https">Application not listening to port 8154 (HTTPS)</h3>
-<p>From GoCD 20.2.0 onwards, the GoCD server will no longer generate any self-signed SSL/TLS certificates or listen to port 8154 (HTTPS) <em>by default</em>.
-From GoCD 20.5.0 the server no longer contains any functionality to configure TLS on the server.</p>
+<p>From GoCD <code>20.2.0</code> onwards, the GoCD server will no longer generate any self-signed SSL/TLS certificates or listen to port 8154 (HTTPS) <em>by default</em>.
+From GoCD <code>20.5.0</code> the server no longer contains any functionality to configure TLS on the server.</p>
 <p>Users are expected to terminate TLS elsewhere, for example using a <a href="../installation/configure-reverse-proxy.html">reverse proxy</a>
 or load balancer.</p>
-<p>Versions between 20.2.0 and 20.5.0 allowed fallback to use previous configuration as a temporary measure. More information
+<p>Versions between <code>20.2.0</code> and <code>20.5.0</code> allowed fallback to use previous configuration as a temporary measure. More information
 can be found <a href="https://github.com/gocd/gocd/issues/7872">in issue #7872</a>.</p>
 <p><a name="ports-in-use"></a></p>
 <h3 id="port-8153-http-could-not-be-opened">Port 8153 (HTTP) could not be opened</h3>

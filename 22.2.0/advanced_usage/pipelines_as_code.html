@@ -372,10 +372,10 @@ if (!doNotTrack) {
 <p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml"></p>
 <p>Once you&rsquo;ve added a config repository, you&rsquo;ll see new pipelines in the pipeline dashboard. If there are any errors, you&rsquo;ll see them on the &ldquo;Config repositories&rdquo; page mentioned above.</p>
 <h3 id="exporting-pipeline-configuration-data">Exporting pipeline configuration data</h3>
-<p>As of GoCD 19.1.0, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD&rsquo;s main XML configuration file.</p>
+<p>As of GoCD <code>19.1.0</code>, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD&rsquo;s main XML configuration file.</p>
 <p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml"></p>
 <h3 id="specifying-rules">Specifying Rules</h3>
-<p>Starting with GoCD 20.2.0, you can defines <code>rules</code> on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.</p>
+<p>Starting with GoCD <code>20.2.0</code>, you can defines <code>rules</code> on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.</p>
 <p>Previously, giving access to a config repository&rsquo;s backing SCM repository meant giving full access to the GoCD instance, almost. Such users used to have access to all environments/pipeline groups and could, possibly, add tasks to expose the secrets configured.</p>
 <p>With <code>rules</code>, the users who can create/edit config repositories can limit the environments/pipeline groups the repository can add a pipeline to. Similarly, they can also define which pipelines can be referred as an upstream dependency. Hence, providing more control over what all entities can come via the config repository.</p>
 <ul>

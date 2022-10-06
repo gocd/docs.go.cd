@@ -389,7 +389,7 @@ Optionally, you can also specify the database SSL config properties for secure c
 </table>
 <h2 id="gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</h2>
 <p>The <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD backs up both the configuration and database. Depending upon the type of the database, additional arguments can be specified, which will be used by underlying utility by GoCD while backing up the database.</p>
-<p>GoCD uses <a href="https://www.postgresql.org/docs/current/app-pgdump.html">pg_dump</a> utility for backing up a PostgreSQL database. Refer <a href="https://www.postgresql.org/docs/9.6/app-pgdump.html">pg_dump docs</a> to know all available PostgreSQL database backup options.</p>
+<p>GoCD uses <a href="https://www.postgresql.org/docs/current/app-pgdump.html">pg_dump</a> utility for backing up a PostgreSQL database. Refer <a href="https://www.postgresql.org/docs/current/app-pgdump.html">pg_dump docs</a> to know all available PostgreSQL database backup options.</p>
 <p><strong>Example:</strong> <br/>
 Specify <code>db.extraBackupCommandArgs=--format=plain</code> property to specify <code>--format=plain</code> option to the <code>pg_dump</code> backup utility, which causes it to take a plain text backup.</p>
 <p>GoCD uses <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">mysqldump</a> utility for backing up a MySQL database. Refer <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">mysqldump docs</a> to know all available MySQL database backup options.</p>

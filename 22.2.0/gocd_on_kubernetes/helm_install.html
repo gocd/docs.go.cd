@@ -344,11 +344,7 @@ if (!doNotTrack) {
 </span></span></code></pre></div><ol start="2">
 <li>Run the install command:</li>
 </ol>
-<p>For Helm v3:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl create ns gocd
-</span></span><span style="display:flex;"><span>helm install gocd gocd/gocd --namespace gocd
-</span></span></code></pre></div><p>If you&rsquo;re using an older version of Helm, then use this command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm install gocd/gocd --name gocd --namespace gocd
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>helm install gocd gocd/gocd --namespace gocd --create-namespace
 </span></span></code></pre></div><h2 id="access-the-gocd-server">Access the GoCD server</h2>
 <p>After you&rsquo;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</p>
 <p>The Ingress IP address can be obtained as specified below:</p>

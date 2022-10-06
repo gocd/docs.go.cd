@@ -428,7 +428,7 @@ Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/installation/configuring_database/mysql.html</guid>
-      <description>Enabling GoCD to use MySQL Note: While, support for MySQL is added in GoCD 20.5.0 and a basic round of migration tests has been completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD&amp;rsquo;s build pipelines.
+      <description>Enabling GoCD to use MySQL Note: Support for MySQL was added in GoCD 20.5.0 and while a basic round of migration tests was completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD&amp;rsquo;s build pipelines.
 Step 1: Install MySQL Server In order to use MySQL database with GoCD, an external MySQL database server is needed to host the GoCD Server&amp;rsquo;s database.</description>
     </item>
     
@@ -579,7 +579,7 @@ Prerequisites The sample pipelines build a sample application as a Docker image 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity/initial_setup.html</guid>
-      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer the configure PostgreSQL documentation.
+      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer to the configure PostgreSQL documentation.
 Enable replication on the primary PostgreSQL instance The recommended replication setup is PostgreSQL streaming replication with log shipping . In this case, the two PostgreSQL servers, called &amp;ldquo;Primary&amp;rdquo; and &amp;ldquo;Standby&amp;rdquo;, will be setup such that the standby continuously replicates the primary.</description>
     </item>
     
@@ -591,7 +591,7 @@ Enable replication on the primary PostgreSQL instance The recommended replicatio
       <guid>/gocd_on_kubernetes/helm_install.html</guid>
       <description>Getting Started with GoCD on Kubernetes Step 2: Install the GoCD Helm chart Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.
 First verify your Helm version using command helm version, then install the official GoCD Helm chart as follows:
-Add the GoCD helm chart repository: helm repo add gocd https://gocd.github.io/helm-chart helm repo update Run the install command: For Helm v3:</description>
+Add the GoCD helm chart repository: helm repo add gocd https://gocd.github.io/helm-chart helm repo update Run the install command: helm install gocd gocd/gocd --namespace gocd --create-namespace Access the GoCD server After you&amp;rsquo;ve installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.</description>
     </item>
     
     <item>
@@ -1165,7 +1165,7 @@ Perform server upgrade by following our documentation here for both primary and 
       
       <guid>/installation/upgrading_go.html</guid>
       <description>Upgrading GoCD The steps in this page can be followed to upgrade GoCD. It is recommended to understand any breaking changes between the releases to see if they impact your upgrades in any way.
-Note: If upgrading from a GoCD release &amp;lt;= 20.4.0, there is a the one-time DB migration that needs to be performed as well.
+Note: If upgrading from a GoCD release &amp;lt;= 20.5.0, there is a the one-time DB migration that needs to be performed as well.
 Before you start Before you begin upgrading, it is recommended that you turn on maintenance mode on your GoCD server (available since version 19.</description>
     </item>
     
