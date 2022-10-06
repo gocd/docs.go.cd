@@ -4,7 +4,7 @@ title: Enabling GoCD to use MySQL Database
 
 # Enabling GoCD to use MySQL
 
-_Note_: While, support for MySQL is added in GoCD 20.5.0 and a basic round of migration tests has been completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD's build pipelines.
+> **Note**: Support for MySQL was added in GoCD `20.5.0` and while a basic round of migration tests was completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL. H2 and PostgreSQL are tested thoroughly as a part of GoCD's build pipelines.
 
 ### Step 1: Install MySQL Server
 
