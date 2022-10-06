@@ -14,6 +14,6 @@ This section describes how to bring up a new GoCD Server instance, using the dat
 ### GoCD Supports following databases (with mentioned versions):
 
 - [H2 (`v1.4.200`) [Built in]](configuring_database/h2.html)
-- [PostgreSQL (`v9.6`, `v10`, `v11` and `v12`)](configuring_database/postgres.html)
+- [PostgreSQL (`v9.6`+)](configuring_database/postgres.html)
 - [MySQL (`v8.0`)](configuring_database/mysql.html)
 

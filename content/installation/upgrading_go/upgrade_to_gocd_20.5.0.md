@@ -6,38 +6,56 @@ title: Upgrading to GoCD 20.5.0 and higher
 
 # Upgrading to GoCD 20.5.0 and higher
 
-GoCD 20.5.0 introduced several changes to its database implementation in order to build a more flexible model that allows integrating with multiple databases. As part of these changes GoCD changed the technologies used for automated database migrations (from the unmaintained DBDeploy to Liquibase). These changes require a one-time migration of the GoCD database <= 20.4.0 to one compliant with GoCD 20.5.0 and beyond.
+GoCD `20.5.0` introduced several changes to its database implementation in order to build a more flexible model that allows integrating with multiple databases. As part of these changes GoCD changed the technologies used for automated database migrations (from the unmaintained DBDeploy to Liquibase). These changes require a one-time migration of the GoCD database <= `20.4.0` to one compliant with GoCD `20.5.0` and beyond.
 
-GoCD 20.5.0, while continuing to support H2 by default, provides an ability to use PostgreSQL and MySQL. As part of this one-time database migration users can also choose to move to a database of their choice. Possible migrations are:
+GoCD `20.5.0`, while continuing to support H2 by default, provides an ability to use PostgreSQL and MySQL. As part of this one-time database migration users can also choose to move to a database of their choice. Possible migrations are:
 
 1. **H2** => **PostgreSQL** <small>[Recommended]</small>
 2. **PostgreSQL** => **PostgreSQL**
 3. **H2** => **H2**
 4. **H2** => **MySQL** <small>[Warning! See note below]</small>
 
-#### GoCD Supports following database versions
+## Choosing your migration strategy
 
-- PostgreSQL (**`v9.6`, `v10`, `v11` and `v12`**)
-- MySQL (**`v8.0`**)
+GoCD comes bundled with the Java disk-based [H2 database](https://www.h2database.com/). If you have never configured a database, this is what you are using.
+- Support for PostgreSQL was historically provided through a commercial addon provided by Thoughtworks. This functionality was integrated into core GoCD and made freely available as of `20.5.0`.
+- As a result of this history, all of GoCD's functional regression tests run against both H2 and PostgreSQL databases.
+- While support for MySQL was added in `20.5.0`, only a basic round of migration tests was completed, and the functional test suite _does not regularly run against MySQL_ as a part of the build pipeline. This is something to be aware of if considering moving to MySQL.
+- The H2 version used in GoCD `20.5.0` moved to use MVStore as the default storage subsystem. The [current state](https://www.H2database.com/html/mvstore.html#current_state) of MVStore (as of October 2022) as per H2 documentation is still marked as experimental. While using the default H2 is fine to get started or experimenting, we would recommend using PostgreSQL for production instances of GoCD. 
 
-Follow the instructions below to migrate your exisiting GoCD <= 20.4.0 database to a GoCD 20.5.0 (and beyond) compliant database. The time taken by this migration is dependent on the size of your database. While testing we have seen the migration taking few minutes to **more than an hour** based on the size of the database. Please test on a backup of your GoCD server to understand the time taken for your particular database.
+### Choosing your target GoCD version
 
-**Note**: 
+If you are considering upgrading to a version _higher than_ `20.5.0`, please remember the usual caveats around
+compatibility with older agent versions, noted in [Upgrading GoCD](../upgrading_go.html). As there have
+been no major database-related changes between `20.5.0` and `22.3.0`, there are no special database-related considerations
+however you should [review the release notes](https://www.gocd.org/releases/) for possible breaking changes in your setup.
 
-- GoCD, by default, supports H2. Support for PostgreSQL used to be provided through a commercial addon. All of GoCD's functional tests run against both H2 and PostgreSQL databases. While, support for MySQL is added in 20.5.0 and a basic round of migration tests has been completed, the functional test suite does not regularly run against MySQL as a part of the build pipeline. This is something to be aware of if moving to MySQL.
+### Choosing PostgreSQL or MySQL versions
 
-- The H2 version used in GoCD 20.5.0 has moved to use MVStore as the default storage subsystem. The [Current State](https://www.H2database.com/html/mvstore.html#current_state) of MVStore (as of June 2020) as per H2 documentation is marked as experimental. While using the default H2 is fine to get started or experimenting, we would recommend using PostgreSQL for production instances of GoCD. 
+If you are considering migrating from H2 to PostgreSQL or MySQL during this upgrade, you should consider the target version of your database carefully. Ideally, you want to choose an **overlapping version** based on:
 
-- Strong recommendation: try this migration on a non-production instance or backup of GoCD before attempting it on the production instance.
+1. your eventual target GoCD release's [supported database versions](../configuring_database.html).
+2. the [database migrator tool](https://github.com/gocd/gocd-database-migrator)'s supported database versions which were validated upon `20.5.0` release. These were:
+    - PostgreSQL (**`v9.6`** -- **`v12`**). As of 2022, later versions will _probably_ work correctly, but _should be considered unvalidated_, so take care to sanity check your data in your specific environment.
+    - MySQL (**`v8.0`**)
 
 
-### Step 1: Upgrade to GoCD 20.4.0
+## Migration Steps
 
-You should be able to migrate from any older version of GoCD to 20.5.0. However, over the last few releases there have been multiple changes to GoCD around installers and agent communication which could involve necessary changes to your setup. Hence it is recommended to do a normal upgrade to GoCD 20.4.0 and start GoCD 20.4.0 before performing an upgrade to GoCD 20.5.0.
+Follow the instructions below to migrate your existing GoCD <= `20.4.0` database to a GoCD `20.5.0` (and beyond) compliant database. The time taken by this migration is dependent on the size of your database. While testing we have seen the migration taking from a few minutes to **more than an hour** based on the size of the database. Please test on a backup of your GoCD server to understand the time taken for your particular database.
+
+> **Strong recommendation:**: try this migration on a non-production instance or backup of GoCD before attempting it on a production instance.
+
+### Step 1: Upgrade to GoCD `20.4.0`
+
+In general, you should be able to migrate from any older version of GoCD directly to `20.5.0` or higher. However, over the few releases prior to `20.5.0` there have been multiple changes to GoCD around installers and agent communication which could involve necessary changes to your setup.
+
+Hence to ensure you are tackling one challenge at a time, it is recommended to do a normal upgrade to GoCD `20.4.0` 
+and validate your setup on GoCD `20.4.0` **before** performing an upgrade to GoCD `20.5.0` or higher.
 
 ### Step 2: Backup
 
-Backup your GoCD server. Refer the [Backup GoCD Server](../../advanced_usage/one_click_backup.html) documentation for instructions.
+Backup your GoCD server. Refer to the [Backup GoCD Server](../../advanced_usage/one_click_backup.html) documentation for instructions.
 
 ### Step 3: Stop GoCD Server
 
@@ -71,7 +89,7 @@ Stop your GoCD server, if it is running.
       --target-db-password=''
     ```
 
-    For GoCD server running on Windows refer the below example -
+    For GoCD server running on Windows refer to the below example -
     ```bash
     bin\gocd-database-migrator.bat ^
     --insert ^
@@ -94,7 +112,7 @@ Stop your GoCD server, if it is running.
 
 #### 4.2 Migrating data from PostgreSQL to PostgreSQL
 
-1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](../configuring_database/postgres.html) for information on creating an empty database.
+1. Create an empty database in PostgreSQL. Refer to the [PostgreSQL docs](../configuring_database/postgres.html) for information on creating an empty database.
 
 2. Run the command by providing the right parameters for the required options. An example is shown below:
 
@@ -112,7 +130,7 @@ Stop your GoCD server, if it is running.
 
 #### 4.3 Migrating data from H2 to PostgreSQL
 
-1. Create an empty database in PostgreSQL. Refer the [PostgreSQL docs](../configuring_database/postgres.html) for information on creating an empty database.
+1. Create an empty database in PostgreSQL. Refer to the [PostgreSQL docs](../configuring_database/postgres.html) for information on creating an empty database.
 
 2. Run the command by providing the right parameters for the required options,
 
@@ -130,7 +148,7 @@ Stop your GoCD server, if it is running.
 
 #### 4.4 Migrating data from H2 to MySQL
 
-1. Create an empty database in MySQL. Refer the [MySQL docs](../configuring_database/mysql.html ) for information on creating an empty database.
+1. Create an empty database in MySQL. Refer to the [MySQL docs](../configuring_database/mysql.html ) for information on creating an empty database.
 
 2. Run the command by providing the right parameters for the required options,
 
@@ -150,11 +168,11 @@ Stop your GoCD server, if it is running.
 
 #### 5.1 Enabling GoCD to use H2 Database
 
-GoCD runs on H2 by default. Configuring the `db.properties` is **not** required. Just make sure that the directory `<<GoCD_installation_directory>>/db/h2db/` does not contain `cruise.h2.db` and contains `cruise.mv.db`.
+GoCD runs on H2 by default. Configuring the `db.properties` is **not** required. Just make sure that the directory `<<GoCD_installation_directory>>/db/h2db/` does **not** contain `cruise.h2.db` (the `20.4.0` H2 database format) and only contains `cruise.mv.db` (the `20.5.0`+ H2 database format).
 
 #### 5.2 Enabling GoCD to use PostgreSQL or MySQL Database
 
-A properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer the [GoCD Database Connection Properties documentation](../configuring_database/connection-properties.html) for more information about the format of this file and valid keys.
+A properties file with the name `db.properties` needs to be created in GoCD's configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer to the [GoCD Database Connection Properties documentation](../configuring_database/connection-properties.html) for more information about the format of this file and valid keys.
 
 The location of GoCD's configuration directory varies per operating system. Usually, on a Linux system using the RPM or Debian installers, this file will need to be at `/etc/go/db.properties`. The [installation documentation](../installing_go_server.html) provides information about the locations.
 
@@ -186,7 +204,7 @@ With GoCD now providing support for PostgreSQL, the previously commercial Postgr
 
 ### Step 7: Upgrade GoCD Server
 
-Upgrade your GoCD server to 20.5.0+ and start the server.
+Upgrade your GoCD server to `20.5.0`+ and start the server.
 
 ## Troubleshooting
 
