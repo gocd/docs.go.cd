@@ -68,7 +68,7 @@ version.BuildInfo{Version:"v3.0.3", GitCommit:"ac925eb7279f4a6955df663a0128044a8
 
 #### Install the Helm server (Tiller) with RBAC
 
-With Helm, it is a good practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer the
+With Helm, it is a good practice to grant a role to a Tiller specific service account, to control the scope under which your application is deployed. You can refer to the
 [Kubernetes RBAC documentation](https://kubernetes.io/rbac/) for more on Kubernetes service accounts and RBAC.
 
 To create a service account for Tiller with the rather permissive cluster-admin role, create a file called `rbac-config.yaml` with this content:
@@ -112,5 +112,5 @@ There is no need any more to have cluster admin privileges or to install Tiller 
 
 Know more about removal of Tiller at [Helm v3 Changelog](https://helm.sh/docs/faq/changes_since_helm2/).  
 
-Helm's permissions are now evaluated using your kubeconfig file. Refer the [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and [Helm RBAC guide](https://helm.sh/docs/topics/rbac/) for configuring more secure and advanced RBAC for your cluster.
+Helm's permissions are now evaluated using your kubeconfig file. Refer to the [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and [Helm RBAC guide](https://helm.sh/docs/topics/rbac/) for configuring more secure and advanced RBAC for your cluster.
 
