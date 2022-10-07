@@ -39,6 +39,11 @@ If you are considering migrating from H2 to PostgreSQL or MySQL during this upgr
     - PostgreSQL (**`v9.6`** -- **`v12`**). As of 2022, later versions will _probably_ work correctly, but _should be considered unvalidated_, so take care to sanity check your data in your specific environment.
     - MySQL (**`v8.0`**)
 
+### Previous commercial PostgreSQL add-on users
+
+Previous commercial PostgreSQL add-on usage was replaced by open-source/free support for PostgreSQL in GoCD `20.5.0`.
+Add-ons / extensions are no longer required, used or supported. However to continue to use PostgresSQL your existing 
+database still needs a one-time manual migration to make it compatible with GoCD `20.5.0` and higher.
 
 ## Migration Steps
 
@@ -196,7 +201,7 @@ The location of GoCD's configuration directory varies per operating system. Usua
 
 ### Step 6: Only for users using the (old) commercial PostgreSQL addon
 
-With GoCD now providing support for PostgreSQL, the previously commercial PostgreSQL addon is no longer required. You will, however, need to perform the PostgreSQL to PostgreSQL migration mentioned above and follow the instructions to configure `db.properties`. Once done:
+Once you have completed the above steps, including configuring a new `db.properties` config for core GoCD:
 
 - Remove the PostgreSQL addon jar from the addons directory (typically `/var/lib/go-server/addons` on Linux)
 
