@@ -365,6 +365,10 @@ however you should <a href="https://www.gocd.org/releases/">review the release n
 </ul>
 </li>
 </ol>
+<h3 id="previous-commercial-postgresql-add-on-users">Previous commercial PostgreSQL add-on users</h3>
+<p>Previous commercial PostgreSQL add-on usage was replaced by open-source/free support for PostgreSQL in GoCD <code>20.5.0</code>.
+Add-ons / extensions are no longer required, used or supported. However to continue to use PostgresSQL your existing
+database still needs a one-time manual migration to make it compatible with GoCD <code>20.5.0</code> and higher.</p>
 <h2 id="migration-steps">Migration Steps</h2>
 <p>Follow the instructions below to migrate your existing GoCD &lt;= <code>20.4.0</code> database to a GoCD <code>20.5.0</code> (and beyond) compliant database. The time taken by this migration is dependent on the size of your database. While testing we have seen the migration taking from a few minutes to <strong>more than an hour</strong> based on the size of the database. Please test on a backup of your GoCD server to understand the time taken for your particular database.</p>
 <blockquote>
@@ -506,7 +510,7 @@ db.password=password
 </code></pre></li>
 </ul>
 <h3 id="step-6-only-for-users-using-the-old-commercial-postgresql-addon">Step 6: Only for users using the (old) commercial PostgreSQL addon</h3>
-<p>With GoCD now providing support for PostgreSQL, the previously commercial PostgreSQL addon is no longer required. You will, however, need to perform the PostgreSQL to PostgreSQL migration mentioned above and follow the instructions to configure <code>db.properties</code>. Once done:</p>
+<p>Once you have completed the above steps, including configuring a new <code>db.properties</code> config for core GoCD:</p>
 <ul>
 <li>
 <p>Remove the PostgreSQL addon jar from the addons directory (typically <code>/var/lib/go-server/addons</code> on Linux)</p>
@@ -628,6 +632,7 @@ Caused by: java.sql.SQLSyntaxErrorException: Table &#39;gocd.buildStateTransitio
       <ul>
         <li><a href="#choosing-your-target-gocd-version">Choosing your target GoCD version</a></li>
         <li><a href="#choosing-postgresql-or-mysql-versions">Choosing PostgreSQL or MySQL versions</a></li>
+        <li><a href="#previous-commercial-postgresql-add-on-users">Previous commercial PostgreSQL add-on users</a></li>
       </ul>
     </li>
     <li><a href="#migration-steps">Migration Steps</a>
