@@ -237,6 +237,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../../advanced_usage/business_continuity/configuration.html">Configure Agents and Shared Drive</a></li>
           <li class="level3"><a href="../../advanced_usage/business_continuity/monitor_switch_to_sec.html">Monitoring and Recovery</a></li>
           <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade.html">Server Upgrades</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">Commercial Add-On Server Upgrade to 20.5.0</a></li>
         </ul>
       </li>
       <li class="level2"><a href="../../integration/">Integrating GoCD With Other Tools</a></li>
@@ -333,6 +334,10 @@ if (!doNotTrack) {
 
       
 <article class="markdown"><h1 id="monitoring-and-switching-over-to-secondary-server">Monitoring and Switching Over to Secondary Server</h1>
+<blockquote>
+<p><strong>WARNING</strong>: Please see <a href="introduction.html#history--current-status">the introduction</a> regarding the current status of the
+Business Continuity feature within the open-source/community supported version of GoCD.</p>
+</blockquote>
 <h2 id="monitoring-the-progress-of-the-sync">Monitoring the progress of the sync</h2>
 <p>As mentioned in the details part of the <a href="initial_setup.html#setup-a-standby-secondary-gocd-server">&ldquo;Setup a standby (secondary) GoCD Server&rdquo;</a> section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in <span style="color: red">red</span> denotes the sync hasn&rsquo;t happened, whereas an entry in <span style="color: black">black</span> denotes that the standby is in sync with the server. You should monitor that the <code>Last Config/Plugins Update Time</code> under Primary Details and <code>Last Successful Sync time</code> under Standby Details are not off by a huge time gap.</p>
 <p>If you need it, this information is also available via a JSON API:</p>
@@ -355,7 +360,7 @@ if (!doNotTrack) {
 </code></pre></li>
 <li>
 <p><strong>Switch standby GoCD Server to primary</strong></p>
-<p>As mentioned in the <a href="introduction.html#you-need-to-know-that">&ldquo;You need to know that &hellip;&rdquo;</a> section, the standby GoCD Server needs to be restarted before it can become the primary GoCD Server. While doing this, you need to set the <code>go.server.mode</code> system property to the value <code>primary</code>.</p>
+<p>As mentioned in the <a href="introduction.html#what-you-need-to-know">&ldquo;What you need to know&hellip;&rdquo;</a> section, the standby GoCD Server needs to be restarted before it can become the primary GoCD Server. While doing this, you need to set the <code>go.server.mode</code> system property to the value <code>primary</code>.</p>
 <pre tabindex="0"><code>-Dgo.server.mode=primary
 </code></pre><p>This property was originally mentioned in the details part of <a href="initial_setup.html#setup-a-standby-secondary-gocd-server">&ldquo;Setup a standby (secondary) GoCD Server&rdquo;</a> section of the current document. You can also completely remove this property, since the default value is <code>primary</code>.</p>
 </li>

@@ -237,6 +237,7 @@ if (!doNotTrack) {
           <li class="level3"><a href="../../advanced_usage/business_continuity/configuration.html">Configure Agents and Shared Drive</a></li>
           <li class="level3"><a href="../../advanced_usage/business_continuity/monitor_switch_to_sec.html">Monitoring and Recovery</a></li>
           <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade.html">Server Upgrades</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">Commercial Add-On Server Upgrade to 20.5.0</a></li>
         </ul>
       </li>
       <li class="level2"><a href="../../integration/">Integrating GoCD With Other Tools</a></li>
@@ -334,6 +335,53 @@ if (!doNotTrack) {
       
 <article class="markdown"><h1 id="gocd-business-continuity">GoCD Business Continuity</h1>
 <p>This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.</p>
+<h2 id="history--current-status">History &amp; current status</h2>
+<p>Before GoCD <code>20.6.0</code>, Business continuity support was made available as a commercial add-on. As part of the open-sourcing of all previously
+commercial aspects of GoCD, the add-on was integrated into GoCD core in <code>20.6.0</code> and no-longer requires use of an add-on.</p>
+<blockquote>
+<p><strong>WARNING</strong>: Unfortunately the <em>open-source</em> business continuity version was discovered to have a <strong>major security vulnerability</strong> in its design, and was
+<strong>disabled in GoCD <code>21.3.0</code></strong>, as documented in <a href="https://www.gocd.org/releases/#21-3-0">the release notes</a>.</p>
+<p>As of October 2022, there has not been any major complaint from the community and the project does not currently have
+the resources or intention to reinstate this capability.</p>
+</blockquote>
+<p>Summarised support matrix:</p>
+<table>
+<thead>
+<tr>
+<th>GoCD Version</th>
+<th>BC Availability</th>
+<th>BC Security Status</th>
+<th>Wider GoCD Security Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>&lt;= <code>20.5.0</code></td>
+<td>Yes, commercial add-on</td>
+<td>No known issues</td>
+<td>Known vulnerabilities exist</td>
+</tr>
+<tr>
+<td><code>20.6.0</code> &ndash; <code>21.2.0</code></td>
+<td>Yes, free in core GoCD</td>
+<td><a href="https://github.com/gocd/gocd/security/advisories/GHSA-f8j3-9pqx-h88g">See advisory</a></td>
+<td>Known vulnerabilities exist</td>
+</tr>
+<tr>
+<td>&gt;= <code>21.3.0</code></td>
+<td>No, removed</td>
+<td>No known issues</td>
+<td>Review <a href="https://github.com/gocd/gocd/security/advisories?state=published">here</a></td>
+</tr>
+<tr>
+<td>latest</td>
+<td>No, removed</td>
+<td>No known issues</td>
+<td>Supported</td>
+</tr>
+</tbody>
+</table>
+<h2 id="design">Design</h2>
 <p>To implement a set up such as this, the recommendation will be to set up redundancy for nearly every moving piece (detailed later in this document), but based on your situation, you might want to reduce certain redundancies, if you&rsquo;re willing to accept the risk.</p>
 <p>At a high level, the setup allows you to move your GoCD setup from something like this:</p>
 <p><a name='fig-1'></a></p>
@@ -346,7 +394,7 @@ if (!doNotTrack) {
 <li>A secondary Postgres server (ideally on a different physical machine or VM).</li>
 <li>A network share to share artifacts (optional but recommended, see details for more).</li>
 </ol>
-<h2 id="you-need-to-know-that">You need to know that</h2>
+<h2 id="what-you-need-to-know">What you need to know</h2>
 <ol>
 <li>This is not going to be an automated failover.
 <ul>
@@ -412,7 +460,9 @@ if (!doNotTrack) {
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#you-need-to-know-that">You need to know that</a></li>
+    <li><a href="#history--current-status">History &amp; current status</a></li>
+    <li><a href="#design">Design</a></li>
+    <li><a href="#what-you-need-to-know">What you need to know</a></li>
   </ul>
 </nav>
   </aside>
