@@ -20,7 +20,7 @@ The following diagram shows how GoCD combines pipeline configuration data from m
 
 ### A note about "Infrastructure as code"
 
-"Infrastructure as code" is often equated exclusively to checking in configuration data to a source code repository. However, GoCD has always allowed configuration through code in various forms. For instance, [gomatic](https://github.com/SpringerSBM/gomatic), using [GoCD APIs](https://api.gocd.org/current/), [yagocd](https://github.com/grundic/yagocd), [gocd-cli](https://github.com/gaqzi/py-gocd), and more. _Pipelines as code_ is simply one more option. It makes pipeline definition more declarative, depending on the plugin, and may give more control to external mantainers.
+"Infrastructure as code" is often equated exclusively to checking in configuration data to a source code repository. However, GoCD has always allowed configuration through code in various forms. For instance, [gomatic](https://github.com/gocd-contrib/gomatic), using [GoCD APIs](https://api.gocd.org/current/), [yagocd](https://github.com/grundic/yagocd), [gocd-cli](https://github.com/gaqzi/py-gocd), and more. _Pipelines as code_ is simply one more option. It makes pipeline definition more declarative, depending on the plugin, and may give more control to external maintainers.
 
 
 ## Available plugins for storing pipelines as code
@@ -65,81 +65,222 @@ To tell GoCD where to find the pipeline configuration files:
 Once you've added a config repository, you'll see new pipelines in the pipeline dashboard. If there are any errors, you'll see them on the "Config repositories" page mentioned above.
 
 
-### Exporting pipeline configuration data
+## Exporting pipeline configuration data
 
 As of GoCD `19.1.0`, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD's main XML configuration file.
 
 ![Config repo yaml](../images/advanced_usage/pipeline-export.gif)
 
 
-### Specifying Rules
+## Specifying Rules
 
-Starting with GoCD `20.2.0`, you can defines `rules` on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.
+Prior to GoCD `20.2.0`, adding a config repository meant delegating extensive control of GoCD to those with ability to 
+push to a configuration repository.
 
-Previously, giving access to a config repository's backing SCM repository meant giving full access to the GoCD instance, almost. Such users used to have access to all environments/pipeline groups and could, possibly, add tasks to expose the secrets configured.
+This included creating pipelines with any name, in pipeline groups of any name, with pipelines referring to any 
+environment, as well as possibly referring to and maliciously extracting secrets. As GoCD and similar systems are at 
+their core task runners, this functionality is akin to remote code execution in a privileged or trusted environment. 
 
-With `rules`, the users who can create/edit config repositories can limit the environments/pipeline groups the repository can add a pipeline to. Similarly, they can also define which pipelines can be referred as an upstream dependency. Hence, providing more control over what all entities can come via the config repository.
+> As such, you should exercise great caution when adding configuration repositories, and have appropriate trust in those 
+who have control over them. 
+> 
+> Starting in GoCD `20.2.0`, each configuration repository must be given explicit permissions to GoCD entities it can 
+> affect or refer to.
 
-- A restrictive model is followed while parsing a config repository. In the absence of a rule, no entity is accessible by default.
+### Structure
 
-    > The config repository defined in the example cannot refer any entity in GoCD.
+The first matching rule wins, thus _order is important_. Each rule is composed of 3 core parts - **directive**, **type** and **resource**.
 
-    ```xml
-    <config-repo id='teamA_repo' pluginId='yaml.config.plugin'>
-       <configuration>
-          ...
-      </configuration>
-      <rules/>
-    </secretConfig>
-    ```
+#### 1) Directive
 
-- Wildcards **(*)** in **type**:
+This is either one of `allow` or `deny`, and determines the outcome of the rule.
 
-    Using a wildcard **(*)** for type implies a given rule applies to all entity types. In this case, the supported entities are `environment`, `pipeline_group` and `pipeline`.
+#### 2) Type
 
-    > In the given example, a config repository can refer to any `pipeline_group` or `environment` or `pipeline` with the name `production`.
+Configuration repository rules can apply to any of 3 different resource types.
 
-    ```xml
-    <rules>
-      <allow type="*" action="refer">production</allow>
-    </rules>
-    ```
+##### All
 
-    **Note**: `type` can have a wildcard(`*`) but it will not support pattern matching e.g. `pipe*`.
+You can also refer to any resource type by specifying `*`.
 
-- Wildcards **(*)** in **action**:
+##### Pipeline Group
 
-    Using a wildcard **(*)** for action implies a given rule applies to any action on the config repository. Currently `refer` is the only supported action.
+When referring to a `pipeline_group`, this will allow or deny the configuration repository to create pipelines in
+pipeline groups that match the given name or pattern defined by the **resource**.
 
-    **Note**: `action` can have a wildcard(`*`) but it will not support pattern matching e.g. `ref*`.
+You will need to create at least one rule that matches *all* pipeline groups expected to be referenced in the target
+configuration repository.
 
-- Wildcards **(*)** in **resource**:
+##### Pipeline
 
-    Resource name supports the wildcard characters '?' and '*' to represent a single or multiple (zero or more) wildcard characters.
+When referring to a `pipeline`, this will allow or deny the configuration repository to create pipelines that depend on
+other pipelines matching the resource name or pattern defined by the **resource** , as an
+[upstream dependency material](/configuration/managing_dependencies.html). Since pipeline dependencies are required to
+fetch/download artifacts from upstream pipelines, this rule type also can control access to these artifacts across
+pipelines defined in different configuration repositories.
 
-    | Wildcard Matcher   | Resource names                                                                         |
-    |------------------- | -------------------------------------------------------------------------------------- |
-    | `*_group`          | Matches `my_group` and `someother_group`, but not `testgroup` or `group1`.             |
-    | `Production_*`     | Matches `Production_Team_A` and `Production_Team_B` but not `Team_ABC_Production_D`.   |
-    | `*group*`          | Matches `group`, `my_group` and `group_A`, but not `groABCup`.                         |
-    | `Team_?_group`     | Matches `Team_A_group`, `Team_B_group` but not `Team_ABC_group` or `Team__group`.      |
+By default, all pipelines defined in the _same configuration repository_ will be allowed to refer (to depend) on each
+other without restriction without a rule being defined. You may need additional rules to allow your pipelines to depend
+on pipelines defined in other configuration repositories in order to build non-trivial value-stream-maps
+(chains/sequences of pipelines).
 
-- When multiple permissions are defined, rules will be applied from top to bottom.
+##### Environment
 
-    > In the below example pipeline_group `my_group` cannot be referred by the config repository since the first rule denies access using the pattern `my_*`
+When referring to an `environment`, this will allow or deny the configuration repository to create pipelines that 
+refer to [environments](/configuration/managing_environments.html) matching the resource name or pattern specified by the **resource**.
 
-    ```xml
-    <rules>
-      <deny action="refer" type="pipeline_group">my_*</deny>
-      <allow action="refer" type="pipeline_group">my_group</allow>
-    </rules>
-    ```
+You will not need to define environment rules unless you make use of the feature in your pipeline definitions by
+allocating pipelines (and agents) to specific environments.
 
-    > In the below example pipeline_group `my_group` can be referred by the config repository since the first rule allows access.
+#### 3) Resources
 
-    ```xml
-    <rules>
-      <allow action="refer" type="pipeline_group">my_group</allow>
-      <deny action="refer" type="pipeline_group">*</deny>
-    </rules>
-    ```
+This can be any string and is meant to match on the **name** of any resources of the given rule's `type`.
+
+> Note that this is generic terminology, and not related to the concept of [agent resources](/configuration/managing_a_build_cloud.html#matching-jobs-to-agents)
+> (used to allow matching between agents that provide given resources and certain pipelines that require them).  
+
+You can use pattern-matching:
+- `*` as any wildcard.
+- `?` as a one character wildcard.
+
+| Wildcard Matcher | Resource names                                                                       |
+|------------------|--------------------------------------------------------------------------------------|
+| `*_group`        | Matches `my_group` and `someother_group`, but not `testgroup` or `group1`.           |
+| `Production_*`   | Matches `Production_Team_A` and `Production_Team_B` but not `Team_ABC_Production_D`. |
+| `*group*`        | Matches `group`, `my_group` and `group_A`, but not `groABCup`.                       |
+| `Team_?_group`   | Matches `Team_A_group`, `Team_B_group` but not `Team_ABC_group` or `Team__group`.    |
+
+#### Action
+
+Internally rules have actions which can differ depending on the type of resource the rule applies to. Since currently
+the only supported action is `refer` (or `*`), this field is only visible in the internal `cruise-config.xml`.
+
+### Examples
+
+Given the following two files defined in two different [YAML configuration repositories](https://github.com/tomzo/gocd-yaml-config-plugin):
+
+_Config repo A_
+```yaml
+pipelines:
+  repo-a-pipeline-one:
+    group: pipeline-group-a
+    materials:
+      git:
+        type: config-repo
+  repo-a-pipeline-two:
+    group: pipeline-group-a
+    materials:
+      git:
+        type: config-repo
+      upstream:
+        pipeline: repo-a-pipeline-one
+        stage: ...
+```
+_Config repo B_
+```yaml
+pipelines:
+  repo-b-pipeline-one:
+    group: pipeline-group-b
+    materials:
+      git:
+        type: config-repo
+  repo-b-pipeline-two:
+    group: another-pipeline-group-b
+    materials:
+      git:
+        type: config-repo
+      upstream-one:
+        pipeline: repo-b-pipeline-one
+        stage: ...
+      upstream-two:
+        pipeline: repo-a-pipeline-two
+        stage: ...
+```
+
+
+#### Without rules
+
+```xml
+<config-repo id="config-repo-a">
+  ...
+  <rules/>
+</config-repo>
+```
+
+Without any rules, GoCD will reject the creation of pipeline because the config repo cannot refer to any pipeline group.
+
+#### Allow everything (ignore security)
+
+```xml
+<config-repo id="config-repo-a">
+  ...
+  <rules>
+    <allow action="refer" type="*">*</allow>
+  </rules>
+</config-repo>
+
+<config-repo id="config-repo-b">
+  ...
+  <rules>
+    <allow action="refer" type="*">*</allow>
+  </rules>
+</config-repo>
+```
+
+GoCD will allow the creation of all pipelines, as the configuration repository was allowed to refer to any resource, of any name.
+This implies a high level of trust in users that can commit to the given configuration repository.
+
+#### Restrictively allow a non-trivial VSM
+
+```xml
+<config-repo id="config-repo-a">
+  ...
+  <rules>
+    <!-- repo a only creates repos in `pipeline-group-a` -->
+    <allow action="refer" type="pipeline_group">pipeline-group-a</allow>
+  </rules>
+</config-repo>
+
+<config-repo id="config-repo-b">
+  ...
+  <rules>
+    <!-- repo b creates a repo in `pipeline-group-b` -->
+    <allow action="refer" type="pipeline_group">pipeline-group-b</allow>
+
+    <!-- repo b also creates a repo in `another-pipeline-group-b` -->
+    <allow action="refer" type="pipeline_group">another-pipeline-group-b</allow>
+
+    <!-- repo b create a repo in that depends on a pipeline defined in another config repo so we must specify which -->  
+    <allow action="refer" type="pipeline">repo-a-pipeline-two</allow>
+  </rules>
+</config-repo>
+```
+
+These pipeline rules are the strictest required for the pipelines to be configured.
+
+- `config-repo-a` must be allowed to
+  - refer to the pipeline group it defines, `pipeline-group-a`
+- `config-repo-b` must be allowed to
+  - refer to the pipeline group it defines, `pipeline-group-b` and `another-pipeline-group-b`
+  - refer to pipeline `repo-a-pipeline-two` because it is defined as a material
+
+#### Rule ordering
+
+When multiple permissions are defined, rules will be applied from top to bottom.
+
+In the below example pipeline_group `pipeline-group-a` **cannot** be referred to by the config repository since the 
+first rule denies access using the pattern `pipeline-group-*`
+```xml
+<rules>
+  <deny action="refer" type="pipeline_group">pipeline-group-*</deny>
+  <allow action="refer" type="pipeline_group">pipeline-group-a</allow>
+</rules>
+```
+
+In the below example pipeline_group `pipeline-group-a` **can** be referred to by the config repository since the first rule allows access.
+```xml
+<rules>
+  <allow action="refer" type="pipeline_group">pipeline-group-a</allow>
+  <deny action="refer" type="pipeline_group">*</deny>
+</rules>
+```
