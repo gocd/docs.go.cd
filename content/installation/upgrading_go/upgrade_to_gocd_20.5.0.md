@@ -42,7 +42,7 @@ If you are considering migrating from H2 to PostgreSQL or MySQL during this upgr
 ### Previous commercial PostgreSQL add-on users
 
 Previous commercial PostgreSQL add-on usage was replaced by open-source/free support for PostgreSQL in GoCD `20.5.0`.
-Add-ons / extensions are no longer required, used or supported. However to continue to use PostgresSQL your existing 
+Add-ons / extensions are no longer required, used or supported. However to continue to use PostgreSQL your existing 
 database still needs a one-time manual migration to make it compatible with GoCD `20.5.0` and higher.
 
 ## Migration Steps
