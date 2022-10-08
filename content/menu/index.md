@@ -155,6 +155,7 @@ headless: true
           <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/configuration.md" >}}">Configure Agents and Shared Drive</a></li>
           <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/monitor_switch_to_sec.md" >}}">Monitoring and Recovery</a></li>
           <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/upgrade.md" >}}">Server Upgrades</a></li>
+          <li class="level3"><a href="{{< relref "advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.md" >}}">Commercial Add-On Server Upgrade to 20.5.0</a></li>
         </ul>
       </li>
       <li class="level2"><a href="{{< relref "integration/_index.md" >}}">Integrating GoCD With Other Tools</a></li>

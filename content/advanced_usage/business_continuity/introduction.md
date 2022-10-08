@@ -6,6 +6,28 @@ title: Introduction
 
 This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
 
+## History & current status
+
+Before GoCD `20.6.0`, Business continuity support was made available as a commercial add-on. As part of the open-sourcing of all previously
+commercial aspects of GoCD, the add-on was integrated into GoCD core in `20.6.0` and no-longer requires use of an add-on.
+
+> **WARNING**: Unfortunately the _open-source_ business continuity version was discovered to have a **major security vulnerability** in its design, and was
+**disabled in GoCD `21.3.0`**, as documented in [the release notes](https://www.gocd.org/releases/#21-3-0).
+> 
+> As of October 2022, there has not been any major complaint from the community and the project does not currently have 
+> the resources or intention to reinstate this capability.
+
+Summarised support matrix:
+
+| GoCD Version         | BC Availability     | BC Security Status                                                                     | Wider GoCD Security Status                                                      |
+|----------------------|---------------------|----------------------------------------------------------------------------------------|---------------------------------------------------------------------------------|
+| <= `20.5.0`          | ✅ Commercial add-on | ✅                                                                                      | Known vulnerabilities exist                                                     |
+| `20.6.0` -- `21.2.0` | ✅ Free, core GoCD   | ❌ [See advisory](https://github.com/gocd/gocd/security/advisories/GHSA-f8j3-9pqx-h88g) | Known vulnerabilities exist                                                     |
+| >= `21.3.0`          | ❌ Removed           | ✅                                                                                      | Review [here](https://github.com/gocd/gocd/security/advisories?state=published) |
+| latest               | ❌ Removed           | ✅                                                                                      | Supported                                                                       |
+
+## Design
+
 To implement a set up such as this, the recommendation will be to set up redundancy for nearly every moving piece (detailed later in this document), but based on your situation, you might want to reduce certain redundancies, if you're willing to accept the risk.
 
 At a high level, the setup allows you to move your GoCD setup from something like this:
@@ -24,7 +46,7 @@ All the parts in green, in the image above, are related to the active-standby se
 2. A secondary Postgres server (ideally on a different physical machine or VM).
 3. A network share to share artifacts (optional but recommended, see details for more).
 
-## You need to know that
+## What you need to know
 
 1. This is not going to be an automated failover.
     * This decision was made after considering solutions such as heartbeat and pacemaker. Unlike a web server, the GoCD Server is stateful and the implications of a failover are not always straightforward. So, a person aware of the implications (such as recovery from failure, switching back to primary, etc) will need to make that decision.
