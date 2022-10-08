@@ -341,7 +341,7 @@ if (!doNotTrack) {
 <p>The following diagram shows how GoCD combines pipeline configuration data from multiple sources:</p>
 <p><img src="../images/advanced_usage/pipelines_as_code.png" alt="Pipelines as code"></p>
 <h3 id="a-note-about-infrastructure-as-code">A note about &ldquo;Infrastructure as code&rdquo;</h3>
-<p>&ldquo;Infrastructure as code&rdquo; is often equated exclusively to checking in configuration data to a source code repository. However, GoCD has always allowed configuration through code in various forms. For instance, <a href="https://github.com/SpringerSBM/gomatic">gomatic</a>, using <a href="https://api.gocd.org/current/">GoCD APIs</a>, <a href="https://github.com/grundic/yagocd">yagocd</a>, <a href="https://github.com/gaqzi/py-gocd">gocd-cli</a>, and more. <em>Pipelines as code</em> is simply one more option. It makes pipeline definition more declarative, depending on the plugin, and may give more control to external mantainers.</p>
+<p>&ldquo;Infrastructure as code&rdquo; is often equated exclusively to checking in configuration data to a source code repository. However, GoCD has always allowed configuration through code in various forms. For instance, <a href="https://github.com/gocd-contrib/gomatic">gomatic</a>, using <a href="https://api.gocd.org/current/">GoCD APIs</a>, <a href="https://github.com/grundic/yagocd">yagocd</a>, <a href="https://github.com/gaqzi/py-gocd">gocd-cli</a>, and more. <em>Pipelines as code</em> is simply one more option. It makes pipeline definition more declarative, depending on the plugin, and may give more control to external maintainers.</p>
 <h2 id="available-plugins-for-storing-pipelines-as-code">Available plugins for storing pipelines as code</h2>
 <p>JSON and YAML are the two formats supported currently. Refer to <a href="https://github.com/tomzo/gocd-json-config-plugin#configuration-files">JSON file configuration</a> and <a href="https://github.com/tomzo/gocd-yaml-config-plugin#setup">YAML file configuration</a> for more information about the file format.</p>
 <p>The config repositories page (Admin → Config Repositories) lists existing config repositories, and allows CRUD (Create-Read-Update-Delete) operations on them. This page also shows errors and allows you to request a check of a config repository.</p>
@@ -372,45 +372,60 @@ if (!doNotTrack) {
 </ul>
 <p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml"></p>
 <p>Once you&rsquo;ve added a config repository, you&rsquo;ll see new pipelines in the pipeline dashboard. If there are any errors, you&rsquo;ll see them on the &ldquo;Config repositories&rdquo; page mentioned above.</p>
-<h3 id="exporting-pipeline-configuration-data">Exporting pipeline configuration data</h3>
+<h2 id="exporting-pipeline-configuration-data">Exporting pipeline configuration data</h2>
 <p>As of GoCD <code>19.1.0</code>, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD&rsquo;s main XML configuration file.</p>
 <p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml"></p>
-<h3 id="specifying-rules">Specifying Rules</h3>
-<p>Starting with GoCD <code>20.2.0</code>, you can defines <code>rules</code> on your config repository specifying which environments/pipeline groups/pipelines the repository can refer to.</p>
-<p>Previously, giving access to a config repository&rsquo;s backing SCM repository meant giving full access to the GoCD instance, almost. Such users used to have access to all environments/pipeline groups and could, possibly, add tasks to expose the secrets configured.</p>
-<p>With <code>rules</code>, the users who can create/edit config repositories can limit the environments/pipeline groups the repository can add a pipeline to. Similarly, they can also define which pipelines can be referred as an upstream dependency. Hence, providing more control over what all entities can come via the config repository.</p>
+<h2 id="specifying-rules">Specifying Rules</h2>
+<p>Prior to GoCD <code>20.2.0</code>, adding a config repository meant delegating extensive control of GoCD to those with ability to
+push to a configuration repository.</p>
+<p>This included creating pipelines with any name, in pipeline groups of any name, with pipelines referring to any
+environment, as well as possibly referring to and maliciously extracting secrets. As GoCD and similar systems are at
+their core task runners, this functionality is akin to remote code execution in a privileged or trusted environment.</p>
+<blockquote>
+<p>As such, you should exercise great caution when adding configuration repositories, and have appropriate trust in those
+who have control over them.</p>
+<p>Starting in GoCD <code>20.2.0</code>, each configuration repository must be given explicit permissions to GoCD entities it can
+affect or refer to.</p>
+</blockquote>
+<h3 id="structure">Structure</h3>
+<p>The first matching rule wins, thus <em>order is important</em>. Each rule is composed of 3 core parts - <strong>directive</strong>, <strong>type</strong> and <strong>resource</strong>.</p>
+<h4 id="1-directive">1) Directive</h4>
+<p>This is either one of <code>allow</code> or <code>deny</code>, and determines the outcome of the rule.</p>
+<h4 id="2-type">2) Type</h4>
+<p>Configuration repository rules can apply to any of 3 different resource types.</p>
+<h5 id="all">All</h5>
+<p>You can also refer to any resource type by specifying <code>*</code>.</p>
+<h5 id="pipeline-group">Pipeline Group</h5>
+<p>When referring to a <code>pipeline_group</code>, this will allow or deny the configuration repository to create pipelines in
+pipeline groups that match the given name or pattern defined by the <strong>resource</strong>.</p>
+<p>You will need to create at least one rule that matches <em>all</em> pipeline groups expected to be referenced in the target
+configuration repository.</p>
+<h5 id="pipeline">Pipeline</h5>
+<p>When referring to a <code>pipeline</code>, this will allow or deny the configuration repository to create pipelines that depend on
+other pipelines matching the resource name or pattern defined by the <strong>resource</strong> , as an
+<a href="../configuration/managing_dependencies.html">upstream dependency material</a>. Since pipeline dependencies are required to
+fetch/download artifacts from upstream pipelines, this rule type also can control access to these artifacts across
+pipelines defined in different configuration repositories.</p>
+<p>By default, all pipelines defined in the <em>same configuration repository</em> will be allowed to refer (to depend) on each
+other without restriction without a rule being defined. You may need additional rules to allow your pipelines to depend
+on pipelines defined in other configuration repositories in order to build non-trivial value-stream-maps
+(chains/sequences of pipelines).</p>
+<h5 id="environment">Environment</h5>
+<p>When referring to an <code>environment</code>, this will allow or deny the configuration repository to create pipelines that
+refer to <a href="../configuration/managing_environments.html">environments</a> matching the resource name or pattern specified by the <strong>resource</strong>.</p>
+<p>You will not need to define environment rules unless you make use of the feature in your pipeline definitions by
+allocating pipelines (and agents) to specific environments.</p>
+<h4 id="3-resources">3) Resources</h4>
+<p>This can be any string and is meant to match on the <strong>name</strong> of any resources of the given rule&rsquo;s <code>type</code>.</p>
+<blockquote>
+<p>Note that this is generic terminology, and not related to the concept of <a href="../configuration/managing_a_build_cloud.html#matching-jobs-to-agents">agent resources</a>
+(used to allow matching between agents that provide given resources and certain pipelines that require them).</p>
+</blockquote>
+<p>You can use pattern-matching:</p>
 <ul>
-<li>
-<p>A restrictive model is followed while parsing a config repository. In the absence of a rule, no entity is accessible by default.</p>
-<blockquote>
-<p>The config repository defined in the example cannot refer any entity in GoCD.</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#39;teamA_repo&#39;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#39;yaml.config.plugin&#39;</span><span style="color:#008000;font-weight:bold">&gt;</span>
-</span></span><span style="display:flex;"><span>   <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
-</span></span><span style="display:flex;"><span>      ...
-</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/configuration&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules/&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/secretConfig&gt;</span>
-</span></span></code></pre></div></li>
-<li>
-<p>Wildcards <strong>(*)</strong> in <strong>type</strong>:</p>
-<p>Using a wildcard <strong>(*)</strong> for type implies a given rule applies to all entity types. In this case, the supported entities are <code>environment</code>, <code>pipeline_group</code> and <code>pipeline</code>.</p>
-<blockquote>
-<p>In the given example, a config repository can refer to any <code>pipeline_group</code> or <code>environment</code> or <code>pipeline</code> with the name <code>production</code>.</p>
-</blockquote>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>production<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
-</span></span></code></pre></div><p><strong>Note</strong>: <code>type</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>pipe*</code>.</p>
-</li>
-<li>
-<p>Wildcards <strong>(*)</strong> in <strong>action</strong>:</p>
-<p>Using a wildcard <strong>(*)</strong> for action implies a given rule applies to any action on the config repository. Currently <code>refer</code> is the only supported action.</p>
-<p><strong>Note</strong>: <code>action</code> can have a wildcard(<code>*</code>) but it will not support pattern matching e.g. <code>ref*</code>.</p>
-</li>
-<li>
-<p>Wildcards <strong>(*)</strong> in <strong>resource</strong>:</p>
-<p>Resource name supports the wildcard characters &lsquo;?&rsquo; and &lsquo;*&rsquo; to represent a single or multiple (zero or more) wildcard characters.</p>
+<li><code>*</code> as any wildcard.</li>
+<li><code>?</code> as a one character wildcard.</li>
+</ul>
 <table>
 <thead>
 <tr>
@@ -437,26 +452,116 @@ if (!doNotTrack) {
 </tr>
 </tbody>
 </table>
+<h4 id="action">Action</h4>
+<p>Internally rules have actions which can differ depending on the type of resource the rule applies to. Since currently
+the only supported action is <code>refer</code> (or <code>*</code>), this field is only visible in the internal <code>cruise-config.xml</code>.</p>
+<h3 id="examples">Examples</h3>
+<p>Given the following two files defined in two different <a href="https://github.com/tomzo/gocd-yaml-config-plugin">YAML configuration repositories</a>:</p>
+<p><em>Config repo A</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">pipelines</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-a-pipeline-one</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>pipeline-group-a<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-a-pipeline-two</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>pipeline-group-a<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">upstream</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">pipeline</span>:<span style="color:#bbb"> </span>repo-a-pipeline-one<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">stage</span>:<span style="color:#bbb"> </span>...<span style="color:#bbb">
+</span></span></span></code></pre></div><p><em>Config repo B</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">pipelines</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-b-pipeline-one</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>pipeline-group-b<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-b-pipeline-two</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>another-pipeline-group-b<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">upstream-one</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">pipeline</span>:<span style="color:#bbb"> </span>repo-b-pipeline-one<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">stage</span>:<span style="color:#bbb"> </span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">upstream-two</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">pipeline</span>:<span style="color:#bbb"> </span>repo-a-pipeline-two<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">stage</span>:<span style="color:#bbb"> </span>...<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="without-rules">Without rules</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-a&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span></code></pre></div><p>Without any rules, GoCD will reject the creation of pipeline because the config repo cannot refer to any pipeline group.</p>
+<h4 id="allow-everything-ignore-security">Allow everything (ignore security)</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-a&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-b&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span></code></pre></div><p>GoCD will allow the creation of all pipelines, as the configuration repository was allowed to refer to any resource, of any name.
+This implies a high level of trust in users that can commit to the given configuration repository.</p>
+<h4 id="restrictively-allow-a-non-trivial-vsm">Restrictively allow a non-trivial VSM</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-a&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo a only creates repos in `pipeline-group-a` --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-a<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-b&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo b creates a repo in `pipeline-group-b` --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-b<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo b also creates a repo in `another-pipeline-group-b` --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>another-pipeline-group-b<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo b create a repo in that depends on a pipeline defined in another config repo so we must specify which --&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>repo-a-pipeline-two<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span></code></pre></div><p>These pipeline rules are the strictest required for the pipelines to be configured.</p>
+<ul>
+<li><code>config-repo-a</code> must be allowed to
+<ul>
+<li>refer to the pipeline group it defines, <code>pipeline-group-a</code></li>
+</ul>
 </li>
-<li>
+<li><code>config-repo-b</code> must be allowed to
+<ul>
+<li>refer to the pipeline group it defines, <code>pipeline-group-b</code> and <code>another-pipeline-group-b</code></li>
+<li>refer to pipeline <code>repo-a-pipeline-two</code> because it is defined as a material</li>
+</ul>
+</li>
+</ul>
+<h4 id="rule-ordering">Rule ordering</h4>
 <p>When multiple permissions are defined, rules will be applied from top to bottom.</p>
-<blockquote>
-<p>In the below example pipeline_group <code>my_group</code> cannot be referred by the config repository since the first rule denies access using the pattern <code>my_*</code></p>
-</blockquote>
+<p>In the below example pipeline_group <code>pipeline-group-a</code> <strong>cannot</strong> be referred to by the config repository since the
+first rule denies access using the pattern <code>pipeline-group-*</code></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-a<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
-</span></span></code></pre></div><blockquote>
-<p>In the below example pipeline_group <code>my_group</code> can be referred by the config repository since the first rule allows access.</p>
-</blockquote>
+</span></span></code></pre></div><p>In the below example pipeline_group <code>pipeline-group-a</code> <strong>can</strong> be referred to by the config repository since the first rule allows access.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>my_group<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-a<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
-</span></span></code></pre></div></li>
-</ul>
-</article>
+</span></span></code></pre></div></article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -506,8 +611,13 @@ if (!doNotTrack) {
       <ul>
         <li><a href="#pipeline-configuration-in-json">Pipeline configuration in JSON</a></li>
         <li><a href="#pipeline-configuration-in-yaml">Pipeline configuration in YAML</a></li>
-        <li><a href="#exporting-pipeline-configuration-data">Exporting pipeline configuration data</a></li>
-        <li><a href="#specifying-rules">Specifying Rules</a></li>
+      </ul>
+    </li>
+    <li><a href="#exporting-pipeline-configuration-data">Exporting pipeline configuration data</a></li>
+    <li><a href="#specifying-rules">Specifying Rules</a>
+      <ul>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#examples">Examples</a></li>
       </ul>
     </li>
   </ul>
