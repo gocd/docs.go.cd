@@ -41,6 +41,16 @@ Backup time is proportional to the database and configuration size. We suggest y
     </item>
     
     <item>
+      <title>Business Continuity commercial add-on 20.5.0 upgrade</title>
+      <link>/advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>/advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html</guid>
+      <description>Business Continuity commercial add-on 20.5.0 upgrade Pre-upgrade considerations As noted in the introduction, as of GoCD 20.5.0 business continuity support was still made available as a commercial add-on. As part of the open-sourcing of all previously commercial aspects of GoCD, the add-on was integrated into GoCD core in 20.6.0..
+WARNING: However, due to security issues, Business Continuity support has been removed in recent versions of GoCD. Please read the current status of the Business Continuity feature within the open-source/community supported version of GoCD.</description>
+    </item>
+    
+    <item>
       <title>Clean on Task Cancel</title>
       <link>/advanced_usage/dev_clean_up_when_cancel.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
@@ -108,7 +118,7 @@ Assigning the virtual IP Follow the instructions provided below to setup a virtu
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity.html</guid>
-      <description>GoCD Business Continuity Introduction Initial Setup Configure Agents and Shared Drive Monitoring and Recovery Server Upgrades </description>
+      <description>GoCD Business Continuity Introduction Initial Setup Configure Agents and Shared Drive Monitoring and Recovery Server Upgrades Upgrade to GoCD 20.5.0 WARNING: Please see the introduction regarding the current status of the Business Continuity feature within the open-source/community supported version of GoCD.</description>
     </item>
     
     <item>
@@ -127,8 +137,9 @@ To navigate to the Graphs: Click on the stage bar of the relevant stage on the p
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity/initial_setup.html</guid>
-      <description>Initial setup Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer to the configure PostgreSQL documentation.
-Enable replication on the primary PostgreSQL instance The recommended replication setup is PostgreSQL streaming replication with log shipping . In this case, the two PostgreSQL servers, called &amp;ldquo;Primary&amp;rdquo; and &amp;ldquo;Standby&amp;rdquo;, will be setup such that the standby continuously replicates the primary.</description>
+      <description>Initial setup WARNING: Please see the introduction regarding the current status of the Business Continuity feature within the open-source/community supported version of GoCD.
+Assumption: You already have a setup resembling Figure 1, with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer to the configure PostgreSQL documentation.
+Enable replication on the primary PostgreSQL instance The recommended replication setup is PostgreSQL streaming replication with log shipping .</description>
     </item>
     
     <item>
@@ -138,7 +149,7 @@ Enable replication on the primary PostgreSQL instance The recommended replicatio
       
       <guid>/advanced_usage/business_continuity/introduction.html</guid>
       <description>GoCD Business Continuity This feature makes an active-standby (or active-passive) setup of GoCD Servers possible, to decrease the impact of a failure of your primary GoCD Server or its database node. During a primary GoCD Server failure, it is important that all the agents can be pivoted to use the standby server, without having to be reconfigured. This setup allows for that as well.
-To implement a set up such as this, the recommendation will be to set up redundancy for nearly every moving piece (detailed later in this document), but based on your situation, you might want to reduce certain redundancies, if you&amp;rsquo;re willing to accept the risk.</description>
+History &amp;amp; current status Before GoCD 20.</description>
     </item>
     
     <item>
@@ -169,7 +180,8 @@ Maintenance mode is a maintenance mode which can be utilized by the GoCD system 
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity/monitor_switch_to_sec.html</guid>
-      <description>Monitoring and Switching Over to Secondary Server Monitoring the progress of the sync As mentioned in the details part of the &amp;ldquo;Setup a standby (secondary) GoCD Server&amp;rdquo; section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in red denotes the sync hasn&amp;rsquo;t happened, whereas an entry in black denotes that the standby is in sync with the server. You should monitor that the Last Config/Plugins Update Time under Primary Details and Last Successful Sync time under Standby Details are not off by a huge time gap.</description>
+      <description>Monitoring and Switching Over to Secondary Server WARNING: Please see the introduction regarding the current status of the Business Continuity feature within the open-source/community supported version of GoCD.
+Monitoring the progress of the sync As mentioned in the details part of the &amp;ldquo;Setup a standby (secondary) GoCD Server&amp;rdquo; section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in red denotes the sync hasn&amp;rsquo;t happened, whereas an entry in black denotes that the standby is in sync with the server.</description>
     </item>
     
     <item>
@@ -260,9 +272,10 @@ Log in to your Windows machine as an Administrative user.</description>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>/advanced_usage/business_continuity/upgrade.html</guid>
-      <description>Upgrading Primary and Secondary GoCD Servers using Business Continuity Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
+      <description>Upgrading Primary and Secondary GoCD Servers using Business Continuity WARNING: Please see the introduction regarding the current status of the Business Continuity feature within the open-source/community supported version of GoCD.
+Assumption: You already have an existing Business Continuity Setup, as explained in our documentation here
 Please take appropriate backups before proceeding with your server upgrade Shutdown down both the Primary and Secondary GoCD server.
-Perform server upgrade by following our documentation here for both primary and secondary server individually. This step will run database migrations and also perform a server upgrade.</description>
+Perform server upgrade by following our documentation here for both primary and secondary server individually.</description>
     </item>
     
   </channel>

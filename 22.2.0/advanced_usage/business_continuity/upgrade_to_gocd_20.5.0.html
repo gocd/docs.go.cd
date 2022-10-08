@@ -7,12 +7,12 @@
 <head>
   <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Change SSL Certificates | GoCD User Documentation</title>
+<title>Business Continuity commercial add-on 20.5.0 upgrade | GoCD User Documentation</title>
 
-<meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
-<meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
+<meta name="description" content="Business continuity add-on upgrade instructions for GoCD Server from GoCD &lt;= 20.4.0 to GoCD &gt;= 20.5.0 after change in database-related technology"/>
+<meta name="keywords" content="[upgrade gocd, gocd server upgrade, business continuity, commercial add-on]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link rel="canonical" href="https://docs.gocd.org/current/installation/ssl_tls/custom_server_certificate.html"/>
+<link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html"/>
 <script src="../../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.6.min.js"></script>
 
@@ -42,7 +42,7 @@ if (!doNotTrack) {
   
 </head>
 
-<body data-rel-permalink="/installation/ssl_tls/custom_server_certificate.html">
+<body data-rel-permalink="/advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">
   <input type="checkbox" style="display: none" id="menu-control" />
   <main class="main-container">
 
@@ -74,7 +74,7 @@ if (!doNotTrack) {
 
 
 <style>
-  nav ul a[href$="\2finstallation\2fssl_tls\2f custom_server_certificate.html"] {
+  nav ul a[href$="\2f advanced_usage\2f business_continuity\2fupgrade_to_gocd_20.5.0.html"] {
   color: #004ed0;
   }
 </style>
@@ -320,7 +320,7 @@ if (!doNotTrack) {
   <label for="menu-control">
     <img src="../../svg/menu.svg" />
   </label>
-  <strong>Change SSL Certificates</strong>
+  <strong>Business Continuity commercial add-on 20.5.0 upgrade</strong>
 </header>
 
       
@@ -333,8 +333,54 @@ if (!doNotTrack) {
 </div>
 
       
-<article class="markdown"><h1 id="using-your-own-ssl-certificates-on-the-server">Using your own SSL certificates on the Server</h1>
-<p><strong>Note</strong> GoCD version 20.2 no longer supports configuring TLS. See <a href="https://github.com/gocd/gocd/pull/7669#issuecomment-580290432">this GitHub issue</a> for more details.</p>
+<article class="markdown"><h1 id="business-continuity-commercial-add-on-2050-upgrade">Business Continuity commercial add-on 20.5.0 upgrade</h1>
+<h2 id="pre-upgrade-considerations">Pre-upgrade considerations</h2>
+<p>As noted in <a href="./introduction.html">the introduction</a>, as of GoCD <code>20.5.0</code> business continuity support was still made available as a commercial add-on.
+As part of the open-sourcing of all previously commercial aspects of GoCD, the add-on was integrated into GoCD core in <code>20.6.0.</code>.</p>
+<blockquote>
+<p><strong>WARNING</strong>: However, due to security issues, Business Continuity support has been removed in recent versions of GoCD. Please read <a href="introduction.html#history--current-status">the current status</a> of the Business Continuity feature within the open-source/community supported version of GoCD.</p>
+<p>Since GoCD <code>20.5.0</code> also has <a href="https://nvd.nist.gov/vuln/search/results?form_type=Basic&amp;results_type=overview&amp;query=cpe%3A2.3%3Aa%3Athoughtworks%3Agocd%3A20.5.0%3A*%3A*%3A*%3A*%3A*%3A*%3A*&amp;search_type=all&amp;isCpeNameSearch=true">known vulnerabilities mitigated in later versions</a>
+which may affect your use case, we recommend you plan to upgrade to a much later version. Later versions will likely no longer have business continuity support.</p>
+<p>This means GoCD <code>20.5.0</code> with the commercial add-on is likely the last version of GoCD that will support
+business continuity (without exposing your installation to serious security vulnerabilities).</p>
+<p><strong>Recommendation</strong>: If you are a previous commercial add-on user, we recommend you remove use of business continuity <em>prior to</em>
+doing the <code>20.5.0</code> database migration. This will simplify your migration and subsequent upgrades.</p>
+</blockquote>
+<h2 id="migration-steps">Migration Steps</h2>
+<p>With the above warning in mind, if you still wish to upgrade to GoCD <code>20.5.0</code> alongside continued use of the Business-Continuity Addon, you can
+follow the below steps. The below steps augment those documented at <a href="../../installation/upgrading_go/upgrade_to_gocd_20.5.0.html">Upgrading to GoCD 20.5.0 and higher</a>
+and should be read together.</p>
+<h3 id="bc-step-1-shutdown-down-the-secondary-gocd-server">BC Step 1: Shutdown down the Secondary GoCD server.</h3>
+<p>After shutting-down the primary server, shutdown the secondary server.</p>
+<h3 id="bc-step-2-upgrade-primary-server">BC Step 2: Upgrade Primary Server</h3>
+<p>Follow <strong>steps 1 &ndash; 6</strong> in <a href="../../installation/upgrading_go/upgrade_to_gocd_20.5.0.html">Upgrading to GoCD 20.5.0 and higher</a> to upgrade your Primary GoCD server.</p>
+<blockquote>
+<p><strong>Note</strong>: Do not immediately start your primary server post the upgrade. The primary server can be started post the secondary server upgrade as outlined below.</p>
+</blockquote>
+<h3 id="bc-step-3-sync-secondary-database-with-primary-database">BC Step 3: Sync Secondary database with Primary database</h3>
+<p>After the migration of the primary database in Step 2, the secondary database now needs to be synced with the migrated primary database.</p>
+<ol>
+<li>Take database dump of Primary database
+<pre tabindex="0"><code>pg_dump --no-owner -h YOUR_PRIMARY_DB_HOST -p YOUR_PRIMARY_DB_PORT -U YOUR_PRIMARY_DB_USER --format=custom --dbname=YOUR_PRIMARY_DB_NAME gocd_dump.sqlc
+</code></pre></li>
+<li>Restore Secondary database
+<pre tabindex="0"><code>pg_restore --host=YOUR_SECONDARY_DB_HOST --port=YOUR_SECONDARY_DB_PORT --username=YOUR_SECONDARY_DB_USER --format=custom --exit-on-error --single-transaction --dbname=YOUR_SECONDARY_DB_NAME gocd_dump.sqlc
+</code></pre></li>
+</ol>
+<h3 id="bc-step-4-configure-secondary-server">BC Step 4: Configure Secondary server</h3>
+<p>In Step 2 the Primary server would be configured with a <code>db.properties</code> file to connect to the PostgreSQL database. Similarly add a <code>db.properties</code> in the Secondary server configuration directory which should have details to connect to the Secondary server database.</p>
+<h3 id="bc-step-5-secondary-server-cleanup">BC Step 5: Secondary server cleanup</h3>
+<p>As with the primary server, some clean-up is necessary due to the integration of PostgreSQL into GoCD core in <code>20.5.0</code></p>
+<ul>
+<li>Remove the PostgreSQL addon jar from the addons directory (typically <code>/var/lib/go-server/addons</code> on Linux)</li>
+<li>Remove the postgresqldb.properties file from the configuration directory (typically <code>/etc/go</code> on Linux).</li>
+</ul>
+<h3 id="bc-step-6-upgrade-secondary-server">BC Step 6: Upgrade Secondary server</h3>
+<p>Upgrade your Secondary GoCD server to <code>20.5.0</code>+.</p>
+<ol>
+<li>Replace the Business Continuity Addon on both primary and secondary server with the latest addon jar. The last available version of the addon is <code>20.4.0-11749</code>.</li>
+<li>Start the secondary GoCD server and navigate to <code>https://&lt;secondary-server&gt;:&lt;port&gt;/go/add-on/business-continuity/admin/dashboard</code> and see the status of the Business Continuity.</li>
+</ol>
 </article>
 
       
@@ -351,7 +397,7 @@ if (!doNotTrack) {
 
   
   <div>
-    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/ssl_tls/custom_server_certificate.md" target="_blank" rel="noopener">
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.md" target="_blank" rel="noopener">
       <img src="../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
@@ -374,7 +420,21 @@ if (!doNotTrack) {
 
   
   <aside class="book-toc fixed">
-    <nav id="TableOfContents"></nav>
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#pre-upgrade-considerations">Pre-upgrade considerations</a></li>
+    <li><a href="#migration-steps">Migration Steps</a>
+      <ul>
+        <li><a href="#bc-step-1-shutdown-down-the-secondary-gocd-server">BC Step 1: Shutdown down the Secondary GoCD server.</a></li>
+        <li><a href="#bc-step-2-upgrade-primary-server">BC Step 2: Upgrade Primary Server</a></li>
+        <li><a href="#bc-step-3-sync-secondary-database-with-primary-database">BC Step 3: Sync Secondary database with Primary database</a></li>
+        <li><a href="#bc-step-4-configure-secondary-server">BC Step 4: Configure Secondary server</a></li>
+        <li><a href="#bc-step-5-secondary-server-cleanup">BC Step 5: Secondary server cleanup</a></li>
+        <li><a href="#bc-step-6-upgrade-secondary-server">BC Step 6: Upgrade Secondary server</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
   </aside>
 
 
