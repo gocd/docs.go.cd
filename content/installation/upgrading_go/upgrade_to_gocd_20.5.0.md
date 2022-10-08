@@ -45,6 +45,11 @@ Previous commercial PostgreSQL add-on usage was replaced by open-source/free sup
 Add-ons / extensions are no longer required, used or supported. However to continue to use PostgreSQL your existing 
 database still needs a one-time manual migration to make it compatible with GoCD `20.5.0` and higher.
 
+### Previous commercial Business Continuity add-on users
+
+Please read [here](../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html) to determine the plan for
+your secondary server and database.
+
 ## Migration Steps
 
 Follow the instructions below to migrate your existing GoCD <= `20.4.0` database to a GoCD `20.5.0` (and beyond) compliant database. The time taken by this migration is dependent on the size of your database. While testing we have seen the migration taking from a few minutes to **more than an hour** based on the size of the database. Please test on a backup of your GoCD server to understand the time taken for your particular database.
@@ -65,6 +70,8 @@ Backup your GoCD server. Refer to the [Backup GoCD Server](../../advanced_usage/
 ### Step 3: Stop GoCD Server
 
 Stop your GoCD server, if it is running.
+
+> **Business Continuity users only**: Read the [business continuity 20.5.0 upgrade steps](../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html) if you were using the Business Continuity add-on. This affects the way the subsequent steps should be applied.
 
 ### Step 4: Database Migration
 

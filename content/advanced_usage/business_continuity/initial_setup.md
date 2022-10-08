@@ -4,6 +4,9 @@ title: Initial Setup
 
 # Initial setup
 
+> **WARNING**: Please see [the introduction](introduction.html#history--current-status) regarding the current status of the
+> Business Continuity feature within the open-source/community supported version of GoCD.
+
 **Assumption**: You already have a setup resembling [Figure 1](introduction.html#fig-1), with a GoCD Server which uses an external PostgreSQL database. To configure GoCD to use PostgreSQL please refer to the configure PostgreSQL [documentation](/installation/configuring_database/postgres.html).
 
 ## Enable replication on the primary PostgreSQL instance

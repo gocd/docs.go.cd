@@ -4,6 +4,9 @@ title: Upgrade server with Business-Continuity Addon
 
 # Upgrading Primary and Secondary GoCD Servers using Business Continuity
 
+> **WARNING**: Please see [the introduction](introduction.html#history--current-status) regarding the current status of the
+> Business Continuity feature within the open-source/community supported version of GoCD.
+
 **Assumption**: You already have an existing Business Continuity Setup, as explained in our documentation [here](introduction.html)
 
 <aside class="warning">

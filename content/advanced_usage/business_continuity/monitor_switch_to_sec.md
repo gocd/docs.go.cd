@@ -4,6 +4,9 @@ title: Monitoring and Recovery
 
 # Monitoring and Switching Over to Secondary Server
 
+> **WARNING**: Please see [the introduction](introduction.html#history--current-status) regarding the current status of the
+> Business Continuity feature within the open-source/community supported version of GoCD.
+
 ## Monitoring the progress of the sync
 
 As mentioned in the details part of the ["Setup a standby (secondary) GoCD Server"](initial_setup.html#setup-a-standby-secondary-gocd-server) section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in <span style="color: red">red</span> denotes the sync hasn't happened, whereas an entry in <span style="color: black">black</span> denotes that the standby is in sync with the server. You should monitor that the `Last Config/Plugins Update Time` under Primary Details and `Last Successful Sync time` under Standby Details are not off by a huge time gap.
@@ -38,7 +41,7 @@ Suppose the primary GoCD Server goes down, you need to perform the following in 
 
 3. **Switch standby GoCD Server to primary**
 
-    As mentioned in the ["You need to know that ..."](introduction.html#you-need-to-know-that) section, the standby GoCD Server needs to be restarted before it can become the primary GoCD Server. While doing this, you need to set the `go.server.mode` system property to the value `primary`.
+    As mentioned in the ["What you need to know..."](introduction.html#what-you-need-to-know) section, the standby GoCD Server needs to be restarted before it can become the primary GoCD Server. While doing this, you need to set the `go.server.mode` system property to the value `primary`.
 
     ```
     -Dgo.server.mode=primary
