@@ -17,7 +17,7 @@ An easy way to set up a new agent is to clone an existing one which is already s
 
 ## Remove duplicate GUID
 
-Once the agent has been cloned, you'll need to delete the GUID file so that GoCD server does not confuse the new agent for the old one. The GUID file can be found at *[agent working dir]/config/guid.txt* - delete this file from the new agent.
+Once the agent has been cloned, you'll need to delete the GUID and token files so that GoCD server does not confuse the new agent for the old one. The GUID and token files can be found at *[agent working dir]/config/guid.txt* & *[agent working dir]/config/token* - delete these files from the new agent.
 
 ## Approve the new agent
 
