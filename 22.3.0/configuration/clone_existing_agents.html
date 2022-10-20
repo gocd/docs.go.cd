@@ -341,7 +341,7 @@ if (!doNotTrack) {
 <li>If you use a virtual machine to run your agent, clone the entire VM.</li>
 </ul>
 <h2 id="remove-duplicate-guid">Remove duplicate GUID</h2>
-<p>Once the agent has been cloned, you&rsquo;ll need to delete the GUID file so that GoCD server does not confuse the new agent for the old one. The GUID file can be found at <em>[agent working dir]/config/guid.txt</em> - delete this file from the new agent.</p>
+<p>Once the agent has been cloned, you&rsquo;ll need to delete the GUID and token files so that GoCD server does not confuse the new agent for the old one. The GUID and token files can be found at <em>[agent working dir]/config/guid.txt</em> &amp; <em>[agent working dir]/config/token</em> - delete these files from the new agent.</p>
 <h2 id="approve-the-new-agent">Approve the new agent</h2>
 <p>You may now start your agent and it should appear under the Agents tab on the GoCD server. Approve it as you would any new agent and you&rsquo;re ready to go.</p>
 </article>
