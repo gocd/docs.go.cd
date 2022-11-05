@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Monitoring and Recovery | GoCD User Documentation</title>
+
+<meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
+<meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/business_continuity/monitor_switch_to_sec.html"/>
+<script src="../../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../../javascripts/navigation/navigation.js"></script>
+<script src="../../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/advanced_usage/business_continuity/monitor_switch_to_sec.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2f advanced_usage\2f business_continuity\2fmonitor_switch_to_sec.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+<hr>
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../../">Introduction</a></li>
+      <li class="level2"><a href="../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/configuring_database.html">Configuring GoCD Database</a></li>
+        <ul>
+          <li class="level3"><a href="../../installation/configuring_database/h2.html">H2</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/postgres.html">PostgreSQL</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/mysql.html">MySQL</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/connection-properties.html">Database Connection Properties</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <ul>
+        <li class="level3"><a href="../../installation/upgrading_go/upgrade_to_gocd_20.5.0.html">Upgrading to GoCD 20.5.0 and higher</a></li>
+      </ul>
+      <li class="level2"><a href="../../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../../advanced_usage/business_continuity.html">GoCD Business Continuity</a>
+        <ul>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/introduction.html">Introduction</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/initial_setup.html">Initial Setup</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/configuration.html">Configure Agents and Shared Drive</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/monitor_switch_to_sec.html">Monitoring and Recovery</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade.html">Server Upgrades</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">Commercial Add-On Server Upgrade to 20.5.0</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../../svg/menu.svg" />
+  </label>
+  <strong>Monitoring and Recovery</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown"><h1 id="monitoring-and-switching-over-to-secondary-server">Monitoring and Switching Over to Secondary Server</h1>
+<blockquote>
+<p><strong>WARNING</strong>: Please see <a href="introduction.html#history--current-status">the introduction</a> regarding the current status of the
+Business Continuity feature within the open-source/community supported version of GoCD.</p>
+</blockquote>
+<h2 id="monitoring-the-progress-of-the-sync">Monitoring the progress of the sync</h2>
+<p>As mentioned in the details part of the <a href="initial_setup.html#setup-a-standby-secondary-gocd-server">&ldquo;Setup a standby (secondary) GoCD Server&rdquo;</a> section, the standby dashboard shows the progress of the sync, and refreshes itself every few seconds. An entry showing up in <span style="color: red">red</span> denotes the sync hasn&rsquo;t happened, whereas an entry in <span style="color: black">black</span> denotes that the standby is in sync with the server. You should monitor that the <code>Last Config/Plugins Update Time</code> under Primary Details and <code>Last Successful Sync time</code> under Standby Details are not off by a huge time gap.</p>
+<p>If you need it, this information is also available via a JSON API:</p>
+<p><code>http://standby-go-server:port/go/add-on/business-continuity/admin/dashboard.json</code></p>
+<p>The standby GoCD Server dashboard looks like this:</p>
+<p><a name="fig-6"></a></p>
+<p><img src="../../images/advanced_usage/business-continuity/standby_go_server_done.jpg" alt="Figure 6: Standby GoCD Server - Dashboard" title="Standby GoCD Server - Done with setup"></p>
+<h2 id="disaster-strikes---what-now">Disaster strikes - What now?</h2>
+<h3 id="switch-standby-to-primary">Switch standby to primary</h3>
+<p>Suppose the primary GoCD Server goes down, you need to perform the following in order:</p>
+<ol>
+<li>
+<p><strong>Turn off the primary instances</strong></p>
+<p>If the primary PostgreSQL Server and/or the primary GoCD Server are accessible, turn those services off on the corresponding machines.</p>
+</li>
+<li>
+<p><strong>Turn off PostgreSQL replication</strong></p>
+<p>The details part of the <a href="initial_setup.html">&ldquo;Setup a standby PostgreSQL instance for replication&rdquo;</a> section mentions a <code>trigger_file</code>, which is a file which allows the standby PostgreSQL instance to become the primary PostgreSQL instance. Create that file now. For instance:</p>
+<pre tabindex="0"><code>touch /path/to/postgresql.trigger.5432
+</code></pre></li>
+<li>
+<p><strong>Switch standby GoCD Server to primary</strong></p>
+<p>As mentioned in the <a href="introduction.html#what-you-need-to-know">&ldquo;What you need to know&hellip;&rdquo;</a> section, the standby GoCD Server needs to be restarted before it can become the primary GoCD Server. While doing this, you need to set the <code>go.server.mode</code> system property to the value <code>primary</code>.</p>
+<pre tabindex="0"><code>-Dgo.server.mode=primary
+</code></pre><p>This property was originally mentioned in the details part of <a href="initial_setup.html#setup-a-standby-secondary-gocd-server">&ldquo;Setup a standby (secondary) GoCD Server&rdquo;</a> section of the current document. You can also completely remove this property, since the default value is <code>primary</code>.</p>
+</li>
+<li>
+<p><strong>Switch virtual IP to point to standby GoCD Server</strong></p>
+<p>As mentioned in the details part of <a href="configuration.html">&ldquo;Setup a virtual IP for the agents to use&rdquo;</a> section, you can now assign the virtual IP to the standby GoCD Server.</p>
+<p><strong>Note:</strong> However, if your primary GoCD Server is still up and has control over this virtual IP, assigning the virtual IP to the standby GoCD Server would fail. You will need to go to the primary GoCD Server and <code>unassign</code> the virtual IP from it. You&rsquo;ll need to do this in case you need to switch because the primary PostgreSQL instance went down.</p>
+<p><strong>Note:</strong> The console logs of jobs which are running will be lost, since those logs are not stored in the artifact store, till completion of the job. They&rsquo;re stored locally on the GoCD Server.</p>
+</li>
+</ol>
+<h2 id="recovery---back-to-the-primary-server">Recovery - Back to the primary server</h2>
+<p>Given that you were able to successfully switch the erstwhile standby GoCD Server to become the primary, and the real primary GoCD Server is back in action, this section talks about what you need to do to get back to the original primary instances. The concern during this recovery is the syncing of the primary and standby PostgreSQL instances. The ancillary concerns are around syncing of config files. etc.</p>
+<p>Please note that, at this time, this requires downtime. This might change in the future.</p>
+<p>The steps are largely the same as that of setting up a standby GoCD Server and PostgreSQL instance.</p>
+<p>For the purposes of this section:</p>
+<ul>
+<li>PG1: Original primary PostgreSQL instance</li>
+<li>PG2: Original standby PostgreSQL instance</li>
+<li>GO1: Original primary GoCD Server instance (connected to PG1)</li>
+<li>GO2: Original standby GoCD Server instance (connected to PG2)</li>
+</ul>
+<p>The steps are:</p>
+<ol>
+<li>
+<p>Bring down both GoCD Servers, GO1 and GO2.</p>
+</li>
+<li>
+<p>Unassign the virtual IP from the GO2 box. See the details part of the <a href="configuration.html">&ldquo;Setup a virtual IP for the agents to use&rdquo;</a> section for more information about this.</p>
+</li>
+<li>
+<p>Copy over the contents of <code>/etc/go</code> (or at least <code>/etc/go/cruise-config.xml</code>) from GO2 to GO1.</p>
+</li>
+<li>
+<p>Use <code>pg_basebackup</code> with <code>-X fetch</code> flag to recreate the database on to PG1.  This makes sure that all the changes made to the database during the time GO1 was down are brought back to it.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>  pg_basebackup -h &lt;ip_address_of_secondary_postgres_server&gt; -U rep -D &lt;empty_data_directory_on_primary&gt; -X fetch
+</span></span></code></pre></div><p><strong>Note:</strong> There have been cases where the <code>pg_basebackup</code> command has hung with the default WAL (write-ahead logs) <code>stream</code> backup on an idle server. Therefore, we suggest to add <code>-X fetch</code> flag to <code>pg_basebackup</code>. For further details, please refer to the <a href="https://www.postgresql.org/docs/current/runtime-config-replication.html#GUC-WAL-KEEP-SIZE">wal_keep_size</a> (legacy: <a href="https://www.postgresql.org/docs/12/runtime-config-replication.html#GUC-WAL-KEEP-SEGMENTS">wal_keep_segments</a>) and <a href="https://www.postgresql.org/docs/current/app-pgbasebackup.html">fetch flag </a> (search for the fetch option value under -X) in the PostgreSQL documentation.</p>
+</li>
+<li>
+<p>In PG2, PostgreSQL would have changed the name of <code>recovery.conf</code> file to <code>recovery.done</code>, to show that PG2 is now acting as primary. Rename that back to <code>recovery.conf</code>, remove the trigger file you created earlier (<code>/path/to/postgresql.trigger.5432</code>) and restart PostgreSQL on PG2. This makes sure that PG2 is running in standby mode.</p>
+</li>
+<li>
+<p>Start PG1. Since it does not have a <code>recovery.conf</code> file, it will start as primary.</p>
+</li>
+<li>
+<p>Start GO1 now, and ensure that the <code>go.server.mode</code> is either unset or set to <code>primary</code>.</p>
+</li>
+<li>
+<p>Assign the virtual IP to the GO1 box. See the details part of the <a href="configuration.html">&ldquo;Setup a virtual IP for the agents to use&rdquo;</a> section for more information about this.</p>
+</li>
+</ol>
+<p>If this is done often, or even if not, it is recommended to automate this process (with a manual start). Since it involves a possible four different boxes, and communication between them is quite system-specific, this is not mentioned as a part of this setup. However, it can be done quite easily and is recommended.</p>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/business_continuity/monitor_switch_to_sec.md" target="_blank" rel="noopener">
+      <img src="../../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#monitoring-the-progress-of-the-sync">Monitoring the progress of the sync</a></li>
+    <li><a href="#disaster-strikes---what-now">Disaster strikes - What now?</a>
+      <ul>
+        <li><a href="#switch-standby-to-primary">Switch standby to primary</a></li>
+      </ul>
+    </li>
+    <li><a href="#recovery---back-to-the-primary-server">Recovery - Back to the primary server</a></li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>

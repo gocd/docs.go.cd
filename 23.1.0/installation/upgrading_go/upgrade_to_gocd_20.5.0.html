@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Upgrading to GoCD 20.5.0 and higher | GoCD User Documentation</title>
+
+<meta name="description" content="Instructions for upgrading GoCD Server from GoCD &lt;= 20.4.0 to GoCD &gt;= 20.5.0 after change in database-related technology"/>
+<meta name="keywords" content="[upgrade gocd, gocd server upgrade]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/installation/upgrading_go/upgrade_to_gocd_20.5.0.html"/>
+<script src="../../javascripts/vendor/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.6.min.js"></script>
+
+<script type="text/javascript" src="../../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../../javascripts/navigation/navigation.js"></script>
+<script src="../../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+  
+</head>
+
+<body data-rel-permalink="/installation/upgrading_go/upgrade_to_gocd_20.5.0.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2finstallation\2fupgrading_go\2fupgrade_to_gocd_20.5.0.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+<hr>
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../../">Introduction</a></li>
+      <li class="level2"><a href="../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/configuring_database.html">Configuring GoCD Database</a></li>
+        <ul>
+          <li class="level3"><a href="../../installation/configuring_database/h2.html">H2</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/postgres.html">PostgreSQL</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/mysql.html">MySQL</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/connection-properties.html">Database Connection Properties</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <ul>
+        <li class="level3"><a href="../../installation/upgrading_go/upgrade_to_gocd_20.5.0.html">Upgrading to GoCD 20.5.0 and higher</a></li>
+      </ul>
+      <li class="level2"><a href="../../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../../advanced_usage/business_continuity.html">GoCD Business Continuity</a>
+        <ul>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/introduction.html">Introduction</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/initial_setup.html">Initial Setup</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/configuration.html">Configure Agents and Shared Drive</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/monitor_switch_to_sec.html">Monitoring and Recovery</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade.html">Server Upgrades</a></li>
+          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">Commercial Add-On Server Upgrade to 20.5.0</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../../svg/menu.svg" />
+  </label>
+  <strong>Upgrading to GoCD 20.5.0 and higher</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown"><h1 id="upgrading-to-gocd-2050-and-higher">Upgrading to GoCD 20.5.0 and higher</h1>
+<p>GoCD <code>20.5.0</code> introduced several changes to its database implementation in order to build a more flexible model that allows integrating with multiple databases. As part of these changes GoCD changed the technologies used for automated database migrations (from the unmaintained DBDeploy to Liquibase). These changes require a one-time migration of the GoCD database &lt;= <code>20.4.0</code> to one compliant with GoCD <code>20.5.0</code> and beyond.</p>
+<p>GoCD <code>20.5.0</code>, while continuing to support H2 by default, provides an ability to use PostgreSQL and MySQL. As part of this one-time database migration users can also choose to move to a database of their choice. Possible migrations are:</p>
+<ol>
+<li><strong>H2</strong> =&gt; <strong>PostgreSQL</strong> <small>[Recommended]</small></li>
+<li><strong>PostgreSQL</strong> =&gt; <strong>PostgreSQL</strong></li>
+<li><strong>H2</strong> =&gt; <strong>H2</strong></li>
+<li><strong>H2</strong> =&gt; <strong>MySQL</strong> <small>[Warning! See note below]</small></li>
+</ol>
+<h2 id="choosing-your-migration-strategy">Choosing your migration strategy</h2>
+<p>GoCD comes bundled with the Java disk-based <a href="https://www.h2database.com/">H2 database</a>. If you have never configured a database, this is what you are using.</p>
+<ul>
+<li>Support for PostgreSQL was historically provided through a commercial addon provided by Thoughtworks. This functionality was integrated into core GoCD and made freely available as of <code>20.5.0</code>.</li>
+<li>As a result of this history, all of GoCD&rsquo;s functional regression tests run against both H2 and PostgreSQL databases.</li>
+<li>While support for MySQL was added in <code>20.5.0</code>, only a basic round of migration tests was completed, and the functional test suite <em>does not regularly run against MySQL</em> as a part of the build pipeline. This is something to be aware of if considering moving to MySQL.</li>
+<li>The H2 version used in GoCD <code>20.5.0</code> moved to use MVStore as the default storage subsystem. The <a href="https://www.H2database.com/html/mvstore.html#current_state">current state</a> of MVStore (as of October 2022) as per H2 documentation is still marked as experimental. While using the default H2 is fine to get started or experimenting, we would recommend using PostgreSQL for production instances of GoCD.</li>
+</ul>
+<h3 id="choosing-your-target-gocd-version">Choosing your target GoCD version</h3>
+<p>If you are considering upgrading to a version <em>higher than</em> <code>20.5.0</code>, please remember the usual caveats around
+compatibility with older agent versions, noted in <a href="../upgrading_go.html">Upgrading GoCD</a>. As there have
+been no major database-related changes between <code>20.5.0</code> and <code>22.3.0</code>, there are no special database-related considerations
+however you should <a href="https://www.gocd.org/releases/">review the release notes</a> for possible breaking changes in your setup.</p>
+<h3 id="choosing-postgresql-or-mysql-versions">Choosing PostgreSQL or MySQL versions</h3>
+<p>If you are considering migrating from H2 to PostgreSQL or MySQL during this upgrade, you should consider the target version of your database carefully. Ideally, you want to choose an <strong>overlapping version</strong> based on:</p>
+<ol>
+<li>your eventual target GoCD release&rsquo;s <a href="../configuring_database.html">supported database versions</a>.</li>
+<li>the <a href="https://github.com/gocd/gocd-database-migrator">database migrator tool</a>&rsquo;s supported database versions which were validated upon <code>20.5.0</code> release. These were:
+<ul>
+<li>PostgreSQL (<strong><code>v9.6</code></strong> &ndash; <strong><code>v12</code></strong>). As of 2022, later versions will <em>probably</em> work correctly, but <em>should be considered unvalidated</em>, so take care to sanity check your data in your specific environment.</li>
+<li>MySQL (<strong><code>v8.0</code></strong>)</li>
+</ul>
+</li>
+</ol>
+<h3 id="previous-commercial-postgresql-add-on-users">Previous commercial PostgreSQL add-on users</h3>
+<p>Previous commercial PostgreSQL add-on usage was replaced by open-source/free support for PostgreSQL in GoCD <code>20.5.0</code>.
+Add-ons / extensions are no longer required, used or supported. However to continue to use PostgreSQL your existing
+database still needs a one-time manual migration to make it compatible with GoCD <code>20.5.0</code> and higher.</p>
+<h3 id="previous-commercial-business-continuity-add-on-users">Previous commercial Business Continuity add-on users</h3>
+<p>Please read <a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">here</a> to determine the plan for
+your secondary server and database.</p>
+<h2 id="migration-steps">Migration Steps</h2>
+<p>Follow the instructions below to migrate your existing GoCD &lt;= <code>20.4.0</code> database to a GoCD <code>20.5.0</code> (and beyond) compliant database. The time taken by this migration is dependent on the size of your database. While testing we have seen the migration taking from a few minutes to <strong>more than an hour</strong> based on the size of the database. Please test on a backup of your GoCD server to understand the time taken for your particular database.</p>
+<blockquote>
+<p><strong>Strong recommendation:</strong>: try this migration on a non-production instance or backup of GoCD before attempting it on a production instance.</p>
+</blockquote>
+<h3 id="step-1-upgrade-to-gocd-2040">Step 1: Upgrade to GoCD <code>20.4.0</code></h3>
+<p>In general, you should be able to migrate from any older version of GoCD directly to <code>20.5.0</code> or higher. However, over the few releases prior to <code>20.5.0</code> there have been multiple changes to GoCD around installers and agent communication which could involve necessary changes to your setup.</p>
+<p>Hence to ensure you are tackling one challenge at a time, it is recommended to do a normal upgrade to GoCD <code>20.4.0</code>
+and validate your setup on GoCD <code>20.4.0</code> <strong>before</strong> performing an upgrade to GoCD <code>20.5.0</code> or higher.</p>
+<h3 id="step-2-backup">Step 2: Backup</h3>
+<p>Backup your GoCD server. Refer to the <a href="../../advanced_usage/one_click_backup.html">Backup GoCD Server</a> documentation for instructions.</p>
+<h3 id="step-3-stop-gocd-server">Step 3: Stop GoCD Server</h3>
+<p>Stop your GoCD server, if it is running.</p>
+<blockquote>
+<p><strong>Business Continuity users only</strong>: Read the <a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">business continuity 20.5.0 upgrade steps</a> if you were using the Business Continuity add-on. This affects the way the subsequent steps should be applied.</p>
+</blockquote>
+<h3 id="step-4-database-migration">Step 4: Database Migration</h3>
+<ol>
+<li>
+<p>Download the latest stable version of the migrator tool from the <a href="https://github.com/gocd/gocd-database-migrator/releases">GitHub releases section</a> of the <a href="https://github.com/gocd/gocd-database-migrator">GoCD database migration tool&rsquo;s repository</a>.</p>
+</li>
+<li>
+<p>Uncompress it and <code>cd</code> into the directory.</p>
+</li>
+<li>
+<p>Run <code>./bin/gocd-database-migrator --help</code> for usage instructions.</p>
+</li>
+</ol>
+<p><strong>Prerequisites:</strong> Ensure you have Java 8+ installed on the machine which runs the migration.</p>
+<h4 id="41-migrating-data-from-h2-to-h2">4.1 Migrating data from H2 to H2</h4>
+<ol>
+<li>
+<p>The <code>gocd-database-migrator</code> requires the <code>source-db-url</code> which consists of the location of the GoCD H2 database. The location of the database depends on the distribution your GoCD server is running on. Please refer to <a href="../installing_go_server.html">GoCD installation</a> documentation to identfiy the file location.</p>
+</li>
+<li>
+<p>Run the command (The below example is for a GoCD server running on Linux) -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/new_cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span>
+</span></span></code></pre></div><p>For GoCD server running on Windows refer to the below example -</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bin<span style="color:#b62;font-weight:bold">\g</span>ocd-database-migrator.bat ^
+</span></span><span style="display:flex;"><span>--insert ^
+</span></span><span style="display:flex;"><span>--progress ^
+</span></span><span style="display:flex;"><span>--source-db-url<span style="color:#666">=</span><span style="color:#b44">&#34;jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\cruise&#34;</span> ^
+</span></span><span style="display:flex;"><span>--source-db-user<span style="color:#666">=</span><span style="color:#b44">&#34;sa&#34;</span> ^
+</span></span><span style="display:flex;"><span>--source-db-password<span style="color:#666">=</span><span style="color:#b44">&#34;&#34;</span> ^
+</span></span><span style="display:flex;"><span>--target-db-url<span style="color:#666">=</span><span style="color:#b44">&#34;jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\new_cruise&#34;</span> ^
+</span></span><span style="display:flex;"><span>--target-db-user<span style="color:#666">=</span><span style="color:#b44">&#34;sa&#34;</span> ^
+</span></span><span style="display:flex;"><span>--target-db-password<span style="color:#666">=</span><span style="color:#b44">&#34;&#34;</span>
+</span></span></code></pre></div><p><strong>Note</strong>: The <code>source-db-url</code> and <code>target-db-url</code> contain just the prefixes of the file names (<code>cruise</code> and <code>new_cruise</code>), even though the actual files are named: <code>cruise.h2.db</code> and <code>new_cruise.mv.db</code>.</p>
+</li>
+<li>
+<p>Delete, take a backup of or move away the file <strong>/var/lib/go-server/db/h2db/cruise.h2.db</strong>.</p>
+</li>
+<li>
+<p>Replace the old database with the migrated database by moving the file <strong>/var/lib/go-server/db/h2db/new_cruise.mv.db</strong> to <strong>/var/lib/go-server/db/h2db/cruise.mv.db</strong>.</p>
+</li>
+<li>
+<p>Ensure that the file permissions and ownership of the new <code>cruise.mv.db</code> file are correct (same as that of the old <code>cruise.h2.db</code> file).</p>
+</li>
+</ol>
+<h4 id="42-migrating-data-from-postgresql-to-postgresql">4.2 Migrating data from PostgreSQL to PostgreSQL</h4>
+<ol>
+<li>
+<p>Create an empty database in PostgreSQL. Refer to the <a href="../configuring_database/postgres.html">PostgreSQL docs</a> for information on creating an empty database.</p>
+</li>
+<li>
+<p>Run the command by providing the right parameters for the required options. An example is shown below:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
+</span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="43-migrating-data-from-h2-to-postgresql">4.3 Migrating data from H2 to PostgreSQL</h4>
+<ol>
+<li>
+<p>Create an empty database in PostgreSQL. Refer to the <a href="../configuring_database/postgres.html">PostgreSQL docs</a> for information on creating an empty database.</p>
+</li>
+<li>
+<p>Run the command by providing the right parameters for the required options,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
+</span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
+</span></span></code></pre></div></li>
+</ol>
+<h4 id="44-migrating-data-from-h2-to-mysql">4.4 Migrating data from H2 to MySQL</h4>
+<ol>
+<li>
+<p>Create an empty database in MySQL. Refer to the <a href="../configuring_database/mysql.html">MySQL docs</a> for information on creating an empty database.</p>
+</li>
+<li>
+<p>Run the command by providing the right parameters for the required options,</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:mysql://localhost:3306/new_cruise&#39;</span>
+</span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;root&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;password&#39;</span>
+</span></span></code></pre></div></li>
+</ol>
+<h3 id="step-5-configure-dbproperties-for-your-gocd-server">Step 5: Configure <code>db.properties</code> for your GoCD server</h3>
+<h4 id="51-enabling-gocd-to-use-h2-database">5.1 Enabling GoCD to use H2 Database</h4>
+<p>GoCD runs on H2 by default. Configuring the <code>db.properties</code> is <strong>not</strong> required. Just make sure that the directory <code>&lt;&lt;GoCD_installation_directory&gt;&gt;/db/h2db/</code> does <strong>not</strong> contain <code>cruise.h2.db</code> (the <code>20.4.0</code> H2 database format) and only contains <code>cruise.mv.db</code> (the <code>20.5.0</code>+ H2 database format).</p>
+<h4 id="52-enabling-gocd-to-use-postgresql-or-mysql-database">5.2 Enabling GoCD to use PostgreSQL or MySQL Database</h4>
+<p>A properties file with the name <code>db.properties</code> needs to be created in GoCD&rsquo;s configuration directory. This file should contain information about the PostgreSQL or MySQL server, so that the GoCD Server can connect to it. Refer to the <a href="../configuring_database/connection-properties.html">GoCD Database Connection Properties documentation</a> for more information about the format of this file and valid keys.</p>
+<p>The location of GoCD&rsquo;s configuration directory varies per operating system. Usually, on a Linux system using the RPM or Debian installers, this file will need to be at <code>/etc/go/db.properties</code>. The <a href="../installing_go_server.html">installation documentation</a> provides information about the locations.</p>
+<ul>
+<li>
+<p>Sample configuration for <code>db.properties</code> for PostgreSQL:</p>
+<pre tabindex="0"><code>db.driver=org.postgresql.Driver
+db.url=jdbc:postgresql://localhost:5432/new_cruise
+db.user=postgres
+db.password=pass
+</code></pre></li>
+<li>
+<p>Sample configuration for <code>db.properties</code> for MySQL:</p>
+<pre tabindex="0"><code>db.driver=com.mysql.cj.jdbc.Driver
+db.url=jdbc:mysql://localhost:3306/gocd
+db.user=root
+db.password=password
+</code></pre></li>
+</ul>
+<h3 id="step-6-only-for-users-using-the-old-commercial-postgresql-addon">Step 6: Only for users using the (old) commercial PostgreSQL addon</h3>
+<p>Once you have completed the above steps, including configuring a new <code>db.properties</code> config for core GoCD:</p>
+<ul>
+<li>
+<p>Remove the PostgreSQL addon jar from the addons directory (typically <code>/var/lib/go-server/addons</code> on Linux)</p>
+</li>
+<li>
+<p>Remove the <code>postgresqldb.properties</code> file from the configuration directory (typically <code>/etc/go</code> on Linux).</p>
+</li>
+</ul>
+<h3 id="step-7-upgrade-gocd-server">Step 7: Upgrade GoCD Server</h3>
+<p>Upgrade your GoCD server to <code>20.5.0</code>+ and start the server.</p>
+<h2 id="troubleshooting">Troubleshooting</h2>
+<p>Possible issues you might see are:</p>
+<h4 id="database-is-read-only">Database is read-only</h4>
+<p>You might see a message such as this, after upgrade, in the GoCD server logs:</p>
+<pre tabindex="0"><code>Caused by: org.h2.jdbc.JdbcSQLNonTransientException: The database is read only; SQL statement:
+UPDATE PUBLIC.DATABASECHANGELOGLOCK SET LOCKED = TRUE, LOCKEDBY = &#39;10.16.0.5 (10.16.0.5)&#39;, LOCKGRANTED = &#39;2020-06-17 15:07:20.707&#39; WHERE ID = 1 AND LOCKED = FALSE [90097-200]
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:505)
+	at org.h2.message.DbException.getJdbcSQLException(DbException.java:429)
+	at org.h2.message.DbException.get(DbException.java:205)
+</code></pre><p>This can happen due to the H2 DB file (usually at <code>/var/lib/go-server/db/h2db/cruise.mv.db</code> on Linux) having the wrong permissions or ownership.</p>
+
+<h4 id="mysql-identifier-case-senitivity">MySQL: Identifier case senitivity</h4>
+<p>You might see a message such as this in the GoCD server logs, if you are using MySQL:</p>
+<pre tabindex="0"><code>Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.apache.commons.dbcp2.BasicDataSource]: Factory method &#39;getDataSource&#39; threw exception; nested exception is java.sql.SQLException: Unable to migrate the database
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:189)
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:588)
+        ... 73 common frames omitted
+Caused by: java.sql.SQLException: Unable to migrate the database
+        at com.thoughtworks.go.server.database.migration.DatabaseMigrator.migrate(DatabaseMigrator.java:68)
+        at com.thoughtworks.go.server.database.Database.getDataSource(Database.java:63)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+        at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:162)
+        ... 74 common frames omitted
+Caused by: liquibase.exception.MigrationFailedException: Migration failed for change set db-migration-scripts/initial/create-trigger.xml::107::gocd(generated):
+     Reason: liquibase.exception.DatabaseException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
+                AFTER INSERT ON buildStateTransitions
+                FOR EACH ROW
+                BEGIN
+                    UPDATE stages SET lastTransitionedTime = NEW.statechangetime WHERE stages.id = NEW.stageid;
+                END]
+        at liquibase.changelog.ChangeSet.execute(ChangeSet.java:646)
+        at liquibase.changelog.visitor.UpdateVisitor.visit(UpdateVisitor.java:53)
+        at liquibase.changelog.ChangeLogIterator.run(ChangeLogIterator.java:83)
+        at liquibase.Liquibase.update(Liquibase.java:202)
+        at liquibase.Liquibase.update(Liquibase.java:179)
+        at liquibase.Liquibase.update(Liquibase.java:175)
+        at com.thoughtworks.go.server.database.migration.DatabaseMigrator.migrate(DatabaseMigrator.java:54)
+        ... 80 common frames omitted
+Caused by: liquibase.exception.DatabaseException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist [Failed SQL: (1146) CREATE TRIGGER lastTransitionedTimeUpdate
+                AFTER INSERT ON buildStateTransitions
+                FOR EACH ROW
+                BEGIN
+                    UPDATE stages SET lastTransitionedTime = NEW.statechangetime WHERE stages.id = NEW.stageid;
+                END]
+        at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:402)
+        at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:59)
+        at liquibase.executor.jvm.JdbcExecutor.execute(JdbcExecutor.java:131)
+        at liquibase.database.AbstractJdbcDatabase.execute(AbstractJdbcDatabase.java:1276)
+        at liquibase.database.AbstractJdbcDatabase.executeStatements(AbstractJdbcDatabase.java:1258)
+        at liquibase.changelog.ChangeSet.execute(ChangeSet.java:609)
+        ... 86 common frames omitted
+Caused by: java.sql.SQLSyntaxErrorException: Table &#39;gocd.buildStateTransitions&#39; doesn&#39;t exist
+        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+        at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+        at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+        at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+        at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+        at org.apache.commons.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+        at org.apache.commons.dbcp2.DelegatingStatement.execute(DelegatingStatement.java:194)
+        at liquibase.executor.jvm.JdbcExecutor$ExecuteStatementCallback.doInStatement(JdbcExecutor.java:398)
+        ... 91 common frames omitted
+</code></pre><p>If you see this, the most probable cause is that your MySQL instance has <a href="https://dev.mysql.com/doc/refman/8.0/en/identifier-case-sensitivity.html">case-sensitive identifiers</a> turned on. GoCD needs case-insensitive identifiers and you will need to change your MySQL instance to enable that. Please note that, according to the documentation, it is not possible to <a href="https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_lower_case_table_names">change the <code>lower_case_table_names</code> variable</a> once the MySQL instance is initialized. You might need to recreate the instance.</p>
+
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/upgrading_go/upgrade_to_gocd_20.5.0.md" target="_blank" rel="noopener">
+      <img src="../../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#choosing-your-migration-strategy">Choosing your migration strategy</a>
+      <ul>
+        <li><a href="#choosing-your-target-gocd-version">Choosing your target GoCD version</a></li>
+        <li><a href="#choosing-postgresql-or-mysql-versions">Choosing PostgreSQL or MySQL versions</a></li>
+        <li><a href="#previous-commercial-postgresql-add-on-users">Previous commercial PostgreSQL add-on users</a></li>
+        <li><a href="#previous-commercial-business-continuity-add-on-users">Previous commercial Business Continuity add-on users</a></li>
+      </ul>
+    </li>
+    <li><a href="#migration-steps">Migration Steps</a>
+      <ul>
+        <li><a href="#step-1-upgrade-to-gocd-2040">Step 1: Upgrade to GoCD <code>20.4.0</code></a></li>
+        <li><a href="#step-2-backup">Step 2: Backup</a></li>
+        <li><a href="#step-3-stop-gocd-server">Step 3: Stop GoCD Server</a></li>
+        <li><a href="#step-4-database-migration">Step 4: Database Migration</a></li>
+        <li><a href="#step-5-configure-dbproperties-for-your-gocd-server">Step 5: Configure <code>db.properties</code> for your GoCD server</a></li>
+        <li><a href="#step-6-only-for-users-using-the-old-commercial-postgresql-addon">Step 6: Only for users using the (old) commercial PostgreSQL addon</a></li>
+        <li><a href="#step-7-upgrade-gocd-server">Step 7: Upgrade GoCD Server</a></li>
+      </ul>
+    </li>
+    <li><a href="#troubleshooting">Troubleshooting</a></li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+  
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-48357651-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+
+</html>
