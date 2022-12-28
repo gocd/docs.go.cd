@@ -295,7 +295,7 @@ In a case such as the image shown above:
 
 2. Jobs in Pipelines 3 and 4 can only be picked up by Agents 3 and 4.
 
-3. Jobs in Pipelines 5, 6 and 7 can only be picked up Agent 5.
+3. Jobs in Pipelines 5, 6 and 7 can only be picked up by Agent 5.
 
 In addition to the restrictions related to matching of Environments, resources need to match between the agents and jobs, as detailed in the section
 on [Resources](#resources).
