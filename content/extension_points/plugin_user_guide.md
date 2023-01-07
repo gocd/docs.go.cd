@@ -12,9 +12,9 @@ Plugins allow users to extend the functionality of GoCD. Each plugin is assigned
 
 ## Bundled versus External
 
-- **Bundled Plugins:** As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These are developed and supported by Thoughtworks GoCD development team. Bundled plugins are located under `<server installation directory>/plugins/bundled` directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.
+- **Bundled Plugins:** As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These were originally developed by the Thoughtworks GoCD development team, and are now maintained by the GoCD community alongside the server. Bundled plugins are located under `<server installation directory>/plugins/bundled` directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.
 
-- **External Plugins:** All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from `<server installation directory>/plugins/external` directory. [Listing of external plugins](https://www.gocd.org/community/plugins.html)
+- **External Plugins:** All user authored plugins, and some GoCD Development Team plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from `<server installation directory>/plugins/external` directory. [Listing of external plugins](https://www.gocd.org/plugins/)
 
 ## Installing and Uninstalling of plugins
 

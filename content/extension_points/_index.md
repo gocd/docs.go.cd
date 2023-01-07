@@ -11,4 +11,4 @@ It is recommended to read the [GoCD Plugin User Guide](plugin_user_guide.html) b
 
 The [Plugin API documentation](https://plugin-api.gocd.org/current/) has all the information needed to write your own plugins.
 
-The [plugins listing page](https://www.gocd.org/community/plugins.html) lists known GoCD-team maintained plugins and community-maintained plugins.
+The [plugins listing page](https://www.gocd.org/plugins/) lists known GoCD-team maintained plugins and community-maintained plugins.
