@@ -339,10 +339,10 @@ if (!doNotTrack) {
 <h2 id="bundled-versus-external">Bundled versus External</h2>
 <ul>
 <li>
-<p><strong>Bundled Plugins:</strong> As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These are developed and supported by Thoughtworks GoCD development team. Bundled plugins are located under <code>&lt;server installation directory&gt;/plugins/bundled</code> directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.</p>
+<p><strong>Bundled Plugins:</strong> As the name suggests, bundled plugins are bundled/packaged along with GoCD server. These were originally developed by the Thoughtworks GoCD development team, and are now maintained by the GoCD community alongside the server. Bundled plugins are located under <code>&lt;server installation directory&gt;/plugins/bundled</code> directory. After an upgrade, when GoCD server starts up for the first time, all bundled plugins would be refreshed with the latest packaged versions.</p>
 </li>
 <li>
-<p><strong>External Plugins:</strong> All user authored plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from <code>&lt;server installation directory&gt;/plugins/external</code> directory. <a href="https://www.gocd.org/community/plugins.html">Listing of external plugins</a></p>
+<p><strong>External Plugins:</strong> All user authored plugins, and some GoCD Development Team plugins are treated as external plugins. Unlike bundled plugins, external plugins are not altered (read packaged/bundled/refreshed/removed/modified) during a GoCD server upgrade. External plugins are loaded from <code>&lt;server installation directory&gt;/plugins/external</code> directory. <a href="https://www.gocd.org/plugins/">Listing of external plugins</a></p>
 </li>
 </ul>
 <h2 id="installing-and-uninstalling-of-plugins">Installing and Uninstalling of plugins</h2>

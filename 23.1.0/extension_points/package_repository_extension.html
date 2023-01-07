@@ -345,11 +345,11 @@ Pipelines in GoCD can poll packages in repositories similar to how they poll ver
 </ol>
 <p>These files (packages) are often maintained in corresponding package repositories. <strong>Such packages may be specified as materials for GoCD pipelines.</strong></p>
 <h3 id="supported-packages">Supported Packages</h3>
-<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a GoCD pipeline. Using other <a href="https://www.gocd.org/community/plugins.html">external plugins</a>, it is possible to do the same for other types of packages.</p>
+<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a GoCD pipeline. Using other <a href="https://www.gocd.org/plugins/">external plugins</a>, it is possible to do the same for other types of packages.</p>
 <h3 id="repositories-packages-and-materials">Repositories, Packages and Materials</h3>
 <p>A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the repository, interested pipelines will get scheduled.</p>
 <h4 id="repository-definition">Repository Definition</h4>
-<p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a yum repository using the bundled <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
+<p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a yum repository using the <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
 <h5 id="note">Note:</h5>
 <ol>
 <li>The repository name is not used by the package material plugin - it is used by Go to construct the material name.</li>
@@ -358,13 +358,13 @@ Pipelines in GoCD can poll packages in repositories similar to how they poll ver
 </ol>
 <p><img src="../images/yum-repo.png" alt=""></p>
 <h4 id="package-definition">Package Definition</h4>
-<p>A package material plugin also lets you define packages at the time of pipeline material configuration (Admin &gt; Material &gt;Add Material &gt; Package). Here is what it looks like for defining RPM packages with the bundled yum plugin. The package name is not used by the package material plugin - it is used by Go to construct the material name. Two packages in a repository cannot have the same name. Use the check package button to ensure that the package definition does indeed resolve to the package you are looking for.</p>
+<p>A package material plugin also lets you define packages at the time of pipeline material configuration (Admin &gt; Material &gt;Add Material &gt; Package). Here is what it looks like for defining RPM packages with the Yum plugin. The package name is not used by the package material plugin - it is used by Go to construct the material name. Two packages in a repository cannot have the same name. Use the check package button to ensure that the package definition does indeed resolve to the package you are looking for.</p>
 <p><img src="../images/yum-pkg.png" alt=""></p>
 <p>Unlike other VCS/SCM materials, <em>the material definition in case of packages is not contained within the pipeline definition</em>. Many pipelines may have material definitions referring to the same package. Here is how we associate an existing package as material for a pipeline.</p>
 <p><img src="../images/yum-pkg-exist.png" alt=""></p>
 <h5 id="note-1">Note:</h5>
 <p>Each package definition must resolve to exactly one package on the repository, else the pipeline will not run. In order to set up a pipeline that polls for multiple packages, configure each package as a separate material.</p>
-<p>Each package material plugin defines a subset of its properties as a <em>package fingerprint</em>. e.g. in case of the bundled yum plugin this subset consists of Repository URL and Package Spec (it excludes repository username and password). Repository and Package names are <strong>not</strong> part of package fingerprint. It is not permitted to multiple packages having the same package fingerprint. An attempt to do so will result in an error message like this:</p>
+<p>Each package material plugin defines a subset of its properties as a <em>package fingerprint</em>. e.g. in case of the Yum plugin this subset consists of Repository URL and Package Spec (it excludes repository username and password). Repository and Package names are <strong>not</strong> part of package fingerprint. It is not permitted to multiple packages having the same package fingerprint. An attempt to do so will result in an error message like this:</p>
 <p>The following error(s) need to be resolved in order to perform this action:<br>
 Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchard&rsquo;, Package Name: &lsquo;apple&rsquo;], [Repo Name: &lsquo;orchard&rsquo;, Package Name: &lsquo;orange&rsquo;]</p>
 <h4 id="sample-xml-configuration">Sample XML Configuration</h4>
@@ -407,7 +407,7 @@ Cannot save package or repo, found duplicate packages. [Repo Name: &lsquo;orchar
 <p>It isn&rsquo;t advisable to do both as Y will then schedule twice. The choice depends on how closely the activities in pipeline X and Y are related. If it is important to see X and Y together in the same value stream map, then option #1 makes sense.</p>
 </li>
 <li>
-<p>The second scenario is where GoCD does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. GoCD helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the bundled yum plugin, we use the URL field in rpm metadata for this.</p>
+<p>The second scenario is where GoCD does not know about how/who published the package. Perhaps it got published by a job in Jenkins. Or perhaps the package is an open source package on a public repository on the internet. In this case the only option is to use a package material. GoCD helps you trace back to the external origin of the package if the package creator adds trackback information to the package metadata. The details of this will vary by plugin. In case of the Yum plugin, we use the URL field in rpm metadata for this.</p>
 </li>
 </ol>
 <h3 id="permissions">Permissions</h3>

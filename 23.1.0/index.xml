@@ -1232,7 +1232,8 @@ Determine which job within the stage failed, and click on it [1]</description>
       
       <guid>/extension_points/yum_repository_poller.html</guid>
       <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package, Ubuntu, CentOS)
-Introduction The Yum repository poller is a bundled package material plugin capable of polling yum repositories for rpm packages. GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.</description>
+Introduction The Yum repository poller is a package material plugin capable of polling yum repositories for rpm packages. Prior to GoCD 23.1.0 the plugin came bundled with GoCD, however can now be downloaded for installation at GitHub.
+GoCD server interacts with this plugin via package material plugin interfaces.</description>
     </item>
     
   </channel>
