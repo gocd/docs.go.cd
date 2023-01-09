@@ -230,16 +230,6 @@ if (!doNotTrack) {
       <li class="level2"><a href="../../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
       <li class="level2"><a href="../../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
       <li class="level2"><a href="../../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
-      <li class="level2"><a href="../../advanced_usage/business_continuity.html">GoCD Business Continuity</a>
-        <ul>
-          <li class="level3"><a href="../../advanced_usage/business_continuity/introduction.html">Introduction</a></li>
-          <li class="level3"><a href="../../advanced_usage/business_continuity/initial_setup.html">Initial Setup</a></li>
-          <li class="level3"><a href="../../advanced_usage/business_continuity/configuration.html">Configure Agents and Shared Drive</a></li>
-          <li class="level3"><a href="../../advanced_usage/business_continuity/monitor_switch_to_sec.html">Monitoring and Recovery</a></li>
-          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade.html">Server Upgrades</a></li>
-          <li class="level3"><a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">Commercial Add-On Server Upgrade to 20.5.0</a></li>
-        </ul>
-      </li>
       <li class="level2"><a href="../../integration/">Integrating GoCD With Other Tools</a></li>
     </ul>
   </li>
@@ -371,8 +361,8 @@ however you should <a href="https://www.gocd.org/releases/">review the release n
 Add-ons / extensions are no longer required, used or supported. However to continue to use PostgreSQL your existing
 database still needs a one-time manual migration to make it compatible with GoCD <code>20.5.0</code> and higher.</p>
 <h3 id="previous-commercial-business-continuity-add-on-users">Previous commercial Business Continuity add-on users</h3>
-<p>Please read <a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">here</a> to determine the plan for
-your secondary server and database.</p>
+<p>The business continuity feature was removed in later releases of GoCD due to security concerns in <code>20.5.0</code>+.
+You should decommission your standby instance, and upgrade only your primary instance.</p>
 <h2 id="migration-steps">Migration Steps</h2>
 <p>Follow the instructions below to migrate your existing GoCD &lt;= <code>20.4.0</code> database to a GoCD <code>20.5.0</code> (and beyond) compliant database. The time taken by this migration is dependent on the size of your database. While testing we have seen the migration taking from a few minutes to <strong>more than an hour</strong> based on the size of the database. Please test on a backup of your GoCD server to understand the time taken for your particular database.</p>
 <blockquote>
@@ -386,9 +376,6 @@ and validate your setup on GoCD <code>20.4.0</code> <strong>before</strong> perf
 <p>Backup your GoCD server. Refer to the <a href="../../advanced_usage/one_click_backup.html">Backup GoCD Server</a> documentation for instructions.</p>
 <h3 id="step-3-stop-gocd-server">Step 3: Stop GoCD Server</h3>
 <p>Stop your GoCD server, if it is running.</p>
-<blockquote>
-<p><strong>Business Continuity users only</strong>: Read the <a href="../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html">business continuity 20.5.0 upgrade steps</a> if you were using the Business Continuity add-on. This affects the way the subsequent steps should be applied.</p>
-</blockquote>
 <h3 id="step-4-database-migration">Step 4: Database Migration</h3>
 <ol>
 <li>
