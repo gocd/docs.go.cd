@@ -47,8 +47,8 @@ database still needs a one-time manual migration to make it compatible with GoCD
 
 ### Previous commercial Business Continuity add-on users
 
-Please read [here](../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html) to determine the plan for
-your secondary server and database.
+The business continuity feature was removed in later releases of GoCD due to security concerns in `20.5.0`+.
+You should decommission your standby instance, and upgrade only your primary instance.
 
 ## Migration Steps
 
@@ -70,8 +70,6 @@ Backup your GoCD server. Refer to the [Backup GoCD Server](../../advanced_usage/
 ### Step 3: Stop GoCD Server
 
 Stop your GoCD server, if it is running.
-
-> **Business Continuity users only**: Read the [business continuity 20.5.0 upgrade steps](../../advanced_usage/business_continuity/upgrade_to_gocd_20.5.0.html) if you were using the Business Continuity add-on. This affects the way the subsequent steps should be applied.
 
 ### Step 4: Database Migration
 
