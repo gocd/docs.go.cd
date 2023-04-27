@@ -4,7 +4,6 @@ title = "GoCD User Documentation"
 uglyUrls = true
 theme = "hugo-book"
 relativeURLs = true
-googleAnalytics = "UA-48357651-1"
 pygmentsCodefences = true
 pygmentsStyle = "emacs"
 
