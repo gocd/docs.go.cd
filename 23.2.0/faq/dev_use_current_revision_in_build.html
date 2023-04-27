@@ -13,7 +13,7 @@
 <meta name="keywords" content="[environment variable, GoCD configuration, GoCD tasks, custom command, shell-script, ruby script,]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link rel="canonical" href="https://docs.gocd.org/current/faq/dev_use_current_revision_in_build.html"/>
-<script src="../javascripts/vendor/jquery-3.6.4.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.6.min.js"></script>
 
 <script type="text/javascript" src="../javascripts/search/search.js"></script>
@@ -26,18 +26,6 @@
 <link rel="stylesheet" href="../stylesheets/website.css"/>
 
 <link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-48357651-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
 
   
 </head>
@@ -468,42 +456,42 @@ environment variables available during every job run, set by GoCD. They are:</p>
 </tr>
 <tr>
 <td>GO_REVISION</td>
-<td>The current source control revision being run (when using only one material)</td>
+<td>The current source control revision being run (when using only one material, and not setting either material name or checkout destination)</td>
 <td><code>123</code></td>
 </tr>
 <tr>
 <td>GO_REVISION_${material name or dest}</td>
-<td>If you are using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
+<td>If naming materials, or using more than one material in your pipeline, the revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>123</code></td>
 </tr>
 <tr>
 <td>GO_TO_REVISION</td>
-<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the latest revision (when using only one material). This is always same as GO_REVISION.</td>
+<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the latest revision (when using only one material, and not setting either material name or checkout destination). This is always same as GO_REVISION.</td>
 <td><code>123</code></td>
 </tr>
 <tr>
 <td>GO_TO_REVISION_${material name or dest}</td>
-<td>If you are using more than one material in your pipeline, the &rsquo;to&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
+<td>If naming materials, or using more than one material in your pipeline, the &rsquo;to&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>123</code></td>
 </tr>
 <tr>
 <td>GO_FROM_REVISION</td>
-<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the oldest revision (when using only one material)</td>
+<td>If the pipeline was triggered with a series of source control revisions(say 121 to 123), then this environment variable has the value of the oldest revision (when using only one material, and not setting either material name or checkout destination)</td>
 <td><code>121</code></td>
 </tr>
 <tr>
 <td>GO_FROM_REVISION_${material name or dest}</td>
-<td>If you are using more than one material in your pipeline, the &lsquo;from&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
+<td>If naming materials, or using more than one material in your pipeline, the &lsquo;from&rsquo; revision for each material is available. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>121</code></td>
 </tr>
 <tr>
 <td>GO_MATERIAL_HAS_CHANGED</td>
-<td>A boolean value indicating if the material revision has changed since the previous run (when using only one material)</td>
+<td>A boolean value indicating if the material revision has changed since the previous run (when using only one material, and not setting either material name or checkout destination)</td>
 <td><code>true</code></td>
 </tr>
 <tr>
 <td>GO_MATERIAL_${material name or dest}_HAS_CHANGED</td>
-<td>When more than one material is configured for your pipeline, a flag would be available for each of the materials available to denote if the corresponding material&rsquo;s revision has changed since the previous run. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
+<td>If naming materials, or using more than one material in your pipeline, a flag would be available for each of the materials available to denote if the corresponding material&rsquo;s revision has changed since the previous run. The environment variable is named with the material&rsquo;s &ldquo;materialName&rdquo; attribute. If &ldquo;materialName&rdquo; is not defined, then &ldquo;dest&rdquo; directory is used. Non alphanumeric characters are replaced with underscores (&quot;_&quot;).</td>
 <td><code>false</code></td>
 </tr>
 </tbody>
@@ -677,18 +665,6 @@ then the variable will have the value &lsquo;bar&rsquo; when the job runs.</p>
   </main>
 
   
-  
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-48357651-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
 </body>
 
 </html>
