@@ -325,8 +325,10 @@
 </span></span></code></pre></div><h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
 <p>The GoCD server .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell -</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
-</span></span><span style="display:flex;"><span>curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo install -m <span style="color:#666">0755</span> -d /etc/apt/keyrings
+</span></span><span style="display:flex;"><span>curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gocd.gpg
+</span></span><span style="display:flex;"><span>sudo chmod a+r /etc/apt/keyrings/gocd.gpg
+</span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb [signed-by=/etc/apt/keyrings/gocd.gpg] https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
 </span></span><span style="display:flex;"><span>sudo apt-get update
 </span></span></code></pre></div>
 <p>Once you have the repository setup, execute</p>
