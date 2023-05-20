@@ -1,7 +1,9 @@
 If you prefer to use the APT repository and install via `apt-get`, paste the following in your shell -
 
 ```bash
-echo "deb https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
-curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo apt-key add -
+sudo install -m 0755 -d /etc/apt/keyrings
+curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gocd.gpg
+sudo chmod a+r /etc/apt/keyrings/gocd.gpg
+echo "deb [signed-by=/etc/apt/keyrings/gocd.gpg] https://download.gocd.org /" | sudo tee /etc/apt/sources.list.d/gocd.list
 sudo apt-get update
 ```
