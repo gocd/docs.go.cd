@@ -2,11 +2,12 @@ GEM
   remote: https://rubygems.org/
   specs:
     Ascii85 (1.1.0)
-    addressable (2.8.4)
+    addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     afm (0.2.2)
-    async (2.5.1)
+    async (2.6.3)
       console (~> 1.10)
+      fiber-annotation
       io-event (~> 1.1)
       timers (~> 4.1)
     aws-eventstream (1.2.0)
@@ -28,14 +29,16 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.6.0)
       aws-eventstream (~> 1, >= 1.0.2)
-    console (1.16.2)
+    console (1.23.0)
+      fiber-annotation
       fiber-local
     ethon (0.16.0)
       ffi (>= 1.15.0)
     ffi (1.15.5)
+    fiber-annotation (0.2.0)
     fiber-local (1.0.0)
     hashery (2.1.2)
-    html-proofer (5.0.7)
+    html-proofer (5.0.8)
       addressable (~> 2.3)
       async (~> 2.1)
       nokogiri (~> 1.13)
@@ -45,12 +48,12 @@ GEM
       yell (~> 2.0)
       zeitwerk (~> 2.5)
     htmlentities (4.3.4)
-    io-event (1.2.2)
+    io-event (1.2.3)
     jmespath (1.6.2)
     mime-types (3.5.0)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2023.0808)
-    mini_portile2 (2.8.2)
+    mini_portile2 (2.8.4)
     nokogiri (1.15.3)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
@@ -65,7 +68,7 @@ GEM
       hashery (~> 2.0)
       ruby-rc4
       ttfunk
-    public_suffix (5.0.1)
+    public_suffix (5.0.3)
     racc (1.7.1)
     rainbow (3.1.1)
     rake (13.0.6)
@@ -75,7 +78,7 @@ GEM
     typhoeus (1.4.0)
       ethon (>= 0.9.0)
     yell (2.2.2)
-    zeitwerk (2.6.8)
+    zeitwerk (2.6.11)
 
 PLATFORMS
   arm64-darwin
