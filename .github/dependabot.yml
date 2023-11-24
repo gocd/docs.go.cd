@@ -6,6 +6,12 @@ updates:
     interval: weekly
     day: friday
   open-pull-requests-limit: 99
+  allow:
+    - dependency-type: all
+  groups:
+    aws-deps:
+      patterns:
+        - "aws*"
 - package-ecosystem: npm
   directory: "/"
   schedule:
