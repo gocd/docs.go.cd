@@ -5,7 +5,7 @@ GEM
     addressable (2.8.5)
       public_suffix (>= 2.0.2, < 6.0)
     afm (0.2.2)
-    async (2.6.3)
+    async (2.6.5)
       console (~> 1.10)
       fiber-annotation
       io-event (~> 1.1)
@@ -29,7 +29,7 @@ GEM
       aws-sigv4 (~> 1.1)
     aws-sigv4 (1.6.1)
       aws-eventstream (~> 1, >= 1.0.2)
-    console (1.23.0)
+    console (1.23.2)
       fiber-annotation
       fiber-local
     ethon (0.16.0)
@@ -48,7 +48,7 @@ GEM
       yell (~> 2.0)
       zeitwerk (~> 2.5)
     htmlentities (4.3.4)
-    io-event (1.2.3)
+    io-event (1.3.3)
     jmespath (1.6.2)
     mime-types (3.5.1)
       mime-types-data (~> 3.2015)
