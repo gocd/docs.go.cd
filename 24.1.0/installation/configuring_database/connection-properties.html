@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>GoCD Database Connection Properties | GoCD User Documentation</title>
+
+<meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
+<meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/installation/configuring_database/connection-properties.html"/>
+<script src="../../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.9.min.js"></script>
+
+<script type="text/javascript" src="../../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../../javascripts/navigation/navigation.js"></script>
+<script src="../../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
+
+  
+</head>
+
+<body data-rel-permalink="/installation/configuring_database/connection-properties.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2finstallation\2f configuring_database\2f connection-properties.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+<hr>
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../../">Introduction</a></li>
+      <li class="level2"><a href="../../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/configuring_database.html">Configuring GoCD Database</a></li>
+        <ul>
+          <li class="level3"><a href="../../installation/configuring_database/h2.html">H2</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/postgres.html">PostgreSQL</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/mysql.html">MySQL</a></li>
+          <li class="level3"><a href="../../installation/configuring_database/connection-properties.html">Database Connection Properties</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <ul>
+        <li class="level3"><a href="../../installation/upgrading_go/upgrade_to_gocd_20.5.0.html">Upgrading to GoCD 20.5.0 and higher</a></li>
+      </ul>
+      <li class="level2"><a href="../../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../../svg/menu.svg" />
+  </label>
+  <strong>GoCD Database Connection Properties</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown"><h1 id="gocd-database-connection-properties">GoCD Database Connection Properties</h1>
+<p>This section describes the configuration properties of the external database server (such as PostgreSQL, MySQL) which GoCD Server will connect and use.
+Optionally, you can also specify the database SSL config properties for secure communication between GoCD and the database server.</p>
+<p>A properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>). The location of GoCD&rsquo;s configuration directory varies per operating system. Refer <a href="https://docs.gocd.org/current/installation/installing_go_server.html#location-of-files-after-installation-of-go-server">Location of GoCD server files</a> to know the location of GoCD Server config directory.</p>
+<p>The valid keys in the configuration file are mentioned below:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Key</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center"><code>db.driver</code></td>
+<td>The JDBC database driver depending on the database. For example: <b><code>org.postgresql.Driver</code></b> if using PostgreSQL or <b><code>com.mysql.cj.jdbc.Driver</code></b> for MySQL.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.url</code></td>
+<td>The database connection url. Specify the url in format <b><code>jdbc:databaseType://server[:port]/databaseName</code></b>. <br/>Where, <code>databaseType</code> is the type of the database (Example: <code>h2</code>, <code>postgresql</code>, <code>mysql</code>); <code>server[:port]</code> is the name and optional port of the server hosting your database and <code>databaseName</code> is the name of the database. <br/>For example, the URL <b><code>jdbc:postgresql://localhost:5432/cruise</code></b> represents the database url for the locally running PostgreSQL database named <code>cruise</code>. <br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code>.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.user</code></td>
+<td>The database user which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.password</code></td>
+<td>The password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.encryptedPassword</code></td>
+<td>The encrypted password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema. GoCD will decrypt the specified encrypted password using the GoCD cipher file, before using it. Note: Users should specify either <code>db.password</code> or <code>db.encryptedPassword</code>.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code>.</td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.maxActive</code></td>
+<td>Maximum number of active connections that should be established with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.maxIdle</code></td>
+<td>Maximum number of idle connections that should be maintained with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.extraBackupCommandArgs</code></td>
+<td>Specify custom database backup arguments. This config property is used to specify the additional arguments to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.extraBackupEnv</code></td>
+<td>Specify custom environment variables to the database backup utility. This config property is used to specify the additional environment variables to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-environment-variables">GoCD Database Extra Backup Environment Variables</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+</tr>
+<tr>
+<td style="text-align:center"><code>db.connectionProperties</code></td>
+<td>Specify the database SSL config properties for secure communication between GoCD and the database server. See <a href="#database-specific-connection-properties">Database-specific Connection Properties</a> for more information.<br/><br/><b>Mandatory:</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</h2>
+<p>The <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD backs up both the configuration and database. Depending upon the type of the database, additional arguments can be specified, which will be used by underlying utility by GoCD while backing up the database.</p>
+<p>GoCD uses <a href="https://www.postgresql.org/docs/current/app-pgdump.html">pg_dump</a> utility for backing up a PostgreSQL database. Refer <a href="https://www.postgresql.org/docs/current/app-pgdump.html">pg_dump docs</a> to know all available PostgreSQL database backup options.</p>
+<p><strong>Example:</strong> <br/>
+Specify <code>db.extraBackupCommandArgs=--format=plain</code> property to specify <code>--format=plain</code> option to the <code>pg_dump</code> backup utility, which causes it to take a plain text backup.</p>
+<p>GoCD uses <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">mysqldump</a> utility for backing up a MySQL database. Refer <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">mysqldump docs</a> to know all available MySQL database backup options.</p>
+<p><strong>Example:</strong> <br/>
+Specify <code>db.extraBackupCommandArgs=--compact</code> property to specify <code>--compact</code> option to the <code>mysqldump</code> backup utility, which causes it to produce more compact output.</p>
+<h2 id="gocd-database-extra-backup-environment-variables">GoCD Database Extra Backup Environment Variables</h2>
+<p>The <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD backs up both the configuration and database. Depending upon the type of the database, additional environment variables can be specified, which will be used by underlying utility by GoCD while backing up the database.</p>
+<p>See <a href="https://www.postgresql.org/docs/current/libpq-envars.html">PostgreSQL Environment Variables</a> and <a href="https://dev.mysql.com/doc/refman/8.0/en/environment-variables.html">MySQL Environment Variables</a> to know the set of environment variables used by <a href="https://www.postgresql.org/docs/current/app-pgdump.html">pg_dump</a> and <a href="https://dev.mysql.com/doc/refman/8.0/en/mysqldump.html">mysqldump</a> utility respectively.</p>
+<p><strong>Example:</strong> <br/>
+Specify <code>db.extraBackupEnv.PGCLIENTENCODING=UTF8</code> property to specify <code>PGCLIENTENCODING</code> environment variable with value <code>UTF8</code>.</p>
+<h2 id="database-specific-connection-properties">Database-specific Connection Properties</h2>
+<p>Specify <code>db.connectionProperties</code> to encrypt the communication between the GoCD Server applications and your database instance.
+Depending on the type of the database server, different connection properties could be specified for your SSL configuration.</p>
+<h3 id="1-postgresql-ssl-configuration">1. PostgreSQL SSL Configuration:</h3>
+<p>PostgreSQL application uses <a href="https://www.postgresql.org/docs/9.5/libpq.html"><code>libpq</code></a> as the interface for the underlying communication with the PostgreSQL Server.</p>
+<p>To configure SSL for the PostgreSQL database: <br/></p>
+<ul>
+<li>take a look at the <a href="https://www.postgresql.org/docs/current/libpq-ssl.html#LIBPQ-SSL-PROTECTION">libpq SSL support</a> documentation.  <br/></li>
+<li>see <a href="https://www.postgresql.org/docs/current/libpq-connect.html">libpq connection parameters</a> to see all the available options.</li>
+</ul>
+<p>Below is an example of PostgreSQL SSL connection properties:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslmode</span><span style="color:#666">=</span><span style="color:#b44">verify-full</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslcert</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-cert.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslkey</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-key.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslrootcert</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/ca.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.sslcrl</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/root.crl</span>
+</span></span></code></pre></div><h3 id="2-mysql-ssl-configuration">2. MySQL SSL Configuration:</h3>
+<p>Refer <a href="https://dev.mysql.com/doc/refman/8.0/en/connection-options.html#encrypted-connection-options">MySQL Command Options for Encrypted Connections</a> documentation to know about all the available options for that are specified to use encrypted connections with the server.</p>
+<p>Below is an example of MySQL SSL connection properties:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-properties" data-lang="properties"><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-mode</span><span style="color:#666">=</span><span style="color:#b44">verify-full</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-cert</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-cert.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-key</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/client-key.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-ca</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/ca.pem</span>
+</span></span><span style="display:flex;"><span><span style="color:#b44">db.connectionProperties.ssl-crl</span><span style="color:#666">=</span><span style="color:#b44">/var/lib/go-server/root.crl</span>
+</span></span></code></pre></div><style>
+  th:first-child { 
+    width: 225px; 
+  }
+</style>
+</article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/configuring_database/connection-properties.md" target="_blank" rel="noopener">
+      <img src="../../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</a></li>
+    <li><a href="#gocd-database-extra-backup-environment-variables">GoCD Database Extra Backup Environment Variables</a></li>
+    <li><a href="#database-specific-connection-properties">Database-specific Connection Properties</a>
+      <ul>
+        <li><a href="#1-postgresql-ssl-configuration">1. PostgreSQL SSL Configuration:</a></li>
+        <li><a href="#2-mysql-ssl-configuration">2. MySQL SSL Configuration:</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+</body>
+
+</html>
