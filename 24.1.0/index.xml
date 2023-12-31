@@ -390,7 +390,7 @@
       <link>/installation/installing_go_agent.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/installation/installing_go_agent.html</guid>
-      <description>Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.&#xA;Before you install the GoCD server or agent, please ensure that you meet the System Requirements.&#xA;Choose your operating system Linux Windows Mac OS X Generic Zip </description>
+      <description>Installing GoCD agent You need to deploy at least one GoCD agent before you can build with GoCD. For the very simplest installation, you can run a GoCD agent on the same machine as your GoCD server.&#xA;Before you install the GoCD server or agent, please ensure that you meet the System Requirements.&#xA;Choose your operating system Linux Windows MacOS Generic Zip </description>
     </item>
     <item>
       <title>Installing GoCD agent on Linux</title>
@@ -411,7 +411,7 @@
       <link>/installation/installing_go_server.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/installation/installing_go_server.html</guid>
-      <description>Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.&#xA;Choose your operating system Linux Windows Mac OS X Generic Zip </description>
+      <description>Installing GoCD server Before you install the GoCD server or agent, please ensure that you meet the System Requirements.&#xA;Choose your operating system Linux Windows MacOS Generic Zip </description>
     </item>
     <item>
       <title>Installing GoCD server on Linux</title>
@@ -421,18 +421,18 @@
       <description>Installing GoCD server on Linux Installation of the GoCD server using the package manager will require root access on the machine.&#xA;RPM based distributions (ie RedHat/CentOS/Fedora) The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.&#xA;If you prefer to use the YUM repository and install via YUM, paste the following in your shell -&#xA;sudo curl https://download.</description>
     </item>
     <item>
-      <title>Installing GoCD server on Mac OS X</title>
+      <title>Installing GoCD server on MacOS</title>
       <link>/installation/install/agent/osx.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/installation/install/agent/osx.html</guid>
-      <description>Installing GoCD agent on Mac OS X Download the Mac OS X installer for GoCD Agent from downloads page.&#xA;Unzip the installer in a directory of your choice. It creates a sub-directory with the name go-agent-${version}.&#xA;Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Agent to be started:&#xA;# Assuming, for example, that the directory is &amp;#34;go-agent-20.5.0&amp;#34;. $ cd go-agent-20.5.0 $ xattr -d -r com.</description>
+      <description>Installing GoCD agent on MacOS Download the MacOS installer for GoCD Agent from downloads page.&#xA;Unzip the installer in a directory of your choice. It creates a sub-directory with the name go-agent-${version}.&#xA;Mark the directory as not quarantined by MacOS so that it allows the GoCD Agent to be started:&#xA;# Assuming, for example, that the directory is &amp;#34;go-agent-20.5.0&amp;#34;. $ cd go-agent-20.5.0 $ xattr -d -r com.apple.quarantine . xattr: [Errno 13] Permission denied: &amp;#39;.</description>
     </item>
     <item>
-      <title>Installing GoCD server on Mac OS X</title>
+      <title>Installing GoCD server on MacOS</title>
       <link>/installation/install/server/osx.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/installation/install/server/osx.html</guid>
-      <description>Installing GoCD server on Mac OS X Download the Mac OS X installer for GoCD Server from downloads page.&#xA;Unzip the installer in a directory of your choice. It creates a sub-directory with the name go-server-${version}.&#xA;Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Server to be started:&#xA;# Assuming, for example, that the directory is &amp;#34;go-server-20.5.0&amp;#34;. $ cd go-server-20.5.0 $ xattr -d -r com.</description>
+      <description>Installing GoCD server on MacOS Download the MacOS installer for GoCD Server from downloads page.&#xA;Unzip the installer in a directory of your choice. It creates a sub-directory with the name go-server-${version}.&#xA;Mark the directory as not quarantined by MacOS so that it allows the GoCD Server to be started:&#xA;# Assuming, for example, that the directory is &amp;#34;go-server-20.5.0&amp;#34;. $ cd go-server-20.5.0 $ xattr -d -r com.apple.quarantine . xattr: [Errno 13] Permission denied: &amp;#39;.</description>
     </item>
     <item>
       <title>Installing GoCD server on Windows</title>
