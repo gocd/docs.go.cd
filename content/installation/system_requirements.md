@@ -14,12 +14,47 @@ memory on the machine hosting the GoCD Server if you intend to use a very large 
 
 ### Client (browser) requirements
 
-GoCD supports the two most recent versions of the following browsers:
+GoCD supports the three most recent major versions of the following browsers:
 
-- Google Chrome
+- Google Chrome / Chromium
 - Mozilla Firefox
 - Microsoft Edge
 - Apple Safari
+
+Generally speaking, mobile device compatibility has not been a GoCD priority, and the mobile experience
+has a number of issues compared to the desktop experience.
+
+<hr>
+
+### General requirements (both server and agent)
+
+#### Supported Operating Systems
+
+* **Windows** - Windows Server 2019 and above, Windows 10 and above
+* **MacOS** - all non-EOL versions (Intel or Apple Silicon)
+* **Debian**  - Debian 10 and above
+* **CentOS/RedHat** - CentOS/RedHat version 8+ (or compatible distributions such as Rocky Linux)
+* **Ubuntu** - Ubuntu 20 and above
+* **Alpine Linux** - all supported non-EOL versions
+
+### Java Dependencies for GoCD (Server and Agent)
+
+All GoCD installers except for the Generic Zip installer are bundled with an appropriate version of the JRE, hence you
+do not need to install Java separately to run GoCD Server or Agent. If you still want to use a specific JRE, this
+version of GoCD requires Java Runtime Environment (JRE) versions 17 and above.
+
+Given Long Term Support (LTS) releases of Java are now released on a 2-yearly cycle, GoCD will support the last two
+LTS versions of Java. It is not recommended to run GoCD with interim non-LTS releases of Java, and GoCD is not tested
+with such releases - however if you notice a problem please [open a GoCD issue](https://github.com/gocd/gocd/issues/new) so we can resolve it in advance
+of the next Java LTS release.
+
+#### Supported Source Control Tools
+
+* **Git** >= 1.9
+* **Mercurial** >= 2.2.2
+* **Subversion** >= 1.6.11
+* **TFS/TFVC/Azure DevOps Server** SDK 14+
+* **Perforce** >= 2016.1
 
 <hr>
 
@@ -31,18 +66,9 @@ GoCD supports the two most recent versions of the following browsers:
 * **CPU** - minimum 2 cores, 2GHz
 * **Disk** - minimum 1GB free space
 
-#### Supported Operating Systems
-
-* **Windows** - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10
-* **Mac OSX** - 10.7 (Lion) and above with Intel processor
-* **Debian**  - Debian 8.0 and above
-* **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
-* **Ubuntu** - Ubuntu 14 and above
-* **Alpine Linux** - Alpine Linux 3.6 and above
-
 #### Additional requirements for GoCD server
 
-The host that runs your GoCD server should have a separate disk partition to store GoCD artifacts. The artifact repository
+The host that runs your GoCD server should have a separate disk partition or mount to store GoCD artifacts. The artifact repository
 can fill up quickly (especially if you are storing large binaries). If you don't create a separate partition for
 artifacts and your system disk fills up, GoCD and other applications on your system will behave unexpectedly. You are
 also likely to end up with corrupted data. Check the section on
@@ -52,18 +78,18 @@ repository.
 Client software for your source code control tool (Git, SVN, etc) must be installed on both the GoCD server and all GoCD
 build agents.
 
+#### Supported network file systems
+
+This part is applicable only if using a network file system for GoCD's working directory. The latency of network file 
+systems can directly affect the GoCD server's performance. It is recommended to use local storage instead of network storage.
+
+GoCD is tested with its working directory on **AWS EFS**, however **GCP Filestore** and **Azure Files service (SMB 3.0)** 
+are also known to work fine. If you find an issue with any other file systems, please 
+[open a GoCD issue](https://github.com/gocd/gocd/issues/new).
+
 <hr>
 
 ### GoCD Agent requirements
-
-#### Supported Operating Systems
-
-* **Windows** - Windows Server 2012, Windows Server 2016, Windows 8 and Windows 10
-* **Mac OSX** - 10.7 (Lion) and above with Intel processor
-* **Debian**  - Debian 8.0 and above
-* **CentOS/RedHat** - CentOS/RedHat version 6.0 and above
-* **Ubuntu** - Ubuntu 14 and above
-* **Alpine Linux** - Alpine Linux 3.6 and above
 
 #### Hardware
 
@@ -79,31 +105,3 @@ of source control.
 Client software for your source code control tool (Git, SVN, etc) needs to be installed on all build agents. Also, any
 other software required to build your application (if not accessed directly from the project source checked out from
 source control) needs to be installed (for instance, Maven or Rake).
-
-<hr>
-
-### Supported Source Control Tools
-
-* **Git** >= 1.9
-* **Mercurial** >= 2.2.2
-* **Subversion** >= 1.6.11
-* **TFS** SDK 14.0.3 (TFS 2012, 2013, 2015 and Visual Studio Team Services are supported by GoCD)
-* **Perforce** >= 2016.1
-
-<hr>
-
-### Supported network file systems
-
-This part is applicable only if using a network file system for GoCD's working directory. The latency of network file systems can directly affect the GoCD server's performance. It is recommended to use local storage instead of network storage.
-
-GoCD is tested with its working directory on **AWS EFS (NFS v4)** , **GCP Filestore (NFS v3)** and **Azure Files service (SMB 3.0)**. While it works out of the box on AWS EFS and GCP Filestore, Azure Files service needs a workaround as explained in this [issue](https://github.com/gocd/gocd/issues/5631#issuecomment-460945202). This is needed due to this jgit [issue](https://bugs.eclipse.org/bugs/show_bug.cgi?id=544164) and some [features not supported](https://docs.microsoft.com/en-us/rest/api/storageservices/features-not-supported-by-the-azure-file-service) in Azure Files service.
-
-These are the only network file systems GoCD is officially tested on. If you find an issue with any other file systems, please [open a GoCD issue](https://github.com/gocd/gocd/issues/new).
-
-<hr>
-
-### Java Dependencies for GoCD (Server and Agent)
-
-All GoCD installers except for the Generic Zip installer are bundled with an appropriate version of the JRE, hence you do not need to install Java separately to run GoCD Server or Agent. If you still want to use a specific JRE, this version of GoCD requires Java Runtime Environment (JRE) versions 13 and above.
-
-Given Java has moved to a 6-month release cycle, GoCD comes bundled with the latest version of JRE. Please refer to this [blog post](https://www.gocd.org/2019/05/21/official-stance-on-java/) for GoCD's official stance on supported Java versions.
