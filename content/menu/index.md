@@ -32,7 +32,7 @@ headless: true
         <ul>
           <li class="level3"><a href="{{< relref "installation/install/server/linux.md" >}}">Linux</a></li>
           <li class="level3"><a href="{{< relref "installation/install/server/windows.md" >}}">Windows</a></li>
-          <li class="level3"><a href="{{< relref "installation/install/server/osx.md" >}}">Mac OS X</a></li>
+          <li class="level3"><a href="{{< relref "installation/install/server/osx.md" >}}">MacOS</a></li>
           <li class="level3"><a href="{{< relref "installation/install/server/zip.md" >}}">Generic Zip</a></li>
         </ul>
       </li>
@@ -40,7 +40,7 @@ headless: true
         <ul>
           <li class="level3"><a href="{{< relref "installation/install/agent/linux.md" >}}">Linux</a></li>
           <li class="level3"><a href="{{< relref "installation/install/agent/windows.md" >}}">Windows</a></li>
-          <li class="level3"><a href="{{< relref "installation/install/agent/osx.md" >}}">Mac OS X</a></li>
+          <li class="level3"><a href="{{< relref "installation/install/agent/osx.md" >}}">MacOS</a></li>
           <li class="level3"><a href="{{< relref "installation/install/agent/zip.md" >}}">Generic Zip</a></li>
         </ul>
       </li>

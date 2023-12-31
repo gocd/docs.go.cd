@@ -1,12 +1,12 @@
 ---
-title: Installing GoCD server on Mac OS X
+title: Installing GoCD server on MacOS
 ---
 
-# Installing GoCD agent on Mac OS X
+# Installing GoCD agent on MacOS
 
-- Download the Mac OS X installer for GoCD Agent from [downloads page](https://www.gocd.org/download/).
+- Download the MacOS installer for GoCD Agent from [downloads page](https://www.gocd.org/download/).
 - Unzip the installer in a directory of your choice. It creates a sub-directory with the name ```go-agent-${version}```.
-- Mark the directory as not quarantined by Mac OS X so that it allows the GoCD Agent to be started:
+- Mark the directory as not quarantined by MacOS so that it allows the GoCD Agent to be started:
 
     ```
     # Assuming, for example, that the directory is "go-agent-20.5.0".

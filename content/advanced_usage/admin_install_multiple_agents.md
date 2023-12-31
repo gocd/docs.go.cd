@@ -1,6 +1,6 @@
 ---
 description: Install multiple GoCD agents on a single machine
-keywords: agents, GoCD installers, windows, Mac OSX, Linux
+keywords: agents, GoCD installers, windows, MacOS, Mac OS, Linux
 title: Multiple Agents on One Machine
 ---
 
