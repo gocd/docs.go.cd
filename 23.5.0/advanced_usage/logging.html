@@ -100,7 +100,7 @@
         <ul>
           <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
           <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
-          <li class="level3"><a href="../installation/install/server/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">MacOS</a></li>
           <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
         </ul>
       </li>
@@ -108,7 +108,7 @@
         <ul>
           <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
           <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
-          <li class="level3"><a href="../installation/install/agent/osx.html">Mac OS X</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">MacOS</a></li>
           <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
         </ul>
       </li>
@@ -533,14 +533,14 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;appender</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;web-request-appender&#34;</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.RollingFileAppender&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;file&gt;</span>logs/web-requests.log<span style="color:#008000;font-weight:bold">&lt;/file&gt;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on MacOS for log directory path. --&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;encoder&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;pattern&gt;</span>%date{ISO8601} %-5level [%thread] %logger{0}:%line - %msg%n<span style="color:#008000;font-weight:bold">&lt;/pattern&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;/encoder&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;rollingPolicy</span> <span style="color:#b44">class=</span><span style="color:#b44">&#34;ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;fileNamePattern&gt;</span>logs/web-requests.log.%d{yyyy-MM-dd}.%i.gz<span style="color:#008000;font-weight:bold">&lt;/fileNamePattern&gt;</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on Mac OS for log directory path. --&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#080;font-style:italic">&lt;!-- Use `C:\Program Files\Go Server\logs\` on windows and `~/Library/Application Support/Go Server/logs/` on MacOS for log directory path. --&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;maxFileSize&gt;</span>10 MB<span style="color:#008000;font-weight:bold">&lt;/maxFileSize&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;maxHistory&gt;</span>10<span style="color:#008000;font-weight:bold">&lt;/maxHistory&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;totalSizeCap&gt;</span>512 MB<span style="color:#008000;font-weight:bold">&lt;/totalSizeCap&gt;</span>
