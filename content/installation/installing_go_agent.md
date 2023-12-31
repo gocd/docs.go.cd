@@ -1,6 +1,6 @@
 ---
 description: You need to deploy at least one GoCD agent before you can build with GoCD. You can run a GoCD agent on the same machine as your GoCD server.
-keywords: gocd agents, agent installation, linux, windows, mac osx, gocd server
+keywords: gocd agents, agent installation, linux, windows, macos, gocd server
 title: Installing GoCD Agent
 ---
 
@@ -14,5 +14,5 @@ Before you install the GoCD server or agent, please ensure that you meet the [Sy
 
 - [Linux](install/agent/linux.html)
 - [Windows](install/agent/windows.html)
-- [Mac OS X](install/agent/osx.html)
+- [MacOS](install/agent/osx.html)
 - [Generic Zip](install/agent/zip.html)

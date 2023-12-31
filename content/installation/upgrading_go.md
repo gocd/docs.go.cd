@@ -22,10 +22,10 @@ The steps in this page can be followed to upgrade GoCD. It is recommended to und
 
     You can configure where GoCD stores build artifacts. The following are the default locations of the artifacts if you have not customized its location:
 
-    | Operating System  | Location                        |
-    | ----------------- | ------------------------------- |
-    | Linux             | `/var/lib/go-server/artifacts`  |
-    | Windows, Mac OS X | `${GOCD_INSTALL_DIR}/artifacts` |
+    | Operating System | Location                        |
+    |------------------| ------------------------------- |
+    | Linux            | `/var/lib/go-server/artifacts`  |
+    | Windows, MacOS   | `${GOCD_INSTALL_DIR}/artifacts` |
 
 ### Upgrading to the new version
 
@@ -62,6 +62,6 @@ sudo rpm -Uvh /path/to/go-server-${version}.rpm
 sudo yum upgrade go-server
 ```
 
-#### Mac OS X
+#### MacOS
 
-The Mac OS X edition of GoCD does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.
+The MacOS edition of GoCD does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.
