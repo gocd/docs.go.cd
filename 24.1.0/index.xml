@@ -782,7 +782,7 @@
       <link>/extension_points/yum_repository_poller.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/extension_points/yum_repository_poller.html</guid>
-      <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package, Ubuntu, CentOS)&#xA;Introduction The Yum repository poller is a package material plugin capable of polling yum repositories for rpm packages. Prior to GoCD 23.1.0 the plugin came bundled with GoCD, however can now be downloaded for installation at GitHub.&#xA;GoCD server interacts with this plugin via package material plugin interfaces.</description>
+      <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package).&#xA;Introduction The Yum repository poller is a package material plugin capable of polling yum repositories for rpm packages. Prior to GoCD 23.1.0 the plugin came bundled with GoCD, however can now be downloaded for installation at GitHub.&#xA;GoCD server interacts with this plugin via package material plugin interfaces.</description>
     </item>
   </channel>
 </rss>

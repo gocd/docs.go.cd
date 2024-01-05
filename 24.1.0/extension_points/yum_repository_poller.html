@@ -312,7 +312,7 @@
 
       
 <article class="markdown"><h1 id="yum-repository-poller">Yum Repository Poller</h1>
-<p><strong>Note:</strong> This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the <a href="https://manpages.ubuntu.com/manpages/focal/en/man1/yum-utils.1.html">yum-utils</a> package, <a href="https://manpages.ubuntu.com/manpages/lunar/en/man1/yum-utils.1.html">Ubuntu</a>, <a href="https://rpmfind.net/linux/rpm2html/search.php?query=yum-utils&amp;system=centos">CentOS</a>)</p>
+<p><strong>Note:</strong> This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the <a href="https://pkgs.org/search/?q=yum-utils">yum-utils package</a>).</p>
 <h2 id="introduction">Introduction</h2>
 <p>The Yum repository poller is a <a href="package_repository_extension.html">package material</a> plugin capable of polling yum repositories for rpm packages. Prior to GoCD <code>23.1.0</code> the plugin came bundled with GoCD, however can now be downloaded for installation <a href="https://github.com/gocd/gocd-yum-repository-poller-plugin/releases/latest">at GitHub</a>.</p>
 <p>GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d</p>
