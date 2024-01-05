@@ -14,7 +14,7 @@ namespace :static_checks do
 
   options = {
       :disable_external     => should_not_run_external_url_checks?,
-      :ignore_urls          => [/([https]:\/\/(localhost)|(.*\.stackexchange.com):*)|([a-z0-9:\/-]*:8153)|(your)|(svn)|([a-zA-z@:\/_]*.git|(docs.gocd.org))/],
+      :ignore_urls          => [/(https?:\/\/localhost|([a-z0-9:\/-]*:8153)|([a-zA-z@:\/_]*.git)|docs\.gocd\.org|stackexchange\.com|pkgs\.org)/],
       :allow_hash_href      => true,
       :allow_missing_href   => true,
       :check_external_hash  => false,
