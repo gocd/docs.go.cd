@@ -102,7 +102,7 @@ The **"operate" permission** allows users to trigger pipelines and its stages. I
 
 The **"admin" permission** makes the user a [Pipeline Group Administrator](delegating_group_administration.html) allowing them to view, operate and administer the pipeline group. In the below example, role "admins" has been granted this permission.
 
-> Note that is is possible to give a user or role only the operate permission. In the example below, the user "bot" only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of GoCD.
+> Note that it is possible to give a user or role only the operate permission. In the example below, the user "bot" only has operate permission. That means they can not view the pipeline, they can only operate it. This can be used to enable a script to operate on pipelines via the APIs without letting that user access any other features of GoCD.
 
 To edit the permissions for a pipeline group, navigate to the "Pipelines" tab on the "Admin" section:
 
