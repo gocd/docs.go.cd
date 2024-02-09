@@ -48,7 +48,7 @@ GEM
       yell (~> 2.0)
       zeitwerk (~> 2.5)
     htmlentities (4.3.4)
-    io-event (1.4.2)
+    io-event (1.4.3)
     jmespath (1.6.2)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
