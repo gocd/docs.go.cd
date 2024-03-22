@@ -126,7 +126,7 @@ Although the support for package as material in GoCD isn't concerned with how th
 
 - [Building an RPM using rpmbuild and SPEC file](https://www.ibm.com/developerworks/library/l-rpm1/#building-your-first-rpm)
 - [Building using fpm](https://github.com/jordansissel/fpm/wiki)
-- [Tutorial](https://www.thegeekdiary.com/how-to-create-yum-repository-in-centos-rhel/) to set up a local yum repository using createrepo. Publishing to a yum repo simply involves uploading/copying over a new package revision at the correct location and running `createrepo --update`
+- [Tutorial](https://www.recitalsoftware.com/blogs/34-howto-create-your-own-yum-repository-on-redhat-and-fedora-linux) to set up a local yum repository using createrepo. Publishing to a yum repo simply involves uploading/copying over a new package revision at the correct location and running `createrepo --update`
 
 ### Notes
 
