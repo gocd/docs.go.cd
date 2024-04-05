@@ -73,7 +73,7 @@ GEM
     public_suffix (5.0.4)
     racc (1.7.3)
     rainbow (3.1.1)
-    rake (13.1.0)
+    rake (13.2.1)
     ruby-rc4 (0.1.5)
     timers (4.3.5)
     ttfunk (1.8.0)
