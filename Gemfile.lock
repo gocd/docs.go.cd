@@ -51,7 +51,7 @@ GEM
     htmlentities (4.3.4)
     io-event (1.5.1)
     jmespath (1.6.2)
-    json (2.7.1)
+    json (2.7.2)
     mime-types (3.5.2)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2024.0305)
