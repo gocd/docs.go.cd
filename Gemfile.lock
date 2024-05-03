@@ -37,7 +37,9 @@ GEM
       ffi (>= 1.15.0)
     ffi (1.16.3)
     fiber-annotation (0.2.0)
-    fiber-local (1.0.0)
+    fiber-local (1.1.0)
+      fiber-storage
+    fiber-storage (0.1.0)
     hashery (2.1.2)
     html-proofer (5.0.8)
       addressable (~> 2.3)
