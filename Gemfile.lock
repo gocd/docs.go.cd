@@ -5,8 +5,8 @@ GEM
     addressable (2.8.6)
       public_suffix (>= 2.0.2, < 6.0)
     afm (0.2.2)
-    async (2.10.2)
-      console (~> 1.10)
+    async (2.11.0)
+      console (~> 1.25, >= 1.25.2)
       fiber-annotation
       io-event (~> 1.5, >= 1.5.1)
       timers (~> 4.1)
@@ -29,7 +29,7 @@ GEM
     aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
     bigdecimal (3.1.7)
-    console (1.25.1)
+    console (1.25.2)
       fiber-annotation
       fiber-local (~> 1.1)
       json
