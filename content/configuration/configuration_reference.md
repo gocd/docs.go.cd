@@ -2818,7 +2818,7 @@ The following environment variables are set for all tasks:
 
 ## &lt;ant&gt; {#ant}
 
-Specifies an Ant build to run. Ant is assumed to be present from the command line on the agent. Go depends on and uses JDK 1.6. If JDK 1.4 or 1.5 binaries are required by a build, it can be specified in the Ant [javac](https://ant.apache.org/manual/Tasks/javac.html) task.
+Specifies an Ant build to run. Ant is assumed to be present from the command line on the agent.
 
 All paths specified are relative to the pipeline working directory.
 
