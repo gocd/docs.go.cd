@@ -34,7 +34,9 @@ GEM
       json
     ethon (0.16.0)
       ffi (>= 1.15.0)
-    ffi (1.16.3)
+    ffi (1.17.0)
+    ffi (1.17.0-arm64-darwin)
+    ffi (1.17.0-x86_64-linux-gnu)
     fiber-annotation (0.2.0)
     fiber-local (1.1.0)
       fiber-storage
