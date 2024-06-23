@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Advanced usage on GoCD User Documentation</title>
+    <link>/advanced_usage/</link>
+    <description>Recent content in Advanced usage on GoCD User Documentation</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <atom:link href="/advanced_usage/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Agent Health Check API</title>
+      <link>/advanced_usage/agent-health-check-api.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/agent-health-check-api.html</guid>
+      <description>Agent Health Check API Note: Using this feature requires at least version 17.11.0 of the GoCD server and agent.&#xA;The health check API allows users to monitor if the agent is connected to the server and is authorized to perform a build.&#xA;Configurations The API uses the following configurable agent system properties.&#xA;Property Values go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point go.agent.status.api.bind.host Defaults to localhost.</description>
+    </item>
+    <item>
+      <title>Auto Register a Remote Agent</title>
+      <link>/advanced_usage/agent_auto_register.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/agent_auto_register.html</guid>
+      <description>Auto registration of remote agents As a GoCD administrator, you can auto approve remote agents by using a shared key between the GoCD Agent and GoCD Server.&#xA;Add an attribute named &amp;ldquo;agentAutoRegisterKey&amp;rdquo;, for e.g., agentAutoRegisterKey=&amp;ldquo;388b633a88de126531afa41eff9aa69e&amp;rdquo;, in the server configuration fragment, in case it is not present. &amp;lt;?xml version=&amp;#34;1.0&amp;#34; encoding=&amp;#34;utf-8&amp;#34;?&amp;gt; &amp;lt;cruise xmlns:xsi=&amp;#34;http://www.w3.org/2001/XMLSchema-instance&amp;#34; xsi:noNamespaceSchemaLocation=&amp;#34;cruise-config.xsd&amp;#34; schemaVersion=&amp;#34;75&amp;#34;&amp;gt; &amp;lt;server agentAutoRegisterKey=&amp;#34;388b633a88de126531afa41eff9aa69e&amp;#34;&amp;gt; ... &amp;lt;/cruise&amp;gt; On the remote GoCD Agent machine, create a file named &amp;lt;agent_installation_directory&amp;gt;/config/autoregister.properties. In a native agent installation this file is usually located on /var/lib/go-agent/config/ directory.</description>
+    </item>
+    <item>
+      <title>Backup GoCD Server</title>
+      <link>/advanced_usage/one_click_backup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/one_click_backup.html</guid>
+      <description>Backup GoCD Server You can use GoCD&amp;rsquo;s administration interface to perform an One-Click Backup of GoCD. You can also perform a backup using the API.&#xA;Steps to initiate backup After you are logged into GoCD, click on the Admin &amp;gt; Backup link, and click the Perform Backup button.&#xA;Note: GoCD will be unusable during the backup process.&#xA;Backup time is proportional to the database and configuration size. We suggest you backup GoCD when the GoCD Server is idle.</description>
+    </item>
+    <item>
+      <title>Clean on Task Cancel</title>
+      <link>/advanced_usage/dev_clean_up_when_cancel.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/dev_clean_up_when_cancel.html</guid>
+      <description>Clean up after canceling a task When you have jobs that take a long time to run, it is very useful to have the capability to cancel it when you already know it will fail.&#xA;By default, GoCD will kill any currently running tasks . There are two other alternatives to this behaviour&#xA;Specify a task to clean up your environment. This could kill the processes and cleanup any existing state.</description>
+    </item>
+    <item>
+      <title>Compare Builds</title>
+      <link>/advanced_usage/compare_pipelines.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/compare_pipelines.html</guid>
+      <description>Compare Builds GoCD allows you to compare any two builds of a pipeline and see exactly what changes happened between those two instances. The information in this view will include:&#xA;Code checkins Upstream pipelines Story/defect numbers (when linked to a tracking tool) Accessing Pipeline Compare There are several locations from where the Pipeline Compare feature can be invoked. These include:&#xA;Pipelines Dashboard page (the &amp;ldquo;Compare&amp;rdquo; link in each pipeline) Environments page Stage Details page Stage History widget within the Stage Details page Understanding the Pipeline Compare Screen The Pipeline Compare screen lets you compare any two instances of a pipeline.</description>
+    </item>
+    <item>
+      <title>Conditional Task Execution</title>
+      <link>/advanced_usage/dev_conditional_task_execution.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/dev_conditional_task_execution.html</guid>
+      <description>Conditional task execution At times there are certain steps you need to execute only when you know that the build has already failed. For example, when a test suite fails you might want to output additional environment information to the console output&#xA;Using web interface Check the appropriate Run if conditions when defining the Task&#xA;Using XML configuration Usage: As a developer, I want to run a task only when the build has already failed.</description>
+    </item>
+    <item>
+      <title>Config Repository</title>
+      <link>/advanced_usage/config_repo.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/config_repo.html</guid>
+      <description>GoCD Configuration repository GoCD&amp;rsquo;s configuration is version controlled in a local git repository - config.git hosted on the same machine as the GoCD server. The repo is available at &amp;lt;GoCD server installation directory&amp;gt;/db/config.git. Any changes to the config, either through file-system, API or GoCD configuration UI is saved as a new commit in this repo. This allows auditing of all changes made to the configuration.&#xA;NOTE: This repo must not be altered externally as this will lead to errors in GoCD.</description>
+    </item>
+    <item>
+      <title>Fan In</title>
+      <link>/advanced_usage/fan_in.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/fan_in.html</guid>
+      <description>GoCD Fan-in Dependency Management GoCD supports fan-in dependency resolution for pipelines that are on auto trigger. Fan-in material resolution will ensure that a pipeline triggers only when all its upstream pipelines have triggered off the same version of an ancestor pipeline or material. This will be the case when you have multiple components building in separate pipelines which all have the same ancestor and you want downstream pipelines to all use the same version of the artifact from the ancestor pipeline.</description>
+    </item>
+    <item>
+      <title>Graphs</title>
+      <link>/advanced_usage/stage_duration_chart.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/stage_duration_chart.html</guid>
+      <description>Graphs Stage Duration Chart GoCD provides a chart on the stage details page which can be used for trend analysis of the stage&amp;rsquo;s periodic runs. This graph shows two line graphs, one each for passed and failed stage instances which are plotted using the total duration of the last 300 stage instances.&#xA;To navigate to the Graphs: Click on the stage bar of the relevant stage on the pipelines dashboard. Click on the tab &amp;lsquo;Graphs&amp;rsquo;.</description>
+    </item>
+    <item>
+      <title>Logging</title>
+      <link>/advanced_usage/logging.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/logging.html</guid>
+      <description>Logging Introduction You can turn on additional logging to diagnose and troubleshoot issues with the GoCD server and agent.&#xA;Log location To change where the GoCD server logs or GoCD agent logs are stored, use the system properties gocd.server.log.dir and gocd.agent.log.dir respectively. Refer to the system properties documentation to find out how to set the system property on the gocd server or agent.&#xA;Note: The system property deals with configuring the log location for the GoCD server or agent related logs and not the plugin logs.</description>
+    </item>
+    <item>
+      <title>Maintenance Mode</title>
+      <link>/advanced_usage/maintenance_mode.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/maintenance_mode.html</guid>
+      <description>Maintenance Mode Note: Using this feature requires at least version 19.1.0 of the GoCD server.&#xA;The GoCD system includes a lot of internal subsystems and processes, which continuously do work. Some examples include the material subsystem which takes care of polling for materials, the scheduling subsystem which automatically starts pipelines and stages, the agent subsystem which continuously keeps tracks of agent states and provides them jobs to run, etc.&#xA;Maintenance mode is a maintenance mode which can be utilized by the GoCD system administrator to safely restart or upgrade the GoCD server without having any running jobs reschedule when the server is back up.</description>
+    </item>
+    <item>
+      <title>Multiple Agents on One Machine</title>
+      <link>/advanced_usage/admin_install_multiple_agents.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/admin_install_multiple_agents.html</guid>
+      <description>Install multiple agents on the same machine In order to fully utilize your hardware, it is often useful to install multiple agents on a single machine.&#xA;See the file README-running-multiple-agents.md in your GoCD agent installation for details on setting up multiple agents.&#xA;On Linux, it is usually available in /usr/share/doc/go-agent. The recommended way to get the instructions file is to find it in the ZIP distribution of the specific version of the GoCD agent you want to run multiple instances of.</description>
+    </item>
+    <item>
+      <title>Other Config Options</title>
+      <link>/advanced_usage/other_config_options.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/other_config_options.html</guid>
+      <description>Other config options This is a list of some of the more advanced configuration options available. These will typically need to be set before the start of the GoCD Server, unless specified.&#xA;System properties If an option specified below is of type &amp;ldquo;System property&amp;rdquo;, then it will be a Java system property, which needs to be provided to the GoCD Server, typically prefixed with -D unless otherwise stated. So, if the property is called my.</description>
+    </item>
+    <item>
+      <title>Pipeline activity</title>
+      <link>/advanced_usage/pipeline_activity.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/pipeline_activity.html</guid>
+      <description>Pipeline activity The pipeline activity helps GoCD users to see the status of historical runs of a pipeline. The pipeline activity page makes it easier to browse through the pipeline runs by filtering pipeline runs using label, user or material revision(e.g. git commit sha)&#xA;Overview Actions Description Pause pipeline Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline. Pipeline settings Take user to pipeline settings page.</description>
+    </item>
+    <item>
+      <title>Pipelines as code</title>
+      <link>/advanced_usage/pipelines_as_code.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/pipelines_as_code.html</guid>
+      <description>Pipelines as code GoCD can store pipeline definitions in a source code repository (either in your application&amp;rsquo;s repository, or in a separate repository). This way, you can keep your pipeline definitions out of GoCD and under version control, and manage them externally. A poller in the GoCD server will check periodically for modifications to your external pipeline definitions, and merge them with the pipeline data already present in GoCD&amp;rsquo;s main XML configuration file.</description>
+    </item>
+    <item>
+      <title>Spawn multiple instances of a Job</title>
+      <link>/advanced_usage/admin_spawn_multiple_jobs.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/admin_spawn_multiple_jobs.html</guid>
+      <description>Run a Job on a group of Agents Sometimes there is a particular job that you may wish to run on all agents in an environment, or in all agents that match a certain resource tag. For example you may want to run a system update on all linux agents, or install a new piece of software.&#xA;GoCD will run the Job on all agents that match the environment and resources specified in the job.</description>
+    </item>
+    <item>
+      <title>Timer Based GoCD Server Backup</title>
+      <link>/advanced_usage/cron_backup.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/cron_backup.html</guid>
+      <description>Perform GoCD server backups on a schedule To run a GoCD server backup at a given time, use a timer. Timers understand a cron-like specification for when to perform a backup. The GoCD server can be optionally configured to invoke a post-backup script to allow you to copy the backup to an external machine or service (like AWS&amp;rsquo; S3).&#xA;The post backup script The post backup script, if configured, will be invoked regardless of success or failure of the script, and will receive the following environment variables:</description>
+    </item>
+    <item>
+      <title>Trigger With Options</title>
+      <link>/advanced_usage/trigger_with_options.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/trigger_with_options.html</guid>
+      <description>Trigger with a different revision of material GoCD supports a Trigger with option that allows you to run the pipeline with a specific revision of the material(s).&#xA;Trigger with options Information The following information are displayed for the last 5 revisions. For an SCM material, the following information is shown&#xA;Revision hash or pipeline label Committer Check-in comment for the revision Check-in time of the revision For a pipeline material, the pipeline label and the corresponding run time is shown</description>
+    </item>
+    <item>
+      <title>UI Testing</title>
+      <link>/advanced_usage/ui_testing.html</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>/advanced_usage/ui_testing.html</guid>
+      <description>UI testing Because GoCD installs itself as a service (Windows) or daemon (Linux) by default, getting GoCD agents to interact with your operating system&amp;rsquo;s windowing environment can cause problems. Access to a windowing environment is usually required for testing UI applications or for driving browsers for web testing. Here&amp;rsquo;s how you do it.&#xA;Windows The first step is to disable the GoCD agent service. To do this:&#xA;Log in to your Windows machine as an Administrative user.</description>
+    </item>
+  </channel>
+</rss>
