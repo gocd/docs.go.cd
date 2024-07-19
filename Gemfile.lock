@@ -29,7 +29,7 @@ GEM
     aws-sigv4 (1.8.0)
       aws-eventstream (~> 1, >= 1.0.2)
     bigdecimal (3.1.8)
-    console (1.25.2)
+    console (1.27.0)
       fiber-annotation
       fiber-local (~> 1.1)
       json
