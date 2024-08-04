@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+
+
+
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Pipelines as code | GoCD User Documentation</title>
+
+<meta name="description" content="Store pipeline configuration data for GoCD in a source code repository, either with your application code or in a separate repository."/>
+<meta name="keywords" content="[pipeline as code, pipeline configuration, JSON, YAML]"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html"/>
+<script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
+
+<script type="text/javascript" src="../javascripts/search/search.js"></script>
+<script type="text/javascript" src="../javascripts/navigation/navigation.js"></script>
+<script src="../javascripts/_common-to-all-pages.js" type="text/javascript"></script>
+
+<link href="../images/favicon.ico" rel="shortcut icon">
+
+<link rel="stylesheet" href="../stylesheets/normalize.min.css"/>
+<link rel="stylesheet" href="../stylesheets/website.css"/>
+
+<link rel="stylesheet" href="../stylesheets/book.min.ac5a65903b18d3093416406608606b21fbe03e953e39276b6a84377495f3a79e.css"/>
+
+  
+</head>
+
+<body data-rel-permalink="/advanced_usage/pipelines_as_code.html">
+  <input type="checkbox" style="display: none" id="menu-control" />
+  <main class="main-container">
+
+    <aside class="book-menu fixed">
+      <nav role="navigation">
+<a href="https://www.gocd.org"> <img src="../svg/product_ui_logo_go.svg" class="icon" /></a>
+
+
+    
+
+
+
+<script>
+    (function() {
+        var menu = document.querySelector('aside.book-menu nav')
+        addEventListener('beforeunload', function(event) {
+            localStorage.setItem('menu.scrollTop', menu.scrollTop)
+        });
+    })();
+    function loadFunction(){
+        var menu = document.querySelector('aside.book-menu nav')
+        var top = parseInt(localStorage.getItem('menu.scrollTop'));
+        $(menu).animate({
+            scrollTop: top
+        }, 10)
+    }
+    $(document).ready = loadFunction();
+</script>
+
+
+<style>
+  nav ul a[href$="\2f advanced_usage\2fpipelines_as_code.html"] {
+  color: #004ed0;
+  }
+</style>
+
+<div class="search-input-container">
+  <input id="search" type="text" placeholder="Type to search">
+</div>
+<ul>
+  <li class="level1">
+    <a href="https://www.gocd.org/"><b>Go to GoCD.org</b></a>
+  </li>
+</ul>
+<hr>
+<ul>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Welcome</b></a>
+    <ul>
+      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
+      <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Installation</b></a>
+    <ul>
+      <li class="level2"><a href="../installation/">Installing GoCD</a></li>
+      <li class="level2"><a href="../installation/system_requirements.html">System requirements</a></li>
+      <li class="level2"><a href="../installation/installing_go_server.html">Installing GoCD Server</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/server/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/server/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/server/osx.html">MacOS</a></li>
+          <li class="level3"><a href="../installation/install/server/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/installing_go_agent.html">Installing GoCD Agent</a>
+        <ul>
+          <li class="level3"><a href="../installation/install/agent/linux.html">Linux</a></li>
+          <li class="level3"><a href="../installation/install/agent/windows.html">Windows</a></li>
+          <li class="level3"><a href="../installation/install/agent/osx.html">MacOS</a></li>
+          <li class="level3"><a href="../installation/install/agent/zip.html">Generic Zip</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/configuring_database.html">Configuring GoCD Database</a></li>
+        <ul>
+          <li class="level3"><a href="../installation/configuring_database/h2.html">H2</a></li>
+          <li class="level3"><a href="../installation/configuring_database/postgres.html">PostgreSQL</a></li>
+          <li class="level3"><a href="../installation/configuring_database/mysql.html">MySQL</a></li>
+          <li class="level3"><a href="../installation/configuring_database/connection-properties.html">Database Connection Properties</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/upgrading_go.html">Upgrading GoCD</a></li>
+      <ul>
+        <li class="level3"><a href="../installation/upgrading_go/upgrade_to_gocd_20.5.0.html">Upgrading to GoCD 20.5.0 and higher</a></li>
+      </ul>
+      <li class="level2"><a href="../installation/configuring_server_details.html">Configuring Server Details</a></li>
+      <li class="level2"><a href="../installation/configure-reverse-proxy.html">Configure a Reverse Proxy</a></li>
+      <li class="level2"><a href="../installation/configure-agent-proxy.html">Configure an agent with proxy</a></li>
+      <li class="level2"><a href="../installation/ssl_tls_config.html">Configuring SSL/TLS</a>
+        <ul>
+          <li class="level3"><a href="../installation/ssl_tls/end_to_end_transport_security.html">End to end transport security</a></li>
+          <li class="level3"><a href="../installation/ssl_tls/configuring_hsts_header.html">Configuring HSTS Header</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../installation/performance_tuning.html">Performance Tuning</a></li>
+      <li class="level2"><a href="../installation/hardware_specifications.html">Hardware Specifications</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Configuration</b></a>
+    <ul>
+      <li class="level2"><a href="../configuration/pipelines.html">Pipelines</a>
+        <ul>
+          <li class="level3"><a href="../configuration/quick_pipeline_setup.html">Add a New Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_material.html">Add Material to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_stage.html">Add Stage to Existing Pipeline</a></li>
+          <li class="level3"><a href="../configuration/admin_add_job.html">Add Job to Existing Stage</a></li>
+          <li class="level3"><a href="../configuration/admin_add_task.html">Add Task to Existing Job</a></li>
+          <li class="level3"><a href="../configuration/pipeline_templates.html">Pipeline Templates</a></li>
+          <li class="level3"><a href="../configuration/admin_use_parameters_in_configuration.html">Using parameters in Pipelines and Templates</a></li>
+          <li class="level3"><a href="../configuration/pipeline_labeling.html">Pipeline Labeling</a></li>
+          <li class="level3"><a href="../configuration/pipeline_scheduling.html">Pipeline Scheduling</a></li>
+          <li class="level3"><a href="../configuration/dev_choose_when_stage_runs.html">Choose When a Stage Runs</a></li>
+          <li class="level3"><a href="../configuration/admin_timer.html">Timer Trigger</a></li>
+          <li class="level3"><a href="../configuration/admin_lock_pipelines.html">Lock a Pipeline</a></li>
+          <li class="level3"><a href="../configuration/job_timeout.html">Job Timeout</a></li>
+          <li class="level3"><a href="../configuration/deleting_pipelines.html">Deleting Pipelines</a></li>
+          <li class="level3"><a href="../configuration/managing_dependencies.html">Managing Dependencies</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_a_build_cloud.html">Managing Agents</a>
+        <ul>
+          <li class="level3"><a href="../configuration/elastic_agents.html">Elastic Agents</a></li>
+          <li class="level3"><a href="../configuration/clone_existing_agents.html">Clone/Copy Existing Agents</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/managing_environments.html">Managing Environments</a></li>
+      <li class="level2"><a href="../configuration/managing_users.html">Managing Users</a>
+        <ul>
+          <li class="level3"><a href="../configuration/dev_authentication.html">Authentication</a></li>
+          <li class="level3"><a href="../configuration/access_tokens.html">Access Tokens</a></li>
+          <li class="level3"><a href="../configuration/dev_authorization.html">Authorizing Users</a></li>
+          <li class="level3"><a href="../configuration/delegating_group_administration.html">Delegating Group Administration</a></li>
+          <li class="level3"><a href="../configuration/pipeline_group_admin_config.html">Pipeline Group Administration</a></li>
+          <li class="level3"><a href="../configuration/policy_in_gocd.html">Policy in GoCD</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/secrets_management.html">Secrets Management</a>
+      </li>
+      <li class="level2">Artifacts
+        <ul>
+          <li class="level3"><a href="../configuration/dev_upload_test_report.html">Publish Reports and Artifacts</a></li>
+          <li class="level3"><a href="../configuration/managing_artifacts_and_reports.html">Managing Artifacts and Reports</a></li>
+          <li class="level3"><a href="../configuration/delete_artifacts.html">Auto Delete Artifacts</a></li>
+        </ul>
+      </li>
+      <li class="level2"><a href="../configuration/admin_mailhost_info.html">Email server configuration</a></li>
+      <li class="level2"><a href="../configuration/dev_notifications.html">Notifications</a></li>
+      <li class="level2"><a href="../configuration/configuration_reference.html">Reference</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Advanced Usage</b></a>
+    <ul>
+      <li class="level2"><a href="../advanced_usage/pipelines_as_code.html">Pipelines as code</a></li>
+      <li class="level2"><a href="../advanced_usage/agent_auto_register.html">Auto Register a Remote Agent</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_spawn_multiple_jobs.html">Spawn multiple instances of a Job</a></li>
+      <li class="level2"><a href="../advanced_usage/admin_install_multiple_agents.html">Multiple Agents on One Machine</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_clean_up_when_cancel.html">Clean on Task Cancel</a></li>
+      <li class="level2"><a href="../advanced_usage/dev_conditional_task_execution.html">Conditional Task Execution</a></li>
+      <li class="level2"><a href="../advanced_usage/trigger_with_options.html">Trigger With Options</a></li>
+      <li class="level2"><a href="../advanced_usage/fan_in.html">Fan In</a></li>
+      <li class="level2"><a href="../advanced_usage/logging.html">Logging</a></li>
+      <li class="level2"><a href="../advanced_usage/ui_testing.html">UI Testing</a></li>
+      <li class="level2"><a href="../advanced_usage/compare_pipelines.html">Compare Builds</a></li>
+      <li class="level2"><a href="../advanced_usage/stage_duration_chart.html">Graphs</a></li>
+      <li class="level2"><a href="../advanced_usage/one_click_backup.html">Backup GoCD Server</a></li>
+      <li class="level2"><a href="../advanced_usage/cron_backup.html">Timer Based GoCD Server Backup</a></li>
+      <li class="level2"><a href="../advanced_usage/config_repo.html">Config Repository</a></li>
+      <li class="level2"><a href="../advanced_usage/other_config_options.html">Other Config Options</a></li>
+      <li class="level2"><a href="../advanced_usage/agent-health-check-api.html">Agent Health Check API</a></li>
+      <li class="level2"><a href="../advanced_usage/maintenance_mode.html">Maintenance Mode</a></li>
+      <li class="level2"><a href="../advanced_usage/pipeline_activity.html">Pipeline activity</a></li>
+      <li class="level2"><a href="../integration/">Integrating GoCD With Other Tools</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>GoCD on Kubernetes</b></a>
+    <ul>
+      <li class="level2"><a href="../gocd_on_kubernetes/introduction.html">Introduction</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/setup_and_configuration.html">Setup and configuration</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/helm_install.html">Install the GoCD Helm chart</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/importing_a_sample_workflow.html">Importing a sample workflow</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/sample_pipelines_explained.html">An explanation of the sample pipelines</a></li>
+      <li class="level2"><a href="../gocd_on_kubernetes/docker_workflows.html">Docker workflows</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>Plugins in GoCD</b></a>
+    <ul>
+      <li class="level2"><a href="../extension_points/">Available extension points</a></li>
+      <li class="level2"><a href="../extension_points/plugin_user_guide.html">Plugin User Guide</a></li>
+      <li class="level2"><a href="../extension_points/package_repository_extension.html">Package Repository Extension</a></li>
+      <li class="level2"><a href="../extension_points/yum_repository_poller.html">Yum Repository Poller</a></li>
+      <li class="level2"><a href="../extension_points/scm_extension.html">SCM Extension</a></li>
+      <li class="level2"><a href="../extension_points/task_extension.html">Task Extension</a></li>
+    </ul>
+  </li>
+  <li class="level1 has-children">
+    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    </figure>
+
+    <a href="#"><b>FAQ/Troubleshooting</b></a>
+    <ul>
+      <li class="level2"><a href="../faq/fixing_common_issues.html">Fixing common issues</a></li>
+      <li class="level2"><a href="../faq/artifact_integrity.html">Artifact integrity verification</a></li>
+      <li class="level2"><a href="../faq/rm_what_is_deployed.html">Check What's Deployed</a></li>
+      <li class="level2"><a href="../faq/concurrent_config_modifications.html">Concurrent Modifications to Config</a></li>
+      <li class="level2"><a href="../faq/docker_container_ssh_keys.html">Configure SSH Keys for dockerized GoCD</a></li>
+      <li class="level2"><a href="../faq/deploy_a_specific_build_to_an_environment.html">Deploy a Specific Build</a></li>
+      <li class="level2"><a href="../faq/rm_deploy_to_environment.html">Deploy to an environment</a></li>
+      <li class="level2"><a href="../faq/material_update_hung.html">GoCD unable to poll for changes</a></li>
+      <li class="level2"><a href="../faq/stage_old_config.html">Historical Configuration</a></li>
+      <li class="level2"><a href="../faq/job_rerun.html">How do I re-run jobs?</a></li>
+      <li class="level2"><a href="../faq/ordering_of_pipelines.html">Ordering of Pipelines</a></li>
+      <li class="level2"><a href="../faq/dependency_management.html">Run Tests against new Builds</a></li>
+      <li class="level2"><a href="../faq/admin_out_of_disk_space.html">Running out of Disk Space</a></li>
+      <li class="level2"><a href="../faq/dev_see_artifact_as_tab.html">See artifacts as sub-tabs</a></li>
+      <li class="level2"><a href="../faq/tester_what_has_changed.html">See changes in new binary</a></li>
+      <li class="level2"><a href="../faq/dev_use_current_revision_in_build.html">Using Environment variables</a></li>
+      <li class="level2"><a href="../faq/dev_understand_why_build_broken.html">Why the Build is Broken?</a></li>
+    </ul>
+  </li>
+</ul>
+
+
+
+
+</nav>
+    </aside>
+
+    
+    <div class="navigation-bar">
+    <a href="#" class="navigation navigation-prev">
+        <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+
+    <a href="#" class="navigation navigation-next">
+        <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+</div>
+
+    <div class="book-page ">
+      <header class="align-center justify-between book-header">
+  <label for="menu-control">
+    <img src="../svg/menu.svg" />
+  </label>
+  <strong>Pipelines as code</strong>
+</header>
+
+      
+<div class="has-results">
+    <h1 id="searchResultTitle" class="search-results-title hide"></h1>
+    <ul id="results"></ul>
+</div>
+<div class="no-results hide">
+    Your query search resulted in no results.
+</div>
+
+      
+<article class="markdown"><h1 id="pipelines-as-code">Pipelines as code</h1>
+<p>GoCD can store pipeline definitions in a source code repository (either in your application&rsquo;s repository, or in a separate repository). This way, you can keep your pipeline definitions out of GoCD and under version control, and manage them externally. A poller in the GoCD server will check periodically for modifications to your external pipeline definitions, and merge them with the pipeline data already present in GoCD&rsquo;s main XML configuration file. For a quick overview of this feature, see this <a href="https://www.youtube.com/watch?v=1AfBxCWRqD8&amp;feature=youtu.be">video</a>.</p>
+<p><em>Pipelines as code</em> is an optional feature. Any existing config in any GoCD server will remain valid.</p>
+<p><em>Pipelines as code</em> allows GoCD to monitor and merge in external pipeline definitions located in multiple &ldquo;config repositories&rdquo;. Pipelines from a config repository may depend on a pipeline defined in GoCD&rsquo;s main XML configuration file.</p>
+<p><em>Pipelines as code</em> is exposed as a plugin endpoint, and so, you can write a plugin for a config repository to store pipeline configuration data in any manner you choose.</p>
+<p>The following diagram shows how GoCD combines pipeline configuration data from multiple sources:</p>
+<p><img src="../images/advanced_usage/pipelines_as_code.png" alt="Pipelines as code"></p>
+<h3 id="a-note-about-infrastructure-as-code">A note about &ldquo;Infrastructure as code&rdquo;</h3>
+<p>&ldquo;Infrastructure as code&rdquo; is often equated exclusively to checking in configuration data to a source code repository. However, GoCD has always allowed configuration through code in various forms. For instance, <a href="https://github.com/gocd-contrib/gomatic">gomatic</a>, using <a href="https://api.gocd.org/current/">GoCD APIs</a>, <a href="https://github.com/grundic/yagocd">yagocd</a>, <a href="https://github.com/gaqzi/py-gocd">gocd-cli</a>, and more. <em>Pipelines as code</em> is simply one more option. It makes pipeline definition more declarative, depending on the plugin, and may give more control to external maintainers.</p>
+<h2 id="available-plugins-for-storing-pipelines-as-code">Available plugins for storing pipelines as code</h2>
+<p>JSON and YAML are the two formats supported currently. Refer to <a href="https://github.com/tomzo/gocd-json-config-plugin#configuration-files">JSON file configuration</a> and <a href="https://github.com/tomzo/gocd-yaml-config-plugin#setup">YAML file configuration</a> for more information about the file format.</p>
+<p>The config repositories page (Admin → Config Repositories) lists existing config repositories, and allows CRUD (Create-Read-Update-Delete) operations on them. This page also shows errors and allows you to request a check of a config repository.</p>
+<p><img src="../images/advanced_usage/config-repo-page.png" alt="Pipelines as code page"></p>
+<h3 id="pipeline-configuration-in-json">Pipeline configuration in JSON</h3>
+<p>To tell GoCD where to find the pipeline configuration files:</p>
+<ul>
+<li>Start the server</li>
+<li>Go to &ldquo;Admin → Config repositories&rdquo;</li>
+</ul>
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories"></p>
+<ul>
+<li>Click on the &ldquo;Add&rdquo; button at the top right corner</li>
+<li>Select &ldquo;JSON configuration Plugin&rdquo; as the plugin ID</li>
+</ul>
+<p><img src="../images/advanced_usage/config-repo-json.png" alt="Config repo json"></p>
+<p>Once you&rsquo;ve added a config repository, you&rsquo;ll see new pipelines in the pipeline dashboard. If there are any errors, you&rsquo;ll see them on the &ldquo;Config repositories&rdquo; page mentioned above.</p>
+<h3 id="pipeline-configuration-in-yaml">Pipeline configuration in YAML</h3>
+<p>To tell GoCD where to find the pipeline configuration files:</p>
+<ul>
+<li>Start the server</li>
+<li>Go to &ldquo;Admin → Config repositories&rdquo;</li>
+</ul>
+<p><img src="../images/advanced_usage/config-repositories.png" alt="Config repositories"></p>
+<ul>
+<li>Click on the &ldquo;Add&rdquo; button at the top right corner</li>
+<li>Select &ldquo;YAML configuration Plugin&rdquo; as the plugin ID</li>
+</ul>
+<p><img src="../images/advanced_usage/config-repo-yml.png" alt="Config repo yaml"></p>
+<p>Once you&rsquo;ve added a config repository, you&rsquo;ll see new pipelines in the pipeline dashboard. If there are any errors, you&rsquo;ll see them on the &ldquo;Config repositories&rdquo; page mentioned above.</p>
+<h2 id="exporting-pipeline-configuration-data">Exporting pipeline configuration data</h2>
+<p>As of GoCD <code>19.1.0</code>, you can export pipeline definitions to a format accepted by the config repository plugins (for instance, the YAML or JSON plugins). You can then check in these pipeline definitions to a source code repository and remove them from GoCD&rsquo;s main XML configuration file.</p>
+<p><img src="../images/advanced_usage/pipeline-export.gif" alt="Config repo yaml"></p>
+<h2 id="specifying-rules">Specifying Rules</h2>
+<p>Prior to GoCD <code>20.2.0</code>, adding a config repository meant delegating extensive control of GoCD to those with ability to
+push to a configuration repository.</p>
+<p>This included creating pipelines with any name, in pipeline groups of any name, with pipelines referring to any
+environment, as well as possibly referring to and maliciously extracting secrets. As GoCD and similar systems are at
+their core task runners, this functionality is akin to remote code execution in a privileged or trusted environment.</p>
+<blockquote>
+<p>As such, you should exercise great caution when adding configuration repositories, and have appropriate trust in those
+who have control over them.</p>
+<p>Starting in GoCD <code>20.2.0</code>, each configuration repository must be given explicit permissions to GoCD entities it can
+affect or refer to.</p>
+</blockquote>
+<h3 id="structure">Structure</h3>
+<p>The first matching rule wins, thus <em>order is important</em>. Each rule is composed of 3 core parts - <strong>directive</strong>, <strong>type</strong> and <strong>resource</strong>.</p>
+<h4 id="1-directive">1) Directive</h4>
+<p>This is either one of <code>allow</code> or <code>deny</code>, and determines the outcome of the rule.</p>
+<h4 id="2-type">2) Type</h4>
+<p>Configuration repository rules can apply to any of 3 different resource types.</p>
+<h5 id="all">All</h5>
+<p>You can also refer to any resource type by specifying <code>*</code>.</p>
+<h5 id="pipeline-group">Pipeline Group</h5>
+<p>When referring to a <code>pipeline_group</code>, this will allow or deny the configuration repository to create pipelines in
+pipeline groups that match the given name or pattern defined by the <strong>resource</strong>.</p>
+<p>You will need to create at least one rule that matches <em>all</em> pipeline groups expected to be referenced in the target
+configuration repository.</p>
+<h5 id="pipeline">Pipeline</h5>
+<p>When referring to a <code>pipeline</code>, this will allow or deny the configuration repository to create pipelines that depend on
+other pipelines matching the resource name or pattern defined by the <strong>resource</strong> , as an
+<a href="../configuration/managing_dependencies.html">upstream dependency material</a>. Since pipeline dependencies are required to
+fetch/download artifacts from upstream pipelines, this rule type also can control access to these artifacts across
+pipelines defined in different configuration repositories.</p>
+<p>By default, all pipelines defined in the <em>same configuration repository</em> will be allowed to refer (to depend) on each
+other without restriction without a rule being defined. You may need additional rules to allow your pipelines to depend
+on pipelines defined in other configuration repositories in order to build non-trivial value-stream-maps
+(chains/sequences of pipelines).</p>
+<h5 id="environment">Environment</h5>
+<p>When referring to an <code>environment</code>, this will allow or deny the configuration repository to create pipelines that
+refer to <a href="../configuration/managing_environments.html">environments</a> matching the resource name or pattern specified by the <strong>resource</strong>.</p>
+<p>You will not need to define environment rules unless you make use of the feature in your pipeline definitions by
+allocating pipelines (and agents) to specific environments.</p>
+<h4 id="3-resources">3) Resources</h4>
+<p>This can be any string and is meant to match on the <strong>name</strong> of any resources of the given rule&rsquo;s <code>type</code>.</p>
+<blockquote>
+<p>Note that this is generic terminology, and not related to the concept of <a href="../configuration/managing_a_build_cloud.html#matching-jobs-to-agents">agent resources</a>
+(used to allow matching between agents that provide given resources and certain pipelines that require them).</p>
+</blockquote>
+<p>You can use pattern-matching:</p>
+<ul>
+<li><code>*</code> as any wildcard.</li>
+<li><code>?</code> as a one character wildcard.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Wildcard Matcher</th>
+<th>Resource names</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>*_group</code></td>
+<td>Matches <code>my_group</code> and <code>someother_group</code>, but not <code>testgroup</code> or <code>group1</code>.</td>
+</tr>
+<tr>
+<td><code>Production_*</code></td>
+<td>Matches <code>Production_Team_A</code> and <code>Production_Team_B</code> but not <code>Team_ABC_Production_D</code>.</td>
+</tr>
+<tr>
+<td><code>*group*</code></td>
+<td>Matches <code>group</code>, <code>my_group</code> and <code>group_A</code>, but not <code>groABCup</code>.</td>
+</tr>
+<tr>
+<td><code>Team_?_group</code></td>
+<td>Matches <code>Team_A_group</code>, <code>Team_B_group</code> but not <code>Team_ABC_group</code> or <code>Team__group</code>.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="action">Action</h4>
+<p>Internally rules have actions which can differ depending on the type of resource the rule applies to. Since currently
+the only supported action is <code>refer</code> (or <code>*</code>), this field is only visible in the internal <code>cruise-config.xml</code>.</p>
+<h3 id="examples">Examples</h3>
+<p>Given the following two files defined in two different <a href="https://github.com/tomzo/gocd-yaml-config-plugin">YAML configuration repositories</a>:</p>
+<p><em>Config repo A</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">pipelines</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-a-pipeline-one</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>pipeline-group-a<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-a-pipeline-two</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>pipeline-group-a<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">upstream</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">pipeline</span>:<span style="color:#bbb"> </span>repo-a-pipeline-one<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">stage</span>:<span style="color:#bbb"> </span>...<span style="color:#bbb">
+</span></span></span></code></pre></div><p><em>Config repo B</em></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yaml" data-lang="yaml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">pipelines</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-b-pipeline-one</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>pipeline-group-b<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">  </span><span style="color:#008000;font-weight:bold">repo-b-pipeline-two</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">group</span>:<span style="color:#bbb"> </span>another-pipeline-group-b<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">    </span><span style="color:#008000;font-weight:bold">materials</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">git</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">type</span>:<span style="color:#bbb"> </span>config-repo<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">upstream-one</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">pipeline</span>:<span style="color:#bbb"> </span>repo-b-pipeline-one<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">stage</span>:<span style="color:#bbb"> </span>...<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">      </span><span style="color:#008000;font-weight:bold">upstream-two</span>:<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">pipeline</span>:<span style="color:#bbb"> </span>repo-a-pipeline-two<span style="color:#bbb">
+</span></span></span><span style="display:flex;"><span><span style="color:#bbb">        </span><span style="color:#008000;font-weight:bold">stage</span>:<span style="color:#bbb"> </span>...<span style="color:#bbb">
+</span></span></span></code></pre></div><h4 id="without-rules">Without rules</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-a&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules/&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span></code></pre></div><p>Without any rules, GoCD will reject the creation of pipeline because the config repo cannot refer to any pipeline group.</p>
+<h4 id="allow-everything-ignore-security">Allow everything (ignore security)</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-a&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-b&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span></code></pre></div><p>GoCD will allow the creation of all pipelines, as the configuration repository was allowed to refer to any resource, of any name.
+This implies a high level of trust in users that can commit to the given configuration repository.</p>
+<h4 id="restrictively-allow-a-non-trivial-vsm">Restrictively allow a non-trivial VSM</h4>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-a&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo a only creates repos in `pipeline-group-a` --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-a<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;config-repo-b&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+</span></span><span style="display:flex;"><span>  ...
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo b creates a repo in `pipeline-group-b` --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-b<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo b also creates a repo in `another-pipeline-group-b` --&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>another-pipeline-group-b<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#080;font-style:italic">&lt;!-- repo b create a repo in that depends on a pipeline defined in another config repo so we must specify which --&gt;</span>  
+</span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>repo-a-pipeline-two<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/config-repo&gt;</span>
+</span></span></code></pre></div><p>These pipeline rules are the strictest required for the pipelines to be configured.</p>
+<ul>
+<li><code>config-repo-a</code> must be allowed to
+<ul>
+<li>refer to the pipeline group it defines, <code>pipeline-group-a</code></li>
+</ul>
+</li>
+<li><code>config-repo-b</code> must be allowed to
+<ul>
+<li>refer to the pipeline group it defines, <code>pipeline-group-b</code> and <code>another-pipeline-group-b</code></li>
+<li>refer to pipeline <code>repo-a-pipeline-two</code> because it is defined as a material</li>
+</ul>
+</li>
+</ul>
+<h4 id="rule-ordering">Rule ordering</h4>
+<p>When multiple permissions are defined, rules will be applied from top to bottom.</p>
+<p>In the below example pipeline_group <code>pipeline-group-a</code> <strong>cannot</strong> be referred to by the config repository since the
+first rule denies access using the pattern <code>pipeline-group-*</code></p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-a<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span></code></pre></div><p>In the below example pipeline_group <code>pipeline-group-a</code> <strong>can</strong> be referred to by the config repository since the first rule allows access.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;rules&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>pipeline-group-a<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;pipeline_group&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/rules&gt;</span>
+</span></span></code></pre></div></article>
+
+      
+<div class="align-center book-git-footer justify-between">
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-prev">
+      <i class="fa fa-angle-left"></i> &lt; Previous Page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/pipelines_as_code.md" target="_blank" rel="noopener">
+      <img src="../svg/code-fork.svg" /> Suggest edits to this page
+    </a>
+  </div>
+  
+
+  
+  <div>
+    <a href="#" class="navigation navigation-next">
+      <i class="fa fa-angle-right"></i> Next Page &gt;
+    </a>
+  </div>
+  
+
+</div>
+
+
+    </div>
+
+    
+
+  
+  <aside class="book-toc fixed">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#a-note-about-infrastructure-as-code">A note about &ldquo;Infrastructure as code&rdquo;</a></li>
+      </ul>
+    </li>
+    <li><a href="#available-plugins-for-storing-pipelines-as-code">Available plugins for storing pipelines as code</a>
+      <ul>
+        <li><a href="#pipeline-configuration-in-json">Pipeline configuration in JSON</a></li>
+        <li><a href="#pipeline-configuration-in-yaml">Pipeline configuration in YAML</a></li>
+      </ul>
+    </li>
+    <li><a href="#exporting-pipeline-configuration-data">Exporting pipeline configuration data</a></li>
+    <li><a href="#specifying-rules">Specifying Rules</a>
+      <ul>
+        <li><a href="#structure">Structure</a></li>
+        <li><a href="#examples">Examples</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </aside>
+
+
+
+  </main>
+
+  
+</body>
+
+</html>
