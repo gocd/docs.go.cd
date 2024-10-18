@@ -53,7 +53,7 @@ GEM
       yell (~> 2.0)
       zeitwerk (~> 2.5)
     htmlentities (4.3.4)
-    io-event (1.7.1)
+    io-event (1.7.2)
     jmespath (1.6.2)
     json (2.7.2)
     logger (1.6.1)
