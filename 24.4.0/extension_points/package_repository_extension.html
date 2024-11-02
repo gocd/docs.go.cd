@@ -323,11 +323,11 @@ Pipelines in GoCD can poll packages in repositories similar to how they poll ver
 </ol>
 <p>These files (packages) are often maintained in corresponding package repositories. <strong>Such packages may be specified as materials for GoCD pipelines.</strong></p>
 <h3 id="supported-packages">Supported Packages</h3>
-<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a yum repository as a material for a GoCD pipeline. Using other <a href="https://www.gocd.org/plugins/">external plugins</a>, it is possible to do the same for other types of packages.</p>
+<p>Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the <a href="yum_repository_poller.html">yum-repo-poller plugin</a>, it is possible to specify an rpm package held in a dnf/yum repository as a material for a GoCD pipeline. Using other <a href="https://www.gocd.org/plugins/">external plugins</a>, it is possible to do the same for other types of packages.</p>
 <h3 id="repositories-packages-and-materials">Repositories, Packages and Materials</h3>
 <p>A repository may contain one or more packages. A pipeline may refer to a package as a material. When the package is updated in the repository, interested pipelines will get scheduled.</p>
 <h4 id="repository-definition">Repository Definition</h4>
-<p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a yum repository using the <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
+<p>A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a dnf/yum repository using the <a href="yum_repository_poller.html">yum-repo-poller plugin</a>.</p>
 <h5 id="note">Note:</h5>
 <ol>
 <li>The repository name is not used by the package material plugin - it is used by Go to construct the material name.</li>

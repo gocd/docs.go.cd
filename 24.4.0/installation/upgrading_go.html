@@ -360,11 +360,11 @@
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo dpkg -i /path/to/go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># OR</span>
 </span></span><span style="display:flex;"><span>sudo apt-get update
-</span></span><span style="display:flex;"><span>sudo apt-get install go-server
+</span></span><span style="display:flex;"><span>sudo apt-get install --install-recommends go-server
 </span></span></code></pre></div><h4 id="rpm-based-distributions-ie-redhat">RPM based distributions (i.e. RedHat)</h4>
 <p>Run the GoCD installer as described</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo rpm -Uvh /path/to/go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.rpm
-</span></span><span style="display:flex;"><span>sudo yum upgrade go-server
+</span></span><span style="display:flex;"><span>sudo dnf upgrade go-server
 </span></span></code></pre></div><h4 id="macos">MacOS</h4>
 <p>The MacOS edition of GoCD does not support upgrades. You should simply extract a new version of the GoCD server into a new location and copy over the config and artifacts directory from the old location.</p>
 </article>

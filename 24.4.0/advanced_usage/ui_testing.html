@@ -331,7 +331,7 @@
 <h2 id="linux">Linux</h2>
 <p>There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service (or <code>xvfb</code>) to provide a dedicated X11 server to your agent. To do this:</p>
 <ol>
-<li>Install the VNC server and fvwm packages for your distribution. (aptitude install vnc4server fvwm / yum install vnc-server fvwm)</li>
+<li>Install the VNC server and fvwm packages for your distribution. (apt-get install vnc4server fvwm / dnf install vnc-server fvwm)</li>
 <li>Sudo to the &lsquo;go&rsquo; user (sudo su - go) and do the rest as that user</li>
 <li>Set a password for remote access to your VNC server with the command &lsquo;vncpasswd&rsquo;</li>
 <li>Edit your VNC config to use fvwm and not twm as the window manager. (replace twm with fvwm in ~/.vnc/xstartup)</li>

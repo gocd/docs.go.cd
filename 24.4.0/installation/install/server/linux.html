@@ -315,11 +315,11 @@
 <p>Installation of the GoCD server using the package manager will require <code>root</code> access on the machine.</p>
 <h2 id="rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
 <p>The GoCD server RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
-<p>If you prefer to use the YUM repository and install via YUM, paste the following in your shell -</p>
+<p>If you prefer to use the dnf/yum repository and install via dnf/yum, paste the following in your shell -</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
 </span></span></code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo yum install -y go-server
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dnf install -y go-server
 </span></span></code></pre></div><p>Alternatively, if you have the server RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
 </span></span></code></pre></div><h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
@@ -332,17 +332,18 @@
 </span></span><span style="display:flex;"><span>sudo apt-get update
 </span></span></code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install go-server
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install --install-recommends go-server
 </span></span></code></pre></div><p>Alternatively, if you have the server DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
-</span></span></code></pre></div><h2 id="install-on-docker-containers">Install on Docker containers</h2>
+</span></span></code></pre></div><p>Recommended dependencies are installed by default on most distributions so the option isn&rsquo;t needed, however if you
+choose not to install such dependencies you will need to install your own JRE and configure GoCD to use it in
+<code>wrapper-properties.conf</code> located within the configuration directory specified below.</p>
+<h2 id="install-on-docker-containers">Install on Docker containers</h2>
 <p>To run GoCD on container please use our official <a href="https://hub.docker.com/u/gocd">docker container images</a></p>
-<p>For installing GoCD server using rpm/deb packages on containers, starting from release <code>19.7.0</code> the following additional dependencies will be required.</p>
-<p>On Fedora, install <code>procps</code> package, execute</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo yum install procps
-</span></span></code></pre></div><p>On CentOS/RHEL, install <code>sysvinit-tools</code> package, execute</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo yum install sysvinit-tools
-</span></span></code></pre></div>
+<p>If it possible to install via rpm/deb packages as well, however this is not normally recommended as
+the GoCD server packages are intended to be installed with an init system rather than
+managed via the container entrypoint.</p>
+
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 <p>The GoCD server script must be run with one of the following arguments:</p>
 <table>
