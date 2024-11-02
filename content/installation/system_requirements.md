@@ -39,7 +39,7 @@ has a number of issues compared to the desktop experience.
 
 ### Java Dependencies for GoCD (Server and Agent)
 
-All GoCD installers except for the Generic Zip installer are bundled with an appropriate version of the JRE, hence you
+All GoCD installers except for the Generic Zip installer are bundled with (or specify a package dependency on) an appropriate version of the JRE, hence you
 do not need to install Java separately to run GoCD Server or Agent. If you still want to use a specific JRE, this
 version of GoCD requires Java Runtime Environment (JRE) versions 17 and above.
 

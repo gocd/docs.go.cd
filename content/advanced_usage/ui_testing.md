@@ -30,7 +30,7 @@ The next step is to start the GoCD agent as an application.
 
 There are many different ways to get a Linux build agent to interact with a UI. The easiest is to use a VNC service (or `xvfb`) to provide a dedicated X11 server to your agent. To do this:
 
-1. Install the VNC server and fvwm packages for your distribution. (aptitude install vnc4server fvwm / yum install vnc-server fvwm)
+1. Install the VNC server and fvwm packages for your distribution. (apt-get install vnc4server fvwm / dnf install vnc-server fvwm)
 2. Sudo to the 'go' user (sudo su - go) and do the rest as that user
 3. Set a password for remote access to your VNC server with the command 'vncpasswd'
 4. Edit your VNC config to use fvwm and not twm as the window manager. (replace twm with fvwm in \~/.vnc/xstartup)

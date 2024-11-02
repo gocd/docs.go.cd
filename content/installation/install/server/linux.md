@@ -15,7 +15,7 @@ The GoCD server RPM installer has been tested on RedHat Enterprise Linux and Cen
 Once you have the repository setup, execute
 
 ```shell
-sudo yum install -y go-server
+sudo dnf install -y go-server
 ```
 
 Alternatively, if you have the server RPM [downloaded](https://www.gocd.org/download):
@@ -33,7 +33,7 @@ The GoCD server .deb installer has been tested on Ubuntu. However it should work
 Once you have the repository setup, execute
 
 ```shell
-sudo apt-get install go-server
+sudo apt-get install --install-recommends go-server
 ```
 
 Alternatively, if you have the server DEB [downloaded](https://www.gocd.org/download):
@@ -41,6 +41,10 @@ Alternatively, if you have the server DEB [downloaded](https://www.gocd.org/down
 ```shell
 sudo dpkg -i go-server-${version}.deb
 ```
+
+Recommended dependencies are installed by default on most distributions so the option isn't needed, however if you
+choose not to install such dependencies you will need to install your own JRE and configure GoCD to use it in
+`wrapper-properties.conf` located within the configuration directory specified below.
 
 ## Install on Docker containers
 
@@ -51,12 +55,12 @@ sudo dpkg -i go-server-${version}.deb
 
 The GoCD server script must be run with one of the following arguments:
 
-| Script                                             | Description                                                             |
-| -------------------------------------------------- | ------------------------------------------------------------------------|
-|  service go-server console                         | The GoCD server will be started in the foreground                       |
-|  service go-server start                           | The GoCD server will be started as a daemon in the background           |
-|  service go-server stop                            | The GoCD server will be stopped                                         |
-|  service go-server restart                         | The GoCD server will be restarted                                       |
+| Script                     | Description                                                             |
+|----------------------------| ------------------------------------------------------------------------|
+| service go-server console  | The GoCD server will be started in the foreground                       |
+| service go-server start    | The GoCD server will be started as a daemon in the background           |
+| service go-server stop     | The GoCD server will be stopped                                         |
+| service go-server restart  | The GoCD server will be restarted                                       |
 
 `service` utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.
 

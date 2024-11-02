@@ -51,7 +51,7 @@ Run the GoCD installer as described
 sudo dpkg -i /path/to/go-server-${version}.deb
 # OR
 sudo apt-get update
-sudo apt-get install go-server
+sudo apt-get install --install-recommends go-server
 ```
 
 #### RPM based distributions (i.e. RedHat)
@@ -59,7 +59,7 @@ sudo apt-get install go-server
 Run the GoCD installer as described
 ```bash
 sudo rpm -Uvh /path/to/go-server-${version}.rpm
-sudo yum upgrade go-server
+sudo dnf upgrade go-server
 ```
 
 #### MacOS

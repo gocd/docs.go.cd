@@ -15,7 +15,7 @@ The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and Cent
 Once you have the repository setup, execute
 
 ```shell
-sudo yum install -y go-agent
+sudo dnf install -y go-agent
 ```
 
 Alternatively, if you have the agent RPM [downloaded](https://www.gocd.org/download):
@@ -33,7 +33,7 @@ The GoCD agent .deb installer has been tested on Ubuntu. However it should work 
 Once you have the repository setup, execute
 
 ```shell
-sudo apt-get install go-agent
+sudo apt-get install --install-recommends go-agent
 ```
 
 Alternatively, if you have the agent DEB [downloaded](https://www.gocd.org/download):
@@ -41,6 +41,10 @@ Alternatively, if you have the agent DEB [downloaded](https://www.gocd.org/downl
 ```shell
 sudo dpkg -i go-agent-${version}.deb
 ```
+
+Recommended dependencies are installed by default on most distributions so the option isn't needed, however if you
+choose not to install such dependencies you will need to install your own JRE and configure GoCD to use it in
+`wrapper-properties.conf` located within the configuration directory specified below.
 
 ## Install on Docker containers
 
@@ -50,12 +54,12 @@ sudo dpkg -i go-agent-${version}.deb
 
 The GoCD agent script must be run with one of the following arguments:
 
-| Script                                             | Description                                                              |
-| -------------------------------------------------- | ------------------------------------------------------------------------ |
-|  service go-agent console                          | The GoCD agent will be started in the foreground                         |
-|  service go-agent start                            | The GoCD agent will be started as a daemon in the background             |
-|  service go-agent stop                             | The GoCD agent will be stopped                                           |
-|  service go-agent restart                          | The GoCD agent will be restarted                                         |
+| Script                   | Description                                                              |
+|--------------------------| ------------------------------------------------------------------------ |
+| service go-agent console | The GoCD agent will be started in the foreground                         |
+| service go-agent start   | The GoCD agent will be started as a daemon in the background             |
+| service go-agent stop    | The GoCD agent will be stopped                                           |
+| service go-agent restart | The GoCD agent will be restarted                                         |
 
 `service` utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.
 
@@ -63,11 +67,11 @@ The GoCD agent script must be run with one of the following arguments:
 
 The GoCD agent installs its files in the following locations on your filesystem:
 
-| Location                                             | Description                                           |
-| ---------------------------------------------------- | ----------------------------------------------------- |
-| `/var/lib/go-agent`                                 | the GoCD agent configuration and working directory    |
-| `/var/log/go-agent`                                  | the GoCD agent log files                              |
-| `/usr/share/go-agent`                                | the GoCD agent binaries and startup scripts           |
+| Location                                                     | Description                                           |
+|--------------------------------------------------------------| ----------------------------------------------------- |
+| `/var/lib/go-agent`                                          | the GoCD agent configuration and working directory    |
+| `/var/log/go-agent`                                          | the GoCD agent log files                              |
+| `/usr/share/go-agent`                                        | the GoCD agent binaries and startup scripts           |
 | `/usr/share/go-agent/wrapper-config/wrapper-properties.conf` | the configuration file to alter GoCD agent properties |
 
 ## Configuring the GoCD agent

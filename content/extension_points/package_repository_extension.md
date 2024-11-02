@@ -20,7 +20,7 @@ These files (packages) are often maintained in corresponding package repositorie
 
 ### Supported Packages
 
-Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the [yum-repo-poller plugin](yum_repository_poller.html), it is possible to specify an rpm package held in a yum repository as a material for a GoCD pipeline. Using other [external plugins](https://www.gocd.org/plugins/), it is possible to do the same for other types of packages.
+Since there are many package formats each with its own package manager and repository, the support for package-as-material has been implemented as an extension point. Using the [yum-repo-poller plugin](yum_repository_poller.html), it is possible to specify an rpm package held in a dnf/yum repository as a material for a GoCD pipeline. Using other [external plugins](https://www.gocd.org/plugins/), it is possible to do the same for other types of packages.
 
 ### Repositories, Packages and Materials
 
@@ -28,7 +28,7 @@ A repository may contain one or more packages. A pipeline may refer to a package
 
 #### Repository Definition
 
-A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a yum repository using the [yum-repo-poller plugin](yum_repository_poller.html).
+A package material plugin lets pipeline group admins provide details of the corresponding repository type to GoCD. e.g. here is how we define a dnf/yum repository using the [yum-repo-poller plugin](yum_repository_poller.html).
 
 ##### Note:
 
