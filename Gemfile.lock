@@ -29,7 +29,7 @@ GEM
     aws-sigv4 (1.10.1)
       aws-eventstream (~> 1, >= 1.0.2)
     bigdecimal (3.1.8)
-    console (1.27.0)
+    console (1.29.0)
       fiber-annotation
       fiber-local (~> 1.1)
       json
@@ -55,7 +55,7 @@ GEM
     htmlentities (4.3.4)
     io-event (1.7.3)
     jmespath (1.6.2)
-    json (2.7.5)
+    json (2.8.1)
     logger (1.6.1)
     mime-types (3.6.0)
       logger
