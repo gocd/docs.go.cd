@@ -56,7 +56,7 @@ GEM
     io-event (1.7.5)
     jmespath (1.6.2)
     json (2.9.1)
-    logger (1.6.4)
+    logger (1.6.5)
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
