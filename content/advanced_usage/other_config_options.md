@@ -38,7 +38,7 @@ interface. In some, more advanced networking setups, it might be needed to
 override this, typically to 127.0.0.1, so that only clients local to the box can
 access it.
 
-### `cruise.server.port` - HTTP port for the Go Server {#cruise-server-por}
+### `cruise.server.port` - HTTP port for the Go Server {#cruise-server-port}
 
 - Name: `cruise.server.port`
 - Type: [System property](#system-properties)
@@ -66,13 +66,13 @@ so, it's not recommended to change this.
 - Name: `go.spa.refresh.interval`
 - Type: [System property](#system-properties)
 - Restrictions: Should be the time duration specified in milliseconds
-- Default: `10000`
+- Default: `5000`
 
 The GoCD pages are refreshed periodically to ensure they have upto date information.
 
 This property can be used to change the time interval at which these GoCD pages should be refreshed.
 
-Setting this to a lower value (<= 5000) could have a performance impact on the GoCD server.
+Setting this to a lower value (< 5000) could have a performance impact on the GoCD server.
 
 ### `go.spa.timeout`	 - GoCD SPA pages request timeout {#go-spa-timeout}
 
