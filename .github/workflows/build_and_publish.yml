@@ -9,6 +9,10 @@ on:
       # Push events to branches matching refs/heads/release-*
       - 'release-*'
 
+permissions:
+  id-token: write
+  contents: read
+
 env:
   RUN_EXTERNAL_CHECKS: true
 
@@ -64,8 +68,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       S3_BUCKET: "${{ secrets.S3_BUCKET }}"
-      AWS_ACCESS_KEY_ID: "${{ secrets.AWS_ACCESS_KEY_ID }}"
-      AWS_SECRET_ACCESS_KEY: "${{ secrets.AWS_SECRET_ACCESS_KEY }}"
     steps:
       - uses: actions/checkout@v4
         with:
@@ -80,5 +82,10 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      - name: Configure aws credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          role-to-assume: "${{ secrets.AWS_ROLE_TO_ASSUME }}"
+          aws-region: "${{ secrets.AWS_REGION }}"
       - name: Upload to S3
         run: bundle exec rake upload_to_s3
