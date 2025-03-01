@@ -24,7 +24,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
+          ruby-version: 3.4
           bundler-cache: true # would run bundle install
       - name: Set up NodeJS
         uses: actions/setup-node@v4
@@ -45,7 +45,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
+          ruby-version: 3.4
       - name: Set up NodeJS
         uses: actions/setup-node@v4
         with:
@@ -75,7 +75,7 @@ jobs:
       - name: Set up Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: 3.3
+          ruby-version: 3.4
           bundler-cache: true # would run bundle install
       - name: Set up NodeJS
         uses: actions/setup-node@v4
