@@ -61,7 +61,7 @@ GEM
     jmespath (1.6.2)
     json (2.10.2)
     logger (1.6.6)
-    metrics (0.12.1)
+    metrics (0.12.2)
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
