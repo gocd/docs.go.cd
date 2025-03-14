@@ -33,7 +33,7 @@ GEM
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.2.0)
     bigdecimal (3.1.9)
-    console (1.30.0)
+    console (1.30.2)
       fiber-annotation
       fiber-local (~> 1.1)
       json
