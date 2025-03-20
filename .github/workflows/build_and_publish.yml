@@ -13,6 +13,10 @@ permissions:
   id-token: write
   contents: write
 
+concurrency:
+  group: ${{ github.workflow }}
+  cancel-in-progress: true
+
 env:
   RUN_EXTERNAL_CHECKS: true
 
