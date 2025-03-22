@@ -318,7 +318,32 @@
 <img src="../images/edit_job_link_on_tree.png" alt=""></li>
 <li>Click on &ldquo;Add new task&rdquo;. You can choose the task type from Ant, Nant, Rake and Fetch Artifact. Or you can choose &ldquo;Custom Command&rdquo; to specify your own command
 <img src="../images/add_new_task_link.png" alt=""></li>
-<li>Fill the basic settings for the task</li>
+<li>Fill the basic settings for the task. For example if you would like to execute <code>docker build -t image .</code> command you can do it in two ways (assuming your agent can run <a href="../gocd_on_kubernetes/docker_workflows.html">docker</a>):
+<ol>
+<li>in existing shell
+<ul>
+<li><code>docker</code> in Command field, and Attribute field <strong>each in new line</strong>:
+<ul>
+<li><code>build</code></li>
+<li><code>-t</code></li>
+<li><code>image</code></li>
+<li><code>.</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>or in new shell
+<ul>
+<li><code>/bin/sh</code> in Command field, and Attribute field each in new line:
+<ul>
+<li><code>-c</code> this attribute tells <code>/bin/sh</code> that next attribure will be a shell command</li>
+<li><code>docker build -t image .</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</li>
 <li>Click &ldquo;Save&rdquo;
 <img src="../images/add_new_task_window.png" alt=""></li>
 <li>Advanced Options section allows you to specify a Task in which you can provide the actions (typically clean up) that needs to be taken when users chooses to cancel the stage.
