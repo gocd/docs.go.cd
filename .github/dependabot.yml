@@ -4,13 +4,11 @@ updates:
     directory: /
     schedule:
       interval: monthly
-    open-pull-requests-limit: 99
     allow:
       - dependency-type: all
     groups:
-      aws-deps:
-        patterns:
-          - aws*
+      ruby-deps:
+        patterns: [ "*" ]
   - package-ecosystem: npm
     directory: /
     schedule:
