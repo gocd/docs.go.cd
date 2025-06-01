@@ -66,7 +66,7 @@ GEM
     mime-types (3.6.2)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2025.0429)
+    mime-types-data (3.2025.0527)
     mini_portile2 (2.8.8)
     nokogiri (1.18.8)
       mini_portile2 (~> 2.8.2)
