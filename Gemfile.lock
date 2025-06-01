@@ -33,7 +33,7 @@ GEM
     aws-sigv4 (1.11.0)
       aws-eventstream (~> 1, >= 1.0.2)
     base64 (0.3.0)
-    bigdecimal (3.1.9)
+    bigdecimal (3.2.1)
     console (1.30.2)
       fiber-annotation
       fiber-local (~> 1.1)
