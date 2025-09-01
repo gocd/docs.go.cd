@@ -33,7 +33,7 @@ Repo URL must be a valid http, https or file URL. This plugin looks for the pres
 
 ### Package definition
 
-In case of this plugin, the package definition is completely determined by the package spec. The package spec may be in any of the following formats. Please refer to the [repoquery man page](https://manpages.ubuntu.com/manpages/focal/en/man1/repoquery.1.html) for details.
+In case of this plugin, the package definition is completely determined by the package spec. The package spec may be in any of the following formats. Please refer to the repoquery man page for details.
 
 ```
 name
