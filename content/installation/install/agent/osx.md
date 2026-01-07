@@ -9,8 +9,8 @@ title: Installing GoCD server on MacOS
 - Mark the directory as not quarantined by MacOS so that it allows the GoCD Agent to be started:
 
     ```
-    # Assuming, for example, that the directory is "go-agent-20.5.0".
-    $ cd go-agent-20.5.0
+    # Assuming, for example, that the directory is "go-agent-26.1.0".
+    $ cd go-agent-26.1.0
     $ xattr -d -r com.apple.quarantine .
     xattr: [Errno 13] Permission denied: './jre/Contents/Home/lib/server/classes.jsa'
     xattr: [Errno 13] Permission denied: './jre/Contents/Home/legal/jdk.dynalink/dynalink.md'
@@ -24,6 +24,6 @@ title: Installing GoCD server on MacOS
 
 ## Configuring the GoCD agent
 
-{{< include file="installation/install/agent/_wrapper_configuration_agent.md" markdown="true" config-prefix="./wrapper-config" service-prefix="/etc/init.d">}}
+{{< include file="installation/install/agent/_wrapper_configuration_agent.md" markdown="true" config-prefix="./wrapper-config">}}
 
 {{< include file="installation/install/agent/_register_with_server.md" markdown="true" >}}

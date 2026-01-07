@@ -5,8 +5,6 @@ title: Agent Health Check API
 
 # Agent Health Check API
 
-**Note:** Using this feature requires at least version `17.11.0`  of the GoCD server and agent.
-
 The [health check API](https://api.gocd.org/current/#agent-health) allows users to monitor if the agent is connected to the server and is authorized to perform a build.
 
 ## Configurations

@@ -9,8 +9,8 @@ title: Installing GoCD server on MacOS
 - Mark the directory as not quarantined by MacOS so that it allows the GoCD Server to be started:
 
     ```
-    # Assuming, for example, that the directory is "go-server-20.5.0".
-    $ cd go-server-20.5.0
+    # Assuming, for example, that the directory is "go-server-26.1.0".
+    $ cd go-server-26.1.0
     $ xattr -d -r com.apple.quarantine .
     xattr: [Errno 13] Permission denied: './jre/Contents/Home/lib/server/classes.jsa'
     xattr: [Errno 13] Permission denied: './jre/Contents/Home/legal/jdk.dynalink/dynalink.md'
