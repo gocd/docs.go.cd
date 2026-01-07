@@ -32,16 +32,16 @@ has a number of issues compared to the desktop experience.
 
 * **Windows** - Windows Server 2019 and above, Windows 10 and above
 * **MacOS** - all non-EOL versions (Intel or Apple Silicon)
-* **Debian**  - Debian 10 and above
-* **CentOS/RedHat** - CentOS/RedHat version 8+ (or compatible distributions such as Rocky Linux)
-* **Ubuntu** - Ubuntu 20 and above
-* **Alpine Linux** - all supported non-EOL versions
+* **Debian**  - Debian 11 and above
+* **RHEL/CentOS** - CentOS/RHEL version 8+ (or compatible distributions such as AlmaLinux or Rocky Linux)
+* **Ubuntu** - Ubuntu 22 and above
+* **Alpine Linux** - all supported non-EOL versions (only with GoCD official container images)
 
 ### Java Dependencies for GoCD (Server and Agent)
 
 All GoCD installers except for the Generic Zip installer are bundled with (or specify a package dependency on) an appropriate version of the JRE, hence you
 do not need to install Java separately to run GoCD Server or Agent. If you still want to use a specific JRE, this
-version of GoCD requires Java Runtime Environment (JRE) versions 17 and above.
+version of GoCD requires Java Runtime Environment (JRE) versions 21 and above.
 
 Given Long Term Support (LTS) releases of Java are now released on a 2-yearly cycle, GoCD will support the last two
 LTS versions of Java. It is not recommended to run GoCD with interim non-LTS releases of Java, and GoCD is not tested
