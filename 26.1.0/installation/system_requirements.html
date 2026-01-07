@@ -333,15 +333,15 @@ has a number of issues compared to the desktop experience.</p>
 <ul>
 <li><strong>Windows</strong> - Windows Server 2019 and above, Windows 10 and above</li>
 <li><strong>MacOS</strong> - all non-EOL versions (Intel or Apple Silicon)</li>
-<li><strong>Debian</strong>  - Debian 10 and above</li>
-<li><strong>CentOS/RedHat</strong> - CentOS/RedHat version 8+ (or compatible distributions such as Rocky Linux)</li>
-<li><strong>Ubuntu</strong> - Ubuntu 20 and above</li>
-<li><strong>Alpine Linux</strong> - all supported non-EOL versions</li>
+<li><strong>Debian</strong>  - Debian 11 and above</li>
+<li><strong>RHEL/CentOS</strong> - CentOS/RHEL version 8+ (or compatible distributions such as AlmaLinux or Rocky Linux)</li>
+<li><strong>Ubuntu</strong> - Ubuntu 22 and above</li>
+<li><strong>Alpine Linux</strong> - all supported non-EOL versions (only with GoCD official container images)</li>
 </ul>
 <h3 id="java-dependencies-for-gocd-server-and-agent">Java Dependencies for GoCD (Server and Agent)</h3>
 <p>All GoCD installers except for the Generic Zip installer are bundled with (or specify a package dependency on) an appropriate version of the JRE, hence you
 do not need to install Java separately to run GoCD Server or Agent. If you still want to use a specific JRE, this
-version of GoCD requires Java Runtime Environment (JRE) versions 17 and above.</p>
+version of GoCD requires Java Runtime Environment (JRE) versions 21 and above.</p>
 <p>Given Long Term Support (LTS) releases of Java are now released on a 2-yearly cycle, GoCD will support the last two
 LTS versions of Java. It is not recommended to run GoCD with interim non-LTS releases of Java, and GoCD is not tested
 with such releases - however if you notice a problem please <a href="https://github.com/gocd/gocd/issues/new">open a GoCD issue</a> so we can resolve it in advance

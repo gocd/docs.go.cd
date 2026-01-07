@@ -12,7 +12,7 @@
       <link>/advanced_usage/agent-health-check-api.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/advanced_usage/agent-health-check-api.html</guid>
-      <description>Agent Health Check API Note: Using this feature requires at least version 17.11.0 of the GoCD server and agent.&#xA;The health check API allows users to monitor if the agent is connected to the server and is authorized to perform a build.&#xA;Configurations The API uses the following configurable agent system properties.&#xA;Property Values go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point go.agent.status.api.bind.host Defaults to localhost.</description>
+      <description>Agent Health Check API The health check API allows users to monitor if the agent is connected to the server and is authorized to perform a build.&#xA;Configurations The API uses the following configurable agent system properties.&#xA;Property Values go.agent.status.api.enabled Defaults to true. Set to false to disable health check api end-point go.agent.status.api.bind.host Defaults to localhost. Set to a specific ip address or hostname to bind to that host. Set to 0.</description>
     </item>
     <item>
       <title>Auto Register a Remote Agent</title>

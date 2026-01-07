@@ -313,17 +313,51 @@
       
 <article class="markdown"><h1 id="installing-gocd-agent-on-linux">Installing GoCD agent on Linux</h1>
 <p>Installation of the GoCD agent using the package manager will require <code>root</code> access on the machine.</p>
-<h2 id="rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</h2>
-<p>The GoCD agent RPM installer has been tested on RedHat Enterprise Linux and CentOS. It should work on most RPM based Linux distributions.</p>
+<h2 id="install-on-docker-containers">Install on Docker containers</h2>
+<p>To run GoCD on container please use our official <a href="https://hub.docker.com/u/gocd">docker container images</a></p>
+<p>If it possible to install via rpm/deb packages as well, however this is not normally recommended as
+the GoCD agent packages are intended to be installed with an init system rather than
+managed via the container entrypoint.</p>
+
+<h2 id="dependencies">Dependencies</h2>
+<p>GoCD will attempt to install a compatible Java runtime environment via <code>recommended</code>/<code>weak</code> package dependencies, which
+are auto-installed by default on most distributions. If you <em>choose not to install these</em>, you may note warnings from the package
+install if it cannot find a compatible Java runtime. You will then need to install your own JRE and configure GoCD to
+use it via the <code>wrapper-properties.conf</code> located within the relevant configuration directory.</p>
+<p>If you are installing recommended dependencies, but are <em>using an older distribution</em> which does not contain an <em>official</em>
+package for a compatible Java runtime version, GoCD packages can also install &amp; auto-configure themselves from freely
+licensed <a href="https://adoptium.net/">Adoptium</a>-provided Eclipse Temurin runtimes if a repository is available. This is
+usually only a problem for older Debian or RHEL releases.</p>
+<p>To use Temurin repos, see the relevant snippets for your distribution below.</p>
+
+<h2 id="rpm-based-distributions-eg-rhelalmalinuxrockylinuxcentosfedora">RPM based distributions (e.g RHEL/AlmaLinux/RockyLinux/CentOS/Fedora)</h2>
+<p>The GoCD agent RPM installer has been tested on AlmaLinux as a proxy for RedHat Enterprise Linux. It should work on most RPM based Linux distributions.</p>
 <p>If you prefer to use the dnf/yum repository and install via dnf/yum, paste the following in your shell -</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
 </span></span></code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dnf install -y go-agent
-</span></span></code></pre></div><p>Alternatively, if you have the agent RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dnf install -y --setopt<span style="color:#666">=</span><span style="color:#b8860b">install_weak_deps</span><span style="color:#666">=</span><span style="color:#a2f">true</span> go-agent
+</span></span></code></pre></div><p><code>microdnf</code> and <code>yum</code> will also work just fine. Alternatively, if you have the agent RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo rpm -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
-</span></span></code></pre></div><h2 id="debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</h2>
-<p>The GoCD agent .deb installer has been tested on Ubuntu. However it should work on most Linux distributions which use debs.</p>
+</span></span></code></pre></div><h3 id="using-adoptium-eclipse-temurin-java-runtimes-optional">Using Adoptium Eclipse Temurin Java runtimes (optional)</h3>
+<p>To use this, before installing, upgrading or re-installing GoCD packages, add the Temurin repository
+(or use <a href="https://adoptium.net/installation/linux#centosrhelfedora-instructions">Adoptium&rsquo;s own instructions</a>):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Uncomment and change the distribution name if you are not using CentOS/RHEL/Fedora, e.g for AlmaLinux/Rocky Linux</span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># DISTRIBUTION_NAME=rhel</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>sudo cat <span style="color:#b44">&lt;&lt;EOF &gt; /etc/yum.repos.d/adoptium.repo
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">[Adoptium]
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">name=Adoptium
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">baseurl=https://packages.adoptium.net/artifactory/rpm/${DISTRIBUTION_NAME:-$(. /etc/os-release; echo $ID)}/\$releasever/\$basearch
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">enabled=1
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">gpgcheck=1
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">gpgkey=https://packages.adoptium.net/artifactory/api/gpg/key/public
+</span></span></span><span style="display:flex;"><span><span style="color:#b44">EOF</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># ... install GoCD package as above</span>
+</span></span></code></pre></div>
+<h2 id="debian-based-distributions-eg-ubuntu">Debian based distributions (e.g Ubuntu)</h2>
+<p>The GoCD agent .deb installer has been tested on LTS Ubuntu and Debian releases. However it should work on most Linux distributions which use debs.</p>
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell -</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo install -m <span style="color:#666">0755</span> -d /etc/apt/keyrings
 </span></span><span style="display:flex;"><span>curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gocd.gpg
@@ -333,17 +367,17 @@
 </span></span></code></pre></div>
 <p>Once you have the repository setup, execute</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install --install-recommends go-agent
-</span></span></code></pre></div><p>Alternatively, if you have the agent DEB <a href="https://www.gocd.org/download">downloaded</a>:</p>
+</span></span></code></pre></div><p>Alternatively, if you have the agent .deb <a href="https://www.gocd.org/download">downloaded</a>:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dpkg -i go-agent-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
-</span></span></code></pre></div><p>Recommended dependencies are installed by default on most distributions so the option isn&rsquo;t needed, however if you
-choose not to install such dependencies you will need to install your own JRE and configure GoCD to use it in
-<code>wrapper-properties.conf</code> located within the configuration directory specified below.</p>
-<h2 id="install-on-docker-containers">Install on Docker containers</h2>
-<p>To run GoCD on container please use our official <a href="https://hub.docker.com/u/gocd">docker container images</a></p>
-<p>If it possible to install via rpm/deb packages as well, however this is not normally recommended as
-the GoCD agent packages are intended to be installed with an init system rather than
-managed via the container entrypoint.</p>
-
+</span></span></code></pre></div><h3 id="using-adoptium-eclipse-temurin-java-runtimes-optional">Using Adoptium Eclipse Temurin Java runtimes (optional)</h3>
+<p>To use this, before installing, upgrading or re-installing GoCD packages, add the Temurin repository
+(or use <a href="https://adoptium.net/installation/linux#deb-installation-on-debian-or-ubuntu">Adoptium&rsquo;s own instructions</a>):</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install -y extrepo
+</span></span><span style="display:flex;"><span>sudo extrepo <span style="color:#a2f">enable</span> temurin
+</span></span><span style="display:flex;"><span>sudo apt-get update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># ... install GoCD package as above</span>
+</span></span></code></pre></div>
 <h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 <p>The GoCD agent script must be run with one of the following arguments:</p>
 <table>
@@ -385,19 +419,23 @@ managed via the container entrypoint.</p>
 <tbody>
 <tr>
 <td><code>/var/lib/go-agent</code></td>
-<td>the GoCD agent configuration and working directory</td>
+<td>agent configuration and working directory</td>
 </tr>
 <tr>
 <td><code>/var/log/go-agent</code></td>
-<td>the GoCD agent log files</td>
+<td>agent log files</td>
 </tr>
 <tr>
 <td><code>/usr/share/go-agent</code></td>
-<td>the GoCD agent binaries and startup scripts</td>
+<td>agent binaries and startup scripts</td>
+</tr>
+<tr>
+<td><code>/usr/share/go-agent/wrapper-config/wrapper.conf</code></td>
+<td>default agent configuration. Avoid changing this file.</td>
 </tr>
 <tr>
 <td><code>/usr/share/go-agent/wrapper-config/wrapper-properties.conf</code></td>
-<td>the configuration file to alter GoCD agent properties</td>
+<td>user override configuration file</td>
 </tr>
 </tbody>
 </table>
@@ -456,9 +494,10 @@ managed via the container entrypoint.</p>
   <aside class="book-toc fixed">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#rpm-based-distributions-ie-redhatcentosfedora">RPM based distributions (ie RedHat/CentOS/Fedora)</a></li>
-    <li><a href="#debian-based-distributions-ie-ubuntu">Debian based distributions (ie Ubuntu)</a></li>
     <li><a href="#install-on-docker-containers">Install on Docker containers</a></li>
+    <li><a href="#dependencies">Dependencies</a></li>
+    <li><a href="#rpm-based-distributions-eg-rhelalmalinuxrockylinuxcentosfedora">RPM based distributions (e.g RHEL/AlmaLinux/RockyLinux/CentOS/Fedora)</a></li>
+    <li><a href="#debian-based-distributions-eg-ubuntu">Debian based distributions (e.g Ubuntu)</a></li>
     <li><a href="#managing-the-gocd-agent-process">Managing the GoCD agent process</a></li>
     <li><a href="#location-of-gocd-agent-files">Location of GoCD agent files</a></li>
     <li><a href="#configuring-the-gocd-agent">Configuring the GoCD agent</a></li>
