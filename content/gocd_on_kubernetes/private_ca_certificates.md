@@ -245,7 +245,7 @@ kubectl exec -n gocd gocd-server-0 -- openssl s_client -connect your-service.com
 When configuring artifact stores that use private CAs, the server must trust the CA certificate:
 
 1. Add the CA certificate as shown above
-2. Configure your artifact store in GoCD (Admin → Artifact Stores)
+2. Configure your artifact store in GoCD (Admin -> Artifact Stores)
 3. Test the connection from GoCD's configuration UI
 
 The CA certificate configuration will automatically apply to all artifact store connections.
