@@ -114,3 +114,110 @@ Know more about removal of Tiller at [Helm v3 Changelog](https://helm.sh/docs/fa
 
 Helm's permissions are now evaluated using your kubeconfig file. Refer to the [Organizing Cluster Access Using kubeconfig Files](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and [Helm RBAC guide](https://helm.sh/docs/topics/rbac/) for configuring more secure and advanced RBAC for your cluster.
 
+## 4. Special Considerations for Airgapped Environments
+
+If you're deploying GoCD in an **airgapped (disconnected) Kubernetes cluster** with no internet access, additional setup is required before installation:
+
+### Prerequisites for Airgap Deployment
+
+1. **Mirror GoCD Helm Chart**
+
+   Download the Helm chart on an internet-connected machine and transfer it to your airgapped environment:
+
+   ```bash
+   # On internet-connected machine
+   helm repo add gocd https://gocd.github.io/helm-chart
+   helm pull gocd/gocd --version 2.18.0
+
+   # Transfer gocd-2.18.0.tgz to airgapped cluster
+   ```
+
+2. **Mirror Container Images**
+
+   Pull GoCD images and push to your internal registry:
+
+   ```bash
+   # Pull from Docker Hub
+   docker pull gocd/gocd-server:v25.4.0
+   docker pull gocd/gocd-agent-wolfi:v25.4.0
+
+   # Tag for internal registry
+   docker tag gocd/gocd-server:v25.4.0 harbor.company.internal/gocd/gocd-server:v25.4.0
+   docker tag gocd/gocd-agent-wolfi:v25.4.0 harbor.company.internal/gocd/gocd-agent-wolfi:v25.4.0
+
+   # Push to internal registry
+   docker push harbor.company.internal/gocd/gocd-server:v25.4.0
+   docker push harbor.company.internal/gocd/gocd-agent-wolfi:v25.4.0
+   ```
+
+3. **Setup Internal Infrastructure**
+
+   Ensure you have these internal services configured:
+
+   - **Container Registry** (Harbor, Artifactory, or similar)
+   - **Git Server** (GitLab, Gitea, GitHub Enterprise)
+   - **Artifact Repository** (Nexus, Artifactory) for GoCD plugins
+   - **Private Certificate Authority** (if using internal CAs)
+
+4. **Create Required Kubernetes Secrets**
+
+   Create secrets for registry authentication and CA certificates:
+
+   ```bash
+   # Image pull secret
+   kubectl create secret docker-registry harbor-credentials \
+     --namespace gocd \
+     --docker-server=harbor.company.internal \
+     --docker-username=gocd-robot \
+     --docker-password='<password>'
+
+   # CA certificate secret (if using private CA)
+   kubectl create secret generic enterprise-ca-bundle \
+     --namespace gocd \
+     --from-file=ca-bundle.crt=/path/to/ca-bundle.crt
+   ```
+
+### Airgap Configuration
+
+When installing GoCD in an airgapped environment, configure your `values.yaml` file with airgap-specific settings:
+
+```yaml
+global:
+  # Private CA configuration
+  privateCA:
+    enabled: true
+    existingSecret:
+      name: "enterprise-ca-bundle"
+      key: "ca-bundle.crt"
+
+  # Airgap configuration
+  airgap:
+    enabled: true
+    imageRegistry: "harbor.company.internal/gocd"
+    imagePullSecrets:
+      - name: "harbor-credentials"
+
+    # Plugin mirror configuration
+    pluginMirror:
+      enabled: true
+      baseUrl: "https://nexus.company.internal/repository/gocd-plugins"
+
+    # Git URL rewrites
+    git:
+      urlRewrites:
+        - original: "https://github.com/"
+          replacement: "https://gitlab.company.internal/mirror/"
+
+server:
+  image:
+    repository: harbor.company.internal/gocd/gocd-server
+    tag: v25.4.0
+
+agent:
+  image:
+    repository: harbor.company.internal/gocd/gocd-agent-wolfi
+    tag: v25.4.0
+```
+
+For comprehensive airgap deployment instructions including CA trust configuration, plugin mirroring, and troubleshooting, see the complete [Airgap Deployment Guide](airgap_deployment.html).
+

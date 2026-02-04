@@ -26,6 +26,12 @@ helm repo update
 helm install gocd gocd/gocd --namespace gocd --create-namespace
 ```
 
+> **Airgapped Environments**: For deployments in disconnected Kubernetes clusters (no internet access) or environments requiring private CA trust, see the [Airgap Deployment Guide](airgap_deployment.html) for comprehensive configuration including:
+> - Private certificate authority (CA) injection
+> - Internal plugin repositories (Nexus/Artifactory)
+> - Git URL rewrites for internal mirrors
+> - Private container registry configuration
+
 ## Access the GoCD server
 
 After you've installed the GoCD helm chart, you should be able to access the GoCD server from the Ingress IP.
