@@ -1,4 +1,4 @@
-<!-- These templates contains some more complex logic and shared between partials-->
+<!-- These templates contains some more complex logic and shared between _partials-->
 {{ define "title" }}
   {{- if and .Pages .File -}}
     {{ $sections := split (trim .File.Dir "/") "/" }}

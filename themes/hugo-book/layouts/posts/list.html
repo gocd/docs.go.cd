@@ -1,3 +1,6 @@
+{{ define "search-results" }}
+{{ end }}
+
 {{ define "main" }}
   {{ $paginator := .Paginate (where .Pages "Params.hidden" "ne" true) }}
   {{ range sort .Paginator.Pages }}
@@ -17,4 +20,7 @@
   </article>
   {{ end }}
   {{ template "_internal/pagination.html" . }}
+{{ end }}
+
+{{ define "toc" }}
 {{ end }}
