@@ -11,8 +11,8 @@ To make changes to GoCD's documentation, you can do this:
 
     The dependencies for building the documentation are:
 
-    - nodejs (known to work with v18)
-    - Ruby (known to work with 3.2)
+    - nodejs (known to work with v24)
+    - Ruby (known to work with 4.0)
 
     Then run this to get all the dependent gems:
 

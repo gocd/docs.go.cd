@@ -8,18 +8,16 @@
     "hugo": "npx hugo",
     "local-build": "npx hugo --environment=development",
     "serve": "npx hugo serve -D",
-    "index": "npx grunt lunr-index"
+    "index": "node build-lunr-index.js"
   },
   "author": "Thoughtworks, Inc.",
   "license": "Apache-2.0",
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "grunt": "^1.6.1",
     "he": "^1.2.0",
     "hugo-bin": "^0.149.2",
     "lunr": "^2.3.9",
-    "markdown-it": "^14.1.1",
-    "string": "^3.3.3"
+    "markdown-it": "^14.1.1"
   },
   "hugo-bin": {
     "buildTags": "extended"
