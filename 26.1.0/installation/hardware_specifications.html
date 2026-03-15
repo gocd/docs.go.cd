@@ -85,7 +85,7 @@
 
     <a href="#"><b>Welcome</b></a>
     <ul>
-      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../index.html">Introduction</a></li>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
@@ -316,7 +316,8 @@
 <article class="markdown"><h1 id="gocd-hardware-specifications">GoCD hardware specifications</h1>
 <p>The hardware specifications for a GoCD server depends on a number of factors, this makes it difficult to estimate upfront the required hardware specifications and requires a bit of experimentation. The hardware specifications will depend on the current needs and future expansion plans.</p>
 <blockquote>
-<p>Also see: <a href="./system_requirements.html">GoCD system requirements</a></p></blockquote>
+<p>Also see: <a href="./system_requirements.html">GoCD system requirements</a></p>
+</blockquote>
 <h3 id="agent-hardware-requirements">Agent hardware requirements</h3>
 <p>The agent hardware requirements are basically determined by the builds that are run. Running GoCD agents will introduce a slight CPU overhead (usually it can be neglected when comparing to the build process CPU requirements). The agent will require an additional memory of about 500Mb. Although, you may run the agent on the same machine as the server, it is recommended that you use a separate machine (though, it may be virtual) for each build agent. If you chose to install several agents on the same machine, please consider possible CPU, disk, memory or network bottlenecks that might occur.</p>
 <h3 id="server-hardware-requirements">Server hardware requirements</h3>
@@ -348,7 +349,8 @@
 <li>enough cores to be able to handle web requests from agents</li>
 </ul>
 <blockquote>
-<p><strong>Note</strong>: it is perfectly allright to host the GoCD artifacts on a network file share. However ensure that your network file share can provide a consistent IO throughput. A high load on the network file share may also cause your web-requests to slow down, if they use the same network port.</p></blockquote>
+<p><strong>Note</strong>: it is perfectly allright to host the GoCD artifacts on a network file share. However ensure that your network file share can provide a consistent IO throughput. A high load on the network file share may also cause your web-requests to slow down, if they use the same network port.</p>
+</blockquote>
 <p>It helps with quicker artifact upload and download if the server and agents are geographically co-located. This will help reduce the latency between the agent and server.</p>
 <h4 id="number-of-source-control-materials">Number of source control materials</h4>
 <p>GoCD uses up-to 10 processes (configurable) to check if updates are available for source control materials(SCM). Only materials that have polling turned on will be polled. Each material is checked approximately every minute for to see if there are updates available so that GoCD can trigger a build.</p>
@@ -380,14 +382,16 @@
 <h4 id="cores">Cores</h4>
 <p>The number of physical compute units available to the server machine.</p>
 <blockquote>
-<p><strong>A note about hyper-threading</strong>: While hyper-threading makes a single physical core to look like 2 logical cores, the performance improvement, in most cases, the performance is somewhere around 15% of a single core.</p></blockquote>
+<p><strong>A note about hyper-threading</strong>: While hyper-threading makes a single physical core to look like 2 logical cores, the performance improvement, in most cases, the performance is somewhere around 15% of a single core.</p>
+</blockquote>
 <h4 id="memory">Memory</h4>
 <h5 id="jvm-memory">JVM Memory</h5>
 <p>The amount of memory available to the JVM running the GoCD server process (roughly the <code>-Xmx</code> JVM argument)</p>
 <h5 id="ram">RAM</h5>
 <p>The amount of memory available to the server machine. Generally speaking, the amount of RAM should be at least 2-3 GB more than the JVM memory to allow some headroom for the operating system.</p>
 <blockquote>
-<p><strong>A note about swap</strong>: Ensure that swap is turned off, because it negatively affects performance when the machine runs out of memory and begins swapping</p></blockquote>
+<p><strong>A note about swap</strong>: Ensure that swap is turned off, because it negatively affects performance when the machine runs out of memory and begins swapping</p>
+</blockquote>
 <h5 id="buffer-cache">Buffer Cache</h5>
 <p>Reading from a disk is very slow as compared to reading from memory. Additionally, it is common to read the same part of a disk several times during relatively short periods of time. For example, consider how often the command <code>git</code> might be run on a GoCD server. By reading the information from disk only once and then keeping it in memory until no longer needed, one can speed up all but the first read. This is called disk buffering, and the memory used for the purpose is called the buffer cache.</p>
 <p>Generally speaking, you should ensure that there is sufficient free memory for buffer cache to ensure optimal performance and reduced disk IO.</p>

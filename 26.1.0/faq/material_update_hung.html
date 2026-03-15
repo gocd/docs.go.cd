@@ -85,7 +85,7 @@
 
     <a href="#"><b>Welcome</b></a>
     <ul>
-      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../index.html">Introduction</a></li>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
@@ -326,7 +326,8 @@
 <li>
 <p>Identify the processes running as children of GoCD Server</p>
 <blockquote>
-<p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &lsquo;ps waux | grep &lsquo;material-type&rsquo;&rsquo;</p></blockquote>
+<p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &lsquo;ps waux | grep &lsquo;material-type&rsquo;&rsquo;</p>
+</blockquote>
 </li>
 <li>
 <p>Determine the process that&rsquo;s hung. The extra information like URL: <code>https://test@bitbucket.org/test/git_repo.git</code> in the warning information should help you with this.</p>
@@ -341,7 +342,8 @@
 <li>
 <p>Ensure that the warning message goes away from Server Health.</p>
 <blockquote>
-<p>Please note the folder name (of the form &hellip;/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the GoCD installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.</p></blockquote>
+<p>Please note the folder name (of the form &hellip;/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the GoCD installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.</p>
+</blockquote>
 </li>
 </ul>
 <h2 id="configuring-warning-time">Configuring warning time</h2>

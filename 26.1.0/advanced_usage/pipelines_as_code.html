@@ -85,7 +85,7 @@
 
     <a href="#"><b>Welcome</b></a>
     <ul>
-      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../index.html">Introduction</a></li>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
@@ -365,7 +365,8 @@ their core task runners, this functionality is akin to remote code execution in 
 <p>As such, you should exercise great caution when adding configuration repositories, and have appropriate trust in those
 who have control over them.</p>
 <p>Starting in GoCD <code>20.2.0</code>, each configuration repository must be given explicit permissions to GoCD entities it can
-affect or refer to.</p></blockquote>
+affect or refer to.</p>
+</blockquote>
 <h3 id="structure">Structure</h3>
 <p>The first matching rule wins, thus <em>order is important</em>. Each rule is composed of 3 core parts - <strong>directive</strong>, <strong>type</strong> and <strong>resource</strong>.</p>
 <h4 id="1-directive">1) Directive</h4>
@@ -398,7 +399,8 @@ allocating pipelines (and agents) to specific environments.</p>
 <p>This can be any string and is meant to match on the <strong>name</strong> of any resources of the given rule&rsquo;s <code>type</code>.</p>
 <blockquote>
 <p>Note that this is generic terminology, and not related to the concept of <a href="../configuration/managing_a_build_cloud.html#matching-jobs-to-agents">agent resources</a>
-(used to allow matching between agents that provide given resources and certain pipelines that require them).</p></blockquote>
+(used to allow matching between agents that provide given resources and certain pipelines that require them).</p>
+</blockquote>
 <p>You can use pattern-matching:</p>
 <ul>
 <li><code>*</code> as any wildcard.</li>

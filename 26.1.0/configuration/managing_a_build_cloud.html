@@ -85,7 +85,7 @@
 
     <a href="#"><b>Welcome</b></a>
     <ul>
-      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../index.html">Introduction</a></li>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
@@ -327,7 +327,8 @@
 <p>You can specify one or more resources that a particular job needs in order to execute. In the same way, you can specify that an agent has one or more resources. Go will then match jobs to agents, such that a job will only run on agents which have at least the resources required for that job.</p>
 <p>Resources are just plain text tags. There are no preset tags or conventions around tagging &ndash; just use what makes sense to you. You might, for example, use operating systems as tags: &ldquo;RHEL linux&rdquo;, &ldquo;Windows XP&rdquo;. You could also use browsers, databases, or whatever else makes sense. We recommend you let your classification be driven by your jobs &ndash; if you know that certain jobs will only work on certain machines, tag the jobs with the special resource or resources that job needs in order to work, and then classify the agents accordingly.</p>
 <blockquote>
-<p>Note: Resource matching is case-insensitive.</p></blockquote>
+<p>Note: Resource matching is case-insensitive.</p>
+</blockquote>
 <p>To specify the resources that a job needs, go to the <strong>Pipelines configuration</strong> section of the <em>Admin &gt; Pipelines</em> tab tab and edit the job that you want to specify resources for:</p>
 <p><img src="../images/edit_job_resources.png" alt=""></p>
 <p>Once you&rsquo;ve specified the resources your jobs need, you&rsquo;ll want to describe the resources your agents have. You can do this very easily in the <em>Agents</em> tab. Just select the agents you want to describe, and click on the <strong>Resources</strong> button.</p>

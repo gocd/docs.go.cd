@@ -36,7 +36,7 @@
   </url><url>
     <loc>/advanced_usage/one_click_backup.html</loc>
   </url><url>
-    <loc>/categories.html</loc>
+    <loc>/categories/index.html</loc>
   </url><url>
     <loc>/installation/ssl_tls/custom_server_certificate.html</loc>
   </url><url>
@@ -116,7 +116,7 @@
   </url><url>
     <loc>/installation/configuring_database/connection-properties.html</loc>
   </url><url>
-    <loc>/gocd_on_kubernetes.html</loc>
+    <loc>/gocd_on_kubernetes/index.html</loc>
   </url><url>
     <loc>/advanced_usage/stage_duration_chart.html</loc>
   </url><url>
@@ -150,7 +150,7 @@
   </url><url>
     <loc>/integration/</loc>
   </url><url>
-    <loc>/</loc>
+    <loc>/index.html</loc>
   </url><url>
     <loc>/gocd_on_kubernetes/introduction.html</loc>
   </url><url>
@@ -230,7 +230,7 @@
   </url><url>
     <loc>/installation/system_requirements.html</loc>
   </url><url>
-    <loc>/tags.html</loc>
+    <loc>/tags/index.html</loc>
   </url><url>
     <loc>/extension_points/task_extension.html</loc>
   </url><url>

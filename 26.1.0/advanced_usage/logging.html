@@ -85,7 +85,7 @@
 
     <a href="#"><b>Welcome</b></a>
     <ul>
-      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../index.html">Introduction</a></li>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
@@ -492,7 +492,8 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 <h2 id="log-configuration-syntax">Log configuration syntax</h2>
 <p>To configure logging, you can specify the configuration below. You must tweak the <code>&lt;logger /&gt;</code> and optionally <code>&lt;appender /&gt;</code> to write to specific log files. You can read more about logback configuration in the <a href="https://logback.qos.ch/manual/configuration.html">logback configuration documentation</a>. This file will be reloaded every 5 seconds, so a restart of the GoCD server or agent is not necessary.</p>
 <blockquote>
-<p><strong>Note:</strong> It is recommended that you do not set the log level to <code>DEBUG</code> or <code>TRACE</code> for long periods of time since this can significantly affect performance.</p></blockquote>
+<p><strong>Note:</strong> It is recommended that you do not set the log level to <code>DEBUG</code> or <code>TRACE</code> for long periods of time since this can significantly affect performance.</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">&lt;!-- since this file is included in another file, use `&lt;included /&gt;` and not `&lt;configuration /&gt;`  --&gt;</span>

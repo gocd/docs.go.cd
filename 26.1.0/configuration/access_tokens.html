@@ -85,7 +85,7 @@
 
     <a href="#"><b>Welcome</b></a>
     <ul>
-      <li class="level2"><a href="../">Introduction</a></li>
+      <li class="level2"><a href="../index.html">Introduction</a></li>
       <li class="level2"><a href="../introduction/concepts_in_go.html">Concepts in GoCD</a></li>
       <li class="level2"><a href="../navigation/value_stream_map.html">Value Stream Map</a></li>
     </ul>
@@ -320,11 +320,13 @@
 <li>
 <p>A token can be used to access GoCD APIs and <code>cctray.xml</code> by passing it in API header.</p>
 <blockquote>
-<p>Before <code>19.2.0</code></p></blockquote>
+<p>Before <code>19.2.0</code></p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
 </span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>       -u <span style="color:#b44">&#39;username:password&#39;</span>
 </span></span></code></pre></div><blockquote>
-<p>Going forward</p></blockquote>
+<p>Going forward</p>
+</blockquote>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl <span style="color:#b44">&#39;https://ci.example.com/go/api/pipelines/pipeline1/status&#39;</span> <span style="color:#b62;font-weight:bold">\
 </span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>       -H <span style="color:#b44">&#39;Authorization: Bearer 6A7B48094CC552B9A2DF0AFADAF50D28F0646070&#39;</span>
 </span></span></code></pre></div></li>
@@ -367,7 +369,8 @@
 <li>
 <p>On success, you will see the newly generated token.</p>
 <blockquote>
-<p><strong><em>Make sure you copy the token before you close the dialog. It will not be shown again.</em></strong></p></blockquote>
+<p><strong><em>Make sure you copy the token before you close the dialog. It will not be shown again.</em></strong></p>
+</blockquote>
 <p><img src="../images/configuration/access-tokens/4_newly_generated_token.png" alt="&ldquo;Newly generated token&rdquo;"></p>
 </li>
 </ol>
