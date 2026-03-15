@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/logging.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -325,90 +327,90 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </ul>
 <p>The table below describes the various loggers that can be configured with the server:</p>
 <table>
-<thead>
-<tr>
-<th>Logger</th>
-<th>Additivity</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>com.thoughtworks.go.server.Rails</code></td>
-<td><code>true</code></td>
-<td>This will enable debugging the rails application server.</td>
-</tr>
-<tr>
-<td><code>org.springframework</code></td>
-<td><code>true</code></td>
-<td>This will enable debugging of the spring framework.</td>
-</tr>
-<tr>
-<td><code>org.apache.velocity</code></td>
-<td><code>true</code></td>
-<td>This will enable debugging of some of the server view templates.</td>
-</tr>
-<tr>
-<td><code>org.eclipse.jetty.server.RequestLog</code></td>
-<td><code>false</code></td>
-<td>This will enable http request logging to help diagnose and identify slow page render times.</td>
-</tr>
-<tr>
-<td><code>PerformanceLogger</code></td>
-<td><code>false</code></td>
-<td>This will output performance debug logs for 3 key background jobs: scheduling, material updates, work assignment. It is recommended that you send these logs to a different file using an appender.</td>
-</tr>
-<tr>
-<td><code>com.microsoft.tfs.core</code></td>
-<td><code>true</code></td>
-<td>This will turn on debugging for the underlying Microsoft Team Foundation Server library used by GoCD.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.tfssdk14</code></td>
-<td><code>true</code></td>
-<td>This will turn on debugging for the GoCD wrapper around Microsoft TFS library.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.dependency</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>dependency</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.git</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>git</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.mercurial</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>mercurial</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.packagematerial</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>packagematerial</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.perforce</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>perforce</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.scm</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>scm</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.svn</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>svn</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.tfs</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>tfs</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Logger</th>
+          <th>Additivity</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>com.thoughtworks.go.server.Rails</code></td>
+          <td><code>true</code></td>
+          <td>This will enable debugging the rails application server.</td>
+      </tr>
+      <tr>
+          <td><code>org.springframework</code></td>
+          <td><code>true</code></td>
+          <td>This will enable debugging of the spring framework.</td>
+      </tr>
+      <tr>
+          <td><code>org.apache.velocity</code></td>
+          <td><code>true</code></td>
+          <td>This will enable debugging of some of the server view templates.</td>
+      </tr>
+      <tr>
+          <td><code>org.eclipse.jetty.server.RequestLog</code></td>
+          <td><code>false</code></td>
+          <td>This will enable http request logging to help diagnose and identify slow page render times.</td>
+      </tr>
+      <tr>
+          <td><code>PerformanceLogger</code></td>
+          <td><code>false</code></td>
+          <td>This will output performance debug logs for 3 key background jobs: scheduling, material updates, work assignment. It is recommended that you send these logs to a different file using an appender.</td>
+      </tr>
+      <tr>
+          <td><code>com.microsoft.tfs.core</code></td>
+          <td><code>true</code></td>
+          <td>This will turn on debugging for the underlying Microsoft Team Foundation Server library used by GoCD.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.tfssdk14</code></td>
+          <td><code>true</code></td>
+          <td>This will turn on debugging for the GoCD wrapper around Microsoft TFS library.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.dependency</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>dependency</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.git</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>git</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.mercurial</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>mercurial</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.packagematerial</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>packagematerial</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.perforce</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>perforce</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.scm</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>scm</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.svn</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>svn</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.tfs</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>tfs</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="gocd-agent">GoCD Agent</h2>
 <p>To turn on additional logging on the GoCD agent, you must:</p>
@@ -417,81 +419,80 @@ Refer to the <a href="../advanced_usage/other_config_options.html#system-propert
 </ul>
 <p>The table below describes the various loggers that can be configured with the server:</p>
 <table>
-<thead>
-<tr>
-<th>Logger</th>
-<th>Additivity</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>org.springframework</code></td>
-<td><code>true</code></td>
-<td>This will enable debugging of the spring framework.</td>
-</tr>
-<tr>
-<td><code>org.apache.http.wire</code></td>
-<td><code>true</code></td>
-<td>This will enable debugging of http connections between the agent and server.</td>
-</tr>
-<tr>
-<td><code>com.microsoft.tfs.core</code></td>
-<td><code>true</code></td>
-<td>This will turn on debugging for the underlying Microsoft Team Foundation Server library used by GoCD.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.tfssdk14</code></td>
-<td><code>true</code></td>
-<td>This will turn on debugging for the GoCD wrapper around Microsoft TFS library.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.dependency</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>dependency</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.git</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>git</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.mercurial</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>mercurial</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.packagematerial</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>packagematerial</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.perforce</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>perforce</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.scm</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>scm</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.svn</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>svn</code>.</td>
-</tr>
-<tr>
-<td><code>com.thoughtworks.go.domain.materials.tfs</code></td>
-<td><code>true</code></td>
-<td>Turn on logging for materials of type <code>tfs</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Logger</th>
+          <th>Additivity</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>org.springframework</code></td>
+          <td><code>true</code></td>
+          <td>This will enable debugging of the spring framework.</td>
+      </tr>
+      <tr>
+          <td><code>org.apache.http.wire</code></td>
+          <td><code>true</code></td>
+          <td>This will enable debugging of http connections between the agent and server.</td>
+      </tr>
+      <tr>
+          <td><code>com.microsoft.tfs.core</code></td>
+          <td><code>true</code></td>
+          <td>This will turn on debugging for the underlying Microsoft Team Foundation Server library used by GoCD.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.tfssdk14</code></td>
+          <td><code>true</code></td>
+          <td>This will turn on debugging for the GoCD wrapper around Microsoft TFS library.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.dependency</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>dependency</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.git</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>git</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.mercurial</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>mercurial</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.packagematerial</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>packagematerial</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.perforce</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>perforce</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.scm</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>scm</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.svn</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>svn</code>.</td>
+      </tr>
+      <tr>
+          <td><code>com.thoughtworks.go.domain.materials.tfs</code></td>
+          <td><code>true</code></td>
+          <td>Turn on logging for materials of type <code>tfs</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="log-configuration-syntax">Log configuration syntax</h2>
 <p>To configure logging, you can specify the configuration below. You must tweak the <code>&lt;logger /&gt;</code> and optionally <code>&lt;appender /&gt;</code> to write to specific log files. You can read more about logback configuration in the <a href="https://logback.qos.ch/manual/configuration.html">logback configuration documentation</a>. This file will be reloaded every 5 seconds, so a restart of the GoCD server or agent is not necessary.</p>
 <blockquote>
-<p><strong>Note:</strong> It is recommended that you do not set the log level to <code>DEBUG</code> or <code>TRACE</code> for long periods of time since this can significantly affect performance.</p>
-</blockquote>
+<p><strong>Note:</strong> It is recommended that you do not set the log level to <code>DEBUG</code> or <code>TRACE</code> for long periods of time since this can significantly affect performance.</p></blockquote>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#080">&lt;?xml version=&#34;1.0&#34; encoding=&#34;UTF-8&#34;?&gt;</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic">&lt;!-- since this file is included in another file, use `&lt;included /&gt;` and not `&lt;configuration /&gt;`  --&gt;</span>
@@ -661,11 +662,13 @@ An example logging over UDP could look like this:</p>
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/logging.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

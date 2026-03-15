@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/agent-health-check-api.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -316,26 +318,26 @@
 <h2 id="configurations">Configurations</h2>
 <p>The API uses the following configurable agent system properties.</p>
 <table>
-<thead>
-<tr>
-<th>Property</th>
-<th>Values</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>go.agent.status.api.enabled</code></td>
-<td>Defaults to <code>true</code>. Set to <code>false</code> to disable health check api end-point</td>
-</tr>
-<tr>
-<td><code>go.agent.status.api.bind.host</code></td>
-<td>Defaults to <code>localhost</code>. Set to a specific ip address or hostname to bind to that host. Set to <code>0.0.0.0</code> to bind to all network interfaces.</td>
-</tr>
-<tr>
-<td><code>go.agent.status.api.bind.port</code></td>
-<td>Defaults to <code>8152</code>. Set to <code>0</code> to use an ephemeral port, which will be displayed in a log statement.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Property</th>
+          <th>Values</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>go.agent.status.api.enabled</code></td>
+          <td>Defaults to <code>true</code>. Set to <code>false</code> to disable health check api end-point</td>
+      </tr>
+      <tr>
+          <td><code>go.agent.status.api.bind.host</code></td>
+          <td>Defaults to <code>localhost</code>. Set to a specific ip address or hostname to bind to that host. Set to <code>0.0.0.0</code> to bind to all network interfaces.</td>
+      </tr>
+      <tr>
+          <td><code>go.agent.status.api.bind.port</code></td>
+          <td>Defaults to <code>8152</code>. Set to <code>0</code> to use an ephemeral port, which will be displayed in a log statement.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Note:</strong> In case the http server is unable to bind usually because of port conflicts, or multiple agents running on the same machine, a warning will be emitted to the console log and agent startup will continue.</p>
 <p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
@@ -354,11 +356,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/agent-health-check-api.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

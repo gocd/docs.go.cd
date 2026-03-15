@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD notifications"/>
 <meta name="keywords" content="[GoCD configuration, email notifications, status change, build events]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/dev_notifications.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -351,54 +353,49 @@
 <p><strong>Previous state influences Event type</strong></p>
 <p>The table below shows how the previous state can influence the triggered event:</p>
 <table>
-<thead>
-<tr>
-<th><strong>Previous state</strong></th>
-<th><strong>Current state</strong></th>
-<th><strong>Event</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Pass</td>
-<td>Fail</td>
-<td>Breaks</td>
-</tr>
-<tr>
-<td>Fail</td>
-<td>Fail</td>
-<td>Fails</td>
-</tr>
-<tr>
-<td>Fail</td>
-<td>Pass</td>
-<td>Fixed</td>
-</tr>
-<tr>
-<td>Pass</td>
-<td>Pass</td>
-<td>Passes</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><strong>Previous state</strong></th>
+          <th><strong>Current state</strong></th>
+          <th><strong>Event</strong></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Pass</td>
+          <td>Fail</td>
+          <td>Breaks</td>
+      </tr>
+      <tr>
+          <td>Fail</td>
+          <td>Fail</td>
+          <td>Fails</td>
+      </tr>
+      <tr>
+          <td>Fail</td>
+          <td>Pass</td>
+          <td>Fixed</td>
+      </tr>
+      <tr>
+          <td>Pass</td>
+          <td>Pass</td>
+          <td>Passes</td>
+      </tr>
+  </tbody>
 </table>
 <p><img src="../images/5_added_filter.png" alt=""></p>
 <blockquote>
-<p>I&rsquo;ll be emailed whenever the &ldquo;twist-plugins&rdquo; stage of &ldquo;acceptance&rdquo; pipeline breaks due to my check-in</p>
-</blockquote>
+<p>I&rsquo;ll be emailed whenever the &ldquo;twist-plugins&rdquo; stage of &ldquo;acceptance&rdquo; pipeline breaks due to my check-in</p></blockquote>
 <blockquote>
-<p>I&rsquo;ll be emailed whenever the &ldquo;build&rdquo; stage of &ldquo;plugins&rdquo; pipeline fails due to my check-in</p>
-</blockquote>
+<p>I&rsquo;ll be emailed whenever the &ldquo;build&rdquo; stage of &ldquo;plugins&rdquo; pipeline fails due to my check-in</p></blockquote>
 <blockquote>
-<p>I&rsquo;ll be emailed whenever the &ldquo;upload-installers&rdquo; stage of &ldquo;distributions-all&rdquo; pipeline passes for any check-in</p>
-</blockquote>
+<p>I&rsquo;ll be emailed whenever the &ldquo;upload-installers&rdquo; stage of &ldquo;distributions-all&rdquo; pipeline passes for any check-in</p></blockquote>
 <blockquote>
-<p>I&rsquo;ll be emailed on all events for any stage of &ldquo;regression&rdquo; pipeline for my check-in</p>
-</blockquote>
+<p>I&rsquo;ll be emailed on all events for any stage of &ldquo;regression&rdquo; pipeline for my check-in</p></blockquote>
 <p>Users can also select to get notifications for a particular (or all) event on any stage of any pipeline.</p>
 <p><img src="../images/6_added_filter_any_pipeline.png" alt=""></p>
 <blockquote>
-<p>I&rsquo;ll be emailed whenever any stage of any pipeline fails due to my check-in</p>
-</blockquote>
+<p>I&rsquo;ll be emailed whenever any stage of any pipeline fails due to my check-in</p></blockquote>
 </article>
 
       
@@ -414,11 +411,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/dev_notifications.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

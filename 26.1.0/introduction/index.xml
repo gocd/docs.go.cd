@@ -4,7 +4,7 @@
     <title>Concepts In GoCD on GoCD User Documentation</title>
     <link>/introduction/</link>
     <description>Recent content in Concepts In GoCD on GoCD User Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="/introduction/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,7 +12,7 @@
       <link>/introduction/concepts_in_go.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/introduction/concepts_in_go.html</guid>
-      <description>Concepts in GoCD This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and Continuous Delivery, in general, you can refer to Martin Fowler&amp;rsquo;s articles on the subject: Continuous Integration and Continuous Delivery.&#xA;If you&amp;rsquo;re very new to GoCD, the Getting Started Guide is a good starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.</description>
+      <description>&lt;h1 id=&#34;concepts-in-gocd&#34;&gt;Concepts in GoCD&lt;/h1&gt;&#xA;&lt;p&gt;This page explains some of the underlying concepts of GoCD. If you want to know more about Continuous Integration and&#xA;Continuous Delivery, in general, you can refer to Martin Fowler&amp;rsquo;s articles on the subject: &lt;a href=&#34;https://martinfowler.com/articles/continuousIntegration.html&#34;&gt;Continuous&#xA;Integration&lt;/a&gt; and &lt;a href=&#34;https://martinfowler.com/bliki/ContinuousDelivery.html&#34;&gt;Continuous&#xA;Delivery&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;If you&amp;rsquo;re very new to GoCD, the &lt;a href=&#34;https://www.gocd.org/getting-started/part-1/&#34;&gt;Getting Started Guide&lt;/a&gt; is a good&#xA;starting point to get a good understanding of the concepts while trying them out on a real GoCD instance.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

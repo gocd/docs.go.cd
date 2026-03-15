@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/installation/install/agent/linux.html"/>
+
 <script src="../../../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -381,63 +383,63 @@ usually only a problem for older Debian or RHEL releases.</p>
 <h2 id="managing-the-gocd-agent-process">Managing the GoCD agent process</h2>
 <p>The GoCD agent script must be run with one of the following arguments:</p>
 <table>
-<thead>
-<tr>
-<th>Script</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>service go-agent console</td>
-<td>The GoCD agent will be started in the foreground</td>
-</tr>
-<tr>
-<td>service go-agent start</td>
-<td>The GoCD agent will be started as a daemon in the background</td>
-</tr>
-<tr>
-<td>service go-agent stop</td>
-<td>The GoCD agent will be stopped</td>
-</tr>
-<tr>
-<td>service go-agent restart</td>
-<td>The GoCD agent will be restarted</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Script</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>service go-agent console</td>
+          <td>The GoCD agent will be started in the foreground</td>
+      </tr>
+      <tr>
+          <td>service go-agent start</td>
+          <td>The GoCD agent will be started as a daemon in the background</td>
+      </tr>
+      <tr>
+          <td>service go-agent stop</td>
+          <td>The GoCD agent will be stopped</td>
+      </tr>
+      <tr>
+          <td>service go-agent restart</td>
+          <td>The GoCD agent will be restarted</td>
+      </tr>
+  </tbody>
 </table>
 <p><code>service</code> utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.</p>
 <h2 id="location-of-gocd-agent-files">Location of GoCD agent files</h2>
 <p>The GoCD agent installs its files in the following locations on your filesystem:</p>
 <table>
-<thead>
-<tr>
-<th>Location</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>/var/lib/go-agent</code></td>
-<td>agent configuration and working directory</td>
-</tr>
-<tr>
-<td><code>/var/log/go-agent</code></td>
-<td>agent log files</td>
-</tr>
-<tr>
-<td><code>/usr/share/go-agent</code></td>
-<td>agent binaries and startup scripts</td>
-</tr>
-<tr>
-<td><code>/usr/share/go-agent/wrapper-config/wrapper.conf</code></td>
-<td>default agent configuration. Avoid changing this file.</td>
-</tr>
-<tr>
-<td><code>/usr/share/go-agent/wrapper-config/wrapper-properties.conf</code></td>
-<td>user override configuration file</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Location</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>/var/lib/go-agent</code></td>
+          <td>agent configuration and working directory</td>
+      </tr>
+      <tr>
+          <td><code>/var/log/go-agent</code></td>
+          <td>agent log files</td>
+      </tr>
+      <tr>
+          <td><code>/usr/share/go-agent</code></td>
+          <td>agent binaries and startup scripts</td>
+      </tr>
+      <tr>
+          <td><code>/usr/share/go-agent/wrapper-config/wrapper.conf</code></td>
+          <td>default agent configuration. Avoid changing this file.</td>
+      </tr>
+      <tr>
+          <td><code>/usr/share/go-agent/wrapper-config/wrapper-properties.conf</code></td>
+          <td>user override configuration file</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="configuring-the-gocd-agent">Configuring the GoCD agent</h2>
 <p>After installing the GoCD agent, you must first configure the agent with the hostname (or IP address) of your GoCD server, in order to do this:</p>
@@ -468,11 +470,13 @@ usually only a problem for older Debian or RHEL releases.</p>
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/install/agent/linux.md" target="_blank" rel="noopener">
       <img src="../../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

@@ -12,7 +12,9 @@
 <meta name="description" content="Auto registration of remote agents"/>
 <meta name="keywords" content="[remote agents, GoCD agents, Auto registration, GoCD server]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/agent_auto_register.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -325,51 +327,50 @@
 <li>
 <p>On the remote GoCD Agent machine, create a file named <code>&lt;agent_installation_directory&gt;/config/autoregister.properties</code>. In a native agent installation this file is usually located on <code>/var/lib/go-agent/config/</code> directory. The <code>config/</code> folder might not exist, in this case you should create it by yourself.</p>
 <blockquote>
-<p>If generating this file programmatically note that it <strong>must be UTF-8 encoded</strong>. Although line-endings are not important, some platforms will generate files with other encodings or platform default encodings such as UTF-16 w/BOM which will not work correctly.</p>
-</blockquote>
+<p>If generating this file programmatically note that it <strong>must be UTF-8 encoded</strong>. Although line-endings are not important, some platforms will generate files with other encodings or platform default encodings such as UTF-16 w/BOM which will not work correctly.</p></blockquote>
 <p>This file supports the following properties</p>
 </li>
 </ul>
 <table>
-<thead>
-<tr>
-<th><em>Key</em></th>
-<th style="text-align:center"><em>Required</em></th>
-<th><em>Description</em></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>agent.auto.register.key</code></td>
-<td style="text-align:center">yes</td>
-<td>The value of the <code>&lt;server/&gt;</code> element&rsquo;s <code>agentAutoRegisterKey</code> attribute from <code>cruise-config.xml</code></td>
-</tr>
-<tr>
-<td><code>agent.auto.register.environments</code></td>
-<td style="text-align:center">no</td>
-<td>A comma separated list of environments that this agent should be associated with.</td>
-</tr>
-<tr>
-<td><code>agent.auto.register.resources</code></td>
-<td style="text-align:center">no</td>
-<td>This MUST not be set by agents that register as elastic-agents. A comma separated list of resources that this agent should be tagged with.</td>
-</tr>
-<tr>
-<td><code>agent.auto.register.hostname</code></td>
-<td style="text-align:center">no</td>
-<td>The name of the agent when it is registered with the server. (<strong>Version <code>15.2.0</code> onwards</strong>)</td>
-</tr>
-<tr>
-<td><code>agent.auto.register.elasticAgent.agentId</code></td>
-<td style="text-align:center">no</td>
-<td>This MUST be set by agents that register as elastic-agents. This may contain an identifier of the agent, that the plugin can identify. Can be something like a docker container ID, or AWS instance ID. (<strong>Version <code>16.12.0</code> onwards</strong>)</td>
-</tr>
-<tr>
-<td><code>agent.auto.register.elasticAgent.pluginId</code></td>
-<td style="text-align:center">no</td>
-<td>This MUST be set by agents that to register as elastic-agents. This should contain the plugin id of elastic-agent plugin that spins up the agent. (<strong>Version <code>16.12.0</code> onwards</strong>)</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th><em>Key</em></th>
+          <th style="text-align: center"><em>Required</em></th>
+          <th><em>Description</em></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>agent.auto.register.key</code></td>
+          <td style="text-align: center">yes</td>
+          <td>The value of the <code>&lt;server/&gt;</code> element&rsquo;s <code>agentAutoRegisterKey</code> attribute from <code>cruise-config.xml</code></td>
+      </tr>
+      <tr>
+          <td><code>agent.auto.register.environments</code></td>
+          <td style="text-align: center">no</td>
+          <td>A comma separated list of environments that this agent should be associated with.</td>
+      </tr>
+      <tr>
+          <td><code>agent.auto.register.resources</code></td>
+          <td style="text-align: center">no</td>
+          <td>This MUST not be set by agents that register as elastic-agents. A comma separated list of resources that this agent should be tagged with.</td>
+      </tr>
+      <tr>
+          <td><code>agent.auto.register.hostname</code></td>
+          <td style="text-align: center">no</td>
+          <td>The name of the agent when it is registered with the server. (<strong>Version <code>15.2.0</code> onwards</strong>)</td>
+      </tr>
+      <tr>
+          <td><code>agent.auto.register.elasticAgent.agentId</code></td>
+          <td style="text-align: center">no</td>
+          <td>This MUST be set by agents that register as elastic-agents. This may contain an identifier of the agent, that the plugin can identify. Can be something like a docker container ID, or AWS instance ID. (<strong>Version <code>16.12.0</code> onwards</strong>)</td>
+      </tr>
+      <tr>
+          <td><code>agent.auto.register.elasticAgent.pluginId</code></td>
+          <td style="text-align: center">no</td>
+          <td>This MUST be set by agents that to register as elastic-agents. This should contain the plugin id of elastic-agent plugin that spins up the agent. (<strong>Version <code>16.12.0</code> onwards</strong>)</td>
+      </tr>
+  </tbody>
 </table>
 <p>Example</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Auto-registration properties in key=value format, encoded in UTF-8</span>
@@ -399,11 +400,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/agent_auto_register.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

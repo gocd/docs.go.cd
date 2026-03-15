@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD server polls for changes to all materials of &#39;Auto Triggered&#39; pipelines. Polling occurs every minute and ten materials at a time."/>
 <meta name="keywords" content="[gocd server polls, build materials, polling intervals, pipelines, cd pipelines, schedule pipeline]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/faq/material_update_hung.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -324,8 +326,7 @@
 <li>
 <p>Identify the processes running as children of GoCD Server</p>
 <blockquote>
-<p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &lsquo;ps waux | grep &lsquo;material-type&rsquo;&rsquo;</p>
-</blockquote>
+<p>On Windows, you can use tools like <strong>Process Explorer</strong> . On linux you could run &lsquo;ps waux | grep &lsquo;material-type&rsquo;&rsquo;</p></blockquote>
 </li>
 <li>
 <p>Determine the process that&rsquo;s hung. The extra information like URL: <code>https://test@bitbucket.org/test/git_repo.git</code> in the warning information should help you with this.</p>
@@ -340,8 +341,7 @@
 <li>
 <p>Ensure that the warning message goes away from Server Health.</p>
 <blockquote>
-<p>Please note the folder name (of the form &hellip;/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the GoCD installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.</p>
-</blockquote>
+<p>Please note the folder name (of the form &hellip;/flyweight/b9ec0885-eb32-458c-bd6b-eeefe3ef9816 ) present in the OS process listing. This folder was being used by the polling command. Locate the folder in the GoCD installation and delete it if it exists. This ensures that the kill of the process tree has not left behind any inconsistent information.</p></blockquote>
 </li>
 </ul>
 <h2 id="configuring-warning-time">Configuring warning time</h2>
@@ -361,11 +361,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/faq/material_update_hung.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

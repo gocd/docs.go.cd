@@ -12,7 +12,9 @@
 <meta name="description" content="The GoCD Helm Chart page explains how to get started with GoCD for kubernetes using Helm."/>
 <meta name="keywords" content="[gocd helm chart, cd pipeline]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/gocd_on_kubernetes/setup_and_configuration.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -318,15 +320,15 @@
 <p>The Kubernetes CLI <code>kubectl</code> is used for cluster management purposes. The Kubernetes <a href="https://kubernetes.io/docs/tasks/tools/install-kubectl/">install documentation</a> provides various ways of installing kubectl for different platforms.</p>
 <h2 id="2-setup-a-kubernetes-cluster">2. Setup a Kubernetes Cluster</h2>
 <p>Before installing GoCD, you need to setup a Kubernetes cluster. Some of the popular options are:</p>
-<h3 id="option-1-minikube-setup-guidehttpskubernetesiodocsgetting-started-guidesminikube">Option 1: Minikube (<a href="https://kubernetes.io/docs/getting-started-guides/minikube/">setup guide</a>)</h3>
+<h3 id="option-1-minikube-setup-guide">Option 1: Minikube (<a href="https://kubernetes.io/docs/getting-started-guides/minikube/">setup guide</a>)</h3>
 <p>Once minikube is installed, start minikube with the <code>kubeadm</code> bootstrapper. The <code>kubeadm</code> toolkit helps to easily bootstrap a cluster so that appropriate privileges are granted for performing read-write operations on Kubernetes authentication and authorization (RBAC) resources.</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>minikube start --vm-driver<span style="color:#666">=</span>virtualbox --bootstrapper<span style="color:#666">=</span>kubeadm --memory <span style="color:#666">4096</span>
 </span></span></code></pre></div><p><em>Tip: You can enable Ingress on minikube with this command</em></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>minikube addons <span style="color:#a2f">enable</span> ingress
-</span></span></code></pre></div><h3 id="option-2-google-kubernetes-engine-or-gke-setup-guidehttpscloudgooglecomkubernetes-enginedocshow-tocreating-a-container-cluster">Option 2: Google Kubernetes Engine or GKE (<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster">setup guide</a>)</h3>
+</span></span></code></pre></div><h3 id="option-2-google-kubernetes-engine-or-gke-setup-guide">Option 2: Google Kubernetes Engine or GKE (<a href="https://cloud.google.com/kubernetes-engine/docs/how-to/creating-a-container-cluster">setup guide</a>)</h3>
 <p><em>Tip: Once the cluster is running, execute the following command to see if kubectl is using right context.</em></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>kubectl config current-context
-</span></span></code></pre></div><h3 id="option-3-amazon-elastic-kubernetes-service-eks-getting-startedhttpsdocsawsamazoncomekslatestuserguidegetting-startedhtml">Option 3: Amazon Elastic Kubernetes Service (EKS) (<a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html">Getting Started</a>)</h3>
+</span></span></code></pre></div><h3 id="option-3-amazon-elastic-kubernetes-service-eks-getting-started">Option 3: Amazon Elastic Kubernetes Service (EKS) (<a href="https://docs.aws.amazon.com/eks/latest/userguide/getting-started.html">Getting Started</a>)</h3>
 <p><em>Tip: <a href="https://github.com/weaveworks/eksctl">eksctl</a> is a useful CLI for setting up Kubernetes clusters on Amazon EKS</em></p>
 <h2 id="3-install-and-configure-helm---the-kubernetes-package-manager">3. Install and configure Helm - The Kubernetes package manager</h2>
 <p>Helm is a package manager for Kubernetes. Kubernetes packages are called charts. Charts are curated applications for Kubernetes.</p>
@@ -382,11 +384,13 @@ There is no need any more to have cluster admin privileges or to install Tiller 
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/gocd_on_kubernetes/setup_and_configuration.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

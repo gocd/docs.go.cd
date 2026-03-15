@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD authorization via policy"/>
 <meta name="keywords" content="[GoCD configuration, authorization, administration, users, roles, role-based security, security, security configuration, user permissions, GoCD administration, role-based access control, rbac]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/policy_in_gocd.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -325,8 +327,7 @@
 <li>Deny: The deny permission restricts the access to the specified entity for the specific action.</li>
 </ul>
 <blockquote>
-<p><strong>Note: If both the permission are specified for the same entity, the <code>deny</code> permission takes precendence.</strong></p>
-</blockquote>
+<p><strong>Note: If both the permission are specified for the same entity, the <code>deny</code> permission takes precendence.</strong></p></blockquote>
 <h2 id="privilege-action-matrix">Privilege-Action Matrix</h2>
 <p>Each GoCD entity has a set of actions which grants/restricts control on a granular level. The following matrix describes the same.</p>
 <h3 id="environment">Environment</h3>
@@ -334,67 +335,67 @@
 <li>
 <p>API</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>Index</th>
-<th>Get</th>
-<th>Create</th>
-<th>Update</th>
-<th>Patch</th>
-<th>Delete</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Index</th>
+          <th>Get</th>
+          <th>Create</th>
+          <th>Update</th>
+          <th>Patch</th>
+          <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
 <p>UI</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>List</th>
-<th>Create</th>
-<th>Update</th>
-<th>Delete</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>List</th>
+          <th>Create</th>
+          <th>Update</th>
+          <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ol>
@@ -403,67 +404,67 @@
 <li>
 <p>API</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>Index</th>
-<th>Get</th>
-<th>Create</th>
-<th>Update</th>
-<th>Delete</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Index</th>
+          <th>Get</th>
+          <th>Create</th>
+          <th>Update</th>
+          <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
 <p>UI</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>List</th>
-<th>Create</th>
-<th>Refresh</th>
-<th>Update</th>
-<th>Delete</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>List</th>
+          <th>Create</th>
+          <th>Refresh</th>
+          <th>Update</th>
+          <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ol>
@@ -479,67 +480,67 @@ And the type and the configurations of the agent is specified as an elastic agen
 <li>
 <p>API</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>Index</th>
-<th>Get</th>
-<th>Create</th>
-<th>Update</th>
-<th>Delete</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Index</th>
+          <th>Get</th>
+          <th>Create</th>
+          <th>Update</th>
+          <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
 <p>UI</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>List</th>
-<th>Create</th>
-<th>Update</th>
-<th>Delete</th>
-<th>Cluster Status Report</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>List</th>
+          <th>Create</th>
+          <th>Update</th>
+          <th>Delete</th>
+          <th>Cluster Status Report</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✔</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ol>
@@ -548,70 +549,70 @@ And the type and the configurations of the agent is specified as an elastic agen
 <li>
 <p>API</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>Index</th>
-<th>Get</th>
-<th>Create</th>
-<th>Update</th>
-<th>Delete</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>Index</th>
+          <th>Get</th>
+          <th>Create</th>
+          <th>Update</th>
+          <th>Delete</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 <li>
 <p>UI</p>
 <table>
-<thead>
-<tr>
-<th></th>
-<th>List</th>
-<th>Create</th>
-<th>Update</th>
-<th>Delete</th>
-<th>Agent Status Report</th>
-<th>Elastic Profiles Usage</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>View</td>
-<td>✔</td>
-<td>✘</td>
-<td>✘</td>
-<td>✘</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-<tr>
-<td>Administer</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-<td>✔</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th></th>
+          <th>List</th>
+          <th>Create</th>
+          <th>Update</th>
+          <th>Delete</th>
+          <th>Agent Status Report</th>
+          <th>Elastic Profiles Usage</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>View</td>
+          <td>✔</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✘</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+      <tr>
+          <td>Administer</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+          <td>✔</td>
+      </tr>
+  </tbody>
 </table>
 </li>
 </ol>
@@ -754,11 +755,13 @@ Following is the example which demonstrates permission restrictions using namesp
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/policy_in_gocd.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

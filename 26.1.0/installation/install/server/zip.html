@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/installation/install/server/zip.html"/>
+
 <script src="../../../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -321,71 +323,71 @@
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 <p>The GoCD server script must be run with one of the following arguments:</p>
 <table>
-<thead>
-<tr>
-<th>Script</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>./bin/go-server console</code></td>
-<td>The GoCD server will be started in the foreground</td>
-</tr>
-<tr>
-<td><code>./bin/go-server start</code></td>
-<td>The GoCD server will be started as a daemon in the background</td>
-</tr>
-<tr>
-<td><code>./bin/go-server stop</code></td>
-<td>The GoCD server will be stopped</td>
-</tr>
-<tr>
-<td><code>./bin/go-server restart</code></td>
-<td>The GoCD server will be restarted</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Script</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>./bin/go-server console</code></td>
+          <td>The GoCD server will be started in the foreground</td>
+      </tr>
+      <tr>
+          <td><code>./bin/go-server start</code></td>
+          <td>The GoCD server will be started as a daemon in the background</td>
+      </tr>
+      <tr>
+          <td><code>./bin/go-server stop</code></td>
+          <td>The GoCD server will be stopped</td>
+      </tr>
+      <tr>
+          <td><code>./bin/go-server restart</code></td>
+          <td>The GoCD server will be restarted</td>
+      </tr>
+  </tbody>
 </table>
 <p>Once the GoCD server is started the GoCD server will be started and it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
 <p>The GoCD server installs its files in the following locations on your filesystem:</p>
 <table>
-<thead>
-<tr>
-<th>Location</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>${INSTALL_DIR}/db</code></td>
-<td>the GoCD server database</td>
-</tr>
-<tr>
-<td><code>${INSTALL_DIR}/artifacts</code></td>
-<td>the GoCD server artifacts</td>
-</tr>
-<tr>
-<td><code>${INSTALL_DIR}/plugins</code></td>
-<td>the GoCD server plugins</td>
-</tr>
-<tr>
-<td><code>${INSTALL_DIR}/config</code></td>
-<td>the GoCD server configuration</td>
-</tr>
-<tr>
-<td><code>${INSTALL_DIR}/logs</code></td>
-<td>the GoCD server log files</td>
-</tr>
-<tr>
-<td><code>${INSTALL_DIR}/{lib,wrapper}</code></td>
-<td>the GoCD server binaries and startup scripts</td>
-</tr>
-<tr>
-<td><code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code></td>
-<td>the configuration file to alter GoCD server properties</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Location</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>${INSTALL_DIR}/db</code></td>
+          <td>the GoCD server database</td>
+      </tr>
+      <tr>
+          <td><code>${INSTALL_DIR}/artifacts</code></td>
+          <td>the GoCD server artifacts</td>
+      </tr>
+      <tr>
+          <td><code>${INSTALL_DIR}/plugins</code></td>
+          <td>the GoCD server plugins</td>
+      </tr>
+      <tr>
+          <td><code>${INSTALL_DIR}/config</code></td>
+          <td>the GoCD server configuration</td>
+      </tr>
+      <tr>
+          <td><code>${INSTALL_DIR}/logs</code></td>
+          <td>the GoCD server log files</td>
+      </tr>
+      <tr>
+          <td><code>${INSTALL_DIR}/{lib,wrapper}</code></td>
+          <td>the GoCD server binaries and startup scripts</td>
+      </tr>
+      <tr>
+          <td><code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code></td>
+          <td>the configuration file to alter GoCD server properties</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
 Users can override default startup arguments in a editing the file <code>./wrapper-config/wrapper-properties.conf</code>.
@@ -412,11 +414,13 @@ Users can override default startup arguments in a editing the file <code>./wrapp
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/install/server/zip.md" target="_blank" rel="noopener">
       <img src="../../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD Authentication"/>
 <meta name="keywords" content="[GoCD configuration, authentication, https, ldap, ldap authentication, authorization plugins, user access, passwords, logins, authorization endpoints, GoCD security]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/dev_authentication.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -359,35 +361,35 @@
 <h2 id="configurable-properties">Configurable properties</h2>
 <p>You can use one or more of the below to tweak settings such as the session configuration:</p>
 <table>
-<thead>
-<tr>
-<th>System property name</th>
-<th>Default value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>go.server.session.timeout.seconds</code></td>
-<td><code>1209600</code> (14 days)</td>
-<td>Idle session timeout (in seconds). Do not set this to <code>-1</code> else the session will never timeout.</td>
-</tr>
-<tr>
-<td><code>go.sessioncookie.maxage.seconds</code></td>
-<td><code>1209600</code> (14 days)</td>
-<td>Expiry of a session cookie. Set to <code>-1</code> to expire the cookie on browser close. Do not set to <code>0</code> as this will cause the cookie to expire immediately.</td>
-</tr>
-<tr>
-<td><code>go.sessioncookie.secure</code></td>
-<td><code>N</code></td>
-<td>Set this to <code>Y</code> to allow a session cookie to be set only if the request was made over HTTPS. Do not set this property if the users access GoCD via HTTP url</td>
-</tr>
-<tr>
-<td><code>go.security.reauthentication.interval</code></td>
-<td><code>1800000</code> (30 mins in milliseconds)</td>
-<td>GoCD forces a perodic re-authentication of users, this is to ensure any changes like removing of users or roles in the external authorization server are reflected in GoCD. The re-authentication interval (specified in milliseconds) is controlled by this property.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>System property name</th>
+          <th>Default value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>go.server.session.timeout.seconds</code></td>
+          <td><code>1209600</code> (14 days)</td>
+          <td>Idle session timeout (in seconds). Do not set this to <code>-1</code> else the session will never timeout.</td>
+      </tr>
+      <tr>
+          <td><code>go.sessioncookie.maxage.seconds</code></td>
+          <td><code>1209600</code> (14 days)</td>
+          <td>Expiry of a session cookie. Set to <code>-1</code> to expire the cookie on browser close. Do not set to <code>0</code> as this will cause the cookie to expire immediately.</td>
+      </tr>
+      <tr>
+          <td><code>go.sessioncookie.secure</code></td>
+          <td><code>N</code></td>
+          <td>Set this to <code>Y</code> to allow a session cookie to be set only if the request was made over HTTPS. Do not set this property if the users access GoCD via HTTP url</td>
+      </tr>
+      <tr>
+          <td><code>go.security.reauthentication.interval</code></td>
+          <td><code>1800000</code> (30 mins in milliseconds)</td>
+          <td>GoCD forces a perodic re-authentication of users, this is to ensure any changes like removing of users or roles in the external authorization server are reflected in GoCD. The re-authentication interval (specified in milliseconds) is controlled by this property.</td>
+      </tr>
+  </tbody>
 </table>
 <p>See <a href="../advanced_usage/other_config_options.html">the &ldquo;Other config options&rdquo; page</a> for instructions around setting these system property values.</p>
 <h2 id="controlling-user-access">Controlling User Access</h2>
@@ -418,11 +420,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/dev_authentication.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

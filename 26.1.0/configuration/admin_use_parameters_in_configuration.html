@@ -12,7 +12,9 @@
 <meta name="description" content="Paramerterize GoCD pipelines and pipeline templates"/>
 <meta name="keywords" content="[GoCD configuration, GoCD pipelines, continuous delivery pipelines, pipeline templates, parameters, CD pipelines, pipeline configuration, pipeline template configuration]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/admin_use_parameters_in_configuration.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -333,29 +335,28 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/stage&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/pipeline&gt;</span>
 </span></span></code></pre></div><blockquote>
-<p><strong>NOTE:</strong> If you want to use the <strong>#</strong> literal, you can escape it using another <strong>#</strong> literal. For example, if the parameter &ldquo;foo&rdquo; has the value &ldquo;one&rdquo;, then:</p>
-</blockquote>
+<p><strong>NOTE:</strong> If you want to use the <strong>#</strong> literal, you can escape it using another <strong>#</strong> literal. For example, if the parameter &ldquo;foo&rdquo; has the value &ldquo;one&rdquo;, then:</p></blockquote>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">String</th>
-<th style="text-align:center">Evaluates to</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">#{foo}</td>
-<td style="text-align:center">one</td>
-</tr>
-<tr>
-<td style="text-align:left">##{foo}</td>
-<td style="text-align:center">#{foo}</td>
-</tr>
-<tr>
-<td style="text-align:left">###{foo}</td>
-<td style="text-align:center">#one</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">String</th>
+          <th style="text-align: center">Evaluates to</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">#{foo}</td>
+          <td style="text-align: center">one</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">##{foo}</td>
+          <td style="text-align: center">#{foo}</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">###{foo}</td>
+          <td style="text-align: center">#one</td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="using-parameters-in-pipeline-templates">Using parameters in pipeline templates</h2>
 <p>Parameter usage within <a href="pipeline_templates.html">templates</a> is similar to usage within pipelines. The only difference is that you cannot <strong>define</strong> parameters in a template.</p>
@@ -420,11 +421,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/admin_use_parameters_in_configuration.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

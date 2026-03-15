@@ -12,7 +12,9 @@
 <meta name="description" content="Perform a scheduled backup of the GoCD server"/>
 <meta name="keywords" content="[GoCD server, GoCD backup, timer scheduled, administration interface, backup]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/cron_backup.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -316,38 +318,38 @@
 <h1 id="the-post-backup-script">The post backup script</h1>
 <p>The post backup script, if configured, will be invoked regardless of success or failure of the script, and will receive the following environment variables:</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Name</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>GOCD_BACKUP_STATUS</code></td>
-<td style="text-align:left">The status of the backup. Can be <code>failure</code> or <code>success</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>GOCD_BACKUP_INITIATED_VIA</code></td>
-<td style="text-align:left">If the backup was initiated via a timer, this will contain the value <code>timer</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>GOCD_BACKUP_INITIATED_BY_USER</code></td>
-<td style="text-align:left">If the backup was initiated by a user, the login name of the user that triggered the backup.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>GOCD_BACKUP_TIMESTAMP</code></td>
-<td style="text-align:left">The ISO8601 formatted timestamp when the backup was attempted. E.g. <code>2018-08-29T14:00:35Z</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>GOCD_BACKUP_BASE_DIR</code></td>
-<td style="text-align:left">If the status was <code>success</code>, this variable will contain the backup base directory. E.g. <code>/var/lib/go-server/artifacts/serverBackups</code>.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>GOCD_BACKUP_PATH</code></td>
-<td style="text-align:left">If the status was <code>success</code>, this variable will contain the directory where the current backup snapshot was stored. E.g. <code>/var/lib/go-server/artifacts/serverBackups/backup_20180829-140035</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Name</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left"><code>GOCD_BACKUP_STATUS</code></td>
+          <td style="text-align: left">The status of the backup. Can be <code>failure</code> or <code>success</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>GOCD_BACKUP_INITIATED_VIA</code></td>
+          <td style="text-align: left">If the backup was initiated via a timer, this will contain the value <code>timer</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>GOCD_BACKUP_INITIATED_BY_USER</code></td>
+          <td style="text-align: left">If the backup was initiated by a user, the login name of the user that triggered the backup.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>GOCD_BACKUP_TIMESTAMP</code></td>
+          <td style="text-align: left">The ISO8601 formatted timestamp when the backup was attempted. E.g. <code>2018-08-29T14:00:35Z</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>GOCD_BACKUP_BASE_DIR</code></td>
+          <td style="text-align: left">If the status was <code>success</code>, this variable will contain the backup base directory. E.g. <code>/var/lib/go-server/artifacts/serverBackups</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left"><code>GOCD_BACKUP_PATH</code></td>
+          <td style="text-align: left">If the status was <code>success</code>, this variable will contain the directory where the current backup snapshot was stored. E.g. <code>/var/lib/go-server/artifacts/serverBackups/backup_20180829-140035</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>For more information see <a href="../configuration/configuration_reference.html#backup">&lt; backup &gt;</a></p>
 </article>
@@ -365,11 +367,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/cron_backup.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

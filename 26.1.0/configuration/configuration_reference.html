@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD configuration reference index"/>
 <meta name="keywords" content="[GoCD configuration, reference index]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/configuration/configuration_reference.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -595,30 +597,30 @@
 <p>The <code>&lt;server&gt;</code> element can be used to define information and attributes of the Go Server.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>jobTimeout</td>
-<td>No</td>
-<td>This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for &ldquo;jobTimeout&rdquo; minutes. If the attribute is not specified job will never timeout.</td>
-</tr>
-<tr>
-<td>serverId</td>
-<td>Yes (auto-generated)</td>
-<td>This value uniquely identifies a Go server installation. It may be used by features that require unique names/identifiers across different Go server installations. This attribute need not be specified for a new server. In case no value is given, server auto-generates a random UUID an assigns it as serverId. This value should never be changed for an existing server. Administrator should clear this attribute before copying configuration to a different installation.</td>
-</tr>
-<tr>
-<td>agentAutoRegisterKey</td>
-<td>No</td>
-<td>The key specified here is used by agents for <a href="../advanced_usage/agent_auto_register.html">auto-registration</a>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>jobTimeout</td>
+          <td>No</td>
+          <td>This entry will be used as the default timeout value for hung jobs. A job is considered as hung if it does not generate any console output for &ldquo;jobTimeout&rdquo; minutes. If the attribute is not specified job will never timeout.</td>
+      </tr>
+      <tr>
+          <td>serverId</td>
+          <td>Yes (auto-generated)</td>
+          <td>This value uniquely identifies a Go server installation. It may be used by features that require unique names/identifiers across different Go server installations. This attribute need not be specified for a new server. In case no value is given, server auto-generates a random UUID an assigns it as serverId. This value should never be changed for an existing server. Administrator should clear this attribute before copying configuration to a different installation.</td>
+      </tr>
+      <tr>
+          <td>agentAutoRegisterKey</td>
+          <td>No</td>
+          <td>The key specified here is used by agents for <a href="../advanced_usage/agent_auto_register.html">auto-registration</a>.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
@@ -704,50 +706,50 @@
 <h2 id="mailhost">&lt;mailhost&gt;</h2>
 <p>The <code>&lt;mailhost&gt;</code> element is used to configure mail notifications. Mail notifications require <a href="#security">security</a> to be enabled.</p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>hostname</td>
-<td>Yes</td>
-<td>The SMTP mail server which Go will use to send email. For example, hostname=&ldquo;mailhost.yourcompany.com&rdquo;</td>
-</tr>
-<tr>
-<td>port</td>
-<td>Yes</td>
-<td>The mail port to use. Typically this will be the default mail port of 25.</td>
-</tr>
-<tr>
-<td>username</td>
-<td>Yes</td>
-<td>The username which Go should use to login to the mail host.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>Yes</td>
-<td>The password to access the mailhost.</td>
-</tr>
-<tr>
-<td>tls</td>
-<td>No</td>
-<td>Use TLS(Transport Layer Security) or not. The default value is &lsquo;false&rsquo;. Use &rsquo;true&rsquo; to enable TLS security.</td>
-</tr>
-<tr>
-<td>from</td>
-<td>Yes</td>
-<td>Go will attempt to set this email address as the &lsquo;from&rsquo; address for email that it sends. Note that this setting may not be honoured by the SMTP server that you use. For example, from=&ldquo;<a href="mailto:go-admin@yourcompany.com">go-admin@yourcompany.com</a>&rdquo;.</td>
-</tr>
-<tr>
-<td>admin</td>
-<td>Yes</td>
-<td>Go admintrator&rsquo;s email address. Go will send diagnostic messages to this email address. For example, Go will send a warning message if it is running out of disk space.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>hostname</td>
+          <td>Yes</td>
+          <td>The SMTP mail server which Go will use to send email. For example, hostname=&ldquo;mailhost.yourcompany.com&rdquo;</td>
+      </tr>
+      <tr>
+          <td>port</td>
+          <td>Yes</td>
+          <td>The mail port to use. Typically this will be the default mail port of 25.</td>
+      </tr>
+      <tr>
+          <td>username</td>
+          <td>Yes</td>
+          <td>The username which Go should use to login to the mail host.</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td>Yes</td>
+          <td>The password to access the mailhost.</td>
+      </tr>
+      <tr>
+          <td>tls</td>
+          <td>No</td>
+          <td>Use TLS(Transport Layer Security) or not. The default value is &lsquo;false&rsquo;. Use &rsquo;true&rsquo; to enable TLS security.</td>
+      </tr>
+      <tr>
+          <td>from</td>
+          <td>Yes</td>
+          <td>Go will attempt to set this email address as the &lsquo;from&rsquo; address for email that it sends. Note that this setting may not be honoured by the SMTP server that you use. For example, from=&ldquo;<a href="mailto:go-admin@yourcompany.com">go-admin@yourcompany.com</a>&rdquo;.</td>
+      </tr>
+      <tr>
+          <td>admin</td>
+          <td>Yes</td>
+          <td>Go admintrator&rsquo;s email address. Go will send diagnostic messages to this email address. For example, Go will send a warning message if it is running out of disk space.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;mailhost</span> <span style="color:#b44">hostname=</span><span style="color:#b44">&#34;mailhost.yourcompany.com&#34;</span> <span style="color:#b44">port=</span><span style="color:#b44">&#34;25&#34;</span> <span style="color:#b44">username=</span><span style="color:#b44">&#34;go-user&#34;</span> <span style="color:#b44">password=</span><span style="color:#b44">&#34;crs123&#34;</span> <span style="color:#b44">tls=</span><span style="color:#b44">&#34;false&#34;</span> <span style="color:#b44">from=</span><span style="color:#b44">&#34;go@yourcompany.com&#34;</span> <span style="color:#b44">admin=</span><span style="color:#b44">&#34;goadministrator@yourcompany.com&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
@@ -755,35 +757,35 @@
 <h2 id="backup">&lt;backup&gt;</h2>
 <p>The <code>&lt;backup&gt;</code> element is used to configure backups.</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:left">Attribute</th>
-<th style="text-align:left">Required</th>
-<th style="text-align:left">Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">schedule</td>
-<td style="text-align:left">No</td>
-<td style="text-align:left">The cron-like specification to perform a backup.</td>
-</tr>
-<tr>
-<td style="text-align:left">postBackupScript</td>
-<td style="text-align:left">No</td>
-<td style="text-align:left">A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See <a href="../advanced_usage/cron_backup.html">cron backups</a> for details about this script.</td>
-</tr>
-<tr>
-<td style="text-align:left">emailOnSuccess</td>
-<td style="text-align:left">No</td>
-<td style="text-align:left">Boolean indicating whether email should be sent on a successful backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
-</tr>
-<tr>
-<td style="text-align:left">emailOnFailure</td>
-<td style="text-align:left">No</td>
-<td style="text-align:left">Boolean indicating whether email should be sent on a failed backup backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: left">Attribute</th>
+          <th style="text-align: left">Required</th>
+          <th style="text-align: left">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">schedule</td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">The cron-like specification to perform a backup.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">postBackupScript</td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">A script that will be invoked on the GoCD server after backup is performed (successfully, or otherwise). See <a href="../advanced_usage/cron_backup.html">cron backups</a> for details about this script.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">emailOnSuccess</td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">Boolean indicating whether email should be sent on a successful backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
+      </tr>
+      <tr>
+          <td style="text-align: left">emailOnFailure</td>
+          <td style="text-align: left">No</td>
+          <td style="text-align: left">Boolean indicating whether email should be sent on a failed backup backup. Requires that <a href="#mailhost">mailhost</a> config be setup.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>For example: to perform a backup once a night at 10pm on weekdays and call the <code>/usr/local/bin/upload-to-s3</code> script after the backup is done.</p>
@@ -796,58 +798,58 @@
 <p>A cron expression is a string comprised of 6 or 7 fields separated by white space. Fields can contain any of the allowed values, along with
 various combinations of the allowed special characters for that field. The fields are as follows:</p>
 <table>
-<thead>
-<tr>
-<th>Field Name</th>
-<th>Mandatory?</th>
-<th>Allowed Values</th>
-<th>Allowed Special Characters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Seconds</td>
-<td>YES</td>
-<td>0-59</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Minutes</td>
-<td>YES</td>
-<td>0-59</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Hours</td>
-<td>YES</td>
-<td>0-23</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Day of month</td>
-<td>YES</td>
-<td>1-31</td>
-<td>, - * ? / L W\</td>
-</tr>
-<tr>
-<td>Month</td>
-<td>YES</td>
-<td>1-12 or JAN-DEC</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Day of week</td>
-<td>YES</td>
-<td>1-7 or SUN-SAT</td>
-<td>, - * ? / L #</td>
-</tr>
-<tr>
-<td>Year</td>
-<td>NO</td>
-<td>empty, 1970-2099</td>
-<td>, - * /</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Field Name</th>
+          <th>Mandatory?</th>
+          <th>Allowed Values</th>
+          <th>Allowed Special Characters</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Seconds</td>
+          <td>YES</td>
+          <td>0-59</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Minutes</td>
+          <td>YES</td>
+          <td>0-59</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Hours</td>
+          <td>YES</td>
+          <td>0-23</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Day of month</td>
+          <td>YES</td>
+          <td>1-31</td>
+          <td>, - * ? / L W\</td>
+      </tr>
+      <tr>
+          <td>Month</td>
+          <td>YES</td>
+          <td>1-12 or JAN-DEC</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Day of week</td>
+          <td>YES</td>
+          <td>1-7 or SUN-SAT</td>
+          <td>, - * ? / L #</td>
+      </tr>
+      <tr>
+          <td>Year</td>
+          <td>NO</td>
+          <td>empty, 1970-2099</td>
+          <td>, - * /</td>
+      </tr>
+  </tbody>
 </table>
 <p>So cron expressions can be as simple as this: <code>* * * * * ?</code> or more complex, like this: <code>0 15 10 ? * 6L 2002-2005</code></p>
 <p><strong>Special characters</strong></p>
@@ -880,90 +882,90 @@ various combinations of the allowed special characters for that field. The field
 <p><strong>Examples</strong></p>
 <p>Here are some full examples:</p>
 <table>
-<thead>
-<tr>
-<th>Expression</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0 0 12 * * ?</code></td>
-<td>Fire at 12pm (noon) every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * *</code></td>
-<td>Fire at 10:15am every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 * * ?</code></td>
-<td>Fire at 10:15am every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 * * ? *</code></td>
-<td>Fire at 10:15am every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 * * ? 2005</code></td>
-<td>Fire at 10:15am every day during the year 2005</td>
-</tr>
-<tr>
-<td><code>0 * 14 * * ?</code></td>
-<td>Fire every minute starting at 2pm and ending at 2:59pm, every day</td>
-</tr>
-<tr>
-<td><code>0 0/5 14 * * ?</code></td>
-<td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, every day</td>
-</tr>
-<tr>
-<td><code>0 0/5 14,18 * * ?</code></td>
-<td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day</td>
-</tr>
-<tr>
-<td><code>0 0-5 14 * * ?</code></td>
-<td>Fire every minute starting at 2pm and ending at 2:05pm, every day</td>
-</tr>
-<tr>
-<td><code>0 10,44 14 ? 3 WED</code></td>
-<td>Fire at 2:10pm and at 2:44pm every Wednesday in the month of March.</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * MON-FRI</code></td>
-<td>Fire at 10:15am every Monday, Tuesday, Wednesday, Thursday and Friday</td>
-</tr>
-<tr>
-<td><code>0 15 10 15 * ?</code></td>
-<td>Fire at 10:15am on the 15th day of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 L * ?</code></td>
-<td>Fire at 10:15am on the last day of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6L</code></td>
-<td>Fire at 10:15am on the last Friday of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6L</code></td>
-<td>Fire at 10:15am on the last Friday of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6L 2002-2005</code></td>
-<td>Fire at 10:15am on every last friday of every month during the years 2002, 2003, 2004 and 2005</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6#3</code></td>
-<td>Fire at 10:15am on the third Friday of every month</td>
-</tr>
-<tr>
-<td><code>0 0 12 1/5 * ?</code></td>
-<td>Fire at 12pm (noon) every 5 days every month, starting on the first day of the month.</td>
-</tr>
-<tr>
-<td><code>0 11 11 11 11 ?</code></td>
-<td>Fire every November 11th at 11:11am.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Expression</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>0 0 12 * * ?</code></td>
+          <td>Fire at 12pm (noon) every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * *</code></td>
+          <td>Fire at 10:15am every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 * * ?</code></td>
+          <td>Fire at 10:15am every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 * * ? *</code></td>
+          <td>Fire at 10:15am every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 * * ? 2005</code></td>
+          <td>Fire at 10:15am every day during the year 2005</td>
+      </tr>
+      <tr>
+          <td><code>0 * 14 * * ?</code></td>
+          <td>Fire every minute starting at 2pm and ending at 2:59pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 0/5 14 * * ?</code></td>
+          <td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 0/5 14,18 * * ?</code></td>
+          <td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 0-5 14 * * ?</code></td>
+          <td>Fire every minute starting at 2pm and ending at 2:05pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 10,44 14 ? 3 WED</code></td>
+          <td>Fire at 2:10pm and at 2:44pm every Wednesday in the month of March.</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * MON-FRI</code></td>
+          <td>Fire at 10:15am every Monday, Tuesday, Wednesday, Thursday and Friday</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 15 * ?</code></td>
+          <td>Fire at 10:15am on the 15th day of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 L * ?</code></td>
+          <td>Fire at 10:15am on the last day of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6L</code></td>
+          <td>Fire at 10:15am on the last Friday of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6L</code></td>
+          <td>Fire at 10:15am on the last Friday of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6L 2002-2005</code></td>
+          <td>Fire at 10:15am on every last friday of every month during the years 2002, 2003, 2004 and 2005</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6#3</code></td>
+          <td>Fire at 10:15am on the third Friday of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 0 12 1/5 * ?</code></td>
+          <td>Fire at 12pm (noon) every 5 days every month, starting on the first day of the month.</td>
+      </tr>
+      <tr>
+          <td><code>0 11 11 11 11 ?</code></td>
+          <td>Fire every November 11th at 11:11am.</td>
+      </tr>
+  </tbody>
 </table>
 <p>Pay attention to the effects of &lsquo;?&rsquo; and &lsquo;*&rsquo; in the day-of-week and day-of-month fields!</p>
 <p><strong>Notes</strong></p>
@@ -1040,35 +1042,35 @@ various combinations of the allowed special characters for that field. The field
 with their username and password from this ldap server.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>uri</td>
-<td>Yes</td>
-<td>uri for the ldap server. For example, uri=&ldquo;ldap://ldap.yourcompany.com&rdquo;</td>
-</tr>
-<tr>
-<td>managerDn</td>
-<td>Yes</td>
-<td>For example, managerDn=&ldquo;cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxxx,dc=yyyy,dc=com&rdquo;</td>
-</tr>
-<tr>
-<td>managerPassword</td>
-<td>Yes</td>
-<td>Go will connect to the LDAP server with this password</td>
-</tr>
-<tr>
-<td>searchFilter</td>
-<td>No</td>
-<td>e.g. searchFilter=&quot;(sAMAccountName={0})&quot;</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>uri</td>
+          <td>Yes</td>
+          <td>uri for the ldap server. For example, uri=&ldquo;ldap://ldap.yourcompany.com&rdquo;</td>
+      </tr>
+      <tr>
+          <td>managerDn</td>
+          <td>Yes</td>
+          <td>For example, managerDn=&ldquo;cn=Active Directory Ldap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxxx,dc=yyyy,dc=com&rdquo;</td>
+      </tr>
+      <tr>
+          <td>managerPassword</td>
+          <td>Yes</td>
+          <td>Go will connect to the LDAP server with this password</td>
+      </tr>
+      <tr>
+          <td>searchFilter</td>
+          <td>No</td>
+          <td>e.g. searchFilter=&quot;(sAMAccountName={0})&quot;</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;security&gt;</span>
@@ -1100,20 +1102,20 @@ the location in the directory from which the LDAP search begins.</p>
 <p>The <code>&lt;base&gt;</code> element is used to specify a search base (the distinguished name of the search base object) defines the location in
 the directory from which the LDAP search begins.</p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>value</td>
-<td>Yes</td>
-<td>The search base.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>value</td>
+          <td>Yes</td>
+          <td>The search base.</td>
+      </tr>
+  </tbody>
 </table>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;ldap</span> <span style="color:#b44">uri=</span><span style="color:#b44">&#34;ldap://xxx.yourcompany.com&#34;</span>
 </span></span><span style="display:flex;"><span>     <span style="color:#b44">managerDn=</span><span style="color:#b44">&#34;cn=Acitivity Directory LDap User,ou=InformationSystems,ou=SharedAccounts,ou=Principal,dc=xxxx,dc=yyyy,dc=com&#34;</span>
@@ -1127,20 +1129,20 @@ the directory from which the LDAP search begins.</p>
 <h2 id="passwordFile">&lt;passwordFile&gt; [<em>Deprecated</em>]</h2>
 <p>The <code>&lt;passwordFile&gt;</code> element is used to specify a file which has a set of username and password pairs. The format of username and password in this file is ${username}=${password which has been encrypted with SHA1}, with one line per user.</p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>path</td>
-<td>Yes</td>
-<td>The absolute path of the password file.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>path</td>
+          <td>Yes</td>
+          <td>The absolute path of the password file.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>Suppose the password file is <strong>admins.properties</strong>, which is located in <strong>/home/go</strong>. You want to create two users as Administrators:</p>
@@ -1173,30 +1175,30 @@ the directory from which the LDAP search begins.</p>
 <p>An <code>authConfig</code> should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>Unique Id of authConfig.</td>
-</tr>
-<tr>
-<td>pluginId</td>
-<td>Yes</td>
-<td>The Id of authorization plugin.</td>
-</tr>
-<tr>
-<td>allowOnlyKnownUsersToLogin</td>
-<td>No</td>
-<td>Allow only those users to login who have been explicitly added by an admin. If false, any new user who tries to login and is present in your password file or LDAP will be automatically created as a Go user. (Default=false)</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>Yes</td>
+          <td>Unique Id of authConfig.</td>
+      </tr>
+      <tr>
+          <td>pluginId</td>
+          <td>Yes</td>
+          <td>The Id of authorization plugin.</td>
+      </tr>
+      <tr>
+          <td>allowOnlyKnownUsersToLogin</td>
+          <td>No</td>
+          <td>Allow only those users to login who have been explicitly added by an admin. If false, any new user who tries to login and is present in your password file or LDAP will be automatically created as a Go user. (Default=false)</td>
+      </tr>
+  </tbody>
 </table>
 <p>Refer to your plugin&rsquo;s documentation to know the <code>property</code> keys to be configured.</p>
 <p><strong>Example:</strong></p>
@@ -1229,20 +1231,20 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <li>These roles are not associated with roles defined in LDAP; they only work within Go. For example, you can assign a role to the <a href="#approval">manual-approval</a> in a stage, so that only the users in that role can approve the stage to run.</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name of the role.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name of the role.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>Two users would be in the role &rsquo;environment-operators&rsquo;, they are <strong>Jez</strong> and <strong>lqiao</strong> have access to administer all the environments expect environments matching <code>prod_*</code> name.</p>
@@ -1291,25 +1293,25 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <p>The value of the <code>allow</code> element defines the resource on which policy should be applied.</p>
 <p><strong>Notes:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>The type of the GoCD entity to grant permissions on. The supported values for type are <code>environment</code> and <code>config_repo</code>.</td>
-</tr>
-<tr>
-<td>action</td>
-<td>Yes</td>
-<td>The operation that can be performed on the GoCD entity. The supported values for action are <code>administer</code> and <code>view</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>The type of the GoCD entity to grant permissions on. The supported values for type are <code>environment</code> and <code>config_repo</code>.</td>
+      </tr>
+      <tr>
+          <td>action</td>
+          <td>Yes</td>
+          <td>The operation that can be performed on the GoCD entity. The supported values for action are <code>administer</code> and <code>view</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>The following policy would grant users the permissions to <code>administer</code> to all environments matching <code>prod_*</code> name.</p>
@@ -1322,25 +1324,25 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <p>The value of the <code>deny</code> element defines the resource on which policy should be applied.</p>
 <p><strong>Notes:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>The type of the GoCD entity to deny the access on. The supported values for type are <code>environment</code> and <code>config_repo</code>.</td>
-</tr>
-<tr>
-<td>action</td>
-<td>Yes</td>
-<td>The operation that can not be performed on the GoCD entity. The supported values for action are <code>administer</code> and <code>view</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>The type of the GoCD entity to deny the access on. The supported values for type are <code>environment</code> and <code>config_repo</code>.</td>
+      </tr>
+      <tr>
+          <td>action</td>
+          <td>Yes</td>
+          <td>The operation that can not be performed on the GoCD entity. The supported values for action are <code>administer</code> and <code>view</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>The following policy would deny the <code>administer</code> access to all environments matching <code>prod_*</code> name.</p>
@@ -1354,25 +1356,25 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 <p>Optionally, the <code>&lt;pluginRole&gt;</code> element can specify a <a href="#policyinrole">policy</a> which defines the permission model for the users of the current role.</p>
 <p><strong>Notes:</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name of the role.</td>
-</tr>
-<tr>
-<td>authConfigId</td>
-<td>Yes</td>
-<td>Id of an <a href="#authConfig">authorization config</a>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name of the role.</td>
+      </tr>
+      <tr>
+          <td>authConfigId</td>
+          <td>Yes</td>
+          <td>Id of an <a href="#authConfig">authorization config</a>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>Refer to your plugin&rsquo;s documentation to know the <code>property</code> keys to be configured for the <code>pluginRole</code>.</p>
 <p><strong>Examples</strong></p>
@@ -1444,20 +1446,20 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 </span></span></code></pre></div><h2 id="elastic">&lt;elastic&gt;</h2>
 <p>The <code>&lt;elastic&gt;</code> element is used to provide configurations for the elastic agents.</p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>jobStarvationTimeout</td>
-<td>No</td>
-<td>Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be <a href="https://plugin-api.gocd.org/current/elastic-agents/#create-agent">notified</a> to create a new elastic agent.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>jobStarvationTimeout</td>
+          <td>No</td>
+          <td>Timeout in minutes. If a job that requires an elastic agent is not assigned within the specified period, the elastic agent plugin will be <a href="https://plugin-api.gocd.org/current/elastic-agents/#create-agent">notified</a> to create a new elastic agent.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;elastic</span> <span style="color:#b44">jobStarvationTimeout=</span><span style="color:#b44">&#34;10&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1483,30 +1485,30 @@ In a <code>&lt;role&gt;</code> element, Users are added by adding the sub-tag <a
 A profile should have a unique <code>id</code> attribute, should be associated with a cluster via <code>clusterProfileId</code> attribute and with plugin through the <code>pluginId</code> attribute.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>Unique Id of profile.</td>
-</tr>
-<tr>
-<td>pluginId</td>
-<td>Yes</td>
-<td>The Id of elastic-agent plugin.</td>
-</tr>
-<tr>
-<td>clusterProfileId</td>
-<td>Yes</td>
-<td>The Id of cluster profile.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>Yes</td>
+          <td>Unique Id of profile.</td>
+      </tr>
+      <tr>
+          <td>pluginId</td>
+          <td>Yes</td>
+          <td>The Id of elastic-agent plugin.</td>
+      </tr>
+      <tr>
+          <td>clusterProfileId</td>
+          <td>Yes</td>
+          <td>The Id of cluster profile.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;agentProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;ec2.small-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span> <span style="color:#b44">clusterProfileId=</span><span style="color:#b44">&#34;cluster-profile-id&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1535,25 +1537,25 @@ A profile should have a unique <code>id</code> attribute, should be associated w
 A cluster profile should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>Unique Id of cluster profile.</td>
-</tr>
-<tr>
-<td>pluginId</td>
-<td>Yes</td>
-<td>The Id of elastic-agent plugin.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>Yes</td>
+          <td>Unique Id of cluster profile.</td>
+      </tr>
+      <tr>
+          <td>pluginId</td>
+          <td>Yes</td>
+          <td>The Id of elastic-agent plugin.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;clusterProfile</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;cluster-us-east&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;com.example.ec2&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1592,25 +1594,25 @@ A cluster profile should have a unique <code>id</code> attribute and should be a
 <p>The <code>&lt;config-repo&gt;</code> element specifies a single configuration repository. It must contain exactly one SCM material and may contain additional configuration section.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pluginId</td>
-<td>Yes</td>
-<td>The ID of configuration repository plugin. E.g. <code>json.config.plugin</code>.</td>
-</tr>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>The ID of the configuration repository. ID must be a unique alphanumeric string. It can also contain <code>-</code>,<code>_</code>,<code>.</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>pluginId</td>
+          <td>Yes</td>
+          <td>The ID of configuration repository plugin. E.g. <code>json.config.plugin</code>.</td>
+      </tr>
+      <tr>
+          <td>id</td>
+          <td>Yes</td>
+          <td>The ID of the configuration repository. ID must be a unique alphanumeric string. It can also contain <code>-</code>,<code>_</code>,<code>.</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
@@ -1647,50 +1649,50 @@ can be used to <strong>customize how config repo plugin works when parsing this 
 <p>The config repo <code>&lt;svn&gt;</code> material element specifies the location of your code base in Subversion repository.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Yes</td>
-<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///&rsquo;.</td>
-</tr>
-<tr>
-<td>username</td>
-<td>No</td>
-<td>The user account for the remote repository.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>No</td>
-<td>The password for the specified user</td>
-</tr>
-<tr>
-<td>encryptedPassword</td>
-<td>No</td>
-<td>The encrypted password for the specified user</td>
-</tr>
-<tr>
-<td>checkexternals</td>
-<td>No</td>
-<td>The default value is false, the value should be either one of true/false or 1/0. &rsquo;true&rsquo; or &lsquo;1&rsquo; means that the changes of externals will be included as part of configuration.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>No</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>url</td>
+          <td>Yes</td>
+          <td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///&rsquo;.</td>
+      </tr>
+      <tr>
+          <td>username</td>
+          <td>No</td>
+          <td>The user account for the remote repository.</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td>No</td>
+          <td>The password for the specified user</td>
+      </tr>
+      <tr>
+          <td>encryptedPassword</td>
+          <td>No</td>
+          <td>The encrypted password for the specified user</td>
+      </tr>
+      <tr>
+          <td>checkexternals</td>
+          <td>No</td>
+          <td>The default value is false, the value should be either one of true/false or 1/0. &rsquo;true&rsquo; or &lsquo;1&rsquo; means that the changes of externals will be included as part of configuration.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>No</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Notes:</strong></p>
 <p>Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server,
@@ -1706,30 +1708,30 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <p>You must install Mercurial 1.5 or above on the Go Server. Go does not ship with Mercurial.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Yes</td>
-<td>URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>No</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>url</td>
+          <td>Yes</td>
+          <td>URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>No</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1745,55 +1747,55 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <p>The config repo <code>&lt;p4&gt;</code> material element specifies the location of your code base in a Perforce repository.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>port</td>
-<td>Yes</td>
-<td>Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the P4PORT environment variable.</td>
-</tr>
-<tr>
-<td>username</td>
-<td>No</td>
-<td>Perforce username to use.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>No</td>
-<td>Password for the specified user.</td>
-</tr>
-<tr>
-<td>encryptedPassword</td>
-<td>No</td>
-<td>Encrypted Password for the specified user.</td>
-</tr>
-<tr>
-<td>useTickets</td>
-<td>No</td>
-<td>Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/p4_login.html">here</a>.</td>
-</tr>
-<tr>
-<td>view</td>
-<td>Yes</td>
-<td>Valid Perforce view. The view should be a sub-element of P4. Click <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/views.html">here</a> to see details about VIEW of Perforce.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>No</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>port</td>
+          <td>Yes</td>
+          <td>Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the P4PORT environment variable.</td>
+      </tr>
+      <tr>
+          <td>username</td>
+          <td>No</td>
+          <td>Perforce username to use.</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td>No</td>
+          <td>Password for the specified user.</td>
+      </tr>
+      <tr>
+          <td>encryptedPassword</td>
+          <td>No</td>
+          <td>Encrypted Password for the specified user.</td>
+      </tr>
+      <tr>
+          <td>useTickets</td>
+          <td>No</td>
+          <td>Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/p4_login.html">here</a>.</td>
+      </tr>
+      <tr>
+          <td>view</td>
+          <td>Yes</td>
+          <td>Valid Perforce view. The view should be a sub-element of P4. Click <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/views.html">here</a> to see details about VIEW of Perforce.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>No</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Notes:</strong></p>
 <p>Views consist of multiple mappings. Each mapping has two parts:</p>
@@ -1827,35 +1829,35 @@ windows command prompt</em></p>
 directory where the .ssh/ directory is located.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Yes</td>
-<td>git url for the repository.</td>
-</tr>
-<tr>
-<td>branch</td>
-<td>No</td>
-<td>a branch name in the repository.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>No</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>url</td>
+          <td>Yes</td>
+          <td>git url for the repository.</td>
+      </tr>
+      <tr>
+          <td>branch</td>
+          <td>No</td>
+          <td>a branch name in the repository.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>No</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1866,55 +1868,55 @@ directory where the .ssh/ directory is located.</p>
 <p>The config repo <code>&lt;tfs&gt;</code> material element specifies the location of your code base in a TFS Source repository.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Yes</td>
-<td>url for the Collection on the TFS Server.</td>
-</tr>
-<tr>
-<td>Domain</td>
-<td>No</td>
-<td>Domain name for TFS authentication credentials.</td>
-</tr>
-<tr>
-<td>Username</td>
-<td>Yes</td>
-<td>Username of the account to access the TFS collection.</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>Yes</td>
-<td>Password of the account to access the TFS collection.</td>
-</tr>
-<tr>
-<td>encryptedPassword</td>
-<td>No</td>
-<td>Encrypted Password of the account to access the TFS collection.</td>
-</tr>
-<tr>
-<td>Project Path</td>
-<td>Yes</td>
-<td>The project path within the TFS collection.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>No</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>url</td>
+          <td>Yes</td>
+          <td>url for the Collection on the TFS Server.</td>
+      </tr>
+      <tr>
+          <td>Domain</td>
+          <td>No</td>
+          <td>Domain name for TFS authentication credentials.</td>
+      </tr>
+      <tr>
+          <td>Username</td>
+          <td>Yes</td>
+          <td>Username of the account to access the TFS collection.</td>
+      </tr>
+      <tr>
+          <td>Password</td>
+          <td>Yes</td>
+          <td>Password of the account to access the TFS collection.</td>
+      </tr>
+      <tr>
+          <td>encryptedPassword</td>
+          <td>No</td>
+          <td>Encrypted Password of the account to access the TFS collection.</td>
+      </tr>
+      <tr>
+          <td>Project Path</td>
+          <td>Yes</td>
+          <td>The project path within the TFS collection.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>No</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. For config repo materials, autoUpdate is always set to true.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1925,20 +1927,20 @@ directory where the .ssh/ directory is located.</p>
 <p>The config repo <code>&lt;scm&gt;</code> material element specifies the location of your code base in any of the  SCM repositories.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ref</td>
-<td>Yes</td>
-<td>The unique package repository id.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ref</td>
+          <td>Yes</td>
+          <td>The unique package repository id.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;config-repo</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;json.config.plugin&#34;</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;repo1&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -1957,25 +1959,25 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;allow&gt;</code> element is the rule which allows referring the specified configured type and resource.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>action</td>
-<td>Yes</td>
-<td>Action for the entity specified under attribute <code>type</code>. Supported values are <code>refer</code>.</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>The GoCD entity type for which rule will be applied. Supported values are <code>*, environment, pipeline_group, pipeline</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>action</td>
+          <td>Yes</td>
+          <td>Action for the entity specified under attribute <code>type</code>. Supported values are <code>refer</code>.</td>
+      </tr>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>The GoCD entity type for which rule will be applied. Supported values are <code>*, environment, pipeline_group, pipeline</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
@@ -1984,25 +1986,25 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;deny&gt;</code> element is the rule which denies the referral of the defined type and resource.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>action</td>
-<td>Yes</td>
-<td>Action for the entity specified under attribute <code>type</code>. Supported values are <code>refer</code>.</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>The GoCD entity type for which rule will be applied. Supported values are <code>*, environment, pipeline_group, pipeline</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>action</td>
+          <td>Yes</td>
+          <td>Action for the entity specified under attribute <code>type</code>. Supported values are <code>refer</code>.</td>
+      </tr>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>The GoCD entity type for which rule will be applied. Supported values are <code>*, environment, pipeline_group, pipeline</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
@@ -2041,25 +2043,25 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;repository&gt;</code> element specifies a single repository. Repository must be be unique by id and name (name is case-insensitive) across repositories configuration.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>No</td>
-<td>The id uniquely identifies a package repository by GO. This attribute need not be specified. In case no value is given, server auto-generates a random UUID and assigns it as repository id.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name uniquely identifies a package repository which will be specified by user and same will be used to display on screen. Repository name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>No</td>
+          <td>The id uniquely identifies a package repository by GO. This attribute need not be specified. In case no value is given, server auto-generates a random UUID and assigns it as repository id.</td>
+      </tr>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name uniquely identifies a package repository which will be specified by user and same will be used to display on screen. Repository name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
@@ -2093,25 +2095,25 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;pluginConfiguration&gt;</code> element specifies configuration related to plugin.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>Specifies plugin id which is going to handle repository configuration</td>
-</tr>
-<tr>
-<td>version</td>
-<td>Yes</td>
-<td>Specifies plugin version which is going to handle repository configuration</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>Yes</td>
+          <td>Specifies plugin id which is going to handle repository configuration</td>
+      </tr>
+      <tr>
+          <td>version</td>
+          <td>Yes</td>
+          <td>Specifies plugin version which is going to handle repository configuration</td>
+      </tr>
+  </tbody>
 </table>
 <p><a href="#top">top</a></p>
 <h2 id="configuration">&lt;configuration&gt;</h2>
@@ -2133,30 +2135,30 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;package&gt;</code> element specifies single package under a repository. This tag holds configuration related to package</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>No</td>
-<td>The id uniquely identifies a package by GO across repositories. This attribute need not be specified. In case no value is given, server auto-generates a random UUID and assigns it as package id.</td>
-</tr>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name uniquely identifies a package within a repository, name will be specified by user and same will be used to display on screen. Package name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>No</td>
+          <td>The id uniquely identifies a package by GO across repositories. This attribute need not be specified. In case no value is given, server auto-generates a random UUID and assigns it as package id.</td>
+      </tr>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name uniquely identifies a package within a repository, name will be specified by user and same will be used to display on screen. Package name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material.</td>
+      </tr>
+  </tbody>
 </table>
 <p><a href="#top">top</a></p>
 <h2 id="artifactStores">&lt;artifactStores&gt;</h2>
@@ -2186,25 +2188,25 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;artifactStore&gt;</code> element specifies a global artifact store to publish/fetch external artifacts. It can contain zero or more <code>&lt;property&gt;</code> elements to specify the plugin properties.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pluginId</td>
-<td>Yes</td>
-<td>The ID of artifact plugin. E.g. <code>cd.go.artifact.docker.registry</code>.</td>
-</tr>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>The ID of the artifact store. ID must be a unique alphanumeric string. It can also contain <code>-</code>,<code>_</code>,<code>.</code>. This will be used later in the publish config</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>pluginId</td>
+          <td>Yes</td>
+          <td>The ID of artifact plugin. E.g. <code>cd.go.artifact.docker.registry</code>.</td>
+      </tr>
+      <tr>
+          <td>id</td>
+          <td>Yes</td>
+          <td>The ID of the artifact store. ID must be a unique alphanumeric string. It can also contain <code>-</code>,<code>_</code>,<code>.</code>. This will be used later in the publish config</td>
+      </tr>
+  </tbody>
 </table>
 <p><a href="#top">top</a></p>
 <h2 id="secretConfigs">&lt;secretConfigs&gt;</h2>
@@ -2222,25 +2224,25 @@ directory where the .ssh/ directory is located.</p>
 <p>A <code>secretConfig</code> should have a unique <code>id</code> attribute and should be associated to plugin through the <code>pluginId</code> attribute.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td>Yes</td>
-<td>The id is used to identify a secret config, and must be unique. The id can contain the following characters: a-z, A-Z, 0-9, period (.), underscore (_) and hyphen (-). Spaces are not allowed. The length should be less than 255 characters.</td>
-</tr>
-<tr>
-<td>pluginId</td>
-<td>Yes</td>
-<td>The <code>id</code> of secrets plugin.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>id</td>
+          <td>Yes</td>
+          <td>The id is used to identify a secret config, and must be unique. The id can contain the following characters: a-z, A-Z, 0-9, period (.), underscore (_) and hyphen (-). Spaces are not allowed. The length should be less than 255 characters.</td>
+      </tr>
+      <tr>
+          <td>pluginId</td>
+          <td>Yes</td>
+          <td>The <code>id</code> of secrets plugin.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;secretconfig</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;secret&#34;</span> <span style="color:#b44">pluginId=</span><span style="color:#b44">&#34;secret-plugin&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -2271,25 +2273,25 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;allow&gt;</code> element is the rule which allows the usage of the defined secret based on action, configured type and resource.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>action</td>
-<td>Yes</td>
-<td>Action for the entity specified under attribute <code>type</code>.</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>Any GoCD entity type for which rule will be applied.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>action</td>
+          <td>Yes</td>
+          <td>Action for the entity specified under attribute <code>type</code>.</td>
+      </tr>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>Any GoCD entity type for which rule will be applied.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;allow</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/allow&gt;</span>
@@ -2298,25 +2300,25 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;deny&gt;</code> element is the rule which denies the usage of the defined secret based on action, configured type and resource.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>action</td>
-<td>Yes</td>
-<td>Action for the entity specified under attribute <code>type</code>.</td>
-</tr>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>Any GoCD entity type for which rule will be applied.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>action</td>
+          <td>Yes</td>
+          <td>Action for the entity specified under attribute <code>type</code>.</td>
+      </tr>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>Any GoCD entity type for which rule will be applied.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;deny</span> <span style="color:#b44">action=</span><span style="color:#b44">&#34;refer&#34;</span> <span style="color:#b44">type=</span><span style="color:#b44">&#34;*&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>*<span style="color:#008000;font-weight:bold">&lt;/deny&gt;</span>
@@ -2325,20 +2327,20 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;pipelines&gt;</code> element is a container of pipelines.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>group</td>
-<td>No</td>
-<td>The name is used to identify a pipeline group, and must be unique. The name can contain the following characters: a-z, A-Z, 0-9, period (.), underscore (_) and hyphen (-). Spaces are not allowed. The length should be less than 255 characters. The default name is &lsquo;defaultGroup&rsquo;.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>group</td>
+          <td>No</td>
+          <td>The name is used to identify a pipeline group, and must be unique. The name can contain the following characters: a-z, A-Z, 0-9, period (.), underscore (_) and hyphen (-). Spaces are not allowed. The length should be less than 255 characters. The default name is &lsquo;defaultGroup&rsquo;.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
@@ -2440,35 +2442,35 @@ pipeline group).</p>
 <p>There should be at least one stage in one pipeline. Go uses the pipeline name to identify the pipeline. If you change the pipeline name, you will lose the history of the pipeline.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name is used to identify a pipeline, so each pipeline name must be unique. Pipeline name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters.</td>
-</tr>
-<tr>
-<td>labeltemplate</td>
-<td>No</td>
-<td>Both of material names and ${COUNT} are available in the labeltemplate and the default value of labeltemplate is &lsquo;${COUNT}&rsquo;. If you just specify labeltemplate=&ldquo;foo-1.0-${COUNT}&rdquo;, your pipeline will show foo-1.0-1, foo-1.0-2, and so on. When you reference material names in the labeltemplate, Go will use the revisions of the reference materials to populate the pipeline label. For example, given a mateial name is &lsquo;svnrepo&rsquo; in a pipeline, when you specify labeltemplate=&ldquo;foo-1.0-${svnrepo}&rdquo;, then your pipeline would show foo-1.0-3123, foo-1.0-3124, and so on. Material names are case insensitive. The max length of a pipeline label is 255. If a material name is &lsquo;svnrepo&rsquo;, the following labeltemplates are valid: ${COUNT}, ${svnrepo}, foo-${COUNT}-${SVNrepo}, foo-${svnrepo}-${COUNT}-bar.</td>
-</tr>
-<tr>
-<td>lockBehavior</td>
-<td>No</td>
-<td>The possible values are &ldquo;none&rdquo;, &ldquo;lockOnFailure&rdquo; or &ldquo;unlockWhenFinished&rdquo;.The default value is &ldquo;none&rdquo;. When set to &ldquo;lockOnFailure&rdquo;, GoCD ensures that only a single instance of a pipeline can be run at a time and the pipeline <a href="../configuration/admin_lock_pipelines.html">will be locked</a> if it fails, unless it is the last stage which fails. When set to &ldquo;unlockWhenFinished&rdquo;, GoCD ensures that only a single instance of a pipeline can be run at a time, and the pipeline will be unlocked as soon as it finishes (success or failure), or reaches a manual stage.</td>
-</tr>
-<tr>
-<td>template</td>
-<td>No</td>
-<td>The name of the template that this pipeline references. If this is set, no stages may be defined in this pipeline.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name is used to identify a pipeline, so each pipeline name must be unique. Pipeline name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Name is case-insensitive in Go and the length should be less than 255 characters.</td>
+      </tr>
+      <tr>
+          <td>labeltemplate</td>
+          <td>No</td>
+          <td>Both of material names and ${COUNT} are available in the labeltemplate and the default value of labeltemplate is &lsquo;${COUNT}&rsquo;. If you just specify labeltemplate=&ldquo;foo-1.0-${COUNT}&rdquo;, your pipeline will show foo-1.0-1, foo-1.0-2, and so on. When you reference material names in the labeltemplate, Go will use the revisions of the reference materials to populate the pipeline label. For example, given a mateial name is &lsquo;svnrepo&rsquo; in a pipeline, when you specify labeltemplate=&ldquo;foo-1.0-${svnrepo}&rdquo;, then your pipeline would show foo-1.0-3123, foo-1.0-3124, and so on. Material names are case insensitive. The max length of a pipeline label is 255. If a material name is &lsquo;svnrepo&rsquo;, the following labeltemplates are valid: ${COUNT}, ${svnrepo}, foo-${COUNT}-${SVNrepo}, foo-${svnrepo}-${COUNT}-bar.</td>
+      </tr>
+      <tr>
+          <td>lockBehavior</td>
+          <td>No</td>
+          <td>The possible values are &ldquo;none&rdquo;, &ldquo;lockOnFailure&rdquo; or &ldquo;unlockWhenFinished&rdquo;.The default value is &ldquo;none&rdquo;. When set to &ldquo;lockOnFailure&rdquo;, GoCD ensures that only a single instance of a pipeline can be run at a time and the pipeline <a href="../configuration/admin_lock_pipelines.html">will be locked</a> if it fails, unless it is the last stage which fails. When set to &ldquo;unlockWhenFinished&rdquo;, GoCD ensures that only a single instance of a pipeline can be run at a time, and the pipeline will be unlocked as soon as it finishes (success or failure), or reaches a manual stage.</td>
+      </tr>
+      <tr>
+          <td>template</td>
+          <td>No</td>
+          <td>The name of the template that this pipeline references. If this is set, no stages may be defined in this pipeline.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipelines&gt;</span>
@@ -2511,25 +2513,25 @@ template.</p>
 can use to take you to your tracking tool (JIRA issue, Trac issue etc).</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>link</td>
-<td>Yes</td>
-<td>a URL with a string &lsquo;${ID}&rsquo;. Go will replace the string &lsquo;${ID}&rsquo; with the first matched group value at run-time.</td>
-</tr>
-<tr>
-<td>regex</td>
-<td>Yes</td>
-<td>A <a href="">regex</a> to identify the IDs. Go will find the first matched group in your commit messages and use it to construct the hyper-link.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>link</td>
+          <td>Yes</td>
+          <td>a URL with a string &lsquo;${ID}&rsquo;. Go will replace the string &lsquo;${ID}&rsquo; with the first matched group value at run-time.</td>
+      </tr>
+      <tr>
+          <td>regex</td>
+          <td>Yes</td>
+          <td>A <a href="">regex</a> to identify the IDs. Go will find the first matched group in your commit messages and use it to construct the hyper-link.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>Suppose you are using a Web Application to manage your tasks or bugs, and the link looks like <code>http://your-trackingtool/yourproject/512</code>, &lsquo;512&rsquo;
@@ -2551,20 +2553,20 @@ box as a link. When you click it, Go will take you to the web page <code>http://
 <p>The <code>&lt;timer&gt;</code> element specifies a cron-like schedule to build the pipeline.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>onlyOnChanges</td>
-<td>No</td>
-<td>Skips scheduling if the previous run of the pipeline was with the latest material(s). This option is typically useful when automatic pipeline scheduling is turned off.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>onlyOnChanges</td>
+          <td>No</td>
+          <td>Skips scheduling if the previous run of the pipeline was with the latest material(s). This option is typically useful when automatic pipeline scheduling is turned off.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>For example to run a pipeline once a night at 10pm on weekdays:</p>
@@ -2577,58 +2579,58 @@ box as a link. When you click it, Go will take you to the web page <code>http://
 <p>A cron expression is a string comprised of 6 or 7 fields separated by white space. Fields can contain any of the allowed values, along with
 various combinations of the allowed special characters for that field. The fields are as follows:</p>
 <table>
-<thead>
-<tr>
-<th>Field Name</th>
-<th>Mandatory?</th>
-<th>Allowed Values</th>
-<th>Allowed Special Characters</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Seconds</td>
-<td>YES</td>
-<td>0-59</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Minutes</td>
-<td>YES</td>
-<td>0-59</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Hours</td>
-<td>YES</td>
-<td>0-23</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Day of month</td>
-<td>YES</td>
-<td>1-31</td>
-<td>, - * ? / L W\</td>
-</tr>
-<tr>
-<td>Month</td>
-<td>YES</td>
-<td>1-12 or JAN-DEC</td>
-<td>, - * /</td>
-</tr>
-<tr>
-<td>Day of week</td>
-<td>YES</td>
-<td>1-7 or SUN-SAT</td>
-<td>, - * ? / L #</td>
-</tr>
-<tr>
-<td>Year</td>
-<td>NO</td>
-<td>empty, 1970-2099</td>
-<td>, - * /</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Field Name</th>
+          <th>Mandatory?</th>
+          <th>Allowed Values</th>
+          <th>Allowed Special Characters</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Seconds</td>
+          <td>YES</td>
+          <td>0-59</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Minutes</td>
+          <td>YES</td>
+          <td>0-59</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Hours</td>
+          <td>YES</td>
+          <td>0-23</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Day of month</td>
+          <td>YES</td>
+          <td>1-31</td>
+          <td>, - * ? / L W\</td>
+      </tr>
+      <tr>
+          <td>Month</td>
+          <td>YES</td>
+          <td>1-12 or JAN-DEC</td>
+          <td>, - * /</td>
+      </tr>
+      <tr>
+          <td>Day of week</td>
+          <td>YES</td>
+          <td>1-7 or SUN-SAT</td>
+          <td>, - * ? / L #</td>
+      </tr>
+      <tr>
+          <td>Year</td>
+          <td>NO</td>
+          <td>empty, 1970-2099</td>
+          <td>, - * /</td>
+      </tr>
+  </tbody>
 </table>
 <p>So cron expressions can be as simple as this: <code>* * * * * ?</code> or more complex, like this: <code>0 15 10 ? * 6L 2002-2005</code></p>
 <p><strong>Special characters</strong></p>
@@ -2661,90 +2663,90 @@ various combinations of the allowed special characters for that field. The field
 <p><strong>Examples</strong></p>
 <p>Here are some full examples:</p>
 <table>
-<thead>
-<tr>
-<th>Expression</th>
-<th>Meaning</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>0 0 12 * * ?</code></td>
-<td>Fire at 12pm (noon) every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * *</code></td>
-<td>Fire at 10:15am every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 * * ?</code></td>
-<td>Fire at 10:15am every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 * * ? *</code></td>
-<td>Fire at 10:15am every day</td>
-</tr>
-<tr>
-<td><code>0 15 10 * * ? 2005</code></td>
-<td>Fire at 10:15am every day during the year 2005</td>
-</tr>
-<tr>
-<td><code>0 * 14 * * ?</code></td>
-<td>Fire every minute starting at 2pm and ending at 2:59pm, every day</td>
-</tr>
-<tr>
-<td><code>0 0/5 14 * * ?</code></td>
-<td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, every day</td>
-</tr>
-<tr>
-<td><code>0 0/5 14,18 * * ?</code></td>
-<td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day</td>
-</tr>
-<tr>
-<td><code>0 0-5 14 * * ?</code></td>
-<td>Fire every minute starting at 2pm and ending at 2:05pm, every day</td>
-</tr>
-<tr>
-<td><code>0 10,44 14 ? 3 WED</code></td>
-<td>Fire at 2:10pm and at 2:44pm every Wednesday in the month of March.</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * MON-FRI</code></td>
-<td>Fire at 10:15am every Monday, Tuesday, Wednesday, Thursday and Friday</td>
-</tr>
-<tr>
-<td><code>0 15 10 15 * ?</code></td>
-<td>Fire at 10:15am on the 15th day of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 L * ?</code></td>
-<td>Fire at 10:15am on the last day of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6L</code></td>
-<td>Fire at 10:15am on the last Friday of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6L</code></td>
-<td>Fire at 10:15am on the last Friday of every month</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6L 2002-2005</code></td>
-<td>Fire at 10:15am on every last friday of every month during the years 2002, 2003, 2004 and 2005</td>
-</tr>
-<tr>
-<td><code>0 15 10 ? * 6#3</code></td>
-<td>Fire at 10:15am on the third Friday of every month</td>
-</tr>
-<tr>
-<td><code>0 0 12 1/5 * ?</code></td>
-<td>Fire at 12pm (noon) every 5 days every month, starting on the first day of the month.</td>
-</tr>
-<tr>
-<td><code>0 11 11 11 11 ?</code></td>
-<td>Fire every November 11th at 11:11am.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Expression</th>
+          <th>Meaning</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>0 0 12 * * ?</code></td>
+          <td>Fire at 12pm (noon) every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * *</code></td>
+          <td>Fire at 10:15am every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 * * ?</code></td>
+          <td>Fire at 10:15am every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 * * ? *</code></td>
+          <td>Fire at 10:15am every day</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 * * ? 2005</code></td>
+          <td>Fire at 10:15am every day during the year 2005</td>
+      </tr>
+      <tr>
+          <td><code>0 * 14 * * ?</code></td>
+          <td>Fire every minute starting at 2pm and ending at 2:59pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 0/5 14 * * ?</code></td>
+          <td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 0/5 14,18 * * ?</code></td>
+          <td>Fire every 5 minutes starting at 2pm and ending at 2:55pm, AND fire every 5 minutes starting at 6pm and ending at 6:55pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 0-5 14 * * ?</code></td>
+          <td>Fire every minute starting at 2pm and ending at 2:05pm, every day</td>
+      </tr>
+      <tr>
+          <td><code>0 10,44 14 ? 3 WED</code></td>
+          <td>Fire at 2:10pm and at 2:44pm every Wednesday in the month of March.</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * MON-FRI</code></td>
+          <td>Fire at 10:15am every Monday, Tuesday, Wednesday, Thursday and Friday</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 15 * ?</code></td>
+          <td>Fire at 10:15am on the 15th day of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 L * ?</code></td>
+          <td>Fire at 10:15am on the last day of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6L</code></td>
+          <td>Fire at 10:15am on the last Friday of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6L</code></td>
+          <td>Fire at 10:15am on the last Friday of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6L 2002-2005</code></td>
+          <td>Fire at 10:15am on every last friday of every month during the years 2002, 2003, 2004 and 2005</td>
+      </tr>
+      <tr>
+          <td><code>0 15 10 ? * 6#3</code></td>
+          <td>Fire at 10:15am on the third Friday of every month</td>
+      </tr>
+      <tr>
+          <td><code>0 0 12 1/5 * ?</code></td>
+          <td>Fire at 12pm (noon) every 5 days every month, starting on the first day of the month.</td>
+      </tr>
+      <tr>
+          <td><code>0 11 11 11 11 ?</code></td>
+          <td>Fire every November 11th at 11:11am.</td>
+      </tr>
+  </tbody>
 </table>
 <p>Pay attention to the effects of &lsquo;?&rsquo; and &lsquo;*&rsquo; in the day-of-week and day-of-month fields!</p>
 <p><strong>Notes</strong></p>
@@ -2794,20 +2796,20 @@ other material). Go will check out the source code into this folder for each mat
 contain these files will not trigger a pipeline automatically.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pattern</td>
-<td>Yes</td>
-<td>defines a pattern (Ant-style) for the files to be ignored. Changes of thoes files will not trigger the pipeline. the pattern is relative to the root of the SCM repository, not the sandbox of the pipeline.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>pattern</td>
+          <td>Yes</td>
+          <td>defines a pattern (Ant-style) for the files to be ignored. Changes of thoes files will not trigger the pipeline. the pattern is relative to the root of the SCM repository, not the sandbox of the pipeline.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Notes</strong></p>
 <ul>
@@ -2833,55 +2835,55 @@ contain these files will not trigger a pipeline automatically.</p>
 <p>The <code>&lt;svn&gt;</code> element specifies the location of your code base in Subversion repository.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Yes</td>
-<td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///&rsquo;.</td>
-</tr>
-<tr>
-<td>username</td>
-<td>No</td>
-<td>The user account for the remote repository.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>No</td>
-<td>The password for the specified user</td>
-</tr>
-<tr>
-<td>checkexternals</td>
-<td>No</td>
-<td>The default value is false, the value should be either one of true/false or 1/0. &rsquo;true&rsquo; or &lsquo;1&rsquo; means that the changes of externals will trigger the pipeline automatically.</td>
-</tr>
-<tr>
-<td>dest</td>
-<td>Required if there are multiple materials</td>
-<td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>Required if this material is referenced in pipeline labeltemplate</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. It needs to be unique within a pipeline. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material or it receives a notification through a post-commit hook. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
-</tr>
-<tr>
-<td>invertFilter</td>
-<td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>url</td>
+          <td>Yes</td>
+          <td>URL for the remote repository. Go supports the following protocols for subversion: http, https, svn and svn+ssh, but does not support &lsquo;file:///&rsquo;.</td>
+      </tr>
+      <tr>
+          <td>username</td>
+          <td>No</td>
+          <td>The user account for the remote repository.</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td>No</td>
+          <td>The password for the specified user</td>
+      </tr>
+      <tr>
+          <td>checkexternals</td>
+          <td>No</td>
+          <td>The default value is false, the value should be either one of true/false or 1/0. &rsquo;true&rsquo; or &lsquo;1&rsquo; means that the changes of externals will trigger the pipeline automatically.</td>
+      </tr>
+      <tr>
+          <td>dest</td>
+          <td>Required if there are multiple materials</td>
+          <td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>Required if this material is referenced in pipeline labeltemplate</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen, but whitespace is not allowed. A material name is case insensitive and starting with fullstop is invalid. It needs to be unique within a pipeline. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material or it receives a notification through a post-commit hook. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
+      </tr>
+      <tr>
+          <td>invertFilter</td>
+          <td>No</td>
+          <td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Notes:</strong></p>
 <p>Go cannot automatically accept svn SSL certificates. If you are using https for svn repository, you have to go to the Server and each Agent,
@@ -2903,40 +2905,40 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <p>You must install Mercurial 1.5 or above on the Go Server and Go Agents for the jobs need Mercurial. Go does not ship with Mercurial.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Yes</td>
-<td>URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go.</td>
-</tr>
-<tr>
-<td>dest</td>
-<td>Only for multiple materials</td>
-<td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>Required if this material is referenced in pipeline labeltemplate</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
-</tr>
-<tr>
-<td>invertFilter</td>
-<td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>url</td>
+          <td>Yes</td>
+          <td>URL to fetch source code from the Mercurial repository. If you specify the username and password for the Mercurial repository, you should put them into the url. Mercurial supports an optional identifier after # in the url, which indicates a particular branch, tag or changeset. This option can be used to configure mercurial branches in Go.</td>
+      </tr>
+      <tr>
+          <td>dest</td>
+          <td>Only for multiple materials</td>
+          <td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>Required if this material is referenced in pipeline labeltemplate</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
+      </tr>
+      <tr>
+          <td>invertFilter</td>
+          <td>No</td>
+          <td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -2960,60 +2962,60 @@ and as the user &lsquo;go&rsquo; do a command &ldquo;svn update&rdquo; to store 
 <p>Go will use directory under pipelines/{pipelineName} in agent side as Perforce root directory of perforce client workspace.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>port</td>
-<td>Yes</td>
-<td>Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the P4PORT environment variable.</td>
-</tr>
-<tr>
-<td>username</td>
-<td>No</td>
-<td>Perforce username to use.</td>
-</tr>
-<tr>
-<td>password</td>
-<td>No</td>
-<td>Password for the specified user.</td>
-</tr>
-<tr>
-<td>useTickets</td>
-<td>No</td>
-<td>Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/p4_login.html">here</a>.</td>
-</tr>
-<tr>
-<td>dest</td>
-<td>Only for multiple materials</td>
-<td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
-</tr>
-<tr>
-<td>view</td>
-<td>Yes</td>
-<td>Valid Perforce view. The view should be a sub-element of P4. Click <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/views.html">here</a> to see details about VIEW of Perforce.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>Required if this material is referenced in pipeline labeltemplate</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
-</tr>
-<tr>
-<td>invertFilter</td>
-<td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>port</td>
+          <td>Yes</td>
+          <td>Perforce server connection to use (host:port). This is the same as you would pass in the p4port parameter for the p4 command line or in the P4PORT environment variable.</td>
+      </tr>
+      <tr>
+          <td>username</td>
+          <td>No</td>
+          <td>Perforce username to use.</td>
+      </tr>
+      <tr>
+          <td>password</td>
+          <td>No</td>
+          <td>Password for the specified user.</td>
+      </tr>
+      <tr>
+          <td>useTickets</td>
+          <td>No</td>
+          <td>Set to true to work with perforce tickets. Go will do a p4 login using the supplied password before each command. We recommend that you make your user a part of a p4 group, and set the ticket timeout to unlimited as described <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/p4_login.html">here</a>.</td>
+      </tr>
+      <tr>
+          <td>dest</td>
+          <td>Only for multiple materials</td>
+          <td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
+      </tr>
+      <tr>
+          <td>view</td>
+          <td>Yes</td>
+          <td>Valid Perforce view. The view should be a sub-element of P4. Click <a href="https://help.perforce.com/helix-core/server-apps/cmdref/current/Content/CmdRef/views.html">here</a> to see details about VIEW of Perforce.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>Required if this material is referenced in pipeline labeltemplate</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
+      </tr>
+      <tr>
+          <td>invertFilter</td>
+          <td>No</td>
+          <td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Notes:</strong></p>
 <p>You do not need to specify the above attributes if you have already defined them as system variables. So if you have a P4PASSWD variable
@@ -3054,50 +3056,50 @@ windows command prompt</em></p>
 directory where the .ssh/ directory is located.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>url</td>
-<td>Yes</td>
-<td>GIT URL for the repository.</td>
-</tr>
-<tr>
-<td>branch</td>
-<td>No</td>
-<td>a branch name in the repository.</td>
-</tr>
-<tr>
-<td>shallowClone</td>
-<td>No</td>
-<td>Add a <code>--depth=N</code> option to git cloning command on Go agent. Shallow clone truncates history to latest revisions, thus helps accelerating clone operation for repositories with long history. Cloning depth is dynamically calculated to ensure revisions from <a href="#env-var-GO_FROM_REVISION">GO_FROM_REVISION</a> to <a href="#env-var-GO_TO_REVISION">GO_TO_REVISION</a> are included in the cloned repository.</td>
-</tr>
-<tr>
-<td>dest</td>
-<td>Only for multiple materials</td>
-<td>The directory under the sandbox of Go Agent. Go will check out the source code into this directory.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>Required if this material is referenced in pipeline labeltemplate</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>autoUpdate</td>
-<td>No</td>
-<td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
-</tr>
-<tr>
-<td>invertFilter</td>
-<td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>url</td>
+          <td>Yes</td>
+          <td>GIT URL for the repository.</td>
+      </tr>
+      <tr>
+          <td>branch</td>
+          <td>No</td>
+          <td>a branch name in the repository.</td>
+      </tr>
+      <tr>
+          <td>shallowClone</td>
+          <td>No</td>
+          <td>Add a <code>--depth=N</code> option to git cloning command on Go agent. Shallow clone truncates history to latest revisions, thus helps accelerating clone operation for repositories with long history. Cloning depth is dynamically calculated to ensure revisions from <a href="#env-var-GO_FROM_REVISION">GO_FROM_REVISION</a> to <a href="#env-var-GO_TO_REVISION">GO_TO_REVISION</a> are included in the cloned repository.</td>
+      </tr>
+      <tr>
+          <td>dest</td>
+          <td>Only for multiple materials</td>
+          <td>The directory under the sandbox of Go Agent. Go will check out the source code into this directory.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>Required if this material is referenced in pipeline labeltemplate</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>autoUpdate</td>
+          <td>No</td>
+          <td>By default Go polls the repository for changes automatically. If autoUpdate is set to false then Go will not poll the repository for changes. Instead it will check for changes only when you trigger a pipeline that contains this material. If the same material is specified more than once in the configuration file, all of them must have the same value for autoUpdate.</td>
+      </tr>
+      <tr>
+          <td>invertFilter</td>
+          <td>No</td>
+          <td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3117,50 +3119,50 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;tfs&gt;</code> element specifies the location of your code base in a TFS Source repository.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>URL</td>
-<td>Yes</td>
-<td>URL for the Collection on the TFS Server.</td>
-</tr>
-<tr>
-<td>Domain</td>
-<td>No</td>
-<td>Domain name for TFS authentication credentials.</td>
-</tr>
-<tr>
-<td>Username</td>
-<td>Yes</td>
-<td>Username of the account to access the TFS collection.</td>
-</tr>
-<tr>
-<td>Password</td>
-<td>Yes</td>
-<td>Password of the account to access the TFS collection.</td>
-</tr>
-<tr>
-<td>Project Path</td>
-<td>Yes</td>
-<td>The project path within the TFS collection.</td>
-</tr>
-<tr>
-<td>dest</td>
-<td>Only for multiple materials</td>
-<td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
-</tr>
-<tr>
-<td>invertFilter</td>
-<td>No</td>
-<td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>URL</td>
+          <td>Yes</td>
+          <td>URL for the Collection on the TFS Server.</td>
+      </tr>
+      <tr>
+          <td>Domain</td>
+          <td>No</td>
+          <td>Domain name for TFS authentication credentials.</td>
+      </tr>
+      <tr>
+          <td>Username</td>
+          <td>Yes</td>
+          <td>Username of the account to access the TFS collection.</td>
+      </tr>
+      <tr>
+          <td>Password</td>
+          <td>Yes</td>
+          <td>Password of the account to access the TFS collection.</td>
+      </tr>
+      <tr>
+          <td>Project Path</td>
+          <td>Yes</td>
+          <td>The project path within the TFS collection.</td>
+      </tr>
+      <tr>
+          <td>dest</td>
+          <td>Only for multiple materials</td>
+          <td>The directory where the code will be checked out. This is relative to the sandbox of the Go Agent. Go prevents the destination folder from being outside the agent&rsquo;s sandbox.</td>
+      </tr>
+      <tr>
+          <td>invertFilter</td>
+          <td>No</td>
+          <td>Inverts any <code>filter</code> elements, turning them into allowlists. Only files that <em>match</em> the filter will trigger a new build.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples are:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;webproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3180,20 +3182,20 @@ directory where the .ssh/ directory is located.</p>
 <p>The <code>&lt;package&gt;</code> element refers to package which is defined as part of repositories configuration.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>ref</td>
-<td>Yes</td>
-<td>The ref tag holds the id of the package</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ref</td>
+          <td>Yes</td>
+          <td>The ref tag holds the id of the package</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
@@ -3239,35 +3241,35 @@ directory where the .ssh/ directory is located.</p>
 <p>Note that you can not specify two (or more) dependencies for the same upstream pipeline.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>pipelineName</td>
-<td>Yes</td>
-<td>The name of a pipeline that this pipeline depends on.</td>
-</tr>
-<tr>
-<td>stageName</td>
-<td>Yes</td>
-<td>The name of a stage which will trigger this pipeline once it is successful.</td>
-</tr>
-<tr>
-<td>materialName</td>
-<td>By default the materialName is the name of the upstream pipeline (the pipelineName). This is required if this material is referenced in pipeline labeltemplate</td>
-<td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
-</tr>
-<tr>
-<td>ignoreForScheduling</td>
-<td>No (false by default)</td>
-<td>Controls whether the pipeline will run if the specified upstream pipeline/stage passes. <ul><li>When set to <code>false</code>, the pipeline will run.</li><li>When set to <code>true</code>, the pipeline will not run.</li></ul><p>However, if the pipeline is triggered through other means (e.g., by another material, manually, or via timer), it will always pick up the latest successful run of the upstream pipeline stage specified by this material.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>pipelineName</td>
+          <td>Yes</td>
+          <td>The name of a pipeline that this pipeline depends on.</td>
+      </tr>
+      <tr>
+          <td>stageName</td>
+          <td>Yes</td>
+          <td>The name of a stage which will trigger this pipeline once it is successful.</td>
+      </tr>
+      <tr>
+          <td>materialName</td>
+          <td>By default the materialName is the name of the upstream pipeline (the pipelineName). This is required if this material is referenced in pipeline labeltemplate</td>
+          <td>The name to identify a material. Material name can contain the following characters: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed. Material name is case insensitive. It needs to be unique within a pipeline. The max length is 255 characters.</td>
+      </tr>
+      <tr>
+          <td>ignoreForScheduling</td>
+          <td>No (false by default)</td>
+          <td>Controls whether the pipeline will run if the specified upstream pipeline/stage passes. <ul><li>When set to <code>false</code>, the pipeline will run.</li><li>When set to <code>true</code>, the pipeline will not run.</li></ul><p>However, if the pipeline is triggered through other means (e.g., by another material, manually, or via timer), it will always pick up the latest successful run of the upstream pipeline stage specified by this material.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Notes:</strong></p>
 <p>The downstream pipeline will only run if the upstream pipeline stage has passed.</p>
@@ -3307,35 +3309,35 @@ directory where the .ssh/ directory is located.</p>
 <p>There must be at least one job in stage.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name is used to identify a stage in the pipeline, so it has to be unique (case insensitive) for that <code>&lt;pipeline&gt;</code>. The available characters in stage name are following: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.</td>
-</tr>
-<tr>
-<td>fetchMaterials</td>
-<td>No (Default: true)</td>
-<td><strong>Perform material updates or checkouts on the agent</strong>. Set this attribute to false to skip this operation.</td>
-</tr>
-<tr>
-<td>cleanWorkingDir</td>
-<td>No (Default: false)</td>
-<td>Remove all files/directories in the working directory on the agent. By default this operation is skipped.</td>
-</tr>
-<tr>
-<td>artifactCleanupProhibited</td>
-<td>No (Default: false)</td>
-<td>Never cleanup artifacts for this stage, if purging artifacts is configured at the Server Level.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name is used to identify a stage in the pipeline, so it has to be unique (case insensitive) for that <code>&lt;pipeline&gt;</code>. The available characters in stage name are following: a-z, A-Z, 0-9, fullstop, underscore and hyphen. Spaces are not allowed.</td>
+      </tr>
+      <tr>
+          <td>fetchMaterials</td>
+          <td>No (Default: true)</td>
+          <td><strong>Perform material updates or checkouts on the agent</strong>. Set this attribute to false to skip this operation.</td>
+      </tr>
+      <tr>
+          <td>cleanWorkingDir</td>
+          <td>No (Default: false)</td>
+          <td>Remove all files/directories in the working directory on the agent. By default this operation is skipped.</td>
+      </tr>
+      <tr>
+          <td>artifactCleanupProhibited</td>
+          <td>No (Default: false)</td>
+          <td>Never cleanup artifacts for this stage, if purging artifacts is configured at the Server Level.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;pipeline</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;yourproject&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3384,40 +3386,40 @@ Resources are used to match a Job to an Agent. ElasticProfileId is used to match
 If a Job has no resources then it can be built by any Agent (But not by an elastic agent)</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name of the job. The name must be unique (ignoring case) within a <code>&lt;stage&gt;</code>. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed.</td>
-</tr>
-<tr>
-<td>runOnAllAgents</td>
-<td>No</td>
-<td>If set to &rsquo;true&rsquo; then the Job will run on all agents that can run the job.</td>
-</tr>
-<tr>
-<td>runInstanceCount</td>
-<td>No</td>
-<td>If set to &lsquo;x&rsquo; (integer) then &lsquo;x&rsquo; instances of Job will be spawned during scheduling. Environment variables <code>GO_JOB_RUN_INDEX</code> (with values 1-x for every Job) and <code>GO_JOB_RUN_COUNT</code> (with value x for each Job) will be exposed to each task of Job.</td>
-</tr>
-<tr>
-<td>timeout</td>
-<td>No</td>
-<td>A job can be configured to time out if it does not generate any console output for a period of time. Use this attribute to define the timeout value in minutes. Define timeout as 0 if the job should never time out. If the attribute is not defined, the default <code>&lt;server&gt;</code> level timeout behaviour will apply.</td>
-</tr>
-<tr>
-<td>elasticProfileId</td>
-<td>No</td>
-<td>A job can be configured to run on an elastic agent by specifying this attribute, which maps to the id of an existing <a href="#agentProfile"><code>&lt;agentProfile&gt;</code></a>. MUST NOT be specified along with <code>resources</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name of the job. The name must be unique (ignoring case) within a <code>&lt;stage&gt;</code>. The name can contain: a-z, A-Z, 0-9, fullstop, underscore and hyphen only. Spaces are not allowed.</td>
+      </tr>
+      <tr>
+          <td>runOnAllAgents</td>
+          <td>No</td>
+          <td>If set to &rsquo;true&rsquo; then the Job will run on all agents that can run the job.</td>
+      </tr>
+      <tr>
+          <td>runInstanceCount</td>
+          <td>No</td>
+          <td>If set to &lsquo;x&rsquo; (integer) then &lsquo;x&rsquo; instances of Job will be spawned during scheduling. Environment variables <code>GO_JOB_RUN_INDEX</code> (with values 1-x for every Job) and <code>GO_JOB_RUN_COUNT</code> (with value x for each Job) will be exposed to each task of Job.</td>
+      </tr>
+      <tr>
+          <td>timeout</td>
+          <td>No</td>
+          <td>A job can be configured to time out if it does not generate any console output for a period of time. Use this attribute to define the timeout value in minutes. Define timeout as 0 if the job should never time out. If the attribute is not defined, the default <code>&lt;server&gt;</code> level timeout behaviour will apply.</td>
+      </tr>
+      <tr>
+          <td>elasticProfileId</td>
+          <td>No</td>
+          <td>A job can be configured to run on an elastic agent by specifying this attribute, which maps to the id of an existing <a href="#agentProfile"><code>&lt;agentProfile&gt;</code></a>. MUST NOT be specified along with <code>resources</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3475,50 +3477,50 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <p>There can be zero or more tasks. These tasks are executed in the order specified in the configuration file. If a task fails, the subsequent tasks are not run unless they have <a href="#runif"><code>&lt;runif status=&quot;failed&quot; /&gt;</code></a> defined.</p>
 <p>The following environment variables are set for all tasks:</p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>GO_SERVER_URL</code></td>
-<td>The base URL for the server, including &lsquo;/go&rsquo;. For example: <code>http://localhost:8153/go</code></td>
-</tr>
-<tr>
-<td><code>GO_PIPELINE_NAME</code></td>
-<td>The name of the pipeline to which the job belongs to</td>
-</tr>
-<tr>
-<td><code>GO_PIPELINE_LABEL</code></td>
-<td>The label of the pipeline to which the job belongs to</td>
-</tr>
-<tr>
-<td><code>GO_STAGE_NAME</code></td>
-<td>The name of the stage to which the job belongs to</td>
-</tr>
-<tr>
-<td><code>GO_STAGE_COUNTER</code></td>
-<td>The re-run counter of the stage to which the job belongs to</td>
-</tr>
-<tr>
-<td><code>GO_JOB_NAME</code></td>
-<td>The name of the job that is being run</td>
-</tr>
-<tr>
-<td><code>GO_DEPENDENCY_LABEL_&lt;upstream_pipeline_name&gt;_&lt;upstream_stage_name&gt;</code></td>
-<td>The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: &lsquo;GO_DEPENDENCY_LABEL_FRAMEWORK_DEV&rsquo; is the environment variable where the name of the upstream pipeline is &lsquo;framework&rsquo; and the upstream stage is &lsquo;dev&rsquo;. Hyphen (&rsquo;-&rsquo;) is an illegal character in an environment variable. So if a pipeline name or stage name contains &lsquo;-&rsquo;, it will be converted into an underscore. For example, &lsquo;pipeline-foo&rsquo; with stage &lsquo;stage-foo&rsquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO.</td>
-</tr>
-<tr>
-<td><span id="env-var-GO_TO_REVISION"><code>GO_TO_REVISION_&lt;material_name&gt;</code></span></td>
-<td>The lastest revision in modifications that the build running against for each configured SCM material.</td>
-</tr>
-<tr>
-<td><span id="env-var-GO_FROM_REVISION"><code>GO_FROM_REVISION_&lt;material_name&gt;</code></span></td>
-<td>The earlist revision in modifications that the build running against for each configured SCM material.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>GO_SERVER_URL</code></td>
+          <td>The base URL for the server, including &lsquo;/go&rsquo;. For example: <code>http://localhost:8153/go</code></td>
+      </tr>
+      <tr>
+          <td><code>GO_PIPELINE_NAME</code></td>
+          <td>The name of the pipeline to which the job belongs to</td>
+      </tr>
+      <tr>
+          <td><code>GO_PIPELINE_LABEL</code></td>
+          <td>The label of the pipeline to which the job belongs to</td>
+      </tr>
+      <tr>
+          <td><code>GO_STAGE_NAME</code></td>
+          <td>The name of the stage to which the job belongs to</td>
+      </tr>
+      <tr>
+          <td><code>GO_STAGE_COUNTER</code></td>
+          <td>The re-run counter of the stage to which the job belongs to</td>
+      </tr>
+      <tr>
+          <td><code>GO_JOB_NAME</code></td>
+          <td>The name of the job that is being run</td>
+      </tr>
+      <tr>
+          <td><code>GO_DEPENDENCY_LABEL_&lt;upstream_pipeline_name&gt;_&lt;upstream_stage_name&gt;</code></td>
+          <td>The label of the upstream pipeline which triggered the pipeline which the job belongs to. For example: &lsquo;GO_DEPENDENCY_LABEL_FRAMEWORK_DEV&rsquo; is the environment variable where the name of the upstream pipeline is &lsquo;framework&rsquo; and the upstream stage is &lsquo;dev&rsquo;. Hyphen (&rsquo;-&rsquo;) is an illegal character in an environment variable. So if a pipeline name or stage name contains &lsquo;-&rsquo;, it will be converted into an underscore. For example, &lsquo;pipeline-foo&rsquo; with stage &lsquo;stage-foo&rsquo; becomes: GO_DEPENDENCY_LABEL_PIPELINE_FOO_STAGE_FOO.</td>
+      </tr>
+      <tr>
+          <td><span id="env-var-GO_TO_REVISION"><code>GO_TO_REVISION_&lt;material_name&gt;</code></span></td>
+          <td>The lastest revision in modifications that the build running against for each configured SCM material.</td>
+      </tr>
+      <tr>
+          <td><span id="env-var-GO_FROM_REVISION"><code>GO_FROM_REVISION_&lt;material_name&gt;</code></span></td>
+          <td>The earlist revision in modifications that the build running against for each configured SCM material.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;job</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;linux&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -3532,30 +3534,30 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <p>All paths specified are relative to the pipeline working directory.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>buildfile</td>
-<td>No</td>
-<td>Path to Ant build file. If not specified, the path defaults to &lsquo;build.xml&rsquo;.</td>
-</tr>
-<tr>
-<td>target</td>
-<td>No</td>
-<td>Ant target(s) to run. If not specified, the target defaults to &lsquo;default&rsquo;</td>
-</tr>
-<tr>
-<td>workingdir</td>
-<td>No</td>
-<td>The directory from where Ant is invoked</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>buildfile</td>
+          <td>No</td>
+          <td>Path to Ant build file. If not specified, the path defaults to &lsquo;build.xml&rsquo;.</td>
+      </tr>
+      <tr>
+          <td>target</td>
+          <td>No</td>
+          <td>Ant target(s) to run. If not specified, the target defaults to &lsquo;default&rsquo;</td>
+      </tr>
+      <tr>
+          <td>workingdir</td>
+          <td>No</td>
+          <td>The directory from where Ant is invoked</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <ul>
@@ -3578,30 +3580,30 @@ If a Job has no resources then it can be built by any Agent (But not by an elast
 <p>All paths specified are relative to the pipeline working directory.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>command</td>
-<td>Yes</td>
-<td>The command or script to be executed, relative to the working directory</td>
-</tr>
-<tr>
-<td>args</td>
-<td>No</td>
-<td>Set of arguments (as a single string) to be passed to the command or script. Note that for complex or quoted arguments we suggest that you use separate <code>&lt;arg&gt;</code> tags for each argument.</td>
-</tr>
-<tr>
-<td>workingdir</td>
-<td>No</td>
-<td>The directory in which the script or command is to be executed. Note that this directory is relative to the directory where the agent checks out the materials.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>command</td>
+          <td>Yes</td>
+          <td>The command or script to be executed, relative to the working directory</td>
+      </tr>
+      <tr>
+          <td>args</td>
+          <td>No</td>
+          <td>Set of arguments (as a single string) to be passed to the command or script. Note that for complex or quoted arguments we suggest that you use separate <code>&lt;arg&gt;</code> tags for each argument.</td>
+      </tr>
+      <tr>
+          <td>workingdir</td>
+          <td>No</td>
+          <td>The directory in which the script or command is to be executed. Note that this directory is relative to the directory where the agent checks out the materials.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <ul>
@@ -3644,35 +3646,35 @@ use of any character required for making argument. For example, you can specify 
 <p>All paths specified must be relative to the pipeline working directory.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>buildfile</td>
-<td>No</td>
-<td>Path to NAnt build file. If not specified, the path defaults to &lsquo;default.build&rsquo;. The path is relative to the sandbox directory and cannot be outside the sandbox.</td>
-</tr>
-<tr>
-<td>target</td>
-<td>No</td>
-<td>NAnt target(s) to run. If not specified, defaults to the default target of the build file.</td>
-</tr>
-<tr>
-<td>workingdir</td>
-<td>No</td>
-<td>The directory from where NAnt is invoked</td>
-</tr>
-<tr>
-<td>nantpath</td>
-<td>No</td>
-<td>Path of the directory in which NAnt is installed. By default Go will assume that NAnt is in the system environment variable ${PATH}. If the path is specified, then the path must be the same in all agents which run the job.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>buildfile</td>
+          <td>No</td>
+          <td>Path to NAnt build file. If not specified, the path defaults to &lsquo;default.build&rsquo;. The path is relative to the sandbox directory and cannot be outside the sandbox.</td>
+      </tr>
+      <tr>
+          <td>target</td>
+          <td>No</td>
+          <td>NAnt target(s) to run. If not specified, defaults to the default target of the build file.</td>
+      </tr>
+      <tr>
+          <td>workingdir</td>
+          <td>No</td>
+          <td>The directory from where NAnt is invoked</td>
+      </tr>
+      <tr>
+          <td>nantpath</td>
+          <td>No</td>
+          <td>Path of the directory in which NAnt is installed. By default Go will assume that NAnt is in the system environment variable ${PATH}. If the path is specified, then the path must be the same in all agents which run the job.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>Invoke NAnt, specifying a set of targets to run:</p>
@@ -3685,30 +3687,30 @@ use of any character required for making argument. For example, you can specify 
 <p>All paths specified must be relative to the pipeline working directory.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>buildfile</td>
-<td>No</td>
-<td>Path to Rake file. If not specified, the path defaults to &lsquo;rakefile&rsquo;. The path cannot start from &lsquo;.&rsquo;</td>
-</tr>
-<tr>
-<td>target</td>
-<td>No</td>
-<td>Rake target(s) to run. If not specified, defaults to the default target of the build file</td>
-</tr>
-<tr>
-<td>workingdir</td>
-<td>No</td>
-<td>The directory from where Rake is invoked</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>buildfile</td>
+          <td>No</td>
+          <td>Path to Rake file. If not specified, the path defaults to &lsquo;rakefile&rsquo;. The path cannot start from &lsquo;.&rsquo;</td>
+      </tr>
+      <tr>
+          <td>target</td>
+          <td>No</td>
+          <td>Rake target(s) to run. If not specified, defaults to the default target of the build file</td>
+      </tr>
+      <tr>
+          <td>workingdir</td>
+          <td>No</td>
+          <td>The directory from where Rake is invoked</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <p>Invoke rake, specifying a set of targets to run:</p>
@@ -3727,60 +3729,60 @@ introduced in 12.2. Stages after the upstream stage can not be fetched from, bec
 <p>All file paths specified are relative to the pipeline working directory.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>artifactOrigin</td>
-<td>Yes</td>
-<td>Indicates where the artifact needs to be pulled from. Supported values are <code>gocd</code> and <code>external</code>. <code>gocd</code> implies that the artifact needs to be fetched from the gocd server, <code>external</code> implies that the artifact must be fetched from an external artifact store.</td>
-</tr>
-<tr>
-<td>pipeline</td>
-<td>No</td>
-<td>This value can either be: 1. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under <code>&lt;materials&gt;</code>, or 2. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value &ldquo;BuildPipeline/AcceptancePipeline&rdquo; denotes that the fetch task attempts to fetch artifacts from its ancestor &lsquo;BuildPipeline&rsquo;. The given hierarchy denotes that the current pipeline depends on &lsquo;AcceptancePipeline&rsquo; which in turn depends on &lsquo;BuildPipeline&rsquo; using the dependency material definition given under materials. Defaults to current pipeline if not specified.</td>
-</tr>
-<tr>
-<td>stage</td>
-<td>Yes</td>
-<td>The name of the stage to fetch artifacts from</td>
-</tr>
-<tr>
-<td>job</td>
-<td>Yes</td>
-<td>The name of the job to fetch artifacts from</td>
-</tr>
-<tr>
-<td>srcdir</td>
-<td>One of srcdir/srcfile if artifact origin is <code>gocd</code></td>
-<td>The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed. Should be specified if artifactOrigin is <code>gocd</code>.</td>
-</tr>
-<tr>
-<td>srcfile</td>
-<td>One of srcdir/srcfile if artifact origin is <code>gocd</code></td>
-<td>The path of the artifact file of a specific job. Should be specified if artifactOrigin is <code>gocd</code>.</td>
-</tr>
-<tr>
-<td>dest</td>
-<td>No</td>
-<td>The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. Should be specified if artifactOrigin is <code>gocd</code>.</td>
-</tr>
-<tr>
-<td>artifactId</td>
-<td>Yes, if artifact origin is <code>external</code></td>
-<td>The id of the external artifact that is published by the plugin in the upstream job. Should be specified if the artifact origin is <code>external</code>.</td>
-</tr>
-<tr>
-<td>configuration</td>
-<td>No</td>
-<td>&lsquo;A list of <code>key</code>-<code>value</code> pairs which defines the plugin configuration. Should be specified if artifact origin is <code>external</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>artifactOrigin</td>
+          <td>Yes</td>
+          <td>Indicates where the artifact needs to be pulled from. Supported values are <code>gocd</code> and <code>external</code>. <code>gocd</code> implies that the artifact needs to be fetched from the gocd server, <code>external</code> implies that the artifact must be fetched from an external artifact store.</td>
+      </tr>
+      <tr>
+          <td>pipeline</td>
+          <td>No</td>
+          <td>This value can either be: 1. the name of upstream pipeline on which the pipeline of the job depends on. The pipeline should be added as a dependency under <code>&lt;materials&gt;</code>, or 2. the hierarchy of an ancestor pipeline of the current pipeline. Example, The value &ldquo;BuildPipeline/AcceptancePipeline&rdquo; denotes that the fetch task attempts to fetch artifacts from its ancestor &lsquo;BuildPipeline&rsquo;. The given hierarchy denotes that the current pipeline depends on &lsquo;AcceptancePipeline&rsquo; which in turn depends on &lsquo;BuildPipeline&rsquo; using the dependency material definition given under materials. Defaults to current pipeline if not specified.</td>
+      </tr>
+      <tr>
+          <td>stage</td>
+          <td>Yes</td>
+          <td>The name of the stage to fetch artifacts from</td>
+      </tr>
+      <tr>
+          <td>job</td>
+          <td>Yes</td>
+          <td>The name of the job to fetch artifacts from</td>
+      </tr>
+      <tr>
+          <td>srcdir</td>
+          <td>One of srcdir/srcfile if artifact origin is <code>gocd</code></td>
+          <td>The path of the artifact directory of a specific job, relative to the sandbox directory. If the directory does not exist, the job is failed. Should be specified if artifactOrigin is <code>gocd</code>.</td>
+      </tr>
+      <tr>
+          <td>srcfile</td>
+          <td>One of srcdir/srcfile if artifact origin is <code>gocd</code></td>
+          <td>The path of the artifact file of a specific job. Should be specified if artifactOrigin is <code>gocd</code>.</td>
+      </tr>
+      <tr>
+          <td>dest</td>
+          <td>No</td>
+          <td>The path of the directory where the artifact is fetched to. The directory is overwritten if it already exists. The directory path is relative to the pipeline working directory. Should be specified if artifactOrigin is <code>gocd</code>.</td>
+      </tr>
+      <tr>
+          <td>artifactId</td>
+          <td>Yes, if artifact origin is <code>external</code></td>
+          <td>The id of the external artifact that is published by the plugin in the upstream job. Should be specified if the artifact origin is <code>external</code>.</td>
+      </tr>
+      <tr>
+          <td>configuration</td>
+          <td>No</td>
+          <td>&lsquo;A list of <code>key</code>-<code>value</code> pairs which defines the plugin configuration. Should be specified if artifact origin is <code>external</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>Note: If the file does not exist, the job will fail.
 Go will not fetch the artifact again if it has not changed. The directory path is relative to the pipeline working directory. |</p>
@@ -3873,20 +3875,20 @@ the state &ldquo;failed&rdquo;&quot;&quot;.</p>
 <p>A task can specify any of three possible runif filters: &lsquo;passed&rsquo;, &lsquo;failed&rsquo; or &lsquo;any&rsquo;. (&lsquo;passed&rsquo; is the default)</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>status</td>
-<td>Yes</td>
-<td>The status is the job&rsquo;s current status. The value should be one of &lsquo;passed&rsquo;, &lsquo;failed&rsquo; or &lsquo;any&rsquo;.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>status</td>
+          <td>Yes</td>
+          <td>The status is the job&rsquo;s current status. The value should be one of &lsquo;passed&rsquo;, &lsquo;failed&rsquo; or &lsquo;any&rsquo;.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong><strong>Notes:</strong></strong></p>
 <p><a href="#runif"><code>&lt;runif&gt;</code></a> can also be defined under <a href="#exec"><code>&lt;exec&gt;</code></a> task even if <code>&lt;exec&gt;</code> has some <code>&lt;arg&gt;</code>s e.g.</p>
@@ -3960,45 +3962,45 @@ the state &ldquo;failed&rdquo;&quot;&quot;.</p>
 information is placed in the Tests sub-tab.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>Type can be either <code>build</code> or <code>test</code>. This identifies the type of artifact that is uploaded to the GoCD server</td>
-</tr>
-<tr>
-<td>src</td>
-<td>Yes, if type is <code>build</code> or <code>test</code></td>
-<td>The file or folders to publish to the server. Go will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload: ** means any path, * means any file or folder name. Should be specified if type is <code>build</code> or <code>test</code></td>
-</tr>
-<tr>
-<td>dest</td>
-<td>No</td>
-<td>The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory. Should be specified if type is <code>build</code> or <code>test</code></td>
-</tr>
-<tr>
-<td>id</td>
-<td>Yes, if type is <code>external</code></td>
-<td>The artifact id for an external artifact. This id can be used later in a downstream fetch task. Should be specified if type is <code>external</code>.</td>
-</tr>
-<tr>
-<td>storeId</td>
-<td>Yes, if type is <code>external</code></td>
-<td>The artifact store id referencing an existing global artifact store. Should be specified if type is <code>external</code>.</td>
-</tr>
-<tr>
-<td>configuration</td>
-<td>No</td>
-<td>&lsquo;A list of <code>key</code>-<code>value</code> pairs which defines the plugin configuration. Should be specified if type is <code>external</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>Type can be either <code>build</code> or <code>test</code>. This identifies the type of artifact that is uploaded to the GoCD server</td>
+      </tr>
+      <tr>
+          <td>src</td>
+          <td>Yes, if type is <code>build</code> or <code>test</code></td>
+          <td>The file or folders to publish to the server. Go will only upload files that are in the working directory of the job. You can use wildcards to specify the files and folders to upload: ** means any path, * means any file or folder name. Should be specified if type is <code>build</code> or <code>test</code></td>
+      </tr>
+      <tr>
+          <td>dest</td>
+          <td>No</td>
+          <td>The destination is relative to the artifacts folder of the current instance on the server side. If it is not specified, the artifact will be stored in the root of the artifacts directory. Should be specified if type is <code>build</code> or <code>test</code></td>
+      </tr>
+      <tr>
+          <td>id</td>
+          <td>Yes, if type is <code>external</code></td>
+          <td>The artifact id for an external artifact. This id can be used later in a downstream fetch task. Should be specified if type is <code>external</code>.</td>
+      </tr>
+      <tr>
+          <td>storeId</td>
+          <td>Yes, if type is <code>external</code></td>
+          <td>The artifact store id referencing an existing global artifact store. Should be specified if type is <code>external</code>.</td>
+      </tr>
+      <tr>
+          <td>configuration</td>
+          <td>No</td>
+          <td>&lsquo;A list of <code>key</code>-<code>value</code> pairs which defines the plugin configuration. Should be specified if type is <code>external</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>You can use wildcards to specify which files to upload to the go server in case of build or test artifacts. The wildcard syntax follows the commonly used ant/nant style. So &ldquo;target/**/*.xml&rdquo;
 would upload all xml files in the target directory and any of its subdirectories. The original directory structure is preserved on the
@@ -4061,25 +4063,25 @@ server.</p>
 <p>Define a tab with specific name and artifact to show.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>The name of the tab. If should be unique in that job.</td>
-</tr>
-<tr>
-<td>path</td>
-<td>Yes</td>
-<td>The relative path of a file in the artifact repository of the job.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>The name of the tab. If should be unique in that job.</td>
+      </tr>
+      <tr>
+          <td>path</td>
+          <td>Yes</td>
+          <td>The relative path of a file in the artifact repository of the job.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <p>Given some coverage information in &rsquo;target/Jcoverage&rsquo; folder on the agent side, We configure a tab to show the coverage information by specifying a tab with the index.html file.</p>
@@ -4096,25 +4098,25 @@ server.</p>
 <p>Specifies how a stage should be triggered. <code>&lt;approval&gt;</code> of type &lsquo;manual&rsquo; or &lsquo;success&rsquo; can be used to stop a pipeline execution at the start of a stage and can only be resumed when it is manually approved on the pipeline activity page, stage details page or through RESTful url.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>type</td>
-<td>Yes</td>
-<td>Either &lsquo;manual&rsquo; or &lsquo;success&rsquo;. &lsquo;manual&rsquo; means the stage needs to be approved manually. &lsquo;success&rsquo; means the stage will be automatically triggered when the previous stage passes.</td>
-</tr>
-<tr>
-<td>allowOnlyOnSuccess</td>
-<td>No</td>
-<td>Setting this attribute to &rsquo;true&rsquo; will ensure that the stage can triggered only if the previous stage (if any) has succeeded.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>type</td>
+          <td>Yes</td>
+          <td>Either &lsquo;manual&rsquo; or &lsquo;success&rsquo;. &lsquo;manual&rsquo; means the stage needs to be approved manually. &lsquo;success&rsquo; means the stage will be automatically triggered when the previous stage passes.</td>
+      </tr>
+      <tr>
+          <td>allowOnlyOnSuccess</td>
+          <td>No</td>
+          <td>Setting this attribute to &rsquo;true&rsquo; will ensure that the stage can triggered only if the previous stage (if any) has succeeded.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Notes:</strong></p>
 <ul>
@@ -4152,20 +4154,20 @@ are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href=
 <p>Allows you to provide a template for pipeline definition</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>Identifier for the pipeline template</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>Identifier for the pipeline template</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
@@ -4207,20 +4209,20 @@ are two sub-elements: <a href="#user"><code>&lt;user&gt;</code></a> and <a href=
 <p>Allows you to group a set of agents and pipelines together for exclusive use.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>Identifier for an environment</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>Identifier for an environment</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
@@ -4251,25 +4253,25 @@ is run. The value can be include multiple lines or CDATA. Note that the behaviou
 allow certain variable names and/or values.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>Identifier for an environment variable</td>
-</tr>
-<tr>
-<td>secure</td>
-<td>No</td>
-<td>This attribute is applicable only at the pipeline level and when set to true, encrypts the environment variable value.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>Identifier for an environment variable</td>
+      </tr>
+      <tr>
+          <td>secure</td>
+          <td>No</td>
+          <td>This attribute is applicable only at the pipeline level and when set to true, encrypts the environment variable value.</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Example:</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;environmentvariables&gt;</span>
@@ -4285,20 +4287,20 @@ allow certain variable names and/or values.</p>
 <p>References a pipeline to be associated with this environment.</p>
 <p><strong>Attributes</strong></p>
 <table>
-<thead>
-<tr>
-<th>Attribute</th>
-<th>Required</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>name</td>
-<td>Yes</td>
-<td>Identifier to an pipeline (must exist in the config file).</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Attribute</th>
+          <th>Required</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>name</td>
+          <td>Yes</td>
+          <td>Identifier to an pipeline (must exist in the config file).</td>
+      </tr>
+  </tbody>
 </table>
 <p><strong>Examples</strong></p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;environment</span> <span style="color:#b44">name=</span><span style="color:#b44">&#34;UAT&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
@@ -4322,11 +4324,13 @@ allow certain variable names and/or values.</p>
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/configuration/configuration_reference.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

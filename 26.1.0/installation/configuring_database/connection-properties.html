@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/installation/configuring_database/connection-properties.html"/>
+
 <script src="../../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -317,54 +319,54 @@ Optionally, you can also specify the database SSL config properties for secure c
 <p>A properties file with the name <code>db.properties</code> needs to be created in the GoCD&rsquo;s configuration directory (<code>config/</code>). The location of GoCD&rsquo;s configuration directory varies per operating system. Refer <a href="https://docs.gocd.org/current/installation/installing_go_server.html#location-of-files-after-installation-of-go-server">Location of GoCD server files</a> to know the location of GoCD Server config directory.</p>
 <p>The valid keys in the configuration file are mentioned below:</p>
 <table>
-<thead>
-<tr>
-<th style="text-align:center">Key</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center"><code>db.driver</code></td>
-<td>The JDBC database driver depending on the database. For example: <b><code>org.postgresql.Driver</code></b> if using PostgreSQL or <b><code>com.mysql.cj.jdbc.Driver</code></b> for MySQL.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.url</code></td>
-<td>The database connection url. Specify the url in format <b><code>jdbc:databaseType://server[:port]/databaseName</code></b>. <br/>Where, <code>databaseType</code> is the type of the database (Example: <code>h2</code>, <code>postgresql</code>, <code>mysql</code>); <code>server[:port]</code> is the name and optional port of the server hosting your database and <code>databaseName</code> is the name of the database. <br/>For example, the URL <b><code>jdbc:postgresql://localhost:5432/cruise</code></b> represents the database url for the locally running PostgreSQL database named <code>cruise</code>. <br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code>.</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.user</code></td>
-<td>The database user which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.password</code></td>
-<td>The password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.encryptedPassword</code></td>
-<td>The encrypted password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema. GoCD will decrypt the specified encrypted password using the GoCD cipher file, before using it. Note: Users should specify either <code>db.password</code> or <code>db.encryptedPassword</code>.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code>.</td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.maxActive</code></td>
-<td>Maximum number of active connections that should be established with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.maxIdle</code></td>
-<td>Maximum number of idle connections that should be maintained with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.extraBackupCommandArgs</code></td>
-<td>Specify custom database backup arguments. This config property is used to specify the additional arguments to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.extraBackupEnv</code></td>
-<td>Specify custom environment variables to the database backup utility. This config property is used to specify the additional environment variables to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-environment-variables">GoCD Database Extra Backup Environment Variables</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
-</tr>
-<tr>
-<td style="text-align:center"><code>db.connectionProperties</code></td>
-<td>Specify the database SSL config properties for secure communication between GoCD and the database server. See <a href="#database-specific-connection-properties">Database-specific Connection Properties</a> for more information.<br/><br/><b>Mandatory:</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th style="text-align: center">Key</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center"><code>db.driver</code></td>
+          <td>The JDBC database driver depending on the database. For example: <b><code>org.postgresql.Driver</code></b> if using PostgreSQL or <b><code>com.mysql.cj.jdbc.Driver</code></b> for MySQL.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.url</code></td>
+          <td>The database connection url. Specify the url in format <b><code>jdbc:databaseType://server[:port]/databaseName</code></b>. <br/>Where, <code>databaseType</code> is the type of the database (Example: <code>h2</code>, <code>postgresql</code>, <code>mysql</code>); <code>server[:port]</code> is the name and optional port of the server hosting your database and <code>databaseName</code> is the name of the database. <br/>For example, the URL <b><code>jdbc:postgresql://localhost:5432/cruise</code></b> represents the database url for the locally running PostgreSQL database named <code>cruise</code>. <br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.user</code></td>
+          <td>The database user which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>Yes</code>    <b>Default : </b> <code>none</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.password</code></td>
+          <td>The password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.encryptedPassword</code></td>
+          <td>The encrypted password for the user specified by &ldquo;db.user&rdquo; property which GoCD should use to connect to the schema. GoCD will decrypt the specified encrypted password using the GoCD cipher file, before using it. Note: Users should specify either <code>db.password</code> or <code>db.encryptedPassword</code>.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code>.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.maxActive</code></td>
+          <td>Maximum number of active connections that should be established with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.maxIdle</code></td>
+          <td>Maximum number of idle connections that should be maintained with the Database server.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b><code>32</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.extraBackupCommandArgs</code></td>
+          <td>Specify custom database backup arguments. This config property is used to specify the additional arguments to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.extraBackupEnv</code></td>
+          <td>Specify custom environment variables to the database backup utility. This config property is used to specify the additional environment variables to the backup utility while backing up the database using <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD. See <a href="#gocd-database-extra-backup-environment-variables">GoCD Database Extra Backup Environment Variables</a> for more information.<br/><br/><b>Mandatory :</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+      </tr>
+      <tr>
+          <td style="text-align: center"><code>db.connectionProperties</code></td>
+          <td>Specify the database SSL config properties for secure communication between GoCD and the database server. See <a href="#database-specific-connection-properties">Database-specific Connection Properties</a> for more information.<br/><br/><b>Mandatory:</b> <code>No</code>    <b>Default : </b> <code>none</code></td>
+      </tr>
+  </tbody>
 </table>
 <h2 id="gocd-database-extra-backup-command-arguments">GoCD Database Extra Backup Command Arguments</h2>
 <p>The <a href="https://docs.gocd.org/current/advanced_usage/one_click_backup.html">One Click Backup</a> feature of GoCD backs up both the configuration and database. Depending upon the type of the database, additional arguments can be specified, which will be used by underlying utility by GoCD while backing up the database.</p>
@@ -423,11 +425,13 @@ Depending on the type of the database server, different connection properties co
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/configuring_database/connection-properties.md" target="_blank" rel="noopener">
       <img src="../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

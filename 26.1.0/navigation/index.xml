@@ -4,7 +4,7 @@
     <title>Navigation on GoCD User Documentation</title>
     <link>/navigation/</link>
     <description>Recent content in Navigation on GoCD User Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="/navigation/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,7 +12,7 @@
       <link>/navigation/value_stream_map.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/navigation/value_stream_map.html</guid>
-      <description>GoCD Value Stream Map Introduction Value Stream Map helps you visualize your CI/CD workflow. With a single click, it allows you to trace a commit from when it is checked in up to when it is deployed.&#xA;A value stream map can be drawn for every instance of a pipeline. It provides you with the ability to:&#xA;See what caused the current pipeline to be triggered. See what downstream pipelines were triggered by the current pipeline.</description>
+      <description>&lt;h1 id=&#34;gocd-value-stream-map&#34;&gt;GoCD Value Stream Map&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Value Stream Map helps you visualize your CI/CD workflow. With a single click, it allows you to trace a commit from when it is checked in up to when it is deployed.&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/whole_map.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;A value stream map can be drawn for every instance of a pipeline. It provides you with the ability to:&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;See what caused the current pipeline to be triggered.&lt;/li&gt;&#xA;&lt;li&gt;See what downstream pipelines were triggered by the current pipeline.&lt;/li&gt;&#xA;&lt;li&gt;See the status of the current pipeline and all its upstream and downstream dependencies.&lt;/li&gt;&#xA;&lt;li&gt;See changes in dependencies of the pipeline across different runs of it.&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;Along with all this, it also allows you to easily debug problems when a dependency/configuration change caused your build-test-release setup to break.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

@@ -4,7 +4,7 @@
     <title>Extension Points Of GoCD on GoCD User Documentation</title>
     <link>/extension_points/</link>
     <description>Recent content in Extension Points Of GoCD on GoCD User Documentation</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
     <atom:link href="/extension_points/index.xml" rel="self" type="application/rss+xml" />
     <item>
@@ -12,35 +12,35 @@
       <link>/extension_points/package_repository_extension.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/extension_points/package_repository_extension.html</guid>
-      <description>GoCD Package Material Introduction Poll from GoCD packages and more from GoCD 13.3 onwards. Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:&#xA;jar, war or ear file in case of Java nuget/ chocolatey package in case of .</description>
+      <description>&lt;h1 id=&#34;gocd-package-material&#34;&gt;GoCD Package Material&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Poll from GoCD packages and more from GoCD 13.3 onwards.&#xA;Pipelines in GoCD can poll packages in repositories similar to how they poll version control systems. A build typically consumes source code maintained in a version control system (VCS/SCM). What about a typical deployment? Increasingly, the input for deployments is the build result packaged as:&lt;/p&gt;&#xA;&lt;ol&gt;&#xA;&lt;li&gt;jar, war or ear file in case of Java&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://nuget.org/&#34;&gt;nuget&lt;/a&gt;/ &lt;a href=&#34;https://chocolatey.org/&#34;&gt;chocolatey&lt;/a&gt; package in case of .NET&lt;/li&gt;&#xA;&lt;li&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Package_management_system#Package_formats&#34;&gt;Linux system package&lt;/a&gt; (e.g rpm, deb) in case of any application platform&lt;/li&gt;&#xA;&lt;li&gt;Other &lt;a href=&#34;https://en.wikipedia.org/wiki/List_of_software_package_management_systems#Application-level_package_managers&#34;&gt;application level package formats&lt;/a&gt; like gem, npm, &lt;a href=&#34;https://www.php.net/manual/en/book.phar.php&#34;&gt;phar&lt;/a&gt;, &lt;a href=&#34;https://www.python.org/dev/peps/pep-0427/&#34;&gt;wheel&lt;/a&gt; etc.&lt;/li&gt;&#xA;&lt;/ol&gt;&#xA;&lt;p&gt;These files (packages) are often maintained in corresponding package repositories. &lt;strong&gt;Such packages may be specified as materials for GoCD pipelines.&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Plugin User Guide</title>
       <link>/extension_points/plugin_user_guide.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/extension_points/plugin_user_guide.html</guid>
-      <description>GoCD Plugin User Guide Introduction Plugins allow users to extend the functionality of GoCD. Each plugin is assigned an identifier which is determined by the id attribute provided in plugin metadata file packaged along with the plugin jar. If the metadata file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, GoCD server would try to load all the plugins.</description>
+      <description>&lt;h1 id=&#34;gocd-plugin-user-guide&#34;&gt;GoCD Plugin User Guide&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;Plugins allow users to extend the functionality of GoCD. Each plugin is assigned an identifier which is determined by the &lt;strong&gt;id&lt;/strong&gt; attribute provided in plugin metadata file packaged along with the plugin jar. If the metadata file is not packaged, plugin jar file name will be taken as plugin id. Plugins are classified into two categories - Bundled and External. During startup, GoCD server would try to load all the plugins. On successful load, the plugin will be converted into an OSGi bundle and extracted into &lt;code&gt;&amp;lt;server installation directory&amp;gt;/plugins_work&lt;/code&gt; directory. &lt;strong&gt;Plugins&lt;/strong&gt; tab, under GoCD server Administration, would list all the loaded plugins.&lt;/p&gt;</description>
     </item>
     <item>
       <title>SCM Extension</title>
       <link>/extension_points/scm_extension.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/extension_points/scm_extension.html</guid>
-      <description>SCM Material Introduction A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS &amp;amp; Perforce. Users can use SCM plugins to integrate with other SCMs.&#xA;SCMs and Materials Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is not contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM.</description>
+      <description>&lt;h1 id=&#34;scm-material&#34;&gt;SCM Material&lt;/h1&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;A build typically consumes source code maintained in a version control system (VCS/SCM). GoCD has built-in support for Git, Mercurial, SVN, TFS &amp;amp; Perforce. Users can use SCM plugins to integrate with other SCMs.&lt;/p&gt;&#xA;&lt;h3 id=&#34;scms-and-materials&#34;&gt;SCMs and Materials&lt;/h3&gt;&#xA;&lt;p&gt;Unlike built-in VCS/SCM materials, the material definition in case of plugin SCMs is &lt;em&gt;not&lt;/em&gt; contained within the pipeline definition. They are global entities. Many pipelines may have material definitions referring to the same SCM. When there is a new revision in the SCM, interested pipelines will get scheduled.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Task Extension</title>
       <link>/extension_points/task_extension.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/extension_points/task_extension.html</guid>
-      <description>Task Extension Overview GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you&amp;rsquo;ll see something like this:&#xA;A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.</description>
+      <description>&lt;h1 id=&#34;task-extension&#34;&gt;Task Extension&lt;/h1&gt;&#xA;&lt;h2 id=&#34;overview&#34;&gt;Overview&lt;/h2&gt;&#xA;&lt;p&gt;GoCD supports configuring a few kinds of tasks (Nant, Ant and Rake), directly, from the configuration UI, without specifying them as a custom command. For instance, if you go to the configuration UI for a job, you&amp;rsquo;ll see something like this:&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;../images/1_Without_Curl.png&#34; alt=&#34;&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;A task plugin allows you to extend this so that you can have other tasks available here. The plugin also allows you to control the UI, as well as the data stored for this task.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Yum Repository Poller</title>
       <link>/extension_points/yum_repository_poller.html</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>/extension_points/yum_repository_poller.html</guid>
-      <description>Yum Repository Poller Note: This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the yum-utils package).&#xA;Introduction The Yum repository poller is a package material plugin capable of polling yum repositories for rpm packages. Prior to GoCD 23.1.0 the plugin came bundled with GoCD, however can now be downloaded for installation at GitHub.&#xA;GoCD server interacts with this plugin via package material plugin interfaces.</description>
+      <description>&lt;h1 id=&#34;yum-repository-poller&#34;&gt;Yum Repository Poller&lt;/h1&gt;&#xA;&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This plugin is available for GoCD servers running on Linux nodes having repoquery installed (part of the &lt;a href=&#34;https://pkgs.org/search/?q=yum-utils&#34;&gt;yum-utils package&lt;/a&gt;).&lt;/p&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;The Yum repository poller is a &lt;a href=&#34;package_repository_extension.html&#34;&gt;package material&lt;/a&gt; plugin capable of polling yum repositories for rpm packages. Prior to GoCD &lt;code&gt;23.1.0&lt;/code&gt; the plugin came bundled with GoCD, however can now be downloaded for installation &lt;a href=&#34;https://github.com/gocd/gocd-yum-repository-poller-plugin/releases/latest&#34;&gt;at GitHub&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

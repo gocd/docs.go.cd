@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD is an open source continuous delivery server that helps organizations increase productivity and deliver high quality software through automation."/>
 <meta name="keywords" content="continuous delivery, software, continuous integration, open source, blog, software development, tools, automation, deployment pipelines, devops, techniques"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/installation/ssl_tls/setting_up_ciphers.html"/>
+
 <script src="../../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -319,22 +321,22 @@
 <h2 id="configuring-gocd-agent">Configuring GoCD agent</h2>
 <p>The default transport protocol that the GoCD uses to communicate with GoCD server is determined by the version of Java that runs with the agent. The agent does allow configuring some properties to configure the SSL/TLS protocols:</p>
 <table>
-<thead>
-<tr>
-<th>System property</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>https.protocols</code></td>
-<td>A comma separated list of HTTPS protocols that the agent should use to communicate with the server. e.g. <code>-Dhttps.protocols=TLSv1.1,TLSv1.2</code></td>
-</tr>
-<tr>
-<td><code>https.cipherSuites</code></td>
-<td>A comma separated list of cipher suites that the agent should use to communicate with the server. e.g. <code>-Dhttps.protocols=TLSv1.1,TLSv1.2</code>. <p>This list can be obtained by executing the script <code>jrunscript -e &quot;java.util.Arrays.asList(javax.net.ssl.SSLServerSocketFactory.getDefault().getSupportedCipherSuites()).stream().forEach(println)&quot;</code> on your terminal or command prompt.</p></td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>System property</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>https.protocols</code></td>
+          <td>A comma separated list of HTTPS protocols that the agent should use to communicate with the server. e.g. <code>-Dhttps.protocols=TLSv1.1,TLSv1.2</code></td>
+      </tr>
+      <tr>
+          <td><code>https.cipherSuites</code></td>
+          <td>A comma separated list of cipher suites that the agent should use to communicate with the server. e.g. <code>-Dhttps.protocols=TLSv1.1,TLSv1.2</code>. <p>This list can be obtained by executing the script <code>jrunscript -e &quot;java.util.Arrays.asList(javax.net.ssl.SSLServerSocketFactory.getDefault().getSupportedCipherSuites()).stream().forEach(println)&quot;</code> on your terminal or command prompt.</p></td>
+      </tr>
+  </tbody>
 </table>
 <p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> on the GoCD agent to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
@@ -352,11 +354,13 @@
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/installation/ssl_tls/setting_up_ciphers.md" target="_blank" rel="noopener">
       <img src="../../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

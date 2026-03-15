@@ -12,7 +12,9 @@
 <meta name="description" content="List pipeline runs. Annotate each pipeline with comments. Text can be viewed by users who can access the pipeline page."/>
 <meta name="keywords" content="[Pipeline history, pipeline activities, pipeline comment, comment, pipeline annotations]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/pipeline_activity.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -316,62 +318,62 @@
 <h3 id="overview">Overview</h3>
 <p><img src="../images/advanced_usage/pipeline_activity.png" alt="Pipelines activity"></p>
 <table>
-<thead>
-<tr>
-<th>Actions</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Pause pipeline</strong></td>
-<td>Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</td>
-</tr>
-<tr>
-<td><strong>Pipeline settings</strong></td>
-<td>Take user to pipeline settings page.</td>
-</tr>
-<tr>
-<td><strong>Filter history</strong></td>
-<td>Allows user to filter pipeline activity by <code>pipeline counter</code>, <code>revision</code> or <code>username</code>.</td>
-</tr>
-<tr>
-<td><strong>Stages</strong></td>
-<td>Stage available for the pipeline run. In case of change in stage config the pipeline run with same stage config will be rendered in group while maintaining the pipeline run order.</td>
-</tr>
-<tr>
-<td><strong>Instance</strong></td>
-<td>Pipeline run label.</td>
-</tr>
-<tr>
-<td><strong>VSM</strong></td>
-<td>Link to VSM, It will open the VSM for the current pipeline run in a new tab.</td>
-</tr>
-<tr>
-<td><strong>Trigger by</strong></td>
-<td>Reason for pipeline run, e.g. Triggered by user or Triggered by changes. Click on the link to know more about the revisions it triggered with</td>
-</tr>
-<tr>
-<td><strong>Stage status bar</strong></td>
-<td>Show the status of each stage in pipeline. Hover on the stage status bar to get more options.</td>
-</tr>
-<tr>
-<td><strong>Add Comment</strong></td>
-<td>Allow user to add comment on the pipeline run. For this user must have operate permission on the pipeline.</td>
-</tr>
-<tr>
-<td><strong>Gate Icon</strong></td>
-<td>Based on the stage config before each stage there will be an <code>Auto</code> or <code>Manual</code> gate icon. User can run the next stage based on the state of previous stage.</td>
-</tr>
-<tr>
-<td><strong>Stage Details</strong></td>
-<td>Open the stage details page in new tab.</td>
-</tr>
-<tr>
-<td><strong>Rerun or cancel stage</strong></td>
-<td>On hover on the stage details tab user will get <code>Rerun</code> or <code>Cancel</code> stage icon based on the stage status.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Actions</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Pause pipeline</strong></td>
+          <td>Pipeline can be paused by clicking on this button. Optionally, it accepts reason for pausing the pipeline.</td>
+      </tr>
+      <tr>
+          <td><strong>Pipeline settings</strong></td>
+          <td>Take user to pipeline settings page.</td>
+      </tr>
+      <tr>
+          <td><strong>Filter history</strong></td>
+          <td>Allows user to filter pipeline activity by <code>pipeline counter</code>, <code>revision</code> or <code>username</code>.</td>
+      </tr>
+      <tr>
+          <td><strong>Stages</strong></td>
+          <td>Stage available for the pipeline run. In case of change in stage config the pipeline run with same stage config will be rendered in group while maintaining the pipeline run order.</td>
+      </tr>
+      <tr>
+          <td><strong>Instance</strong></td>
+          <td>Pipeline run label.</td>
+      </tr>
+      <tr>
+          <td><strong>VSM</strong></td>
+          <td>Link to VSM, It will open the VSM for the current pipeline run in a new tab.</td>
+      </tr>
+      <tr>
+          <td><strong>Trigger by</strong></td>
+          <td>Reason for pipeline run, e.g. Triggered by user or Triggered by changes. Click on the link to know more about the revisions it triggered with</td>
+      </tr>
+      <tr>
+          <td><strong>Stage status bar</strong></td>
+          <td>Show the status of each stage in pipeline. Hover on the stage status bar to get more options.</td>
+      </tr>
+      <tr>
+          <td><strong>Add Comment</strong></td>
+          <td>Allow user to add comment on the pipeline run. For this user must have operate permission on the pipeline.</td>
+      </tr>
+      <tr>
+          <td><strong>Gate Icon</strong></td>
+          <td>Based on the stage config before each stage there will be an <code>Auto</code> or <code>Manual</code> gate icon. User can run the next stage based on the state of previous stage.</td>
+      </tr>
+      <tr>
+          <td><strong>Stage Details</strong></td>
+          <td>Open the stage details page in new tab.</td>
+      </tr>
+      <tr>
+          <td><strong>Rerun or cancel stage</strong></td>
+          <td>On hover on the stage details tab user will get <code>Rerun</code> or <code>Cancel</code> stage icon based on the stage status.</td>
+      </tr>
+  </tbody>
 </table>
 <h3 id="comment-on-a-pipeline-run">Comment on a pipeline run</h3>
 <p>Each pipeline in the pipeline history page can now be annotated with a comment. This text can be seen by all other users
@@ -400,11 +402,13 @@ on the <strong><code>Save</code></strong> or <strong><code>Save &amp; Close</cod
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/pipeline_activity.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

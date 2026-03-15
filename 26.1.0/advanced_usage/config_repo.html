@@ -12,7 +12,9 @@
 <meta name="description" content="GoCD&#39;s configuration is version controlled in a local git repository. It allows auditing of all changes made to the configuration."/>
 <meta name="keywords" content="[GoCD configuration repository, garbage collection, config repo,]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/config_repo.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -339,45 +341,45 @@ this page has details about it.</li>
 </ol>
 <h2 id="system-properties-that-affect-periodic-garbage-collection">System properties that affect periodic garbage collection</h2>
 <table>
-<thead>
-<tr>
-<th>System property</th>
-<th>Default Value</th>
-<th>Description</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>go.config.repo.gc.periodic</code></td>
-<td><code>false</code></td>
-<td>Flag that enables the periodic garbage collection of <code>config.git</code> repository.</td>
-</tr>
-<tr>
-<td><code>go.config.repo.gc.aggressive</code></td>
-<td><code>true</code></td>
-<td>This will cause the GC to run more aggressively. For large repositories, this can take a significant amount of time. It is recommended to set this to <code>false</code> if the frequency of GC is very high.</td>
-</tr>
-<tr>
-<td><code>go.config.repo.gc.cron</code></td>
-<td><code>0 0 7 ? * SUN</code> (7 am on Sunday morning)</td>
-<td>The <a href="../configuration/configuration_reference.html#timer">cron expression</a> that describes when GC should happen.</td>
-</tr>
-<tr>
-<td><code>go.config.repo.gc.warning.looseobject.threshold</code></td>
-<td><code>10000</code></td>
-<td>If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup.</td>
-</tr>
-<tr>
-<td><code>go.config.repo.gc.expire</code></td>
-<td><code>24</code>  (in hours)</td>
-<td>Objects older than this period (in hours) will be pruned.</td>
-</tr>
-<tr>
-<td><code>go.config.repo.gc.check.interval</code></td>
-<td><code>28800000</code>  (in milliseconds)</td>
-<td>Frequency of checking for loose object count, specified in milliseconds with default set to <em>8 hours</em>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>System property</th>
+          <th>Default Value</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>go.config.repo.gc.periodic</code></td>
+          <td><code>false</code></td>
+          <td>Flag that enables the periodic garbage collection of <code>config.git</code> repository.</td>
+      </tr>
+      <tr>
+          <td><code>go.config.repo.gc.aggressive</code></td>
+          <td><code>true</code></td>
+          <td>This will cause the GC to run more aggressively. For large repositories, this can take a significant amount of time. It is recommended to set this to <code>false</code> if the frequency of GC is very high.</td>
+      </tr>
+      <tr>
+          <td><code>go.config.repo.gc.cron</code></td>
+          <td><code>0 0 7 ? * SUN</code> (7 am on Sunday morning)</td>
+          <td>The <a href="../configuration/configuration_reference.html#timer">cron expression</a> that describes when GC should happen.</td>
+      </tr>
+      <tr>
+          <td><code>go.config.repo.gc.warning.looseobject.threshold</code></td>
+          <td><code>10000</code></td>
+          <td>If loose object count grows beyond this threshold, a warning is displayed in the server health messages popup.</td>
+      </tr>
+      <tr>
+          <td><code>go.config.repo.gc.expire</code></td>
+          <td><code>24</code>  (in hours)</td>
+          <td>Objects older than this period (in hours) will be pruned.</td>
+      </tr>
+      <tr>
+          <td><code>go.config.repo.gc.check.interval</code></td>
+          <td><code>28800000</code>  (in milliseconds)</td>
+          <td>Frequency of checking for loose object count, specified in milliseconds with default set to <em>8 hours</em>.</td>
+      </tr>
+  </tbody>
 </table>
 <p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>
 </article>
@@ -395,11 +397,13 @@ this page has details about it.</li>
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/config_repo.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   

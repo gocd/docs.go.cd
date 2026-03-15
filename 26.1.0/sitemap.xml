@@ -2,6 +2,12 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/installation/configure_proxy.html</loc>
+  </url><url>
+    <loc>/installation/ssl_tls/custom_certificate.html</loc>
+  </url><url>
+    <loc>/installation/upgrade_to_gocd_20.5.0.html</loc>
+  </url><url>
     <loc>/configuration/access_tokens.html</loc>
   </url><url>
     <loc>/configuration/quick_pipeline_setup.html</loc>

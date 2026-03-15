@@ -12,7 +12,9 @@
 <meta name="description" content="Store pipeline configuration data for GoCD in a source code repository, either with your application code or in a separate repository."/>
 <meta name="keywords" content="[pipeline as code, pipeline configuration, JSON, YAML]"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <link rel="canonical" href="https://docs.gocd.org/current/advanced_usage/pipelines_as_code.html"/>
+
 <script src="../javascripts/vendor/jquery-3.6.4.min.js" crossorigin="anonymous"></script>
 <script type="text/javascript" src="../javascripts/vendor/lunr-2.3.9.min.js"></script>
 
@@ -78,7 +80,7 @@
 <hr>
 <ul>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Welcome</b></a>
@@ -89,7 +91,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Installation</b></a>
@@ -138,7 +140,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Configuration</b></a>
@@ -194,7 +196,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Advanced Usage</b></a>
@@ -222,7 +224,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>GoCD on Kubernetes</b></a>
@@ -236,7 +238,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>Plugins in GoCD</b></a>
@@ -250,7 +252,7 @@
     </ul>
   </li>
   <li class="level1 has-children">
-    <figure class="menu-arrow"><img src="../images/arrow.png"/>
+    <figure class="menu-arrow"><img src="../images/arrow.png">
     </figure>
 
     <a href="#"><b>FAQ/Troubleshooting</b></a>
@@ -363,8 +365,7 @@ their core task runners, this functionality is akin to remote code execution in 
 <p>As such, you should exercise great caution when adding configuration repositories, and have appropriate trust in those
 who have control over them.</p>
 <p>Starting in GoCD <code>20.2.0</code>, each configuration repository must be given explicit permissions to GoCD entities it can
-affect or refer to.</p>
-</blockquote>
+affect or refer to.</p></blockquote>
 <h3 id="structure">Structure</h3>
 <p>The first matching rule wins, thus <em>order is important</em>. Each rule is composed of 3 core parts - <strong>directive</strong>, <strong>type</strong> and <strong>resource</strong>.</p>
 <h4 id="1-directive">1) Directive</h4>
@@ -397,38 +398,37 @@ allocating pipelines (and agents) to specific environments.</p>
 <p>This can be any string and is meant to match on the <strong>name</strong> of any resources of the given rule&rsquo;s <code>type</code>.</p>
 <blockquote>
 <p>Note that this is generic terminology, and not related to the concept of <a href="../configuration/managing_a_build_cloud.html#matching-jobs-to-agents">agent resources</a>
-(used to allow matching between agents that provide given resources and certain pipelines that require them).</p>
-</blockquote>
+(used to allow matching between agents that provide given resources and certain pipelines that require them).</p></blockquote>
 <p>You can use pattern-matching:</p>
 <ul>
 <li><code>*</code> as any wildcard.</li>
 <li><code>?</code> as a one character wildcard.</li>
 </ul>
 <table>
-<thead>
-<tr>
-<th>Wildcard Matcher</th>
-<th>Resource names</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>*_group</code></td>
-<td>Matches <code>my_group</code> and <code>someother_group</code>, but not <code>testgroup</code> or <code>group1</code>.</td>
-</tr>
-<tr>
-<td><code>Production_*</code></td>
-<td>Matches <code>Production_Team_A</code> and <code>Production_Team_B</code> but not <code>Team_ABC_Production_D</code>.</td>
-</tr>
-<tr>
-<td><code>*group*</code></td>
-<td>Matches <code>group</code>, <code>my_group</code> and <code>group_A</code>, but not <code>groABCup</code>.</td>
-</tr>
-<tr>
-<td><code>Team_?_group</code></td>
-<td>Matches <code>Team_A_group</code>, <code>Team_B_group</code> but not <code>Team_ABC_group</code> or <code>Team__group</code>.</td>
-</tr>
-</tbody>
+  <thead>
+      <tr>
+          <th>Wildcard Matcher</th>
+          <th>Resource names</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>*_group</code></td>
+          <td>Matches <code>my_group</code> and <code>someother_group</code>, but not <code>testgroup</code> or <code>group1</code>.</td>
+      </tr>
+      <tr>
+          <td><code>Production_*</code></td>
+          <td>Matches <code>Production_Team_A</code> and <code>Production_Team_B</code> but not <code>Team_ABC_Production_D</code>.</td>
+      </tr>
+      <tr>
+          <td><code>*group*</code></td>
+          <td>Matches <code>group</code>, <code>my_group</code> and <code>group_A</code>, but not <code>groABCup</code>.</td>
+      </tr>
+      <tr>
+          <td><code>Team_?_group</code></td>
+          <td>Matches <code>Team_A_group</code>, <code>Team_B_group</code> but not <code>Team_ABC_group</code> or <code>Team__group</code>.</td>
+      </tr>
+  </tbody>
 </table>
 <h4 id="action">Action</h4>
 <p>Internally rules have actions which can differ depending on the type of resource the rule applies to. Since currently
@@ -554,11 +554,13 @@ first rule denies access using the pattern <code>pipeline-group-*</code></p>
   
 
   
+  
   <div>
     <a id="suggest-edits" href="https://github.com/gocd/docs.go.cd/edit/master/content/advanced_usage/pipelines_as_code.md" target="_blank" rel="noopener">
       <img src="../svg/code-fork.svg" /> Suggest edits to this page
     </a>
   </div>
+  
   
 
   
