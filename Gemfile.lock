@@ -63,7 +63,7 @@ GEM
     htmlentities (4.4.2)
     io-event (1.14.2)
     jmespath (1.6.2)
-    json (2.18.1)
+    json (2.19.2)
     logger (1.7.0)
     metrics (0.15.0)
     mime-types (3.7.0)
