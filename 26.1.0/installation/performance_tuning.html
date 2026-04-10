@@ -343,7 +343,9 @@
 </span></span></code></pre></div><h3 id="tuning-your-jvm">Tuning your JVM</h3>
 <p>Ensure that the latest JVM is used always, as there are major performance improvements with every release.</p>
 <p>The minimum and maximum JVM heap space allocated to the GoCD server affects its performance. GoCD uses default values of <code>512m</code> and <code>1024m</code> for minimum and maximum JVM heap sizes respectively. However, for production environments, we recommend setting the minimum and maximum values to an identical value.</p>
-<p>The default heap settings mentioned above are for a 32-bit JVM. But if the GoCD server is facing performance issues we recommend doubling the values in the heap settings and measuring performance. If its seen that more than 3 GB of heap memory is needed, we recommend a switch to 64-bit JVM. Our tests show that GoCD server performs much better on a 64 bit JVM than a 32 bit JVM provided the heap memory has been increased appropriately. This is needed because 64-bit JVM makes use of 64-bit addresses instead of 32bits, allowing it to use more memory.</p>
+<p>If the GoCD server is facing performance issues we recommend at least doubling the values in the heap settings and measuring
+performance. Additionally, when using the embedded H2 Database some internal memory caches scale with the maximum heap
+size, so allowing larger heaps (with small minimums) can be beneficial even when GoCD is not consuming that larger heap.</p>
 <p>Start with the default settings and increase the heap memory incrementally to suit your application.</p>
 <h3 id="storage">Storage</h3>
 <p>For optimal performance in artifact transfer GoCD would need storage with good disk I/O throughput. We recommend local storage for GoCD database and artifacts. Disk space can be reclaimed through deletion of historical artifacts.</p>
@@ -385,8 +387,6 @@
 <ol>
 <li>
 <p>Create a symlink for <code>libyjpagent.so</code> file to <code>/usr/lib/yourkit</code> folder. When the GoCD server starts up, it looks at this folder to see if it needs to start with profiling enabled or not. If you want to change the default path of the yourkit agent, you can edit <code>server.sh</code> at <code>/usr/share/go-server/server.sh</code></p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-32/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
-</span></span></code></pre></div><p>For 64-bit JVM, the command is:</p>
 <div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>$ sudo ln -s <span style="color:#666">[</span>yourkit_profiler_directory<span style="color:#666">]</span>/bin/linux-x86-64/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
 </span></span></code></pre></div></li>
 <li>
