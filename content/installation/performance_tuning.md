@@ -57,7 +57,9 @@ Ensure that the latest JVM is used always, as there are major performance improv
 
 The minimum and maximum JVM heap space allocated to the GoCD server affects its performance. GoCD uses default values of ```512m``` and ```1024m``` for minimum and maximum JVM heap sizes respectively. However, for production environments, we recommend setting the minimum and maximum values to an identical value.
 
-The default heap settings mentioned above are for a 32-bit JVM. But if the GoCD server is facing performance issues we recommend doubling the values in the heap settings and measuring performance. If its seen that more than 3 GB of heap memory is needed, we recommend a switch to 64-bit JVM. Our tests show that GoCD server performs much better on a 64 bit JVM than a 32 bit JVM provided the heap memory has been increased appropriately. This is needed because 64-bit JVM makes use of 64-bit addresses instead of 32bits, allowing it to use more memory.
+If the GoCD server is facing performance issues we recommend at least doubling the values in the heap settings and measuring
+performance. Additionally, when using the embedded H2 Database some internal memory caches scale with the maximum heap 
+size, so allowing larger heaps (with small minimums) can be beneficial even when GoCD is not consuming that larger heap.
 
 Start with the default settings and increase the heap memory incrementally to suit your application.
 
@@ -119,12 +121,6 @@ To start using yourkit, download the latest version of the Yourkit java profiler
 For Linux
 
 1. Create a symlink for ```libyjpagent.so``` file to ```/usr/lib/yourkit``` folder. When the GoCD server starts up, it looks at this folder to see if it needs to start with profiling enabled or not. If you want to change the default path of the yourkit agent, you can edit ```server.sh``` at ```/usr/share/go-server/server.sh```
-
-    ```shell
-    $ sudo ln -s [yourkit_profiler_directory]/bin/linux-x86-32/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
-    ```
-
-    For 64-bit JVM, the command is:
 
     ```shell
     $ sudo ln -s [yourkit_profiler_directory]/bin/linux-x86-64/libyjpagent.so /usr/lib/yourkit/libyjpagent.so
