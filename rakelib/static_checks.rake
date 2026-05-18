@@ -18,7 +18,6 @@ namespace :static_checks do
       :allow_hash_href      => true,
       :allow_missing_href   => true,
       :check_external_hash  => false,
-      :href_ignore          => ['/https:\/\/www\.youtube\.com\/.*/'],
       :validation           => {
           :report_invalid_tags  => false,
           :report_script_embeds => false,
