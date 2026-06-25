@@ -381,13 +381,7 @@ who have access to view history of a pipeline.</p>
 <p>Clicking on the <strong><code>Add Comment</code></strong> link for a pipeline run brings up a modal box to enter comment. Enter the comment and click
 on the <strong><code>Save</code></strong> or <strong><code>Save &amp; Close</code></strong> to update the comment.</p>
 <p><img src="../images/advanced_usage/pipeline_comment_1.png" alt="Pipelines activity"></p>
-<h3 id="feature-toggle">Feature toggle</h3>
-<p><strong>Note:</strong> This is a beta feature, which is turned off by default in GoCD version prior to <code>19.12.0</code>. It can be turned on by using the feature toggle API, for this feature. If you are using curl, this is what you will need to do:</p>
-<pre tabindex="0"><code>curl &#34;https://go_server/go/api/admin/feature_toggles/pipeline_comment_feature_toggle_key&#34;  \
-  -H &#39;Accept: application/vnd.go.cd.v1+json&#39; \
-  -u &#39;username:password&#39; \
-  -X PUT -d &#39;{&#34;toggle_value&#34;: &#34;on&#34;}&#39;
-</code></pre></article>
+</article>
 
       
 <div class="align-center book-git-footer justify-between">
@@ -434,7 +428,6 @@ on the <strong><code>Save</code></strong> or <strong><code>Save &amp; Close</cod
       <ul>
         <li><a href="#overview">Overview</a></li>
         <li><a href="#comment-on-a-pipeline-run">Comment on a pipeline run</a></li>
-        <li><a href="#feature-toggle">Feature toggle</a></li>
       </ul>
     </li>
   </ul>
