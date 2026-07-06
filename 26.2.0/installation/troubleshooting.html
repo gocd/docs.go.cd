@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>/faq/fixing_common_issues.html</title>
+
+    <script type="application/javascript">
+     var currentPage = window.location.href;
+     var relativeDestination = "\/faq\/fixing_common_issues.html";
+     var fragment = window.location.hash;
+
+     if (currentPage.includes("localhost")) {
+         window.location.href = relativeDestination + fragment;
+     } else {
+         var currentGoCDVersion = new URL(currentPage).pathname.split('/')[1];
+         window.location.href = '/' + currentGoCDVersion + relativeDestination + fragment;
+     }
+    </script>
+</head>
+</html>
