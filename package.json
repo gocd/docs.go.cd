@@ -17,7 +17,7 @@
     "he": "^1.2.0",
     "hugo-bin": "^0.149.2",
     "lunr": "^2.3.9",
-    "markdown-it": "^14.2.0"
+    "markdown-it": "^14.3.0"
   },
   "hugo-bin": {
     "buildTags": "extended"
