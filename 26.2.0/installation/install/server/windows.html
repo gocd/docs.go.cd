@@ -327,20 +327,20 @@
 <p>You may use this method if you would like to script the installation of the GoCD server.</p>
 <pre tabindex="0"><code>go-server-${version}-setup.exe /S /D=&lt;PATH_TO_SERVER_DIRECTORY&gt;
 </code></pre><table>
-  <thead>
-      <tr>
-          <th>Argument</th>
-          <th>Required</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>/D</code></td>
-          <td>No</td>
-          <td>The path where the server should be installed. Defaults to <code>C:\Program Files(x86)\Go Server</code>. <strong>Must be the last parameter on the command line and must not contain quotes even if the path contains blank spaces.</strong></td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Argument</th>
+					<th>Required</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/D</code></td>
+					<td>No</td>
+					<td>The path where the server should be installed. Defaults to <code>C:\Program Files(x86)\Go Server</code>. <strong>Must be the last parameter on the command line and must not contain quotes even if the path contains blank spaces.</strong></td>
+			</tr>
+	</tbody>
 </table>
 <p>For example:</p>
 <pre tabindex="0"><code>C:\&gt; go-server-16.1.0-1234-setup.exe /S /D=C:\go\server
@@ -353,42 +353,42 @@
 <p>All the files for the GoCD server are under the root installation path on Windows. The default location is <code>C:\Program Files\Go Server</code>.</p>
 <p>The GoCD server installs its files in the following locations on your filesystem:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Location</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>${INSTALL_DIR}/db</code></td>
-          <td>the GoCD server database</td>
-      </tr>
-      <tr>
-          <td><code>${INSTALL_DIR}/artifacts</code></td>
-          <td>the GoCD server artifacts</td>
-      </tr>
-      <tr>
-          <td><code>${INSTALL_DIR}/plugins</code></td>
-          <td>the GoCD server plugins</td>
-      </tr>
-      <tr>
-          <td><code>${INSTALL_DIR}/config</code></td>
-          <td>the GoCD server configuration</td>
-      </tr>
-      <tr>
-          <td><code>${INSTALL_DIR}/logs</code></td>
-          <td>the GoCD server log files</td>
-      </tr>
-      <tr>
-          <td><code>${INSTALL_DIR}/{lib,wrapper}</code></td>
-          <td>the GoCD server binaries and startup scripts</td>
-      </tr>
-      <tr>
-          <td><code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code></td>
-          <td>the configuration file to alter GoCD server properties</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Location</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>${INSTALL_DIR}/db</code></td>
+					<td>the GoCD server database</td>
+			</tr>
+			<tr>
+					<td><code>${INSTALL_DIR}/artifacts</code></td>
+					<td>the GoCD server artifacts</td>
+			</tr>
+			<tr>
+					<td><code>${INSTALL_DIR}/plugins</code></td>
+					<td>the GoCD server plugins</td>
+			</tr>
+			<tr>
+					<td><code>${INSTALL_DIR}/config</code></td>
+					<td>the GoCD server configuration</td>
+			</tr>
+			<tr>
+					<td><code>${INSTALL_DIR}/logs</code></td>
+					<td>the GoCD server log files</td>
+			</tr>
+			<tr>
+					<td><code>${INSTALL_DIR}/{lib,wrapper}</code></td>
+					<td>the GoCD server binaries and startup scripts</td>
+			</tr>
+			<tr>
+					<td><code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code></td>
+					<td>the configuration file to alter GoCD server properties</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
 Users can override default startup arguments in a editing the file <code>${INSTALL_DIR}/wrapper-config/wrapper-properties.conf</code>.

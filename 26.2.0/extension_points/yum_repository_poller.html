@@ -318,7 +318,7 @@
 <h2 id="introduction">Introduction</h2>
 <p>The Yum repository poller is a <a href="package_repository_extension.html">package material</a> plugin capable of polling yum repositories for rpm packages. Prior to GoCD <code>23.1.0</code> the plugin came bundled with GoCD, however can now be downloaded for installation <a href="https://github.com/gocd/gocd-yum-repository-poller-plugin/releases/latest">at GitHub</a>.</p>
 <p>GoCD server interacts with this plugin via package material plugin interfaces. The plugin makes use of a command similar to the following to poll the server. So it does not depend on the files that yum depends on e.g. files under /etc/yum.repos.d</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>repoquery --repofrompath<span style="color:#666">=</span>uuid,<span style="color:#b8860b">$REPO_URL</span> --repoid<span style="color:#666">=</span>uuid -q <span style="color:#b8860b">$PACKAGE_SPEC</span> -qf <span style="color:#b44">&#34;%{LOCATION}...&#34;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>repoquery --repofrompath<span style="color:#666">=</span>uuid,<span style="color:#b8860b">$REPO_URL</span> --repoid<span style="color:#666">=</span>uuid -q <span style="color:#b8860b">$PACKAGE_SPEC</span> -qf <span style="color:#b44">&#34;%{LOCATION}...&#34;</span>
 </span></span></code></pre></div><p>A given instance of polling is considered successful if repoquery returns a single package as output.</p>
 <!--
 ### Turn your Maven Nexus Repo into a Yum repo
@@ -374,15 +374,15 @@ subsituted as below:</p>
 ...
 </code></pre><p>Or, to simply pass it as an argument to a deploy script on a remote
 server</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;exec</span> <span style="color:#b44">command=</span><span style="color:#b44">&#34;/bin/bash&#34;</span><span style="color:#008000;font-weight:bold">&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>-c<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;arg&gt;</span>ssh server &#34;cd /to/dest/dir;deploy.sh $GO_PACKAGE_ORA_GCC_LOCATION&#34;<span style="color:#008000;font-weight:bold">&lt;/arg&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/exec&gt;</span>
 </span></span></code></pre></div><h3 id="installing-rpms">Installing RPMs</h3>
 <p>For self contained packages (no external dependencies other than what is already installed on the target node), it is just enough to do:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rpm -U /path/to/downloaded/pkg.rpm
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>rpm -U /path/to/downloaded/pkg.rpm
 </span></span></code></pre></div><p>On the other hand, if the package isn&rsquo;t self-contained, we&rsquo;d run:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install <span style="color:#b8860b">$GO_PACKAGE_ORA_GCC_LABEL</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>yum install <span style="color:#b8860b">$GO_PACKAGE_ORA_GCC_LABEL</span>
 </span></span></code></pre></div><p>This would require that /etc/yum.repos.d contain the repository definitions.</p>
 <h3 id="creating-and-publishing-rpms">Creating and Publishing RPMs</h3>
 <p>Although the support for package as material in GoCD isn&rsquo;t concerned with how the packages are created and published, here is a short set of pointers to information on the web.</p>

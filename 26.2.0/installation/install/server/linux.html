@@ -335,16 +335,16 @@ usually only a problem for older Debian or RHEL releases.</p>
 <h2 id="rpm-based-distributions-eg-rhelalmalinuxrocky-linuxcentosfedora">RPM based distributions (e.g RHEL/AlmaLinux/Rocky Linux/CentOS/Fedora)</h2>
 <p>The GoCD server RPM installer has been tested on AlmaLinux as a proxy for RedHat Enterprise Linux. It should work on most RPM based Linux distributions.</p>
 <p>If you prefer to use the dnf/yum repository and install via dnf/yum, paste the following in your shell -</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo curl https://download.gocd.org/gocd.repo -o /etc/yum.repos.d/gocd.repo
 </span></span></code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dnf install -y --setopt<span style="color:#666">=</span><span style="color:#b8860b">install_weak_deps</span><span style="color:#666">=</span><span style="color:#a2f">true</span> go-server
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dnf install -y --setopt<span style="color:#666">=</span><span style="color:#b8860b">install_weak_deps</span><span style="color:#666">=</span><span style="color:#a2f">true</span> go-server
 </span></span></code></pre></div><p><code>microdnf</code> and <code>yum</code> will also work just fine. Alternatively, if you have the server RPM <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo rpm -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.noarch.rpm
 </span></span></code></pre></div><h3 id="using-adoptium-eclipse-temurin-java-runtimes-optional">Using Adoptium Eclipse Temurin Java runtimes (optional)</h3>
 <p>To use this, before installing, upgrading or re-installing GoCD packages, add the Temurin repository
 (or use <a href="https://adoptium.net/installation/linux#centosrhelfedora-instructions">Adoptium&rsquo;s own instructions</a>):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Uncomment and change the distribution name if you are not using CentOS/RHEL/Fedora, e.g for AlmaLinux/Rocky Linux</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#080;font-style:italic"># Uncomment and change the distribution name if you are not using CentOS/RHEL/Fedora, e.g for AlmaLinux/Rocky Linux</span>
 </span></span><span style="display:flex;"><span><span style="color:#080;font-style:italic"># DISTRIBUTION_NAME=rhel</span>
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span>sudo cat <span style="color:#b44">&lt;&lt;EOF &gt; /etc/yum.repos.d/adoptium.repo
@@ -361,20 +361,20 @@ usually only a problem for older Debian or RHEL releases.</p>
 <h2 id="debian-based-distributions-eg-ubuntu">Debian based distributions (e.g Ubuntu)</h2>
 <p>The GoCD server .deb installer has been tested on LTS Ubuntu and Debian releases. However it should work on most Linux distributions which use debs.</p>
 <p>If you prefer to use the APT repository and install via <code>apt-get</code>, paste the following in your shell -</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo install -m <span style="color:#666">0755</span> -d /etc/apt/keyrings
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo install -m <span style="color:#666">0755</span> -d /etc/apt/keyrings
 </span></span><span style="display:flex;"><span>curl https://download.gocd.org/GOCD-GPG-KEY.asc | sudo gpg --dearmor -o /etc/apt/keyrings/gocd.gpg
 </span></span><span style="display:flex;"><span>sudo chmod a+r /etc/apt/keyrings/gocd.gpg
 </span></span><span style="display:flex;"><span><span style="color:#a2f">echo</span> <span style="color:#b44">&#34;deb [signed-by=/etc/apt/keyrings/gocd.gpg] https://download.gocd.org /&#34;</span> | sudo tee /etc/apt/sources.list.d/gocd.list
 </span></span><span style="display:flex;"><span>sudo apt-get update
 </span></span></code></pre></div>
 <p>Once you have the repository setup, execute</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install --install-recommends go-server
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo apt-get install --install-recommends go-server
 </span></span></code></pre></div><p>Alternatively, if you have the server .deb <a href="https://www.gocd.org/download">downloaded</a>:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>sudo dpkg -i go-server-<span style="color:#b68;font-weight:bold">${</span><span style="color:#b8860b">version</span><span style="color:#b68;font-weight:bold">}</span>.deb
 </span></span></code></pre></div><h3 id="using-adoptium-eclipse-temurin-java-runtimes-optional">Using Adoptium Eclipse Temurin Java runtimes (optional)</h3>
 <p>To use this, before installing, upgrading or re-installing GoCD packages, add the Temurin repository
 (or use <a href="https://adoptium.net/installation/linux#deb-installation-on-debian-or-ubuntu">Adoptium&rsquo;s own instructions</a>):</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install -y extrepo
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt-get install -y extrepo
 </span></span><span style="display:flex;"><span>sudo extrepo <span style="color:#a2f">enable</span> temurin
 </span></span><span style="display:flex;"><span>sudo apt-get update
 </span></span><span style="display:flex;"><span>
@@ -383,76 +383,76 @@ usually only a problem for older Debian or RHEL releases.</p>
 <h2 id="managing-the-gocd-server-process">Managing the GoCD server process</h2>
 <p>The GoCD server script must be run with one of the following arguments:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Script</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>service go-server console</td>
-          <td>The GoCD server will be started in the foreground</td>
-      </tr>
-      <tr>
-          <td>service go-server start</td>
-          <td>The GoCD server will be started as a daemon in the background</td>
-      </tr>
-      <tr>
-          <td>service go-server stop</td>
-          <td>The GoCD server will be stopped</td>
-      </tr>
-      <tr>
-          <td>service go-server restart</td>
-          <td>The GoCD server will be restarted</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Script</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td>service go-server console</td>
+					<td>The GoCD server will be started in the foreground</td>
+			</tr>
+			<tr>
+					<td>service go-server start</td>
+					<td>The GoCD server will be started as a daemon in the background</td>
+			</tr>
+			<tr>
+					<td>service go-server stop</td>
+					<td>The GoCD server will be stopped</td>
+			</tr>
+			<tr>
+					<td>service go-server restart</td>
+					<td>The GoCD server will be restarted</td>
+			</tr>
+	</tbody>
 </table>
 <p><code>service</code> utilizes the service manager (e.g systemd, upstart, init.d) used by your OS.</p>
 <p>Once the GoCD server is started it will print out the URL for the Dashboard page. This will be <code>http://localhost:8153/go</code></p>
 <h2 id="location-of-gocd-server-files">Location of GoCD server files</h2>
 <p>The GoCD server installs its files in the following locations on your filesystem:</p>
 <table>
-  <thead>
-      <tr>
-          <th>Location</th>
-          <th>Description</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>/etc/go</code></td>
-          <td>server configuration</td>
-      </tr>
-      <tr>
-          <td><code>/var/lib/go-server/db</code></td>
-          <td>server database</td>
-      </tr>
-      <tr>
-          <td><code>/var/lib/go-server/artifacts</code></td>
-          <td>server artifact storage</td>
-      </tr>
-      <tr>
-          <td><code>/var/lib/go-server/plugins</code></td>
-          <td>server plugins</td>
-      </tr>
-      <tr>
-          <td><code>/var/log/go-server</code></td>
-          <td>server log files</td>
-      </tr>
-      <tr>
-          <td><code>/usr/share/go-server</code></td>
-          <td>server binaries and startup scripts</td>
-      </tr>
-      <tr>
-          <td><code>/usr/share/go-server/wrapper-config/wrapper.conf</code></td>
-          <td>default server configuration. Avoid changing this file.</td>
-      </tr>
-      <tr>
-          <td><code>/usr/share/go-server/wrapper-config/wrapper-properties.conf</code></td>
-          <td>user override configuration file</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Location</th>
+					<th>Description</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>/etc/go</code></td>
+					<td>server configuration</td>
+			</tr>
+			<tr>
+					<td><code>/var/lib/go-server/db</code></td>
+					<td>server database</td>
+			</tr>
+			<tr>
+					<td><code>/var/lib/go-server/artifacts</code></td>
+					<td>server artifact storage</td>
+			</tr>
+			<tr>
+					<td><code>/var/lib/go-server/plugins</code></td>
+					<td>server plugins</td>
+			</tr>
+			<tr>
+					<td><code>/var/log/go-server</code></td>
+					<td>server log files</td>
+			</tr>
+			<tr>
+					<td><code>/usr/share/go-server</code></td>
+					<td>server binaries and startup scripts</td>
+			</tr>
+			<tr>
+					<td><code>/usr/share/go-server/wrapper-config/wrapper.conf</code></td>
+					<td>default server configuration. Avoid changing this file.</td>
+			</tr>
+			<tr>
+					<td><code>/usr/share/go-server/wrapper-config/wrapper-properties.conf</code></td>
+					<td>user override configuration file</td>
+			</tr>
+	</tbody>
 </table>
 <h2 id="overriding-default-startup-arguments-and-environment">Overriding default startup arguments and environment</h2>
 Users can override default startup arguments in a editing the file <code>/usr/share/go-server/wrapper-config/wrapper-properties.conf</code>.

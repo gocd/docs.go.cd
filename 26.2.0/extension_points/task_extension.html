@@ -323,7 +323,7 @@
 <p>When selected, the dialog box which allows you to configure details about the task looks like this:</p>
 <p><img src="../images/3_Curl_Form.png" alt=""></p>
 <p>In the configuration XML, the information entered for this task looks like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;task&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;task&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;pluginConfiguration</span> <span style="color:#b44">id=</span><span style="color:#b44">&#34;curl.task.plugin&#34;</span> <span style="color:#b44">version=</span><span style="color:#b44">&#34;1&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;configuration&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;property&gt;</span>
@@ -346,7 +346,7 @@
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;runif</span> <span style="color:#b44">status=</span><span style="color:#b44">&#34;passed&#34;</span> <span style="color:#008000;font-weight:bold">/&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/task&gt;</span>
 </span></span></code></pre></div><p>When a build which uses the plugin runs, the output of the build looks something like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>go<span style="color:#666">]</span> Start to execute task: Plugin with ID: curl.task.plugin.
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#666">[</span>go<span style="color:#666">]</span> Start to execute task: Plugin with ID: curl.task.plugin.
 </span></span><span style="display:flex;"><span>Launching command: <span style="color:#666">[</span>curl, -G, --insecure, -o, pipelines/up42/index.txt, http://www.google.com<span style="color:#666">]</span>
 </span></span><span style="display:flex;"><span>Environment variables:
 </span></span><span style="display:flex;"><span><span style="color:#b8860b">Name</span><span style="color:#666">=</span> MAVEN_OPTS  <span style="color:#b8860b">Value</span><span style="color:#666">=</span> -Xms256m -Xmx512m

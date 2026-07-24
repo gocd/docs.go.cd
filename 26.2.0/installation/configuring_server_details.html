@@ -322,7 +322,7 @@
 <p>Specify the artifacts directory location and click on &ldquo;Save&rdquo;</p>
 <p>Power users can also configure this via the <strong>Config XML</strong> tab on the
 Admin section:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>/path/to/artifacts/directory<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
@@ -331,7 +331,7 @@ Admin section:</p>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;/server&gt;</span>
 </span></span><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;/cruise&gt;</span>
 </span></span></code></pre></div><p>In Windows, you may need to assign your artifact repository partition a separate drive letter. In Windows, your configuration might look like this:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
 </span></span><span style="display:flex;"><span>  <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
 </span></span><span style="display:flex;"><span>    <span style="color:#008000;font-weight:bold">&lt;artifacts&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;artifactsDir&gt;</span>E:\go-artifacts<span style="color:#008000;font-weight:bold">&lt;/artifactsDir&gt;</span>
@@ -355,7 +355,7 @@ Admin section:</p>
 <p><img src="../images/site_url.png" alt="Specify site url"></p>
 <p>GoCD generates URLs that are relative to the base URL of the request. However, there are scenarios, such as sending emails, generating feeds where GoCD cannot rely upon publishing URLs relative to a request. If you have fronted GoCD with a reverse proxy, this value should be the base URL for the proxy and not the internal GoCD address. For this reason, it is necessary to specify this configuration. This URL should contain the port if your base URL contains a non-standard port.</p>
 <p>Power users, if they so desire, can directly update the <a href="../configuration/configuration_reference.html#server">server</a> section.</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#008000;font-weight:bold">&lt;cruise&gt;</span>
 </span></span><span style="display:flex;"><span>      <span style="color:#008000;font-weight:bold">&lt;server&gt;</span>
 </span></span><span style="display:flex;"><span>        <span style="color:#008000;font-weight:bold">&lt;siteUrls&gt;</span>
 </span></span><span style="display:flex;"><span>            <span style="color:#008000;font-weight:bold">&lt;siteUrl&gt;</span>http://host:port<span style="color:#008000;font-weight:bold">&lt;/siteUrl&gt;</span>

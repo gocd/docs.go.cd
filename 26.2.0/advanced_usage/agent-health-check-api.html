@@ -318,26 +318,26 @@
 <h2 id="configurations">Configurations</h2>
 <p>The API uses the following configurable agent system properties.</p>
 <table>
-  <thead>
-      <tr>
-          <th>Property</th>
-          <th>Values</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>go.agent.status.api.enabled</code></td>
-          <td>Defaults to <code>true</code>. Set to <code>false</code> to disable health check api end-point</td>
-      </tr>
-      <tr>
-          <td><code>go.agent.status.api.bind.host</code></td>
-          <td>Defaults to <code>localhost</code>. Set to a specific ip address or hostname to bind to that host. Set to <code>0.0.0.0</code> to bind to all network interfaces.</td>
-      </tr>
-      <tr>
-          <td><code>go.agent.status.api.bind.port</code></td>
-          <td>Defaults to <code>8152</code>. Set to <code>0</code> to use an ephemeral port, which will be displayed in a log statement.</td>
-      </tr>
-  </tbody>
+	<thead>
+			<tr>
+					<th>Property</th>
+					<th>Values</th>
+			</tr>
+	</thead>
+	<tbody>
+			<tr>
+					<td><code>go.agent.status.api.enabled</code></td>
+					<td>Defaults to <code>true</code>. Set to <code>false</code> to disable health check api end-point</td>
+			</tr>
+			<tr>
+					<td><code>go.agent.status.api.bind.host</code></td>
+					<td>Defaults to <code>localhost</code>. Set to a specific ip address or hostname to bind to that host. Set to <code>0.0.0.0</code> to bind to all network interfaces.</td>
+			</tr>
+			<tr>
+					<td><code>go.agent.status.api.bind.port</code></td>
+					<td>Defaults to <code>8152</code>. Set to <code>0</code> to use an ephemeral port, which will be displayed in a log statement.</td>
+			</tr>
+	</tbody>
 </table>
 <p><strong>Note:</strong> In case the http server is unable to bind usually because of port conflicts, or multiple agents running on the same machine, a warning will be emitted to the console log and agent startup will continue.</p>
 <p>To configure the system properties, edit the file <code>wrapper-properties.conf</code> to add the system properties described above. See the installation documentation for the location of <code>wrapper-properties.conf</code> file.</p>

@@ -386,17 +386,17 @@ and validate your setup on GoCD <code>20.4.0</code> <strong>before</strong> perf
 </li>
 <li>
 <p>Run the command (The below example is for a GoCD server running on Linux) -</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/new_cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/new_cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span>
 </span></span></code></pre></div><p>For GoCD server running on Windows refer to the below example -</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bin<span style="color:#b62;font-weight:bold">\g</span>ocd-database-migrator.bat ^
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>bin<span style="color:#b62;font-weight:bold">\g</span>ocd-database-migrator.bat ^
 </span></span><span style="display:flex;"><span>--insert ^
 </span></span><span style="display:flex;"><span>--progress ^
 </span></span><span style="display:flex;"><span>--source-db-url<span style="color:#666">=</span><span style="color:#b44">&#34;jdbc:h2:C:\Program Files (x86)\Go Server\db\h2db\cruise&#34;</span> ^
@@ -424,15 +424,15 @@ and validate your setup on GoCD <code>20.4.0</code> <strong>before</strong> perf
 </li>
 <li>
 <p>Run the command by providing the right parameters for the required options. An example is shown below:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
 </span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
+</span></span></span><span style="display:flex;"><span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h4 id="43-migrating-data-from-h2-to-postgresql">4.3 Migrating data from H2 to PostgreSQL</h4>
@@ -442,15 +442,15 @@ and validate your setup on GoCD <code>20.4.0</code> <strong>before</strong> perf
 </li>
 <li>
 <p>Run the command by providing the right parameters for the required options,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:postgresql://localhost:5432/new_cruise&#39;</span> 
 </span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;postgres&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
+</span></span></span><span style="display:flex;"><span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;pass&#39;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h4 id="44-migrating-data-from-h2-to-mysql">4.4 Migrating data from H2 to MySQL</h4>
@@ -460,15 +460,15 @@ and validate your setup on GoCD <code>20.4.0</code> <strong>before</strong> perf
 </li>
 <li>
 <p>Run the command by providing the right parameters for the required options,</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --insert <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --progress <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:mysql://localhost:3306/new_cruise&#39;</span>
+<div class="highlight"><pre tabindex="0" style="background-color:#f8f8f8;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>./bin/gocd-database-migrator <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --insert <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --progress <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:h2:/var/lib/go-server/db/h2db/cruise&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;sa&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --source-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;&#39;</span> <span style="color:#b62;font-weight:bold">\
+</span></span></span><span style="display:flex;"><span>  --target-db-url<span style="color:#666">=</span><span style="color:#b44">&#39;jdbc:mysql://localhost:3306/new_cruise&#39;</span>
 </span></span><span style="display:flex;"><span>  --target-db-user<span style="color:#666">=</span><span style="color:#b44">&#39;root&#39;</span> <span style="color:#b62;font-weight:bold">\
-</span></span></span><span style="display:flex;"><span><span style="color:#b62;font-weight:bold"></span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;password&#39;</span>
+</span></span></span><span style="display:flex;"><span>  --target-db-password<span style="color:#666">=</span><span style="color:#b44">&#39;password&#39;</span>
 </span></span></code></pre></div></li>
 </ol>
 <h3 id="step-5-configure-dbproperties-for-your-gocd-server">Step 5: Configure <code>db.properties</code> for your GoCD server</h3>
