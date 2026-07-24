@@ -15,7 +15,7 @@
   "dependencies": {
     "gray-matter": "^4.0.3",
     "he": "^1.2.0",
-    "hugo-bin": "^0.149.2",
+    "hugo-bin": "^0.161.0",
     "lunr": "^2.3.9",
     "markdown-it": "^14.2.0"
   },
