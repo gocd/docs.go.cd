@@ -37,3 +37,6 @@ pygmentsStyle = "emacs"
   BookEditPath = "edit/master/content"
 
   ShowNavigationButtonsInFooter = true
+
+[security]
+  allowContent = ['.*']
