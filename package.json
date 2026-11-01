@@ -14,7 +14,7 @@
   "license": "Apache-2.0",
   "dependencies": {
     "gray-matter": "^4.0.3",
-    "he": "^1.2.0",
+    "he": "^2.0.0",
     "hugo-bin": "^0.167.0",
     "lunr": "^2.3.9",
     "markdown-it": "^15.0.3"
